@@ -36,8 +36,8 @@
       "registry_name": "copper_coin",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/item/CopperCoinItem.java",
-          "src/main/resources/assets/reign_mod/models/item/copper_coin.json"
+          "src/main/resources/assets/reign_mod/models/item/copper_coin.json",
+          "src/main/java/net/mcreator/reignmod/item/CopperCoinItem.java"
         ]
       },
       "path": "~/Items"
@@ -75,8 +75,8 @@
       "registry_name": "right_hand",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/item/RightHandItem.java",
-          "src/main/resources/assets/reign_mod/models/item/right_hand.json"
+          "src/main/resources/assets/reign_mod/models/item/right_hand.json",
+          "src/main/java/net/mcreator/reignmod/item/RightHandItem.java"
         ]
       },
       "path": "~/Items"
@@ -325,9 +325,9 @@
       "registry_name": "license_is_selected",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/client/gui/LicenseIsSelectedScreen.java",
           "src/main/java/net/mcreator/reignmod/world/inventory/LicenseIsSelectedMenu.java",
-          "src/main/java/net/mcreator/reignmod/network/LicenseIsSelectedButtonMessage.java"
+          "src/main/java/net/mcreator/reignmod/network/LicenseIsSelectedButtonMessage.java",
+          "src/main/java/net/mcreator/reignmod/client/gui/LicenseIsSelectedScreen.java"
         ]
       },
       "path": "~/UI/LicensesUI"
@@ -466,9 +466,9 @@
       "registry_name": "win_view",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/network/WinViewButtonMessage.java",
           "src/main/java/net/mcreator/reignmod/client/gui/WinViewScreen.java",
-          "src/main/java/net/mcreator/reignmod/world/inventory/WinViewMenu.java"
+          "src/main/java/net/mcreator/reignmod/world/inventory/WinViewMenu.java",
+          "src/main/java/net/mcreator/reignmod/network/WinViewButtonMessage.java"
         ]
       },
       "path": "~/UI/LicensesUI"
@@ -516,8 +516,8 @@
       "registry_name": "trader_point",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/world/inventory/TraderPointMenu.java",
-          "src/main/java/net/mcreator/reignmod/client/gui/TraderPointScreen.java"
+          "src/main/java/net/mcreator/reignmod/client/gui/TraderPointScreen.java",
+          "src/main/java/net/mcreator/reignmod/world/inventory/TraderPointMenu.java"
         ]
       },
       "path": "~/UI"
@@ -543,11 +543,11 @@
       "registry_name": "trade_block",
       "metadata": {
         "files": [
-          "src/main/resources/assets/reign_mod/blockstates/trade_block.json",
           "src/main/resources/data/reign_mod/loot_tables/blocks/trade_block.json",
+          "src/main/resources/assets/reign_mod/models/item/trade_block.json",
+          "src/main/resources/assets/reign_mod/blockstates/trade_block.json",
           "src/main/java/net/mcreator/reignmod/block/TradeBlockBlock.java",
-          "src/main/resources/assets/reign_mod/models/block/trade_block.json",
-          "src/main/resources/assets/reign_mod/models/item/trade_block.json"
+          "src/main/resources/assets/reign_mod/models/block/trade_block.json"
         ]
       },
       "path": "~/Blocks"
@@ -599,9 +599,9 @@
       "registry_name": "royale_settings",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/world/inventory/RoyaleSettingsMenu.java",
+          "src/main/java/net/mcreator/reignmod/client/gui/RoyaleSettingsScreen.java",
           "src/main/java/net/mcreator/reignmod/network/RoyaleSettingsButtonMessage.java",
-          "src/main/java/net/mcreator/reignmod/client/gui/RoyaleSettingsScreen.java"
+          "src/main/java/net/mcreator/reignmod/world/inventory/RoyaleSettingsMenu.java"
         ]
       },
       "path": "~/UI"
@@ -965,12 +965,12 @@
       "registry_name": "market_block",
       "metadata": {
         "files": [
-          "src/main/resources/assets/reign_mod/models/block/market_block.json",
-          "src/main/resources/assets/reign_mod/blockstates/market_block.json",
           "src/main/resources/assets/reign_mod/models/item/market_block.json",
+          "src/main/resources/assets/reign_mod/blockstates/market_block.json",
           "src/main/resources/data/reign_mod/loot_tables/blocks/market_block.json",
-          "src/main/java/net/mcreator/reignmod/block/entity/MarketBlockBlockEntity.java",
-          "src/main/java/net/mcreator/reignmod/block/MarketBlockBlock.java"
+          "src/main/java/net/mcreator/reignmod/block/MarketBlockBlock.java",
+          "src/main/resources/assets/reign_mod/models/block/market_block.json",
+          "src/main/java/net/mcreator/reignmod/block/entity/MarketBlockBlockEntity.java"
         ]
       },
       "path": "~/Blocks"
@@ -983,10 +983,10 @@
       "registry_name": "market",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/network/MarketSlotMessage.java",
           "src/main/java/net/mcreator/reignmod/network/MarketButtonMessage.java",
           "src/main/java/net/mcreator/reignmod/world/inventory/MarketMenu.java",
-          "src/main/java/net/mcreator/reignmod/client/gui/MarketScreen.java"
+          "src/main/java/net/mcreator/reignmod/client/gui/MarketScreen.java",
+          "src/main/java/net/mcreator/reignmod/network/MarketSlotMessage.java"
         ]
       },
       "path": "~/UI"
@@ -1335,12 +1335,12 @@
       "registry_name": "coffers",
       "metadata": {
         "files": [
-          "src/main/resources/assets/reign_mod/models/block/coffers.json",
+          "src/main/java/net/mcreator/reignmod/block/entity/CoffersBlockEntity.java",
+          "src/main/resources/assets/reign_mod/blockstates/coffers.json",
+          "src/main/resources/assets/reign_mod/models/item/coffers.json",
           "src/main/java/net/mcreator/reignmod/block/CoffersBlock.java",
           "src/main/resources/data/reign_mod/loot_tables/blocks/coffers.json",
-          "src/main/resources/assets/reign_mod/models/item/coffers.json",
-          "src/main/resources/assets/reign_mod/blockstates/coffers.json",
-          "src/main/java/net/mcreator/reignmod/block/entity/CoffersBlockEntity.java"
+          "src/main/resources/assets/reign_mod/models/block/coffers.json"
         ]
       },
       "path": "~/Blocks"
@@ -1353,9 +1353,9 @@
       "registry_name": "coffers_ui",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/network/CoffersUISlotMessage.java",
           "src/main/java/net/mcreator/reignmod/world/inventory/CoffersUIMenu.java",
-          "src/main/java/net/mcreator/reignmod/client/gui/CoffersUIScreen.java"
+          "src/main/java/net/mcreator/reignmod/client/gui/CoffersUIScreen.java",
+          "src/main/java/net/mcreator/reignmod/network/CoffersUISlotMessage.java"
         ]
       },
       "path": "~/UI"
@@ -1840,8 +1840,8 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/reignmod/network/AddLicenseListButtonMessage.java",
-          "src/main/java/net/mcreator/reignmod/world/inventory/AddLicenseListMenu.java",
-          "src/main/java/net/mcreator/reignmod/client/gui/AddLicenseListScreen.java"
+          "src/main/java/net/mcreator/reignmod/client/gui/AddLicenseListScreen.java",
+          "src/main/java/net/mcreator/reignmod/world/inventory/AddLicenseListMenu.java"
         ]
       },
       "path": "~/UI/LicensesUI"
@@ -1966,8 +1966,8 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/reignmod/network/AddLicenseIsSelectedButtonMessage.java",
-          "src/main/java/net/mcreator/reignmod/world/inventory/AddLicenseIsSelectedMenu.java",
-          "src/main/java/net/mcreator/reignmod/client/gui/AddLicenseIsSelectedScreen.java"
+          "src/main/java/net/mcreator/reignmod/client/gui/AddLicenseIsSelectedScreen.java",
+          "src/main/java/net/mcreator/reignmod/world/inventory/AddLicenseIsSelectedMenu.java"
         ]
       },
       "path": "~/UI/LicensesUI"
@@ -2061,12 +2061,12 @@
       "registry_name": "fund",
       "metadata": {
         "files": [
-          "src/main/resources/assets/reign_mod/models/item/fund.json",
-          "src/main/resources/assets/reign_mod/blockstates/fund.json",
           "src/main/java/net/mcreator/reignmod/block/FundBlock.java",
-          "src/main/java/net/mcreator/reignmod/block/entity/FundBlockEntity.java",
+          "src/main/resources/assets/reign_mod/blockstates/fund.json",
+          "src/main/resources/assets/reign_mod/models/item/fund.json",
+          "src/main/resources/data/reign_mod/loot_tables/blocks/fund.json",
           "src/main/resources/assets/reign_mod/models/block/fund.json",
-          "src/main/resources/data/reign_mod/loot_tables/blocks/fund.json"
+          "src/main/java/net/mcreator/reignmod/block/entity/FundBlockEntity.java"
         ]
       },
       "path": "~/Blocks"
@@ -2079,9 +2079,9 @@
       "registry_name": "fund_ui",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/network/FundUISlotMessage.java",
           "src/main/java/net/mcreator/reignmod/world/inventory/FundUIMenu.java",
-          "src/main/java/net/mcreator/reignmod/client/gui/FundUIScreen.java"
+          "src/main/java/net/mcreator/reignmod/client/gui/FundUIScreen.java",
+          "src/main/java/net/mcreator/reignmod/network/FundUISlotMessage.java"
         ]
       },
       "path": "~/UI"
@@ -2615,12 +2615,12 @@
       "registry_name": "plus",
       "metadata": {
         "files": [
-          "src/main/resources/assets/reign_mod/models/block/plus.json",
-          "src/main/java/net/mcreator/reignmod/block/entity/PlusBlockEntity.java",
-          "src/main/resources/data/reign_mod/loot_tables/blocks/plus.json",
           "src/main/resources/assets/reign_mod/blockstates/plus.json",
+          "src/main/resources/data/reign_mod/loot_tables/blocks/plus.json",
+          "src/main/java/net/mcreator/reignmod/block/entity/PlusBlockEntity.java",
+          "src/main/java/net/mcreator/reignmod/block/PlusBlock.java",
           "src/main/resources/assets/reign_mod/models/item/plus.json",
-          "src/main/java/net/mcreator/reignmod/block/PlusBlock.java"
+          "src/main/resources/assets/reign_mod/models/block/plus.json"
         ]
       },
       "path": "~/Blocks"
@@ -3443,8 +3443,8 @@
       "registry_name": "smith_coin",
       "metadata": {
         "files": [
-          "src/main/resources/assets/reign_mod/models/item/smith_coin.json",
-          "src/main/java/net/mcreator/reignmod/item/SmithCoinItem.java"
+          "src/main/java/net/mcreator/reignmod/item/SmithCoinItem.java",
+          "src/main/resources/assets/reign_mod/models/item/smith_coin.json"
         ]
       },
       "path": "~/Items"
@@ -3771,9 +3771,9 @@
       "registry_name": "beta_textbook",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/client/gui/BetaTextbookScreen.java",
+          "src/main/java/net/mcreator/reignmod/network/BetaTextbookButtonMessage.java",
           "src/main/java/net/mcreator/reignmod/world/inventory/BetaTextbookMenu.java",
-          "src/main/java/net/mcreator/reignmod/network/BetaTextbookButtonMessage.java"
+          "src/main/java/net/mcreator/reignmod/client/gui/BetaTextbookScreen.java"
         ]
       },
       "path": "~/UI/Textbook"
@@ -3787,8 +3787,8 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/reignmod/world/inventory/BetaTextbook2Menu.java",
-          "src/main/java/net/mcreator/reignmod/network/BetaTextbook2ButtonMessage.java",
-          "src/main/java/net/mcreator/reignmod/client/gui/BetaTextbook2Screen.java"
+          "src/main/java/net/mcreator/reignmod/client/gui/BetaTextbook2Screen.java",
+          "src/main/java/net/mcreator/reignmod/network/BetaTextbook2ButtonMessage.java"
         ]
       },
       "path": "~/UI/Textbook"
@@ -4194,11 +4194,11 @@
       "registry_name": "hoarder_block",
       "metadata": {
         "files": [
-          "src/main/resources/data/reign_mod/loot_tables/blocks/hoarder_block.json",
-          "src/main/resources/assets/reign_mod/models/item/hoarder_block.json",
+          "src/main/java/net/mcreator/reignmod/block/HoarderBlockBlock.java",
           "src/main/resources/assets/reign_mod/blockstates/hoarder_block.json",
+          "src/main/resources/data/reign_mod/loot_tables/blocks/hoarder_block.json",
           "src/main/resources/assets/reign_mod/models/block/hoarder_block.json",
-          "src/main/java/net/mcreator/reignmod/block/HoarderBlockBlock.java"
+          "src/main/resources/assets/reign_mod/models/item/hoarder_block.json"
         ]
       },
       "path": "~/Blocks"
@@ -4311,8 +4311,8 @@
       "registry_name": "lock",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/item/LockItem.java",
-          "src/main/resources/assets/reign_mod/models/item/lock.json"
+          "src/main/resources/assets/reign_mod/models/item/lock.json",
+          "src/main/java/net/mcreator/reignmod/item/LockItem.java"
         ]
       },
       "path": "~/Items"
@@ -4517,8 +4517,8 @@
       "registry_name": "key",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/item/KeyItem.java",
-          "src/main/resources/assets/reign_mod/models/item/key.json"
+          "src/main/resources/assets/reign_mod/models/item/key.json",
+          "src/main/java/net/mcreator/reignmod/item/KeyItem.java"
         ]
       },
       "path": "~/Items"
@@ -4531,8 +4531,8 @@
       "registry_name": "wallet",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/item/WalletItem.java",
-          "src/main/resources/assets/reign_mod/models/item/wallet.json"
+          "src/main/resources/assets/reign_mod/models/item/wallet.json",
+          "src/main/java/net/mcreator/reignmod/item/WalletItem.java"
         ]
       },
       "path": "~/Items"
@@ -4545,9 +4545,9 @@
       "registry_name": "walletwin",
       "metadata": {
         "files": [
+          "src/main/java/net/mcreator/reignmod/network/WalletwinSlotMessage.java",
           "src/main/java/net/mcreator/reignmod/world/inventory/WalletwinMenu.java",
-          "src/main/java/net/mcreator/reignmod/client/gui/WalletwinScreen.java",
-          "src/main/java/net/mcreator/reignmod/network/WalletwinSlotMessage.java"
+          "src/main/java/net/mcreator/reignmod/client/gui/WalletwinScreen.java"
         ]
       },
       "path": "~/UI"
@@ -5368,10 +5368,10 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/reignmod/block/RockBlock.java",
-          "src/main/resources/assets/reign_mod/blockstates/rock.json",
-          "src/main/resources/data/reign_mod/loot_tables/blocks/rock.json",
+          "src/main/resources/assets/reign_mod/models/block/rock.json",
           "src/main/resources/assets/reign_mod/models/item/rock.json",
-          "src/main/resources/assets/reign_mod/models/block/rock.json"
+          "src/main/resources/data/reign_mod/loot_tables/blocks/rock.json",
+          "src/main/resources/assets/reign_mod/blockstates/rock.json"
         ]
       },
       "path": "~/Blocks"
@@ -5541,11 +5541,11 @@
       "registry_name": "kingtable",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/block/KingtableBlock.java",
-          "src/main/resources/assets/reign_mod/models/block/kingtable.json",
-          "src/main/resources/data/reign_mod/loot_tables/blocks/kingtable.json",
           "src/main/resources/assets/reign_mod/blockstates/kingtable.json",
-          "src/main/resources/assets/reign_mod/models/item/kingtable.json"
+          "src/main/resources/data/reign_mod/loot_tables/blocks/kingtable.json",
+          "src/main/resources/assets/reign_mod/models/item/kingtable.json",
+          "src/main/java/net/mcreator/reignmod/block/KingtableBlock.java",
+          "src/main/resources/assets/reign_mod/models/block/kingtable.json"
         ]
       },
       "path": "~/Blocks"
@@ -5558,8 +5558,8 @@
       "registry_name": "kingtable_ui",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/client/gui/KingtableUIScreen.java",
-          "src/main/java/net/mcreator/reignmod/world/inventory/KingtableUIMenu.java"
+          "src/main/java/net/mcreator/reignmod/world/inventory/KingtableUIMenu.java",
+          "src/main/java/net/mcreator/reignmod/client/gui/KingtableUIScreen.java"
         ]
       },
       "path": "~/UI"
@@ -5663,8 +5663,8 @@
       "registry_name": "fragment_of_record",
       "metadata": {
         "files": [
-          "src/main/resources/assets/reign_mod/models/item/fragment_of_record.json",
-          "src/main/java/net/mcreator/reignmod/item/FragmentOfRecordItem.java"
+          "src/main/java/net/mcreator/reignmod/item/FragmentOfRecordItem.java",
+          "src/main/resources/assets/reign_mod/models/item/fragment_of_record.json"
         ]
       },
       "path": "~/Items/RuinLord"
@@ -5691,8 +5691,8 @@
       "registry_name": "fragment_of_record_3",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/item/FragmentOfRecord3Item.java",
-          "src/main/resources/assets/reign_mod/models/item/fragment_of_record_3.json"
+          "src/main/resources/assets/reign_mod/models/item/fragment_of_record_3.json",
+          "src/main/java/net/mcreator/reignmod/item/FragmentOfRecord3Item.java"
         ]
       },
       "path": "~/Items/RuinLord"
@@ -5705,8 +5705,8 @@
       "registry_name": "ruin_lord_1",
       "metadata": {
         "files": [
-          "src/main/resources/assets/reign_mod/models/item/ruin_lord_1.json",
-          "src/main/java/net/mcreator/reignmod/item/RuinLord1Item.java"
+          "src/main/java/net/mcreator/reignmod/item/RuinLord1Item.java",
+          "src/main/resources/assets/reign_mod/models/item/ruin_lord_1.json"
         ]
       },
       "path": "~/Items/RuinLord"
@@ -5733,8 +5733,8 @@
       "registry_name": "ruin_lord_3",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/item/RuinLord3Item.java",
-          "src/main/resources/assets/reign_mod/models/item/ruin_lord_3.json"
+          "src/main/resources/assets/reign_mod/models/item/ruin_lord_3.json",
+          "src/main/java/net/mcreator/reignmod/item/RuinLord3Item.java"
         ]
       },
       "path": "~/Items/RuinLord"
@@ -6532,8 +6532,8 @@
   },
   "language_map": {
     "ru_ru": {
-      "item.reign_mod.ruin_lord_2.desc": "Ruin Lord - Light after darkness",
       "item_group.reign_mod.creative_tab": "Reign",
+      "item.reign_mod.ruin_lord_2.desc": "Ruin Lord - Light after darkness",
       "pay_free": "Нашёл на земле:",
       "gui.reign_mod.win_view.tooltip_cattle_breeding": "Скотоводство",
       "gui.reign_mod.license_is_selected.label_the_main_license_has_been_select": "Основная лицензия уже выбрана.",
@@ -6541,8 +6541,8 @@
       "gui.reign_mod.new_house.tooltip_napishitie_imia_i_vybieritie_tsviet_bud": "Выберите имя и цвет нового королевства",
       "gui.reign_mod.dfgdfgdf.button_buy": "КУПИТЬ",
       "item.reign_mod.your_lawn_is_bool": "Your Lawn Is Bool",
-      "item.reign_mod.farmer_coin": "Монета фермера",
       "subtitles.thecalmbeforethestorm": "",
+      "item.reign_mod.farmer_coin": "Монета фермера",
       "gui.reign_mod.win_view.tooltip_chance_to_get_a_haste_effect": "Добыча глубинных пород.",
       "gui.reign_mod.win_view.tooltip_netherite_mining": "Добыча Незерита",
       "gui.reign_mod.walletwin.label_wallet": "Кошель",
@@ -6561,26 +6561,26 @@
       "key.reign_mod.open_royale_settings": "Открыть королевские настройки",
       "advancements.gotcha.descr": "Попадите в тюрьму.",
       "gui.reign_mod.kingtable_ui.label_kingtable_lable": "kingtable_lable",
-      "advancements.welcome_to_reign.descr": "Один, что правит всеми.",
       "advancements.full_lvl.descr": "Полностью улучшите лицензию.",
-      "gui.reign_mod.dsf.button_button_cowboy": "Пастух",
+      "advancements.welcome_to_reign.descr": "Один, что правит всеми.",
       "advancements.days_online_7.descr": "7 дней подряд онлайн!",
+      "gui.reign_mod.dsf.button_button_cowboy": "Пастух",
       "gui.reign_mod.win_view.tooltip_and_another_20_of_field_yields": "+50% урожайности с полей.",
       "translation.key.houseNameTaken": "Дом с таким именем уже существует!",
       "gui.reign_mod.add_license_list.button_enchanter": "Чародей",
       "gui.reign_mod.dsf.button_miner": "Шахтер    ",
       "gui.reign_mod.fund_ui.tooltip_iron_processing": "Обработка железа",
-      "gui.reign_mod.win_view.tooltip_10_chance_to_gain_a_chopping_sp": "10% шанс получить ускорение при рубке.",
       "gui.reign_mod.royale_settings.label_logs": "БРЕВНА",
+      "gui.reign_mod.win_view.tooltip_10_chance_to_gain_a_chopping_sp": "10% шанс получить ускорение при рубке.",
       "advancements.strained_experience.title": "Напряжённый опыт",
       "block.reign_mod.kingtable": "Королевский стол",
       "gui.reign_mod.dsf.label_osnovnyie_litsienzii": "Основные лицензии",
-      "gui.reign_mod.fund_ui.tooltip_1_kingdom": "+1 королевство",
       "gui.reign_mod.win_view.tooltip_fisher_3": "Шанс получить эффект удачи при ловле.",
-      "gui.reign_mod.fund_ui.tooltip_openning_the_nether": "Открытие Нижнего мира",
+      "gui.reign_mod.fund_ui.tooltip_1_kingdom": "+1 королевство",
       "gui.reign_mod.win_view.tooltip_fisher_4": "+25% шанс подсечь. (100%)",
-      "NotLord": " больше не лорд.",
+      "gui.reign_mod.fund_ui.tooltip_openning_the_nether": "Открытие Нижнего мира",
       "gui.reign_mod.win_view.tooltip_fisher_1": "50% шанс подсечь.",
+      "NotLord": " больше не лорд.",
       "effect.reign_mod.criminal": "Преступник",
       "gui.reign_mod.win_view.tooltip_fisher_2": "+25% шанс подсечь. (75%)",
       "gui.reign_mod.license_is_selected.label_all_experience_will_be_lost": "Весь опыт будет потерян.",
@@ -6592,8 +6592,8 @@
       "item.reign_mod.crown_helmet": "Корона",
       "item.reign_mod.textbook": "Учебник ReignMod",
       "gui.reign_mod.royale_settings.label_ores": "РУДЫ",
-      "advancements.days_online_30.descr": "Месяц онлайн!",
       "gui.reign_mod.trader_point.sale_off": "OFF",
+      "advancements.days_online_30.descr": "Месяц онлайн!",
       "gui.reign_mod.win_view.tooltip_another_20_yield_from_fields": "Пчеловодство",
       "gui.reign_mod.win_view.label_licenses_are_your_line_of_busine": "Лицензия - ваш род деятельности.",
       "item.reign_mod.ruin_lord_3": "Dusty record",
@@ -6604,16 +6604,16 @@
       "gui.reign_mod.market.label_tax_count": "tax_count",
       "NotCowboy": "Я не разводить животных.",
       "gui.reign_mod.win_view.button_minor_license": "Доп. лицензия",
-      "item.reign_mod.copper_coin": "Медная монета",
       "farmer_cantpumpkin": "Я не знаю как собирать блочные культуры.",
+      "item.reign_mod.copper_coin": "Медная монета",
       "zombieapple": "Неужели это всё выдумки?",
       "gui.reign_mod.win_view.tooltip_25_chance_to_not_damage_the_axe": "25% шанс не повредить топор.",
-      "imprisoned": " заключён.",
       "gui.reign_mod.license_is_selected.label_do_you_want_to_give_it_up": "Хотите отказаться от неё?",
+      "imprisoned": " заключён.",
       "translation.key.LossLvl": "Кажется, вы забыли что-то важное...",
       "advancements.first_lock.descr": "Lock the chest.",
-      "effect.reign_mod.bee_effect": "Пчелинная защита",
       "gui.reign_mod.market.label_amount": "количество",
+      "effect.reign_mod.bee_effect": "Пчелинная защита",
       "advancements.horder_use.title": "А медь-то злато бережёт.",
       "newlord": "Первый своего имени: ",
       "item.reign_mod.miner_coin": "Монета шахтёра",
@@ -6776,8 +6776,8 @@
       "gui.reign_mod.textbook_1.label_1_litsienzii": "#1 Лицензии"
     },
     "en_us": {
-      "item_group.reign_mod.creative_tab": "Reign",
       "item.reign_mod.ruin_lord_2.desc": "Ruin Lord - Light after darkness",
+      "item_group.reign_mod.creative_tab": "Reign",
       "pay_free": "Found on the ground:",
       "gui.reign_mod.win_view.tooltip_cattle_breeding": "Cattle breeding",
       "gui.reign_mod.license_is_selected.label_the_main_license_has_been_select": "The main license has been selected.",
@@ -6785,8 +6785,8 @@
       "gui.reign_mod.new_house.tooltip_napishitie_imia_i_vybieritie_tsviet_bud": "Выберите имя и цвет нового королевства",
       "item.reign_mod.your_lawn_is_bool": "Your Lawn Is Bool",
       "gui.reign_mod.dfgdfgdf.button_buy": "buy",
-      "subtitles.thecalmbeforethestorm": "",
       "item.reign_mod.farmer_coin": "Farmer coin",
+      "subtitles.thecalmbeforethestorm": "",
       "gui.reign_mod.win_view.tooltip_chance_to_get_a_haste_effect": "Chance to get a haste effect",
       "gui.reign_mod.win_view.tooltip_netherite_mining": "Netherite Mining",
       "gui.reign_mod.walletwin.label_wallet": "Wallet",
@@ -6797,34 +6797,34 @@
       "gui.reign_mod.dsf.button_farmer": "Farmer",
       "NotEnchanterSay": "I don\u0027t know what this is...",
       "gui.reign_mod.add_license_list.label_osnovnyie_litsienzii": "Доп. лицензии",
-      "gui.reign_mod.royale_settings.label_armor": "ARMOR",
       "gui.reign_mod.trader_point.label_punkt_priioma": "Пункт приёма",
+      "gui.reign_mod.royale_settings.label_armor": "ARMOR",
       "gui.reign_mod.dsf.button_woodcutter": "Woodcutter",
       "block.reign_mod.fund": "Fund",
       "gui.reign_mod.royale_settings.tools_textfield": "",
       "key.reign_mod.open_royale_settings": "Open Royale Settings",
       "advancements.gotcha.descr": "Go to jail.",
       "gui.reign_mod.kingtable_ui.label_kingtable_lable": "kingtable_lable",
-      "advancements.full_lvl.descr": "Upgrade your license completely.",
       "advancements.welcome_to_reign.descr": "One who rules them all.",
-      "advancements.days_online_7.descr": "7 days in a row online!",
+      "advancements.full_lvl.descr": "Upgrade your license completely.",
       "gui.reign_mod.dsf.button_button_cowboy": "Cowboy",
+      "advancements.days_online_7.descr": "7 days in a row online!",
       "gui.reign_mod.win_view.tooltip_and_another_20_of_field_yields": "and another 20% of field yields!",
       "translation.key.houseNameTaken": "A House with this name already exists!",
       "gui.reign_mod.add_license_list.button_enchanter": "Enchanter",
       "gui.reign_mod.dsf.button_miner": "Miner",
       "gui.reign_mod.fund_ui.tooltip_iron_processing": "Iron processing",
-      "gui.reign_mod.royale_settings.label_logs": "LOGS",
       "gui.reign_mod.win_view.tooltip_10_chance_to_gain_a_chopping_sp": "10% chance to gain a chopping speed boost.",
+      "gui.reign_mod.royale_settings.label_logs": "LOGS",
       "advancements.strained_experience.title": "Strained Experience",
       "block.reign_mod.kingtable": "King table",
       "gui.reign_mod.dsf.label_osnovnyie_litsienzii": "Основные лицензии",
-      "gui.reign_mod.win_view.tooltip_fisher_3": "fisher_3",
       "gui.reign_mod.fund_ui.tooltip_1_kingdom": "+1 kingdom",
-      "gui.reign_mod.win_view.tooltip_fisher_4": "fisher_4",
+      "gui.reign_mod.win_view.tooltip_fisher_3": "fisher_3",
       "gui.reign_mod.fund_ui.tooltip_openning_the_nether": "Openning the Nether",
-      "gui.reign_mod.win_view.tooltip_fisher_1": "fisher_1",
+      "gui.reign_mod.win_view.tooltip_fisher_4": "fisher_4",
       "NotLord": " now not lord.",
+      "gui.reign_mod.win_view.tooltip_fisher_1": "fisher_1",
       "effect.reign_mod.criminal": "Criminal",
       "gui.reign_mod.win_view.tooltip_fisher_2": "fisher_2",
       "gui.reign_mod.license_is_selected.label_all_experience_will_be_lost": "All experience will be lost",
@@ -6836,8 +6836,8 @@
       "item.reign_mod.crown_helmet": "Crown",
       "item.reign_mod.textbook": "Textbook ReignMod",
       "gui.reign_mod.royale_settings.label_ores": "ORES",
-      "gui.reign_mod.trader_point.sale_off": "OFF",
       "advancements.days_online_30.descr": "A month online!",
+      "gui.reign_mod.trader_point.sale_off": "OFF",
       "gui.reign_mod.win_view.tooltip_another_20_yield_from_fields": "another +20% yield from fields",
       "gui.reign_mod.win_view.label_licenses_are_your_line_of_busine": "Licenses are your line of business.",
       "item.reign_mod.ruin_lord_3": "Dusty record",
@@ -6848,16 +6848,16 @@
       "gui.reign_mod.market.label_tax_count": "tax_count",
       "NotCowboy": "I\u0027m not a cowboy.",
       "gui.reign_mod.win_view.button_minor_license": "Minor License",
-      "farmer_cantpumpkin": "I don\u0027t know how to collect block cultures.",
       "item.reign_mod.copper_coin": "Copper coin",
+      "farmer_cantpumpkin": "I don\u0027t know how to collect block cultures.",
       "zombieapple": "Is this all just fiction?",
       "gui.reign_mod.win_view.tooltip_25_chance_to_not_damage_the_axe": "25% chance to not damage the axe.",
-      "gui.reign_mod.license_is_selected.label_do_you_want_to_give_it_up": "Do you want to give it up?",
       "imprisoned": " imprisoned.",
+      "gui.reign_mod.license_is_selected.label_do_you_want_to_give_it_up": "Do you want to give it up?",
       "translation.key.LossLvl": "It seems you forgot something important...",
       "advancements.first_lock.descr": "Lock the chest.",
-      "gui.reign_mod.market.label_amount": "amount",
       "effect.reign_mod.bee_effect": "Bee Power",
+      "gui.reign_mod.market.label_amount": "amount",
       "advancements.horder_use.title": "A penny saved is a penny earned",
       "newlord": "The first of his name: ",
       "item.reign_mod.miner_coin": "Miner coin",
@@ -7172,7 +7172,7 @@
   "workspaceSettings": {
     "modid": "reign_mod",
     "modName": "Reign",
-    "version": "0.5.2",
+    "version": "0.5.3",
     "description": "Professions, trade and power",
     "author": "iDronov",
     "websiteURL": "https://t.me/reignmod",
@@ -7184,7 +7184,8 @@
     "dependants": [],
     "mcreatorDependencies": [],
     "currentGenerator": "forge-1.20.1",
+    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
     "modElementsPackage": "net.mcreator.reignmod"
   },
-  "mcreatorVersion": 202400340615
+  "mcreatorVersion": 202400342716
 }
