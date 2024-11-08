@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:bedrock"
+    },
+    "title": {
+      "translate": "advancements.gotcha.title"
+    },
+    "description": {
+      "translate": "advancements.gotcha.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "gotcha_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "reign_mod:welcome_to_reign"
+}

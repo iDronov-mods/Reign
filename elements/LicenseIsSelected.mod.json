@@ -1,0 +1,154 @@
+{
+  "_fv": 69,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 200,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_the_main_license_has_been_select",
+          "text": {
+            "fixedValue": "The main license has been selected."
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 123,
+          "y": 49
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_do_you_want_to_give_it_up",
+          "text": {
+            "fixedValue": "Do you want to give it up?"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 124,
+          "y": 65
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_all_experience_will_be_lost",
+          "text": {
+            "fixedValue": "All experience will be lost"
+          },
+          "color": {
+            "value": -3407821,
+            "falpha": 0.0
+          },
+          "x": 145,
+          "y": 179
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "crown.png",
+          "use1Xscale": false,
+          "x": 287,
+          "y": 24
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_refuse",
+          "text": "   Refuse   ",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "RefuseLicense"
+          },
+          "displayCondition": {
+            "name": "RefuseLock"
+          },
+          "width": 86,
+          "height": 20,
+          "x": 170,
+          "y": 145
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "farmer.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Returnfarmer"
+          },
+          "x": 204,
+          "y": 98
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "miner_logo.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Returnminer"
+          },
+          "x": 204,
+          "y": 98
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "smith_logo.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Returnsmith"
+          },
+          "x": 204,
+          "y": 98
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "woodcutter_logo.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Returnwoodcutter"
+          },
+          "x": 204,
+          "y": 98
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "cowboy_logo.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Returncowboy"
+          },
+          "x": 204,
+          "y": 98
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": true
+    }
+  }
+}

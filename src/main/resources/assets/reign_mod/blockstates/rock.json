@@ -1,0 +1,57 @@
+{
+  "variants": {
+    "face=floor,facing=north": {
+      "model": "reign_mod:block/rock"
+    },
+    "face=floor,facing=east": {
+      "model": "reign_mod:block/rock",
+      "y": 90
+    },
+    "face=floor,facing=south": {
+      "model": "reign_mod:block/rock",
+      "y": 180
+    },
+    "face=floor,facing=west": {
+      "model": "reign_mod:block/rock",
+      "y": 270
+    },
+    "face=wall,facing=north": {
+      "model": "reign_mod:block/rock",
+      "x": 90
+    },
+    "face=wall,facing=east": {
+      "model": "reign_mod:block/rock",
+      "x": 90,
+      "y": 90
+    },
+    "face=wall,facing=south": {
+      "model": "reign_mod:block/rock",
+      "x": 90,
+      "y": 180
+    },
+    "face=wall,facing=west": {
+      "model": "reign_mod:block/rock",
+      "x": 90,
+      "y": 270
+    },
+    "face=ceiling,facing=north": {
+      "model": "reign_mod:block/rock",
+      "x": 180,
+      "y": 180
+    },
+    "face=ceiling,facing=east": {
+      "model": "reign_mod:block/rock",
+      "x": 180,
+      "y": 270
+    },
+    "face=ceiling,facing=south": {
+      "model": "reign_mod:block/rock",
+      "x": 180
+    },
+    "face=ceiling,facing=west": {
+      "model": "reign_mod:block/rock",
+      "x": 180,
+      "y": 90
+    }
+  }
+}

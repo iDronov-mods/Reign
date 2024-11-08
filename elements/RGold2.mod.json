@@ -1,0 +1,22 @@
+{
+  "_fv": 69,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Smelting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "cookingBookCategory": "MISC",
+    "xpReward": 1.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": false,
+    "smeltingInputStack": {
+      "value": "Items.RAW_GOLD"
+    },
+    "smeltingReturnStack": {
+      "value": "Items.GOLD_NUGGET"
+    },
+    "name": "r_gold_2",
+    "namespace": "mod"
+  }
+}

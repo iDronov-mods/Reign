@@ -1,0 +1,179 @@
+{
+  "_fv": 69,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 150,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "crown.png",
+          "use1Xscale": false,
+          "x": 150,
+          "y": 26
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_woodcutter",
+          "text": "Woodcutter",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "ChooseWoodcutter"
+          },
+          "width": 77,
+          "height": 20,
+          "x": 195,
+          "y": 60
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_blacksmith",
+          "text": "Smith",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "ChooseSmith"
+          },
+          "width": 77,
+          "height": 20,
+          "x": 195,
+          "y": 87
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_miner",
+          "text": "Miner",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "ChooseMiner"
+          },
+          "width": 76,
+          "height": 20,
+          "x": 195,
+          "y": 114
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "woodcutter_logo.png",
+          "use1Xscale": false,
+          "x": 159,
+          "y": 62
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "smith_logo.png",
+          "use1Xscale": false,
+          "x": 159,
+          "y": 89
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "miner_logo.png",
+          "use1Xscale": false,
+          "x": 159,
+          "y": 116
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": ".png",
+          "use1Xscale": false,
+          "x": 159,
+          "y": 143
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_farmer",
+          "text": "Farmer",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "ChooseFarmer"
+          },
+          "width": 76,
+          "height": 20,
+          "x": 195,
+          "y": 141
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_osnovnyie_litsienzii",
+          "text": {
+            "fixedValue": "Основные лицензии"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 168,
+          "y": 44
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_vybieritie_osnovnoi_stil_ighry",
+          "text": {
+            "fixedValue": "Выберите основной стиль игры."
+          },
+          "width": 24,
+          "height": 24,
+          "x": 145,
+          "y": 23
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "cowboy_logo.png",
+          "use1Xscale": false,
+          "x": 159,
+          "y": 170
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_button_cowboy",
+          "text": "Cowboy",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "ChooseCowboy"
+          },
+          "width": 76,
+          "height": 20,
+          "x": 195,
+          "y": 168
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

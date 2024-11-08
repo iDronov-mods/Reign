@@ -1,0 +1,9 @@
+{
+  "parent": "reign_mod:custom/hardrock",
+  "textures": {
+    "all": "minecraft:block/cobblestone",
+    "particle": "minecraft:block/cobblestone",
+    "0": "reign_mod:block/rock"
+  },
+  "render_type": "solid"
+}

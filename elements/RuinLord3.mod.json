@@ -1,0 +1,26 @@
+{
+  "_fv": 69,
+  "_type": "musicdisc",
+  "definition": {
+    "name": "Dusty record",
+    "rarity": "RARE",
+    "texture": "ruin_lord3",
+    "description": "Ruin Lord - Lasto Beth Lammen",
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:CreativeTab"
+      }
+    ],
+    "specialInformation": {
+      "fixedValue": []
+    },
+    "glowCondition": {
+      "fixedValue": false
+    },
+    "music": {
+      "value": "CUSTOM:lasto-beth-lammen"
+    },
+    "lengthInTicks": 3780,
+    "analogOutput": 0
+  }
+}

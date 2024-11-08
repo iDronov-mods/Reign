@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "coin",
+  "category": "misc",
+  "pattern": [
+    "aba",
+    "cde",
+    "afa"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:copper_block"
+    },
+    "b": {
+      "item": "minecraft:diamond_block"
+    },
+    "c": {
+      "item": "minecraft:gold_block"
+    },
+    "d": {
+      "item": "minecraft:iron_pickaxe"
+    },
+    "e": {
+      "item": "minecraft:iron_block"
+    },
+    "f": {
+      "item": "minecraft:redstone_block"
+    }
+  },
+  "result": {
+    "item": "reign_mod:miner_coin",
+    "count": 1
+  }
+}

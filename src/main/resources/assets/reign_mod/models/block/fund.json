@@ -1,0 +1,10 @@
+{
+  "parent": "reign_mod:custom/fund_new",
+  "textures": {
+    "all": "minecraft:block/black_shulker_box",
+    "particle": "minecraft:block/black_shulker_box",
+    "0": "reign_mod:block/texture_fund",
+    "1": "reign_mod:block/texture_head"
+  },
+  "render_type": "solid"
+}

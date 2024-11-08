@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "reign_mod:block/fund"
+    },
+    "facing=east": {
+      "model": "reign_mod:block/fund",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "reign_mod:block/fund",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "reign_mod:block/fund",
+      "y": 270
+    }
+  }
+}

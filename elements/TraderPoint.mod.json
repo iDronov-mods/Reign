@@ -1,0 +1,176 @@
+{
+  "_fv": 69,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 200,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": false,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "trader.png",
+          "use1Xscale": false,
+          "x": 114,
+          "y": 37
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 0,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 205,
+          "y": 71
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 1,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 178,
+          "y": 95
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_punkt_priioma",
+          "text": {
+            "fixedValue": "Пункт приёма"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 115,
+          "y": 25
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "gold_coin.png",
+          "use1Xscale": false,
+          "x": 291,
+          "y": 99
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "silver_coin.png",
+          "use1Xscale": false,
+          "x": 108,
+          "y": 77
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "silver_coin.png",
+          "use1Xscale": false,
+          "x": 120,
+          "y": 50
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "crown.png",
+          "use1Xscale": false,
+          "x": 236,
+          "y": 25
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_sell_your_goods_to_the_capital",
+          "text": {
+            "fixedValue": "Sell ​​your goods to the capital for money"
+          },
+          "width": 24,
+          "height": 24,
+          "x": 231,
+          "y": 17
+        }
+      },
+      {
+        "type": "checkbox",
+        "data": {
+          "name": "sale_off",
+          "text": "OFF",
+          "x": 267,
+          "y": 15
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 2,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 196,
+          "y": 95
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 3,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 214,
+          "y": 95
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 4,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 232,
+          "y": 95
+        }
+      }
+    ],
+    "onTick": {
+      "name": "Trading"
+    },
+    "onClosed": {
+      "name": "TraderClosed"
+    },
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

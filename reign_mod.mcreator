@@ -1,0 +1,7190 @@
+{
+  "mod_elements": [
+    {
+      "name": "GoldCoin",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gold_coin",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/item/GoldCoinItem.java",
+          "src/main/resources/assets/reign_mod/models/item/gold_coin.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "SilverCoin",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "silver_coin",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/item/SilverCoinItem.java",
+          "src/main/resources/assets/reign_mod/models/item/silver_coin.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "CopperCoin",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "copper_coin",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/item/CopperCoinItem.java",
+          "src/main/resources/assets/reign_mod/models/item/copper_coin.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "PlatinumCoin",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "platinum_coin",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/item/PlatinumCoinItem.java",
+          "src/main/resources/assets/reign_mod/models/item/platinum_coin.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "CreativeTab",
+      "type": "tab",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "creative_tab",
+      "metadata": {
+        "files": []
+      },
+      "path": "~/Misc"
+    },
+    {
+      "name": "RightHand",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "right_hand",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/item/RightHandItem.java",
+          "src/main/resources/assets/reign_mod/models/item/right_hand.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "FalseBrick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "false_brick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/FalseBrickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem"
+    },
+    {
+      "name": "Dsf",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dsf",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/world/inventory/DsfMenu.java",
+          "src/main/java/net/mcreator/reignmod/client/gui/DsfScreen.java",
+          "src/main/java/net/mcreator/reignmod/network/DsfButtonMessage.java"
+        ]
+      },
+      "path": "~/UI/LicensesUI"
+    },
+    {
+      "name": "OpenLicenses",
+      "type": "keybind",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_licenses",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/network/OpenLicensesMessage.java"
+        ]
+      },
+      "path": "~/Buttons"
+    },
+    {
+      "name": "HoeCheck",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hoe_check",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/HoeCheckProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/ExpSkills"
+    },
+    {
+      "name": "OpenLicenseList",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_license_list",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/OpenLicenseListProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/UI/LicensesUI"
+    },
+    {
+      "name": "ChooseWoodcutter",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "choose_woodcutter",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ChooseWoodcutterProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/Choosing"
+    },
+    {
+      "name": "ChooseSmith",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "choose_smith",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ChooseSmithProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/Choosing"
+    },
+    {
+      "name": "ChooseMiner",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "choose_miner",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ChooseMinerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/Choosing"
+    },
+    {
+      "name": "ChooseFarmer",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "choose_farmer",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ChooseFarmerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/Choosing"
+    },
+    {
+      "name": "C9goldcoin",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "c_9goldcoin",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/recipes/c_9goldcoin.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "C9silvercoin",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "c_9silvercoin",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/recipes/c_9silvercoin.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "C9coppercoin",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "c_9coppercoin",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/recipes/c_9coppercoin.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "LicenseIsSelected",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "license_is_selected",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/client/gui/LicenseIsSelectedScreen.java",
+          "src/main/java/net/mcreator/reignmod/world/inventory/LicenseIsSelectedMenu.java",
+          "src/main/java/net/mcreator/reignmod/network/LicenseIsSelectedButtonMessage.java"
+        ]
+      },
+      "path": "~/UI/LicensesUI"
+    },
+    {
+      "name": "RefuseLicense",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "refuse_license",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/RefuseLicenseProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem"
+    },
+    {
+      "name": "RecipeBlocked",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "recipe_blocked",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/RecipeBlockedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem"
+    },
+    {
+      "name": "Returnwoodcutter",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "returnwoodcutter",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnwoodcutterProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "Returnminer",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "returnminer",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnminerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "Returnfarmer",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "returnfarmer",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnfarmerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "Returnsmith",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "returnsmith",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnsmithProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "WinView",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "win_view",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/network/WinViewButtonMessage.java",
+          "src/main/java/net/mcreator/reignmod/client/gui/WinViewScreen.java",
+          "src/main/java/net/mcreator/reignmod/world/inventory/WinViewMenu.java"
+        ]
+      },
+      "path": "~/UI/LicensesUI"
+    },
+    {
+      "name": "WinViewOpen",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "win_view_open",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/WinViewOpenProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/UI/LicensesUI"
+    },
+    {
+      "name": "TraderPoint",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "trader_point",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/world/inventory/TraderPointMenu.java",
+          "src/main/java/net/mcreator/reignmod/client/gui/TraderPointScreen.java"
+        ]
+      },
+      "path": "~/UI"
+    },
+    {
+      "name": "InventoryADD",
+      "type": "overlay",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "inventory_add",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/client/screens/InventoryADDOverlay.java"
+        ]
+      },
+      "path": "~/UI"
+    },
+    {
+      "name": "TradeBlock",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "trade_block",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/reign_mod/blockstates/trade_block.json",
+          "src/main/resources/data/reign_mod/loot_tables/blocks/trade_block.json",
+          "src/main/java/net/mcreator/reignmod/block/TradeBlockBlock.java",
+          "src/main/resources/assets/reign_mod/models/block/trade_block.json",
+          "src/main/resources/assets/reign_mod/models/item/trade_block.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "Trading",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "trading",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/TradingProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "guistate",
+            "type": "map"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem"
+    },
+    {
+      "name": "RoyaleSettings",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "royale_settings",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/world/inventory/RoyaleSettingsMenu.java",
+          "src/main/java/net/mcreator/reignmod/network/RoyaleSettingsButtonMessage.java",
+          "src/main/java/net/mcreator/reignmod/client/gui/RoyaleSettingsScreen.java"
+        ]
+      },
+      "path": "~/UI"
+    },
+    {
+      "name": "RoyaleSettingsOpen",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "royale_settings_open",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/RoyaleSettingsOpenProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/UI"
+    },
+    {
+      "name": "OpenRoyaleSettings",
+      "type": "keybind",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_royale_settings",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/network/OpenRoyaleSettingsMessage.java"
+        ]
+      },
+      "path": "~/Buttons"
+    },
+    {
+      "name": "RoyaleSettingsTik",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "royale_settings_tik",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/RoyaleSettingsTikProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "guistate",
+            "type": "map"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/KingSystem"
+    },
+    {
+      "name": "Logsup",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "logsup",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/LogsupProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/PriceChangeScripts"
+    },
+    {
+      "name": "Logsdown",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "logsdown",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/LogsdownProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/PriceChangeScripts"
+    },
+    {
+      "name": "Coalup",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "coalup",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/CoalupProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/PriceChangeScripts"
+    },
+    {
+      "name": "Coaldown",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "coaldown",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/CoaldownProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/PriceChangeScripts"
+    },
+    {
+      "name": "Foodup",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "foodup",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/FoodupProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/PriceChangeScripts"
+    },
+    {
+      "name": "Fooddown",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fooddown",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/FooddownProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/PriceChangeScripts"
+    },
+    {
+      "name": "Armorup",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "armorup",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ArmorupProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/PriceChangeScripts"
+    },
+    {
+      "name": "Armordown",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "armordown",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ArmordownProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/PriceChangeScripts"
+    },
+    {
+      "name": "Toolsup",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toolsup",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ToolsupProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/PriceChangeScripts"
+    },
+    {
+      "name": "Toolsdown",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toolsdown",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ToolsdownProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/PriceChangeScripts"
+    },
+    {
+      "name": "Oresup",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "oresup",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/OresupProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/PriceChangeScripts"
+    },
+    {
+      "name": "Oresdown",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "oresdown",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/OresdownProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/PriceChangeScripts"
+    },
+    {
+      "name": "Otherup",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "otherup",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/OtherupProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/PriceChangeScripts"
+    },
+    {
+      "name": "Otherdown",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "otherdown",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/OtherdownProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/PriceChangeScripts"
+    },
+    {
+      "name": "Crown",
+      "type": "armor",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "crown",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/item/CrownItem.java",
+          "src/main/resources/assets/reign_mod/models/item/crown_helmet.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "MarketBlock",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "market_block",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/reign_mod/models/block/market_block.json",
+          "src/main/resources/assets/reign_mod/blockstates/market_block.json",
+          "src/main/resources/assets/reign_mod/models/item/market_block.json",
+          "src/main/resources/data/reign_mod/loot_tables/blocks/market_block.json",
+          "src/main/java/net/mcreator/reignmod/block/entity/MarketBlockBlockEntity.java",
+          "src/main/java/net/mcreator/reignmod/block/MarketBlockBlock.java"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "Market",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "market",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/network/MarketSlotMessage.java",
+          "src/main/java/net/mcreator/reignmod/network/MarketButtonMessage.java",
+          "src/main/java/net/mcreator/reignmod/world/inventory/MarketMenu.java",
+          "src/main/java/net/mcreator/reignmod/client/gui/MarketScreen.java"
+        ]
+      },
+      "path": "~/UI"
+    },
+    {
+      "name": "MarketPlace",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "market_place",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/MarketPlaceProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "slot",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "logic"
+      },
+      "path": "~/Scripts/MarketSystem"
+    },
+    {
+      "name": "BlockPlaced",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "block_placed",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/BlockPlacedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem"
+    },
+    {
+      "name": "CalculateTax",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "calculate_tax",
+      "metadata": {
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/CalculateTaxProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "Player",
+            "type": "entity"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "cost",
+            "type": "number"
+          },
+          {
+            "name": "tax",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem"
+    },
+    {
+      "name": "ClearMarketSlots",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "clear_market_slots",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ClearMarketSlotsProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem"
+    },
+    {
+      "name": "Buy",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "buy",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/BuyProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem"
+    },
+    {
+      "name": "SoundGiveCoin",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sound_give_coin",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/SoundGiveCoinProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem"
+    },
+    {
+      "name": "Buy4",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "buy_4",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/Buy4Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem"
+    },
+    {
+      "name": "TraderClosed",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "trader_closed",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/TraderClosedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem"
+    },
+    {
+      "name": "Selling",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "selling",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/SellingProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "coin",
+            "type": "itemstack"
+          },
+          {
+            "name": "cost",
+            "type": "number"
+          },
+          {
+            "name": "max",
+            "type": "number"
+          },
+          {
+            "name": "pack",
+            "type": "number"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "tag",
+            "type": "string"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem"
+    },
+    {
+      "name": "PairingBlocked",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pairing_blocked",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/PairingBlockedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/ExpSkills"
+    },
+    {
+      "name": "Coffers",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "coffers",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/reign_mod/models/block/coffers.json",
+          "src/main/java/net/mcreator/reignmod/block/CoffersBlock.java",
+          "src/main/resources/data/reign_mod/loot_tables/blocks/coffers.json",
+          "src/main/resources/assets/reign_mod/models/item/coffers.json",
+          "src/main/resources/assets/reign_mod/blockstates/coffers.json",
+          "src/main/java/net/mcreator/reignmod/block/entity/CoffersBlockEntity.java"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "CoffersUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "coffers_ui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/network/CoffersUISlotMessage.java",
+          "src/main/java/net/mcreator/reignmod/world/inventory/CoffersUIMenu.java",
+          "src/main/java/net/mcreator/reignmod/client/gui/CoffersUIScreen.java"
+        ]
+      },
+      "path": "~/UI"
+    },
+    {
+      "name": "CoffersOptimally",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "coffers_optimally",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/CoffersOptimallyProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem"
+    },
+    {
+      "name": "AddToCoffers",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "add_to_coffers",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/AddToCoffersProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "type",
+            "type": "itemstack"
+          },
+          {
+            "name": "value",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem"
+    },
+    {
+      "name": "WinCoffersOpen",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "win_coffers_open",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/WinCoffersOpenProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/UI"
+    },
+    {
+      "name": "Returnsoldier",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "returnsoldier",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnsoldierProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "Returnalchemist",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "returnalchemist",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnalchemistProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "Returnfisher",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "returnfisher",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnfisherProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "Returnlibrarian",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "returnlibrarian",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnlibrarianProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "Mlvl1",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mlvl_1",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/Mlvl1Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/Lvl_bar"
+    },
+    {
+      "name": "Mlvl2",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mlvl_2",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/Mlvl2Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/Lvl_bar"
+    },
+    {
+      "name": "Mlvl3",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mlvl_3",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/Mlvl3Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/Lvl_bar"
+    },
+    {
+      "name": "Mlvl4",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mlvl_4",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/Mlvl4Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/Lvl_bar"
+    },
+    {
+      "name": "Mlvl5",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mlvl_5",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/Mlvl5Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/Lvl_bar"
+    },
+    {
+      "name": "LvlUp",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "lvl_up",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/LvlUpProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem"
+    },
+    {
+      "name": "ALvlUp",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "a_lvl_up",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ALvlUpProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem"
+    },
+    {
+      "name": "Alvl1",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "alvl_1",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/Alvl1Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/Lvl_bar"
+    },
+    {
+      "name": "Alvl2",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "alvl_2",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/Alvl2Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/Lvl_bar"
+    },
+    {
+      "name": "Alvl3",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "alvl_3",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/Alvl3Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/Lvl_bar"
+    },
+    {
+      "name": "Alvl4",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "alvl_4",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/Alvl4Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/Lvl_bar"
+    },
+    {
+      "name": "Alvl5",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "alvl_5",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/Alvl5Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/Lvl_bar"
+    },
+    {
+      "name": "MainButtonUp",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "main_button_up",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/MainButtonUpProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/Lvl_bar"
+    },
+    {
+      "name": "AddButtonUp",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "add_button_up",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/AddButtonUpProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/Lvl_bar"
+    },
+    {
+      "name": "AddLicenseList",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "add_license_list",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/network/AddLicenseListButtonMessage.java",
+          "src/main/java/net/mcreator/reignmod/world/inventory/AddLicenseListMenu.java",
+          "src/main/java/net/mcreator/reignmod/client/gui/AddLicenseListScreen.java"
+        ]
+      },
+      "path": "~/UI/LicensesUI"
+    },
+    {
+      "name": "ChooseFisher",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "choose_fisher",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ChooseFisherProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/Choosing"
+    },
+    {
+      "name": "ChooseEnchanter",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "choose_enchanter",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ChooseEnchanterProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/Choosing"
+    },
+    {
+      "name": "ChooseAlchemist",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "choose_alchemist",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ChooseAlchemistProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/Choosing"
+    },
+    {
+      "name": "ChooseSoldier",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "choose_soldier",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ChooseSoldierProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/Choosing"
+    },
+    {
+      "name": "OpenAddLicenseList",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_add_license_list",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/OpenAddLicenseListProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/UI/LicensesUI"
+    },
+    {
+      "name": "AddLicenseIsSelected",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "add_license_is_selected",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/network/AddLicenseIsSelectedButtonMessage.java",
+          "src/main/java/net/mcreator/reignmod/world/inventory/AddLicenseIsSelectedMenu.java",
+          "src/main/java/net/mcreator/reignmod/client/gui/AddLicenseIsSelectedScreen.java"
+        ]
+      },
+      "path": "~/UI/LicensesUI"
+    },
+    {
+      "name": "RefuseAddLicense",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "refuse_add_license",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/RefuseAddLicenseProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem"
+    },
+    {
+      "name": "SoldierTakeDamage",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "soldier_take_damage",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/SoldierTakeDamageProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "damagesource",
+            "type": "damagesource"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "amount",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/ExpSkills"
+    },
+    {
+      "name": "SoSlippery",
+      "type": "achievement",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "so_slippery",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/advancements/so_slippery.json"
+        ]
+      },
+      "path": "~/Achievements"
+    },
+    {
+      "name": "YourLawnIsBool",
+      "type": "musicdisc",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "your_lawn_is_bool",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/item/YourLawnIsBoolItem.java",
+          "src/main/resources/assets/reign_mod/models/item/your_lawn_is_bool.json"
+        ]
+      },
+      "path": "~/Misc"
+    },
+    {
+      "name": "Fund",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fund",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/reign_mod/models/item/fund.json",
+          "src/main/resources/assets/reign_mod/blockstates/fund.json",
+          "src/main/java/net/mcreator/reignmod/block/FundBlock.java",
+          "src/main/java/net/mcreator/reignmod/block/entity/FundBlockEntity.java",
+          "src/main/resources/assets/reign_mod/models/block/fund.json",
+          "src/main/resources/data/reign_mod/loot_tables/blocks/fund.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "FundUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fund_ui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/network/FundUISlotMessage.java",
+          "src/main/java/net/mcreator/reignmod/world/inventory/FundUIMenu.java",
+          "src/main/java/net/mcreator/reignmod/client/gui/FundUIScreen.java"
+        ]
+      },
+      "path": "~/UI"
+    },
+    {
+      "name": "WelcomeToReign",
+      "type": "achievement",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "welcome_to_reign",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/advancements/welcome_to_reign.json"
+        ]
+      },
+      "path": "~/Achievements"
+    },
+    {
+      "name": "ReturnEra1",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_era_1",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnEra1Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/ErasSystem/ReturnEras"
+    },
+    {
+      "name": "ReturnEra2",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_era_2",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnEra2Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/ErasSystem/ReturnEras"
+    },
+    {
+      "name": "ReturnEra3",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_era_3",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnEra3Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/ErasSystem/ReturnEras"
+    },
+    {
+      "name": "ReturnEra4",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_era_4",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnEra4Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/ErasSystem/ReturnEras"
+    },
+    {
+      "name": "ReturnEra5",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_era_5",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnEra5Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/ErasSystem/ReturnEras"
+    },
+    {
+      "name": "ReturnEra6",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_era_6",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnEra6Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/ErasSystem/ReturnEras"
+    },
+    {
+      "name": "ReturnEra7",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_era_7",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnEra7Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/ErasSystem/ReturnEras"
+    },
+    {
+      "name": "ReturnEra8",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_era_8",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnEra8Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/ErasSystem/ReturnEras"
+    },
+    {
+      "name": "ReturnEra9",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_era_9",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnEra9Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/ErasSystem/ReturnEras"
+    },
+    {
+      "name": "ReturnEra10",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_era_10",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnEra10Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/ErasSystem/ReturnEras"
+    },
+    {
+      "name": "EraCostCreate",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "era_cost_create",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/EraCostCreateProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/ErasSystem"
+    },
+    {
+      "name": "FundTick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fund_tick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/FundTickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/ErasSystem"
+    },
+    {
+      "name": "RefuseLock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "refuse_lock",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/RefuseLockProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem"
+    },
+    {
+      "name": "Criminal",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "criminal",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/potion/CriminalMobEffect.java"
+        ]
+      },
+      "path": "~/Misc"
+    },
+    {
+      "name": "SetCriminal",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "set_criminal",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/command/SetCriminalCommand.java"
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "CriminalTrue",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "criminal_true",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/CriminalTrueProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/KingSystem"
+    },
+    {
+      "name": "CriminalFalse",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "criminal_false",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/CriminalFalseProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/KingSystem"
+    },
+    {
+      "name": "PrisonSpawn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "prison_spawn",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/PrisonSpawnProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/KingSystem"
+    },
+    {
+      "name": "SetPrison",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "set_prison",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/command/SetPrisonCommand.java"
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "PrisonCreate",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "prison_create",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/PrisonCreateProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/KingSystem"
+    },
+    {
+      "name": "CriminalMilk",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "criminal_milk",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/CriminalMilkProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/KingSystem"
+    },
+    {
+      "name": "SetCapital",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "set_capital",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/command/SetCapitalCommand.java"
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "CapitalCreate",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "capital_create",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/CapitalCreateProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/CapitalSystem"
+    },
+    {
+      "name": "Plus",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "plus",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/reign_mod/models/block/plus.json",
+          "src/main/java/net/mcreator/reignmod/block/entity/PlusBlockEntity.java",
+          "src/main/resources/data/reign_mod/loot_tables/blocks/plus.json",
+          "src/main/resources/assets/reign_mod/blockstates/plus.json",
+          "src/main/resources/assets/reign_mod/models/item/plus.json",
+          "src/main/java/net/mcreator/reignmod/block/PlusBlock.java"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "ReturnMe",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_me",
+      "metadata": {
+        "return_type": "entity",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnMeProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "KingdomColorChoose",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kingdom_color_choose",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/KingdomColorChooseProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "slot",
+            "type": "number"
+          }
+        ]
+      },
+      "path": "~/Scripts/CapitalSystem"
+    },
+    {
+      "name": "CreatePlus",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "create_plus",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/CreatePlusProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "guistate",
+            "type": "map"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/CapitalSystem"
+    },
+    {
+      "name": "ReturnLord",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "return_lord",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnLordProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "KingdomCreate2",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kingdom_create_2",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/KingdomCreate2Procedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Scripts"
+    },
+    {
+      "name": "Gotcha",
+      "type": "achievement",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gotcha",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/advancements/gotcha.json"
+        ]
+      },
+      "path": "~/Achievements"
+    },
+    {
+      "name": "HandOfKingDamage",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hand_of_king_damage",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/HandOfKingDamageProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/KingSystem"
+    },
+    {
+      "name": "Knighting",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "knighting",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/KnightingProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript"
+    },
+    {
+      "name": "OresCheck",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ores_check",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/OresCheckProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/ErasSystem"
+    },
+    {
+      "name": "ReturnAddLicenseLock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_add_license_lock",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnAddLicenseLockProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "Add1Kingdom",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "add_1_kingdom",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/Add1KingdomProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/CapitalSystem"
+    },
+    {
+      "name": "Add3Kingdoms",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "add_3_kingdoms",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/Add3KingdomsProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/CapitalSystem"
+    },
+    {
+      "name": "WorldisCheck",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "worldis_check",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/WorldisCheckProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "dimension",
+            "type": "dimensiontype"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/ErasSystem"
+    },
+    {
+      "name": "Woodcutetter",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "woodcutetter",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/WoodcutetterProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Scripts/LicensesSystem/ExpSkills"
+    },
+    {
+      "name": "TrueToTheOath",
+      "type": "achievement",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "true_to_the_oath",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/advancements/true_to_the_oath.json"
+        ]
+      },
+      "path": "~/Achievements"
+    },
+    {
+      "name": "Pouring",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pouring",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/PouringProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem"
+    },
+    {
+      "name": "StrainedExperience",
+      "type": "achievement",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "strained_experience",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/advancements/strained_experience.json"
+        ]
+      },
+      "path": "~/Achievements"
+    },
+    {
+      "name": "StickyPistonsLock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sticky_pistons_lock",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/StickyPistonsLockProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/ErasSystem"
+    },
+    {
+      "name": "Miner",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "miner",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/MinerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/ExpSkills"
+    },
+    {
+      "name": "Farmer",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "farmer",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/FarmerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/ExpSkills"
+    },
+    {
+      "name": "TreeFallen",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tree_fallen",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/TreeFallenProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/TreeOneTouch"
+    },
+    {
+      "name": "StepFelling",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "step_felling",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/StepFellingProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "leaves",
+            "type": "blockstate"
+          },
+          {
+            "name": "type",
+            "type": "blockstate"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/TreeOneTouch"
+    },
+    {
+      "name": "RenameKingdom",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rename_kingdom",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/RenameKingdomProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/CapitalSystem"
+    },
+    {
+      "name": "Kingdom",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kingdom",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/command/KingdomCommand.java"
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "LeaveKingdom",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "leave_kingdom",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/LeaveKingdomProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/CapitalSystem"
+    },
+    {
+      "name": "BeeLocked",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bee_locked",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/BeeLockedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/ExpSkills"
+    },
+    {
+      "name": "BeeEffect",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bee_effect",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/potion/BeeEffectMobEffect.java"
+        ]
+      },
+      "path": "~/Misc"
+    },
+    {
+      "name": "CheckBeeResist",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_bee_resist",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/CheckBeeResistProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/ErasSystem"
+    },
+    {
+      "name": "DrinkHoney",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "drink_honey",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/DrinkHoneyProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          }
+        ]
+      },
+      "path": "~/Scripts/ErasSystem"
+    },
+    {
+      "name": "Smith",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "smith",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/SmithProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "shift",
+            "type": "logic"
+          },
+          {
+            "name": "slot",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/ExpSkills"
+    },
+    {
+      "name": "WoodcutterCoin",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "woodcutter_coin",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/reign_mod/models/item/woodcutter_coin.json",
+          "src/main/java/net/mcreator/reignmod/item/WoodcutterCoinItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "SmithCoin",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "smith_coin",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/reign_mod/models/item/smith_coin.json",
+          "src/main/java/net/mcreator/reignmod/item/SmithCoinItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "MinerCoin",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "miner_coin",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/reign_mod/models/item/miner_coin.json",
+          "src/main/java/net/mcreator/reignmod/item/MinerCoinItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "FarmerCoin",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "farmer_coin",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/item/FarmerCoinItem.java",
+          "src/main/resources/assets/reign_mod/models/item/farmer_coin.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "Rwoodcuttercoin",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rwoodcuttercoin",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/recipes/rwoodcuttercoin.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "Rminercoin",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rminercoin",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/recipes/rminercoin.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "Rsmithcoin",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rsmithcoin",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/recipes/rsmithcoin.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "Rfarmercoin",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rfarmercoin",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/recipes/rfarmercoin.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "Coin4Platinum",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "coin_4_platinum",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/recipes/coin_4_platinum.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "CreateCrown",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "create_crown",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/CreateCrownProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/KingSystem"
+    },
+    {
+      "name": "King",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "king",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/command/KingCommand.java"
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "MarketUpdate",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "market_update",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/MarketUpdateProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem"
+    },
+    {
+      "name": "DirectionFlag",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "direction_flag",
+      "metadata": {
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/DirectionFlagProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/CapitalSystem"
+    },
+    {
+      "name": "ReturnKng",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_kng",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnKngProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "FullLVL",
+      "type": "achievement",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "full_lvl",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/advancements/full_lvl.json"
+        ]
+      },
+      "path": "~/Achievements"
+    },
+    {
+      "name": "OneLVL",
+      "type": "achievement",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "one_lvl",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/advancements/one_lvl.json"
+        ]
+      },
+      "path": "~/Achievements"
+    },
+    {
+      "name": "OpenMarket",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_market",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/OpenMarketProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/UI/LicensesUI"
+    },
+    {
+      "name": "CloseMarket",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "close_market",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/CloseMarketProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/UI/LicensesUI"
+    },
+    {
+      "name": "Textbook1",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "textbook_1",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/client/gui/Textbook1Screen.java",
+          "src/main/java/net/mcreator/reignmod/world/inventory/Textbook1Menu.java"
+        ]
+      },
+      "path": "~/UI/Textbook"
+    },
+    {
+      "name": "BetaTextbook",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "beta_textbook",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/client/gui/BetaTextbookScreen.java",
+          "src/main/java/net/mcreator/reignmod/world/inventory/BetaTextbookMenu.java",
+          "src/main/java/net/mcreator/reignmod/network/BetaTextbookButtonMessage.java"
+        ]
+      },
+      "path": "~/UI/Textbook"
+    },
+    {
+      "name": "BetaTextbook2",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "beta_textbook_2",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/world/inventory/BetaTextbook2Menu.java",
+          "src/main/java/net/mcreator/reignmod/network/BetaTextbook2ButtonMessage.java",
+          "src/main/java/net/mcreator/reignmod/client/gui/BetaTextbook2Screen.java"
+        ]
+      },
+      "path": "~/UI/Textbook"
+    },
+    {
+      "name": "NextSheet",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "next_sheet",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/NextSheetProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/UI/Textbook"
+    },
+    {
+      "name": "BackSheet",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "back_sheet",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/BackSheetProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/UI/Textbook"
+    },
+    {
+      "name": "FirstEnterCheck",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "first_enter_check",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/FirstEnterCheckProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/UI/Textbook"
+    },
+    {
+      "name": "Textbook",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "textbook",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/item/TextbookItem.java",
+          "src/main/resources/assets/reign_mod/models/item/textbook.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "SmithAvilExp",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "smith_avil_exp",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/SmithAvilExpProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "amount",
+            "type": "number"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/ExpSkills"
+    },
+    {
+      "name": "DeleteLeaves",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "delete_leaves",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/DeleteLeavesProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "leaves",
+            "type": "blockstate"
+          },
+          {
+            "name": "count",
+            "type": "number"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/TreeOneTouch"
+    },
+    {
+      "name": "ThatTree",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "that_tree",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ThatTreeProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "leaves",
+            "type": "blockstate"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/TreeOneTouch"
+    },
+    {
+      "name": "EnterPay",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "enter_pay",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/EnterPayProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/DailyPay"
+    },
+    {
+      "name": "SmithReapairStone",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "smith_reapair_stone",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/SmithReapairStoneProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/ExpSkills"
+    },
+    {
+      "name": "DeleteBerry",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "delete_berry",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/DeleteBerryProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem"
+    },
+    {
+      "name": "Hoarder",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hoarder",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/world/inventory/HoarderMenu.java",
+          "src/main/java/net/mcreator/reignmod/client/gui/HoarderScreen.java",
+          "src/main/java/net/mcreator/reignmod/network/HoarderSlotMessage.java"
+        ]
+      },
+      "path": "~/UI"
+    },
+    {
+      "name": "DaysOnline7",
+      "type": "achievement",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "days_online_7",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/advancements/days_online_7.json"
+        ]
+      },
+      "path": "~/Achievements"
+    },
+    {
+      "name": "DaysOnline14",
+      "type": "achievement",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "days_online_14",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/advancements/days_online_14.json"
+        ]
+      },
+      "path": "~/Achievements"
+    },
+    {
+      "name": "DaysOnline30",
+      "type": "achievement",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "days_online_30",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/advancements/days_online_30.json"
+        ]
+      },
+      "path": "~/Achievements"
+    },
+    {
+      "name": "HorderUse",
+      "type": "achievement",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "horder_use",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/advancements/horder_use.json"
+        ]
+      },
+      "path": "~/Achievements"
+    },
+    {
+      "name": "Era",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "era",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/command/EraCommand.java"
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "EraSet",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "era_set",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/EraSetProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/ErasSystem"
+    },
+    {
+      "name": "HoarderBlock",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hoarder_block",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/loot_tables/blocks/hoarder_block.json",
+          "src/main/resources/assets/reign_mod/models/item/hoarder_block.json",
+          "src/main/resources/assets/reign_mod/blockstates/hoarder_block.json",
+          "src/main/resources/assets/reign_mod/models/block/hoarder_block.json",
+          "src/main/java/net/mcreator/reignmod/block/HoarderBlockBlock.java"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "HoarderSell",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hoarder_sell",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/HoarderSellProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem"
+    },
+    {
+      "name": "Fisher",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fisher",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/FisherProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/ExpSkills"
+    },
+    {
+      "name": "Compasdeath",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "compasdeath",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/recipes/compasdeath.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "FarmerTrample",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "farmer_trample",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/FarmerTrampleProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/ExpSkills"
+    },
+    {
+      "name": "Blackmark",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "blackmark",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/reign_mod/models/item/blackmark.json",
+          "src/main/java/net/mcreator/reignmod/item/BlackmarkItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "Lock",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "lock",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/item/LockItem.java",
+          "src/main/resources/assets/reign_mod/models/item/lock.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "MissFish",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "miss_fish",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/MissFishProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/ExpSkills"
+    },
+    {
+      "name": "Rblackmark",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rblackmark",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/recipes/rblackmark.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "Rlock",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rlock",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/recipes/rlock.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "LockChest",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "lock_chest",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/LockChestProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/LockSystem"
+    },
+    {
+      "name": "CheckChest",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_chest",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/CheckChestProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/LockSystem"
+    },
+    {
+      "name": "SetEvent",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "set_event",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/SetEventProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/EventsSystem"
+    },
+    {
+      "name": "ReignEvents",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "reign_events",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/command/ReignEventsCommand.java"
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "FirstLock",
+      "type": "achievement",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "first_lock",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/advancements/first_lock.json"
+        ]
+      },
+      "path": "~/Achievements"
+    },
+    {
+      "name": "KeyAddInfo",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "key_add_info",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/KeyAddInfoProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/LockSystem"
+    },
+    {
+      "name": "Key",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "key",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/item/KeyItem.java",
+          "src/main/resources/assets/reign_mod/models/item/key.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "Wallet",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wallet",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/item/WalletItem.java",
+          "src/main/resources/assets/reign_mod/models/item/wallet.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "Walletwin",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "walletwin",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/world/inventory/WalletwinMenu.java",
+          "src/main/java/net/mcreator/reignmod/client/gui/WalletwinScreen.java",
+          "src/main/java/net/mcreator/reignmod/network/WalletwinSlotMessage.java"
+        ]
+      },
+      "path": "~/UI"
+    },
+    {
+      "name": "Rwallet",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rwallet",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/recipes/rwallet.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "Rkey",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rkey",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/recipes/rkey.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "OpenWallet",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_wallet",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/OpenWalletProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/WalletSystem"
+    },
+    {
+      "name": "UpdateWallet",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "update_wallet",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/UpdateWalletProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/WalletSystem"
+    },
+    {
+      "name": "WalletName",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wallet_name",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/WalletNameProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/WalletSystem"
+    },
+    {
+      "name": "WalletSetName",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wallet_set_name",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/WalletSetNameProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/WalletSystem"
+    },
+    {
+      "name": "RTextbook",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "r_textbook",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/recipes/r_textbook.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "RTrader",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "r_trader",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/recipes/r_trader.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "RMarket",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "r_market",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/recipes/r_market.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "Rhoarder",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rhoarder",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/recipes/rhoarder.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "Textbookmain",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "textbookmain",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/client/gui/TextbookmainScreen.java",
+          "src/main/java/net/mcreator/reignmod/world/inventory/TextbookmainMenu.java"
+        ]
+      },
+      "path": "~/UI/Textbook"
+    },
+    {
+      "name": "SpawnCancel",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "spawn_cancel",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/SpawnCancelProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/VanillaChange"
+    },
+    {
+      "name": "Kpriceset",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kpriceset",
+      "metadata": {
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/KpricesetProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "amount",
+            "type": "number"
+          },
+          {
+            "name": "max",
+            "type": "number"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem"
+    },
+    {
+      "name": "SoundSale",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sound_sale",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/SoundSaleProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/UI"
+    },
+    {
+      "name": "HoneyConcentrate",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "honey_concentrate",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/reign_mod/models/item/honey_concentrate.json",
+          "src/main/java/net/mcreator/reignmod/item/HoneyConcentrateItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "Rhoneyconcentrate",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rhoneyconcentrate",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/recipes/brewing/RhoneyconcentrateBrewingRecipe.java"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "GoWalletCoin",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "go_wallet_coin",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/GoWalletCoinProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/WalletSystem"
+    },
+    {
+      "name": "FlagCopy",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "flag_copy",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/FlagCopyProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems"
+    },
+    {
+      "name": "InventoryToWallet",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "inventory_to_wallet",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/InventoryToWalletProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/WalletSystem"
+    },
+    {
+      "name": "WalletGeneralCost",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wallet_general_cost",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/WalletGeneralCostProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/WalletSystem"
+    },
+    {
+      "name": "ReturnMarketBar03",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_market_bar_03",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnMarketBar03Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/MarketBar"
+    },
+    {
+      "name": "ReturnMarketBar13",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_market_bar_13",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnMarketBar13Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/MarketBar"
+    },
+    {
+      "name": "ReturnMarketBar23",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_market_bar_23",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnMarketBar23Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/MarketBar"
+    },
+    {
+      "name": "ReturnMarketBar33",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_market_bar_33",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnMarketBar33Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/MarketBar"
+    },
+    {
+      "name": "TextMarketBar",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "text_market_bar",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/TextMarketBarProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/MarketBar"
+    },
+    {
+      "name": "SlotUpdate",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "slot_update",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/SlotUpdateProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem"
+    },
+    {
+      "name": "TextMarketTax",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "text_market_tax",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/TextMarketTaxProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/MarketBar"
+    },
+    {
+      "name": "LossLvlDeath",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "loss_lvl_death",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/LossLvlDeathProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem"
+    },
+    {
+      "name": "CutSheep",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cut_sheep",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/CutSheepProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Scripts/LicensesSystem/ExpSkills"
+    },
+    {
+      "name": "CapitalBlockCheck",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "capital_block_check",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/CapitalBlockCheckProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/CapitalSystem"
+    },
+    {
+      "name": "MobsDrop",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mobs_drop",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/MobsDropProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/ExpSkills"
+    },
+    {
+      "name": "ChooseCowboy",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "choose_cowboy",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ChooseCowboyProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/Choosing"
+    },
+    {
+      "name": "ChooseHunter",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "choose_hunter",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ChooseHunterProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/Choosing"
+    },
+    {
+      "name": "Returncowboy",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "returncowboy",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturncowboyProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "Returnhunter",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "returnhunter",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnhunterProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "DefendGrifCapital",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "defend_grif_capital",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/DefendGrifCapitalProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/CapitalSystem"
+    },
+    {
+      "name": "Rock",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rock",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/block/RockBlock.java",
+          "src/main/resources/assets/reign_mod/blockstates/rock.json",
+          "src/main/resources/data/reign_mod/loot_tables/blocks/rock.json",
+          "src/main/resources/assets/reign_mod/models/item/rock.json",
+          "src/main/resources/assets/reign_mod/models/block/rock.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "RRock",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "r_rock",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/recipes/r_rock.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "RIron2",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "r_iron_2",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/recipes/r_iron_2.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "RGold2",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "r_gold_2",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/recipes/r_gold_2.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "RNetherit2",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "r_netherit_2",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/recipes/r_netherit_2.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "Change0Slot",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "change_0_slot",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/Change0SlotProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/WalletSystem"
+    },
+    {
+      "name": "Change1Slot",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "change_1_slot",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/Change1SlotProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/WalletSystem"
+    },
+    {
+      "name": "Change2Slot",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "change_2_slot",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/Change2SlotProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/WalletSystem"
+    },
+    {
+      "name": "Kingtable",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kingtable",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/block/KingtableBlock.java",
+          "src/main/resources/assets/reign_mod/models/block/kingtable.json",
+          "src/main/resources/data/reign_mod/loot_tables/blocks/kingtable.json",
+          "src/main/resources/assets/reign_mod/blockstates/kingtable.json",
+          "src/main/resources/assets/reign_mod/models/item/kingtable.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "KingtableUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kingtable_ui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/client/gui/KingtableUIScreen.java",
+          "src/main/java/net/mcreator/reignmod/world/inventory/KingtableUIMenu.java"
+        ]
+      },
+      "path": "~/UI"
+    },
+    {
+      "name": "BlastFurnaceBlock",
+      "type": "mixin",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "blast_furnace_block",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/mixins/BlastFurnaceBlockMixin.java"
+        ]
+      },
+      "path": "~/Mixins/BlocksClosed"
+    },
+    {
+      "name": "SmokerBlock",
+      "type": "mixin",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "smoker_block",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/mixins/SmokerBlockMixin.java"
+        ]
+      },
+      "path": "~/Mixins/BlocksClosed"
+    },
+    {
+      "name": "AnvilBlock",
+      "type": "mixin",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "anvil_block",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/mixins/AnvilBlockMixin.java"
+        ]
+      },
+      "path": "~/Mixins/BlocksClosed"
+    },
+    {
+      "name": "EnchantingTable",
+      "type": "mixin",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "enchanting_table",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/mixins/EnchantingTableMixin.java"
+        ]
+      },
+      "path": "~/Mixins/BlocksClosed"
+    },
+    {
+      "name": "GrindstoneBlock",
+      "type": "mixin",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "grindstone_block",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/mixins/GrindstoneBlockMixin.java"
+        ]
+      },
+      "path": "~/Mixins/BlocksClosed"
+    },
+    {
+      "name": "SmithingTableBlock",
+      "type": "mixin",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "smithing_table_block",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/mixins/SmithingTableBlockMixin.java"
+        ]
+      },
+      "path": "~/Mixins/BlocksClosed"
+    },
+    {
+      "name": "BrewingStandBlock",
+      "type": "mixin",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "brewing_stand_block",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/mixins/BrewingStandBlockMixin.java"
+        ]
+      },
+      "path": "~/Mixins/BlocksClosed"
+    },
+    {
+      "name": "FragmentOfRecord",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fragment_of_record",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/reign_mod/models/item/fragment_of_record.json",
+          "src/main/java/net/mcreator/reignmod/item/FragmentOfRecordItem.java"
+        ]
+      },
+      "path": "~/Items/RuinLord"
+    },
+    {
+      "name": "FragmentOfRecord2",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fragment_of_record_2",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/item/FragmentOfRecord2Item.java",
+          "src/main/resources/assets/reign_mod/models/item/fragment_of_record_2.json"
+        ]
+      },
+      "path": "~/Items/RuinLord"
+    },
+    {
+      "name": "FragmentOfRecord3",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fragment_of_record_3",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/item/FragmentOfRecord3Item.java",
+          "src/main/resources/assets/reign_mod/models/item/fragment_of_record_3.json"
+        ]
+      },
+      "path": "~/Items/RuinLord"
+    },
+    {
+      "name": "RuinLord1",
+      "type": "musicdisc",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ruin_lord_1",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/reign_mod/models/item/ruin_lord_1.json",
+          "src/main/java/net/mcreator/reignmod/item/RuinLord1Item.java"
+        ]
+      },
+      "path": "~/Items/RuinLord"
+    },
+    {
+      "name": "RuinLord2",
+      "type": "musicdisc",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ruin_lord_2",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/reign_mod/models/item/ruin_lord_2.json",
+          "src/main/java/net/mcreator/reignmod/item/RuinLord2Item.java"
+        ]
+      },
+      "path": "~/Items/RuinLord"
+    },
+    {
+      "name": "RuinLord3",
+      "type": "musicdisc",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ruin_lord_3",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/item/RuinLord3Item.java",
+          "src/main/resources/assets/reign_mod/models/item/ruin_lord_3.json"
+        ]
+      },
+      "path": "~/Items/RuinLord"
+    },
+    {
+      "name": "DontCutSheep",
+      "type": "mixin",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "dont_cut_sheep",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/mixins/DontCutSheepMixin.java"
+        ]
+      },
+      "path": "~/Mixins"
+    },
+    {
+      "name": "RuinLord1R",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ruin_lord_1_r",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/recipes/ruin_lord_1_r.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "RuinLord2r",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ruin_lord_2r",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/recipes/ruin_lord_2r.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "RuinLord3r",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ruin_lord_3r",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/recipes/ruin_lord_3r.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "HouseCreate",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "house_create",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/HouseCreateProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "guistate",
+            "type": "map"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript"
+    },
+    {
+      "name": "NewHouse",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "new_house",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/client/gui/NewHouseScreen.java",
+          "src/main/java/net/mcreator/reignmod/world/inventory/NewHouseMenu.java",
+          "src/main/java/net/mcreator/reignmod/network/NewHouseButtonMessage.java"
+        ]
+      },
+      "path": "~/UI"
+    }
+  ],
+  "variable_elements": [
+    {
+      "name": "license_woodcuter",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "license_smith",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "license_fisher",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "license_miner",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "license_farmer",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "license_soldier",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "Your_Majesty",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "Hand_of_the_King",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "license_alchemist",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "license_librarian",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "isLord",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "logs_price",
+      "type": "number",
+      "scope": "map",
+      "value": "0.0"
+    },
+    {
+      "name": "coal_price",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "food_price",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "armor_price",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "tools_price",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "other_price",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "ores_price",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "VC_X",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "VC_Y",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "VC_Z",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "taxInTransaction",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "MAIN_LVL",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "ADD_LVL",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "ERA",
+      "type": "number",
+      "scope": "map",
+      "value": "0.0"
+    },
+    {
+      "name": "last_refuse_day",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "last_refuse_month",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "isCriminal",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "Prison_X",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "Prison_Y",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "Prison_Z",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "CapitalHave",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "CAPITAL_X",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "CAPITAL_Y",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "CAPITAL_Z",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "white_free",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "yellow_free",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "lime_free",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "green_free",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "biruz_free",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "blue_free",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "purple_free",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "pink_free",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "red_free",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "orange_free",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "brown_free",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "black_free",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "LordisNumberKingdom",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "PlayerColor",
+      "type": "string",
+      "scope": "player_persistent",
+      "value": "\"\""
+    },
+    {
+      "name": "Kingdom_X",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "Kingdom_Y",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "Kingdom_Z",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "crown_id",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "FirstEnter",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "LastEnter_Day",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "LastEnter_Month",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "DaysOnline",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "count_woodcutter",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "count_smith",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "count_miner",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "count_farmer",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "EVENT_PLAGUE",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "EVENT_STARVATION",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "license_cowboy",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "license_hunter",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "Tutorial_pass",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "house",
+      "type": "string",
+      "scope": "player_persistent",
+      "value": "\"\""
+    }
+  ],
+  "sound_elements": [
+    {
+      "name": "coin1",
+      "files": [
+        "coin1v"
+      ],
+      "category": "master",
+      "subtitle": ""
+    },
+    {
+      "name": "coin2",
+      "files": [
+        "coin2v"
+      ],
+      "category": "master",
+      "subtitle": ""
+    },
+    {
+      "name": "coin3",
+      "files": [
+        "coin3v"
+      ],
+      "category": "master",
+      "subtitle": ""
+    },
+    {
+      "name": "yourlawnisbool",
+      "files": [
+        "yourlawnisbool_rock"
+      ],
+      "category": "music",
+      "subtitle": ""
+    },
+    {
+      "name": "locked_chest",
+      "files": [
+        "locked_chest"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "wallet_sound",
+      "files": [
+        "wallet"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "market_open",
+      "files": [
+        "market_open"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "wallet_shake",
+      "files": [
+        "wallet_shake"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "the-calm-before-the-storm",
+      "files": [
+        "the-calm-before-the-storm"
+      ],
+      "category": "music",
+      "subtitle": ""
+    },
+    {
+      "name": "light-after-darkness",
+      "files": [
+        "lightafterdarkness"
+      ],
+      "category": "music",
+      "subtitle": ""
+    },
+    {
+      "name": "lasto-beth-lammen",
+      "files": [
+        "lasto_beth_lammen"
+      ],
+      "category": "music",
+      "subtitle": ""
+    }
+  ],
+  "tag_elements": {
+    "ITEMS:reign:coins": [
+      "CUSTOM:GoldCoin",
+      "CUSTOM:SilverCoin",
+      "CUSTOM:CopperCoin",
+      "CUSTOM:PlatinumCoin"
+    ],
+    "BLOCKS:minecraft:mineable/pickaxe": [
+      "~CUSTOM:Rock",
+      "~CUSTOM:HoarderBlock",
+      "~CUSTOM:MarketBlock"
+    ],
+    "BLOCKS:minecraft:s_logs": [
+      "Blocks.STRIPPED_OAK_LOG",
+      "Blocks.STRIPPED_SPRUCE_LOG",
+      "Blocks.STRIPPED_BIRCH_LOG",
+      "Blocks.STRIPPED_JUNGLE_LOG",
+      "Blocks.STRIPPED_ACACIA_LOG",
+      "Blocks.STRIPPED_DARK_OAK_LOG",
+      "Blocks.STRIPPED_WARPED_STEM",
+      "Blocks.STRIPPED_CRIMSON_STEM",
+      "Blocks.STRIPPED_MANGROVE_LOG",
+      "Blocks.STRIPPED_CHERRY_LOG",
+      "Blocks.STRIPPED_OAK_WOOD",
+      "Blocks.STRIPPED_SPRUCE_WOOD",
+      "Blocks.STRIPPED_BIRCH_WOOD",
+      "Blocks.STRIPPED_JUNGLE_WOOD",
+      "Blocks.STRIPPED_ACACIA_WOOD",
+      "Blocks.STRIPPED_DARK_OAK_WOOD",
+      "Blocks.STRIPPED_WARPED_HYPHAE",
+      "Blocks.STRIPPED_CRIMSON_HYPHAE",
+      "Blocks.STRIPPED_MANGROVE_WOOD",
+      "Blocks.STRIPPED_CHERRY_WOOD"
+    ],
+    "ENTITIES:reign:farmer_cattle": [
+      "EntityCow",
+      "EntitySheep",
+      "EntityPig",
+      "EntityHorse",
+      "EntityChicken",
+      "EntityGoat",
+      "EntityRabbit"
+    ],
+    "ITEMS:minecraft:music_discs": [
+      "~CUSTOM:RuinLord3",
+      "~CUSTOM:RuinLord2",
+      "~CUSTOM:RuinLord1",
+      "~CUSTOM:YourLawnIsBool"
+    ],
+    "BLOCKS:minecraft:mineable/axe": [
+      "~CUSTOM:Kingtable",
+      "~CUSTOM:TradeBlock"
+    ],
+    "ITEMS:reign:smith_items": [
+      "Items.IRON_SWORD",
+      "Items.IRON_SHOVEL",
+      "Items.IRON_PICKAXE",
+      "Items.IRON_AXE",
+      "Items.IRON_HOE",
+      "Items.FLINT_AND_STEEL",
+      "Items.SHEARS",
+      "Items.GOLDEN_SWORD",
+      "Items.GOLDEN_SHOVEL",
+      "Items.GOLDEN_PICKAXE",
+      "Items.GOLDEN_AXE",
+      "Items.GOLDEN_HOE",
+      "Items.DIAMOND_SWORD",
+      "Items.DIAMOND_SHOVEL",
+      "Items.DIAMOND_PICKAXE",
+      "Items.DIAMOND_AXE",
+      "Items.DIAMOND_HOE",
+      "Items.NETHERITE_SWORD",
+      "Items.NETHERITE_SHOVEL",
+      "Items.NETHERITE_PICKAXE",
+      "Items.NETHERITE_AXE",
+      "Items.NETHERITE_HOE",
+      "Items.CHAINMAIL_HELMET",
+      "Items.CHAINMAIL_CHESTPLATE",
+      "Items.CHAINMAIL_LEGGINGS",
+      "Items.CHAINMAIL_BOOTS",
+      "Items.IRON_HELMET",
+      "Items.IRON_CHESTPLATE",
+      "Items.IRON_LEGGINGS",
+      "Items.IRON_BOOTS",
+      "Items.GOLDEN_HELMET",
+      "Items.GOLDEN_CHESTPLATE",
+      "Items.GOLDEN_LEGGINGS",
+      "Items.GOLDEN_BOOTS",
+      "Items.DIAMOND_HELMET",
+      "Items.DIAMOND_CHESTPLATE",
+      "Items.DIAMOND_LEGGINGS",
+      "Items.DIAMOND_BOOTS",
+      "Items.NETHERITE_HELMET",
+      "Items.NETHERITE_CHESTPLATE",
+      "Items.NETHERITE_LEGGINGS",
+      "Items.NETHERITE_BOOTS",
+      "Items.ELYTRA",
+      "Items.LEATHER_HORSE_ARMOR",
+      "Items.IRON_HORSE_ARMOR",
+      "Items.GOLDEN_HORSE_ARMOR",
+      "Items.DIAMOND_HORSE_ARMOR",
+      "Items.BOW",
+      "Items.CROSSBOW",
+      "Items.SHIELD"
+    ],
+    "ENTITIES:reign:hunter_mobs": [
+      "EntityCreeper",
+      "EntitySkeleton",
+      "EntityCaveSpider",
+      "EntitySpider",
+      "EntityZombie",
+      "EntityPigZombie",
+      "EntityBlaze",
+      "EntityFox",
+      "EntityGhast",
+      "EntityMagmaCube",
+      "EntityPiglin",
+      "EntityPiglinBrute",
+      "EntityPolarBear",
+      "EntityRavager",
+      "EntityShulker",
+      "EntitySlime",
+      "EntitySalmon",
+      "EntityPufferfish",
+      "EntitySilverfish",
+      "EntityTropicalFish"
+    ],
+    "ITEMS:minecraft:cattle_feed": [
+      "Items.WHEAT_SEEDS",
+      "Items.PUMPKIN_SEEDS",
+      "Items.MELON_SEEDS",
+      "Items.BEETROOT_SEEDS",
+      "Blocks.WHEAT",
+      "Items.WHEAT",
+      "Items.CARROT",
+      "Items.GOLDEN_CARROT",
+      "Items.POTATO",
+      "Items.BEETROOT",
+      "Blocks.YELLOW_FLOWER",
+      "Items.GOLDEN_APPLE#0",
+      "Items.GOLDEN_APPLE#1"
+    ],
+    "ITEMS:reign:miner_market": [
+      "Items.IRON_INGOT",
+      "Items.COPPER_INGOT",
+      "Items.GOLD_INGOT",
+      "Items.NETHERITE_INGOT",
+      "Items.RAW_COPPER",
+      "Items.RAW_IRON",
+      "Items.RAW_GOLD",
+      "Items.NETHERITE_SCRAP",
+      "Items.DIAMOND",
+      "Items.EMERALD",
+      "Items.REDSTONE",
+      "Items.DYE#4"
+    ],
+    "BLOCKS:minecraft:replaceable": [
+      "~CUSTOM:Rock"
+    ]
+  },
+  "tab_element_order": {
+    "CUSTOM:CreativeTab": [
+      "Crown",
+      "RightHand",
+      "Textbook",
+      "CopperCoin",
+      "SilverCoin",
+      "GoldCoin",
+      "PlatinumCoin",
+      "TradeBlock",
+      "MarketBlock",
+      "Coffers",
+      "Fund",
+      "HoarderBlock",
+      "Kingtable",
+      "WoodcutterCoin",
+      "SmithCoin",
+      "MinerCoin",
+      "FarmerCoin",
+      "Blackmark",
+      "Lock",
+      "Key",
+      "Wallet",
+      "HoneyConcentrate",
+      "RuinLord2",
+      "RuinLord1",
+      "RuinLord3",
+      "YourLawnIsBool"
+    ]
+  },
+  "language_map": {
+    "ru_ru": {
+      "item.reign_mod.ruin_lord_2.desc": "Ruin Lord - Light after darkness",
+      "item_group.reign_mod.creative_tab": "Reign",
+      "pay_free": "Нашёл на земле:",
+      "gui.reign_mod.win_view.tooltip_cattle_breeding": "Скотоводство",
+      "gui.reign_mod.license_is_selected.label_the_main_license_has_been_select": "Основная лицензия уже выбрана.",
+      "NotAlchemistSay": "Надеюсь оно не взорвётся...",
+      "gui.reign_mod.new_house.tooltip_napishitie_imia_i_vybieritie_tsviet_bud": "Выберите имя и цвет нового королевства",
+      "gui.reign_mod.dfgdfgdf.button_buy": "КУПИТЬ",
+      "item.reign_mod.your_lawn_is_bool": "Your Lawn Is Bool",
+      "item.reign_mod.farmer_coin": "Монета фермера",
+      "subtitles.thecalmbeforethestorm": "",
+      "gui.reign_mod.win_view.tooltip_chance_to_get_a_haste_effect": "Добыча глубинных пород.",
+      "gui.reign_mod.win_view.tooltip_netherite_mining": "Добыча Незерита",
+      "gui.reign_mod.walletwin.label_wallet": "Кошель",
+      "translation.key.good_tax": "налог:",
+      "advancements.horder_use.descr": "Получите монету у барахольщика.",
+      "gui.reign_mod.add_license_list.button_soldier": "Солдат",
+      "subtitles.the-calm-before-the-storm": "",
+      "gui.reign_mod.dsf.button_farmer": "Фермер      ",
+      "NotEnchanterSay": "Не знаю что это такое...",
+      "gui.reign_mod.add_license_list.label_osnovnyie_litsienzii": "Основные лицензии",
+      "gui.reign_mod.trader_point.label_punkt_priioma": "Пункт приёма",
+      "gui.reign_mod.royale_settings.label_armor": "БРОНЯ",
+      "gui.reign_mod.dsf.button_woodcutter": "Дровосек  ",
+      "block.reign_mod.fund": "Фонд",
+      "gui.reign_mod.royale_settings.tools_textfield": "",
+      "key.reign_mod.open_royale_settings": "Открыть королевские настройки",
+      "advancements.gotcha.descr": "Попадите в тюрьму.",
+      "gui.reign_mod.kingtable_ui.label_kingtable_lable": "kingtable_lable",
+      "advancements.welcome_to_reign.descr": "Один, что правит всеми.",
+      "advancements.full_lvl.descr": "Полностью улучшите лицензию.",
+      "gui.reign_mod.dsf.button_button_cowboy": "Пастух",
+      "advancements.days_online_7.descr": "7 дней подряд онлайн!",
+      "gui.reign_mod.win_view.tooltip_and_another_20_of_field_yields": "+50% урожайности с полей.",
+      "translation.key.houseNameTaken": "Дом с таким именем уже существует!",
+      "gui.reign_mod.add_license_list.button_enchanter": "Чародей",
+      "gui.reign_mod.dsf.button_miner": "Шахтер    ",
+      "gui.reign_mod.fund_ui.tooltip_iron_processing": "Обработка железа",
+      "gui.reign_mod.win_view.tooltip_10_chance_to_gain_a_chopping_sp": "10% шанс получить ускорение при рубке.",
+      "gui.reign_mod.royale_settings.label_logs": "БРЕВНА",
+      "advancements.strained_experience.title": "Напряжённый опыт",
+      "block.reign_mod.kingtable": "Королевский стол",
+      "gui.reign_mod.dsf.label_osnovnyie_litsienzii": "Основные лицензии",
+      "gui.reign_mod.fund_ui.tooltip_1_kingdom": "+1 королевство",
+      "gui.reign_mod.win_view.tooltip_fisher_3": "Шанс получить эффект удачи при ловле.",
+      "gui.reign_mod.fund_ui.tooltip_openning_the_nether": "Открытие Нижнего мира",
+      "gui.reign_mod.win_view.tooltip_fisher_4": "+25% шанс подсечь. (100%)",
+      "NotLord": " больше не лорд.",
+      "gui.reign_mod.win_view.tooltip_fisher_1": "50% шанс подсечь.",
+      "effect.reign_mod.criminal": "Преступник",
+      "gui.reign_mod.win_view.tooltip_fisher_2": "+25% шанс подсечь. (75%)",
+      "gui.reign_mod.license_is_selected.label_all_experience_will_be_lost": "Весь опыт будет потерян.",
+      "piston": "Механизм сломался. Может, ещё не время?",
+      "gui.reign_mod.royale_settings.coal_textfield": "",
+      "gui.reign_mod.fund_ui.tooltip_opening_sticky_pistons": "Открытие механизмов",
+      "gui.reign_mod.new_house.label_sozdaniie_novogho_korolievstva": "Новое королевство",
+      "gui.reign_mod.market.label_cost": "цена",
+      "item.reign_mod.crown_helmet": "Корона",
+      "item.reign_mod.textbook": "Учебник ReignMod",
+      "gui.reign_mod.royale_settings.label_ores": "РУДЫ",
+      "advancements.days_online_30.descr": "Месяц онлайн!",
+      "gui.reign_mod.trader_point.sale_off": "OFF",
+      "gui.reign_mod.win_view.tooltip_another_20_yield_from_fields": "Пчеловодство",
+      "gui.reign_mod.win_view.label_licenses_are_your_line_of_busine": "Лицензия - ваш род деятельности.",
+      "item.reign_mod.ruin_lord_3": "Dusty record",
+      "gui.reign_mod.royale_settings.tooltip_set_the_of_tax_that_will_go_to": "Установите % налогов, поступающих в казну",
+      "item.reign_mod.ruin_lord_2": "Interesting record",
+      "item.reign_mod.ruin_lord_1": "Strange record",
+      "gui.reign_mod.add_license_list.button_fisher": "Рыбак",
+      "gui.reign_mod.market.label_tax_count": "tax_count",
+      "NotCowboy": "Я не разводить животных.",
+      "gui.reign_mod.win_view.button_minor_license": "Доп. лицензия",
+      "item.reign_mod.copper_coin": "Медная монета",
+      "farmer_cantpumpkin": "Я не знаю как собирать блочные культуры.",
+      "zombieapple": "Неужели это всё выдумки?",
+      "gui.reign_mod.win_view.tooltip_25_chance_to_not_damage_the_axe": "25% шанс не повредить топор.",
+      "imprisoned": " заключён.",
+      "gui.reign_mod.license_is_selected.label_do_you_want_to_give_it_up": "Хотите отказаться от неё?",
+      "translation.key.LossLvl": "Кажется, вы забыли что-то важное...",
+      "advancements.first_lock.descr": "Lock the chest.",
+      "effect.reign_mod.bee_effect": "Пчелинная защита",
+      "gui.reign_mod.market.label_amount": "количество",
+      "advancements.horder_use.title": "А медь-то злато бережёт.",
+      "newlord": "Первый своего имени: ",
+      "item.reign_mod.miner_coin": "Монета шахтёра",
+      "gui.reign_mod.add_license_list.button_hunter_button": "Охотник",
+      "copper_coins_pay": "медных монет.",
+      "block.reign_mod.market_block": "Рынок",
+      "gui.reign_mod.market.tooltip_buy_goods_for_money": "Покупайте товары за монеты",
+      "donate": "Вы пожертвовали в казну.",
+      "gui.reign_mod.fund_ui.tooltip_donate_coins_to_advance_to_a_new": "Жертвуйте монеты для продвижения к новому времени.",
+      "oldCrown": "Корона рассыпается в прах на твоих глазах. В ней больше нет былой силы.",
+      "gui.reign_mod.beta_textbook_2.button_back": "назад",
+      "gui.reign_mod.hoarder.label_hoarder": "Барахольщик",
+      "item.reign_mod.your_lawn_is_bool.desc": "Mow everything!",
+      "gui.reign_mod.market.label_market": "Рынок",
+      "translation.key.GriefCapital": "Я не могу это делать в столице.",
+      "item.reign_mod.woodcutter_coin": "Монета дровосека",
+      "translation.key.locked": "Закрыто на замок.",
+      "advancements.strained_experience.descr": "Заставьте себя выкинуть этот опыт из головы.",
+      "license_refuse": "Лицензия отозвана.",
+      "gui.reign_mod.royale_settings.logs_textfield": "",
+      "gui.reign_mod.win_view.tooltip_25_no_damage_to_pickaxe": "20% шанс не повредить инструмент.",
+      "advancements.days_online_7.title": "Постоялец",
+      "newera": "Мир переходит в новую эру: ",
+      "gui.reign_mod.royale_settings.label_tools": "ИНСТРУМ.",
+      "gui.reign_mod.license_is_selected.button_refuse": "Отказаться",
+      "gui.reign_mod.win_view.tooltip_10_yield_from_fields": "Выращивание корнеплодов.",
+      "translation.key.already_locked": "Замок уже заперт",
+      "gui.reign_mod.win_view.tooltip_another_20_additional_drops": "ещё +20% дополнительного дропа.",
+      "advancements.days_online_14.title": "Местный знаток",
+      "gui.reign_mod.dsf.tooltip_vybieritie_osnovnoi_stil_ighry": "Выберите основной стиль игры.",
+      "subtitles.wallet_sound": "",
+      "KingOnline": "§6Король в сети!",
+      "gui.reign_mod.royale_settings.label_food": "ЕДА",
+      "advancements.one_lvl.descr": "Улучшите лицензию.",
+      "subtitles.locked_chest": "",
+      "advancements.so_slippery.title": "Эх, ускользнула!",
+      "gui.reign_mod.new_house.label_4": "4",
+      "subtitles.wallet_shake": "",
+      "NotSmithSay": "Я не умею работать с этим.",
+      "item.reign_mod.honey_concentrate": "Концентрат мёда",
+      "gui.reign_mod.dsf.button_blacksmith": "Кузнец    ",
+      "gui.reign_mod.royale_settings.label_royal_decrees": "Королевские указы",
+      "KingdomDelete": "Королевство распалось: ",
+      "NotKing": "Недостаточно полномочий.",
+      "item.reign_mod.key": "Key",
+      "gui.reign_mod.add_license_list.button_alchemist": "Алхимик",
+      "block.reign_mod.trade_block": "Пункт приёма",
+      "block.reign_mod.plus": "Plus",
+      "item.reign_mod.blackmark": "Чёрная метка",
+      "gui.reign_mod.market_2.button_buy": "КУПИТЬ",
+      "gui.reign_mod.walletwin.label_17569": "17569",
+      "newhouse": "Основан Дом:",
+      "item.reign_mod.ruin_lord_3.desc": "Ruin Lord - Lasto Beth Lammen",
+      "gui.reign_mod.hoarder.tooltip_sell_64_units_of_any_product_f": "Продайте 64 единицы любого товара за 2 медные монеты.",
+      "gui.reign_mod.market_2.label_cost": "цена",
+      "gui.reign_mod.add_license_list.tooltip_vybieritie_osnovnoi_stil_ighry": "Выберите основной стиль игры.",
+      "item.reign_mod.gold_coin": "Золотая монета",
+      "gui.reign_mod.market.button_x4": "X4",
+      "gui.reign_mod.royale_settings.armor_textfield": "",
+      "gui.reign_mod.win_view.tooltip_1_to_axe_damage": "+1 к урону топором.",
+      "gui.reign_mod.fund_ui.label_forward_to_a_new_time": "К новому времени...",
+      "advancements.so_slippery.descr": "Оборвите леску.",
+      "item.reign_mod.lock": "Замок",
+      "gui.reign_mod.add_license_is_selected.button_refuse": "Отозвать",
+      "gui.reign_mod.add_license_is_selected.label_do_you_want_to_give_it_up": "Хотите отказаться от неё?",
+      "gui.reign_mod.beta_textbook.button_next": "далее",
+      "gui.reign_mod.royale_settings.label_other": "ДРУГОЕ",
+      "NotFarmer": "Я не умею обрабатывать землю.",
+      "gui.reign_mod.win_view.tooltip_20_additional_drop": "+25% доп. дропа обычных руд.",
+      "translation.key.choose_good": "выберите товар",
+      "gui.reign_mod.new_house.label_found_a_house": "Found a House",
+      "gui.reign_mod.win_view.tooltip_20_additional_drops": "+20% дополнительного дропа.",
+      "subtitles.light-after-darkness": "",
+      "knighting": " посвящён в рыцари королевства: ",
+      "item.reign_mod.fragment_of_record_2": "Fragment of record #2",
+      "item.reign_mod.fragment_of_record_3": "Fragment of record #3",
+      "criminal_true": " объявлен преступником.",
+      "gui.reign_mod.win_view.tooltip_soldier_3": "+1 к урону мечом.",
+      "gui.reign_mod.win_view.tooltip_soldier_2": "+50% урона стрел.",
+      "gui.reign_mod.win_view.tooltip_soldier_5": "Восстановление части потерянного здоровья.",
+      "gui.reign_mod.win_view.tooltip_soldier_4": "Прилив силы после получения урона.",
+      "NotCowboy1LVL": "Я пока не научился стричь овец.",
+      "gui.reign_mod.win_view.tooltip_soldier_1": "Первые тренировки.",
+      "item.reign_mod.wallet": "Кошель",
+      "gui.reign_mod.win_view.tooltip_you_can_have_up_to_two_licenses": "Вы можете иметь до 2 лицензий",
+      "advancements.days_online_14.descr": "14 дней подряд онлайн!",
+      "gui.reign_mod.add_license_is_selected.label_the_main_license_has_been_select": "Доп. лицензия уже выбрана.",
+      "gui.reign_mod.trader_point.tooltip_sell_your_goods_to_the_capital": "Продавайте свои товары столице за деньги",
+      "alreadyKnight": "уже ваш рыцарь.",
+      "block.reign_mod.hoarder_block": "Барахольщик",
+      "block.reign_mod.coffers": "Казна",
+      "pay_king": "Королевский доход:",
+      "gui.reign_mod.royale_settings.other_textfield": "",
+      "advancements.first_lock.title": "This is mine.",
+      "gui.reign_mod.fund_ui.tooltip_3_kingdoms": "+3 королевства",
+      "advancements.gotcha.title": "Попался!",
+      "advancements.true_to_the_oath.title": "Верный клятве",
+      "criminal_false": " помилован.",
+      "gui.reign_mod.coffers_ui.label_coffers": "КАЗНА",
+      "translation.key.keyinfo": "Ключ игрока:",
+      "item.reign_mod.ruin_lord_1.desc": "Ruin Lord - The calm before the storm",
+      "gui.reign_mod.new_house.label_coins": "монеты",
+      "NoFisherSay": "Какая скользкая!",
+      "gui.reign_mod.dsfminor.tooltip_vybieritie_osnovnoi_stil_ighry": "Выберите основной стиль игры.",
+      "gui.reign_mod.add_license_is_selected.label_all_experience_will_be_lost": "Весь опыт будет потерян.",
+      "pay_lord": "Прибыль Лорда:",
+      "gui.reign_mod.new_kingdom_ui.label_color": "Цвет:",
+      "gui.reign_mod.win_view.tooltip_smith_lvl5": "Доступ к кузнечному столу.",
+      "item.reign_mod.right_hand": "Знак Десницы",
+      "gui.reign_mod.win_view.tooltip_smith_lvl2": "Ремонт на точиле.",
+      "advancements.one_lvl.title": "Любитель",
+      "gui.reign_mod.win_view.tooltip_smith_lvl1": "-10% брака.",
+      "gui.reign_mod.fund_ui.tooltip_redstone_kesearch": "Изучение редстоуна",
+      "gui.reign_mod.win_view.tooltip_smith_lvl4": "Отсутствует брак.",
+      "gui.reign_mod.win_view.tooltip_smith_lvl3": "Использование наковальни.",
+      "subtitles.lasto-beth-lammen": "",
+      "gui.reign_mod.textbook_1.label_textbook": "Учебник",
+      "gui.reign_mod.royale_settings.label_coal": "УГОЛЬ",
+      "gui.reign_mod.textbook_1.button_next": "назад",
+      "gui.reign_mod.royale_settings.ores_textfield": "",
+      "advancements.true_to_the_oath.descr": "Стань рыцарем.",
+      "gui.reign_mod.fund_ui.tooltip_processing_of_precious_ores": "Обработка драгоценных руд",
+      "key.reign_mod.open_licenses": "Окно лицензий",
+      "gui.reign_mod.coffers_ui.tooltip_this_is_where_government_money_i": "Здесь хранятся государственные деньги.",
+      "gui.reign_mod.win_view.tooltip_fihsher_5": "Эффект подводного дыхания на 5 мин после ловли.",
+      "gui.reign_mod.royale_settings.food_textfield": "",
+      "item.reign_mod.smith_coin": "Монета кузнеца",
+      "gui.reign_mod.textbook_1.button_back": "далее",
+      "gui.reign_mod.new_house.button_create": "Create",
+      "farmer_cantpotato": "Я не умею выращивать корнеплоды.",
+      "advancements.days_online_30.title": "Собственник",
+      "gui.reign_mod.fund_ui.tooltip_netherite_processing": "Обработка незерита",
+      "count_days": "Дней подряд:",
+      "BeeLock": "Какие-то неправильные пчёлы...",
+      "pay_knight": "Зарплата сэра:",
+      "advancements.full_lvl.title": "Мастер",
+      "item.reign_mod.silver_coin": "Серебрянная монета",
+      "gui.reign_mod.new_house.label_name": "Choose color",
+      "gui.reign_mod.win_view.tooltip_luck_in_mining_precious_ores": "+33% доп. дропа драгоценных руд",
+      "item.reign_mod.fragment_of_record": "Fragment of record #1",
+      "gui.reign_mod.market.button_buy": "КУПИТЬ",
+      "block.reign_mod.rock": "Добрый камень",
+      "gui.reign_mod.win_view.tooltip_growing_blockplants": "Выращивание блочных культур",
+      "gui.reign_mod.fund_ui.tooltip_opening_the_end": "Открытие Края",
+      "item.reign_mod.platinum_coin": "Платиновая монета",
+      "gui.reign_mod.textbook_1.label_reignmod": "ReignMod",
+      "gui.reign_mod.add_license_list.label_dop_litsienzii": "Доп. лицензии",
+      "isBusy": "Занято.",
+      "gui.reign_mod.new_house.house_name": "",
+      "gui.reign_mod.royale_settings.label_price": "налоги",
+      "gui.reign_mod.market.label_multiply": "1.00",
+      "gui.reign_mod.fund_ui.tooltip_additional_license": "Дополнительная лицензия",
+      "key.categories.reign": "Настройки ReignMod",
+      "gui.reign_mod.trader_point.auto_sale": "авто. продажа",
+      "gui.reign_mod.win_view.button_main_license": "Основ. лицензия",
+      "gui.reign_mod.dsfminor.label_osnovnyie_litsienzii": "Основные лицензии",
+      "advancements.welcome_to_reign.title": "Добро пожаловать в Reign",
+      "subtitles.market_open": "",
+      "gui.reign_mod.fund_ui.tooltip_market_expansion": "Расширение рынка",
+      "gui.reign_mod.textbook_1.label_1_litsienzii": "#1 Лицензии"
+    },
+    "en_us": {
+      "item_group.reign_mod.creative_tab": "Reign",
+      "item.reign_mod.ruin_lord_2.desc": "Ruin Lord - Light after darkness",
+      "pay_free": "Found on the ground:",
+      "gui.reign_mod.win_view.tooltip_cattle_breeding": "Cattle breeding",
+      "gui.reign_mod.license_is_selected.label_the_main_license_has_been_select": "The main license has been selected.",
+      "NotAlchemistSay": "I hope it doesn\u0027t explode...",
+      "gui.reign_mod.new_house.tooltip_napishitie_imia_i_vybieritie_tsviet_bud": "Выберите имя и цвет нового королевства",
+      "item.reign_mod.your_lawn_is_bool": "Your Lawn Is Bool",
+      "gui.reign_mod.dfgdfgdf.button_buy": "buy",
+      "subtitles.thecalmbeforethestorm": "",
+      "item.reign_mod.farmer_coin": "Farmer coin",
+      "gui.reign_mod.win_view.tooltip_chance_to_get_a_haste_effect": "Chance to get a haste effect",
+      "gui.reign_mod.win_view.tooltip_netherite_mining": "Netherite Mining",
+      "gui.reign_mod.walletwin.label_wallet": "Wallet",
+      "translation.key.good_tax": "tax:",
+      "advancements.horder_use.descr": "Earn coin in the hoarder.",
+      "gui.reign_mod.add_license_list.button_soldier": "Soldier",
+      "subtitles.the-calm-before-the-storm": "",
+      "gui.reign_mod.dsf.button_farmer": "Farmer",
+      "NotEnchanterSay": "I don\u0027t know what this is...",
+      "gui.reign_mod.add_license_list.label_osnovnyie_litsienzii": "Доп. лицензии",
+      "gui.reign_mod.royale_settings.label_armor": "ARMOR",
+      "gui.reign_mod.trader_point.label_punkt_priioma": "Пункт приёма",
+      "gui.reign_mod.dsf.button_woodcutter": "Woodcutter",
+      "block.reign_mod.fund": "Fund",
+      "gui.reign_mod.royale_settings.tools_textfield": "",
+      "key.reign_mod.open_royale_settings": "Open Royale Settings",
+      "advancements.gotcha.descr": "Go to jail.",
+      "gui.reign_mod.kingtable_ui.label_kingtable_lable": "kingtable_lable",
+      "advancements.full_lvl.descr": "Upgrade your license completely.",
+      "advancements.welcome_to_reign.descr": "One who rules them all.",
+      "advancements.days_online_7.descr": "7 days in a row online!",
+      "gui.reign_mod.dsf.button_button_cowboy": "Cowboy",
+      "gui.reign_mod.win_view.tooltip_and_another_20_of_field_yields": "and another 20% of field yields!",
+      "translation.key.houseNameTaken": "A House with this name already exists!",
+      "gui.reign_mod.add_license_list.button_enchanter": "Enchanter",
+      "gui.reign_mod.dsf.button_miner": "Miner",
+      "gui.reign_mod.fund_ui.tooltip_iron_processing": "Iron processing",
+      "gui.reign_mod.royale_settings.label_logs": "LOGS",
+      "gui.reign_mod.win_view.tooltip_10_chance_to_gain_a_chopping_sp": "10% chance to gain a chopping speed boost.",
+      "advancements.strained_experience.title": "Strained Experience",
+      "block.reign_mod.kingtable": "King table",
+      "gui.reign_mod.dsf.label_osnovnyie_litsienzii": "Основные лицензии",
+      "gui.reign_mod.win_view.tooltip_fisher_3": "fisher_3",
+      "gui.reign_mod.fund_ui.tooltip_1_kingdom": "+1 kingdom",
+      "gui.reign_mod.win_view.tooltip_fisher_4": "fisher_4",
+      "gui.reign_mod.fund_ui.tooltip_openning_the_nether": "Openning the Nether",
+      "gui.reign_mod.win_view.tooltip_fisher_1": "fisher_1",
+      "NotLord": " now not lord.",
+      "effect.reign_mod.criminal": "Criminal",
+      "gui.reign_mod.win_view.tooltip_fisher_2": "fisher_2",
+      "gui.reign_mod.license_is_selected.label_all_experience_will_be_lost": "All experience will be lost",
+      "piston": "The mechanism is broken. Maybe it\u0027s not time yet?",
+      "gui.reign_mod.royale_settings.coal_textfield": "",
+      "gui.reign_mod.fund_ui.tooltip_opening_sticky_pistons": "Opening Sticky pistons",
+      "gui.reign_mod.new_house.label_sozdaniie_novogho_korolievstva": "Новое королевство",
+      "gui.reign_mod.market.label_cost": "cost",
+      "item.reign_mod.crown_helmet": "Crown",
+      "item.reign_mod.textbook": "Textbook ReignMod",
+      "gui.reign_mod.royale_settings.label_ores": "ORES",
+      "gui.reign_mod.trader_point.sale_off": "OFF",
+      "advancements.days_online_30.descr": "A month online!",
+      "gui.reign_mod.win_view.tooltip_another_20_yield_from_fields": "another +20% yield from fields",
+      "gui.reign_mod.win_view.label_licenses_are_your_line_of_busine": "Licenses are your line of business.",
+      "item.reign_mod.ruin_lord_3": "Dusty record",
+      "gui.reign_mod.royale_settings.tooltip_set_the_of_tax_that_will_go_to": "Set the % of tax that will go to the treasury",
+      "item.reign_mod.ruin_lord_2": "Interesting record",
+      "item.reign_mod.ruin_lord_1": "Strange record",
+      "gui.reign_mod.add_license_list.button_fisher": "Fisher",
+      "gui.reign_mod.market.label_tax_count": "tax_count",
+      "NotCowboy": "I\u0027m not a cowboy.",
+      "gui.reign_mod.win_view.button_minor_license": "Minor License",
+      "farmer_cantpumpkin": "I don\u0027t know how to collect block cultures.",
+      "item.reign_mod.copper_coin": "Copper coin",
+      "zombieapple": "Is this all just fiction?",
+      "gui.reign_mod.win_view.tooltip_25_chance_to_not_damage_the_axe": "25% chance to not damage the axe.",
+      "gui.reign_mod.license_is_selected.label_do_you_want_to_give_it_up": "Do you want to give it up?",
+      "imprisoned": " imprisoned.",
+      "translation.key.LossLvl": "It seems you forgot something important...",
+      "advancements.first_lock.descr": "Lock the chest.",
+      "gui.reign_mod.market.label_amount": "amount",
+      "effect.reign_mod.bee_effect": "Bee Power",
+      "advancements.horder_use.title": "A penny saved is a penny earned",
+      "newlord": "The first of his name: ",
+      "item.reign_mod.miner_coin": "Miner coin",
+      "gui.reign_mod.add_license_list.button_hunter_button": "Hunter",
+      "copper_coins_pay": "copper coins.",
+      "block.reign_mod.market_block": "Market",
+      "gui.reign_mod.market.tooltip_buy_goods_for_money": "Buy goods for money",
+      "donate": "You donated to the treasury.",
+      "gui.reign_mod.fund_ui.tooltip_donate_coins_to_advance_to_a_new": "Donate coins to advance to a new time.",
+      "oldCrown": "The crown crumbles to dust before your eyes. It no longer has the power it once had.",
+      "gui.reign_mod.beta_textbook_2.button_back": "back",
+      "gui.reign_mod.hoarder.label_hoarder": "Hoarder",
+      "item.reign_mod.your_lawn_is_bool.desc": "Mow everything!",
+      "License_refuse": "License revoked.",
+      "gui.reign_mod.market.label_market": "Market",
+      "translation.key.GriefCapital": "I can\u0027t do this in the capital.",
+      "item.reign_mod.woodcutter_coin": "Woodcutter coin",
+      "translation.key.locked": "Locked.",
+      "advancements.strained_experience.descr": "Push yourself and squeeze the experience out of your head.",
+      "gui.reign_mod.royale_settings.logs_textfield": "",
+      "gui.reign_mod.win_view.tooltip_25_no_damage_to_pickaxe": "20% no damage to the instrument",
+      "advancements.days_online_7.title": "Resident",
+      "newera": "The world is moving into a new era: ",
+      "gui.reign_mod.royale_settings.label_tools": "TOOLS",
+      "gui.reign_mod.license_is_selected.button_refuse": "   Refuse   ",
+      "gui.reign_mod.win_view.tooltip_10_yield_from_fields": "+10% yield from fields",
+      "translation.key.already_locked": "Already locked",
+      "gui.reign_mod.win_view.tooltip_another_20_additional_drops": "another +20% additional drops.",
+      "advancements.days_online_14.title": "The local expert",
+      "gui.reign_mod.dsf.tooltip_vybieritie_osnovnoi_stil_ighry": "Выберите основной стиль игры.",
+      "subtitles.wallet_sound": "",
+      "KingOnline": "§6The king is online!",
+      "gui.reign_mod.royale_settings.label_food": "FOOD",
+      "advancements.one_lvl.descr": "Upgrade your license.",
+      "subtitles.locked_chest": "",
+      "advancements.so_slippery.title": "The fish has come off!",
+      "gui.reign_mod.new_house.label_4": "4",
+      "subtitles.wallet_shake": "",
+      "NotSmithSay": "I don\u0027t know how to work with this.",
+      "item.reign_mod.honey_concentrate": "Honey Concentrate",
+      "gui.reign_mod.dsf.button_blacksmith": "Smith",
+      "gui.reign_mod.royale_settings.label_royal_decrees": "Royal Decrees",
+      "KingdomDelete": "The kingdom fell apart: ",
+      "NotKing": "Insufficient authority.",
+      "item.reign_mod.key": "Key",
+      "gui.reign_mod.add_license_list.button_alchemist": "Alchemist",
+      "block.reign_mod.trade_block": "Trade Block",
+      "block.reign_mod.plus": "Plus",
+      "item.reign_mod.blackmark": "Black mark",
+      "gui.reign_mod.market_2.button_buy": "BUY",
+      "gui.reign_mod.walletwin.label_17569": "17569",
+      "item.reign_mod.ruin_lord_3.desc": "Ruin Lord - Lasto Beth Lammen",
+      "gui.reign_mod.hoarder.tooltip_sell_64_units_of_any_product_f": "Sell ​​64 units of any product for 1 copper coin.",
+      "gui.reign_mod.market_2.label_cost": "cost",
+      "gui.reign_mod.add_license_list.tooltip_vybieritie_osnovnoi_stil_ighry": "Выберите дополнительный стиль игры.",
+      "item.reign_mod.gold_coin": "Gold coin",
+      "gui.reign_mod.market.button_x4": "X4",
+      "gui.reign_mod.royale_settings.armor_textfield": "",
+      "gui.reign_mod.win_view.tooltip_1_to_axe_damage": "+1 to axe damage.",
+      "gui.reign_mod.fund_ui.label_forward_to_a_new_time": "Forward to a new time...",
+      "advancements.so_slippery.descr": "Break the line.",
+      "item.reign_mod.lock": "Lock",
+      "gui.reign_mod.add_license_is_selected.label_do_you_want_to_give_it_up": "Do you want to give it up?",
+      "gui.reign_mod.add_license_is_selected.button_refuse": "   Refuse   ",
+      "gui.reign_mod.beta_textbook.button_next": "next",
+      "gui.reign_mod.royale_settings.label_other": "OTHER",
+      "NotFarmer": "I don\u0027t know how to breed animals.",
+      "gui.reign_mod.win_view.tooltip_20_additional_drop": "20%  additional drop",
+      "translation.key.choose_good": "choose good",
+      "gui.reign_mod.new_house.label_found_a_house": "Found a House",
+      "gui.reign_mod.win_view.tooltip_20_additional_drops": "+20% additional drops.",
+      "subtitles.light-after-darkness": "",
+      "knighting": " knighted by the kingdom: ",
+      "newkingdom": "The House was founded: ",
+      "item.reign_mod.fragment_of_record_2": "Fragment of record #2",
+      "item.reign_mod.fragment_of_record_3": "Fragment of record #3",
+      "criminal_true": " declared a criminal.",
+      "gui.reign_mod.win_view.tooltip_soldier_3": "soldier_3",
+      "gui.reign_mod.win_view.tooltip_soldier_2": "soldier_2",
+      "gui.reign_mod.win_view.tooltip_soldier_5": "soldier_5",
+      "gui.reign_mod.win_view.tooltip_soldier_4": "soldier_4",
+      "NotCowboy1Lvl": "I haven\u0027t learned how to shear sheep yet.",
+      "gui.reign_mod.win_view.tooltip_soldier_1": "soldier_1",
+      "item.reign_mod.wallet": "Wallet",
+      "gui.reign_mod.win_view.tooltip_you_can_have_up_to_two_licenses": "You can have up to two licenses.",
+      "advancements.days_online_14.descr": "14 days in a row online!",
+      "gui.reign_mod.add_license_is_selected.label_the_main_license_has_been_select": "The add. license has been selected.",
+      "gui.reign_mod.trader_point.tooltip_sell_your_goods_to_the_capital": "Sell ​​your goods to the capital for money",
+      "alreadyKnight": "already your knight.",
+      "block.reign_mod.hoarder_block": "Hoarder",
+      "block.reign_mod.coffers": "Coffers",
+      "pay_king": "Royal Income:",
+      "gui.reign_mod.royale_settings.other_textfield": "",
+      "advancements.first_lock.title": "This is mine.",
+      "gui.reign_mod.fund_ui.tooltip_3_kingdoms": "+3 kingdoms",
+      "advancements.gotcha.title": "Gotcha!",
+      "advancements.true_to_the_oath.title": "True To The Oath",
+      "criminal_false": " pardoned.",
+      "gui.reign_mod.coffers_ui.label_coffers": "COFFERS",
+      "translation.key.keyinfo": "Player key:",
+      "item.reign_mod.ruin_lord_1.desc": "Ruin Lord - The calm before the storm",
+      "gui.reign_mod.new_house.label_coins": "coins",
+      "NoFisherSay": "So slippery!",
+      "gui.reign_mod.dsfminor.tooltip_vybieritie_osnovnoi_stil_ighry": "Choose your play style.",
+      "gui.reign_mod.add_license_is_selected.label_all_experience_will_be_lost": "All experience will be lost",
+      "pay_lord": "Lord\u0027s Profit:",
+      "gui.reign_mod.new_kingdom_ui.label_color": "color:",
+      "gui.reign_mod.win_view.tooltip_smith_lvl5": "smith_lvl5",
+      "item.reign_mod.right_hand": "Right Hand",
+      "gui.reign_mod.win_view.tooltip_smith_lvl2": "smith_lvl2",
+      "advancements.one_lvl.title": "Amateur",
+      "gui.reign_mod.win_view.tooltip_smith_lvl1": "smith_lvl1",
+      "gui.reign_mod.fund_ui.tooltip_redstone_kesearch": "Redstone кesearch",
+      "gui.reign_mod.win_view.tooltip_smith_lvl4": "smith_lvl4",
+      "gui.reign_mod.win_view.tooltip_smith_lvl3": "smith_lvl3",
+      "subtitles.lasto-beth-lammen": "",
+      "gui.reign_mod.textbook_1.label_textbook": "Textbook",
+      "key.catigories.reign": "Setup ReignMod",
+      "gui.reign_mod.royale_settings.label_coal": "COAL",
+      "gui.reign_mod.textbook_1.button_next": "next",
+      "gui.reign_mod.royale_settings.ores_textfield": "",
+      "advancements.true_to_the_oath.descr": "Become a knight.",
+      "gui.reign_mod.fund_ui.tooltip_processing_of_precious_ores": "Processing of precious ores",
+      "key.reign_mod.open_licenses": "Open Licenses",
+      "gui.reign_mod.coffers_ui.tooltip_this_is_where_government_money_i": "This is where government money is kept.",
+      "gui.reign_mod.win_view.tooltip_fihsher_5": "fihsher_5",
+      "gui.reign_mod.royale_settings.food_textfield": "",
+      "item.reign_mod.smith_coin": "Smith coin",
+      "gui.reign_mod.textbook_1.button_back": "back",
+      "gui.reign_mod.new_house.button_create": "Create",
+      "farmer_cantpotato": "I don\u0027t know how to grow root vegetables.",
+      "advancements.days_online_30.title": "Owner",
+      "gui.reign_mod.fund_ui.tooltip_netherite_processing": "Netherite processing",
+      "count_days": "Days in a row:",
+      "BeeLock": "Some wrong bees...",
+      "pay_knight": "Sir\u0027s salary:",
+      "advancements.full_lvl.title": "Master",
+      "item.reign_mod.silver_coin": "Silver coin",
+      "gui.reign_mod.new_house.label_name": "Choose name and color",
+      "gui.reign_mod.win_view.tooltip_luck_in_mining_precious_ores": "Luck in mining precious ores",
+      "item.reign_mod.fragment_of_record": "Fragment of record #1",
+      "gui.reign_mod.market.button_buy": "Buy",
+      "block.reign_mod.rock": "Rock",
+      "gui.reign_mod.win_view.tooltip_growing_blockplants": "Growing block-plants",
+      "gui.reign_mod.fund_ui.tooltip_opening_the_end": "Opening the End.",
+      "item.reign_mod.platinum_coin": "Platinum coin",
+      "gui.reign_mod.textbook_1.label_reignmod": "ReignMod",
+      "gui.reign_mod.add_license_list.label_dop_litsienzii": "Доп. лицензии",
+      "isBusy": "busy.",
+      "gui.reign_mod.new_house.house_name": "",
+      "gui.reign_mod.royale_settings.label_price": "tax",
+      "gui.reign_mod.market.label_multiply": "1.00",
+      "gui.reign_mod.fund_ui.tooltip_additional_license": "Additional license",
+      "gui.reign_mod.trader_point.auto_sale": "авто. продажа",
+      "gui.reign_mod.win_view.button_main_license": " Main License ",
+      "gui.reign_mod.dsfminor.label_osnovnyie_litsienzii": "Main licenses",
+      "advancements.welcome_to_reign.title": "Welcome To Reign",
+      "subtitles.market_open": "",
+      "gui.reign_mod.fund_ui.tooltip_market_expansion": "Market expansion",
+      "gui.reign_mod.textbook_1.label_1_litsienzii": "#1 Лицензии"
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": [
+      {
+        "name": "Items",
+        "children": [
+          {
+            "name": "RuinLord",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Recipes",
+        "children": []
+      },
+      {
+        "name": "Misc",
+        "children": []
+      },
+      {
+        "name": "UI",
+        "children": [
+          {
+            "name": "LicensesUI",
+            "children": []
+          },
+          {
+            "name": "Textbook",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Scripts",
+        "children": [
+          {
+            "name": "Returns",
+            "children": []
+          },
+          {
+            "name": "MarketSystem",
+            "children": [
+              {
+                "name": "PriceChangeScripts",
+                "children": []
+              },
+              {
+                "name": "MarketBar",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "LicensesSystem",
+            "children": [
+              {
+                "name": "Choosing",
+                "children": []
+              },
+              {
+                "name": "Lvl_bar",
+                "children": []
+              },
+              {
+                "name": "ExpSkills",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "KingSystem",
+            "children": []
+          },
+          {
+            "name": "ErasSystem",
+            "children": [
+              {
+                "name": "ReturnEras",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "CapitalSystem",
+            "children": []
+          },
+          {
+            "name": "TreeOneTouch",
+            "children": []
+          },
+          {
+            "name": "DailyPay",
+            "children": []
+          },
+          {
+            "name": "VanillaChange",
+            "children": []
+          },
+          {
+            "name": "OtherSystems",
+            "children": [
+              {
+                "name": "LockSystem",
+                "children": []
+              },
+              {
+                "name": "WalletSystem",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "EventsSystem",
+            "children": []
+          },
+          {
+            "name": "HousesScript",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Blocks",
+        "children": []
+      },
+      {
+        "name": "Buttons",
+        "children": []
+      },
+      {
+        "name": "Commands",
+        "children": []
+      },
+      {
+        "name": "Achievements",
+        "children": []
+      },
+      {
+        "name": "Mixins",
+        "children": [
+          {
+            "name": "BlocksClosed",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  "workspaceSettings": {
+    "modid": "reign_mod",
+    "modName": "Reign",
+    "version": "0.5.2",
+    "description": "Professions, trade and power",
+    "author": "iDronov",
+    "websiteURL": "https://t.me/reignmod",
+    "license": "Academic Free License v3.0",
+    "serverSideOnly": false,
+    "modPicture": "reignmod-logo",
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "forge-1.20.1",
+    "modElementsPackage": "net.mcreator.reignmod"
+  },
+  "mcreatorVersion": 202400340615
+}

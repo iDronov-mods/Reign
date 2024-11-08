@@ -1,0 +1,26 @@
+{
+  "_fv": 69,
+  "_type": "musicdisc",
+  "definition": {
+    "name": "Your Lawn Is Bool",
+    "rarity": "EPIC",
+    "texture": "minecraft:music_disc_13",
+    "description": "Mow everything!",
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:CreativeTab"
+      }
+    ],
+    "specialInformation": {
+      "fixedValue": []
+    },
+    "glowCondition": {
+      "fixedValue": false
+    },
+    "music": {
+      "value": "CUSTOM:yourlawnisbool"
+    },
+    "lengthInTicks": 1200,
+    "analogOutput": 0
+  }
+}

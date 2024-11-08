@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "reign_mod:block/kingtable"
+    },
+    "facing=east": {
+      "model": "reign_mod:block/kingtable",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "reign_mod:block/kingtable",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "reign_mod:block/kingtable",
+      "y": 270
+    }
+  }
+}

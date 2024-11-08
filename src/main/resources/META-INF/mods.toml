@@ -1,0 +1,29 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="Academic Free License v3.0"
+
+[[mods]]
+modId="reign_mod"
+version="0.5.2"
+displayName="Reign"
+displayURL="https://t.me/reignmod"
+logoFile="logo.png"
+credits="Created using mod maker MCreator - https://mcreator.net/about"
+authors="iDronov"
+description="Professions, trade and power"
+
+# Start of user code block mod configuration
+# End of user code block mod configuration
+
+[[dependencies.reign_mod]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1]"
+    ordering="AFTER"
+    side="BOTH"
+
+
+
+
+# Start of user code block dependencies configuration
+# End of user code block dependencies configuration

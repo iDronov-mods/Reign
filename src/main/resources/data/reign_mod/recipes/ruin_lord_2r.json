@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "abc"
+  ],
+  "key": {
+    "a": {
+      "item": "reign_mod:fragment_of_record_2"
+    },
+    "b": {
+      "item": "reign_mod:fragment_of_record"
+    },
+    "c": {
+      "item": "reign_mod:fragment_of_record_3"
+    }
+  },
+  "result": {
+    "item": "reign_mod:ruin_lord_2",
+    "count": 1
+  }
+}

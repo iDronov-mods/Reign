@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " a ",
+    "bcb",
+    "bbb"
+  ],
+  "key": {
+    "a": {
+      "item": "reign_mod:copper_coin"
+    },
+    "b": {
+      "item": "minecraft:white_terracotta"
+    },
+    "c": {
+      "tag": "minecraft:dirt"
+    }
+  },
+  "result": {
+    "item": "reign_mod:hoarder_block",
+    "count": 1
+  }
+}

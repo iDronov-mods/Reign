@@ -1,0 +1,26 @@
+{
+  "_fv": 69,
+  "_type": "musicdisc",
+  "definition": {
+    "name": "Strange record",
+    "rarity": "RARE",
+    "texture": "ruin_lord1",
+    "description": "Ruin Lord - The calm before the storm",
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:CreativeTab"
+      }
+    ],
+    "specialInformation": {
+      "fixedValue": []
+    },
+    "glowCondition": {
+      "fixedValue": false
+    },
+    "music": {
+      "value": "CUSTOM:the-calm-before-the-storm"
+    },
+    "lengthInTicks": 3960,
+    "analogOutput": 0
+  }
+}

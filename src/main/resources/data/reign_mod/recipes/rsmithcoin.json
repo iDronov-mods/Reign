@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "coin",
+  "category": "misc",
+  "pattern": [
+    " a ",
+    "bcd",
+    " e "
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:iron_block"
+    },
+    "b": {
+      "item": "minecraft:gold_block"
+    },
+    "c": {
+      "item": "minecraft:smithing_table"
+    },
+    "d": {
+      "item": "minecraft:cobblestone"
+    },
+    "e": {
+      "item": "minecraft:diamond_block"
+    }
+  },
+  "result": {
+    "item": "reign_mod:smith_coin",
+    "count": 1
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "parent": "reign_mod:custom/king_table",
+  "textures": {
+    "all": "minecraft:block/red_shulker_box",
+    "particle": "minecraft:block/red_shulker_box",
+    "0": "reign_mod:block/texture_1",
+    "1": "reign_mod:block/texture_2"
+  },
+  "render_type": "solid"
+}

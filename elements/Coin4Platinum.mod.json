@@ -1,0 +1,48 @@
+{
+  "_fv": 69,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "coin",
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:WoodcutterCoin"
+      },
+      {
+        "value": "CUSTOM:SmithCoin"
+      },
+      {
+        "value": "CUSTOM:WoodcutterCoin"
+      },
+      {
+        "value": "CUSTOM:FarmerCoin"
+      },
+      {
+        "value": "CUSTOM:MinerCoin"
+      },
+      {
+        "value": "CUSTOM:FarmerCoin"
+      },
+      {
+        "value": "CUSTOM:WoodcutterCoin"
+      },
+      {
+        "value": "CUSTOM:SmithCoin"
+      },
+      {
+        "value": "CUSTOM:WoodcutterCoin"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:PlatinumCoin"
+    },
+    "name": "coin_4_platinum",
+    "namespace": "mod"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:sunflower"
+    },
+    "title": {
+      "translate": "advancements.full_lvl.title"
+    },
+    "description": {
+      "translate": "advancements.full_lvl.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "full_lvl_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 1000
+  },
+  "parent": "reign_mod:one_lvl"
+}

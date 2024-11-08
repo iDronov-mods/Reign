@@ -1,0 +1,26 @@
+{
+  "_fv": 69,
+  "_type": "musicdisc",
+  "definition": {
+    "name": "Interesting record",
+    "rarity": "RARE",
+    "texture": "ruin_lord2",
+    "description": "Ruin Lord - Light after darkness",
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:CreativeTab"
+      }
+    ],
+    "specialInformation": {
+      "fixedValue": []
+    },
+    "glowCondition": {
+      "fixedValue": false
+    },
+    "music": {
+      "value": "CUSTOM:light-after-darkness"
+    },
+    "lengthInTicks": 3760,
+    "analogOutput": 0
+  }
+}

@@ -1,0 +1,880 @@
+{
+  "_fv": 69,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 152,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "crown.png",
+          "use1Xscale": false,
+          "x": 153,
+          "y": 26
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_main_license",
+          "text": " Main License ",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "OpenLicenseList"
+          },
+          "width": 97,
+          "height": 20,
+          "x": 167,
+          "y": 122
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_licenses_are_your_line_of_busine",
+          "text": {
+            "fixedValue": "Licenses are your line of business."
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 124,
+          "y": 14
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_you_can_have_up_to_two_licenses",
+          "text": {
+            "fixedValue": "You can have up to two licenses."
+          },
+          "width": 24,
+          "height": 24,
+          "x": 149,
+          "y": 22
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "license_slot.png",
+          "use1Xscale": false,
+          "x": 150,
+          "y": 61
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "license_slot.png",
+          "use1Xscale": false,
+          "x": 150,
+          "y": 88
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_minor_license",
+          "text": "Minor License",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "OpenAddLicenseList"
+          },
+          "displayCondition": {
+            "name": "ReturnAddLicenseLock"
+          },
+          "width": 97,
+          "height": 20,
+          "x": 167,
+          "y": 157
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_bar.png",
+          "use1Xscale": false,
+          "x": 168,
+          "y": 62
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_first.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Mlvl1"
+          },
+          "x": 173,
+          "y": 67
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_next.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Mlvl2"
+          },
+          "x": 179,
+          "y": 67
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_next.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Mlvl3"
+          },
+          "x": 203,
+          "y": 67
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_next.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Mlvl4"
+          },
+          "x": 227,
+          "y": 67
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_next.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Mlvl5"
+          },
+          "x": 251,
+          "y": 67
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_bar.png",
+          "use1Xscale": false,
+          "x": 168,
+          "y": 89
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_first.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Alvl1"
+          },
+          "x": 173,
+          "y": 94
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_next.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Alvl2"
+          },
+          "x": 179,
+          "y": 94
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_next.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Alvl3"
+          },
+          "x": 203,
+          "y": 94
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_next.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Alvl4"
+          },
+          "x": 227,
+          "y": 94
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_next.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Alvl5"
+          },
+          "x": 251,
+          "y": 94
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "woodcutter_logo.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Returnwoodcutter"
+          },
+          "x": 151,
+          "y": 62
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "smith_logo.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Returnsmith"
+          },
+          "x": 151,
+          "y": 62
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "miner_logo.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Returnminer"
+          },
+          "x": 151,
+          "y": 62
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "farmer.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Returnfarmer"
+          },
+          "x": 151,
+          "y": 62
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_25_chance_to_not_damage_the_axe",
+          "text": {
+            "fixedValue": "25% chance to not damage the axe."
+          },
+          "displayCondition": {
+            "name": "Returnwoodcutter"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 173,
+          "y": 67
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_20_additional_drops",
+          "text": {
+            "fixedValue": "+20% additional drops."
+          },
+          "displayCondition": {
+            "name": "Returnwoodcutter"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 221,
+          "y": 67
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_another_20_additional_drops",
+          "text": {
+            "fixedValue": "another +20% additional drops."
+          },
+          "displayCondition": {
+            "name": "Returnwoodcutter"
+          },
+          "width": 6,
+          "height": 5,
+          "x": 269,
+          "y": 68
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_1_to_axe_damage",
+          "text": {
+            "fixedValue": "+1 to axe damage."
+          },
+          "displayCondition": {
+            "name": "Returnwoodcutter"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 197,
+          "y": 67
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_10_chance_to_gain_a_chopping_sp",
+          "text": {
+            "fixedValue": "10% chance to gain a chopping speed boost."
+          },
+          "displayCondition": {
+            "name": "Returnwoodcutter"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 245,
+          "y": 67
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "alchemist_logo.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Returnalchemist"
+          },
+          "x": 151,
+          "y": 89
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "enchanter_logo.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Returnlibrarian"
+          },
+          "x": 151,
+          "y": 89
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "fisher_logo.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Returnfisher"
+          },
+          "x": 151,
+          "y": 89
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "cowboy_logo.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Returncowboy"
+          },
+          "x": 151,
+          "y": 62
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "soldier_logo.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Returnsoldier"
+          },
+          "x": 151,
+          "y": 89
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "hunter_logo.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Returnhunter"
+          },
+          "x": 151,
+          "y": 89
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_lvl_up_button",
+          "image": "lvl_up_button.png",
+          "hoveredImage": "lvl_up_button_hover.png",
+          "onClick": {
+            "name": "LvlUp"
+          },
+          "displayCondition": {
+            "name": "MainButtonUp"
+          },
+          "x": 151,
+          "y": 62
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_lvl_up_button1",
+          "image": "lvl_up_button.png",
+          "hoveredImage": "lvl_up_button_hover.png",
+          "onClick": {
+            "name": "ALvlUp"
+          },
+          "displayCondition": {
+            "name": "AddButtonUp"
+          },
+          "x": 151,
+          "y": 89
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_25_no_damage_to_pickaxe",
+          "text": {
+            "fixedValue": "20% no damage to the instrument"
+          },
+          "displayCondition": {
+            "name": "Returnminer"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 173,
+          "y": 67
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_chance_to_get_a_haste_effect",
+          "text": {
+            "fixedValue": "Chance to get a haste effect"
+          },
+          "displayCondition": {
+            "name": "Returnminer"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 197,
+          "y": 67
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_20_additional_drop",
+          "text": {
+            "fixedValue": "20%  additional drop"
+          },
+          "displayCondition": {
+            "name": "Returnminer"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 221,
+          "y": 67
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_luck_in_mining_precious_ores",
+          "text": {
+            "fixedValue": "Luck in mining precious ores"
+          },
+          "displayCondition": {
+            "name": "Returnminer"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 245,
+          "y": 67
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_netherite_mining",
+          "text": {
+            "fixedValue": "Netherite Mining"
+          },
+          "displayCondition": {
+            "name": "Returnminer"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 269,
+          "y": 67
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_cattle_breeding",
+          "text": {
+            "fixedValue": "Cattle breeding"
+          },
+          "displayCondition": {
+            "name": "Returnfarmer"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 173,
+          "y": 67
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_10_yield_from_fields",
+          "text": {
+            "fixedValue": "+10% yield from fields"
+          },
+          "displayCondition": {
+            "name": "Returnfarmer"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 197,
+          "y": 67
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_another_20_yield_from_fields",
+          "text": {
+            "fixedValue": "another +20% yield from fields"
+          },
+          "displayCondition": {
+            "name": "Returnfarmer"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 245,
+          "y": 67
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_growing_blockplants",
+          "text": {
+            "fixedValue": "Growing block-plants"
+          },
+          "displayCondition": {
+            "name": "Returnfarmer"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 221,
+          "y": 67
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_and_another_20_of_field_yields",
+          "text": {
+            "fixedValue": "and another 20% of field yields!"
+          },
+          "displayCondition": {
+            "name": "Returnfarmer"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 269,
+          "y": 67
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_smith_lvl1",
+          "text": {
+            "fixedValue": "smith_lvl1"
+          },
+          "displayCondition": {
+            "name": "Returnsmith"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 173,
+          "y": 67
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_smith_lvl2",
+          "text": {
+            "fixedValue": "smith_lvl2"
+          },
+          "displayCondition": {
+            "name": "Returnsmith"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 197,
+          "y": 67
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_smith_lvl3",
+          "text": {
+            "fixedValue": "smith_lvl3"
+          },
+          "displayCondition": {
+            "name": "Returnsmith"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 221,
+          "y": 67
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_smith_lvl4",
+          "text": {
+            "fixedValue": "smith_lvl4"
+          },
+          "displayCondition": {
+            "name": "Returnsmith"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 245,
+          "y": 67
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_smith_lvl5",
+          "text": {
+            "fixedValue": "smith_lvl5"
+          },
+          "displayCondition": {
+            "name": "Returnsmith"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 269,
+          "y": 67
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_fisher_1",
+          "text": {
+            "fixedValue": "fisher_1"
+          },
+          "displayCondition": {
+            "name": "Returnfisher"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 173,
+          "y": 94
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_fisher_2",
+          "text": {
+            "fixedValue": "fisher_2"
+          },
+          "displayCondition": {
+            "name": "Returnfisher"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 197,
+          "y": 94
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_fisher_3",
+          "text": {
+            "fixedValue": "fisher_3"
+          },
+          "displayCondition": {
+            "name": "Returnfisher"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 221,
+          "y": 94
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_fisher_4",
+          "text": {
+            "fixedValue": "fisher_4"
+          },
+          "displayCondition": {
+            "name": "Returnfisher"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 245,
+          "y": 94
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_fihsher_5",
+          "text": {
+            "fixedValue": "fihsher_5"
+          },
+          "displayCondition": {
+            "name": "Returnfisher"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 269,
+          "y": 94
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_soldier_1",
+          "text": {
+            "fixedValue": "soldier_1"
+          },
+          "displayCondition": {
+            "name": "Returnsoldier"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 173,
+          "y": 94
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_soldier_2",
+          "text": {
+            "fixedValue": "soldier_2"
+          },
+          "displayCondition": {
+            "name": "Returnsoldier"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 197,
+          "y": 94
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_soldier_3",
+          "text": {
+            "fixedValue": "soldier_3"
+          },
+          "displayCondition": {
+            "name": "Returnsoldier"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 221,
+          "y": 94
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_soldier_4",
+          "text": {
+            "fixedValue": "soldier_4"
+          },
+          "displayCondition": {
+            "name": "Returnsoldier"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 245,
+          "y": 94
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_soldier_5",
+          "text": {
+            "fixedValue": "soldier_5"
+          },
+          "displayCondition": {
+            "name": "Returnsoldier"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 269,
+          "y": 94
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "reign_mod:custom/hoarder",
+  "textures": {
+    "all": "minecraft:block/white_terracotta",
+    "particle": "minecraft:block/white_terracotta",
+    "0": "reign_mod:block/hoarder_texture"
+  },
+  "render_type": "solid"
+}

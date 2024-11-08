@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:iron_pickaxe"
+    },
+    "title": {
+      "translate": "advancements.days_online_14.title"
+    },
+    "description": {
+      "translate": "advancements.days_online_14.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "days_online_14_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "reign_mod:days_online_7"
+}

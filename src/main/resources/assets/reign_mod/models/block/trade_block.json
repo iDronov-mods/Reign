@@ -1,0 +1,9 @@
+{
+  "parent": "reign_mod:custom/trader",
+  "textures": {
+    "all": "minecraft:block/oak_planks",
+    "particle": "minecraft:block/oak_planks",
+    "0": "reign_mod:block/trader_texture"
+  },
+  "render_type": "solid"
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "money",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "reign_mod:platinum_coin"
+    }
+  ],
+  "result": {
+    "item": "reign_mod:gold_coin",
+    "count": 16
+  }
+}

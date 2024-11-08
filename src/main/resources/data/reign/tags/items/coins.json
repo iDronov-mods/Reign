@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "reign_mod:gold_coin",
+    "reign_mod:silver_coin",
+    "reign_mod:copper_coin",
+    "reign_mod:platinum_coin"
+  ]
+}

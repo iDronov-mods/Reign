@@ -1,0 +1,9 @@
+{
+  "parent": "reign_mod:custom/plus",
+  "textures": {
+    "all": "reign_mod:block/plus_texture",
+    "particle": "reign_mod:block/plus_texture",
+    "0": "reign_mod:block/plus_texture"
+  },
+  "render_type": "solid"
+}

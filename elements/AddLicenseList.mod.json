@@ -1,0 +1,179 @@
+{
+  "_fv": 69,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 150,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "crown.png",
+          "use1Xscale": false,
+          "x": 150,
+          "y": 26
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_vybieritie_osnovnoi_stil_ighry",
+          "text": {
+            "fixedValue": "Выберите дополнительный стиль игры."
+          },
+          "width": 24,
+          "height": 24,
+          "x": 145,
+          "y": 23
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_fisher",
+          "text": "Fisher",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "ChooseFisher"
+          },
+          "width": 77,
+          "height": 20,
+          "x": 195,
+          "y": 60
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_enchanter",
+          "text": "Enchanter",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "ChooseEnchanter"
+          },
+          "width": 77,
+          "height": 20,
+          "x": 195,
+          "y": 87
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_alchemist",
+          "text": "Alchemist",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "ChooseAlchemist"
+          },
+          "width": 77,
+          "height": 20,
+          "x": 195,
+          "y": 114
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_soldier",
+          "text": "Soldier",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "ChooseSoldier"
+          },
+          "width": 77,
+          "height": 20,
+          "x": 195,
+          "y": 141
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "enchanter_logo.png",
+          "use1Xscale": false,
+          "x": 159,
+          "y": 89
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "alchemist_logo.png",
+          "use1Xscale": false,
+          "x": 159,
+          "y": 116
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "fisher_logo.png",
+          "use1Xscale": false,
+          "x": 159,
+          "y": 62
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "soldier_logo.png",
+          "use1Xscale": false,
+          "x": 159,
+          "y": 143
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_dop_litsienzii",
+          "text": {
+            "fixedValue": "Доп. лицензии"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 180,
+          "y": 41
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "hunter_logo.png",
+          "use1Xscale": false,
+          "x": 159,
+          "y": 170
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_hunter_button",
+          "text": "Hunter",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "ChooseHunter"
+          },
+          "width": 77,
+          "height": 20,
+          "x": 195,
+          "y": 168
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

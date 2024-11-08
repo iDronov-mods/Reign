@@ -1,0 +1,90 @@
+{
+  "coin1": {
+    "sounds": [
+      {
+        "name": "reign_mod:coin1v",
+        "stream": false
+      }
+    ]
+  },
+  "coin2": {
+    "sounds": [
+      {
+        "name": "reign_mod:coin2v",
+        "stream": false
+      }
+    ]
+  },
+  "coin3": {
+    "sounds": [
+      {
+        "name": "reign_mod:coin3v",
+        "stream": false
+      }
+    ]
+  },
+  "yourlawnisbool": {
+    "sounds": [
+      {
+        "name": "reign_mod:yourlawnisbool_rock",
+        "stream": true
+      }
+    ]
+  },
+  "locked_chest": {
+    "sounds": [
+      {
+        "name": "reign_mod:locked_chest",
+        "stream": false
+      }
+    ]
+  },
+  "wallet_sound": {
+    "sounds": [
+      {
+        "name": "reign_mod:wallet",
+        "stream": false
+      }
+    ]
+  },
+  "market_open": {
+    "sounds": [
+      {
+        "name": "reign_mod:market_open",
+        "stream": false
+      }
+    ]
+  },
+  "wallet_shake": {
+    "sounds": [
+      {
+        "name": "reign_mod:wallet_shake",
+        "stream": false
+      }
+    ]
+  },
+  "the-calm-before-the-storm": {
+    "sounds": [
+      {
+        "name": "reign_mod:the-calm-before-the-storm",
+        "stream": true
+      }
+    ]
+  },
+  "light-after-darkness": {
+    "sounds": [
+      {
+        "name": "reign_mod:lightafterdarkness",
+        "stream": true
+      }
+    ]
+  },
+  "lasto-beth-lammen": {
+    "sounds": [
+      {
+        "name": "reign_mod:lasto_beth_lammen",
+        "stream": true
+      }
+    ]
+  }
+}

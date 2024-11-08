@@ -1,0 +1,504 @@
+{
+  "_fv": 69,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 238,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_royal_decrees",
+          "text": {
+            "fixedValue": "Royal Decrees"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 96,
+          "y": 25
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_price",
+          "text": {
+            "fixedValue": "tax"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 207,
+          "y": 41
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_logs",
+          "text": {
+            "fixedValue": "LOGS"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 103,
+          "y": 56
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "copper_coin.png",
+          "use1Xscale": false,
+          "x": 276,
+          "y": 53
+        }
+      },
+      {
+        "type": "textfield",
+        "data": {
+          "placeholder": "",
+          "name": "logs_textfield",
+          "width": 120,
+          "height": 20,
+          "x": 155,
+          "y": 51
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_but_up",
+          "image": "but_up.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "Logsup"
+          },
+          "x": 292,
+          "y": 53
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_but_down",
+          "image": "but_down.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "Logsdown"
+          },
+          "x": 310,
+          "y": 53
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_tools",
+          "text": {
+            "fixedValue": "TOOLS"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 103,
+          "y": 116
+        }
+      },
+      {
+        "type": "textfield",
+        "data": {
+          "placeholder": "",
+          "name": "tools_textfield",
+          "width": 120,
+          "height": 20,
+          "x": 155,
+          "y": 111
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "silver_coin.png",
+          "use1Xscale": false,
+          "x": 276,
+          "y": 113
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_but_up1",
+          "image": "but_up.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "Coalup"
+          },
+          "x": 292,
+          "y": 73
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_but_down1",
+          "image": "but_down.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "Coaldown"
+          },
+          "x": 310,
+          "y": 73
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_armor",
+          "text": {
+            "fixedValue": "ARMOR"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 104,
+          "y": 136
+        }
+      },
+      {
+        "type": "textfield",
+        "data": {
+          "placeholder": "",
+          "name": "armor_textfield",
+          "width": 120,
+          "height": 20,
+          "x": 155,
+          "y": 131
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "silver_coin.png",
+          "use1Xscale": false,
+          "x": 276,
+          "y": 133
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_but_up2",
+          "image": "but_up.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "Foodup"
+          },
+          "x": 292,
+          "y": 93
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_but_down2",
+          "image": "but_down.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "Fooddown"
+          },
+          "x": 310,
+          "y": 93
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_food",
+          "text": {
+            "fixedValue": "FOOD"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 103,
+          "y": 96
+        }
+      },
+      {
+        "type": "textfield",
+        "data": {
+          "placeholder": "",
+          "name": "food_textfield",
+          "width": 120,
+          "height": 20,
+          "x": 155,
+          "y": 91
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "copper_coin.png",
+          "use1Xscale": false,
+          "x": 276,
+          "y": 94
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_but_up3",
+          "image": "but_up.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "Toolsup"
+          },
+          "x": 292,
+          "y": 113
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_but_down3",
+          "image": "but_down.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "Toolsdown"
+          },
+          "x": 310,
+          "y": 113
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_coal",
+          "text": {
+            "fixedValue": "COAL"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 103,
+          "y": 76
+        }
+      },
+      {
+        "type": "textfield",
+        "data": {
+          "placeholder": "",
+          "name": "coal_textfield",
+          "width": 120,
+          "height": 20,
+          "x": 155,
+          "y": 71
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "copper_coin.png",
+          "use1Xscale": false,
+          "x": 276,
+          "y": 73
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_ores",
+          "text": {
+            "fixedValue": "ORES"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 103,
+          "y": 156
+        }
+      },
+      {
+        "type": "textfield",
+        "data": {
+          "placeholder": "",
+          "name": "ores_textfield",
+          "width": 120,
+          "height": 20,
+          "x": 155,
+          "y": 151
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "silver_coin.png",
+          "use1Xscale": false,
+          "x": 276,
+          "y": 153
+        }
+      },
+      {
+        "type": "textfield",
+        "data": {
+          "placeholder": "",
+          "name": "other_textfield",
+          "width": 120,
+          "height": 20,
+          "x": 155,
+          "y": 171
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "gold_coin.png",
+          "use1Xscale": false,
+          "x": 276,
+          "y": 173
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "crown.png",
+          "use1Xscale": false,
+          "x": 315,
+          "y": 25
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_set_the_of_tax_that_will_go_to",
+          "text": {
+            "fixedValue": "Set the % of tax that will go to the treasury"
+          },
+          "width": 24,
+          "height": 24,
+          "x": 311,
+          "y": 21
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_other",
+          "text": {
+            "fixedValue": "OTHER"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 103,
+          "y": 176
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_but_up4",
+          "image": "but_up.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "Armorup"
+          },
+          "x": 292,
+          "y": 133
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_but_down4",
+          "image": "but_down.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "Armordown"
+          },
+          "x": 310,
+          "y": 133
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_but_up5",
+          "image": "but_up.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "Oresup"
+          },
+          "x": 292,
+          "y": 153
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_but_down5",
+          "image": "but_down.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "Oresdown"
+          },
+          "x": 310,
+          "y": 153
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_but_up6",
+          "image": "but_up.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "Otherup"
+          },
+          "x": 292,
+          "y": 173
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_but_down6",
+          "image": "but_down.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "Otherdown"
+          },
+          "x": 310,
+          "y": 173
+        }
+      }
+    ],
+    "onTick": {
+      "name": "RoyaleSettingsTik"
+    },
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

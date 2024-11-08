@@ -1,0 +1,9 @@
+{
+  "parent": "reign_mod:custom/coffers",
+  "textures": {
+    "all": "reign_mod:block/kazna_top",
+    "particle": "reign_mod:block/kazna_top",
+    "0": "reign_mod:block/coffers_texture"
+  },
+  "render_type": "solid"
+}

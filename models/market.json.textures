@@ -1,0 +1,10 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "0": "market_texture_free"
+      },
+      "name": "default"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "creeper",
+    "skeleton",
+    "cave_spider",
+    "spider",
+    "zombie",
+    "zombified_piglin",
+    "blaze",
+    "fox",
+    "ghast",
+    "magma_cube",
+    "piglin",
+    "piglin_brute",
+    "polar_bear",
+    "ravager",
+    "shulker",
+    "slime",
+    "salmon",
+    "pufferfish",
+    "silverfish",
+    "tropical_fish"
+  ]
+}

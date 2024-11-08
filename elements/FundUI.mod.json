@@ -1,0 +1,371 @@
+{
+  "_fv": 69,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 222,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": false,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "found.png",
+          "use1Xscale": false,
+          "x": 103,
+          "y": 37
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eras_bar.png",
+          "use1Xscale": false,
+          "x": 98,
+          "y": 9
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "crown.png",
+          "use1Xscale": false,
+          "x": 270,
+          "y": 107
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "id": 0,
+          "disablePickup": {
+            "fixedValue": true
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 241,
+          "y": 62
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": "CUSTOM:PlatinumCoin"
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "color": {
+            "value": -3342337,
+            "falpha": 0.0
+          },
+          "id": 1,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "onSlotChanged": {
+            "name": "SoundSale"
+          },
+          "x": 169,
+          "y": 62
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_forward_to_a_new_time",
+          "text": {
+            "fixedValue": "Forward to a new time..."
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 133,
+          "y": 107
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "era_point_next.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnEra4"
+          },
+          "x": 157,
+          "y": 30
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "era_point_next.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnEra5"
+          },
+          "x": 181,
+          "y": 30
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "era_point_next.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnEra6"
+          },
+          "x": 205,
+          "y": 30
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "era_point_next.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnEra7"
+          },
+          "x": 229,
+          "y": 30
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "era_point_next.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnEra8"
+          },
+          "x": 253,
+          "y": 30
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "era_point_next.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnEra9"
+          },
+          "x": 277,
+          "y": 30
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "era_point_next.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnEra10"
+          },
+          "x": 301,
+          "y": 30
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_donate_coins_to_advance_to_a_new",
+          "text": {
+            "fixedValue": "Donate coins to advance to a new time."
+          },
+          "width": 19,
+          "height": 15,
+          "x": 268,
+          "y": 104
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_market_expansion",
+          "text": {
+            "fixedValue": "Market expansion"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 127,
+          "y": 30
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_opening_the_end",
+          "text": {
+            "fixedValue": "Opening the End."
+          },
+          "width": 6,
+          "height": 6,
+          "x": 319,
+          "y": 30
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "era_point_first.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnEra1"
+          },
+          "x": 103,
+          "y": 30
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "era_point_next.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnEra2"
+          },
+          "x": 109,
+          "y": 30
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "era_point_next.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnEra3"
+          },
+          "x": 133,
+          "y": 30
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_iron_processing",
+          "text": {
+            "fixedValue": "Iron processing"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 103,
+          "y": 30
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_additional_license",
+          "text": {
+            "fixedValue": "Additional license"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 151,
+          "y": 30
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_processing_of_precious_ores",
+          "text": {
+            "fixedValue": "Processing of precious ores"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 175,
+          "y": 30
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_redstone_kesearch",
+          "text": {
+            "fixedValue": "Redstone кesearch"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 199,
+          "y": 30
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_1_kingdom",
+          "text": {
+            "fixedValue": "+1 kingdom"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 223,
+          "y": 30
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_openning_the_nether",
+          "text": {
+            "fixedValue": "Openning the Nether"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 247,
+          "y": 30
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_3_kingdoms",
+          "text": {
+            "fixedValue": "+3 kingdoms"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 295,
+          "y": 30
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_opening_sticky_pistons",
+          "text": {
+            "fixedValue": "Opening Sticky pistons"
+          },
+          "width": 6,
+          "height": 6,
+          "x": 271,
+          "y": 30
+        }
+      }
+    ],
+    "onTick": {
+      "name": "FundTick"
+    },
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}
