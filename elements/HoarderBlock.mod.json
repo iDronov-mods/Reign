@@ -104,9 +104,6 @@
     "luminance": 0,
     "unbreakable": false,
     "vanillaToolTier": "NONE",
-    "placingCondition": {
-      "name": "CapitalBlockCheck"
-    },
     "isBonemealable": false,
     "hasInventory": false,
     "guiBoundTo": "Hoarder",

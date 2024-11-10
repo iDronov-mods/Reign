@@ -15,11 +15,13 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraft.world.level.block.Block;
 
 import net.mcreator.reignmod.block.TradeBlockBlock;
+import net.mcreator.reignmod.block.SafeBlock;
 import net.mcreator.reignmod.block.RockBlock;
 import net.mcreator.reignmod.block.PlusBlock;
 import net.mcreator.reignmod.block.MarketBlockBlock;
 import net.mcreator.reignmod.block.KingtableBlock;
 import net.mcreator.reignmod.block.HoarderBlockBlock;
+import net.mcreator.reignmod.block.HeartOfHouseBlock;
 import net.mcreator.reignmod.block.FundBlock;
 import net.mcreator.reignmod.block.CoffersBlock;
 import net.mcreator.reignmod.ReignModMod;
@@ -34,6 +36,8 @@ public class ReignModModBlocks {
 	public static final RegistryObject<Block> HOARDER_BLOCK = REGISTRY.register("hoarder_block", () -> new HoarderBlockBlock());
 	public static final RegistryObject<Block> ROCK = REGISTRY.register("rock", () -> new RockBlock());
 	public static final RegistryObject<Block> KINGTABLE = REGISTRY.register("kingtable", () -> new KingtableBlock());
+	public static final RegistryObject<Block> SAFE = REGISTRY.register("safe", () -> new SafeBlock());
+	public static final RegistryObject<Block> HEART_OF_HOUSE = REGISTRY.register("heart_of_house", () -> new HeartOfHouseBlock());
 
 	// Start of user code block custom blocks
 	// End of user code block custom blocks

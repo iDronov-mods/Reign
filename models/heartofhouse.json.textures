@@ -2,8 +2,8 @@
   "mappings": {
     "default": {
       "map": {
-        "0": "texture_fund",
-        "1": "texture_head"
+        "0": "heartofhouseglass_texture",
+        "1": "heartofhouse_texture"
       },
       "name": "default"
     }

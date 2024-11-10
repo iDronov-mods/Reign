@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aaa",
+    "aba",
+    "aaa"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:iron_block"
+    },
+    "b": {
+      "item": "reign_mod:platinum_coin"
+    }
+  },
+  "result": {
+    "item": "reign_mod:coffers",
+    "count": 1
+  }
+}

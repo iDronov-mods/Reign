@@ -3,7 +3,7 @@
   "category": "misc",
   "pattern": [
     " a ",
-    "bcb",
+    "b b",
     " b "
   ],
   "key": {
@@ -12,9 +12,6 @@
     },
     "b": {
       "item": "minecraft:iron_ingot"
-    },
-    "c": {
-      "item": "reign_mod:key"
     }
   },
   "result": {

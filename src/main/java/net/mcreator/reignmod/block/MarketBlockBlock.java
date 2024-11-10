@@ -83,7 +83,7 @@ public class MarketBlockBlock extends Block implements EntityBlock {
 			int x = pos.getX();
 			int y = pos.getY();
 			int z = pos.getZ();
-			return CapitalBlockCheckProcedure.execute(world, x, z);
+			return CapitalBlockCheckProcedure.execute(world);
 		}
 		return super.canSurvive(blockstate, worldIn, pos);
 	}

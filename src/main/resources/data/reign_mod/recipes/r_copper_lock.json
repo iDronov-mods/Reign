@@ -2,17 +2,20 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-    "  a",
     " a ",
-    "a  "
+    "b b",
+    " b "
   ],
   "key": {
     "a": {
+      "item": "minecraft:iron_bars"
+    },
+    "b": {
       "item": "minecraft:copper_ingot"
     }
   },
   "result": {
-    "item": "reign_mod:key",
+    "item": "reign_mod:copper_lock",
     "count": 1
   }
 }

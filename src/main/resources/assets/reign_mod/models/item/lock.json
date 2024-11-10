@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "reign_mod:item/lock"
+    "layer0": "reign_mod:item/iron_lock"
   }
 }

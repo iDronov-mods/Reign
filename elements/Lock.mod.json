@@ -3,11 +3,11 @@
   "_type": "item",
   "definition": {
     "renderType": 0,
-    "texture": "lock",
+    "texture": "iron_lock",
     "customModelName": "Normal",
     "customProperties": {},
     "states": [],
-    "name": "Lock",
+    "name": "Iron lock",
     "rarity": "COMMON",
     "creativeTabs": [
       {

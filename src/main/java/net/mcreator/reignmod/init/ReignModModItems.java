@@ -16,24 +16,32 @@ import net.mcreator.reignmod.item.YourLawnIsBoolItem;
 import net.mcreator.reignmod.item.WoodcutterCoinItem;
 import net.mcreator.reignmod.item.WalletItem;
 import net.mcreator.reignmod.item.TextbookItem;
+import net.mcreator.reignmod.item.StateRental3Item;
+import net.mcreator.reignmod.item.StateRental2Item;
+import net.mcreator.reignmod.item.StateRental1Item;
 import net.mcreator.reignmod.item.SmithCoinItem;
 import net.mcreator.reignmod.item.SilverCoinItem;
 import net.mcreator.reignmod.item.RuinLord3Item;
 import net.mcreator.reignmod.item.RuinLord2Item;
 import net.mcreator.reignmod.item.RuinLord1Item;
 import net.mcreator.reignmod.item.RightHandItem;
+import net.mcreator.reignmod.item.PrivateRental3Item;
+import net.mcreator.reignmod.item.PrivateRental2Item;
+import net.mcreator.reignmod.item.PrivateRental1Item;
 import net.mcreator.reignmod.item.PlatinumCoinItem;
 import net.mcreator.reignmod.item.MinerCoinItem;
 import net.mcreator.reignmod.item.LockItem;
-import net.mcreator.reignmod.item.KeyItem;
 import net.mcreator.reignmod.item.HoneyConcentrateItem;
+import net.mcreator.reignmod.item.GoldLockItem;
 import net.mcreator.reignmod.item.GoldCoinItem;
 import net.mcreator.reignmod.item.FragmentOfRecordItem;
 import net.mcreator.reignmod.item.FragmentOfRecord3Item;
 import net.mcreator.reignmod.item.FragmentOfRecord2Item;
 import net.mcreator.reignmod.item.FarmerCoinItem;
 import net.mcreator.reignmod.item.CrownItem;
+import net.mcreator.reignmod.item.CopperLockItem;
 import net.mcreator.reignmod.item.CopperCoinItem;
+import net.mcreator.reignmod.item.ContractKillItem;
 import net.mcreator.reignmod.item.BlackmarkItem;
 import net.mcreator.reignmod.ReignModMod;
 
@@ -59,7 +67,6 @@ public class ReignModModItems {
 	public static final RegistryObject<Item> HOARDER_BLOCK = block(ReignModModBlocks.HOARDER_BLOCK);
 	public static final RegistryObject<Item> BLACKMARK = REGISTRY.register("blackmark", () -> new BlackmarkItem());
 	public static final RegistryObject<Item> LOCK = REGISTRY.register("lock", () -> new LockItem());
-	public static final RegistryObject<Item> KEY = REGISTRY.register("key", () -> new KeyItem());
 	public static final RegistryObject<Item> WALLET = REGISTRY.register("wallet", () -> new WalletItem());
 	public static final RegistryObject<Item> HONEY_CONCENTRATE = REGISTRY.register("honey_concentrate", () -> new HoneyConcentrateItem());
 	public static final RegistryObject<Item> ROCK = block(ReignModModBlocks.ROCK);
@@ -70,6 +77,17 @@ public class ReignModModItems {
 	public static final RegistryObject<Item> RUIN_LORD_1 = REGISTRY.register("ruin_lord_1", () -> new RuinLord1Item());
 	public static final RegistryObject<Item> RUIN_LORD_2 = REGISTRY.register("ruin_lord_2", () -> new RuinLord2Item());
 	public static final RegistryObject<Item> RUIN_LORD_3 = REGISTRY.register("ruin_lord_3", () -> new RuinLord3Item());
+	public static final RegistryObject<Item> PRIVATE_RENTAL_1 = REGISTRY.register("private_rental_1", () -> new PrivateRental1Item());
+	public static final RegistryObject<Item> PRIVATE_RENTAL_2 = REGISTRY.register("private_rental_2", () -> new PrivateRental2Item());
+	public static final RegistryObject<Item> PRIVATE_RENTAL_3 = REGISTRY.register("private_rental_3", () -> new PrivateRental3Item());
+	public static final RegistryObject<Item> STATE_RENTAL_1 = REGISTRY.register("state_rental_1", () -> new StateRental1Item());
+	public static final RegistryObject<Item> STATE_RENTAL_2 = REGISTRY.register("state_rental_2", () -> new StateRental2Item());
+	public static final RegistryObject<Item> STATE_RENTAL_3 = REGISTRY.register("state_rental_3", () -> new StateRental3Item());
+	public static final RegistryObject<Item> CONTRACT_KILL = REGISTRY.register("contract_kill", () -> new ContractKillItem());
+	public static final RegistryObject<Item> GOLD_LOCK = REGISTRY.register("gold_lock", () -> new GoldLockItem());
+	public static final RegistryObject<Item> COPPER_LOCK = REGISTRY.register("copper_lock", () -> new CopperLockItem());
+	public static final RegistryObject<Item> SAFE = block(ReignModModBlocks.SAFE);
+	public static final RegistryObject<Item> HEART_OF_HOUSE = block(ReignModModBlocks.HEART_OF_HOUSE);
 
 	// Start of user code block custom items
 	// End of user code block custom items

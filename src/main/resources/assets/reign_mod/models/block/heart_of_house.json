@@ -1,0 +1,10 @@
+{
+  "parent": "reign_mod:custom/heartofhouse",
+  "textures": {
+    "all": "minecraft:block/item_frame",
+    "particle": "minecraft:block/item_frame",
+    "0": "reign_mod:block/heartofhouseglass_texture",
+    "1": "reign_mod:block/heartofhouse_texture"
+  },
+  "render_type": "translucent"
+}

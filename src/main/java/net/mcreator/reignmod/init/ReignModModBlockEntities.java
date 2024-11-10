@@ -11,6 +11,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.Block;
 
+import net.mcreator.reignmod.block.entity.SafeBlockEntity;
 import net.mcreator.reignmod.block.entity.PlusBlockEntity;
 import net.mcreator.reignmod.block.entity.MarketBlockBlockEntity;
 import net.mcreator.reignmod.block.entity.FundBlockEntity;
@@ -23,6 +24,7 @@ public class ReignModModBlockEntities {
 	public static final RegistryObject<BlockEntityType<?>> COFFERS = register("coffers", ReignModModBlocks.COFFERS, CoffersBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> FUND = register("fund", ReignModModBlocks.FUND, FundBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> PLUS = register("plus", ReignModModBlocks.PLUS, PlusBlockEntity::new);
+	public static final RegistryObject<BlockEntityType<?>> SAFE = register("safe", ReignModModBlocks.SAFE, SafeBlockEntity::new);
 
 	// Start of user code block custom block entities
 	// End of user code block custom block entities

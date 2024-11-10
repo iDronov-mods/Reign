@@ -36,14 +36,24 @@ public class ReignModModTabs {
 				tabData.accept(ReignModModItems.MINER_COIN.get());
 				tabData.accept(ReignModModItems.FARMER_COIN.get());
 				tabData.accept(ReignModModItems.BLACKMARK.get());
-				tabData.accept(ReignModModItems.LOCK.get());
-				tabData.accept(ReignModModItems.KEY.get());
 				tabData.accept(ReignModModItems.WALLET.get());
 				tabData.accept(ReignModModItems.HONEY_CONCENTRATE.get());
 				tabData.accept(ReignModModItems.RUIN_LORD_2.get());
 				tabData.accept(ReignModModItems.RUIN_LORD_1.get());
 				tabData.accept(ReignModModItems.RUIN_LORD_3.get());
 				tabData.accept(ReignModModItems.YOUR_LAWN_IS_BOOL.get());
+				tabData.accept(ReignModModItems.PRIVATE_RENTAL_1.get());
+				tabData.accept(ReignModModItems.PRIVATE_RENTAL_2.get());
+				tabData.accept(ReignModModItems.PRIVATE_RENTAL_3.get());
+				tabData.accept(ReignModModItems.STATE_RENTAL_1.get());
+				tabData.accept(ReignModModItems.STATE_RENTAL_2.get());
+				tabData.accept(ReignModModItems.STATE_RENTAL_3.get());
+				tabData.accept(ReignModModItems.CONTRACT_KILL.get());
+				tabData.accept(ReignModModItems.COPPER_LOCK.get());
+				tabData.accept(ReignModModItems.LOCK.get());
+				tabData.accept(ReignModModItems.GOLD_LOCK.get());
+				tabData.accept(ReignModModBlocks.SAFE.get().asItem());
+				tabData.accept(ReignModModBlocks.HEART_OF_HOUSE.get().asItem());
 			})
 
 					.build());

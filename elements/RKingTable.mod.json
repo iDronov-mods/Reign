@@ -12,37 +12,37 @@
     "recipeShapeless": false,
     "recipeSlots": [
       {
-        "value": ""
+        "value": "Items.FEATHER"
       },
       {
-        "value": ""
+        "value": "Items.PAPER"
       },
       {
-        "value": "Items.COPPER_INGOT"
+        "value": "Items.DYE#0"
       },
       {
-        "value": ""
+        "value": "Blocks.WOOL#14"
       },
       {
-        "value": "Items.COPPER_INGOT"
+        "value": "Blocks.WOOL#14"
       },
       {
-        "value": ""
+        "value": "Blocks.WOOL#14"
       },
       {
-        "value": "Items.COPPER_INGOT"
+        "value": "Blocks.PLANKS"
       },
       {
-        "value": ""
+        "value": "Blocks.PLANKS"
       },
       {
-        "value": ""
+        "value": "Blocks.PLANKS"
       }
     ],
     "recipeReturnStack": {
-      "value": "CUSTOM:Key"
+      "value": "CUSTOM:Kingtable"
     },
-    "name": "rkey",
+    "name": "r_king_table",
     "namespace": "mod"
   }
 }

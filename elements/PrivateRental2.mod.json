@@ -3,11 +3,11 @@
   "_type": "item",
   "definition": {
     "renderType": 0,
-    "texture": "key",
+    "texture": "private_rent2",
     "customModelName": "Normal",
     "customProperties": {},
     "states": [],
-    "name": "Key",
+    "name": "Average private rent",
     "rarity": "COMMON",
     "creativeTabs": [
       {
@@ -29,8 +29,7 @@
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
     "specialInformation": {
-      "fixedValue": [],
-      "name": "KeyAddInfo"
+      "fixedValue": []
     },
     "glowCondition": {
       "fixedValue": false

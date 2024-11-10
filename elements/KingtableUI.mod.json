@@ -59,7 +59,7 @@
           },
           "dropItemsWhenNotBound": true,
           "x": 133,
-          "y": 48
+          "y": 61
         }
       },
       {
@@ -75,7 +75,7 @@
           },
           "dropItemsWhenNotBound": true,
           "x": 133,
-          "y": 72
+          "y": 79
         }
       },
       {
@@ -91,7 +91,7 @@
           },
           "dropItemsWhenNotBound": true,
           "x": 133,
-          "y": 96
+          "y": 97
         }
       },
       {
@@ -106,8 +106,8 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": true,
-          "x": 169,
-          "y": 48
+          "x": 151,
+          "y": 61
         }
       },
       {
@@ -122,8 +122,8 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": true,
-          "x": 169,
-          "y": 72
+          "x": 151,
+          "y": 79
         }
       },
       {
@@ -138,8 +138,8 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": true,
-          "x": 169,
-          "y": 96
+          "x": 151,
+          "y": 97
         }
       },
       {
@@ -155,6 +155,54 @@
           },
           "x": 116,
           "y": 25
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "color": {
+            "value": -10066330,
+            "falpha": 0.0
+          },
+          "id": 8,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 277,
+          "y": 61
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "color": {
+            "value": -10066330,
+            "falpha": 0.0
+          },
+          "id": 9,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 277,
+          "y": 79
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "color": {
+            "value": -10066330,
+            "falpha": 0.0
+          },
+          "id": 10,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 277,
+          "y": 97
         }
       }
     ],

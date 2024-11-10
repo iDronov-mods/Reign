@@ -16,6 +16,7 @@ import net.mcreator.reignmod.world.inventory.WalletwinMenu;
 import net.mcreator.reignmod.world.inventory.TraderPointMenu;
 import net.mcreator.reignmod.world.inventory.TextbookmainMenu;
 import net.mcreator.reignmod.world.inventory.Textbook1Menu;
+import net.mcreator.reignmod.world.inventory.SafeUIMenu;
 import net.mcreator.reignmod.world.inventory.RoyaleSettingsMenu;
 import net.mcreator.reignmod.world.inventory.NewHouseMenu;
 import net.mcreator.reignmod.world.inventory.MarketMenu;
@@ -51,4 +52,5 @@ public class ReignModModMenus {
 	public static final RegistryObject<MenuType<TextbookmainMenu>> TEXTBOOKMAIN = REGISTRY.register("textbookmain", () -> IForgeMenuType.create(TextbookmainMenu::new));
 	public static final RegistryObject<MenuType<KingtableUIMenu>> KINGTABLE_UI = REGISTRY.register("kingtable_ui", () -> IForgeMenuType.create(KingtableUIMenu::new));
 	public static final RegistryObject<MenuType<NewHouseMenu>> NEW_HOUSE = REGISTRY.register("new_house", () -> IForgeMenuType.create(NewHouseMenu::new));
+	public static final RegistryObject<MenuType<SafeUIMenu>> SAFE_UI = REGISTRY.register("safe_ui", () -> IForgeMenuType.create(SafeUIMenu::new));
 }

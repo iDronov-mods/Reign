@@ -16,6 +16,7 @@ import net.mcreator.reignmod.client.gui.WalletwinScreen;
 import net.mcreator.reignmod.client.gui.TraderPointScreen;
 import net.mcreator.reignmod.client.gui.TextbookmainScreen;
 import net.mcreator.reignmod.client.gui.Textbook1Screen;
+import net.mcreator.reignmod.client.gui.SafeUIScreen;
 import net.mcreator.reignmod.client.gui.RoyaleSettingsScreen;
 import net.mcreator.reignmod.client.gui.NewHouseScreen;
 import net.mcreator.reignmod.client.gui.MarketScreen;
@@ -53,6 +54,7 @@ public class ReignModModScreens {
 			MenuScreens.register(ReignModModMenus.TEXTBOOKMAIN.get(), TextbookmainScreen::new);
 			MenuScreens.register(ReignModModMenus.KINGTABLE_UI.get(), KingtableUIScreen::new);
 			MenuScreens.register(ReignModModMenus.NEW_HOUSE.get(), NewHouseScreen::new);
+			MenuScreens.register(ReignModModMenus.SAFE_UI.get(), SafeUIScreen::new);
 		});
 	}
 }

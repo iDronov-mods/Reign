@@ -2,7 +2,7 @@
   "_fv": 69,
   "_type": "block",
   "definition": {
-    "texture": "kazna_top",
+    "texture": "kazna_front_on",
     "textureTop": "kazna_top",
     "textureLeft": "kazna_side",
     "textureFront": "kazna_front_on",
@@ -104,6 +104,9 @@
     "luminance": 0,
     "unbreakable": true,
     "vanillaToolTier": "NONE",
+    "placingCondition": {
+      "name": "CapitalBlockCheck"
+    },
     "isBonemealable": false,
     "hasInventory": true,
     "guiBoundTo": "CoffersUI",

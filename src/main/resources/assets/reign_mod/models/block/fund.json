@@ -1,5 +1,5 @@
 {
-  "parent": "reign_mod:custom/fund_new",
+  "parent": "reign_mod:custom/fund",
   "textures": {
     "all": "minecraft:block/black_shulker_box",
     "particle": "minecraft:block/black_shulker_box",

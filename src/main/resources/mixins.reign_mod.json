@@ -11,7 +11,9 @@
     "GrindstoneBlockMixin",
     "SmithingTableBlockMixin",
     "BrewingStandBlockMixin",
-    "DontCutSheepMixin"
+    "DontCutSheepMixin",
+    "HorseSaddleMixin",
+    "HopperBlockMixin"
   ],
   "client": [],
   "minVersion": "0.8"

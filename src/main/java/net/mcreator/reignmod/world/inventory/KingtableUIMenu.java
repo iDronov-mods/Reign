@@ -43,7 +43,7 @@ public class KingtableUIMenu extends AbstractContainerMenu implements Supplier<M
 		super(ReignModModMenus.KINGTABLE_UI.get(), id);
 		this.entity = inv.player;
 		this.world = inv.player.level();
-		this.internal = new ItemStackHandler(8);
+		this.internal = new ItemStackHandler(11);
 		BlockPos pos = null;
 		if (extraData != null) {
 			pos = extraData.readBlockPos();
@@ -89,7 +89,7 @@ public class KingtableUIMenu extends AbstractContainerMenu implements Supplier<M
 				return Items.PAPER == stack.getItem();
 			}
 		}));
-		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 20, 12) {
+		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 20, 25) {
 			private final int slot = 2;
 
 			@Override
@@ -97,7 +97,7 @@ public class KingtableUIMenu extends AbstractContainerMenu implements Supplier<M
 				return false;
 			}
 		}));
-		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 20, 36) {
+		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 20, 43) {
 			private final int slot = 3;
 
 			@Override
@@ -105,7 +105,7 @@ public class KingtableUIMenu extends AbstractContainerMenu implements Supplier<M
 				return false;
 			}
 		}));
-		this.customSlots.put(4, this.addSlot(new SlotItemHandler(internal, 4, 20, 60) {
+		this.customSlots.put(4, this.addSlot(new SlotItemHandler(internal, 4, 20, 61) {
 			private final int slot = 4;
 
 			@Override
@@ -113,7 +113,7 @@ public class KingtableUIMenu extends AbstractContainerMenu implements Supplier<M
 				return false;
 			}
 		}));
-		this.customSlots.put(5, this.addSlot(new SlotItemHandler(internal, 5, 56, 12) {
+		this.customSlots.put(5, this.addSlot(new SlotItemHandler(internal, 5, 38, 25) {
 			private final int slot = 5;
 
 			@Override
@@ -121,7 +121,7 @@ public class KingtableUIMenu extends AbstractContainerMenu implements Supplier<M
 				return false;
 			}
 		}));
-		this.customSlots.put(6, this.addSlot(new SlotItemHandler(internal, 6, 56, 36) {
+		this.customSlots.put(6, this.addSlot(new SlotItemHandler(internal, 6, 38, 43) {
 			private final int slot = 6;
 
 			@Override
@@ -129,8 +129,32 @@ public class KingtableUIMenu extends AbstractContainerMenu implements Supplier<M
 				return false;
 			}
 		}));
-		this.customSlots.put(7, this.addSlot(new SlotItemHandler(internal, 7, 56, 60) {
+		this.customSlots.put(7, this.addSlot(new SlotItemHandler(internal, 7, 38, 61) {
 			private final int slot = 7;
+
+			@Override
+			public boolean mayPlace(ItemStack stack) {
+				return false;
+			}
+		}));
+		this.customSlots.put(8, this.addSlot(new SlotItemHandler(internal, 8, 164, 25) {
+			private final int slot = 8;
+
+			@Override
+			public boolean mayPlace(ItemStack stack) {
+				return false;
+			}
+		}));
+		this.customSlots.put(9, this.addSlot(new SlotItemHandler(internal, 9, 164, 43) {
+			private final int slot = 9;
+
+			@Override
+			public boolean mayPlace(ItemStack stack) {
+				return false;
+			}
+		}));
+		this.customSlots.put(10, this.addSlot(new SlotItemHandler(internal, 10, 164, 61) {
+			private final int slot = 10;
 
 			@Override
 			public boolean mayPlace(ItemStack stack) {
@@ -164,16 +188,16 @@ public class KingtableUIMenu extends AbstractContainerMenu implements Supplier<M
 		if (slot != null && slot.hasItem()) {
 			ItemStack itemstack1 = slot.getItem();
 			itemstack = itemstack1.copy();
-			if (index < 8) {
-				if (!this.moveItemStackTo(itemstack1, 8, this.slots.size(), true))
+			if (index < 11) {
+				if (!this.moveItemStackTo(itemstack1, 11, this.slots.size(), true))
 					return ItemStack.EMPTY;
 				slot.onQuickCraft(itemstack1, itemstack);
-			} else if (!this.moveItemStackTo(itemstack1, 0, 8, false)) {
-				if (index < 8 + 27) {
-					if (!this.moveItemStackTo(itemstack1, 8 + 27, this.slots.size(), true))
+			} else if (!this.moveItemStackTo(itemstack1, 0, 11, false)) {
+				if (index < 11 + 27) {
+					if (!this.moveItemStackTo(itemstack1, 11 + 27, this.slots.size(), true))
 						return ItemStack.EMPTY;
 				} else {
-					if (!this.moveItemStackTo(itemstack1, 8, 8 + 27, false))
+					if (!this.moveItemStackTo(itemstack1, 11, 11 + 27, false))
 						return ItemStack.EMPTY;
 				}
 				return ItemStack.EMPTY;
