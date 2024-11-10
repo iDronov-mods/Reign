@@ -7,54 +7,63 @@ import net.minecraftforge.common.util.INBTSerializable;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Objects;
 
 public class House implements INBTSerializable<CompoundTag> {
-    private String name;
-    private String headUUID;
-    private String color;
-    public HashSet<String> players = new HashSet<>();
-    public HashMap<String, Domain> domains = new HashMap<>();
+    private String lordUUID;
+    private String houseTitle;
+    private String houseColor;
+    private HashSet<String> players = new HashSet<>();
+    private HashMap<String, Domain> domains = new HashMap<>();
 
     public House() {
-        this.name = "null";
-        this.headUUID = "null";
-        this.color = "null";
+        this.lordUUID = "null";
+        this.houseTitle = "null";
+        this.houseColor = "null";
     }
-    public House(String name, String headUUID, String color) {
-        this.name = name;
-        this.headUUID = headUUID;
-        this.color = color;
+    public House(String lordUUID, String houseTitle, String houseColor) {
+        this.lordUUID = lordUUID;
+        this.houseTitle = houseTitle;
+        this.houseColor = houseColor;
+        this.players.add(lordUUID);
     }
-
     public House(CompoundTag nbt) {
         deserializeNBT(nbt);
     }
 
-    public String getName() { return this.name; }
-    public String getHeadUUID() { return this.headUUID; }
-    public String getColor() { return this.color; }
+    public String getLordUUID() {return this.lordUUID; }
+    public String getHouseTitle() { return this.houseTitle; }
+    public String getHouseColor() { return this.houseColor; }
+    public void setLordUUID(String lordUUID) { this.lordUUID = lordUUID; }
+    public void setHouseTitle(String houseTitle) { this.houseTitle = houseTitle; }
+    public void setHouseColor(String houseColor) { this.houseColor = houseColor; }
+
     public HashSet<String> getPlayers() { return this.players; }
     public HashMap<String, Domain> getDomains() { return this.domains; }
-
-    public void setName(String name) { this.name = name; }
-    public void setHeadUUID(String head) { this.headUUID = head; }
-    public void setColor(String color) { this.color = color; }
     public void setPlayers(HashSet<String> players) { this.players = players; }
     public void setDomains(HashMap<String, Domain> domains) { this.domains = domains; }
 
-    public void addPlayerToDomain(String domainHeadUUID, String playerUUID) { if (domains.containsKey(domainHeadUUID)) domains.get(domainHeadUUID).addPlayer(playerUUID);}
-    public void removePlayerFromDomain(String domainHeadUUID, String playerUUID) { if (domains.containsKey(domainHeadUUID)) domains.get(domainHeadUUID).removePlayer(playerUUID);}
 
-    public void createDomain(String playerUUID, String playerName) { this.domains.putIfAbsent(playerUUID, new Domain(playerUUID, playerName)); }
-    public void addDomain(Domain domain) {this.domains.putIfAbsent(domain.getHeadUUID(), domain);}
+    public boolean isNull() { return Objects.equals(this.lordUUID, "null"); }
+
+    public void pushPlayerToDomain(String knightUUID, String playerUUID) {
+        if (this.domains.containsKey(knightUUID)) this.domains.get(knightUUID).pushPlayer(playerUUID);
+    }
+    public void removePlayerFromDomain(String knightUUID, String playerUUID) {
+        if (this.domains.containsKey(knightUUID)) this.domains.get(knightUUID).removePlayer(playerUUID);
+    }
+
+    public boolean containsDomain(String domainHeadUUID) { return this.domains.containsKey(domainHeadUUID); }
+    public void addDomain(String knightUUID, String knightDisplayName) { this.domains.putIfAbsent(knightUUID, new Domain(this.lordUUID, knightUUID, knightDisplayName)); }
+    public void pushDomain(Domain domain) {this.domains.putIfAbsent(domain.getKnightUUID(), domain);}
     public void removeDomain(String playerUUID) { this.domains.remove(playerUUID); }
 
     @Override
     public CompoundTag serializeNBT() {
         CompoundTag tag = new CompoundTag();
-        tag.putString("name", this.name);
-        tag.putString("head_uuid", this.headUUID);
-        tag.putString("color", this.color);
+        tag.putString("lord_uuid", this.lordUUID);
+        tag.putString("house_title", this.houseTitle);
+        tag.putString("house_color", this.houseColor);
 
         ListTag playersTag = new ListTag();
         this.players.forEach(player -> playersTag.add(StringTag.valueOf(player)));
@@ -69,9 +78,9 @@ public class House implements INBTSerializable<CompoundTag> {
 
     @Override
     public void deserializeNBT(CompoundTag nbt) {
-        this.name = nbt.getString("name");
-        this.headUUID = nbt.getString("head_uuid");
-        this.color = nbt.getString("color");
+        this.lordUUID = nbt.getString("lord_uuid");
+        this.houseTitle = nbt.getString("house_title");
+        this.houseColor = nbt.getString("house_color");
 
         this.players.clear();
         ListTag playersTag = nbt.getList("players", 10);
@@ -79,6 +88,6 @@ public class House implements INBTSerializable<CompoundTag> {
 
         this.domains.clear();
         ListTag domainsTag = nbt.getList("domains", 10);
-        domainsTag.forEach(tag -> addDomain(new Domain((CompoundTag) tag)));
+        domainsTag.forEach(tag -> pushDomain(new Domain((CompoundTag) tag)));
     }
 }

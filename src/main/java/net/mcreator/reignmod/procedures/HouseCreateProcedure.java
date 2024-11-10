@@ -88,7 +88,7 @@ public class HouseCreateProcedure {
 					LevelAccessor _worldorig = world;
 					world = _origLevel.getServer().getLevel(Level.OVERWORLD);
 					if (world != null) {
-						if (!HouseManager.createHouse(house_name, entity, color)) {
+						if (!HouseManager.createHouse(entity, house_name, color)) {
 							if (entity instanceof Player _player && !_player.level().isClientSide())
 								_player.displayClientMessage(Component.literal((Component.translatable("translation.key.houseNameTaken").getString())), false);
 						} else {

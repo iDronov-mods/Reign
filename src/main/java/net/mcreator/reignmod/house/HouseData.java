@@ -4,11 +4,13 @@ import java.util.HashMap;
 import java.util.List;
 
 public class HouseData{
-    private final HashMap<Integer, House> houses;
+    private final HashMap<String, House> houses;
+    private final HashMap<String, Domain> domains;
     private final HashMap<String, Boolean> houseAvailableColors;
 
     public HouseData() {
         this.houses = new HashMap<>();
+        this.domains = new HashMap<>();
         this.houseAvailableColors = new HashMap<>();
 
         List<String> houseColors = List.of("yellow", "lime", "green", "aqua", "blue", "purple", "pink", "red", "orange", "black");
@@ -17,15 +19,52 @@ public class HouseData{
         });
     }
     public HouseData(HouseData houseData) {
-        houses = houseData.houses;
-        houseAvailableColors = houseData.houseAvailableColors;
+        this.houses = houseData.houses;
+        this.domains = houseData.domains;
+        this.houseAvailableColors = houseData.houseAvailableColors;
     }
 
-    public HashMap<Integer, House> getHouses() { return this.houses;}
+    public HashMap<String, House> getHouses() { return this.houses;}
+    public HashMap<String, Domain> getDomains() { return this.domains;}
     public HashMap<String, Boolean> getHouseAvailableColors() { return this.houseAvailableColors;}
 
-    public void addHouse(House house) {
-        houses.put(house.getName().hashCode(), house);
-        houseAvailableColors.put(house.getColor(), false);
+    public House findHouseByLord(String lordUUID) {
+        return this.houses.getOrDefault(lordUUID, new House());
+    }
+
+    public House findHouseByKnight(String knightUUID) {
+        Domain domain = this.domains.getOrDefault(knightUUID, new Domain());
+        if (!domain.isNull()) {
+            return findHouseByLord(domain.getLordUUID());
+        }
+        return new House();
+    }
+
+    public Domain findDomainByKnight(String knightUUID) {
+        return this.domains.getOrDefault(knightUUID, new Domain());
+    }
+
+    public void pushHouse(House house) {
+        this.houses.putIfAbsent(house.getLordUUID(), house);
+        this.houseAvailableColors.put(house.getHouseColor(), false);
+    }
+
+    public void removeHouse(House house) {
+        this.houses.remove(house.getLordUUID());
+        this.houseAvailableColors.replace(house.getHouseColor(), true);
+    }
+
+    public void pushDomain(House house, Domain domain) {
+        if (this.houses.containsKey(house.getLordUUID())) {
+            this.houses.get(house.getLordUUID()).pushDomain(domain);
+            this.domains.putIfAbsent(domain.getKnightUUID(), domain);
+        }
+    }
+
+    public void removeDomain(House house, Domain domain) {
+        if (this.houses.containsKey(house.getLordUUID())) {
+            this.houses.get(house.getLordUUID()).removeDomain(domain.getKnightUUID());
+            this.domains.remove(domain.getKnightUUID());
+        }
     }
 }

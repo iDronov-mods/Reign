@@ -11,37 +11,55 @@ public class HouseSavedData extends SavedData {
 
     public HouseSavedData() {}
 
-    public HouseSavedData(CompoundTag tag) {
-        ListTag housesTag = tag.getList("houses", 10);
-        housesTag.forEach(houseTag -> this.houseData.addHouse(new House((CompoundTag) houseTag)));
+    public HouseSavedData(CompoundTag compoundTag) {
+        ListTag housesTag = compoundTag.getList("houses", 10);
+        housesTag.forEach(houseTag -> this.houseData.pushHouse(new House((CompoundTag) houseTag)));
     }
 
-    public static HouseSavedData getOrCreate(ServerLevel level) {
-        return level.getDataStorage().computeIfAbsent(HouseSavedData::new, HouseSavedData::new, "house_data");
+    public static HouseSavedData getOrCreate(ServerLevel serverLevel) {
+        return serverLevel.getDataStorage().computeIfAbsent(HouseSavedData::new, HouseSavedData::new, "house_data");
     }
 
     @Override
-    public CompoundTag save(CompoundTag tag) { // Сохранение словаря домов
-        ListTag housesTag = new ListTag();
-        houseData.getHouses().forEach((houseName, house) -> housesTag.add(house.serializeNBT()));
-        tag.put("houses", housesTag);
-        return tag;
+    public CompoundTag save(CompoundTag compoundTag) { // Сохранение словаря домов
+        ListTag housesListTag = new ListTag();
+        this.houseData.getHouses().forEach((lordUUID, house) -> housesListTag.add(house.serializeNBT()));
+        compoundTag.put("houses", housesListTag);
+        return compoundTag;
+    }
+
+    public HouseData getHouseData() {
+        return this.houseData;
     }
 
     public Boolean isColorAvailable(String color) {
         return houseData.getHouseAvailableColors().get(color);
     }
 
-    public House findHouseByName(String name) {
-        return houseData.getHouses().getOrDefault(name.hashCode(), new House());
-    }
-
-    public Boolean addHouse(String name, String headUUID, String color) {
-        if (houseData.getHouses().containsKey(name.hashCode()) || !houseData.getHouseAvailableColors().get(color)) return false;
-        House house = new House(name, headUUID, color);
-        house.players.add(headUUID);
-        houseData.addHouse(house);
+    public Boolean addHouse(String lordUUID, String houseTitle, String houseColor) {
+        if (this.houseData.getHouses().containsKey(lordUUID) || !this.houseData.getHouseAvailableColors().get(houseColor)) return false;
+        this.houseData.pushHouse(new House(lordUUID, houseTitle, houseColor));
         setDirty();
         return true;
+    }
+
+    public void removeHouse(String lordUUID) {
+        this.houseData.removeHouse(this.houseData.findHouseByLord(lordUUID));
+        setDirty();
+    }
+
+    public Boolean addDomain(String lordUUID, String knightUUID, String knightDisplayName) {
+        if (this.houseData.getHouses().containsKey(lordUUID) || this.houseData.getHouses().get(lordUUID).containsDomain(knightUUID)) return false;
+        this.houseData.findHouseByLord(lordUUID).addDomain(knightUUID, knightDisplayName);
+        setDirty();
+        return true;
+    }
+
+    public void removeDomain(String lordUUID, String knightUUID) {
+        House house = this.houseData.findHouseByLord(lordUUID);
+        if (!house.isNull()) {
+            this.houseData.removeDomain(house, this.houseData.findDomainByKnight(knightUUID));
+            setDirty();
+        }
     }
 }
