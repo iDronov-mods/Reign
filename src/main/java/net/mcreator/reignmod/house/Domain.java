@@ -23,6 +23,7 @@ public class Domain implements INBTSerializable<CompoundTag> {
         this.lordUUID = lordUUID;
         this.knightUUID = knightUUID;
         this.domainTitle = knightDisplayName;
+        this.players.add(knightUUID);
     }
     public Domain(CompoundTag nbt) {
         deserializeNBT(nbt);

@@ -15,16 +15,21 @@ public class House implements INBTSerializable<CompoundTag> {
     private String houseColor;
     private HashSet<String> players = new HashSet<>();
     private HashMap<String, Domain> domains = new HashMap<>();
+    private int[] houseIncubatorCoordinates = new int[3];
+    private int[] housePrisonCoordinates = new int[3];
+    private int houseHeartIdentifier;
 
     public House() {
         this.lordUUID = "null";
         this.houseTitle = "null";
         this.houseColor = "null";
+        this.houseHeartIdentifier = -1;
     }
-    public House(String lordUUID, String houseTitle, String houseColor) {
+    public House(String lordUUID, String houseTitle, String houseColor, int houseHeartIdentifier) {
         this.lordUUID = lordUUID;
         this.houseTitle = houseTitle;
         this.houseColor = houseColor;
+        this.houseHeartIdentifier = houseHeartIdentifier;
         this.players.add(lordUUID);
     }
     public House(CompoundTag nbt) {
@@ -34,9 +39,22 @@ public class House implements INBTSerializable<CompoundTag> {
     public String getLordUUID() {return this.lordUUID; }
     public String getHouseTitle() { return this.houseTitle; }
     public String getHouseColor() { return this.houseColor; }
+    public int[] getHouseIncubatorCoordinates() {
+        return this.houseIncubatorCoordinates;
+    }
+    public int[] getHousePrisonCoordinates() {
+        return this.housePrisonCoordinates;
+    }
+
     public void setLordUUID(String lordUUID) { this.lordUUID = lordUUID; }
     public void setHouseTitle(String houseTitle) { this.houseTitle = houseTitle; }
     public void setHouseColor(String houseColor) { this.houseColor = houseColor; }
+    public void setHouseIncubatorCoordinates(int[] houseIncubatorCoordinates) {
+        this.houseIncubatorCoordinates = houseIncubatorCoordinates;
+    }
+    public void setHousePrisonCoordinates(int[] housePrisonCoordinates) {
+        this.housePrisonCoordinates = housePrisonCoordinates;
+    }
 
     public HashSet<String> getPlayers() { return this.players; }
     public HashMap<String, Domain> getDomains() { return this.domains; }
@@ -65,6 +83,10 @@ public class House implements INBTSerializable<CompoundTag> {
         tag.putString("house_title", this.houseTitle);
         tag.putString("house_color", this.houseColor);
 
+        tag.putIntArray("house_incubator_coordinates", this.houseIncubatorCoordinates);
+        tag.putIntArray("house_prison_coordinates", this.housePrisonCoordinates);
+        tag.putInt("house_heart_item_identifier", this.houseHeartIdentifier);
+
         ListTag playersTag = new ListTag();
         this.players.forEach(player -> playersTag.add(StringTag.valueOf(player)));
         tag.put("players", playersTag);
@@ -72,7 +94,6 @@ public class House implements INBTSerializable<CompoundTag> {
         ListTag domainsTag = new ListTag();
         this.domains.forEach((domainHead, domain) -> domainsTag.add(domain.serializeNBT()));
         tag.put("domains", domainsTag);
-
         return tag;
     }
 
@@ -82,8 +103,12 @@ public class House implements INBTSerializable<CompoundTag> {
         this.houseTitle = nbt.getString("house_title");
         this.houseColor = nbt.getString("house_color");
 
+        this.housePrisonCoordinates = nbt.getIntArray("house_incubator_coordinates");
+        this.housePrisonCoordinates = nbt.getIntArray("house_prison_coordinates");
+        this.houseHeartIdentifier = nbt.getInt("house_heart_item_identifier");
+
         this.players.clear();
-        ListTag playersTag = nbt.getList("players", 10);
+        ListTag playersTag = nbt.getList("players", 8);
         playersTag.forEach(tag -> this.players.add(tag.getAsString()));
 
         this.domains.clear();

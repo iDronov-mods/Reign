@@ -32,13 +32,14 @@ public class HouseSavedData extends SavedData {
         return this.houseData;
     }
 
+
     public Boolean isColorAvailable(String color) {
         return houseData.getHouseAvailableColors().get(color);
     }
 
-    public Boolean addHouse(String lordUUID, String houseTitle, String houseColor) {
+    public Boolean addHouse(String lordUUID, String houseTitle, String houseColor, int houseHeartIdentifier) {
         if (this.houseData.getHouses().containsKey(lordUUID) || !this.houseData.getHouseAvailableColors().get(houseColor)) return false;
-        this.houseData.pushHouse(new House(lordUUID, houseTitle, houseColor));
+        this.houseData.pushHouse(new House(lordUUID, houseTitle, houseColor, houseHeartIdentifier));
         setDirty();
         return true;
     }

@@ -28,6 +28,28 @@ public class HouseData{
     public HashMap<String, Domain> getDomains() { return this.domains;}
     public HashMap<String, Boolean> getHouseAvailableColors() { return this.houseAvailableColors;}
 
+
+    public int[] getHouseIncubatorCoordinates(String lordUUID) {
+        return findHouseByLord(lordUUID).getHouseIncubatorCoordinates();
+    }
+
+    public void setHouseIncubatorCoordinates(String lordUUID, int x, int y, int z) {
+        if (!findHouseByLord(lordUUID).isNull()) {
+            findHouseByLord(lordUUID).setHouseIncubatorCoordinates(new int[] {x, y, z});
+        }
+    }
+
+    public int[] getHousePrisonCoordinates(String lordUUID) {
+        return findHouseByLord(lordUUID).getHousePrisonCoordinates();
+    }
+
+    public void setHousePrisonCoordinates(String lordUUID, int x, int y, int z) {
+        if (!findHouseByLord(lordUUID).isNull()) {
+            findHouseByLord(lordUUID).setHousePrisonCoordinates(new int[] {x, y, z});
+        }
+    }
+
+
     public House findHouseByLord(String lordUUID) {
         return this.houses.getOrDefault(lordUUID, new House());
     }
