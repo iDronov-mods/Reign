@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 @Mod.EventBusSubscriber
 public class DeleteBerryProcedure {
 	@SubscribeEvent
-	public static void onUseItemStart(LivingEntityUseItemEvent.Start event) {
+	public static void onUseItemFinish(LivingEntityUseItemEvent.Finish event) {
 		if (event != null && event.getEntity() != null) {
 			execute(event, event.getEntity(), event.getItem());
 		}

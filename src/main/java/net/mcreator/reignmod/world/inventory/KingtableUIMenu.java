@@ -20,7 +20,11 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
+import net.mcreator.reignmod.procedures.KingTableOpenProcedure;
+import net.mcreator.reignmod.procedures.KingTableCanCraftProcedure;
+import net.mcreator.reignmod.network.KingtableUISlotMessage;
 import net.mcreator.reignmod.init.ReignModModMenus;
+import net.mcreator.reignmod.ReignModMod;
 
 import java.util.function.Supplier;
 import java.util.Map;
@@ -80,6 +84,11 @@ public class KingtableUIMenu extends AbstractContainerMenu implements Supplier<M
 		}
 		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, -20, 2) {
 			private final int slot = 0;
+
+			@Override
+			public boolean mayPlace(ItemStack stack) {
+				return Items.INK_SAC == stack.getItem();
+			}
 		}));
 		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, -20, 24) {
 			private final int slot = 1;
@@ -93,12 +102,34 @@ public class KingtableUIMenu extends AbstractContainerMenu implements Supplier<M
 			private final int slot = 2;
 
 			@Override
+			public boolean mayPickup(Player entity) {
+				return !KingTableCanCraftProcedure.execute(entity);
+			}
+
+			@Override
+			public void onTake(Player entity, ItemStack stack) {
+				super.onTake(entity, stack);
+				slotChanged(2, 1, 0);
+			}
+
+			@Override
 			public boolean mayPlace(ItemStack stack) {
 				return false;
 			}
 		}));
 		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 20, 43) {
 			private final int slot = 3;
+
+			@Override
+			public boolean mayPickup(Player entity) {
+				return !KingTableCanCraftProcedure.execute(entity);
+			}
+
+			@Override
+			public void onTake(Player entity, ItemStack stack) {
+				super.onTake(entity, stack);
+				slotChanged(3, 1, 0);
+			}
 
 			@Override
 			public boolean mayPlace(ItemStack stack) {
@@ -109,12 +140,34 @@ public class KingtableUIMenu extends AbstractContainerMenu implements Supplier<M
 			private final int slot = 4;
 
 			@Override
+			public boolean mayPickup(Player entity) {
+				return !KingTableCanCraftProcedure.execute(entity);
+			}
+
+			@Override
+			public void onTake(Player entity, ItemStack stack) {
+				super.onTake(entity, stack);
+				slotChanged(4, 1, 0);
+			}
+
+			@Override
 			public boolean mayPlace(ItemStack stack) {
 				return false;
 			}
 		}));
 		this.customSlots.put(5, this.addSlot(new SlotItemHandler(internal, 5, 38, 25) {
 			private final int slot = 5;
+
+			@Override
+			public boolean mayPickup(Player entity) {
+				return !KingTableCanCraftProcedure.execute(entity);
+			}
+
+			@Override
+			public void onTake(Player entity, ItemStack stack) {
+				super.onTake(entity, stack);
+				slotChanged(5, 1, 0);
+			}
 
 			@Override
 			public boolean mayPlace(ItemStack stack) {
@@ -125,12 +178,34 @@ public class KingtableUIMenu extends AbstractContainerMenu implements Supplier<M
 			private final int slot = 6;
 
 			@Override
+			public boolean mayPickup(Player entity) {
+				return !KingTableCanCraftProcedure.execute(entity);
+			}
+
+			@Override
+			public void onTake(Player entity, ItemStack stack) {
+				super.onTake(entity, stack);
+				slotChanged(6, 1, 0);
+			}
+
+			@Override
 			public boolean mayPlace(ItemStack stack) {
 				return false;
 			}
 		}));
 		this.customSlots.put(7, this.addSlot(new SlotItemHandler(internal, 7, 38, 61) {
 			private final int slot = 7;
+
+			@Override
+			public boolean mayPickup(Player entity) {
+				return !KingTableCanCraftProcedure.execute(entity);
+			}
+
+			@Override
+			public void onTake(Player entity, ItemStack stack) {
+				super.onTake(entity, stack);
+				slotChanged(7, 1, 0);
+			}
 
 			@Override
 			public boolean mayPlace(ItemStack stack) {
@@ -141,6 +216,17 @@ public class KingtableUIMenu extends AbstractContainerMenu implements Supplier<M
 			private final int slot = 8;
 
 			@Override
+			public boolean mayPickup(Player entity) {
+				return !KingTableCanCraftProcedure.execute(entity);
+			}
+
+			@Override
+			public void onTake(Player entity, ItemStack stack) {
+				super.onTake(entity, stack);
+				slotChanged(8, 1, 0);
+			}
+
+			@Override
 			public boolean mayPlace(ItemStack stack) {
 				return false;
 			}
@@ -149,12 +235,34 @@ public class KingtableUIMenu extends AbstractContainerMenu implements Supplier<M
 			private final int slot = 9;
 
 			@Override
+			public boolean mayPickup(Player entity) {
+				return !KingTableCanCraftProcedure.execute(entity);
+			}
+
+			@Override
+			public void onTake(Player entity, ItemStack stack) {
+				super.onTake(entity, stack);
+				slotChanged(9, 1, 0);
+			}
+
+			@Override
 			public boolean mayPlace(ItemStack stack) {
 				return false;
 			}
 		}));
 		this.customSlots.put(10, this.addSlot(new SlotItemHandler(internal, 10, 164, 61) {
 			private final int slot = 10;
+
+			@Override
+			public boolean mayPickup(Player entity) {
+				return !KingTableCanCraftProcedure.execute(entity);
+			}
+
+			@Override
+			public void onTake(Player entity, ItemStack stack) {
+				super.onTake(entity, stack);
+				slotChanged(10, 1, 0);
+			}
 
 			@Override
 			public boolean mayPlace(ItemStack stack) {
@@ -166,6 +274,7 @@ public class KingtableUIMenu extends AbstractContainerMenu implements Supplier<M
 				this.addSlot(new Slot(inv, sj + (si + 1) * 9, 12 + 8 + sj * 18, 0 + 84 + si * 18));
 		for (int si = 0; si < 9; ++si)
 			this.addSlot(new Slot(inv, si, 12 + 8 + si * 18, 0 + 142));
+		KingTableOpenProcedure.execute(world, entity);
 	}
 
 	@Override
@@ -295,13 +404,64 @@ public class KingtableUIMenu extends AbstractContainerMenu implements Supplier<M
 		if (!bound && playerIn instanceof ServerPlayer serverPlayer) {
 			if (!serverPlayer.isAlive() || serverPlayer.hasDisconnected()) {
 				for (int j = 0; j < internal.getSlots(); ++j) {
+					if (j == 0)
+						continue;
+					if (j == 1)
+						continue;
+					if (j == 2)
+						continue;
+					if (j == 3)
+						continue;
+					if (j == 4)
+						continue;
+					if (j == 5)
+						continue;
+					if (j == 6)
+						continue;
+					if (j == 7)
+						continue;
+					if (j == 8)
+						continue;
+					if (j == 9)
+						continue;
+					if (j == 10)
+						continue;
 					playerIn.drop(internal.extractItem(j, internal.getStackInSlot(j).getCount(), false), false);
 				}
 			} else {
 				for (int i = 0; i < internal.getSlots(); ++i) {
+					if (i == 0)
+						continue;
+					if (i == 1)
+						continue;
+					if (i == 2)
+						continue;
+					if (i == 3)
+						continue;
+					if (i == 4)
+						continue;
+					if (i == 5)
+						continue;
+					if (i == 6)
+						continue;
+					if (i == 7)
+						continue;
+					if (i == 8)
+						continue;
+					if (i == 9)
+						continue;
+					if (i == 10)
+						continue;
 					playerIn.getInventory().placeItemBackInInventory(internal.extractItem(i, internal.getStackInSlot(i).getCount(), false));
 				}
 			}
+		}
+	}
+
+	private void slotChanged(int slotid, int ctype, int meta) {
+		if (this.world != null && this.world.isClientSide()) {
+			ReignModMod.PACKET_HANDLER.sendToServer(new KingtableUISlotMessage(slotid, x, y, z, ctype, meta));
+			KingtableUISlotMessage.handleSlotAction(entity, slotid, ctype, meta, x, y, z);
 		}
 	}
 

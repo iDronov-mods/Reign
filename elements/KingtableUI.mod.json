@@ -14,7 +14,7 @@
         "type": "inputslot",
         "data": {
           "inputLimit": {
-            "value": ""
+            "value": "Items.DYE#0"
           },
           "disablePlacement": {
             "fixedValue": false
@@ -23,7 +23,7 @@
           "disablePickup": {
             "fixedValue": false
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
           "x": 93,
           "y": 38
         }
@@ -41,7 +41,7 @@
           "disablePickup": {
             "fixedValue": false
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
           "x": 93,
           "y": 60
         }
@@ -55,9 +55,13 @@
           },
           "id": 2,
           "disablePickup": {
-            "fixedValue": false
+            "fixedValue": false,
+            "name": "KingTableCanCraft"
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
+          "onTakenFromSlot": {
+            "name": "KingTableCraft"
+          },
           "x": 133,
           "y": 61
         }
@@ -71,9 +75,13 @@
           },
           "id": 3,
           "disablePickup": {
-            "fixedValue": false
+            "fixedValue": false,
+            "name": "KingTableCanCraft"
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
+          "onTakenFromSlot": {
+            "name": "KingTableCraft"
+          },
           "x": 133,
           "y": 79
         }
@@ -87,9 +95,13 @@
           },
           "id": 4,
           "disablePickup": {
-            "fixedValue": false
+            "fixedValue": false,
+            "name": "KingTableCanCraft"
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
+          "onTakenFromSlot": {
+            "name": "KingTableCraft"
+          },
           "x": 133,
           "y": 97
         }
@@ -103,9 +115,13 @@
           },
           "id": 5,
           "disablePickup": {
-            "fixedValue": false
+            "fixedValue": false,
+            "name": "KingTableCanCraft"
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
+          "onTakenFromSlot": {
+            "name": "KingTableCraft"
+          },
           "x": 151,
           "y": 61
         }
@@ -119,9 +135,13 @@
           },
           "id": 6,
           "disablePickup": {
-            "fixedValue": false
+            "fixedValue": false,
+            "name": "KingTableCanCraft"
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
+          "onTakenFromSlot": {
+            "name": "KingTableCraft"
+          },
           "x": 151,
           "y": 79
         }
@@ -135,9 +155,13 @@
           },
           "id": 7,
           "disablePickup": {
-            "fixedValue": false
+            "fixedValue": false,
+            "name": "KingTableCanCraft"
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
+          "onTakenFromSlot": {
+            "name": "KingTableCraft"
+          },
           "x": 151,
           "y": 97
         }
@@ -166,9 +190,13 @@
           },
           "id": 8,
           "disablePickup": {
-            "fixedValue": false
+            "fixedValue": false,
+            "name": "KingTableCanCraft"
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
+          "onTakenFromSlot": {
+            "name": "KingTableCraft"
+          },
           "x": 277,
           "y": 61
         }
@@ -182,9 +210,13 @@
           },
           "id": 9,
           "disablePickup": {
-            "fixedValue": false
+            "fixedValue": false,
+            "name": "KingTableCanCraft"
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
+          "onTakenFromSlot": {
+            "name": "KingTableCraft"
+          },
           "x": 277,
           "y": 79
         }
@@ -198,14 +230,21 @@
           },
           "id": 10,
           "disablePickup": {
-            "fixedValue": false
+            "fixedValue": false,
+            "name": "KingTableCanCraft"
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
+          "onTakenFromSlot": {
+            "name": "KingTableCraft"
+          },
           "x": 277,
           "y": 97
         }
       }
     ],
+    "onOpen": {
+      "name": "KingTableOpen"
+    },
     "gridSettings": {
       "sx": 16,
       "sy": 16,

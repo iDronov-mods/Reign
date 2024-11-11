@@ -15,6 +15,7 @@ import net.minecraft.world.item.BlockItem;
 import net.mcreator.reignmod.item.YourLawnIsBoolItem;
 import net.mcreator.reignmod.item.WoodcutterCoinItem;
 import net.mcreator.reignmod.item.WalletItem;
+import net.mcreator.reignmod.item.TradeLicenseItem;
 import net.mcreator.reignmod.item.TextbookItem;
 import net.mcreator.reignmod.item.StateRental3Item;
 import net.mcreator.reignmod.item.StateRental2Item;
@@ -88,6 +89,7 @@ public class ReignModModItems {
 	public static final RegistryObject<Item> COPPER_LOCK = REGISTRY.register("copper_lock", () -> new CopperLockItem());
 	public static final RegistryObject<Item> SAFE = block(ReignModModBlocks.SAFE);
 	public static final RegistryObject<Item> HEART_OF_HOUSE = block(ReignModModBlocks.HEART_OF_HOUSE);
+	public static final RegistryObject<Item> TRADE_LICENSE = REGISTRY.register("trade_license", () -> new TradeLicenseItem());
 
 	// Start of user code block custom items
 	// End of user code block custom items

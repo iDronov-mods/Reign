@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "reign_mod:heart_of_house",
     "reign_mod:safe",
     "reign_mod:rock",
     "reign_mod:hoarder_block",

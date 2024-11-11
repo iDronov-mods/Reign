@@ -48,6 +48,7 @@ public class ReignModModTabs {
 				tabData.accept(ReignModModItems.STATE_RENTAL_1.get());
 				tabData.accept(ReignModModItems.STATE_RENTAL_2.get());
 				tabData.accept(ReignModModItems.STATE_RENTAL_3.get());
+				tabData.accept(ReignModModItems.TRADE_LICENSE.get());
 				tabData.accept(ReignModModItems.CONTRACT_KILL.get());
 				tabData.accept(ReignModModItems.COPPER_LOCK.get());
 				tabData.accept(ReignModModItems.LOCK.get());
