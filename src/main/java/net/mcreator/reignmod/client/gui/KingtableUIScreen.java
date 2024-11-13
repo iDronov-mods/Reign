@@ -31,13 +31,13 @@ public class KingtableUIScreen extends AbstractContainerScreen<KingtableUIMenu> 
 		this.imageHeight = 166;
 	}
 
-	private static final ResourceLocation texture = new ResourceLocation("reign_mod:textures/screens/kingtable_ui.png");
-
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(guiGraphics);
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
+		if (mouseX > leftPos + 148 && mouseX < leftPos + 172 && mouseY > topPos + -18 && mouseY < topPos + 6)
+			guiGraphics.renderTooltip(font, Component.translatable("gui.reign_mod.kingtable_ui.tooltip_kingtable_help"), mouseX, mouseY);
 	}
 
 	@Override
@@ -45,7 +45,11 @@ public class KingtableUIScreen extends AbstractContainerScreen<KingtableUIMenu> 
 		RenderSystem.setShaderColor(1, 1, 1, 1);
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
-		guiGraphics.blit(texture, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
+
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/newkingtable_ui.png"), this.leftPos + -50, this.topPos + 0, 0, 0, 300, 166, 300, 166);
+
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/crown.png"), this.leftPos + 152, this.topPos + -13, 0, 0, 16, 16, 16, 16);
+
 		RenderSystem.disableBlend();
 	}
 

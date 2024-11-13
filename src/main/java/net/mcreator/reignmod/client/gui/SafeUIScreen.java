@@ -31,14 +31,12 @@ public class SafeUIScreen extends AbstractContainerScreen<SafeUIMenu> {
 		this.imageHeight = 166;
 	}
 
-	private static final ResourceLocation texture = new ResourceLocation("reign_mod:textures/screens/safe_ui.png");
-
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(guiGraphics);
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
-		if (mouseX > leftPos + 135 && mouseX < leftPos + 159 && mouseY > topPos + -17 && mouseY < topPos + 7)
+		if (mouseX > leftPos + 139 && mouseX < leftPos + 163 && mouseY > topPos + -19 && mouseY < topPos + 5)
 			guiGraphics.renderTooltip(font, Component.translatable("gui.reign_mod.safe_ui.tooltip_safe_help"), mouseX, mouseY);
 	}
 
@@ -47,9 +45,10 @@ public class SafeUIScreen extends AbstractContainerScreen<SafeUIMenu> {
 		RenderSystem.setShaderColor(1, 1, 1, 1);
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
-		guiGraphics.blit(texture, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 
-		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/crown.png"), this.leftPos + 139, this.topPos + -12, 0, 0, 16, 16, 16, 16);
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/crown.png"), this.leftPos + 143, this.topPos + -14, 0, 0, 16, 16, 16, 16);
+
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/newsafe_ui_.png"), this.leftPos + 0, this.topPos + 0, 0, 0, 176, 166, 176, 166);
 
 		RenderSystem.disableBlend();
 	}

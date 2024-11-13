@@ -41,18 +41,16 @@ public class FalseBrickProcedure {
 		if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).license_woodcuter == false
 				&& (blockstate.is(BlockTags.create(new ResourceLocation("minecraft:logs"))) || blockstate.getBlock() == Blocks.BAMBOO)) {
 			if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-				_entity.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 200, 5, false, false));
-			if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 				_entity.addEffect(new MobEffectInstance(MobEffects.HUNGER, 40, 40, false, false));
 		} else if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).license_miner == false
 				&& (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).is(ItemTags.create(new ResourceLocation("minecraft:pickaxes"))) && (blockstate.is(BlockTags.create(new ResourceLocation("forge:ores")))
 						|| blockstate.getBlock() == Blocks.DEEPSLATE || blockstate.getBlock() == Blocks.COBBLED_DEEPSLATE || blockstate.getBlock() == Blocks.DEEPSLATE_TILES || blockstate.getBlock() == Blocks.DEEPSLATE_BRICKS)) {
 			world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
 			if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-				_entity.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 100, 5, false, false));
+				_entity.addEffect(new MobEffectInstance(MobEffects.HUNGER, 40, 40, false, false));
 		} else if (!(entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).license_farmer && blockstate.is(BlockTags.create(new ResourceLocation("minecraft:crops")))) {
 			if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-				_entity.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 60, 3, false, false));
+				_entity.addEffect(new MobEffectInstance(MobEffects.HUNGER, 40, 40, false, false));
 			if (Mth.nextInt(RandomSource.create(), 1, 10) > 1) {
 				world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
 			}

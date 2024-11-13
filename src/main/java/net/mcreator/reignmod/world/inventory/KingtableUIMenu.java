@@ -82,7 +82,7 @@ public class KingtableUIMenu extends AbstractContainerMenu implements Supplier<M
 					});
 			}
 		}
-		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, -20, 2) {
+		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, -21, 12) {
 			private final int slot = 0;
 
 			@Override
@@ -90,7 +90,7 @@ public class KingtableUIMenu extends AbstractContainerMenu implements Supplier<M
 				return Items.INK_SAC == stack.getItem();
 			}
 		}));
-		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, -20, 24) {
+		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, -20, 34) {
 			private final int slot = 1;
 
 			@Override

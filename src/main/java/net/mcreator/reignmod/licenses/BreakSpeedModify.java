@@ -7,6 +7,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.state.BlockState;
 import net.mcreator.reignmod.network.ReignModModVariables;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 
 @Mod.EventBusSubscriber
 public class BreakSpeedModify {
@@ -14,18 +16,27 @@ public class BreakSpeedModify {
     @SubscribeEvent
     public static void onBreakSpeed(PlayerEvent.BreakSpeed event) {
         // Доступ к игроку через getPlayer()
-        var player = event.getPlayer();
+        var player = event.getEntity();
         BlockState blockState = event.getState();
 
-        // Проверяем, является ли блок деревом
+        //Дровосек
         if (blockState.is(BlockTags.create(new ResourceLocation("minecraft:logs")))) {
-            // Получаем значение лицензии игрока
             boolean hasWoodcutterLicense = player.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null)
                 .map(vars -> vars.license_woodcuter)
                 .orElse(false);
 
-            // Если лицензии нет, замедляем копание
             if (!hasWoodcutterLicense) {
+                event.setNewSpeed(event.getNewSpeed() / 5.0f);
+            }
+        }
+
+        //Шахтёр
+        if (blockState.is(BlockTags.create(new ResourceLocation("forge:ores")))) {
+            boolean hasMinerLicense = player.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+                    .map(vars -> vars.license_miner)
+                    .orElse(false);
+
+            if (!hasMinerLicense) {
                 event.setNewSpeed(event.getNewSpeed() / 5.0f);
             }
         }

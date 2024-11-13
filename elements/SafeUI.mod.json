@@ -7,7 +7,7 @@
     "height": 166,
     "inventoryOffsetX": 0,
     "inventoryOffsetY": 0,
-    "renderBgLayer": true,
+    "renderBgLayer": false,
     "doesPauseGame": false,
     "components": [
       {
@@ -192,8 +192,8 @@
         "data": {
           "image": "crown.png",
           "use1Xscale": false,
-          "x": 265,
-          "y": 25
+          "x": 269,
+          "y": 23
         }
       },
       {
@@ -205,8 +205,17 @@
           },
           "width": 24,
           "height": 24,
-          "x": 261,
-          "y": 20
+          "x": 265,
+          "y": 18
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "newsafe_ui_.png",
+          "use1Xscale": false,
+          "x": 126,
+          "y": 37
         }
       }
     ],

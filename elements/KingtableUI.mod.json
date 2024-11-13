@@ -7,7 +7,7 @@
     "height": 166,
     "inventoryOffsetX": 0,
     "inventoryOffsetY": 0,
-    "renderBgLayer": true,
+    "renderBgLayer": false,
     "doesPauseGame": false,
     "components": [
       {
@@ -24,8 +24,8 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": false,
-          "x": 93,
-          "y": 38
+          "x": 92,
+          "y": 48
         }
       },
       {
@@ -43,7 +43,7 @@
           },
           "dropItemsWhenNotBound": false,
           "x": 93,
-          "y": 60
+          "y": 70
         }
       },
       {
@@ -239,6 +239,37 @@
           },
           "x": 277,
           "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "newkingtable_ui.png",
+          "use1Xscale": false,
+          "x": 64,
+          "y": 37
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "crown.png",
+          "use1Xscale": false,
+          "x": 266,
+          "y": 24
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_kingtable_help",
+          "text": {
+            "fixedValue": "kingtable_help"
+          },
+          "width": 24,
+          "height": 24,
+          "x": 262,
+          "y": 19
         }
       }
     ],
