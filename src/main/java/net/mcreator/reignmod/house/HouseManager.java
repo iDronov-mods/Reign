@@ -33,7 +33,7 @@ public class HouseManager {
             ServerLevel level = lordPlayer.getServer().overworld();
             HouseSavedData houseData = HouseSavedData.getOrCreate(level);
 
-            return houseData.getHouseData().findHouseByLord(lordPlayer.getStringUUID()).isNull();
+            return !houseData.getHouseData().findHouseByLord(lordPlayer.getStringUUID()).isNull();
         }
         return false;
     }
@@ -43,7 +43,7 @@ public class HouseManager {
             ServerLevel level = knightPlayer.getServer().overworld();
             HouseSavedData houseData = HouseSavedData.getOrCreate(level);
 
-            return houseData.getHouseData().findDomainByKnight(knightPlayer.getStringUUID()).isNull();
+            return !houseData.getHouseData().findDomainByKnight(knightPlayer.getStringUUID()).isNull();
         }
         return false;
     }
@@ -56,6 +56,36 @@ public class HouseManager {
             return houseData.isColorAvailable(color);
         }
         return false;
+    }
+
+    public static String getPlayerHouseTitle(Entity playerEntity, String suzerainUUID) {
+        if (playerEntity instanceof Player player) {
+            ServerLevel level = player.getServer().overworld();
+            HouseSavedData houseData = HouseSavedData.getOrCreate(level);
+
+            return houseData.getPlayerHouse(suzerainUUID).getHouseTitle();
+        }
+        return "null";
+    }
+
+    public static String getPlayerHouseColor(Entity playerEntity, String suzerainUUID) {
+        if (playerEntity instanceof Player player) {
+            ServerLevel level = player.getServer().overworld();
+            HouseSavedData houseData = HouseSavedData.getOrCreate(level);
+
+            return houseData.getPlayerHouse(suzerainUUID).getHouseColor();
+        }
+        return "null";
+    }
+
+    public static int getHouseDomainCount(Entity playerEntity, String suzerainUUID) {
+        if (playerEntity instanceof Player player) {
+            ServerLevel level = player.getServer().overworld();
+            HouseSavedData houseData = HouseSavedData.getOrCreate(level);
+
+            return houseData.getPlayerHouse(suzerainUUID).getDomains().size();
+        }
+        return 0;
     }
 
     private static int[] getHouseIncubatorCoordinates(Entity lordEntity) {
@@ -85,6 +115,7 @@ public class HouseManager {
         if (lordEntity instanceof Player lordPlayer) {
             ServerLevel level = lordPlayer.getServer().overworld();
             HouseSavedData houseData = HouseSavedData.getOrCreate(level);
+
             houseData.getHouseData().setHouseIncubatorCoordinates(lordPlayer.getStringUUID(), x, y, z);
         }
     }
@@ -115,6 +146,7 @@ public class HouseManager {
         if (lordEntity instanceof Player lordPlayer) {
             ServerLevel level = lordPlayer.getServer().overworld();
             HouseSavedData houseData = HouseSavedData.getOrCreate(level);
+
             houseData.getHouseData().setHousePrisonCoordinates(lordPlayer.getStringUUID(), x, y, z);
         }
     }

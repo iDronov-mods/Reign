@@ -13,7 +13,8 @@
     "BrewingStandBlockMixin",
     "DontCutSheepMixin",
     "HorseSaddleMixin",
-    "HopperBlockMixin"
+    "HopperBlockMixin",
+    "PlayerSetNameMixin"
   ],
   "client": [],
   "minVersion": "0.8"

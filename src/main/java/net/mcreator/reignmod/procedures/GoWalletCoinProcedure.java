@@ -9,10 +9,12 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.resources.ResourceLocation;
 
+import net.mcreator.reignmod.world.inventory.WalletwinMenu;
 import net.mcreator.reignmod.init.ReignModModItems;
 
 import javax.annotation.Nullable;
@@ -56,6 +58,10 @@ public class GoWalletCoinProcedure {
 							return _retval.get();
 						}
 					}.getItemStack((int) index, entity));
+					if (entity instanceof Player _plr5 && _plr5.containerMenu instanceof WalletwinMenu) {
+						if (entity instanceof Player _player)
+							_player.closeContainer();
+					}
 					if (itemstack.getItem() == ReignModModItems.COPPER_COIN.get()) {
 						wallet_copy.getOrCreateTag().putDouble("amount", (itemstack.getCount() + wallet_copy.getOrCreateTag().getDouble("amount")));
 					} else if (itemstack.getItem() == ReignModModItems.SILVER_COIN.get()) {

@@ -32,6 +32,9 @@ public class HouseSavedData extends SavedData {
         return this.houseData;
     }
 
+    public House getPlayerHouse(String suzerainUUID) {
+        return houseData.findHouseByPlayerSuzerain(suzerainUUID);
+    }
 
     public Boolean isColorAvailable(String color) {
         return houseData.getHouseAvailableColors().get(color);

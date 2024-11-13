@@ -93,7 +93,7 @@ public class HouseCreateProcedure {
 								_player.displayClientMessage(Component.literal((Component.translatable("translation.key.houseNameTaken").getString())), false);
 						} else {
 							{
-								String _setval = house_name;
+								String _setval = entity.getStringUUID();
 								entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 									capability.house = _setval;
 									capability.syncPlayerVariables(entity);

@@ -49,6 +49,15 @@ public class HouseData{
         }
     }
 
+    public House findHouseByPlayerSuzerain(String suzerainUUID) {
+        if (!findHouseByLord(suzerainUUID).isNull()) {
+            return findHouseByLord(suzerainUUID);
+        }
+        if (!findHouseByKnight(suzerainUUID).isNull()) {
+            return findHouseByKnight(suzerainUUID);
+        }
+        return new House();
+    }
 
     public House findHouseByLord(String lordUUID) {
         return this.houses.getOrDefault(lordUUID, new House());
