@@ -52,6 +52,8 @@ public class WalletwinScreen extends AbstractContainerScreen<WalletwinMenu> {
 
 		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/copper_coin.png"), this.leftPos + -56, this.topPos + 64, 0, 0, 16, 16, 16, 16);
 
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/leather_ui.png"), this.leftPos + -83, this.topPos + 81, 0, 0, 166, 80, 166, 80);
+
 		RenderSystem.disableBlend();
 	}
 

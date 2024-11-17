@@ -11,33 +11,6 @@
     "doesPauseGame": false,
     "components": [
       {
-        "type": "image",
-        "data": {
-          "image": "found.png",
-          "use1Xscale": false,
-          "x": 103,
-          "y": 37
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "eras_bar.png",
-          "use1Xscale": false,
-          "x": 98,
-          "y": 9
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "crown.png",
-          "use1Xscale": false,
-          "x": 270,
-          "y": 107
-        }
-      },
-      {
         "type": "outputslot",
         "data": {
           "color": {
@@ -76,6 +49,33 @@
           },
           "x": 169,
           "y": 62
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "found.png",
+          "use1Xscale": false,
+          "x": 103,
+          "y": 37
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eras_bar.png",
+          "use1Xscale": false,
+          "x": 98,
+          "y": 9
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "crown.png",
+          "use1Xscale": false,
+          "x": 270,
+          "y": 107
         }
       },
       {

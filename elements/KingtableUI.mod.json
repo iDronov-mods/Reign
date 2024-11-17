@@ -11,42 +11,6 @@
     "doesPauseGame": false,
     "components": [
       {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": "CUSTOM:PenWithInk"
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 0,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": false,
-          "x": 92,
-          "y": 48
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": "Items.PAPER"
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 1,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": false,
-          "x": 93,
-          "y": 70
-        }
-      },
-      {
         "type": "outputslot",
         "data": {
           "color": {
@@ -270,6 +234,42 @@
           "height": 24,
           "x": 262,
           "y": 19
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": "Items.PAPER"
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 1,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": false,
+          "x": 93,
+          "y": 70
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": "CUSTOM:PenWithInk"
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 0,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": false,
+          "x": 92,
+          "y": 48
         }
       }
     ],

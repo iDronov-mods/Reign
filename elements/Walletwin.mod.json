@@ -139,6 +139,15 @@
           "x": 173,
           "y": 106
         }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "leather_ui.png",
+          "use1Xscale": false,
+          "x": 131,
+          "y": 118
+        }
       }
     ],
     "onTick": {

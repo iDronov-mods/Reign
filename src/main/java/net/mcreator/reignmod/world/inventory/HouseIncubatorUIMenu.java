@@ -158,28 +158,28 @@ public class HouseIncubatorUIMenu extends AbstractContainerMenu implements Suppl
 		this.customSlots.put(24, this.addSlot(new SlotItemHandler(internal, 24, 268, 120) {
 			private final int slot = 24;
 		}));
-		this.customSlots.put(25, this.addSlot(new SlotItemHandler(internal, 25, 69, 30) {
+		this.customSlots.put(25, this.addSlot(new SlotItemHandler(internal, 25, 70, 30) {
 			private final int slot = 25;
 		}));
-		this.customSlots.put(26, this.addSlot(new SlotItemHandler(internal, 26, 87, 30) {
+		this.customSlots.put(26, this.addSlot(new SlotItemHandler(internal, 26, 88, 30) {
 			private final int slot = 26;
 		}));
-		this.customSlots.put(27, this.addSlot(new SlotItemHandler(internal, 27, 105, 30) {
+		this.customSlots.put(27, this.addSlot(new SlotItemHandler(internal, 27, 106, 30) {
 			private final int slot = 27;
 		}));
-		this.customSlots.put(28, this.addSlot(new SlotItemHandler(internal, 28, 123, 30) {
+		this.customSlots.put(28, this.addSlot(new SlotItemHandler(internal, 28, 124, 30) {
 			private final int slot = 28;
 		}));
-		this.customSlots.put(29, this.addSlot(new SlotItemHandler(internal, 29, 69, 48) {
+		this.customSlots.put(29, this.addSlot(new SlotItemHandler(internal, 29, 70, 48) {
 			private final int slot = 29;
 		}));
-		this.customSlots.put(30, this.addSlot(new SlotItemHandler(internal, 30, 87, 48) {
+		this.customSlots.put(30, this.addSlot(new SlotItemHandler(internal, 30, 88, 48) {
 			private final int slot = 30;
 		}));
-		this.customSlots.put(31, this.addSlot(new SlotItemHandler(internal, 31, 105, 48) {
+		this.customSlots.put(31, this.addSlot(new SlotItemHandler(internal, 31, 106, 48) {
 			private final int slot = 31;
 		}));
-		this.customSlots.put(32, this.addSlot(new SlotItemHandler(internal, 32, 123, 48) {
+		this.customSlots.put(32, this.addSlot(new SlotItemHandler(internal, 32, 124, 48) {
 			private final int slot = 32;
 		}));
 		this.customSlots.put(33, this.addSlot(new SlotItemHandler(internal, 33, 160, 30) {

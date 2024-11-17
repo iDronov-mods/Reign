@@ -31,7 +31,7 @@ import java.util.stream.IntStream;
 import io.netty.buffer.Unpooled;
 
 public class HeartOfHouseBlockEntity extends RandomizableContainerBlockEntity implements WorldlyContainer {
-	private NonNullList<ItemStack> stacks = NonNullList.<ItemStack>withSize(33, ItemStack.EMPTY);
+	private NonNullList<ItemStack> stacks = NonNullList.<ItemStack>withSize(41, ItemStack.EMPTY);
 	private final LazyOptional<? extends IItemHandler>[] handlers = SidedInvWrapper.create(this, Direction.values());
 
 	public HeartOfHouseBlockEntity(BlockPos position, BlockState state) {
@@ -177,6 +177,22 @@ public class HeartOfHouseBlockEntity extends RandomizableContainerBlockEntity im
 			return false;
 		if (index == 33)
 			return false;
+		if (index == 34)
+			return false;
+		if (index == 35)
+			return false;
+		if (index == 36)
+			return false;
+		if (index == 37)
+			return false;
+		if (index == 38)
+			return false;
+		if (index == 39)
+			return false;
+		if (index == 40)
+			return false;
+		if (index == 41)
+			return false;
 		return true;
 	}
 
@@ -259,6 +275,22 @@ public class HeartOfHouseBlockEntity extends RandomizableContainerBlockEntity im
 		if (index == 32)
 			return false;
 		if (index == 33)
+			return false;
+		if (index == 34)
+			return false;
+		if (index == 35)
+			return false;
+		if (index == 36)
+			return false;
+		if (index == 37)
+			return false;
+		if (index == 38)
+			return false;
+		if (index == 39)
+			return false;
+		if (index == 40)
+			return false;
+		if (index == 41)
 			return false;
 		return true;
 	}

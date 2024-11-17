@@ -119,7 +119,7 @@
     "hasInventory": true,
     "guiBoundTo": "HouseIncubatorUI",
     "openGUIOnRightClick": true,
-    "inventorySize": 33,
+    "inventorySize": 41,
     "inventoryStackSize": 64,
     "inventoryDropWhenDestroyed": true,
     "inventoryComparatorPower": true,
@@ -157,7 +157,15 @@
       30,
       31,
       32,
-      33
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41
     ],
     "inventoryInSlotIDs": [
       0,
@@ -193,7 +201,15 @@
       30,
       31,
       32,
-      33
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41
     ],
     "hasEnergyStorage": false,
     "energyInitial": 0,
