@@ -24,6 +24,7 @@ import net.mcreator.reignmod.procedures.KingTableOpenProcedure;
 import net.mcreator.reignmod.procedures.KingTableCanCraftProcedure;
 import net.mcreator.reignmod.network.KingtableUISlotMessage;
 import net.mcreator.reignmod.init.ReignModModMenus;
+import net.mcreator.reignmod.init.ReignModModItems;
 import net.mcreator.reignmod.ReignModMod;
 
 import java.util.function.Supplier;
@@ -87,7 +88,7 @@ public class KingtableUIMenu extends AbstractContainerMenu implements Supplier<M
 
 			@Override
 			public boolean mayPlace(ItemStack stack) {
-				return Items.INK_SAC == stack.getItem();
+				return ReignModModItems.PEN_WITH_INK.get() == stack.getItem();
 			}
 		}));
 		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, -20, 34) {

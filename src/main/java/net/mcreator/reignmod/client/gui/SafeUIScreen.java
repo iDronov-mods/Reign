@@ -64,7 +64,7 @@ public class SafeUIScreen extends AbstractContainerScreen<SafeUIMenu> {
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.safe_ui.label_safe_label"), 1, -10, -1, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.safe_ui.label_safe_label"), 0, -11, -1, false);
 	}
 
 	@Override

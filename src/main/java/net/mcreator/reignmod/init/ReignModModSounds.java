@@ -26,4 +26,5 @@ public class ReignModModSounds {
 	public static final RegistryObject<SoundEvent> THE_CALM_BEFORE_THE_STORM = REGISTRY.register("the-calm-before-the-storm", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("reign_mod", "the-calm-before-the-storm")));
 	public static final RegistryObject<SoundEvent> LIGHT_AFTER_DARKNESS = REGISTRY.register("light-after-darkness", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("reign_mod", "light-after-darkness")));
 	public static final RegistryObject<SoundEvent> LASTO_BETH_LAMMEN = REGISTRY.register("lasto-beth-lammen", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("reign_mod", "lasto-beth-lammen")));
+	public static final RegistryObject<SoundEvent> SAFE_OPEN = REGISTRY.register("safe_open", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("reign_mod", "safe_open")));
 }

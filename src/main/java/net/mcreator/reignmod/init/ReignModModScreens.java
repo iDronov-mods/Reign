@@ -22,6 +22,7 @@ import net.mcreator.reignmod.client.gui.NewHouseScreen;
 import net.mcreator.reignmod.client.gui.MarketScreen;
 import net.mcreator.reignmod.client.gui.LicenseIsSelectedScreen;
 import net.mcreator.reignmod.client.gui.KingtableUIScreen;
+import net.mcreator.reignmod.client.gui.HouseIncubatorUIScreen;
 import net.mcreator.reignmod.client.gui.HoarderScreen;
 import net.mcreator.reignmod.client.gui.FundUIScreen;
 import net.mcreator.reignmod.client.gui.DsfScreen;
@@ -55,6 +56,7 @@ public class ReignModModScreens {
 			MenuScreens.register(ReignModModMenus.KINGTABLE_UI.get(), KingtableUIScreen::new);
 			MenuScreens.register(ReignModModMenus.NEW_HOUSE.get(), NewHouseScreen::new);
 			MenuScreens.register(ReignModModMenus.SAFE_UI.get(), SafeUIScreen::new);
+			MenuScreens.register(ReignModModMenus.HOUSE_INCUBATOR_UI.get(), HouseIncubatorUIScreen::new);
 		});
 	}
 }

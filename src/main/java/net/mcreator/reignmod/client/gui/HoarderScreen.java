@@ -69,7 +69,7 @@ public class HoarderScreen extends AbstractContainerScreen<HoarderMenu> {
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.hoarder.label_hoarder"), 1, -11, -1, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.hoarder.label_hoarder"), 0, -10, -1, false);
 	}
 
 	@Override

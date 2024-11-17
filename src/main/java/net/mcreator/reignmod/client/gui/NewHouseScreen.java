@@ -98,7 +98,7 @@ public class NewHouseScreen extends AbstractContainerScreen<NewHouseMenu> {
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.new_house.label_name"), 9, 7, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.new_house.label_found_a_house"), 1, -11, -1, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.new_house.label_found_a_house"), 0, -11, -1, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.new_house.label_4"), 183, 105, -1, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.new_house.label_coins"), 202, 105, -1, false);
 	}

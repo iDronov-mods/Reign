@@ -28,17 +28,17 @@ import java.util.Calendar;
 public class EnterPayProcedure {
 	@SubscribeEvent
 	public static void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
-		execute(event, event.getEntity().level(), event.getEntity());
+		execute(event, event.getEntity().level(), event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ(), event.getEntity());
 	}
 
-	public static void execute(LevelAccessor world, Entity entity) {
-		execute(null, world, entity);
+	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
+		execute(null, world, x, y, z, entity);
 	}
 
-	private static void execute(@Nullable Event event, LevelAccessor world, Entity entity) {
+	private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
-		if (ReturnKngProcedure.execute(world, entity)) {
+		if (IsKingProcedure.execute(world, entity)) {
 			if (!world.isClientSide() && world.getServer() != null)
 				world.getServer().getPlayerList().broadcastSystemMessage(Component.literal((Component.translatable("KingOnline").getString())), false);
 		}
@@ -70,7 +70,7 @@ public class EnterPayProcedure {
 				_player.displayClientMessage(
 						Component.literal((Component.translatable("count_days").getString() + " " + (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline)),
 						false);
-			if (ReturnKngProcedure.execute(world, entity)) {
+			if (ReturnKngProcedure.execute(world, x, y, z, entity)) {
 				if (entity instanceof Player _player && !_player.level().isClientSide())
 					_player.displayClientMessage(Component.literal((Component.translatable("pay_king").getString() + " "
 							+ ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline * 16 + 256) + " " + Component.translatable("copper_coins_pay").getString())),

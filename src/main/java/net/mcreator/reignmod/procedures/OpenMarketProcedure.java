@@ -60,9 +60,9 @@ public class OpenMarketProcedure {
 			}
 			if (world instanceof Level _level) {
 				if (!_level.isClientSide()) {
-					_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:market_open")), SoundSource.NEUTRAL, (float) 0.7, 1);
+					_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:market_open")), SoundSource.BLOCKS, (float) 0.6, 1);
 				} else {
-					_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:market_open")), SoundSource.NEUTRAL, (float) 0.7, 1, false);
+					_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:market_open")), SoundSource.BLOCKS, (float) 0.6, 1, false);
 				}
 			}
 		} else {

@@ -15,6 +15,7 @@ import net.mcreator.reignmod.block.entity.SafeBlockEntity;
 import net.mcreator.reignmod.block.entity.PlusBlockEntity;
 import net.mcreator.reignmod.block.entity.MarketBlockBlockEntity;
 import net.mcreator.reignmod.block.entity.KingtableBlockEntity;
+import net.mcreator.reignmod.block.entity.HeartOfHouseBlockEntity;
 import net.mcreator.reignmod.block.entity.FundBlockEntity;
 import net.mcreator.reignmod.block.entity.CoffersBlockEntity;
 import net.mcreator.reignmod.ReignModMod;
@@ -27,6 +28,7 @@ public class ReignModModBlockEntities {
 	public static final RegistryObject<BlockEntityType<?>> PLUS = register("plus", ReignModModBlocks.PLUS, PlusBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> KINGTABLE = register("kingtable", ReignModModBlocks.KINGTABLE, KingtableBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> SAFE = register("safe", ReignModModBlocks.SAFE, SafeBlockEntity::new);
+	public static final RegistryObject<BlockEntityType<?>> HEART_OF_HOUSE = register("heart_of_house", ReignModModBlocks.HEART_OF_HOUSE, HeartOfHouseBlockEntity::new);
 
 	// Start of user code block custom block entities
 	// End of user code block custom block entities

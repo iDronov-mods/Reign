@@ -1,10 +1,12 @@
 {
-  "parent": "reign_mod:custom/heartofhouse",
+  "parent": "reign_mod:custom/incubator",
   "textures": {
     "all": "minecraft:block/item_frame",
     "particle": "minecraft:block/item_frame",
-    "0": "reign_mod:block/heartofhouseglass_texture",
-    "1": "reign_mod:block/heartofhouse_texture"
+    "glass": "reign_mod:block/heartofhouseglass_texture",
+    "main": "reign_mod:block/heartofhouse_texture",
+    "fluid": "reign_mod:block/fluid_texture",
+    "heart": "reign_mod:block/heart_texture"
   },
   "render_type": "translucent"
 }

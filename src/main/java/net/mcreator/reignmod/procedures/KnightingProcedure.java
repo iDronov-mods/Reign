@@ -54,7 +54,8 @@ public class KnightingProcedure {
 							Lord_UUID = sourceentity.getStringUUID();
 							HouseManager.createDomain(sourceentity, entity);
 							if (!world.isClientSide() && world.getServer() != null)
-								world.getServer().getPlayerList().broadcastSystemMessage(Component.literal((entity.getDisplayName().getString() + "" + Component.translatable("knighting").getString())), false);
+								world.getServer().getPlayerList()
+										.broadcastSystemMessage(Component.literal((entity.getDisplayName().getString() + "" + Component.translatable("knighting").getString() + HouseManager.getPlayerHouseTitle(sourceentity, Lord_UUID))), false);
 							if (world instanceof Level _level) {
 								if (!_level.isClientSide()) {
 									_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.armor.equip_iron")), SoundSource.NEUTRAL, 1, 1);

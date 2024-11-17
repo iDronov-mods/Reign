@@ -14,7 +14,8 @@
     "DontCutSheepMixin",
     "HorseSaddleMixin",
     "HopperBlockMixin",
-    "PlayerSetNameMixin"
+    "PlayerSetNameMixin",
+    "ChestLockMixin"
   ],
   "client": [],
   "minVersion": "0.8"

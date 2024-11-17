@@ -188,8 +188,8 @@
     "isBonemealable": false,
     "hasInventory": true,
     "guiBoundTo": "SafeUI",
-    "openGUIOnRightClick": true,
-    "inventorySize": 9,
+    "openGUIOnRightClick": false,
+    "inventorySize": 10,
     "inventoryStackSize": 64,
     "inventoryDropWhenDestroyed": true,
     "inventoryComparatorPower": true,
@@ -203,6 +203,12 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
+    "onRightClicked": {
+      "name": "SafeOpen"
+    },
+    "onBlockPlayedBy": {
+      "name": "SafePlaced"
+    },
     "generateFeature": false,
     "restrictionBiomes": [],
     "blocksToReplace": [

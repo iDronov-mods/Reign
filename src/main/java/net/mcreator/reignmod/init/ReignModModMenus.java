@@ -22,6 +22,7 @@ import net.mcreator.reignmod.world.inventory.NewHouseMenu;
 import net.mcreator.reignmod.world.inventory.MarketMenu;
 import net.mcreator.reignmod.world.inventory.LicenseIsSelectedMenu;
 import net.mcreator.reignmod.world.inventory.KingtableUIMenu;
+import net.mcreator.reignmod.world.inventory.HouseIncubatorUIMenu;
 import net.mcreator.reignmod.world.inventory.HoarderMenu;
 import net.mcreator.reignmod.world.inventory.FundUIMenu;
 import net.mcreator.reignmod.world.inventory.DsfMenu;
@@ -53,4 +54,5 @@ public class ReignModModMenus {
 	public static final RegistryObject<MenuType<KingtableUIMenu>> KINGTABLE_UI = REGISTRY.register("kingtable_ui", () -> IForgeMenuType.create(KingtableUIMenu::new));
 	public static final RegistryObject<MenuType<NewHouseMenu>> NEW_HOUSE = REGISTRY.register("new_house", () -> IForgeMenuType.create(NewHouseMenu::new));
 	public static final RegistryObject<MenuType<SafeUIMenu>> SAFE_UI = REGISTRY.register("safe_ui", () -> IForgeMenuType.create(SafeUIMenu::new));
+	public static final RegistryObject<MenuType<HouseIncubatorUIMenu>> HOUSE_INCUBATOR_UI = REGISTRY.register("house_incubator_ui", () -> IForgeMenuType.create(HouseIncubatorUIMenu::new));
 }

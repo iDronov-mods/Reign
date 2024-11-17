@@ -9,40 +9,40 @@
     "xpReward": 0.0,
     "cookingTime": 200,
     "craftingBookCategory": "MISC",
-    "recipeShapeless": false,
+    "recipeShapeless": true,
     "recipeSlots": [
       {
         "value": ""
       },
       {
-        "value": "Blocks.IRON_BARS"
+        "value": ""
       },
       {
         "value": ""
       },
       {
-        "value": "Items.IRON_INGOT"
+        "value": "CUSTOM:PenWithInk"
+      },
+      {
+        "value": "Items.DYE#0"
       },
       {
         "value": ""
       },
       {
-        "value": "Items.IRON_INGOT"
-      },
-      {
         "value": ""
       },
       {
-        "value": "Items.IRON_INGOT"
+        "value": ""
       },
       {
         "value": ""
       }
     ],
     "recipeReturnStack": {
-      "value": "CUSTOM:Lock"
+      "value": "CUSTOM:PenWithInk"
     },
-    "name": "rlock",
+    "name": "r_pen_with_ink_reload",
     "namespace": "mod"
   }
 }

@@ -36,7 +36,7 @@
       "fixedValue": false
     },
     "guiBoundTo": "<NONE>",
-    "inventorySize": 4,
+    "inventorySize": 0,
     "inventoryStackSize": 960,
     "onRightClickedInAir": {
       "name": "WalletSetName"

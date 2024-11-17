@@ -30,8 +30,9 @@ import net.mcreator.reignmod.item.PrivateRental3Item;
 import net.mcreator.reignmod.item.PrivateRental2Item;
 import net.mcreator.reignmod.item.PrivateRental1Item;
 import net.mcreator.reignmod.item.PlatinumCoinItem;
+import net.mcreator.reignmod.item.PenWithInkItem;
 import net.mcreator.reignmod.item.MinerCoinItem;
-import net.mcreator.reignmod.item.LockItem;
+import net.mcreator.reignmod.item.IronLockItem;
 import net.mcreator.reignmod.item.HoneyConcentrateItem;
 import net.mcreator.reignmod.item.GoldLockItem;
 import net.mcreator.reignmod.item.GoldCoinItem;
@@ -67,7 +68,6 @@ public class ReignModModItems {
 	public static final RegistryObject<Item> TEXTBOOK = REGISTRY.register("textbook", () -> new TextbookItem());
 	public static final RegistryObject<Item> HOARDER_BLOCK = block(ReignModModBlocks.HOARDER_BLOCK);
 	public static final RegistryObject<Item> BLACKMARK = REGISTRY.register("blackmark", () -> new BlackmarkItem());
-	public static final RegistryObject<Item> LOCK = REGISTRY.register("lock", () -> new LockItem());
 	public static final RegistryObject<Item> WALLET = REGISTRY.register("wallet", () -> new WalletItem());
 	public static final RegistryObject<Item> HONEY_CONCENTRATE = REGISTRY.register("honey_concentrate", () -> new HoneyConcentrateItem());
 	public static final RegistryObject<Item> ROCK = block(ReignModModBlocks.ROCK);
@@ -90,6 +90,8 @@ public class ReignModModItems {
 	public static final RegistryObject<Item> SAFE = block(ReignModModBlocks.SAFE);
 	public static final RegistryObject<Item> HEART_OF_HOUSE = block(ReignModModBlocks.HEART_OF_HOUSE);
 	public static final RegistryObject<Item> TRADE_LICENSE = REGISTRY.register("trade_license", () -> new TradeLicenseItem());
+	public static final RegistryObject<Item> PEN_WITH_INK = REGISTRY.register("pen_with_ink", () -> new PenWithInkItem());
+	public static final RegistryObject<Item> IRON_LOCK = REGISTRY.register("iron_lock", () -> new IronLockItem());
 
 	// Start of user code block custom items
 	// End of user code block custom items

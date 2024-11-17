@@ -51,10 +51,11 @@ public class ReignModModTabs {
 				tabData.accept(ReignModModItems.TRADE_LICENSE.get());
 				tabData.accept(ReignModModItems.CONTRACT_KILL.get());
 				tabData.accept(ReignModModItems.COPPER_LOCK.get());
-				tabData.accept(ReignModModItems.LOCK.get());
 				tabData.accept(ReignModModItems.GOLD_LOCK.get());
 				tabData.accept(ReignModModBlocks.SAFE.get().asItem());
 				tabData.accept(ReignModModBlocks.HEART_OF_HOUSE.get().asItem());
+				tabData.accept(ReignModModItems.PEN_WITH_INK.get());
+				tabData.accept(ReignModModItems.IRON_LOCK.get());
 			})
 
 					.build());

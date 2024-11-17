@@ -64,7 +64,7 @@ public class KingtableUIScreen extends AbstractContainerScreen<KingtableUIMenu> 
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.kingtable_ui.label_kingtable_lable"), 2, -12, -1, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.kingtable_ui.label_kingtable_lable"), 0, -11, -1, false);
 	}
 
 	@Override

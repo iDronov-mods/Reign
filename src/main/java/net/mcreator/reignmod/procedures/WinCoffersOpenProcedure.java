@@ -28,7 +28,7 @@ public class WinCoffersOpenProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
-		if (ReturnKngProcedure.execute(world, entity)) {
+		if (IsKingProcedure.execute(world, entity)) {
 			if (entity instanceof ServerPlayer _ent) {
 				BlockPos _bpos = BlockPos.containing(x, y, z);
 				NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {

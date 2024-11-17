@@ -96,7 +96,7 @@ public class MarketScreen extends AbstractContainerScreen<MarketMenu> {
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.market.label_market"), 1, -11, -1, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.market.label_market"), 0, -11, -1, false);
 		guiGraphics.drawString(this.font,
 
 				TextMarketBarProcedure.execute(world, entity), 61, 109, -12829636, false);

@@ -59,6 +59,12 @@ public class KingTableOpenProcedure {
 				((Slot) _slots.get(8)).set(_setstack);
 				_player.containerMenu.broadcastChanges();
 			}
+			if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+				ItemStack _setstack = new ItemStack(ReignModModItems.TRADE_LICENSE.get()).copy();
+				_setstack.setCount(1);
+				((Slot) _slots.get(9)).set(_setstack);
+				_player.containerMenu.broadcastChanges();
+			}
 		});
 	}
 }
