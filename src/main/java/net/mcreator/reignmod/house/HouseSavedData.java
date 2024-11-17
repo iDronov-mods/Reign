@@ -36,6 +36,10 @@ public class HouseSavedData extends SavedData {
         return houseData.findHouseByPlayerSuzerain(suzerainUUID);
     }
 
+    public Domain getPlayerDomain(String suzerainUUID) {
+        return houseData.findDomainByKnight(suzerainUUID);
+    }
+
     public Boolean isColorAvailable(String color) {
         return houseData.getHouseAvailableColors().get(color);
     }
@@ -65,5 +69,17 @@ public class HouseSavedData extends SavedData {
             this.houseData.removeDomain(house, this.houseData.findDomainByKnight(knightUUID));
             setDirty();
         }
+    }
+
+    public boolean pushPlayerToDomain(String knightUUID, String playerUUID) {
+        House house = this.houseData.findHouseByKnight(knightUUID);
+        Domain domain = this.houseData.findDomainByKnight(knightUUID);
+        return this.houseData.pushPlayerToDomain(house, domain, playerUUID);
+    }
+
+    public void removePlayerFromDomain(String knightUUID, String playerUUID) {
+        House house = this.houseData.findHouseByKnight(knightUUID);
+        Domain domain = this.houseData.findDomainByKnight(knightUUID);
+        this.houseData.removePlayerFromDomain(house, domain, playerUUID);
     }
 }

@@ -98,4 +98,20 @@ public class HouseData{
             this.domains.remove(domain.getKnightUUID());
         }
     }
+
+    public boolean pushPlayerToDomain(House house, Domain domain, String playerUUID) {
+        if (this.houses.containsKey(house.getLordUUID()) && this.domains.containsKey(domain.getKnightUUID())) {
+            this.houses.get(house.getLordUUID()).pushPlayerToDomain(domain.getKnightUUID(), playerUUID);
+            this.domains.get(domain.getKnightUUID()).pushPlayer(playerUUID);
+            return true;
+        }
+        return false;
+    }
+
+    public void removePlayerFromDomain(House house, Domain domain, String playerUUID) {
+        if (this.houses.containsKey(house.getLordUUID()) && this.domains.containsKey(domain.getKnightUUID())) {
+            this.houses.get(house.getLordUUID()).removePlayerFromDomain(domain.getKnightUUID(), playerUUID);
+            this.domains.get(domain.getKnightUUID()).removePlayer(playerUUID);
+        }
+    }
 }

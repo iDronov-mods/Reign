@@ -41,7 +41,7 @@ public class Domain implements INBTSerializable<CompoundTag> {
 
     public boolean isNull() { return Objects.equals(this.knightUUID, "null"); }
 
-    public void pushPlayer(String player) { this.players.add(player); }
+    public boolean pushPlayer(String player) { return this.players.add(player); }
     public void removePlayer(String player) { this.players.remove(player); }
 
     @Override

@@ -28,6 +28,43 @@ public class HouseManager {
         return false;
     }
 
+    public static void deleteHouse(Entity lordEntity) {
+        if (lordEntity instanceof Player lordPlayer) {
+            ServerLevel level = lordPlayer.getServer().overworld();
+            HouseSavedData houseData = HouseSavedData.getOrCreate(level);
+
+            houseData.removeHouse(lordPlayer.getStringUUID());
+        }
+    }
+
+    public static void deleteDomain(Entity lordEntity, Entity knightEntity) {
+        if (lordEntity instanceof Player lordPlayer && knightEntity instanceof Player knightPlayer) {
+            ServerLevel level = lordPlayer.getServer().overworld();
+            HouseSavedData houseData = HouseSavedData.getOrCreate(level);
+
+            houseData.removeDomain(lordPlayer.getStringUUID(), knightPlayer.getStringUUID());
+        }
+    }
+
+    public boolean pushPlayerToDomain(Entity knightEntity, Entity playerEntity) {
+        if (knightEntity instanceof Player knightPlayer && playerEntity instanceof Player player) {
+            ServerLevel level = knightPlayer.getServer().overworld();
+            HouseSavedData houseData = HouseSavedData.getOrCreate(level);
+
+            return houseData.pushPlayerToDomain(knightPlayer.getStringUUID(), player.getStringUUID());
+        }
+        return false;
+    }
+
+    public void removePlayerFromDomain(Entity knightEntity, Entity playerEntity) {
+        if (knightEntity instanceof Player knightPlayer && playerEntity instanceof Player player) {
+            ServerLevel level = knightPlayer.getServer().overworld();
+            HouseSavedData houseData = HouseSavedData.getOrCreate(level);
+
+            houseData.removePlayerFromDomain(knightPlayer.getStringUUID(), player.getStringUUID());
+        }
+    }
+
     public static boolean isPlayerLord(Entity lordEntity) {
         if (lordEntity instanceof Player lordPlayer) {
             ServerLevel level = lordPlayer.getServer().overworld();
@@ -73,7 +110,37 @@ public class HouseManager {
             ServerLevel level = player.getServer().overworld();
             HouseSavedData houseData = HouseSavedData.getOrCreate(level);
 
-            return houseData.getPlayerHouse(suzerainUUID).getHouseColor();
+            return houseData.getPlayerHouse(suzerainUUID).getHouseTitle();
+        }
+        return "null";
+    }
+
+    public static String getPlayerHouseLord(Entity playerEntity, String suzerainUUID) {
+        if (playerEntity instanceof Player player) {
+            ServerLevel level = player.getServer().overworld();
+            HouseSavedData houseData = HouseSavedData.getOrCreate(level);
+
+            return houseData.getPlayerHouse(suzerainUUID).getLordUUID();
+        }
+        return "null";
+    }
+
+    public static String getPlayerDomainTitle(Entity playerEntity, String suzerainUUID) {
+        if (playerEntity instanceof Player player) {
+            ServerLevel level = player.getServer().overworld();
+            HouseSavedData houseData = HouseSavedData.getOrCreate(level);
+
+            return houseData.getPlayerDomain(suzerainUUID).getDomainTitle();
+        }
+        return "null";
+    }
+
+    public static String getPlayerDomainKnight(Entity playerEntity, String suzerainUUID) {
+        if (playerEntity instanceof Player player) {
+            ServerLevel level = player.getServer().overworld();
+            HouseSavedData houseData = HouseSavedData.getOrCreate(level);
+
+            return houseData.getPlayerDomain(suzerainUUID).getKnightUUID();
         }
         return "null";
     }

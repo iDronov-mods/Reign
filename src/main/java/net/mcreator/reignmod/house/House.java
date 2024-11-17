@@ -64,17 +64,27 @@ public class House implements INBTSerializable<CompoundTag> {
 
     public boolean isNull() { return Objects.equals(this.lordUUID, "null"); }
 
-    public void pushPlayerToDomain(String knightUUID, String playerUUID) {
-        if (this.domains.containsKey(knightUUID)) this.domains.get(knightUUID).pushPlayer(playerUUID);
+    public boolean pushPlayerToDomain(String knightUUID, String playerUUID) {
+        if (this.domains.containsKey(knightUUID)) return this.domains.get(knightUUID).pushPlayer(playerUUID);
+        return false;
     }
     public void removePlayerFromDomain(String knightUUID, String playerUUID) {
         if (this.domains.containsKey(knightUUID)) this.domains.get(knightUUID).removePlayer(playerUUID);
     }
 
     public boolean containsDomain(String domainHeadUUID) { return this.domains.containsKey(domainHeadUUID); }
-    public void addDomain(String knightUUID, String knightDisplayName) { this.domains.putIfAbsent(knightUUID, new Domain(this.lordUUID, knightUUID, knightDisplayName)); }
-    public void pushDomain(Domain domain) {this.domains.putIfAbsent(domain.getKnightUUID(), domain);}
-    public void removeDomain(String playerUUID) { this.domains.remove(playerUUID); }
+    public void addDomain(String knightUUID, String knightDisplayName) {
+        this.domains.putIfAbsent(knightUUID, new Domain(this.lordUUID, knightUUID, knightDisplayName));
+        this.players.add(knightUUID);
+    }
+    public void pushDomain(Domain domain) {
+        this.domains.putIfAbsent(domain.getKnightUUID(), domain);
+        this.players.add(domain.getKnightUUID());
+    }
+    public void removeDomain(String knightUUID) {
+        this.domains.remove(knightUUID);
+        this.players.remove(knightUUID);
+    }
 
     @Override
     public CompoundTag serializeNBT() {
