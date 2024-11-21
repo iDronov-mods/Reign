@@ -12,6 +12,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Objects;
+
 @Mixin(Player.class)
 public abstract class PlayerSetNameMixin {
 
@@ -20,11 +22,10 @@ public abstract class PlayerSetNameMixin {
     @Inject(method = "getDisplayName", at = @At("HEAD"), cancellable = true)
     private void injectCustomDisplayName(CallbackInfoReturnable<Component> cir) {
         try {
-            Player player = (Player) (Object) this;
-
+            	Player player = (Player) (Object) this;
                 String colorPrefix = HouseManager.getPlayerHouseColorCode(player);
             // Проверка, что suzerainId не пуст и не null
-            if (colorPrefix != "null") {
+            if (!Objects.equals(colorPrefix, "null")) {
 
                 String iconPrefix = "";
 
@@ -38,7 +39,7 @@ public abstract class PlayerSetNameMixin {
                     iconPrefix = "§r[§7🗡§r]";
                 }
                 
-				if (iconPrefix != "") {iconPrefix+=" ";}
+				if (!Objects.equals(iconPrefix, "")) {iconPrefix+=" ";}
 				
                 String customName = iconPrefix + colorPrefix + player.getGameProfile().getName();
                 cir.setReturnValue(Component.literal(customName));
@@ -46,7 +47,8 @@ public abstract class PlayerSetNameMixin {
                 cir.setReturnValue(player.getName());
             }
         } catch (Exception e) {
-            LOGGER.error("Ошибка в миксине PlayerSetNameMixin: ", e);
+            LOGGER.error("Exception thrown in PlayerSetNameMixin: ", e);
         }
-    }
+}
+
 }

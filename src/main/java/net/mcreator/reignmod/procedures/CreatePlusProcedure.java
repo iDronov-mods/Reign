@@ -64,8 +64,8 @@ public class CreatePlusProcedure {
 			if (guistate.get("text:house_name") instanceof EditBox _tf)
 				_tf.setValue("");
 			if (entity instanceof Player _player && !_player.level().isClientSide())
-				_player.displayClientMessage(Component.literal(("" + HouseManager.isColorAvailable(entity, "yellow"))), false);
-			if (HouseManager.isColorAvailable(entity, "yellow")) {
+				_player.displayClientMessage(Component.literal(("" + HouseManager.isColorAvailable("yellow"))), false);
+			if (HouseManager.isColorAvailable("yellow")) {
 				if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 					ItemStack _setstack = new ItemStack(Blocks.YELLOW_BANNER).copy();
 					_setstack.setCount(1);
@@ -73,7 +73,7 @@ public class CreatePlusProcedure {
 					_player.containerMenu.broadcastChanges();
 				}
 			}
-			if (HouseManager.isColorAvailable(entity, "lime")) {
+			if (HouseManager.isColorAvailable("lime")) {
 				if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 					ItemStack _setstack = new ItemStack(Blocks.LIME_BANNER).copy();
 					_setstack.setCount(1);
@@ -81,7 +81,7 @@ public class CreatePlusProcedure {
 					_player.containerMenu.broadcastChanges();
 				}
 			}
-			if (HouseManager.isColorAvailable(entity, "green")) {
+			if (HouseManager.isColorAvailable("green")) {
 				if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 					ItemStack _setstack = new ItemStack(Blocks.GREEN_BANNER).copy();
 					_setstack.setCount(1);
@@ -89,7 +89,7 @@ public class CreatePlusProcedure {
 					_player.containerMenu.broadcastChanges();
 				}
 			}
-			if (HouseManager.isColorAvailable(entity, "aqua")) {
+			if (HouseManager.isColorAvailable("aqua")) {
 				if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 					ItemStack _setstack = new ItemStack(Blocks.CYAN_BANNER).copy();
 					_setstack.setCount(1);
@@ -97,7 +97,7 @@ public class CreatePlusProcedure {
 					_player.containerMenu.broadcastChanges();
 				}
 			}
-			if (HouseManager.isColorAvailable(entity, "blue")) {
+			if (HouseManager.isColorAvailable("blue")) {
 				if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 					ItemStack _setstack = new ItemStack(Blocks.BLUE_BANNER).copy();
 					_setstack.setCount(1);
@@ -105,7 +105,7 @@ public class CreatePlusProcedure {
 					_player.containerMenu.broadcastChanges();
 				}
 			}
-			if (HouseManager.isColorAvailable(entity, "purple")) {
+			if (HouseManager.isColorAvailable("purple")) {
 				if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 					ItemStack _setstack = new ItemStack(Blocks.PURPLE_BANNER).copy();
 					_setstack.setCount(1);
@@ -113,7 +113,7 @@ public class CreatePlusProcedure {
 					_player.containerMenu.broadcastChanges();
 				}
 			}
-			if (HouseManager.isColorAvailable(entity, "pink")) {
+			if (HouseManager.isColorAvailable("pink")) {
 				if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 					ItemStack _setstack = new ItemStack(Blocks.PINK_BANNER).copy();
 					_setstack.setCount(1);
@@ -121,7 +121,7 @@ public class CreatePlusProcedure {
 					_player.containerMenu.broadcastChanges();
 				}
 			}
-			if (HouseManager.isColorAvailable(entity, "red")) {
+			if (HouseManager.isColorAvailable("red")) {
 				if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 					ItemStack _setstack = new ItemStack(Blocks.RED_BANNER).copy();
 					_setstack.setCount(1);
@@ -129,7 +129,7 @@ public class CreatePlusProcedure {
 					_player.containerMenu.broadcastChanges();
 				}
 			}
-			if (HouseManager.isColorAvailable(entity, "orange")) {
+			if (HouseManager.isColorAvailable("orange")) {
 				if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 					ItemStack _setstack = new ItemStack(Blocks.ORANGE_BANNER).copy();
 					_setstack.setCount(1);
@@ -137,7 +137,7 @@ public class CreatePlusProcedure {
 					_player.containerMenu.broadcastChanges();
 				}
 			}
-			if (HouseManager.isColorAvailable(entity, "black")) {
+			if (HouseManager.isColorAvailable("black")) {
 				if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 					ItemStack _setstack = new ItemStack(Blocks.BLACK_BANNER).copy();
 					_setstack.setCount(1);

@@ -5,10 +5,13 @@ import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.saveddata.SavedData;
+import org.apache.logging.log4j.LogManager;
 
 public class HouseSavedData extends SavedData {
 
     private final HouseData houseData = new HouseData();
+
+    private static HouseSavedData instance;
 
     public HouseSavedData() {}
 
@@ -17,8 +20,17 @@ public class HouseSavedData extends SavedData {
         housesTag.forEach(houseTag -> this.houseData.pushHouse(new House((CompoundTag) houseTag)));
     }
 
-    public static HouseSavedData getOrCreate(ServerLevel serverLevel) {
-        return serverLevel.getDataStorage().computeIfAbsent(HouseSavedData::new, HouseSavedData::new, "house_data");
+    public static void initialize(ServerLevel serverLevel) {
+        if (instance == null) {
+            instance = serverLevel.getDataStorage().computeIfAbsent(HouseSavedData::new, HouseSavedData::new, "house_data");
+        }
+    }
+
+    public static HouseSavedData getInstance() {
+        if (instance == null) {
+            throw new IllegalStateException("HouseSavedData has not been initialized. Call initialize(ServerLevel) first.");
+        }
+        return instance;
     }
 
     @Override
@@ -62,24 +74,20 @@ public class HouseSavedData extends SavedData {
 
     public Boolean addDomain(String lordUUID, String knightUUID, String knightDisplayName) {
         if (!this.houseData.getHouses().containsKey(lordUUID) || this.houseData.getHouses().get(lordUUID).containsDomain(knightUUID)) return false;
-        House house = this.houseData.findHouseByLord(lordUUID);
-        this.houseData.pushDomain(house, new Domain(lordUUID, knightUUID, Component.literal(knightDisplayName)));
+        this.houseData.pushDomain(this.houseData.findHouseByLord(lordUUID), new Domain(lordUUID, knightUUID, Component.literal(knightDisplayName)));
         setDirty();
         return true;
     }
 
     public void removeDomain(String lordUUID, String knightUUID) {
-        House house = this.houseData.findHouseByLord(lordUUID);
-        if (!house.isNull()) {
-            this.houseData.removeDomain(house, this.houseData.findDomainByKnight(knightUUID));
+        if (!this.houseData.findHouseByLord(lordUUID).isNull()) {
+            this.houseData.removeDomain(this.houseData.findHouseByLord(lordUUID), this.houseData.findDomainByKnight(knightUUID));
             setDirty();
         }
     }
 
     public boolean pushPlayerToDomain(String knightUUID, String playerUUID) {
-        Domain domain = this.houseData.findDomainByKnight(knightUUID);
-        House house = this.houseData.findHouseByKnight(knightUUID);
-        if (this.houseData.pushPlayerToDomain(house, domain, playerUUID)) {
+        if (this.houseData.pushPlayerToDomain(this.houseData.findHouseByKnight(knightUUID),  this.houseData.findDomainByKnight(knightUUID), playerUUID)) {
             setDirty();
             return true;
         }
@@ -87,9 +95,7 @@ public class HouseSavedData extends SavedData {
     }
 
     public void removePlayerFromDomain(String knightUUID, String playerUUID) {
-        House house = this.houseData.findHouseByKnight(knightUUID);
-        Domain domain = this.houseData.findDomainByKnight(knightUUID);
-        this.houseData.removePlayerFromDomain(house, domain, playerUUID);
+        this.houseData.removePlayerFromDomain(this.houseData.findHouseByKnight(knightUUID), this.houseData.findDomainByKnight(knightUUID), playerUUID);
         setDirty();
     }
 }

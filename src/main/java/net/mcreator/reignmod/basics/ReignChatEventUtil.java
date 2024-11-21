@@ -4,7 +4,7 @@ import net.minecraft.ChatFormatting;
 
 public class ReignChatEventUtil {
     public static ChatFormatting getColour(String word) {
-        ChatFormatting colour = ChatFormatting.getById(7);
+        ChatFormatting colour = ChatFormatting.getById(15);
         if (word.equalsIgnoreCase("timestamp")) {
             colour = ChatFormatting.getById(8);
         } else if (word.equalsIgnoreCase("chatmessage")) {

@@ -5,7 +5,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerLevel;
 
-import net.mcreator.reignmod.network.ReignModModVariables;
 import net.mcreator.reignmod.house.HouseManager;
 
 public class IsKnightProcedure {
@@ -14,9 +13,6 @@ public class IsKnightProcedure {
 			return false;
 		Entity player = null;
 		boolean isKnight = false;
-		if (((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).house).isEmpty()) {
-			return false;
-		}
 		player = entity;
 		if (world instanceof ServerLevel _origLevel) {
 			LevelAccessor _worldorig = world;

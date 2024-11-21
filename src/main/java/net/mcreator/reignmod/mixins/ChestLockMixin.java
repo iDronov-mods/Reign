@@ -82,7 +82,7 @@ public class ChestLockMixin {
         return switch (lock_type) {
             case "personal" -> player.getStringUUID().equals(owner);
             case "domain" -> player.getStringUUID().equals(owner) ||
-                    HouseManager.getDomainLordByKnight(player, owner).equals(player.getStringUUID()) ||
+                    HouseManager.getDomainLordByKnight(owner).equals(player.getStringUUID()) ||
                     HouseManager.getPlayerDomainKnight(player).equals(owner);
             case "house" -> HouseManager.getPlayerHouseLord(player).equals(owner);
             default -> false;

@@ -1,6 +1,7 @@
 package net.mcreator.reignmod.house;
 
 import net.minecraft.network.chat.Component;
+import org.apache.logging.log4j.LogManager;
 
 import java.util.HashMap;
 import java.util.List;
@@ -66,9 +67,8 @@ public class HouseData{
     }
 
     public House findHouseByKnight(String knightUUID) {
-        Domain domain = this.domains.getOrDefault(knightUUID, new Domain());
-        if (!domain.isNull()) {
-            return findHouseByLord(domain.getLordUUID());
+        if (!this.domains.getOrDefault(knightUUID, new Domain()).isNull()) {
+            return findHouseByLord(this.domains.getOrDefault(knightUUID, new Domain()).getLordUUID());
         }
         return new House();
     }
@@ -101,7 +101,6 @@ public class HouseData{
             this.domains.remove(domain.getKnightUUID());
         }
     }
-
 
     public boolean pushPlayerToDomain(House house, Domain domain, String playerUUID) {
         if (this.houses.containsKey(house.getLordUUID()) && this.domains.containsKey(domain.getKnightUUID())) {
