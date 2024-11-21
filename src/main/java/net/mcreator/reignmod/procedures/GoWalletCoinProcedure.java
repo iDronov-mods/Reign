@@ -35,9 +35,19 @@ public class GoWalletCoinProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, Entity entity, ItemStack itemstack) {
 		if (entity == null)
 			return;
-		double index = 0;
 		ItemStack wallet_copy = ItemStack.EMPTY;
+		double index = 0;
+		double value = 0;
 		if (itemstack.is(ItemTags.create(new ResourceLocation("reign:coins")))) {
+			if (itemstack.getItem() == ReignModModItems.COPPER_COIN.get()) {
+				value = itemstack.getCount();
+			} else if (itemstack.getItem() == ReignModModItems.SILVER_COIN.get()) {
+				value = itemstack.getCount() * 16;
+			} else if (itemstack.getItem() == ReignModModItems.GOLD_COIN.get()) {
+				value = itemstack.getCount() * 256;
+			} else {
+				value = itemstack.getCount() * 4096;
+			}
 			index = 0;
 			while (index <= 35) {
 				if ((new Object() {
@@ -58,18 +68,9 @@ public class GoWalletCoinProcedure {
 							return _retval.get();
 						}
 					}.getItemStack((int) index, entity));
-					if (entity instanceof Player _plr5 && _plr5.containerMenu instanceof WalletwinMenu) {
+					if (entity instanceof Player _plr19 && _plr19.containerMenu instanceof WalletwinMenu) {
 						if (entity instanceof Player _player)
 							_player.closeContainer();
-					}
-					if (itemstack.getItem() == ReignModModItems.COPPER_COIN.get()) {
-						wallet_copy.getOrCreateTag().putDouble("amount", (itemstack.getCount() + wallet_copy.getOrCreateTag().getDouble("amount")));
-					} else if (itemstack.getItem() == ReignModModItems.SILVER_COIN.get()) {
-						wallet_copy.getOrCreateTag().putDouble("amount", (itemstack.getCount() * 16 + wallet_copy.getOrCreateTag().getDouble("amount")));
-					} else if (itemstack.getItem() == ReignModModItems.GOLD_COIN.get()) {
-						wallet_copy.getOrCreateTag().putDouble("amount", (itemstack.getCount() * 256 + wallet_copy.getOrCreateTag().getDouble("amount")));
-					} else {
-						wallet_copy.getOrCreateTag().putDouble("amount", (itemstack.getCount() * 4096 + wallet_copy.getOrCreateTag().getDouble("amount")));
 					}
 					{
 						final int _slotid = (int) index;
@@ -81,6 +82,7 @@ public class GoWalletCoinProcedure {
 						});
 					}
 					itemstack.setCount(0);
+					wallet_copy.getOrCreateTag().putDouble("amount", (value + wallet_copy.getOrCreateTag().getDouble("amount")));
 					SoundGiveCoinProcedure.execute(world, x, y, z);
 					break;
 				}

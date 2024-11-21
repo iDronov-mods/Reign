@@ -28,14 +28,14 @@ import java.util.Calendar;
 public class EnterPayProcedure {
 	@SubscribeEvent
 	public static void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
-		execute(event, event.getEntity().level(), event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ(), event.getEntity());
+		execute(event, event.getEntity().level(), event.getEntity());
 	}
 
-	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
-		execute(null, world, x, y, z, entity);
+	public static void execute(LevelAccessor world, Entity entity) {
+		execute(null, world, entity);
 	}
 
-	private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, Entity entity) {
+	private static void execute(@Nullable Event event, LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return;
 		if (IsKingProcedure.execute(world, entity)) {
@@ -70,7 +70,7 @@ public class EnterPayProcedure {
 				_player.displayClientMessage(
 						Component.literal((Component.translatable("count_days").getString() + " " + (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline)),
 						false);
-			if (ReturnKngProcedure.execute(world, x, y, z, entity)) {
+			if (IsKingProcedure.execute(world, entity)) {
 				if (entity instanceof Player _player && !_player.level().isClientSide())
 					_player.displayClientMessage(Component.literal((Component.translatable("pay_king").getString() + " "
 							+ ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline * 16 + 256) + " " + Component.translatable("copper_coins_pay").getString())),
@@ -85,7 +85,7 @@ public class EnterPayProcedure {
 					_setstack.setCount((int) ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline * 16));
 					ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
 				}
-			} else if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).isLord) {
+			} else if (IsLordProcedure.execute(world, entity)) {
 				if (entity instanceof Player _player && !_player.level().isClientSide())
 					_player.displayClientMessage(Component.literal((Component.translatable("pay_lord").getString() + " "
 							+ ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline * 8 + 16) + " " + Component.translatable("copper_coins_pay").getString())),

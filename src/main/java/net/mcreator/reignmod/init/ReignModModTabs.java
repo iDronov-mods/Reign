@@ -28,6 +28,9 @@ public class ReignModModTabs {
 				tabData.accept(ReignModModBlocks.TRADE_BLOCK.get().asItem());
 				tabData.accept(ReignModModBlocks.MARKET_BLOCK.get().asItem());
 				tabData.accept(ReignModModBlocks.COFFERS.get().asItem());
+				tabData.accept(ReignModModBlocks.SAFE.get().asItem());
+				tabData.accept(ReignModModBlocks.HEART_OF_HOUSE.get().asItem());
+				tabData.accept(ReignModModBlocks.PRIVATE_SHOP.get().asItem());
 				tabData.accept(ReignModModBlocks.FUND.get().asItem());
 				tabData.accept(ReignModModBlocks.HOARDER_BLOCK.get().asItem());
 				tabData.accept(ReignModModBlocks.KINGTABLE.get().asItem());
@@ -52,10 +55,10 @@ public class ReignModModTabs {
 				tabData.accept(ReignModModItems.CONTRACT_KILL.get());
 				tabData.accept(ReignModModItems.COPPER_LOCK.get());
 				tabData.accept(ReignModModItems.GOLD_LOCK.get());
-				tabData.accept(ReignModModBlocks.SAFE.get().asItem());
-				tabData.accept(ReignModModBlocks.HEART_OF_HOUSE.get().asItem());
 				tabData.accept(ReignModModItems.PEN_WITH_INK.get());
 				tabData.accept(ReignModModItems.IRON_LOCK.get());
+				tabData.accept(ReignModModItems.COWBOY_COIN.get());
+				tabData.accept(ReignModModItems.PICKLOCK.get());
 			})
 
 					.build());

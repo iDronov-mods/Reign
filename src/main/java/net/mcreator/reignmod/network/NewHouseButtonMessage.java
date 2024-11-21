@@ -64,7 +64,7 @@ public class NewHouseButtonMessage {
 			return;
 		if (buttonID == 0) {
 
-			HouseCreateProcedure.execute(world, x, y, z, entity, guistate);
+			HouseCreateProcedure.execute(world, x, y, z, entity);
 		}
 	}
 

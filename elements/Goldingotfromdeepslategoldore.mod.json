@@ -1,0 +1,22 @@
+{
+  "_fv": 69,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Smelting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "cookingBookCategory": "MISC",
+    "xpReward": 1.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": false,
+    "smeltingInputStack": {
+      "value": "Blocks.DEEPSLATE_GOLD_ORE"
+    },
+    "smeltingReturnStack": {
+      "value": "Items.GOLD_NUGGET"
+    },
+    "name": "gold_ingot_from_deepslate_gold_ore",
+    "namespace": "minecraft"
+  }
+}

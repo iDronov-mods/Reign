@@ -1,0 +1,183 @@
+{
+  "_fv": 69,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_private_shop",
+          "text": {
+            "fixedValue": "private_shop"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 126,
+          "y": 27
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_private_shop_get_owner",
+          "text": {
+            "fixedValue": "owner_name",
+            "name": "PrivateShopGetOwner"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 248,
+          "y": 27
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "crown.png",
+          "use1Xscale": false,
+          "x": 222,
+          "y": 25
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_private_shop_help",
+          "text": {
+            "fixedValue": "private_shop_help"
+          },
+          "width": 24,
+          "height": 24,
+          "x": 218,
+          "y": 20
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": true
+          },
+          "id": 0,
+          "disablePickup": {
+            "fixedValue": true
+          },
+          "dropItemsWhenNotBound": false,
+          "x": 169,
+          "y": 65
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arrow.png",
+          "use1Xscale": false,
+          "x": 198,
+          "y": 66
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": true
+          },
+          "id": 1,
+          "disablePickup": {
+            "fixedValue": true
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 241,
+          "y": 65
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "copper_coin.png",
+          "use1Xscale": false,
+          "x": 125,
+          "y": 195
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_wallet_value",
+          "text": {
+            "fixedValue": "wallet_value"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 141,
+          "y": 198
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_buy",
+          "text": "Buy",
+          "isUndecorated": false,
+          "width": 72,
+          "height": 20,
+          "x": 187,
+          "y": 96
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_x4",
+          "text": "X4",
+          "isUndecorated": false,
+          "width": 18,
+          "height": 20,
+          "x": 169,
+          "y": 96
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_count_left",
+          "text": {
+            "fixedValue": "count_left"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 188,
+          "y": 85
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

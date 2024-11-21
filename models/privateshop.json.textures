@@ -1,0 +1,10 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "0": "private_shop_texture"
+      },
+      "name": "default"
+    }
+  }
+}

@@ -31,7 +31,7 @@ public class DefendGrifCapitalProcedure {
 		if (entity == null)
 			return;
 		if (blockstate.getBlock() == Blocks.TNT) {
-			if (Math.abs(x - ReignModModVariables.MapVariables.get(world).CAPITAL_X) <= 256 || Math.abs(z - ReignModModVariables.MapVariables.get(world).VC_Z) <= 256) {
+			if (Math.abs(x - ReignModModVariables.MapVariables.get(world).CAPITAL_X) <= 256 && Math.abs(z - ReignModModVariables.MapVariables.get(world).CAPITAL_Z) <= 256) {
 				if (entity instanceof Player _player && !_player.level().isClientSide())
 					_player.displayClientMessage(Component.literal((Component.translatable("translation.key.GriefCapital").getString())), true);
 				if (event != null && event.isCancelable()) {

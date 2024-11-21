@@ -17,6 +17,7 @@ import net.minecraft.world.level.block.Block;
 import net.mcreator.reignmod.block.TradeBlockBlock;
 import net.mcreator.reignmod.block.SafeBlock;
 import net.mcreator.reignmod.block.RockBlock;
+import net.mcreator.reignmod.block.PrivateShopBlock;
 import net.mcreator.reignmod.block.PlusBlock;
 import net.mcreator.reignmod.block.MarketBlockBlock;
 import net.mcreator.reignmod.block.KingtableBlock;
@@ -38,6 +39,7 @@ public class ReignModModBlocks {
 	public static final RegistryObject<Block> KINGTABLE = REGISTRY.register("kingtable", () -> new KingtableBlock());
 	public static final RegistryObject<Block> SAFE = REGISTRY.register("safe", () -> new SafeBlock());
 	public static final RegistryObject<Block> HEART_OF_HOUSE = REGISTRY.register("heart_of_house", () -> new HeartOfHouseBlock());
+	public static final RegistryObject<Block> PRIVATE_SHOP = REGISTRY.register("private_shop", () -> new PrivateShopBlock());
 
 	// Start of user code block custom blocks
 	// End of user code block custom blocks

@@ -27,4 +27,7 @@ public class ReignModModSounds {
 	public static final RegistryObject<SoundEvent> LIGHT_AFTER_DARKNESS = REGISTRY.register("light-after-darkness", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("reign_mod", "light-after-darkness")));
 	public static final RegistryObject<SoundEvent> LASTO_BETH_LAMMEN = REGISTRY.register("lasto-beth-lammen", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("reign_mod", "lasto-beth-lammen")));
 	public static final RegistryObject<SoundEvent> SAFE_OPEN = REGISTRY.register("safe_open", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("reign_mod", "safe_open")));
+	public static final RegistryObject<SoundEvent> PICKLOCK_WORK = REGISTRY.register("picklock_work", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("reign_mod", "picklock_work")));
+	public static final RegistryObject<SoundEvent> PICKLOCK_BREAK = REGISTRY.register("picklock_break", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("reign_mod", "picklock_break")));
+	public static final RegistryObject<SoundEvent> PICKLOCK_WORK2 = REGISTRY.register("picklock_work2", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("reign_mod", "picklock_work2")));
 }

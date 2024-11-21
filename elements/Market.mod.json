@@ -1367,6 +1367,30 @@
           "x": 60,
           "y": 163
         }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "copper_coin.png",
+          "use1Xscale": false,
+          "x": 53,
+          "y": 196
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_wallet_value",
+          "text": {
+            "fixedValue": "wallet_value"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 69,
+          "y": 199
+        }
       }
     ],
     "onOpen": {

@@ -22,48 +22,20 @@ public abstract class PlayerSetNameMixin {
         try {
             Player player = (Player) (Object) this;
 
-            // Получение данных из capability
-            ReignModModVariables.PlayerVariables variables = player.getCapability(
-                ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null
-            ).orElse(null);
-
-            if (variables == null) {
-                LOGGER.error("Не удалось получить capability для игрока.");
-                return;
-            }
-
-            // Извлечение ID сюзерена
-            String suzerainId = variables.house;
-            LOGGER.info("Suzerain ID: " + suzerainId);
-
+                String colorPrefix = HouseManager.getPlayerHouseColorCode(player);
             // Проверка, что suzerainId не пуст и не null
-            if (suzerainId != null && !suzerainId.isEmpty()) {
-                String color = HouseManager.getPlayerHouseColor(player, suzerainId);
+            if (colorPrefix != "null") {
 
                 String iconPrefix = "";
-                String colorPrefix = "";
-
-                switch (color) {
-                    case "yellow" -> colorPrefix = "§e";
-                    case "lime" -> colorPrefix = "§a";
-                    case "green" -> colorPrefix = "§2";
-                    case "aqua" -> colorPrefix = "§b";
-                    case "blue" -> colorPrefix = "§1";
-                    case "purple" -> colorPrefix = "§d";
-                    case "pink" -> colorPrefix = "§5";
-                    case "red" -> colorPrefix = "§c";
-                    case "orange" -> colorPrefix = "§6";
-                    case "black" -> colorPrefix = "§8";
-                }
 
                 if (IsKingProcedure.execute(player.getCommandSenderWorld(), player)) {
                 	colorPrefix += "§l";
-                    iconPrefix = "[§e👑§f]";
+                    iconPrefix = "§r[§e👑§r]";
                 } else if (HouseManager.isPlayerLord(player)) {
                     colorPrefix += "§l";
-                    iconPrefix = "[§7🏰§f]";
+                    iconPrefix = "§r[§7🏰§r]";
                 } else if (HouseManager.isPlayerKnight(player)) {
-                    iconPrefix = "[§7⚔️§f]";
+                    iconPrefix = "§r[§7🗡§r]";
                 }
                 
 				if (iconPrefix != "") {iconPrefix+=" ";}

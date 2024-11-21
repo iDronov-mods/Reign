@@ -4,10 +4,10 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "reign_mod:woodcutter_coin"
+      "item": "reign_mod:miner_coin"
     },
     {
-      "item": "reign_mod:smith_coin"
+      "item": "reign_mod:cowboy_coin"
     },
     {
       "item": "reign_mod:woodcutter_coin"
@@ -25,10 +25,10 @@
       "item": "reign_mod:woodcutter_coin"
     },
     {
-      "item": "reign_mod:smith_coin"
+      "item": "reign_mod:cowboy_coin"
     },
     {
-      "item": "reign_mod:woodcutter_coin"
+      "item": "reign_mod:miner_coin"
     }
   ],
   "result": {

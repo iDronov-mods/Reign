@@ -82,6 +82,9 @@ public class MarketScreen extends AbstractContainerScreen<MarketMenu> {
 		if (ReturnMarketBar33Procedure.execute(world, entity)) {
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/count_bar3-3.png"), this.leftPos + 53, this.topPos + 102, 0, 0, 31, 6, 31, 6);
 		}
+
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/copper_coin.png"), this.leftPos + -1, this.topPos + 159, 0, 0, 16, 16, 16, 16);
+
 		RenderSystem.disableBlend();
 	}
 
@@ -103,6 +106,7 @@ public class MarketScreen extends AbstractContainerScreen<MarketMenu> {
 		guiGraphics.drawString(this.font,
 
 				TextMarketTaxProcedure.execute(world, entity), 6, 126, -6710887, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.market.label_wallet_value"), 15, 162, -1, false);
 	}
 
 	@Override

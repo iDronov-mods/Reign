@@ -2,6 +2,7 @@ package net.mcreator.reignmod.house;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.saveddata.SavedData;
 
@@ -36,7 +37,10 @@ public class HouseSavedData extends SavedData {
         return houseData.findHouseByPlayerSuzerain(suzerainUUID);
     }
 
-    public Domain getPlayerDomain(String suzerainUUID) {
+    public Domain getPlayerDomain(String playerUUID, String suzerainUUID) {
+        if (!houseData.findDomainByKnight(playerUUID).isNull()) {
+            return houseData.findDomainByKnight(playerUUID);
+        }
         return houseData.findDomainByKnight(suzerainUUID);
     }
 
@@ -57,8 +61,9 @@ public class HouseSavedData extends SavedData {
     }
 
     public Boolean addDomain(String lordUUID, String knightUUID, String knightDisplayName) {
-        if (this.houseData.getHouses().containsKey(lordUUID) || this.houseData.getHouses().get(lordUUID).containsDomain(knightUUID)) return false;
-        this.houseData.findHouseByLord(lordUUID).addDomain(knightUUID, knightDisplayName);
+        if (!this.houseData.getHouses().containsKey(lordUUID) || this.houseData.getHouses().get(lordUUID).containsDomain(knightUUID)) return false;
+        House house = this.houseData.findHouseByLord(lordUUID);
+        this.houseData.pushDomain(house, new Domain(lordUUID, knightUUID, Component.literal(knightDisplayName)));
         setDirty();
         return true;
     }
@@ -72,14 +77,19 @@ public class HouseSavedData extends SavedData {
     }
 
     public boolean pushPlayerToDomain(String knightUUID, String playerUUID) {
-        House house = this.houseData.findHouseByKnight(knightUUID);
         Domain domain = this.houseData.findDomainByKnight(knightUUID);
-        return this.houseData.pushPlayerToDomain(house, domain, playerUUID);
+        House house = this.houseData.findHouseByKnight(knightUUID);
+        if (this.houseData.pushPlayerToDomain(house, domain, playerUUID)) {
+            setDirty();
+            return true;
+        }
+        return false;
     }
 
     public void removePlayerFromDomain(String knightUUID, String playerUUID) {
         House house = this.houseData.findHouseByKnight(knightUUID);
         Domain domain = this.houseData.findDomainByKnight(knightUUID);
         this.houseData.removePlayerFromDomain(house, domain, playerUUID);
+        setDirty();
     }
 }

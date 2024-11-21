@@ -50,6 +50,7 @@
     "minecraft:diamond_horse_armor",
     "minecraft:bow",
     "minecraft:crossbow",
-    "minecraft:shield"
+    "minecraft:shield",
+    "reign_mod:picklock"
   ]
 }

@@ -18,6 +18,8 @@ import net.mcreator.reignmod.world.inventory.TextbookmainMenu;
 import net.mcreator.reignmod.world.inventory.Textbook1Menu;
 import net.mcreator.reignmod.world.inventory.SafeUIMenu;
 import net.mcreator.reignmod.world.inventory.RoyaleSettingsMenu;
+import net.mcreator.reignmod.world.inventory.PrivateShopUIMenu;
+import net.mcreator.reignmod.world.inventory.PrivateShopBuyerUIMenu;
 import net.mcreator.reignmod.world.inventory.NewHouseMenu;
 import net.mcreator.reignmod.world.inventory.MarketMenu;
 import net.mcreator.reignmod.world.inventory.LicenseIsSelectedMenu;
@@ -55,4 +57,6 @@ public class ReignModModMenus {
 	public static final RegistryObject<MenuType<NewHouseMenu>> NEW_HOUSE = REGISTRY.register("new_house", () -> IForgeMenuType.create(NewHouseMenu::new));
 	public static final RegistryObject<MenuType<SafeUIMenu>> SAFE_UI = REGISTRY.register("safe_ui", () -> IForgeMenuType.create(SafeUIMenu::new));
 	public static final RegistryObject<MenuType<HouseIncubatorUIMenu>> HOUSE_INCUBATOR_UI = REGISTRY.register("house_incubator_ui", () -> IForgeMenuType.create(HouseIncubatorUIMenu::new));
+	public static final RegistryObject<MenuType<PrivateShopUIMenu>> PRIVATE_SHOP_UI = REGISTRY.register("private_shop_ui", () -> IForgeMenuType.create(PrivateShopUIMenu::new));
+	public static final RegistryObject<MenuType<PrivateShopBuyerUIMenu>> PRIVATE_SHOP_BUYER_UI = REGISTRY.register("private_shop_buyer_ui", () -> IForgeMenuType.create(PrivateShopBuyerUIMenu::new));
 }

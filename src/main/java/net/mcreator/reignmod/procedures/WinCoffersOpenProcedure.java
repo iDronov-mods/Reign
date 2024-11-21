@@ -29,6 +29,13 @@ public class WinCoffersOpenProcedure {
 		if (entity == null)
 			return;
 		if (IsKingProcedure.execute(world, entity)) {
+			if (world instanceof Level _level) {
+				if (!_level.isClientSide()) {
+					_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:safe_open")), SoundSource.BLOCKS, 1, 1);
+				} else {
+					_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:safe_open")), SoundSource.BLOCKS, 1, 1, false);
+				}
+			}
 			if (entity instanceof ServerPlayer _ent) {
 				BlockPos _bpos = BlockPos.containing(x, y, z);
 				NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
@@ -51,9 +58,9 @@ public class WinCoffersOpenProcedure {
 			(entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).setCount(0);
 			if (world instanceof Level _level) {
 				if (!_level.isClientSide()) {
-					_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:coin3")), SoundSource.NEUTRAL, (float) 0.5, 1);
+					_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:coin3")), SoundSource.BLOCKS, (float) 0.5, 1);
 				} else {
-					_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:coin3")), SoundSource.NEUTRAL, (float) 0.5, 1, false);
+					_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:coin3")), SoundSource.BLOCKS, (float) 0.5, 1, false);
 				}
 			}
 			if (entity instanceof Player _player && !_player.level().isClientSide())

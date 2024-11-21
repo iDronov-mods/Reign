@@ -11,12 +11,12 @@
     "craftingBookCategory": "MISC",
     "recipeShapeless": false,
     "smeltingInputStack": {
-      "value": "Items.RAW_GOLD"
+      "value": "Blocks.DEEPSLATE_IRON_ORE"
     },
     "smeltingReturnStack": {
-      "value": "Items.GOLD_NUGGET"
+      "value": "Items.IRON_NUGGET"
     },
-    "name": "r_gold_2",
-    "namespace": "mod"
+    "name": "iron_ingot_from_deepslate_iron_ore",
+    "namespace": "minecraft"
   }
 }

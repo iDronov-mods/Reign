@@ -12,19 +12,19 @@
       "item": "minecraft:copper_block"
     },
     "b": {
-      "item": "minecraft:diamond_block"
+      "item": "minecraft:diamond"
     },
     "c": {
-      "item": "minecraft:gold_block"
+      "item": "minecraft:redstone"
     },
     "d": {
       "item": "minecraft:iron_pickaxe"
     },
     "e": {
-      "item": "minecraft:iron_block"
+      "item": "minecraft:iron_ingot"
     },
     "f": {
-      "item": "minecraft:redstone_block"
+      "item": "minecraft:gold_ingot"
     }
   },
   "result": {

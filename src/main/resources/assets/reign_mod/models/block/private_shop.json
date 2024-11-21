@@ -1,0 +1,9 @@
+{
+  "parent": "reign_mod:custom/privateshop",
+  "textures": {
+    "all": "minecraft:block/dark_oak_planks",
+    "particle": "minecraft:block/dark_oak_planks",
+    "0": "reign_mod:block/private_shop_texture"
+  },
+  "render_type": "solid"
+}

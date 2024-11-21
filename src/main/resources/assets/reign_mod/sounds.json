@@ -94,5 +94,29 @@
         "stream": false
       }
     ]
+  },
+  "picklock_work": {
+    "sounds": [
+      {
+        "name": "reign_mod:picklock_work",
+        "stream": false
+      }
+    ]
+  },
+  "picklock_break": {
+    "sounds": [
+      {
+        "name": "reign_mod:picklock_break",
+        "stream": false
+      }
+    ]
+  },
+  "picklock_work2": {
+    "sounds": [
+      {
+        "name": "reign_mod:picklock_work2",
+        "stream": false
+      }
+    ]
   }
 }

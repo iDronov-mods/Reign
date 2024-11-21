@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aba",
+    "cde",
+    "afa"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:leather"
+    },
+    "b": {
+      "item": "minecraft:cooked_beef"
+    },
+    "c": {
+      "item": "minecraft:cooked_mutton"
+    },
+    "d": {
+      "item": "minecraft:shears"
+    },
+    "e": {
+      "item": "minecraft:cooked_porkchop"
+    },
+    "f": {
+      "item": "minecraft:cooked_chicken"
+    }
+  },
+  "result": {
+    "item": "reign_mod:cowboy_coin",
+    "count": 1
+  }
+}

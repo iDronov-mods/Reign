@@ -12,10 +12,10 @@
     "recipeShapeless": true,
     "recipeSlots": [
       {
-        "value": "CUSTOM:WoodcutterCoin"
+        "value": "CUSTOM:MinerCoin"
       },
       {
-        "value": "CUSTOM:SmithCoin"
+        "value": "CUSTOM:CowboyCoin"
       },
       {
         "value": "CUSTOM:WoodcutterCoin"
@@ -33,10 +33,10 @@
         "value": "CUSTOM:WoodcutterCoin"
       },
       {
-        "value": "CUSTOM:SmithCoin"
+        "value": "CUSTOM:CowboyCoin"
       },
       {
-        "value": "CUSTOM:WoodcutterCoin"
+        "value": "CUSTOM:MinerCoin"
       }
     ],
     "recipeReturnStack": {

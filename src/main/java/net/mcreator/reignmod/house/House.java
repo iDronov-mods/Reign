@@ -3,6 +3,7 @@ package net.mcreator.reignmod.house;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
+import net.minecraft.network.chat.Component;
 import net.minecraftforge.common.util.INBTSerializable;
 
 import java.util.HashMap;
@@ -64,16 +65,21 @@ public class House implements INBTSerializable<CompoundTag> {
 
     public boolean isNull() { return Objects.equals(this.lordUUID, "null"); }
 
-    public boolean pushPlayerToDomain(String knightUUID, String playerUUID) {
-        if (this.domains.containsKey(knightUUID)) return this.domains.get(knightUUID).pushPlayer(playerUUID);
-        return false;
+    public void pushPlayerToDomain(String knightUUID, String playerUUID) {
+        if (this.domains.containsKey(knightUUID)) {
+            this.domains.get(knightUUID).pushPlayer(playerUUID);
+            this.players.add(playerUUID);
+        }
     }
     public void removePlayerFromDomain(String knightUUID, String playerUUID) {
-        if (this.domains.containsKey(knightUUID)) this.domains.get(knightUUID).removePlayer(playerUUID);
+        if (this.domains.containsKey(knightUUID)) {
+            this.domains.get(knightUUID).removePlayer(playerUUID);
+            this.players.remove(playerUUID);
+        }
     }
 
     public boolean containsDomain(String domainHeadUUID) { return this.domains.containsKey(domainHeadUUID); }
-    public void addDomain(String knightUUID, String knightDisplayName) {
+    public void addDomain(String knightUUID, Component knightDisplayName) {
         this.domains.putIfAbsent(knightUUID, new Domain(this.lordUUID, knightUUID, knightDisplayName));
         this.players.add(knightUUID);
     }
@@ -83,7 +89,7 @@ public class House implements INBTSerializable<CompoundTag> {
     }
     public void removeDomain(String knightUUID) {
         this.domains.remove(knightUUID);
-        this.players.remove(knightUUID);
+        this.domains.get(knightUUID).players.forEach(player -> this.players.remove(player));
     }
 
     @Override
@@ -92,7 +98,6 @@ public class House implements INBTSerializable<CompoundTag> {
         tag.putString("lord_uuid", this.lordUUID);
         tag.putString("house_title", this.houseTitle);
         tag.putString("house_color", this.houseColor);
-
         tag.putIntArray("house_incubator_coordinates", this.houseIncubatorCoordinates);
         tag.putIntArray("house_prison_coordinates", this.housePrisonCoordinates);
         tag.putInt("house_heart_item_identifier", this.houseHeartIdentifier);

@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "reign_mod:private_shop",
     "reign_mod:kingtable",
     "reign_mod:trade_block"
   ]

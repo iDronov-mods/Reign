@@ -36,12 +36,12 @@ public class CalculateTaxProcedure {
 			}
 		}
 		{
-			double _setval = 1;
+			double _setval = 0;
 			Player.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 				capability.taxInTransaction = _setval;
 				capability.syncPlayerVariables(Player);
 			});
 		}
-		return cost + 1;
+		return cost;
 	}
 }

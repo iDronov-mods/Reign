@@ -21,6 +21,9 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import net.mcreator.reignmod.house.HouseManager;
+
+
 
 @Mixin(ChestBlock.class)
 public class ChestLockMixin {
@@ -57,21 +60,35 @@ public class ChestLockMixin {
         CompoundTag tag = chest.getPersistentData(); // Получаем NBT-данные сундука
 
         if (tag.contains("owner")) {
-            String ownerName = tag.getString("owner");
+            String owner = tag.getString("owner");
+            String ownerName = tag.getString("owner_name");
+            String lock_type = tag.getString("lock_type");
 
             // Проверяем, совпадает ли имя игрока с именем владельца
-            if (!ownerName.equals(player.getName().getString())) {
+            if (owner != "" && !canOpen(player, owner, lock_type)) {
                 // Воспроизведение звука
                 level.playSound(null, pos, SoundEvents.WOODEN_DOOR_CLOSE, SoundSource.BLOCKS, 0.5f, 1.0f);
 
                 // Отображение сообщения игроку
-                player.displayClientMessage(Component.translatable("translation.key.locked"), true);
+                player.displayClientMessage(Component.translatable("translation.key.locked").append(" " + ownerName), true);
 
                 return true; // Сундук заблокирован
             }
         }
         return false; // Сундук не заблокирован
     }
+
+	private boolean canOpen(Player player, String owner, String lock_type) {
+        return switch (lock_type) {
+            case "personal" -> player.getStringUUID().equals(owner);
+            case "domain" -> player.getStringUUID().equals(owner) ||
+                    HouseManager.getDomainLordByKnight(player, owner).equals(player.getStringUUID()) ||
+                    HouseManager.getPlayerDomainKnight(player).equals(owner);
+            case "house" -> HouseManager.getPlayerHouseLord(player).equals(owner);
+            default -> false;
+        };
+    }
+    
 
     /**
      * Получает соседний сундук, если сундук двойной.

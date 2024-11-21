@@ -6,17 +6,17 @@
     "recipeRetstackSize": 1,
     "group": "",
     "cookingBookCategory": "MISC",
-    "xpReward": 0.0,
+    "xpReward": 1.0,
     "cookingTime": 200,
     "craftingBookCategory": "MISC",
     "recipeShapeless": false,
     "smeltingInputStack": {
-      "value": "Items.RAW_IRON"
+      "value": "Blocks.IRON_ORE"
     },
     "smeltingReturnStack": {
       "value": "Items.IRON_NUGGET"
     },
-    "name": "r_iron_2",
-    "namespace": "mod"
+    "name": "iron_ingot_from_raw_iron_block",
+    "namespace": "minecraft"
   }
 }

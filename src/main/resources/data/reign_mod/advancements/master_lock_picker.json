@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "reign_mod:coffers"
+    },
+    "title": {
+      "translate": "advancements.master_lock_picker.title"
+    },
+    "description": {
+      "translate": "advancements.master_lock_picker.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "master_lock_picker_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 256
+  },
+  "parent": "reign_mod:sleight_of_hand_and_no_bugs"
+}
