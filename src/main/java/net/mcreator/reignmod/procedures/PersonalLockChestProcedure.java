@@ -20,7 +20,7 @@ public class PersonalLockChestProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, BlockState blockstate, Entity entity) {
 		if (entity == null)
 			return;
-		if (blockstate.getBlock() == Blocks.CHEST && entity.isShiftKeyDown()) {
+		if ((blockstate.getBlock() == Blocks.CHEST || blockstate.getBlock() == Blocks.BARREL) && entity.isShiftKeyDown()) {
 			if ((new Object() {
 				public String getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);

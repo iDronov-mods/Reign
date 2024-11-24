@@ -27,7 +27,8 @@ public class NewHouseScreen extends AbstractContainerScreen<NewHouseMenu> {
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
-	EditBox house_name;
+	private final static HashMap<String, String> textstate = new HashMap<>();
+	public static EditBox house_name;
 	Button button_create;
 
 	public NewHouseScreen(NewHouseMenu container, Inventory inventory, Component text) {
@@ -66,7 +67,7 @@ public class NewHouseScreen extends AbstractContainerScreen<NewHouseMenu> {
 
 		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/crown.png"), this.leftPos + 155, this.topPos + -12, 0, 0, 16, 16, 16, 16);
 
-		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/gold_coin.png"), this.leftPos + 187, this.topPos + 102, 0, 0, 16, 16, 16, 16);
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/gold_coin.png"), this.leftPos + 204, this.topPos + 102, 0, 0, 16, 16, 16, 16);
 
 		RenderSystem.disableBlend();
 	}
@@ -99,8 +100,7 @@ public class NewHouseScreen extends AbstractContainerScreen<NewHouseMenu> {
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.new_house.label_name"), 9, 7, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.new_house.label_found_a_house"), 0, -11, -1, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.new_house.label_4"), 183, 105, -1, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.new_house.label_coins"), 202, 105, -1, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.new_house.label_4"), 199, 105, -1, false);
 	}
 
 	@Override
@@ -112,8 +112,9 @@ public class NewHouseScreen extends AbstractContainerScreen<NewHouseMenu> {
 		this.addWidget(this.house_name);
 		button_create = Button.builder(Component.translatable("gui.reign_mod.new_house.button_create"), e -> {
 			if (true) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new NewHouseButtonMessage(0, x, y, z));
-				NewHouseButtonMessage.handleButtonAction(entity, 0, x, y, z);
+				textstate.put("textin:house_name", house_name.getValue());
+				ReignModMod.PACKET_HANDLER.sendToServer(new NewHouseButtonMessage(0, x, y, z, textstate));
+				NewHouseButtonMessage.handleButtonAction(entity, 0, x, y, z, textstate);
 			}
 		}).bounds(this.leftPos + 182, this.topPos + 83, 48, 20).build();
 		guistate.put("button:button_create", button_create);

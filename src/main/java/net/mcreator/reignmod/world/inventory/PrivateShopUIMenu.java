@@ -22,8 +22,10 @@ import net.minecraft.core.BlockPos;
 import net.mcreator.reignmod.procedures.PrivateShopSetPriceProcedure;
 import net.mcreator.reignmod.procedures.PrivateShopSetGoodsProcedure;
 import net.mcreator.reignmod.procedures.PrivateShopIsOwnerProcedure;
+import net.mcreator.reignmod.network.PrivateShopUISlotMessage;
 import net.mcreator.reignmod.init.ReignModModMenus;
 import net.mcreator.reignmod.init.ReignModModItems;
+import net.mcreator.reignmod.ReignModMod;
 
 import java.util.function.Supplier;
 import java.util.Map;
@@ -83,6 +85,12 @@ public class PrivateShopUIMenu extends AbstractContainerMenu implements Supplier
 		}
 		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, -20, 4) {
 			private final int slot = 0;
+
+			@Override
+			public void setChanged() {
+				super.setChanged();
+				slotChanged(0, 0, 0);
+			}
 
 			@Override
 			public boolean mayPlace(ItemStack stack) {
@@ -422,6 +430,13 @@ public class PrivateShopUIMenu extends AbstractContainerMenu implements Supplier
 					playerIn.getInventory().placeItemBackInInventory(internal.extractItem(i, internal.getStackInSlot(i).getCount(), false));
 				}
 			}
+		}
+	}
+
+	private void slotChanged(int slotid, int ctype, int meta) {
+		if (this.world != null && this.world.isClientSide()) {
+			ReignModMod.PACKET_HANDLER.sendToServer(new PrivateShopUISlotMessage(slotid, x, y, z, ctype, meta));
+			PrivateShopUISlotMessage.handleSlotAction(entity, slotid, ctype, meta, x, y, z);
 		}
 	}
 

@@ -29,7 +29,7 @@ public class HouseLockChestProcedure {
 		String UUID = "";
 		if (!((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).house).isEmpty()) {
 			house = (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).house;
-			if (blockstate.getBlock() == Blocks.CHEST && entity.isShiftKeyDown()) {
+			if ((blockstate.getBlock() == Blocks.CHEST || blockstate.getBlock() == Blocks.BARREL) && entity.isShiftKeyDown()) {
 				if ((new Object() {
 					public String getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);

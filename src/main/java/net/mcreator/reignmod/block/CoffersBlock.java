@@ -60,6 +60,20 @@ public class CoffersBlock extends Block implements EntityBlock {
 	}
 
 	@Override
+	public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+		return switch (state.getValue(FACING)) {
+			default -> Shapes.or(box(0, 0, 0, 16, 16, 14), box(7, 7, 14, 9, 9, 15), box(9, 6, 15, 10, 7, 16), box(9, 9, 15, 10, 10, 16), box(6, 9, 15, 7, 10, 16), box(6, 6, 15, 7, 7, 16), box(5, 6, 15, 6, 10, 16), box(10, 6, 15, 11, 10, 16),
+					box(6, 5, 15, 10, 6, 16), box(6, 10, 15, 10, 11, 16));
+			case NORTH -> Shapes.or(box(0, 0, 2, 16, 16, 16), box(7, 7, 1, 9, 9, 2), box(6, 6, 0, 7, 7, 1), box(6, 9, 0, 7, 10, 1), box(9, 9, 0, 10, 10, 1), box(9, 6, 0, 10, 7, 1), box(10, 6, 0, 11, 10, 1), box(5, 6, 0, 6, 10, 1),
+					box(6, 5, 0, 10, 6, 1), box(6, 10, 0, 10, 11, 1));
+			case EAST -> Shapes.or(box(0, 0, 0, 14, 16, 16), box(14, 7, 7, 15, 9, 9), box(15, 6, 6, 16, 7, 7), box(15, 9, 6, 16, 10, 7), box(15, 9, 9, 16, 10, 10), box(15, 6, 9, 16, 7, 10), box(15, 6, 10, 16, 10, 11), box(15, 6, 5, 16, 10, 6),
+					box(15, 5, 6, 16, 6, 10), box(15, 10, 6, 16, 11, 10));
+			case WEST -> Shapes.or(box(2, 0, 0, 16, 16, 16), box(1, 7, 7, 2, 9, 9), box(0, 6, 9, 1, 7, 10), box(0, 9, 9, 1, 10, 10), box(0, 9, 6, 1, 10, 7), box(0, 6, 6, 1, 7, 7), box(0, 6, 5, 1, 10, 6), box(0, 6, 10, 1, 10, 11),
+					box(0, 5, 6, 1, 6, 10), box(0, 10, 6, 1, 11, 10));
+		};
+	}
+
+	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		super.createBlockStateDefinition(builder);
 		builder.add(FACING);

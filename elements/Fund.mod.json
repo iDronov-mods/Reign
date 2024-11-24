@@ -24,12 +24,84 @@
     "disableOffset": false,
     "boundingBoxes": [
       {
-        "mx": 0.0,
+        "mx": 2.0,
         "my": 0.0,
+        "mz": 2.0,
+        "Mx": 14.0,
+        "My": 9.0,
+        "Mz": 14.0,
+        "subtract": false
+      },
+      {
+        "mx": 0.0,
+        "my": 9.0,
+        "mz": 0.0,
+        "Mx": 16.0,
+        "My": 10.0,
+        "Mz": 16.0,
+        "subtract": false
+      },
+      {
+        "mx": 0.0,
+        "my": 10.0,
         "mz": 0.0,
         "Mx": 16.0,
         "My": 12.0,
+        "Mz": 2.0,
+        "subtract": false
+      },
+      {
+        "mx": 0.0,
+        "my": 10.0,
+        "mz": 14.0,
+        "Mx": 16.0,
+        "My": 12.0,
         "Mz": 16.0,
+        "subtract": false
+      },
+      {
+        "mx": 0.0,
+        "my": 10.0,
+        "mz": 2.0,
+        "Mx": 2.0,
+        "My": 12.0,
+        "Mz": 14.0,
+        "subtract": false
+      },
+      {
+        "mx": 14.0,
+        "my": 10.0,
+        "mz": 2.0,
+        "Mx": 16.0,
+        "My": 12.0,
+        "Mz": 14.0,
+        "subtract": false
+      },
+      {
+        "mx": 6.0,
+        "my": 10.0,
+        "mz": 6.0,
+        "Mx": 10.0,
+        "My": 12.0,
+        "Mz": 10.0,
+        "subtract": false
+      },
+      {
+        "mx": 7.0,
+        "my": 12.0,
+        "mz": 7.0,
+        "Mx": 9.0,
+        "My": 13.0,
+        "Mz": 9.0,
+        "subtract": false
+      },
+      {
+        "mx": 2.0,
+        "my": 10.0,
+        "mz": 2.0,
+        "Mx": 14.0,
+        "My": 11.0,
+        "Mz": 14.0,
         "subtract": false
       }
     ],
@@ -130,6 +202,9 @@
     "fluidRestrictions": [],
     "onBlockAdded": {
       "name": "EraCostCreate"
+    },
+    "onRandomUpdateEvent": {
+      "name": "FoundParticles"
     },
     "generateFeature": false,
     "restrictionBiomes": [],

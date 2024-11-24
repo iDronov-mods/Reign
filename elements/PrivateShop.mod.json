@@ -42,12 +42,12 @@
         "subtract": false
       },
       {
-        "mx": 15.0,
+        "mx": 3.0,
         "my": 5.0,
-        "mz": 3.0,
-        "Mx": 16.0,
+        "mz": 0.0,
+        "Mx": 13.0,
         "My": 10.0,
-        "Mz": 13.0,
+        "Mz": 1.0,
         "subtract": false
       },
       {
@@ -60,7 +60,13 @@
         "subtract": false
       }
     ],
-    "customProperties": [],
+    "customProperties": [
+      {
+        "name": "CUSTOM:licsensed",
+        "type": "logic",
+        "value": false
+      }
+    ],
     "name": "Private shop",
     "specialInformation": {
       "fixedValue": []
@@ -149,6 +155,9 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
+    "onRightClicked": {
+      "name": "WinPrivateShopOpen"
+    },
     "onBlockPlayedBy": {
       "name": "PrivateShopIsPlaced"
     },

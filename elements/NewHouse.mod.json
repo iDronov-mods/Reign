@@ -288,7 +288,7 @@
         "data": {
           "image": "gold_coin.png",
           "use1Xscale": false,
-          "x": 311,
+          "x": 328,
           "y": 139
         }
       },
@@ -303,22 +303,7 @@
             "value": -1,
             "falpha": 0.0
           },
-          "x": 307,
-          "y": 142
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_coins",
-          "text": {
-            "fixedValue": "coins"
-          },
-          "color": {
-            "value": -1,
-            "falpha": 0.0
-          },
-          "x": 326,
+          "x": 323,
           "y": 142
         }
       }

@@ -10,6 +10,7 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.reignmod.world.inventory.MarketMenu;
+import net.mcreator.reignmod.procedures.WalletOutsideCostProcedure;
 import net.mcreator.reignmod.procedures.TextMarketTaxProcedure;
 import net.mcreator.reignmod.procedures.TextMarketBarProcedure;
 import net.mcreator.reignmod.procedures.ReturnMarketBar33Procedure;
@@ -28,6 +29,7 @@ public class MarketScreen extends AbstractContainerScreen<MarketMenu> {
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
+	private final static HashMap<String, String> textstate = new HashMap<>();
 	Button button_buy;
 	Button button_x4;
 
@@ -83,9 +85,13 @@ public class MarketScreen extends AbstractContainerScreen<MarketMenu> {
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/count_bar3-3.png"), this.leftPos + 53, this.topPos + 102, 0, 0, 31, 6, 31, 6);
 		}
 
-		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/copper_coin.png"), this.leftPos + -1, this.topPos + 159, 0, 0, 16, 16, 16, 16);
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/wallet.png"), this.leftPos + -2, this.topPos + 161, 0, 0, 16, 16, 16, 16);
 
 		RenderSystem.disableBlend();
+	}
+
+	public static HashMap<String, String> getTextboxValues() {
+		return textstate;
 	}
 
 	@Override
@@ -98,6 +104,13 @@ public class MarketScreen extends AbstractContainerScreen<MarketMenu> {
 	}
 
 	@Override
+	public void containerTick() {
+		super.containerTick();
+		ReignModMod.PACKET_HANDLER.sendToServer(new MarketMenu.MarketOtherMessage(0, x, y, z, textstate));
+		MarketMenu.MarketOtherMessage.handleOtherAction(entity, 0, x, y, z, textstate);
+	}
+
+	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.market.label_market"), 0, -11, -1, false);
 		guiGraphics.drawString(this.font,
@@ -106,7 +119,9 @@ public class MarketScreen extends AbstractContainerScreen<MarketMenu> {
 		guiGraphics.drawString(this.font,
 
 				TextMarketTaxProcedure.execute(world, entity), 6, 126, -6710887, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.market.label_wallet_value"), 15, 162, -1, false);
+		guiGraphics.drawString(this.font,
+
+				WalletOutsideCostProcedure.execute(entity), 13, 167, -1, false);
 	}
 
 	@Override
@@ -114,16 +129,16 @@ public class MarketScreen extends AbstractContainerScreen<MarketMenu> {
 		super.init();
 		button_buy = Button.builder(Component.translatable("gui.reign_mod.market.button_buy"), e -> {
 			if (true) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new MarketButtonMessage(0, x, y, z));
-				MarketButtonMessage.handleButtonAction(entity, 0, x, y, z);
+				ReignModMod.PACKET_HANDLER.sendToServer(new MarketButtonMessage(0, x, y, z, textstate));
+				MarketButtonMessage.handleButtonAction(entity, 0, x, y, z, textstate);
 			}
 		}).bounds(this.leftPos + 24, this.topPos + 139, 90, 20).build();
 		guistate.put("button:button_buy", button_buy);
 		this.addRenderableWidget(button_buy);
 		button_x4 = Button.builder(Component.translatable("gui.reign_mod.market.button_x4"), e -> {
 			if (true) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new MarketButtonMessage(1, x, y, z));
-				MarketButtonMessage.handleButtonAction(entity, 1, x, y, z);
+				ReignModMod.PACKET_HANDLER.sendToServer(new MarketButtonMessage(1, x, y, z, textstate));
+				MarketButtonMessage.handleButtonAction(entity, 1, x, y, z, textstate);
 			}
 		}).bounds(this.leftPos + 6, this.topPos + 139, 18, 20).build();
 		guistate.put("button:button_x4", button_x4);

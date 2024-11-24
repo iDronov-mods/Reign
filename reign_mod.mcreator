@@ -1125,18 +1125,6 @@
             "type": "entity"
           },
           {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
             "name": "world",
             "type": "world"
           }
@@ -1189,18 +1177,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
           },
           {
             "name": "world",
@@ -5474,6 +5450,10 @@
             "type": "entity"
           },
           {
+            "name": "guistate",
+            "type": "map"
+          },
+          {
             "name": "x",
             "type": "number"
           },
@@ -6355,6 +6335,7 @@
       "registry_name": "private_shop_ui",
       "metadata": {
         "files": [
+          "src/main/java/net/mcreator/reignmod/network/PrivateShopUISlotMessage.java",
           "src/main/java/net/mcreator/reignmod/world/inventory/PrivateShopUIMenu.java",
           "src/main/java/net/mcreator/reignmod/client/gui/PrivateShopUIScreen.java"
         ]
@@ -6713,6 +6694,10 @@
         ],
         "dependencies": [
           {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
             "name": "entity",
             "type": "entity"
           },
@@ -6749,6 +6734,213 @@
         ]
       },
       "path": "~/UI"
+    },
+    {
+      "name": "TradeLicenseTooltip",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "trade_license_tooltip",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/TradeLicenseTooltipProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Scripts/LicensesSystem"
+    },
+    {
+      "name": "WalletOutsideCost",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wallet_outside_cost",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/WalletOutsideCostProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/WalletSystem"
+    },
+    {
+      "name": "Ereous",
+      "type": "particle",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ereous",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/client/particle/EreousParticle.java",
+          "src/main/resources/assets/reign_mod/particles/ereous.json"
+        ]
+      },
+      "path": "~/Scripts/CapitalSystem"
+    },
+    {
+      "name": "FoundParticles",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "found_particles",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/FoundParticlesProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/CapitalSystem"
+    },
+    {
+      "name": "FoundParticlesSize",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "found_particles_size",
+      "metadata": {
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/FoundParticlesSizeProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "age",
+            "type": "number"
+          }
+        ]
+      },
+      "path": "~/Scripts/CapitalSystem"
+    },
+    {
+      "name": "PrivateShopisKing",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "private_shopis_king",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/PrivateShopisKingProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/PrivateShopSystem"
+    },
+    {
+      "name": "PrivateShopAddGoods",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "private_shop_add_goods",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/PrivateShopAddGoodsProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/PrivateShopSystem"
+    },
+    {
+      "name": "PrivateShopSetLicense",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "private_shop_set_license",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/PrivateShopSetLicenseProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/PrivateShopSystem"
+    },
+    {
+      "name": "WalletPay",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wallet_pay",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/WalletPayProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "cost",
+            "type": "number"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/WalletSystem"
     }
   ],
   "variable_elements": [
@@ -7350,10 +7542,21 @@
       "Crown",
       "RightHand",
       "Textbook",
+      "RuinLord2",
+      "RuinLord1",
+      "RuinLord3",
+      "Blackmark",
+      "Wallet",
+      "HoneyConcentrate",
       "CopperCoin",
       "SilverCoin",
       "GoldCoin",
       "PlatinumCoin",
+      "WoodcutterCoin",
+      "SmithCoin",
+      "MinerCoin",
+      "FarmerCoin",
+      "CowboyCoin",
       "TradeBlock",
       "MarketBlock",
       "Coffers",
@@ -7363,17 +7566,6 @@
       "Fund",
       "HoarderBlock",
       "Kingtable",
-      "WoodcutterCoin",
-      "SmithCoin",
-      "MinerCoin",
-      "FarmerCoin",
-      "Blackmark",
-      "Wallet",
-      "HoneyConcentrate",
-      "RuinLord2",
-      "RuinLord1",
-      "RuinLord3",
-      "YourLawnIsBool",
       "PrivateRental1",
       "PrivateRental2",
       "PrivateRental3",
@@ -7382,12 +7574,12 @@
       "StateRental3",
       "TradeLicense",
       "ContractKill",
+      "YourLawnIsBool",
       "CopperLock",
-      "GoldLock",
-      "PenWithInk",
       "IronLock",
-      "CowboyCoin",
-      "Picklock"
+      "GoldLock",
+      "Picklock",
+      "PenWithInk"
     ]
   },
   "language_map": {
@@ -7628,6 +7820,7 @@
       "gui.reign_mod.textbook_1.button_next": "назад",
       "gui.reign_mod.royale_settings.ores_textfield": "",
       "advancements.true_to_the_oath.descr": "Стань рыцарем.",
+      "translation.key.trade_license_tooltip": "Это лицензия разрешает владельцу торговать на частном рынке.",
       "gui.reign_mod.fund_ui.tooltip_processing_of_precious_ores": "Обработка драгоценных руд",
       "translation.key.cooperlock_tooltip": "§o§7Личный замок",
       "key.reign_mod.open_licenses": "Окно лицензий",
@@ -7682,8 +7875,8 @@
       "gui.reign_mod.textbook_1.label_1_litsienzii": "#1 Лицензии"
     },
     "en_us": {
-      "item_group.reign_mod.creative_tab": "Reign",
       "item.reign_mod.ruin_lord_2.desc": "Ruin Lord - Light after darkness",
+      "item_group.reign_mod.creative_tab": "Reign",
       "pay_free": "Found on the ground:",
       "gui.reign_mod.win_view.tooltip_cattle_breeding": "Cattle breeding",
       "gui.reign_mod.license_is_selected.label_the_main_license_has_been_select": "The main license has been selected.",
@@ -7691,46 +7884,46 @@
       "gui.reign_mod.new_house.tooltip_napishitie_imia_i_vybieritie_tsviet_bud": "Выберите имя и цвет нового королевства",
       "item.reign_mod.your_lawn_is_bool": "Your Lawn Is Bool",
       "gui.reign_mod.dfgdfgdf.button_buy": "buy",
-      "item.reign_mod.farmer_coin": "Farmer coin",
       "subtitles.thecalmbeforethestorm": "",
+      "item.reign_mod.farmer_coin": "Farmer coin",
       "gui.reign_mod.win_view.tooltip_chance_to_get_a_haste_effect": "Chance to get a haste effect",
       "gui.reign_mod.win_view.tooltip_netherite_mining": "Netherite Mining",
       "gui.reign_mod.walletwin.label_wallet": "Wallet",
       "translation.key.cant_use_lock_freeman": "Freemen are not allowed to use this. ",
       "translation.key.good_tax": "tax:",
-      "item.reign_mod.iron_lock": "Iron lock",
       "advancements.horder_use.descr": "Earn coin in the hoarder.",
+      "item.reign_mod.iron_lock": "Iron lock",
       "gui.reign_mod.add_license_list.button_soldier": "Soldier",
       "subtitles.the-calm-before-the-storm": "",
       "gui.reign_mod.dsf.button_farmer": "Farmer",
       "NotEnchanterSay": "I don\u0027t know what this is...",
       "gui.reign_mod.add_license_list.label_osnovnyie_litsienzii": "Доп. лицензии",
       "block.reign_mod.heart_of_house": "Incubator",
-      "gui.reign_mod.royale_settings.label_armor": "ARMOR",
       "gui.reign_mod.trader_point.label_punkt_priioma": "Пункт приёма",
+      "gui.reign_mod.royale_settings.label_armor": "ARMOR",
       "gui.reign_mod.dsf.button_woodcutter": "Woodcutter",
       "block.reign_mod.fund": "Fund",
       "gui.reign_mod.royale_settings.tools_textfield": "",
       "key.reign_mod.open_royale_settings": "Open Royale Settings",
-      "advancements.gotcha.descr": "Go to jail.",
       "gui.reign_mod.private_shop_buyer_ui.label_count_left": "count_left",
+      "advancements.gotcha.descr": "Go to jail.",
       "gui.reign_mod.kingtable_ui.label_kingtable_lable": "kingtable_lable",
       "gui.reign_mod.kingtable_ui.tooltip_kingtable_help": "kingtable_help",
-      "advancements.full_lvl.descr": "Upgrade your license completely.",
       "advancements.welcome_to_reign.descr": "One who rules them all.",
-      "advancements.days_online_7.descr": "7 days in a row online!",
+      "advancements.full_lvl.descr": "Upgrade your license completely.",
       "gui.reign_mod.dsf.button_button_cowboy": "Cowboy",
+      "advancements.days_online_7.descr": "7 days in a row online!",
       "gui.reign_mod.safe_ui.tooltip_safe_help": "safe_help",
       "gui.reign_mod.win_view.tooltip_and_another_20_of_field_yields": "and another 20% of field yields!",
       "translation.key.houseNameTaken": "A House with this name already exists!",
       "translation.key.goldlock_tooltip": "§o§7House lock.",
-      "gui.reign_mod.add_license_list.button_enchanter": "Enchanter",
       "item.reign_mod.contract_kill": "Contract to Kill",
+      "gui.reign_mod.add_license_list.button_enchanter": "Enchanter",
       "item.reign_mod.trade_license": "Trade license",
       "gui.reign_mod.dsf.button_miner": "Miner",
       "gui.reign_mod.fund_ui.tooltip_iron_processing": "Iron processing",
-      "gui.reign_mod.royale_settings.label_logs": "LOGS",
       "gui.reign_mod.win_view.tooltip_10_chance_to_gain_a_chopping_sp": "10% chance to gain a chopping speed boost.",
+      "gui.reign_mod.royale_settings.label_logs": "LOGS",
       "advancements.strained_experience.title": "Strained Experience",
       "block.reign_mod.kingtable": "King table",
       "gui.reign_mod.dsf.label_osnovnyie_litsienzii": "Основные лицензии",
@@ -7919,6 +8112,7 @@
       "gui.reign_mod.textbook_1.button_next": "next",
       "gui.reign_mod.royale_settings.ores_textfield": "",
       "advancements.true_to_the_oath.descr": "Become a knight.",
+      "translation.key.trade_license_tooltip": "",
       "gui.reign_mod.fund_ui.tooltip_processing_of_precious_ores": "Processing of precious ores",
       "translation.key.cooperlock_tooltip": "§o§7Personal lock",
       "key.reign_mod.open_licenses": "Open Licenses",

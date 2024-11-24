@@ -1369,27 +1369,28 @@
         }
       },
       {
-        "type": "image",
-        "data": {
-          "image": "copper_coin.png",
-          "use1Xscale": false,
-          "x": 53,
-          "y": 196
-        }
-      },
-      {
         "type": "label",
         "data": {
           "name": "label_wallet_value",
           "text": {
-            "fixedValue": "wallet_value"
+            "fixedValue": "wallet_value",
+            "name": "WalletOutsideCost"
           },
           "color": {
             "value": -1,
             "falpha": 0.0
           },
-          "x": 69,
-          "y": 199
+          "x": 67,
+          "y": 204
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "wallet.png",
+          "use1Xscale": false,
+          "x": 52,
+          "y": 198
         }
       }
     ],

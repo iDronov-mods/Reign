@@ -2,6 +2,8 @@
 package net.mcreator.reignmod.block;
 
 import net.minecraftforge.network.NetworkHooks;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -29,13 +31,16 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.util.RandomSource;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
+import net.minecraft.client.Minecraft;
 
 import net.mcreator.reignmod.world.inventory.FundUIMenu;
+import net.mcreator.reignmod.procedures.FoundParticlesProcedure;
 import net.mcreator.reignmod.procedures.EraCostCreateProcedure;
 import net.mcreator.reignmod.block.entity.FundBlockEntity;
 
@@ -67,10 +72,14 @@ public class FundBlock extends Block implements EntityBlock {
 	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
 		return switch (state.getValue(FACING)) {
-			default -> box(0, 0, 0, 16, 12, 16);
-			case NORTH -> box(0, 0, 0, 16, 12, 16);
-			case EAST -> box(0, 0, 0, 16, 12, 16);
-			case WEST -> box(0, 0, 0, 16, 12, 16);
+			default -> Shapes.or(box(2, 0, 2, 14, 9, 14), box(0, 9, 0, 16, 10, 16), box(0, 10, 14, 16, 12, 16), box(0, 10, 0, 16, 12, 2), box(14, 10, 2, 16, 12, 14), box(0, 10, 2, 2, 12, 14), box(6, 10, 6, 10, 12, 10), box(7, 12, 7, 9, 13, 9),
+					box(2, 10, 2, 14, 11, 14));
+			case NORTH -> Shapes.or(box(2, 0, 2, 14, 9, 14), box(0, 9, 0, 16, 10, 16), box(0, 10, 0, 16, 12, 2), box(0, 10, 14, 16, 12, 16), box(0, 10, 2, 2, 12, 14), box(14, 10, 2, 16, 12, 14), box(6, 10, 6, 10, 12, 10), box(7, 12, 7, 9, 13, 9),
+					box(2, 10, 2, 14, 11, 14));
+			case EAST -> Shapes.or(box(2, 0, 2, 14, 9, 14), box(0, 9, 0, 16, 10, 16), box(14, 10, 0, 16, 12, 16), box(0, 10, 0, 2, 12, 16), box(2, 10, 0, 14, 12, 2), box(2, 10, 14, 14, 12, 16), box(6, 10, 6, 10, 12, 10), box(7, 12, 7, 9, 13, 9),
+					box(2, 10, 2, 14, 11, 14));
+			case WEST -> Shapes.or(box(2, 0, 2, 14, 9, 14), box(0, 9, 0, 16, 10, 16), box(0, 10, 0, 2, 12, 16), box(14, 10, 0, 16, 12, 16), box(2, 10, 14, 14, 12, 16), box(2, 10, 0, 14, 12, 2), box(6, 10, 6, 10, 12, 10), box(7, 12, 7, 9, 13, 9),
+					box(2, 10, 2, 14, 11, 14));
 		};
 	}
 
@@ -97,6 +106,17 @@ public class FundBlock extends Block implements EntityBlock {
 	public void onPlace(BlockState blockstate, Level world, BlockPos pos, BlockState oldState, boolean moving) {
 		super.onPlace(blockstate, world, pos, oldState, moving);
 		EraCostCreateProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
+	}
+
+	@OnlyIn(Dist.CLIENT)
+	@Override
+	public void animateTick(BlockState blockstate, Level world, BlockPos pos, RandomSource random) {
+		super.animateTick(blockstate, world, pos, random);
+		Player entity = Minecraft.getInstance().player;
+		int x = pos.getX();
+		int y = pos.getY();
+		int z = pos.getZ();
+		FoundParticlesProcedure.execute(world, x, y, z);
 	}
 
 	@Override

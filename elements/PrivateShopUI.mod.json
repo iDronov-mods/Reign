@@ -39,6 +39,9 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": false,
+          "onSlotChanged": {
+            "name": "PrivateShopSetLicense"
+          },
           "x": 105,
           "y": 40
         }

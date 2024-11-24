@@ -10,6 +10,7 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.reignmod.world.inventory.PrivateShopBuyerUIMenu;
+import net.mcreator.reignmod.procedures.WalletOutsideCostProcedure;
 import net.mcreator.reignmod.procedures.PrivateShopGetOwnerProcedure;
 
 import java.util.HashMap;
@@ -21,6 +22,7 @@ public class PrivateShopBuyerUIScreen extends AbstractContainerScreen<PrivateSho
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
+	private final static HashMap<String, String> textstate = new HashMap<>();
 	Button button_buy;
 	Button button_x4;
 
@@ -57,7 +59,7 @@ public class PrivateShopBuyerUIScreen extends AbstractContainerScreen<PrivateSho
 
 		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/arrow.png"), this.leftPos + 72, this.topPos + 29, 0, 0, 32, 16, 32, 16);
 
-		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/copper_coin.png"), this.leftPos + -1, this.topPos + 158, 0, 0, 16, 16, 16, 16);
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/wallet.png"), this.leftPos + 0, this.topPos + 161, 0, 0, 16, 16, 16, 16);
 
 		RenderSystem.disableBlend();
 	}
@@ -77,7 +79,9 @@ public class PrivateShopBuyerUIScreen extends AbstractContainerScreen<PrivateSho
 		guiGraphics.drawString(this.font,
 
 				PrivateShopGetOwnerProcedure.execute(world, x, y, z), 122, -10, -1, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.private_shop_buyer_ui.label_wallet_value"), 15, 161, -1, false);
+		guiGraphics.drawString(this.font,
+
+				WalletOutsideCostProcedure.execute(entity), 15, 167, -1, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.private_shop_buyer_ui.label_count_left"), 62, 48, -12829636, false);
 	}
 

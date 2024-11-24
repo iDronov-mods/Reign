@@ -109,27 +109,19 @@
         }
       },
       {
-        "type": "image",
-        "data": {
-          "image": "copper_coin.png",
-          "use1Xscale": false,
-          "x": 125,
-          "y": 195
-        }
-      },
-      {
         "type": "label",
         "data": {
           "name": "label_wallet_value",
           "text": {
-            "fixedValue": "wallet_value"
+            "fixedValue": "wallet_value",
+            "name": "WalletOutsideCost"
           },
           "color": {
             "value": -1,
             "falpha": 0.0
           },
           "x": 141,
-          "y": 198
+          "y": 204
         }
       },
       {
@@ -169,6 +161,27 @@
           },
           "x": 188,
           "y": 85
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "wallet.png",
+          "use1Xscale": false,
+          "x": 126,
+          "y": 198
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 2,
+          "disablePickup": {
+            "fixedValue": true
+          },
+          "dropItemsWhenNotBound": false,
+          "x": 104,
+          "y": 40
         }
       }
     ],

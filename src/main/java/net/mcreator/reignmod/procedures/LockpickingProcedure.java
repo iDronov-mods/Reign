@@ -44,8 +44,8 @@ public class LockpickingProcedure {
 		block_x = entity.level().clip(new ClipContext(entity.getEyePosition(1f), entity.getEyePosition(1f).add(entity.getViewVector(1f).scale(2)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos().getX();
 		block_y = entity.level().clip(new ClipContext(entity.getEyePosition(1f), entity.getEyePosition(1f).add(entity.getViewVector(1f).scale(2)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos().getY();
 		block_z = entity.level().clip(new ClipContext(entity.getEyePosition(1f), entity.getEyePosition(1f).add(entity.getViewVector(1f).scale(2)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos().getZ();
-		if (entity.isShiftKeyDown()
-				&& ((world.getBlockState(BlockPos.containing(block_x, block_y, block_z))).getBlock() == Blocks.CHEST || (world.getBlockState(BlockPos.containing(block_x, block_y, block_z))).getBlock() == ReignModModBlocks.SAFE.get())
+		if (entity.isShiftKeyDown() && ((world.getBlockState(BlockPos.containing(block_x, block_y, block_z))).getBlock() == Blocks.CHEST
+				|| (world.getBlockState(BlockPos.containing(block_x, block_y, block_z))).getBlock() == ReignModModBlocks.SAFE.get() || (world.getBlockState(BlockPos.containing(block_x, block_y, block_z))).getBlock() == Blocks.BARREL)
 				&& !(new Object() {
 					public String getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);

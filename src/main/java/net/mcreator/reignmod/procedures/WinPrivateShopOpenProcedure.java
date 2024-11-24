@@ -2,6 +2,8 @@ package net.mcreator.reignmod.procedures;
 
 import net.minecraftforge.network.NetworkHooks;
 
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -15,11 +17,12 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.reignmod.world.inventory.PrivateShopUIMenu;
+import net.mcreator.reignmod.world.inventory.PrivateShopBuyerUIMenu;
 
 import io.netty.buffer.Unpooled;
 
 public class WinPrivateShopOpenProcedure {
-	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
+	public static void execute(LevelAccessor world, double x, double y, double z, BlockState blockstate, Entity entity) {
 		if (entity == null)
 			return;
 		if ((new Object() {
@@ -29,7 +32,7 @@ public class WinPrivateShopOpenProcedure {
 					return blockEntity.getPersistentData().getString(tag);
 				return "";
 			}
-		}.getValue(world, BlockPos.containing(x, y, z), "owner")).equals(entity.getStringUUID())) {
+		}.getValue(world, BlockPos.containing(x, y, z), "owner")).equals(entity.getStringUUID()) && !(blockstate.getBlock().getStateDefinition().getProperty("licensed") instanceof BooleanProperty _getbp3 && blockstate.getValue(_getbp3))) {
 			if (entity instanceof ServerPlayer _ent) {
 				BlockPos _bpos = BlockPos.containing(x, y, z);
 				NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
@@ -50,12 +53,12 @@ public class WinPrivateShopOpenProcedure {
 				NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 					@Override
 					public Component getDisplayName() {
-						return Component.literal("PrivateShopUI");
+						return Component.literal("PrivateShopBuyerUI");
 					}
 
 					@Override
 					public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
-						return new PrivateShopUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
+						return new PrivateShopBuyerUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
 					}
 				}, _bpos);
 			}

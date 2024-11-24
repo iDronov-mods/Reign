@@ -72,6 +72,7 @@ public class GoWalletCoinProcedure {
 						if (entity instanceof Player _player)
 							_player.closeContainer();
 					}
+					wallet_copy.getOrCreateTag().putDouble("amount", (value + wallet_copy.getOrCreateTag().getDouble("amount")));
 					{
 						final int _slotid = (int) index;
 						final ItemStack _setstack = wallet_copy.copy();
@@ -82,7 +83,6 @@ public class GoWalletCoinProcedure {
 						});
 					}
 					itemstack.setCount(0);
-					wallet_copy.getOrCreateTag().putDouble("amount", (value + wallet_copy.getOrCreateTag().getDouble("amount")));
 					SoundGiveCoinProcedure.execute(world, x, y, z);
 					break;
 				}

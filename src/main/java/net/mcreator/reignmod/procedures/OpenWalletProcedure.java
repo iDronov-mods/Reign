@@ -42,7 +42,7 @@ public class OpenWalletProcedure {
 			}
 		}
 		if (entity instanceof ServerPlayer _ent) {
-			BlockPos _bpos = new BlockPos(0, 0, 0);
+			BlockPos _bpos = new BlockPos(0, -64, 0);
 			NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 				@Override
 				public Component getDisplayName() {
