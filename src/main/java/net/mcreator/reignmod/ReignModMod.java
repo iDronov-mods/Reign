@@ -7,16 +7,13 @@ import net.minecraftforge.network.simple.SimpleChannel;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.fml.util.thread.SidedThreadGroups;
-import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
@@ -33,8 +30,6 @@ import net.mcreator.reignmod.init.ReignModModMenus;
 import net.mcreator.reignmod.init.ReignModModItems;
 import net.mcreator.reignmod.init.ReignModModBlocks;
 import net.mcreator.reignmod.init.ReignModModBlockEntities;
-import net.mcreator.reignmod.basics.ReignServerEvent;
-import net.mcreator.reignmod.basics.ReignChatEventSubscriber;
 
 import java.util.function.Supplier;
 import java.util.function.Function;
@@ -66,24 +61,19 @@ public class ReignModMod {
 		ReignModModBlocks.REGISTRY.register(bus);
 		ReignModModBlockEntities.REGISTRY.register(bus);
 		ReignModModItems.REGISTRY.register(bus);
+
 		ReignModModTabs.REGISTRY.register(bus);
+
 		ReignModModMobEffects.REGISTRY.register(bus);
+
 		ReignModModParticleTypes.REGISTRY.register(bus);
+
 		ReignModModMenus.REGISTRY.register(bus);
 		// Start of user code block mod init
-		bus.addListener(this::loadComplete);
 		// End of user code block mod init
 	}
 
 	// Start of user code block mod methods
-	private void loadComplete(final FMLLoadCompleteEvent event) {
-		MinecraftForge.EVENT_BUS.register(new ReignServerEvent());
-		if (!FMLEnvironment.dist.equals(Dist.CLIENT)) {
-			return;
-		}
-		MinecraftForge.EVENT_BUS.register(new ReignChatEventSubscriber());
-	}
-
 	// End of user code block mod methods
 	public static class TextboxSetMessage {
 		private final String textboxid;
