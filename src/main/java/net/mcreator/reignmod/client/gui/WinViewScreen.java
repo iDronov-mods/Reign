@@ -46,6 +46,7 @@ public class WinViewScreen extends AbstractContainerScreen<WinViewMenu> {
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
+	private final static HashMap<String, String> textstate = new HashMap<>();
 	Button button_main_license;
 	Button button_minor_license;
 	ImageButton imagebutton_lvl_up_button;
@@ -263,50 +264,50 @@ public class WinViewScreen extends AbstractContainerScreen<WinViewMenu> {
 		super.init();
 		button_main_license = Button.builder(Component.translatable("gui.reign_mod.win_view.button_main_license"), e -> {
 			if (true) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new WinViewButtonMessage(0, x, y, z));
-				WinViewButtonMessage.handleButtonAction(entity, 0, x, y, z);
+				ReignModMod.PACKET_HANDLER.sendToServer(new WinViewButtonMessage(0, x, y, z, textstate));
+				WinViewButtonMessage.handleButtonAction(entity, 0, x, y, z, textstate);
 			}
 		}).bounds(this.leftPos + 29, this.topPos + 85, 97, 20).build();
 		guistate.put("button:button_main_license", button_main_license);
 		this.addRenderableWidget(button_main_license);
 		button_minor_license = Button.builder(Component.translatable("gui.reign_mod.win_view.button_minor_license"), e -> {
 			if (ReturnAddLicenseLockProcedure.execute(world)) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new WinViewButtonMessage(1, x, y, z));
-				WinViewButtonMessage.handleButtonAction(entity, 1, x, y, z);
+				ReignModMod.PACKET_HANDLER.sendToServer(new WinViewButtonMessage(1, x, y, z, textstate));
+				WinViewButtonMessage.handleButtonAction(entity, 1, x, y, z, textstate);
 			}
 		}).bounds(this.leftPos + 29, this.topPos + 120, 97, 20).build(builder -> new Button(builder) {
 			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int gx, int gy, float ticks) {
-				this.visible = ReturnAddLicenseLockProcedure.execute(world);
-				super.renderWidget(guiGraphics, gx, gy, ticks);
+			public void render(GuiGraphics guiGraphics, int gx, int gy, float ticks) {
+				if (ReturnAddLicenseLockProcedure.execute(world))
+					super.render(guiGraphics, gx, gy, ticks);
 			}
 		});
 		guistate.put("button:button_minor_license", button_minor_license);
 		this.addRenderableWidget(button_minor_license);
 		imagebutton_lvl_up_button = new ImageButton(this.leftPos + 13, this.topPos + 25, 16, 16, 0, 0, 16, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_lvl_up_button.png"), 16, 32, e -> {
 			if (MainButtonUpProcedure.execute(entity)) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new WinViewButtonMessage(2, x, y, z));
-				WinViewButtonMessage.handleButtonAction(entity, 2, x, y, z);
+				ReignModMod.PACKET_HANDLER.sendToServer(new WinViewButtonMessage(2, x, y, z, textstate));
+				WinViewButtonMessage.handleButtonAction(entity, 2, x, y, z, textstate);
 			}
 		}) {
 			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int gx, int gy, float ticks) {
-				this.visible = MainButtonUpProcedure.execute(entity);
-				super.renderWidget(guiGraphics, gx, gy, ticks);
+			public void render(GuiGraphics guiGraphics, int gx, int gy, float ticks) {
+				if (MainButtonUpProcedure.execute(entity))
+					super.render(guiGraphics, gx, gy, ticks);
 			}
 		};
 		guistate.put("button:imagebutton_lvl_up_button", imagebutton_lvl_up_button);
 		this.addRenderableWidget(imagebutton_lvl_up_button);
 		imagebutton_lvl_up_button1 = new ImageButton(this.leftPos + 13, this.topPos + 52, 16, 16, 0, 0, 16, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_lvl_up_button1.png"), 16, 32, e -> {
 			if (AddButtonUpProcedure.execute(entity)) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new WinViewButtonMessage(3, x, y, z));
-				WinViewButtonMessage.handleButtonAction(entity, 3, x, y, z);
+				ReignModMod.PACKET_HANDLER.sendToServer(new WinViewButtonMessage(3, x, y, z, textstate));
+				WinViewButtonMessage.handleButtonAction(entity, 3, x, y, z, textstate);
 			}
 		}) {
 			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int gx, int gy, float ticks) {
-				this.visible = AddButtonUpProcedure.execute(entity);
-				super.renderWidget(guiGraphics, gx, gy, ticks);
+			public void render(GuiGraphics guiGraphics, int gx, int gy, float ticks) {
+				if (AddButtonUpProcedure.execute(entity))
+					super.render(guiGraphics, gx, gy, ticks);
 			}
 		};
 		guistate.put("button:imagebutton_lvl_up_button1", imagebutton_lvl_up_button1);

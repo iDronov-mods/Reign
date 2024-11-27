@@ -11,6 +11,15 @@
     "doesPauseGame": false,
     "components": [
       {
+        "type": "image",
+        "data": {
+          "image": "wallet_ui.png",
+          "use1Xscale": false,
+          "x": 166,
+          "y": 77
+        }
+      },
+      {
         "type": "inputslot",
         "data": {
           "inputLimit": {
@@ -29,15 +38,6 @@
           },
           "x": 173,
           "y": 84
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "wallet_ui.png",
-          "use1Xscale": false,
-          "x": 166,
-          "y": 77
         }
       },
       {

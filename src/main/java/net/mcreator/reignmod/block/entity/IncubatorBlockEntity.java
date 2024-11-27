@@ -30,12 +30,12 @@ import java.util.stream.IntStream;
 
 import io.netty.buffer.Unpooled;
 
-public class HeartOfHouseBlockEntity extends RandomizableContainerBlockEntity implements WorldlyContainer {
+public class IncubatorBlockEntity extends RandomizableContainerBlockEntity implements WorldlyContainer {
 	private NonNullList<ItemStack> stacks = NonNullList.<ItemStack>withSize(41, ItemStack.EMPTY);
 	private final LazyOptional<? extends IItemHandler>[] handlers = SidedInvWrapper.create(this, Direction.values());
 
-	public HeartOfHouseBlockEntity(BlockPos position, BlockState state) {
-		super(ReignModModBlockEntities.HEART_OF_HOUSE.get(), position, state);
+	public IncubatorBlockEntity(BlockPos position, BlockState state) {
+		super(ReignModModBlockEntities.INCUBATOR.get(), position, state);
 	}
 
 	@Override
@@ -79,7 +79,7 @@ public class HeartOfHouseBlockEntity extends RandomizableContainerBlockEntity im
 
 	@Override
 	public Component getDefaultName() {
-		return Component.literal("heart_of_house");
+		return Component.literal("incubator");
 	}
 
 	@Override
@@ -191,8 +191,6 @@ public class HeartOfHouseBlockEntity extends RandomizableContainerBlockEntity im
 			return false;
 		if (index == 40)
 			return false;
-		if (index == 41)
-			return false;
 		return true;
 	}
 
@@ -289,8 +287,6 @@ public class HeartOfHouseBlockEntity extends RandomizableContainerBlockEntity im
 		if (index == 39)
 			return false;
 		if (index == 40)
-			return false;
-		if (index == 41)
 			return false;
 		return true;
 	}

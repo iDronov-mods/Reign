@@ -28,6 +28,7 @@ public class AddLicenseIsSelectedScreen extends AbstractContainerScreen<AddLicen
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
+	private final static HashMap<String, String> textstate = new HashMap<>();
 	Button button_refuse;
 
 	public AddLicenseIsSelectedScreen(AddLicenseIsSelectedMenu container, Inventory inventory, Component text) {
@@ -98,14 +99,14 @@ public class AddLicenseIsSelectedScreen extends AbstractContainerScreen<AddLicen
 		super.init();
 		button_refuse = Button.builder(Component.translatable("gui.reign_mod.add_license_is_selected.button_refuse"), e -> {
 			if (RefuseLockProcedure.execute(entity)) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new AddLicenseIsSelectedButtonMessage(0, x, y, z));
-				AddLicenseIsSelectedButtonMessage.handleButtonAction(entity, 0, x, y, z);
+				ReignModMod.PACKET_HANDLER.sendToServer(new AddLicenseIsSelectedButtonMessage(0, x, y, z, textstate));
+				AddLicenseIsSelectedButtonMessage.handleButtonAction(entity, 0, x, y, z, textstate);
 			}
 		}).bounds(this.leftPos + 56, this.topPos + 108, 86, 20).build(builder -> new Button(builder) {
 			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int gx, int gy, float ticks) {
-				this.visible = RefuseLockProcedure.execute(entity);
-				super.renderWidget(guiGraphics, gx, gy, ticks);
+			public void render(GuiGraphics guiGraphics, int gx, int gy, float ticks) {
+				if (RefuseLockProcedure.execute(entity))
+					super.render(guiGraphics, gx, gy, ticks);
 			}
 		});
 		guistate.put("button:button_refuse", button_refuse);

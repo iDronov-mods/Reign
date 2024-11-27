@@ -7,9 +7,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -37,18 +35,16 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.reignmod.world.inventory.HouseIncubatorUIMenu;
-import net.mcreator.reignmod.block.entity.HeartOfHouseBlockEntity;
+import net.mcreator.reignmod.block.entity.IncubatorBlockEntity;
 
 import io.netty.buffer.Unpooled;
 
-public class HeartOfHouseBlock extends Block implements EntityBlock {
+public class IncubatorBlock extends Block implements EntityBlock {
 	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
-	public static final BooleanProperty HAS_HEART = BooleanProperty.create("has_heart");
-	public static final BooleanProperty HAS_WATER = BooleanProperty.create("has_water");
 
-	public HeartOfHouseBlock() {
-		super(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((bs, br, bp) -> false));
-		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(HAS_HEART, false).setValue(HAS_WATER, false));
+	public IncubatorBlock() {
+		super(BlockBehaviour.Properties.of().sound(SoundType.NETHERRACK).strength(2f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false));
+		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
 	}
 
 	@Override
@@ -69,12 +65,12 @@ public class HeartOfHouseBlock extends Block implements EntityBlock {
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		super.createBlockStateDefinition(builder);
-		builder.add(FACING, HAS_HEART, HAS_WATER);
+		builder.add(FACING);
 	}
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
-		return super.getStateForPlacement(context).setValue(FACING, context.getHorizontalDirection().getOpposite()).setValue(HAS_HEART, false).setValue(HAS_WATER, false);
+		return super.getStateForPlacement(context).setValue(FACING, context.getHorizontalDirection().getOpposite());
 	}
 
 	public BlockState rotate(BlockState state, Rotation rot) {
@@ -112,7 +108,7 @@ public class HeartOfHouseBlock extends Block implements EntityBlock {
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return new HeartOfHouseBlockEntity(pos, state);
+		return new IncubatorBlockEntity(pos, state);
 	}
 
 	@Override
@@ -126,7 +122,7 @@ public class HeartOfHouseBlock extends Block implements EntityBlock {
 	public void onRemove(BlockState state, Level world, BlockPos pos, BlockState newState, boolean isMoving) {
 		if (state.getBlock() != newState.getBlock()) {
 			BlockEntity blockEntity = world.getBlockEntity(pos);
-			if (blockEntity instanceof HeartOfHouseBlockEntity be) {
+			if (blockEntity instanceof IncubatorBlockEntity be) {
 				Containers.dropContents(world, pos, be);
 				world.updateNeighbourForOutputSignal(pos, this);
 			}
@@ -142,7 +138,7 @@ public class HeartOfHouseBlock extends Block implements EntityBlock {
 	@Override
 	public int getAnalogOutputSignal(BlockState blockState, Level world, BlockPos pos) {
 		BlockEntity tileentity = world.getBlockEntity(pos);
-		if (tileentity instanceof HeartOfHouseBlockEntity be)
+		if (tileentity instanceof IncubatorBlockEntity be)
 			return AbstractContainerMenu.getRedstoneSignalFromContainer(be);
 		else
 			return 0;

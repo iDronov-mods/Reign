@@ -17,7 +17,7 @@ import net.minecraft.commands.Commands;
 
 import net.mcreator.reignmod.procedures.SetEventProcedure;
 import net.mcreator.reignmod.procedures.EraSetProcedure;
-import net.mcreator.reignmod.procedures.EraCostCreateProcedure;
+import net.mcreator.reignmod.procedures.EraResetProcedure;
 
 import com.mojang.brigadier.arguments.DoubleArgumentType;
 import com.mojang.brigadier.arguments.BoolArgumentType;
@@ -67,7 +67,7 @@ public class ReignEventsCommand {
 					if (entity != null)
 						direction = entity.getDirection();
 
-					EraCostCreateProcedure.execute(world, x, y, z);
+					EraResetProcedure.execute(world);
 					return 0;
 				}))));
 	}

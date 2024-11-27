@@ -1,15 +1,12 @@
 package net.mcreator.reignmod.procedures;
 
-import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.resources.ResourceLocation;
@@ -18,7 +15,7 @@ import net.minecraft.advancements.AdvancementProgress;
 import net.minecraft.advancements.Advancement;
 
 import net.mcreator.reignmod.network.ReignModModVariables;
-import net.mcreator.reignmod.init.ReignModModItems;
+import net.mcreator.reignmod.house.HouseManager;
 
 import javax.annotation.Nullable;
 
@@ -38,6 +35,7 @@ public class EnterPayProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return;
+		double value = 0;
 		if (IsKingProcedure.execute(world, entity)) {
 			if (!world.isClientSide() && world.getServer() != null)
 				world.getServer().getPlayerList().broadcastSystemMessage(Component.literal((Component.translatable("KingOnline").getString())), false);
@@ -67,71 +65,33 @@ public class EnterPayProcedure {
 				}
 			}
 			if (entity instanceof Player _player && !_player.level().isClientSide())
-				_player.displayClientMessage(
-						Component.literal((Component.translatable("count_days").getString() + " " + (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline)),
-						false);
+				_player.displayClientMessage(Component.literal((Component.translatable("count_days").getString() + " "
+						+ new java.text.DecimalFormat("##").format((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline))), false);
 			if (IsKingProcedure.execute(world, entity)) {
+				value = HouseManager.getHousesCount() * 256
+						+ HouseManager.getHousePlayerCount(entity) * 16 * (1 + 0.05 * (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline);
+				WalletGiveProcedure.execute(entity, value);
 				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal((Component.translatable("pay_king").getString() + " "
-							+ ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline * 16 + 256) + " " + Component.translatable("copper_coins_pay").getString())),
+					_player.displayClientMessage(Component.literal((Component.translatable("pay_king").getString() + " \u00A7l" + new java.text.DecimalFormat("##").format(value) + "\u00A7r " + Component.translatable("copper_coins_pay").getString())),
 							false);
-				if (entity instanceof Player _player) {
-					ItemStack _setstack = new ItemStack(ReignModModItems.GOLD_COIN.get()).copy();
-					_setstack.setCount(1);
-					ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
-				}
-				if (entity instanceof Player _player) {
-					ItemStack _setstack = new ItemStack(ReignModModItems.COPPER_COIN.get()).copy();
-					_setstack.setCount((int) ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline * 16));
-					ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
-				}
 			} else if (IsLordProcedure.execute(world, entity)) {
+				value = HouseManager.getHousePlayerCount(entity) * 16 * (1 + 0.05 * (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline);
+				WalletGiveProcedure.execute(entity, value);
 				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal((Component.translatable("pay_lord").getString() + " "
-							+ ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline * 8 + 16) + " " + Component.translatable("copper_coins_pay").getString())),
+					_player.displayClientMessage(Component.literal((Component.translatable("pay_lord").getString() + " \u00A7l" + new java.text.DecimalFormat("##").format(value) + "\u00A7r " + Component.translatable("copper_coins_pay").getString())),
 							false);
-				if (entity instanceof Player _player) {
-					ItemStack _setstack = new ItemStack(ReignModModItems.SILVER_COIN.get()).copy();
-					_setstack.setCount(1);
-					ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
-				}
-				if (entity instanceof Player _player) {
-					ItemStack _setstack = new ItemStack(ReignModModItems.COPPER_COIN.get()).copy();
-					_setstack.setCount((int) ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline * 16));
-					ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
-				}
-			} else if (!(entity instanceof LivingEntity _teamEnt && _teamEnt.level().getScoreboard().getPlayersTeam(_teamEnt instanceof Player _pl ? _pl.getGameProfile().getName() : _teamEnt.getStringUUID()) != null
-					? _teamEnt.level().getScoreboard().getPlayersTeam(_teamEnt instanceof Player _pl ? _pl.getGameProfile().getName() : _teamEnt.getStringUUID()).getName()
-					: "").isEmpty()) {
+			} else if (IsKnightProcedure.execute(world, entity)) {
+				value = HouseManager.getDomainPlayerCount(entity) * 16 * (1 + 0.05 * (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline);
+				WalletGiveProcedure.execute(entity, value);
 				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal((Component.translatable("pay_knight").getString() + " "
-							+ ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline * 4 + 8) + " " + Component.translatable("copper_coins_pay").getString())),
-							false);
-				if (entity instanceof Player _player) {
-					ItemStack _setstack = new ItemStack(ReignModModItems.COPPER_COIN.get()).copy();
-					_setstack.setCount(8);
-					ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
-				}
-				if (entity instanceof Player _player) {
-					ItemStack _setstack = new ItemStack(ReignModModItems.COPPER_COIN.get()).copy();
-					_setstack.setCount((int) ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline * 8));
-					ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
-				}
-			} else {
+					_player.displayClientMessage(
+							Component.literal((Component.translatable("pay_knight").getString() + " \u00A7l" + new java.text.DecimalFormat("##").format(value) + "\u00A7r " + Component.translatable("copper_coins_pay").getString())), false);
+			} else if (IsSlaveProcedure.execute(world, entity)) {
+				value = 8 * (1 + 0.05 * (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline);
+				WalletGiveProcedure.execute(entity, value);
 				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal((Component.translatable("pay_free").getString() + " "
-							+ ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline * 2 + 4) + " " + Component.translatable("copper_coins_pay").getString())),
-							false);
-				if (entity instanceof Player _player) {
-					ItemStack _setstack = new ItemStack(ReignModModItems.COPPER_COIN.get()).copy();
-					_setstack.setCount(4);
-					ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
-				}
-				if (entity instanceof Player _player) {
-					ItemStack _setstack = new ItemStack(ReignModModItems.COPPER_COIN.get()).copy();
-					_setstack.setCount((int) ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline * 4));
-					ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
-				}
+					_player.displayClientMessage(
+							Component.literal((Component.translatable("pay_slave").getString() + " \u00A7l" + new java.text.DecimalFormat("##").format(value) + "\u00A7r " + Component.translatable("copper_coins_pay").getString())), false);
 			}
 		}
 		if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline == 7) {

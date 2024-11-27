@@ -1,7 +1,6 @@
 package net.mcreator.reignmod.house;
 
 import net.minecraft.network.chat.Component;
-import org.apache.logging.log4j.LogManager;
 
 import java.util.HashMap;
 import java.util.List;

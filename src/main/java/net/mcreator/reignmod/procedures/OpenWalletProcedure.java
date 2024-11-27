@@ -34,6 +34,7 @@ public class OpenWalletProcedure {
 		if (entity == null)
 			return;
 		double amount = 0;
+		double coins_count = 0;
 		if (world instanceof Level _level) {
 			if (!_level.isClientSide()) {
 				_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:wallet_sound")), SoundSource.NEUTRAL, 1, Mth.nextInt(RandomSource.create(), (int) 0.9, (int) 1.3));
@@ -57,58 +58,46 @@ public class OpenWalletProcedure {
 		}
 		amount = itemstack.getOrCreateTag().getDouble("amount");
 		if (amount >= 4096) {
+			if (amount >= 262144) {
+				coins_count = 64;
+			} else {
+				coins_count = Math.floor(amount / 4096);
+			}
 			if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 				ItemStack _setstack = new ItemStack(ReignModModItems.PLATINUM_COIN.get()).copy();
-				_setstack.setCount((int) Math.floor(amount / 4096));
+				_setstack.setCount((int) coins_count);
 				((Slot) _slots.get(3)).set(_setstack);
 				_player.containerMenu.broadcastChanges();
 			}
-			amount = amount - new Object() {
-				public int getAmount(int sltid) {
-					if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
-						ItemStack stack = ((Slot) _slots.get(sltid)).getItem();
-						if (stack != null)
-							return stack.getCount();
-					}
-					return 0;
-				}
-			}.getAmount(3) * 4096;
+			amount = amount - coins_count * 4096;
 		}
 		if (amount >= 256) {
+			if (amount >= 16384) {
+				coins_count = 64;
+			} else {
+				coins_count = Math.floor(amount / 256);
+			}
 			if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 				ItemStack _setstack = new ItemStack(ReignModModItems.GOLD_COIN.get()).copy();
-				_setstack.setCount((int) Math.floor(amount / 256));
+				_setstack.setCount((int) coins_count);
 				((Slot) _slots.get(2)).set(_setstack);
 				_player.containerMenu.broadcastChanges();
 			}
-			amount = amount - new Object() {
-				public int getAmount(int sltid) {
-					if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
-						ItemStack stack = ((Slot) _slots.get(sltid)).getItem();
-						if (stack != null)
-							return stack.getCount();
-					}
-					return 0;
-				}
-			}.getAmount(2) * 256;
+			amount = amount - coins_count * 256;
 		}
 		if (amount >= 16) {
+			if (amount >= 1024) {
+				coins_count = 64;
+			} else {
+				coins_count = Math.floor(amount / 16);
+			}
 			if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 				ItemStack _setstack = new ItemStack(ReignModModItems.SILVER_COIN.get()).copy();
-				_setstack.setCount((int) Math.floor(amount / 16));
+				_setstack.setCount((int) coins_count);
 				((Slot) _slots.get(1)).set(_setstack);
 				_player.containerMenu.broadcastChanges();
 			}
-			amount = amount - new Object() {
-				public int getAmount(int sltid) {
-					if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
-						ItemStack stack = ((Slot) _slots.get(sltid)).getItem();
-						if (stack != null)
-							return stack.getCount();
-					}
-					return 0;
-				}
-			}.getAmount(1) * 16;
+			amount = amount - coins_count * 16;
 		}
 		if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 			ItemStack _setstack = new ItemStack(ReignModModItems.COPPER_COIN.get()).copy();

@@ -1,15 +1,12 @@
 package net.mcreator.reignmod.procedures;
 
-import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.Component;
 
 import net.mcreator.reignmod.init.ReignModModItems;
 
@@ -78,40 +75,7 @@ public class WalletPayProcedure {
 						}
 						arrayIndex = arrayIndex + 1;
 					}
-					refund = coinsCount - cost;
-					if (entity instanceof Player _player && !_player.level().isClientSide())
-						_player.displayClientMessage(Component.literal(("Refund: " + refund)), false);
-					if (refund != 0) {
-						if (entity instanceof Player _player) {
-							ItemStack _setstack = new ItemStack(ReignModModItems.PLATINUM_COIN.get()).copy();
-							_setstack.setCount((int) (Math.floor(refund) / 4096));
-							ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
-						}
-						refund = refund - Math.floor(refund / 4096) * 4096;
-						if (entity instanceof Player _player && !_player.level().isClientSide())
-							_player.displayClientMessage(Component.literal(("\u041F\u043E\u0441\u043B\u0435 \u043F\u043B\u0430\u0442\u0438\u043D\u044B:" + refund)), false);
-						if (entity instanceof Player _player) {
-							ItemStack _setstack = new ItemStack(ReignModModItems.GOLD_COIN.get()).copy();
-							_setstack.setCount((int) (Math.floor(refund) / 256));
-							ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
-						}
-						refund = refund - Math.floor(refund / 256) * 256;
-						if (entity instanceof Player _player && !_player.level().isClientSide())
-							_player.displayClientMessage(Component.literal(("\u041F\u043E\u0441\u043B\u0435 \u0437\u043E\u043B\u043E\u0442\u0430:" + refund)), false);
-						if (entity instanceof Player _player) {
-							ItemStack _setstack = new ItemStack(ReignModModItems.SILVER_COIN.get()).copy();
-							_setstack.setCount((int) (Math.floor(refund) / 16));
-							ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
-						}
-						if (entity instanceof Player _player && !_player.level().isClientSide())
-							_player.displayClientMessage(Component.literal(("\u041F\u043E\u0441\u043B\u0435 \u041F\u043E\u0441\u043B\u0435 \u0441\u0435\u0440\u0435\u0431\u0440\u0430:" + refund)), false);
-						refund = refund - Math.floor(refund / 16) * 16;
-						if (entity instanceof Player _player) {
-							ItemStack _setstack = new ItemStack(ReignModModItems.COPPER_COIN.get()).copy();
-							_setstack.setCount((int) refund);
-							ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
-						}
-					}
+					WalletGiveProcedure.execute(entity, coinsCount - cost);
 					return true;
 				}
 			}

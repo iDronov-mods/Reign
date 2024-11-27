@@ -1,10 +1,8 @@
 package net.mcreator.reignmod.house;
 
 import net.mcreator.reignmod.network.ReignModModVariables;
-
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
-import org.apache.logging.log4j.LogManager;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -28,9 +26,17 @@ public class HouseManager {
         return colorCodes;
     }
 
-    public static boolean createHouse(Entity lordEntity, String houseTitle, String houseColor, int houseHeartIdentifier) {
+    public static int getHousesCount() {
         HouseSavedData houseSavedData = HouseSavedData.getInstance();
 
+        if (houseSavedData != null) {
+            return houseSavedData.getHouseData().getHouses().size();
+        }
+        return 0;
+    }
+
+    public static boolean createHouse(Entity lordEntity, String houseTitle, String houseColor, int houseHeartIdentifier) {
+        HouseSavedData houseSavedData = HouseSavedData.getInstance();
         if (houseSavedData != null && lordEntity instanceof Player lordPlayer) {
             return houseSavedData.addHouse(lordEntity.getStringUUID(), houseTitle, houseColor, houseHeartIdentifier);
         }
@@ -145,6 +151,10 @@ public class HouseManager {
         return getPlayerHouse(playerEntity).getDomains().size();
     }
 
+    public static int getHousePlayerCount(Entity playerEntity) {
+        return getPlayerHouse(playerEntity).getPlayers().size();
+    }
+
     private static Domain getPlayerDomain(Entity playerEntity) {
         HouseSavedData houseSavedData = HouseSavedData.getInstance();
 
@@ -169,6 +179,10 @@ public class HouseManager {
 
     public static String getPlayerDomainKnight(Entity playerEntity) {
         return getPlayerDomain(playerEntity).getKnightUUID();
+    }
+
+    public static int getDomainPlayerCount(Entity playerEntity) {
+        return getPlayerDomain(playerEntity).getPlayers().size();
     }
 
     private static int[] getHouseIncubatorCoordinates(Entity lordEntity) {

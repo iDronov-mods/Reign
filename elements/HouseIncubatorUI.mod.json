@@ -29,7 +29,7 @@
         "type": "inputslot",
         "data": {
           "inputLimit": {
-            "value": ""
+            "value": "CUSTOM:HeartOfHouse"
           },
           "disablePlacement": {
             "fixedValue": false

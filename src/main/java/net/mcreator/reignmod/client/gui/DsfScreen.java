@@ -22,6 +22,7 @@ public class DsfScreen extends AbstractContainerScreen<DsfMenu> {
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
+	private final static HashMap<String, String> textstate = new HashMap<>();
 	Button button_woodcutter;
 	Button button_blacksmith;
 	Button button_miner;
@@ -91,40 +92,40 @@ public class DsfScreen extends AbstractContainerScreen<DsfMenu> {
 		super.init();
 		button_woodcutter = Button.builder(Component.translatable("gui.reign_mod.dsf.button_woodcutter"), e -> {
 			if (true) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new DsfButtonMessage(0, x, y, z));
-				DsfButtonMessage.handleButtonAction(entity, 0, x, y, z);
+				ReignModMod.PACKET_HANDLER.sendToServer(new DsfButtonMessage(0, x, y, z, textstate));
+				DsfButtonMessage.handleButtonAction(entity, 0, x, y, z, textstate);
 			}
 		}).bounds(this.leftPos + 56, this.topPos + 23, 77, 20).build();
 		guistate.put("button:button_woodcutter", button_woodcutter);
 		this.addRenderableWidget(button_woodcutter);
 		button_blacksmith = Button.builder(Component.translatable("gui.reign_mod.dsf.button_blacksmith"), e -> {
 			if (true) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new DsfButtonMessage(1, x, y, z));
-				DsfButtonMessage.handleButtonAction(entity, 1, x, y, z);
+				ReignModMod.PACKET_HANDLER.sendToServer(new DsfButtonMessage(1, x, y, z, textstate));
+				DsfButtonMessage.handleButtonAction(entity, 1, x, y, z, textstate);
 			}
 		}).bounds(this.leftPos + 56, this.topPos + 50, 77, 20).build();
 		guistate.put("button:button_blacksmith", button_blacksmith);
 		this.addRenderableWidget(button_blacksmith);
 		button_miner = Button.builder(Component.translatable("gui.reign_mod.dsf.button_miner"), e -> {
 			if (true) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new DsfButtonMessage(2, x, y, z));
-				DsfButtonMessage.handleButtonAction(entity, 2, x, y, z);
+				ReignModMod.PACKET_HANDLER.sendToServer(new DsfButtonMessage(2, x, y, z, textstate));
+				DsfButtonMessage.handleButtonAction(entity, 2, x, y, z, textstate);
 			}
 		}).bounds(this.leftPos + 56, this.topPos + 77, 76, 20).build();
 		guistate.put("button:button_miner", button_miner);
 		this.addRenderableWidget(button_miner);
 		button_farmer = Button.builder(Component.translatable("gui.reign_mod.dsf.button_farmer"), e -> {
 			if (true) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new DsfButtonMessage(3, x, y, z));
-				DsfButtonMessage.handleButtonAction(entity, 3, x, y, z);
+				ReignModMod.PACKET_HANDLER.sendToServer(new DsfButtonMessage(3, x, y, z, textstate));
+				DsfButtonMessage.handleButtonAction(entity, 3, x, y, z, textstate);
 			}
 		}).bounds(this.leftPos + 56, this.topPos + 104, 76, 20).build();
 		guistate.put("button:button_farmer", button_farmer);
 		this.addRenderableWidget(button_farmer);
 		button_button_cowboy = Button.builder(Component.translatable("gui.reign_mod.dsf.button_button_cowboy"), e -> {
 			if (true) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new DsfButtonMessage(4, x, y, z));
-				DsfButtonMessage.handleButtonAction(entity, 4, x, y, z);
+				ReignModMod.PACKET_HANDLER.sendToServer(new DsfButtonMessage(4, x, y, z, textstate));
+				DsfButtonMessage.handleButtonAction(entity, 4, x, y, z, textstate);
 			}
 		}).bounds(this.leftPos + 56, this.topPos + 131, 76, 20).build();
 		guistate.put("button:button_button_cowboy", button_button_cowboy);

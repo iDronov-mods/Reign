@@ -5,7 +5,6 @@ import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.saveddata.SavedData;
-import org.apache.logging.log4j.LogManager;
 
 public class HouseSavedData extends SavedData {
 

@@ -15,7 +15,8 @@
     "HorseSaddleMixin",
     "HopperBlockMixin",
     "PlayerSetNameMixin",
-    "ChestLockMixin"
+    "ChestLockMixin",
+    "BarrelLockMixin"
   ],
   "client": [],
   "minVersion": "0.8"

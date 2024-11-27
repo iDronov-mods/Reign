@@ -35,6 +35,7 @@ import net.mcreator.reignmod.item.PenWithInkItem;
 import net.mcreator.reignmod.item.MinerCoinItem;
 import net.mcreator.reignmod.item.IronLockItem;
 import net.mcreator.reignmod.item.HoneyConcentrateItem;
+import net.mcreator.reignmod.item.HeartOfHouseItem;
 import net.mcreator.reignmod.item.GoldLockItem;
 import net.mcreator.reignmod.item.GoldCoinItem;
 import net.mcreator.reignmod.item.FragmentOfRecordItem;
@@ -90,13 +91,14 @@ public class ReignModModItems {
 	public static final RegistryObject<Item> GOLD_LOCK = REGISTRY.register("gold_lock", () -> new GoldLockItem());
 	public static final RegistryObject<Item> COPPER_LOCK = REGISTRY.register("copper_lock", () -> new CopperLockItem());
 	public static final RegistryObject<Item> SAFE = block(ReignModModBlocks.SAFE);
-	public static final RegistryObject<Item> HEART_OF_HOUSE = block(ReignModModBlocks.HEART_OF_HOUSE);
 	public static final RegistryObject<Item> TRADE_LICENSE = REGISTRY.register("trade_license", () -> new TradeLicenseItem());
 	public static final RegistryObject<Item> PEN_WITH_INK = REGISTRY.register("pen_with_ink", () -> new PenWithInkItem());
 	public static final RegistryObject<Item> IRON_LOCK = REGISTRY.register("iron_lock", () -> new IronLockItem());
 	public static final RegistryObject<Item> PRIVATE_SHOP = block(ReignModModBlocks.PRIVATE_SHOP);
 	public static final RegistryObject<Item> COWBOY_COIN = REGISTRY.register("cowboy_coin", () -> new CowboyCoinItem());
 	public static final RegistryObject<Item> PICKLOCK = REGISTRY.register("picklock", () -> new PicklockItem());
+	public static final RegistryObject<Item> INCUBATOR = block(ReignModModBlocks.INCUBATOR);
+	public static final RegistryObject<Item> HEART_OF_HOUSE = REGISTRY.register("heart_of_house", () -> new HeartOfHouseItem());
 
 	// Start of user code block custom items
 	// End of user code block custom items

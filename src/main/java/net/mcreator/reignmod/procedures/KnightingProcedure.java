@@ -43,25 +43,15 @@ public class KnightingProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, Entity entity, Entity sourceentity) {
 		if (entity == null || sourceentity == null)
 			return;
-		if (!world.isClientSide() && world.getServer() != null)
-			world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("0"), false);
 		if (world instanceof ServerLevel _origLevel) {
 			LevelAccessor _worldorig = world;
 			world = _origLevel.getServer().getLevel(Level.OVERWORLD);
 			if (world != null) {
-				if (IsLordProcedure.execute(world, sourceentity) && true) {
-					if (!world.isClientSide() && world.getServer() != null)
-						world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("1"), false);
+				if (IsLordProcedure.execute(world, sourceentity) && ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).house).isEmpty()) {
 					if ((sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).is(ItemTags.create(new ResourceLocation("minecraft:swords")))
 							&& (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == ItemStack.EMPTY.getItem()) {
-						if (!world.isClientSide() && world.getServer() != null)
-							world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("2"), false);
 						if (entity.getXRot() >= 70 && entity.isShiftKeyDown()) {
-							if (!world.isClientSide() && world.getServer() != null)
-								world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("3"), false);
 							if (HouseManager.createDomain(sourceentity, entity)) {
-								if (!world.isClientSide() && world.getServer() != null)
-									world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("4"), false);
 								{
 									String _setval = sourceentity.getStringUUID();
 									entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
@@ -87,8 +77,6 @@ public class KnightingProcedure {
 											_player.getAdvancements().award(_adv, criteria);
 									}
 								}
-								if (!world.isClientSide() && world.getServer() != null)
-									world.getServer().getPlayerList().broadcastSystemMessage(Component.literal(("" + HouseManager.getPlayerDomainTitle(entity))), false);
 								if (world instanceof ServerLevel _level)
 									_level.sendParticles(ParticleTypes.CRIT, x, y, z, 3, 1, 1, 1, 1);
 							}

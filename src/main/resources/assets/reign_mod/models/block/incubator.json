@@ -1,8 +1,8 @@
 {
   "parent": "reign_mod:custom/incubator",
   "textures": {
-    "all": "minecraft:block/item_frame",
-    "particle": "minecraft:block/item_frame",
+    "all": "minecraft:block/cauldron_top",
+    "particle": "minecraft:block/cauldron_top",
     "glass": "reign_mod:block/heartofhouseglass_texture",
     "main": "reign_mod:block/heartofhouse_texture",
     "fluid": "reign_mod:block/fluid_texture",

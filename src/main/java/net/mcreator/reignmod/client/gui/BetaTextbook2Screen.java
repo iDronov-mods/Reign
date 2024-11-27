@@ -22,6 +22,7 @@ public class BetaTextbook2Screen extends AbstractContainerScreen<BetaTextbook2Me
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
+	private final static HashMap<String, String> textstate = new HashMap<>();
 	Button button_back;
 
 	public BetaTextbook2Screen(BetaTextbook2Menu container, Inventory inventory, Component text) {
@@ -71,8 +72,8 @@ public class BetaTextbook2Screen extends AbstractContainerScreen<BetaTextbook2Me
 		super.init();
 		button_back = Button.builder(Component.translatable("gui.reign_mod.beta_textbook_2.button_back"), e -> {
 			if (true) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new BetaTextbook2ButtonMessage(0, x, y, z));
-				BetaTextbook2ButtonMessage.handleButtonAction(entity, 0, x, y, z);
+				ReignModMod.PACKET_HANDLER.sendToServer(new BetaTextbook2ButtonMessage(0, x, y, z, textstate));
+				BetaTextbook2ButtonMessage.handleButtonAction(entity, 0, x, y, z, textstate);
 			}
 		}).bounds(this.leftPos + 65, this.topPos + -31, 44, 20).build();
 		guistate.put("button:button_back", button_back);

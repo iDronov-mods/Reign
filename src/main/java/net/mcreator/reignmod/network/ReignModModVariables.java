@@ -185,6 +185,7 @@ public class ReignModModVariables {
 		public boolean EVENT_PLAGUE = false;
 		public boolean EVENT_STARVATION = false;
 		public double Tutorial_pass = 0.0;
+		public double MAX_AMOUNT_VALUE = 279616.0;
 
 		public static MapVariables load(CompoundTag tag) {
 			MapVariables data = new MapVariables();
@@ -219,6 +220,7 @@ public class ReignModModVariables {
 			EVENT_PLAGUE = nbt.getBoolean("EVENT_PLAGUE");
 			EVENT_STARVATION = nbt.getBoolean("EVENT_STARVATION");
 			Tutorial_pass = nbt.getDouble("Tutorial_pass");
+			MAX_AMOUNT_VALUE = nbt.getDouble("MAX_AMOUNT_VALUE");
 		}
 
 		@Override
@@ -249,6 +251,7 @@ public class ReignModModVariables {
 			nbt.putBoolean("EVENT_PLAGUE", EVENT_PLAGUE);
 			nbt.putBoolean("EVENT_STARVATION", EVENT_STARVATION);
 			nbt.putDouble("Tutorial_pass", Tutorial_pass);
+			nbt.putDouble("MAX_AMOUNT_VALUE", MAX_AMOUNT_VALUE);
 			return nbt;
 		}
 
@@ -365,7 +368,7 @@ public class ReignModModVariables {
 		public double DaysOnline = 0;
 		public boolean license_cowboy = false;
 		public boolean license_hunter = false;
-		public String house = "\"\"";
+		public String house = "";
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayer serverPlayer)

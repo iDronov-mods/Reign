@@ -13,7 +13,7 @@ public class Domain implements INBTSerializable<CompoundTag> {
     private String lordUUID;
     private String knightUUID;
     private Component domainTitle;
-    public HashSet<String> players = new HashSet<>();
+    private HashSet<String> players = new HashSet<>();
 
     public Domain() {
         this.domainTitle = Component.literal("null");

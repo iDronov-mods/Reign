@@ -55,48 +55,12 @@
           "disablePlacement": {
             "fixedValue": false
           },
-          "id": 1,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": false,
-          "x": 133,
-          "y": 80
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": ""
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 2,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": false,
-          "x": 151,
-          "y": 80
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": ""
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
           "id": 3,
           "disablePickup": {
             "fixedValue": false
           },
           "dropItemsWhenNotBound": false,
-          "x": 169,
+          "x": 133,
           "y": 80
         }
       },
@@ -114,7 +78,7 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": false,
-          "x": 187,
+          "x": 151,
           "y": 80
         }
       },
@@ -132,7 +96,7 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": false,
-          "x": 205,
+          "x": 169,
           "y": 80
         }
       },
@@ -150,7 +114,7 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": false,
-          "x": 223,
+          "x": 187,
           "y": 80
         }
       },
@@ -168,7 +132,7 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": false,
-          "x": 241,
+          "x": 205,
           "y": 80
         }
       },
@@ -186,7 +150,7 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": false,
-          "x": 259,
+          "x": 223,
           "y": 80
         }
       },
@@ -204,7 +168,7 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": false,
-          "x": 277,
+          "x": 241,
           "y": 80
         }
       },
@@ -222,8 +186,8 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": false,
-          "x": 133,
-          "y": 98
+          "x": 259,
+          "y": 80
         }
       },
       {
@@ -240,8 +204,8 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": false,
-          "x": 151,
-          "y": 98
+          "x": 277,
+          "y": 80
         }
       },
       {
@@ -258,7 +222,7 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": false,
-          "x": 169,
+          "x": 133,
           "y": 98
         }
       },
@@ -276,7 +240,7 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": false,
-          "x": 187,
+          "x": 151,
           "y": 98
         }
       },
@@ -294,7 +258,7 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": false,
-          "x": 205,
+          "x": 169,
           "y": 98
         }
       },
@@ -312,7 +276,7 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": false,
-          "x": 223,
+          "x": 187,
           "y": 98
         }
       },
@@ -330,7 +294,7 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": false,
-          "x": 241,
+          "x": 205,
           "y": 98
         }
       },
@@ -348,7 +312,7 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": false,
-          "x": 259,
+          "x": 223,
           "y": 98
         }
       },
@@ -362,6 +326,42 @@
             "fixedValue": false
           },
           "id": 18,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": false,
+          "x": 241,
+          "y": 98
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 19,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": false,
+          "x": 259,
+          "y": 98
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 20,
           "disablePickup": {
             "fixedValue": false
           },
@@ -380,7 +380,7 @@
             "fixedValue": false,
             "name": "PrivateShopSetPrice"
           },
-          "id": 19,
+          "id": 1,
           "disablePickup": {
             "fixedValue": false,
             "name": "PrivateShopIsOwner"
@@ -552,15 +552,16 @@
             "value": ""
           },
           "disablePlacement": {
-            "fixedValue": false,
+            "fixedValue": false
+          },
+          "id": 2,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": false,
+          "onSlotChanged": {
             "name": "PrivateShopSetGoods"
           },
-          "id": 20,
-          "disablePickup": {
-            "fixedValue": false,
-            "name": "PrivateShopIsOwner"
-          },
-          "dropItemsWhenNotBound": true,
           "x": 233,
           "y": 51
         }

@@ -10,6 +10,7 @@ import net.minecraft.client.gui.components.Checkbox;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.reignmod.world.inventory.TraderPointMenu;
+import net.mcreator.reignmod.ReignModMod;
 
 import java.util.HashMap;
 
@@ -20,7 +21,8 @@ public class TraderPointScreen extends AbstractContainerScreen<TraderPointMenu> 
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
-	Checkbox sale_off;
+	private final static HashMap<String, String> textstate = new HashMap<>();
+	public static Checkbox sale_off;
 
 	public TraderPointScreen(TraderPointMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -61,6 +63,11 @@ public class TraderPointScreen extends AbstractContainerScreen<TraderPointMenu> 
 		RenderSystem.disableBlend();
 	}
 
+	public static HashMap<String, String> getTextboxValues() {
+		textstate.put("checkboxin:sale_off", sale_off.selected() ? "true" : "false");
+		return textstate;
+	}
+
 	@Override
 	public boolean keyPressed(int key, int b, int c) {
 		if (key == 256) {
@@ -68,6 +75,14 @@ public class TraderPointScreen extends AbstractContainerScreen<TraderPointMenu> 
 			return true;
 		}
 		return super.keyPressed(key, b, c);
+	}
+
+	@Override
+	public void containerTick() {
+		super.containerTick();
+		textstate.put("checkboxin:sale_off", sale_off.selected() ? "true" : "false");
+		ReignModMod.PACKET_HANDLER.sendToServer(new TraderPointMenu.TraderPointOtherMessage(0, x, y, z, textstate));
+		TraderPointMenu.TraderPointOtherMessage.handleOtherAction(entity, 0, x, y, z, textstate);
 	}
 
 	@Override

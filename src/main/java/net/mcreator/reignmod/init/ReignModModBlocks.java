@@ -21,8 +21,8 @@ import net.mcreator.reignmod.block.PrivateShopBlock;
 import net.mcreator.reignmod.block.PlusBlock;
 import net.mcreator.reignmod.block.MarketBlockBlock;
 import net.mcreator.reignmod.block.KingtableBlock;
+import net.mcreator.reignmod.block.IncubatorBlock;
 import net.mcreator.reignmod.block.HoarderBlockBlock;
-import net.mcreator.reignmod.block.HeartOfHouseBlock;
 import net.mcreator.reignmod.block.FundBlock;
 import net.mcreator.reignmod.block.CoffersBlock;
 import net.mcreator.reignmod.ReignModMod;
@@ -38,8 +38,8 @@ public class ReignModModBlocks {
 	public static final RegistryObject<Block> ROCK = REGISTRY.register("rock", () -> new RockBlock());
 	public static final RegistryObject<Block> KINGTABLE = REGISTRY.register("kingtable", () -> new KingtableBlock());
 	public static final RegistryObject<Block> SAFE = REGISTRY.register("safe", () -> new SafeBlock());
-	public static final RegistryObject<Block> HEART_OF_HOUSE = REGISTRY.register("heart_of_house", () -> new HeartOfHouseBlock());
 	public static final RegistryObject<Block> PRIVATE_SHOP = REGISTRY.register("private_shop", () -> new PrivateShopBlock());
+	public static final RegistryObject<Block> INCUBATOR = REGISTRY.register("incubator", () -> new IncubatorBlock());
 
 	// Start of user code block custom blocks
 	// End of user code block custom blocks

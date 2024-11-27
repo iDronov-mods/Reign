@@ -22,6 +22,7 @@ import net.minecraft.core.BlockPos;
 import net.mcreator.reignmod.network.CoffersUISlotMessage;
 import net.mcreator.reignmod.init.ReignModModMenus;
 import net.mcreator.reignmod.init.ReignModModItems;
+import net.mcreator.reignmod.client.gui.CoffersUIScreen;
 import net.mcreator.reignmod.ReignModMod;
 
 import java.util.function.Supplier;
@@ -282,8 +283,8 @@ public class CoffersUIMenu extends AbstractContainerMenu implements Supplier<Map
 
 	private void slotChanged(int slotid, int ctype, int meta) {
 		if (this.world != null && this.world.isClientSide()) {
-			ReignModMod.PACKET_HANDLER.sendToServer(new CoffersUISlotMessage(slotid, x, y, z, ctype, meta));
-			CoffersUISlotMessage.handleSlotAction(entity, slotid, ctype, meta, x, y, z);
+			ReignModMod.PACKET_HANDLER.sendToServer(new CoffersUISlotMessage(slotid, x, y, z, ctype, meta, CoffersUIScreen.getTextboxValues()));
+			CoffersUISlotMessage.handleSlotAction(entity, slotid, ctype, meta, x, y, z, CoffersUIScreen.getTextboxValues());
 		}
 	}
 

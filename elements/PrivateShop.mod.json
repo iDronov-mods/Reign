@@ -135,16 +135,16 @@
       "value": ""
     },
     "luminance": 0,
-    "unbreakable": false,
+    "unbreakable": true,
     "vanillaToolTier": "NONE",
     "isBonemealable": false,
-    "hasInventory": false,
-    "guiBoundTo": "<NONE>",
+    "hasInventory": true,
+    "guiBoundTo": "PrivateShopUI",
     "openGUIOnRightClick": false,
     "inventorySize": 25,
     "inventoryStackSize": 64,
     "inventoryDropWhenDestroyed": true,
-    "inventoryComparatorPower": true,
+    "inventoryComparatorPower": false,
     "inventoryOutSlotIDs": [],
     "inventoryInSlotIDs": [],
     "hasEnergyStorage": false,
@@ -157,6 +157,9 @@
     "fluidRestrictions": [],
     "onRightClicked": {
       "name": "WinPrivateShopOpen"
+    },
+    "onStartToDestroy": {
+      "name": "PrivateShopBreak"
     },
     "onBlockPlayedBy": {
       "name": "PrivateShopIsPlaced"

@@ -20,6 +20,7 @@ public class PrivateShopUIScreen extends AbstractContainerScreen<PrivateShopUIMe
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
+	private final static HashMap<String, String> textstate = new HashMap<>();
 
 	public PrivateShopUIScreen(PrivateShopUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -65,6 +66,10 @@ public class PrivateShopUIScreen extends AbstractContainerScreen<PrivateShopUIMe
 		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/coin_slot.png"), this.leftPos + 55, this.topPos + 17, 0, 0, 12, 12, 12, 12);
 
 		RenderSystem.disableBlend();
+	}
+
+	public static HashMap<String, String> getTextboxValues() {
+		return textstate;
 	}
 
 	@Override

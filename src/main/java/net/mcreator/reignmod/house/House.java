@@ -89,7 +89,7 @@ public class House implements INBTSerializable<CompoundTag> {
     }
     public void removeDomain(String knightUUID) {
         this.domains.remove(knightUUID);
-        this.domains.get(knightUUID).players.forEach(player -> this.players.remove(player));
+        this.domains.get(knightUUID).getPlayers().forEach(player -> this.players.remove(player));
     }
 
     @Override
@@ -98,6 +98,7 @@ public class House implements INBTSerializable<CompoundTag> {
         tag.putString("lord_uuid", this.lordUUID);
         tag.putString("house_title", this.houseTitle);
         tag.putString("house_color", this.houseColor);
+
         tag.putIntArray("house_incubator_coordinates", this.houseIncubatorCoordinates);
         tag.putIntArray("house_prison_coordinates", this.housePrisonCoordinates);
         tag.putInt("house_heart_item_identifier", this.houseHeartIdentifier);

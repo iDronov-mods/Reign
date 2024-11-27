@@ -50,7 +50,7 @@ public class FundBlock extends Block implements EntityBlock {
 	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
 	public FundBlock() {
-		super(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.LANTERN).strength(-1, 3600000).noOcclusion().pushReaction(PushReaction.DESTROY).isRedstoneConductor((bs, br, bp) -> false));
+		super(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.LANTERN).strength(-1, 3600000).noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((bs, br, bp) -> false));
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
 	}
 
@@ -72,14 +72,10 @@ public class FundBlock extends Block implements EntityBlock {
 	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
 		return switch (state.getValue(FACING)) {
-			default -> Shapes.or(box(2, 0, 2, 14, 9, 14), box(0, 9, 0, 16, 10, 16), box(0, 10, 14, 16, 12, 16), box(0, 10, 0, 16, 12, 2), box(14, 10, 2, 16, 12, 14), box(0, 10, 2, 2, 12, 14), box(6, 10, 6, 10, 12, 10), box(7, 12, 7, 9, 13, 9),
-					box(2, 10, 2, 14, 11, 14));
-			case NORTH -> Shapes.or(box(2, 0, 2, 14, 9, 14), box(0, 9, 0, 16, 10, 16), box(0, 10, 0, 16, 12, 2), box(0, 10, 14, 16, 12, 16), box(0, 10, 2, 2, 12, 14), box(14, 10, 2, 16, 12, 14), box(6, 10, 6, 10, 12, 10), box(7, 12, 7, 9, 13, 9),
-					box(2, 10, 2, 14, 11, 14));
-			case EAST -> Shapes.or(box(2, 0, 2, 14, 9, 14), box(0, 9, 0, 16, 10, 16), box(14, 10, 0, 16, 12, 16), box(0, 10, 0, 2, 12, 16), box(2, 10, 0, 14, 12, 2), box(2, 10, 14, 14, 12, 16), box(6, 10, 6, 10, 12, 10), box(7, 12, 7, 9, 13, 9),
-					box(2, 10, 2, 14, 11, 14));
-			case WEST -> Shapes.or(box(2, 0, 2, 14, 9, 14), box(0, 9, 0, 16, 10, 16), box(0, 10, 0, 2, 12, 16), box(14, 10, 0, 16, 12, 16), box(2, 10, 14, 14, 12, 16), box(2, 10, 0, 14, 12, 2), box(6, 10, 6, 10, 12, 10), box(7, 12, 7, 9, 13, 9),
-					box(2, 10, 2, 14, 11, 14));
+			default -> Shapes.or(box(2, 0, 2, 14, 9, 14), box(0, 9, 0, 16, 10, 16), box(0, 10, 14, 16, 12, 16), box(0, 10, 0, 16, 12, 2), box(14, 10, 2, 16, 12, 14), box(0, 10, 2, 2, 12, 14), box(6, 10, 6, 10, 12, 10), box(2, 10, 2, 14, 11, 14));
+			case NORTH -> Shapes.or(box(2, 0, 2, 14, 9, 14), box(0, 9, 0, 16, 10, 16), box(0, 10, 0, 16, 12, 2), box(0, 10, 14, 16, 12, 16), box(0, 10, 2, 2, 12, 14), box(14, 10, 2, 16, 12, 14), box(6, 10, 6, 10, 12, 10), box(2, 10, 2, 14, 11, 14));
+			case EAST -> Shapes.or(box(2, 0, 2, 14, 9, 14), box(0, 9, 0, 16, 10, 16), box(14, 10, 0, 16, 12, 16), box(0, 10, 0, 2, 12, 16), box(2, 10, 0, 14, 12, 2), box(2, 10, 14, 14, 12, 16), box(6, 10, 6, 10, 12, 10), box(2, 10, 2, 14, 11, 14));
+			case WEST -> Shapes.or(box(2, 0, 2, 14, 9, 14), box(0, 9, 0, 16, 10, 16), box(0, 10, 0, 2, 12, 16), box(14, 10, 0, 16, 12, 16), box(2, 10, 14, 14, 12, 16), box(2, 10, 0, 14, 12, 2), box(6, 10, 6, 10, 12, 10), box(2, 10, 2, 14, 11, 14));
 		};
 	}
 

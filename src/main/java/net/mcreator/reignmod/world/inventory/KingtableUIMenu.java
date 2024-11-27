@@ -25,6 +25,7 @@ import net.mcreator.reignmod.procedures.KingTableCanCraftProcedure;
 import net.mcreator.reignmod.network.KingtableUISlotMessage;
 import net.mcreator.reignmod.init.ReignModModMenus;
 import net.mcreator.reignmod.init.ReignModModItems;
+import net.mcreator.reignmod.client.gui.KingtableUIScreen;
 import net.mcreator.reignmod.ReignModMod;
 
 import java.util.function.Supplier;
@@ -461,8 +462,8 @@ public class KingtableUIMenu extends AbstractContainerMenu implements Supplier<M
 
 	private void slotChanged(int slotid, int ctype, int meta) {
 		if (this.world != null && this.world.isClientSide()) {
-			ReignModMod.PACKET_HANDLER.sendToServer(new KingtableUISlotMessage(slotid, x, y, z, ctype, meta));
-			KingtableUISlotMessage.handleSlotAction(entity, slotid, ctype, meta, x, y, z);
+			ReignModMod.PACKET_HANDLER.sendToServer(new KingtableUISlotMessage(slotid, x, y, z, ctype, meta, KingtableUIScreen.getTextboxValues()));
+			KingtableUISlotMessage.handleSlotAction(entity, slotid, ctype, meta, x, y, z, KingtableUIScreen.getTextboxValues());
 		}
 	}
 

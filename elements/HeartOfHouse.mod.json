@@ -1,235 +1,57 @@
 {
   "_fv": 69,
-  "_type": "block",
+  "_type": "item",
   "definition": {
-    "texture": "minecraft:item_frame",
-    "textureTop": "",
-    "textureLeft": "",
-    "textureFront": "",
-    "textureRight": "",
-    "textureBack": "",
-    "renderType": 2,
-    "customModelName": "incubator:default",
-    "rotationMode": 1,
-    "enablePitch": false,
-    "emissiveRendering": false,
-    "displayFluidOverlay": false,
-    "itemTexture": "",
-    "particleTexture": "",
-    "tintType": "No tint",
-    "isItemTinted": false,
-    "hasTransparency": true,
-    "connectedSides": false,
-    "transparencyType": "TRANSLUCENT",
-    "disableOffset": false,
-    "boundingBoxes": [
-      {
-        "mx": 0.0,
-        "my": 0.0,
-        "mz": 0.0,
-        "Mx": 16.0,
-        "My": 16.0,
-        "Mz": 16.0,
-        "subtract": false
-      }
-    ],
-    "customProperties": [
-      {
-        "name": "CUSTOM:has_heart",
-        "type": "logic",
-        "value": false
-      },
-      {
-        "name": "CUSTOM:has_water",
-        "type": "logic",
-        "value": false
-      }
-    ],
-    "name": "Incubator",
-    "specialInformation": {
-      "fixedValue": []
-    },
-    "hardness": 1.0,
-    "resistance": 10.0,
-    "hasGravity": false,
-    "isWaterloggable": false,
+    "renderType": 1,
+    "texture": "minecraft:beetroot",
+    "customModelName": "heart:default",
+    "customProperties": {},
+    "states": [],
+    "name": "Heart Of House",
+    "rarity": "EPIC",
     "creativeTabs": [
       {
         "value": "CUSTOM:CreativeTab"
       }
     ],
-    "destroyTool": "pickaxe",
-    "customDrop": {
+    "stackSize": 1,
+    "enchantability": 0,
+    "useDuration": 0,
+    "toolType": 1.0,
+    "damageCount": 0,
+    "recipeRemainder": {
       "value": ""
     },
-    "dropAmount": 1,
-    "useLootTableForDrops": false,
-    "requiresCorrectTool": false,
-    "enchantPowerBonus": 0.0,
-    "plantsGrowOn": false,
-    "canRedstoneConnect": false,
-    "lightOpacity": 0,
-    "material": {
-      "value": "NONE"
+    "destroyAnyBlock": false,
+    "immuneToFire": false,
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "enableMeleeDamage": false,
+    "damageVsEntity": 0.0,
+    "specialInformation": {
+      "fixedValue": []
     },
-    "tickRate": 0,
-    "tickRandomly": false,
-    "isReplaceable": false,
-    "canProvidePower": false,
-    "emittedRedstonePower": {
-      "fixedValue": 15.0
+    "glowCondition": {
+      "fixedValue": false
     },
-    "colorOnMap": "DEFAULT",
-    "creativePickItem": {
-      "value": ""
-    },
-    "offsetType": "NONE",
-    "aiPathNodeType": "DEFAULT",
-    "flammability": 0,
-    "fireSpreadSpeed": 0,
-    "isLadder": false,
-    "slipperiness": 0.6,
-    "speedFactor": 1.0,
-    "jumpFactor": 1.0,
-    "reactionToPushing": "BLOCK",
-    "isNotColidable": false,
-    "isCustomSoundType": false,
-    "soundOnStep": {
-      "value": "STONE"
-    },
-    "breakSound": {
-      "value": ""
-    },
-    "fallSound": {
-      "value": ""
-    },
-    "hitSound": {
-      "value": ""
-    },
-    "placeSound": {
-      "value": ""
-    },
-    "stepSound": {
-      "value": ""
-    },
-    "luminance": 0,
-    "unbreakable": false,
-    "vanillaToolTier": "NONE",
-    "isBonemealable": false,
-    "hasInventory": true,
-    "guiBoundTo": "HouseIncubatorUI",
-    "openGUIOnRightClick": true,
-    "inventorySize": 41,
+    "guiBoundTo": "<NONE>",
+    "inventorySize": 9,
     "inventoryStackSize": 64,
-    "inventoryDropWhenDestroyed": true,
-    "inventoryComparatorPower": true,
-    "inventoryOutSlotIDs": [
-      0,
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      17,
-      18,
-      19,
-      20,
-      21,
-      22,
-      23,
-      24,
-      25,
-      26,
-      27,
-      28,
-      29,
-      30,
-      31,
-      32,
-      33,
-      34,
-      35,
-      36,
-      37,
-      38,
-      39,
-      40,
-      41
-    ],
-    "inventoryInSlotIDs": [
-      0,
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      17,
-      18,
-      19,
-      20,
-      21,
-      22,
-      23,
-      24,
-      25,
-      26,
-      27,
-      28,
-      29,
-      30,
-      31,
-      32,
-      33,
-      34,
-      35,
-      36,
-      37,
-      38,
-      39,
-      40,
-      41
-    ],
-    "hasEnergyStorage": false,
-    "energyInitial": 0,
-    "energyCapacity": 400000,
-    "energyMaxReceive": 200,
-    "energyMaxExtract": 200,
-    "isFluidTank": false,
-    "fluidCapacity": 8000,
-    "fluidRestrictions": [],
-    "generateFeature": false,
-    "restrictionBiomes": [],
-    "blocksToReplace": [
-      {
-        "value": "TAG:stone_ore_replaceables"
-      }
-    ],
-    "generationShape": "UNIFORM",
-    "frequencyPerChunks": 10,
-    "frequencyOnChunk": 16,
-    "minGenerateHeight": 0,
-    "maxGenerateHeight": 64
+    "enableRanged": false,
+    "shootConstantly": false,
+    "rangedItemChargesPower": false,
+    "projectile": {
+      "value": "Arrow"
+    },
+    "projectileDisableAmmoCheck": false,
+    "isFood": false,
+    "nutritionalValue": 4,
+    "saturation": 0.3,
+    "eatResultItem": {
+      "value": ""
+    },
+    "isMeat": false,
+    "isAlwaysEdible": false,
+    "animation": "none"
   }
 }

@@ -1,6 +1,6 @@
 {
   "type": "minecraft:block",
-  "random_sequence": "reign_mod:blocks/heart_of_house",
+  "random_sequence": "reign_mod:blocks/incubator",
   "pools": [
     {
       "rolls": 1.0,
@@ -12,7 +12,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "reign_mod:heart_of_house"
+          "name": "reign_mod:incubator"
         }
       ]
     }

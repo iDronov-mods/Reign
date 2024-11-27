@@ -1,11 +1,9 @@
 package net.mcreator.reignmod.procedures;
 
-import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.item.ItemStack;
@@ -18,8 +16,6 @@ import net.mcreator.reignmod.world.inventory.WalletwinMenu;
 import net.mcreator.reignmod.init.ReignModModItems;
 
 import javax.annotation.Nullable;
-
-import java.util.concurrent.atomic.AtomicReference;
 
 @Mod.EventBusSubscriber
 public class GoWalletCoinProcedure {
@@ -48,46 +44,13 @@ public class GoWalletCoinProcedure {
 			} else {
 				value = itemstack.getCount() * 4096;
 			}
-			index = 0;
-			while (index <= 35) {
-				if ((new Object() {
-					public ItemStack getItemStack(int sltid, Entity entity) {
-						AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
-						entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
-							_retval.set(capability.getStackInSlot(sltid).copy());
-						});
-						return _retval.get();
-					}
-				}.getItemStack((int) index, entity)).getItem() == ReignModModItems.WALLET.get()) {
-					wallet_copy = (new Object() {
-						public ItemStack getItemStack(int sltid, Entity entity) {
-							AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
-							entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
-								_retval.set(capability.getStackInSlot(sltid).copy());
-							});
-							return _retval.get();
-						}
-					}.getItemStack((int) index, entity));
-					if (entity instanceof Player _plr19 && _plr19.containerMenu instanceof WalletwinMenu) {
-						if (entity instanceof Player _player)
-							_player.closeContainer();
-					}
-					wallet_copy.getOrCreateTag().putDouble("amount", (value + wallet_copy.getOrCreateTag().getDouble("amount")));
-					{
-						final int _slotid = (int) index;
-						final ItemStack _setstack = wallet_copy.copy();
-						_setstack.setCount(1);
-						entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
-							if (capability instanceof IItemHandlerModifiable _modHandlerEntSetSlot)
-								_modHandlerEntSetSlot.setStackInSlot(_slotid, _setstack);
-						});
-					}
-					itemstack.setCount(0);
-					SoundGiveCoinProcedure.execute(world, x, y, z);
-					break;
-				}
-				index = index + 1;
+			if (entity instanceof Player _plr16 && _plr16.containerMenu instanceof WalletwinMenu) {
+				if (entity instanceof Player _player)
+					_player.closeContainer();
 			}
+			WalletGiveProcedure.execute(entity, value);
+			SoundGiveCoinProcedure.execute(world, x, y, z);
+			itemstack.setCount(0);
 		}
 	}
 }

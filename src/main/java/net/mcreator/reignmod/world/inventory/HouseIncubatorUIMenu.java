@@ -21,6 +21,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.reignmod.init.ReignModModMenus;
+import net.mcreator.reignmod.init.ReignModModItems;
 
 import java.util.function.Supplier;
 import java.util.Map;
@@ -80,6 +81,11 @@ public class HouseIncubatorUIMenu extends AbstractContainerMenu implements Suppl
 		}
 		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 141, -6) {
 			private final int slot = 0;
+
+			@Override
+			public boolean mayPlace(ItemStack stack) {
+				return ReignModModItems.HEART_OF_HOUSE.get() == stack.getItem();
+			}
 		}));
 		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 16, 30) {
 			private final int slot = 1;

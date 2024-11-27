@@ -1,22 +1,7 @@
 {
-  "parent": "reign_mod:block/heart_of_house",
-  "display": {
-    "thirdperson": {
-      "rotation": [
-        10,
-        -45,
-        170
-      ],
-      "translation": [
-        0,
-        1.5,
-        -2.75
-      ],
-      "scale": [
-        0.375,
-        0.375,
-        0.375
-      ]
-    }
+  "parent": "reign_mod:custom/heart",
+  "textures": {
+    "3": "reign_mod:block/heart_texture",
+    "particle": "minecraft:item/beetroot"
   }
 }

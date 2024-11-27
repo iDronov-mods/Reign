@@ -77,7 +77,7 @@ public class PrivateShopBuyerUIMenu extends AbstractContainerMenu implements Sup
 					});
 			}
 		}
-		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 44, 29) {
+		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, -19, 2) {
 			private final int slot = 0;
 
 			@Override
@@ -90,7 +90,7 @@ public class PrivateShopBuyerUIMenu extends AbstractContainerMenu implements Sup
 				return false;
 			}
 		}));
-		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 116, 29) {
+		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 44, 29) {
 			private final int slot = 1;
 
 			@Override
@@ -103,13 +103,8 @@ public class PrivateShopBuyerUIMenu extends AbstractContainerMenu implements Sup
 				return false;
 			}
 		}));
-		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, -21, 4) {
+		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 116, 29) {
 			private final int slot = 2;
-
-			@Override
-			public boolean mayPickup(Player entity) {
-				return false;
-			}
 
 			@Override
 			public boolean mayPlace(ItemStack stack) {

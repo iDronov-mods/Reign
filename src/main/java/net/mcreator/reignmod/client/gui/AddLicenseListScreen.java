@@ -22,6 +22,7 @@ public class AddLicenseListScreen extends AbstractContainerScreen<AddLicenseList
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
+	private final static HashMap<String, String> textstate = new HashMap<>();
 	Button button_fisher;
 	Button button_enchanter;
 	Button button_alchemist;
@@ -91,40 +92,40 @@ public class AddLicenseListScreen extends AbstractContainerScreen<AddLicenseList
 		super.init();
 		button_fisher = Button.builder(Component.translatable("gui.reign_mod.add_license_list.button_fisher"), e -> {
 			if (true) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new AddLicenseListButtonMessage(0, x, y, z));
-				AddLicenseListButtonMessage.handleButtonAction(entity, 0, x, y, z);
+				ReignModMod.PACKET_HANDLER.sendToServer(new AddLicenseListButtonMessage(0, x, y, z, textstate));
+				AddLicenseListButtonMessage.handleButtonAction(entity, 0, x, y, z, textstate);
 			}
 		}).bounds(this.leftPos + 56, this.topPos + 23, 77, 20).build();
 		guistate.put("button:button_fisher", button_fisher);
 		this.addRenderableWidget(button_fisher);
 		button_enchanter = Button.builder(Component.translatable("gui.reign_mod.add_license_list.button_enchanter"), e -> {
 			if (true) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new AddLicenseListButtonMessage(1, x, y, z));
-				AddLicenseListButtonMessage.handleButtonAction(entity, 1, x, y, z);
+				ReignModMod.PACKET_HANDLER.sendToServer(new AddLicenseListButtonMessage(1, x, y, z, textstate));
+				AddLicenseListButtonMessage.handleButtonAction(entity, 1, x, y, z, textstate);
 			}
 		}).bounds(this.leftPos + 56, this.topPos + 50, 77, 20).build();
 		guistate.put("button:button_enchanter", button_enchanter);
 		this.addRenderableWidget(button_enchanter);
 		button_alchemist = Button.builder(Component.translatable("gui.reign_mod.add_license_list.button_alchemist"), e -> {
 			if (true) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new AddLicenseListButtonMessage(2, x, y, z));
-				AddLicenseListButtonMessage.handleButtonAction(entity, 2, x, y, z);
+				ReignModMod.PACKET_HANDLER.sendToServer(new AddLicenseListButtonMessage(2, x, y, z, textstate));
+				AddLicenseListButtonMessage.handleButtonAction(entity, 2, x, y, z, textstate);
 			}
 		}).bounds(this.leftPos + 56, this.topPos + 77, 77, 20).build();
 		guistate.put("button:button_alchemist", button_alchemist);
 		this.addRenderableWidget(button_alchemist);
 		button_soldier = Button.builder(Component.translatable("gui.reign_mod.add_license_list.button_soldier"), e -> {
 			if (true) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new AddLicenseListButtonMessage(3, x, y, z));
-				AddLicenseListButtonMessage.handleButtonAction(entity, 3, x, y, z);
+				ReignModMod.PACKET_HANDLER.sendToServer(new AddLicenseListButtonMessage(3, x, y, z, textstate));
+				AddLicenseListButtonMessage.handleButtonAction(entity, 3, x, y, z, textstate);
 			}
 		}).bounds(this.leftPos + 56, this.topPos + 104, 77, 20).build();
 		guistate.put("button:button_soldier", button_soldier);
 		this.addRenderableWidget(button_soldier);
 		button_hunter_button = Button.builder(Component.translatable("gui.reign_mod.add_license_list.button_hunter_button"), e -> {
 			if (true) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new AddLicenseListButtonMessage(4, x, y, z));
-				AddLicenseListButtonMessage.handleButtonAction(entity, 4, x, y, z);
+				ReignModMod.PACKET_HANDLER.sendToServer(new AddLicenseListButtonMessage(4, x, y, z, textstate));
+				AddLicenseListButtonMessage.handleButtonAction(entity, 4, x, y, z, textstate);
 			}
 		}).bounds(this.leftPos + 56, this.topPos + 131, 77, 20).build();
 		guistate.put("button:button_hunter_button", button_hunter_button);

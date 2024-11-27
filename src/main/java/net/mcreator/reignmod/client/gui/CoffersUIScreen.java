@@ -19,6 +19,7 @@ public class CoffersUIScreen extends AbstractContainerScreen<CoffersUIMenu> {
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
+	private final static HashMap<String, String> textstate = new HashMap<>();
 
 	public CoffersUIScreen(CoffersUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -60,6 +61,10 @@ public class CoffersUIScreen extends AbstractContainerScreen<CoffersUIMenu> {
 		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/platinum_coin.png"), this.leftPos + 26, this.topPos + 53, 0, 0, 16, 16, 16, 16);
 
 		RenderSystem.disableBlend();
+	}
+
+	public static HashMap<String, String> getTextboxValues() {
+		return textstate;
 	}
 
 	@Override

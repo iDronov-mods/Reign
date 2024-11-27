@@ -19,6 +19,7 @@ public class KingtableUIScreen extends AbstractContainerScreen<KingtableUIMenu> 
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
+	private final static HashMap<String, String> textstate = new HashMap<>();
 
 	public KingtableUIScreen(KingtableUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -51,6 +52,10 @@ public class KingtableUIScreen extends AbstractContainerScreen<KingtableUIMenu> 
 		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/crown.png"), this.leftPos + 152, this.topPos + -13, 0, 0, 16, 16, 16, 16);
 
 		RenderSystem.disableBlend();
+	}
+
+	public static HashMap<String, String> getTextboxValues() {
+		return textstate;
 	}
 
 	@Override

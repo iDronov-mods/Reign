@@ -8,6 +8,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
@@ -16,24 +17,29 @@ import net.mcreator.reignmod.procedures.BackSheetProcedure;
 import net.mcreator.reignmod.ReignModMod;
 
 import java.util.function.Supplier;
+import java.util.Map;
 import java.util.HashMap;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BetaTextbook2ButtonMessage {
 	private final int buttonID, x, y, z;
+	private HashMap<String, String> textstate;
 
 	public BetaTextbook2ButtonMessage(FriendlyByteBuf buffer) {
 		this.buttonID = buffer.readInt();
 		this.x = buffer.readInt();
 		this.y = buffer.readInt();
 		this.z = buffer.readInt();
+		this.textstate = readTextState(buffer);
 	}
 
-	public BetaTextbook2ButtonMessage(int buttonID, int x, int y, int z) {
+	public BetaTextbook2ButtonMessage(int buttonID, int x, int y, int z, HashMap<String, String> textstate) {
 		this.buttonID = buttonID;
 		this.x = x;
 		this.y = y;
 		this.z = z;
+		this.textstate = textstate;
+
 	}
 
 	public static void buffer(BetaTextbook2ButtonMessage message, FriendlyByteBuf buffer) {
@@ -41,6 +47,7 @@ public class BetaTextbook2ButtonMessage {
 		buffer.writeInt(message.x);
 		buffer.writeInt(message.y);
 		buffer.writeInt(message.z);
+		writeTextState(message.textstate, buffer);
 	}
 
 	public static void handler(BetaTextbook2ButtonMessage message, Supplier<NetworkEvent.Context> contextSupplier) {
@@ -51,14 +58,20 @@ public class BetaTextbook2ButtonMessage {
 			int x = message.x;
 			int y = message.y;
 			int z = message.z;
-			handleButtonAction(entity, buttonID, x, y, z);
+			HashMap<String, String> textstate = message.textstate;
+			handleButtonAction(entity, buttonID, x, y, z, textstate);
 		});
 		context.setPacketHandled(true);
 	}
 
-	public static void handleButtonAction(Player entity, int buttonID, int x, int y, int z) {
+	public static void handleButtonAction(Player entity, int buttonID, int x, int y, int z, HashMap<String, String> textstate) {
 		Level world = entity.level();
 		HashMap guistate = BetaTextbook2Menu.guistate;
+		for (Map.Entry<String, String> entry : textstate.entrySet()) {
+			String key = entry.getKey();
+			String value = entry.getValue();
+			guistate.put(key, value);
+		}
 		// security measure to prevent arbitrary chunk generation
 		if (!world.hasChunkAt(new BlockPos(x, y, z)))
 			return;
@@ -71,5 +84,24 @@ public class BetaTextbook2ButtonMessage {
 	@SubscribeEvent
 	public static void registerMessage(FMLCommonSetupEvent event) {
 		ReignModMod.addNetworkMessage(BetaTextbook2ButtonMessage.class, BetaTextbook2ButtonMessage::buffer, BetaTextbook2ButtonMessage::new, BetaTextbook2ButtonMessage::handler);
+	}
+
+	public static void writeTextState(HashMap<String, String> map, FriendlyByteBuf buffer) {
+		buffer.writeInt(map.size());
+		for (Map.Entry<String, String> entry : map.entrySet()) {
+			buffer.writeComponent(Component.literal(entry.getKey()));
+			buffer.writeComponent(Component.literal(entry.getValue()));
+		}
+	}
+
+	public static HashMap<String, String> readTextState(FriendlyByteBuf buffer) {
+		int size = buffer.readInt();
+		HashMap<String, String> map = new HashMap<>();
+		for (int i = 0; i < size; i++) {
+			String key = buffer.readComponent().getString();
+			String value = buffer.readComponent().getString();
+			map.put(key, value);
+		}
+		return map;
 	}
 }

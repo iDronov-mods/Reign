@@ -19,6 +19,7 @@ public class TextbookmainScreen extends AbstractContainerScreen<TextbookmainMenu
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
+	private final static HashMap<String, String> textstate = new HashMap<>();
 
 	public TextbookmainScreen(TextbookmainMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);

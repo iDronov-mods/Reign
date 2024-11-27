@@ -20,6 +20,7 @@ public class Textbook1Screen extends AbstractContainerScreen<Textbook1Menu> {
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
+	private final static HashMap<String, String> textstate = new HashMap<>();
 	Button button_next;
 	Button button_back;
 

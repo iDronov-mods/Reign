@@ -77,8 +77,8 @@
             "fixedValue": true
           },
           "dropItemsWhenNotBound": false,
-          "x": 169,
-          "y": 65
+          "x": 106,
+          "y": 38
         }
       },
       {
@@ -104,7 +104,7 @@
             "fixedValue": true
           },
           "dropItemsWhenNotBound": true,
-          "x": 241,
+          "x": 169,
           "y": 65
         }
       },
@@ -177,11 +177,11 @@
         "data": {
           "id": 2,
           "disablePickup": {
-            "fixedValue": true
+            "fixedValue": false
           },
           "dropItemsWhenNotBound": false,
-          "x": 104,
-          "y": 40
+          "x": 241,
+          "y": 65
         }
       }
     ],

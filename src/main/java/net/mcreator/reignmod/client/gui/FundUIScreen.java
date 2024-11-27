@@ -19,6 +19,7 @@ import net.mcreator.reignmod.procedures.ReturnEra3Procedure;
 import net.mcreator.reignmod.procedures.ReturnEra2Procedure;
 import net.mcreator.reignmod.procedures.ReturnEra1Procedure;
 import net.mcreator.reignmod.procedures.ReturnEra10Procedure;
+import net.mcreator.reignmod.ReignModMod;
 
 import java.util.HashMap;
 
@@ -29,6 +30,7 @@ public class FundUIScreen extends AbstractContainerScreen<FundUIMenu> {
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
+	private final static HashMap<String, String> textstate = new HashMap<>();
 
 	public FundUIScreen(FundUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -115,6 +117,10 @@ public class FundUIScreen extends AbstractContainerScreen<FundUIMenu> {
 		RenderSystem.disableBlend();
 	}
 
+	public static HashMap<String, String> getTextboxValues() {
+		return textstate;
+	}
+
 	@Override
 	public boolean keyPressed(int key, int b, int c) {
 		if (key == 256) {
@@ -122,6 +128,13 @@ public class FundUIScreen extends AbstractContainerScreen<FundUIMenu> {
 			return true;
 		}
 		return super.keyPressed(key, b, c);
+	}
+
+	@Override
+	public void containerTick() {
+		super.containerTick();
+		ReignModMod.PACKET_HANDLER.sendToServer(new FundUIMenu.FundUIOtherMessage(0, x, y, z, textstate));
+		FundUIMenu.FundUIOtherMessage.handleOtherAction(entity, 0, x, y, z, textstate);
 	}
 
 	@Override

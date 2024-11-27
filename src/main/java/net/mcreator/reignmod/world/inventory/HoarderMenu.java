@@ -21,6 +21,7 @@ import net.minecraft.core.BlockPos;
 
 import net.mcreator.reignmod.network.HoarderSlotMessage;
 import net.mcreator.reignmod.init.ReignModModMenus;
+import net.mcreator.reignmod.client.gui.HoarderScreen;
 import net.mcreator.reignmod.ReignModMod;
 
 import java.util.function.Supplier;
@@ -248,8 +249,8 @@ public class HoarderMenu extends AbstractContainerMenu implements Supplier<Map<I
 
 	private void slotChanged(int slotid, int ctype, int meta) {
 		if (this.world != null && this.world.isClientSide()) {
-			ReignModMod.PACKET_HANDLER.sendToServer(new HoarderSlotMessage(slotid, x, y, z, ctype, meta));
-			HoarderSlotMessage.handleSlotAction(entity, slotid, ctype, meta, x, y, z);
+			ReignModMod.PACKET_HANDLER.sendToServer(new HoarderSlotMessage(slotid, x, y, z, ctype, meta, HoarderScreen.getTextboxValues()));
+			HoarderSlotMessage.handleSlotAction(entity, slotid, ctype, meta, x, y, z, HoarderScreen.getTextboxValues());
 		}
 	}
 

@@ -24,13 +24,14 @@ public class RoyaleSettingsScreen extends AbstractContainerScreen<RoyaleSettings
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
-	EditBox logs_textfield;
-	EditBox tools_textfield;
-	EditBox armor_textfield;
-	EditBox food_textfield;
-	EditBox coal_textfield;
-	EditBox ores_textfield;
-	EditBox other_textfield;
+	private final static HashMap<String, String> textstate = new HashMap<>();
+	public static EditBox logs_textfield;
+	public static EditBox tools_textfield;
+	public static EditBox armor_textfield;
+	public static EditBox food_textfield;
+	public static EditBox coal_textfield;
+	public static EditBox ores_textfield;
+	public static EditBox other_textfield;
 	ImageButton imagebutton_but_up;
 	ImageButton imagebutton_but_down;
 	ImageButton imagebutton_but_up1;
@@ -134,6 +135,15 @@ public class RoyaleSettingsScreen extends AbstractContainerScreen<RoyaleSettings
 		coal_textfield.tick();
 		ores_textfield.tick();
 		other_textfield.tick();
+		textstate.put("textin:logs_textfield", logs_textfield.getValue());
+		textstate.put("textin:tools_textfield", tools_textfield.getValue());
+		textstate.put("textin:armor_textfield", armor_textfield.getValue());
+		textstate.put("textin:food_textfield", food_textfield.getValue());
+		textstate.put("textin:coal_textfield", coal_textfield.getValue());
+		textstate.put("textin:ores_textfield", ores_textfield.getValue());
+		textstate.put("textin:other_textfield", other_textfield.getValue());
+		ReignModMod.PACKET_HANDLER.sendToServer(new RoyaleSettingsMenu.RoyaleSettingsOtherMessage(0, x, y, z, textstate));
+		RoyaleSettingsMenu.RoyaleSettingsOtherMessage.handleOtherAction(entity, 0, x, y, z, textstate);
 	}
 
 	@Override
@@ -201,112 +211,210 @@ public class RoyaleSettingsScreen extends AbstractContainerScreen<RoyaleSettings
 		this.addWidget(this.other_textfield);
 		imagebutton_but_up = new ImageButton(this.leftPos + 197, this.topPos + 16, 16, 16, 0, 0, 16, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_but_up.png"), 16, 32, e -> {
 			if (true) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new RoyaleSettingsButtonMessage(0, x, y, z));
-				RoyaleSettingsButtonMessage.handleButtonAction(entity, 0, x, y, z);
+				textstate.put("textin:logs_textfield", logs_textfield.getValue());
+				textstate.put("textin:tools_textfield", tools_textfield.getValue());
+				textstate.put("textin:armor_textfield", armor_textfield.getValue());
+				textstate.put("textin:food_textfield", food_textfield.getValue());
+				textstate.put("textin:coal_textfield", coal_textfield.getValue());
+				textstate.put("textin:ores_textfield", ores_textfield.getValue());
+				textstate.put("textin:other_textfield", other_textfield.getValue());
+				ReignModMod.PACKET_HANDLER.sendToServer(new RoyaleSettingsButtonMessage(0, x, y, z, textstate));
+				RoyaleSettingsButtonMessage.handleButtonAction(entity, 0, x, y, z, textstate);
 			}
 		});
 		guistate.put("button:imagebutton_but_up", imagebutton_but_up);
 		this.addRenderableWidget(imagebutton_but_up);
 		imagebutton_but_down = new ImageButton(this.leftPos + 215, this.topPos + 16, 16, 16, 0, 0, 16, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_but_down.png"), 16, 32, e -> {
 			if (true) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new RoyaleSettingsButtonMessage(1, x, y, z));
-				RoyaleSettingsButtonMessage.handleButtonAction(entity, 1, x, y, z);
+				textstate.put("textin:logs_textfield", logs_textfield.getValue());
+				textstate.put("textin:tools_textfield", tools_textfield.getValue());
+				textstate.put("textin:armor_textfield", armor_textfield.getValue());
+				textstate.put("textin:food_textfield", food_textfield.getValue());
+				textstate.put("textin:coal_textfield", coal_textfield.getValue());
+				textstate.put("textin:ores_textfield", ores_textfield.getValue());
+				textstate.put("textin:other_textfield", other_textfield.getValue());
+				ReignModMod.PACKET_HANDLER.sendToServer(new RoyaleSettingsButtonMessage(1, x, y, z, textstate));
+				RoyaleSettingsButtonMessage.handleButtonAction(entity, 1, x, y, z, textstate);
 			}
 		});
 		guistate.put("button:imagebutton_but_down", imagebutton_but_down);
 		this.addRenderableWidget(imagebutton_but_down);
 		imagebutton_but_up1 = new ImageButton(this.leftPos + 197, this.topPos + 36, 16, 16, 0, 0, 16, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_but_up1.png"), 16, 32, e -> {
 			if (true) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new RoyaleSettingsButtonMessage(2, x, y, z));
-				RoyaleSettingsButtonMessage.handleButtonAction(entity, 2, x, y, z);
+				textstate.put("textin:logs_textfield", logs_textfield.getValue());
+				textstate.put("textin:tools_textfield", tools_textfield.getValue());
+				textstate.put("textin:armor_textfield", armor_textfield.getValue());
+				textstate.put("textin:food_textfield", food_textfield.getValue());
+				textstate.put("textin:coal_textfield", coal_textfield.getValue());
+				textstate.put("textin:ores_textfield", ores_textfield.getValue());
+				textstate.put("textin:other_textfield", other_textfield.getValue());
+				ReignModMod.PACKET_HANDLER.sendToServer(new RoyaleSettingsButtonMessage(2, x, y, z, textstate));
+				RoyaleSettingsButtonMessage.handleButtonAction(entity, 2, x, y, z, textstate);
 			}
 		});
 		guistate.put("button:imagebutton_but_up1", imagebutton_but_up1);
 		this.addRenderableWidget(imagebutton_but_up1);
 		imagebutton_but_down1 = new ImageButton(this.leftPos + 215, this.topPos + 36, 16, 16, 0, 0, 16, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_but_down1.png"), 16, 32, e -> {
 			if (true) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new RoyaleSettingsButtonMessage(3, x, y, z));
-				RoyaleSettingsButtonMessage.handleButtonAction(entity, 3, x, y, z);
+				textstate.put("textin:logs_textfield", logs_textfield.getValue());
+				textstate.put("textin:tools_textfield", tools_textfield.getValue());
+				textstate.put("textin:armor_textfield", armor_textfield.getValue());
+				textstate.put("textin:food_textfield", food_textfield.getValue());
+				textstate.put("textin:coal_textfield", coal_textfield.getValue());
+				textstate.put("textin:ores_textfield", ores_textfield.getValue());
+				textstate.put("textin:other_textfield", other_textfield.getValue());
+				ReignModMod.PACKET_HANDLER.sendToServer(new RoyaleSettingsButtonMessage(3, x, y, z, textstate));
+				RoyaleSettingsButtonMessage.handleButtonAction(entity, 3, x, y, z, textstate);
 			}
 		});
 		guistate.put("button:imagebutton_but_down1", imagebutton_but_down1);
 		this.addRenderableWidget(imagebutton_but_down1);
 		imagebutton_but_up2 = new ImageButton(this.leftPos + 197, this.topPos + 56, 16, 16, 0, 0, 16, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_but_up2.png"), 16, 32, e -> {
 			if (true) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new RoyaleSettingsButtonMessage(4, x, y, z));
-				RoyaleSettingsButtonMessage.handleButtonAction(entity, 4, x, y, z);
+				textstate.put("textin:logs_textfield", logs_textfield.getValue());
+				textstate.put("textin:tools_textfield", tools_textfield.getValue());
+				textstate.put("textin:armor_textfield", armor_textfield.getValue());
+				textstate.put("textin:food_textfield", food_textfield.getValue());
+				textstate.put("textin:coal_textfield", coal_textfield.getValue());
+				textstate.put("textin:ores_textfield", ores_textfield.getValue());
+				textstate.put("textin:other_textfield", other_textfield.getValue());
+				ReignModMod.PACKET_HANDLER.sendToServer(new RoyaleSettingsButtonMessage(4, x, y, z, textstate));
+				RoyaleSettingsButtonMessage.handleButtonAction(entity, 4, x, y, z, textstate);
 			}
 		});
 		guistate.put("button:imagebutton_but_up2", imagebutton_but_up2);
 		this.addRenderableWidget(imagebutton_but_up2);
 		imagebutton_but_down2 = new ImageButton(this.leftPos + 215, this.topPos + 56, 16, 16, 0, 0, 16, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_but_down2.png"), 16, 32, e -> {
 			if (true) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new RoyaleSettingsButtonMessage(5, x, y, z));
-				RoyaleSettingsButtonMessage.handleButtonAction(entity, 5, x, y, z);
+				textstate.put("textin:logs_textfield", logs_textfield.getValue());
+				textstate.put("textin:tools_textfield", tools_textfield.getValue());
+				textstate.put("textin:armor_textfield", armor_textfield.getValue());
+				textstate.put("textin:food_textfield", food_textfield.getValue());
+				textstate.put("textin:coal_textfield", coal_textfield.getValue());
+				textstate.put("textin:ores_textfield", ores_textfield.getValue());
+				textstate.put("textin:other_textfield", other_textfield.getValue());
+				ReignModMod.PACKET_HANDLER.sendToServer(new RoyaleSettingsButtonMessage(5, x, y, z, textstate));
+				RoyaleSettingsButtonMessage.handleButtonAction(entity, 5, x, y, z, textstate);
 			}
 		});
 		guistate.put("button:imagebutton_but_down2", imagebutton_but_down2);
 		this.addRenderableWidget(imagebutton_but_down2);
 		imagebutton_but_up3 = new ImageButton(this.leftPos + 197, this.topPos + 76, 16, 16, 0, 0, 16, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_but_up3.png"), 16, 32, e -> {
 			if (true) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new RoyaleSettingsButtonMessage(6, x, y, z));
-				RoyaleSettingsButtonMessage.handleButtonAction(entity, 6, x, y, z);
+				textstate.put("textin:logs_textfield", logs_textfield.getValue());
+				textstate.put("textin:tools_textfield", tools_textfield.getValue());
+				textstate.put("textin:armor_textfield", armor_textfield.getValue());
+				textstate.put("textin:food_textfield", food_textfield.getValue());
+				textstate.put("textin:coal_textfield", coal_textfield.getValue());
+				textstate.put("textin:ores_textfield", ores_textfield.getValue());
+				textstate.put("textin:other_textfield", other_textfield.getValue());
+				ReignModMod.PACKET_HANDLER.sendToServer(new RoyaleSettingsButtonMessage(6, x, y, z, textstate));
+				RoyaleSettingsButtonMessage.handleButtonAction(entity, 6, x, y, z, textstate);
 			}
 		});
 		guistate.put("button:imagebutton_but_up3", imagebutton_but_up3);
 		this.addRenderableWidget(imagebutton_but_up3);
 		imagebutton_but_down3 = new ImageButton(this.leftPos + 215, this.topPos + 76, 16, 16, 0, 0, 16, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_but_down3.png"), 16, 32, e -> {
 			if (true) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new RoyaleSettingsButtonMessage(7, x, y, z));
-				RoyaleSettingsButtonMessage.handleButtonAction(entity, 7, x, y, z);
+				textstate.put("textin:logs_textfield", logs_textfield.getValue());
+				textstate.put("textin:tools_textfield", tools_textfield.getValue());
+				textstate.put("textin:armor_textfield", armor_textfield.getValue());
+				textstate.put("textin:food_textfield", food_textfield.getValue());
+				textstate.put("textin:coal_textfield", coal_textfield.getValue());
+				textstate.put("textin:ores_textfield", ores_textfield.getValue());
+				textstate.put("textin:other_textfield", other_textfield.getValue());
+				ReignModMod.PACKET_HANDLER.sendToServer(new RoyaleSettingsButtonMessage(7, x, y, z, textstate));
+				RoyaleSettingsButtonMessage.handleButtonAction(entity, 7, x, y, z, textstate);
 			}
 		});
 		guistate.put("button:imagebutton_but_down3", imagebutton_but_down3);
 		this.addRenderableWidget(imagebutton_but_down3);
 		imagebutton_but_up4 = new ImageButton(this.leftPos + 197, this.topPos + 96, 16, 16, 0, 0, 16, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_but_up4.png"), 16, 32, e -> {
 			if (true) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new RoyaleSettingsButtonMessage(8, x, y, z));
-				RoyaleSettingsButtonMessage.handleButtonAction(entity, 8, x, y, z);
+				textstate.put("textin:logs_textfield", logs_textfield.getValue());
+				textstate.put("textin:tools_textfield", tools_textfield.getValue());
+				textstate.put("textin:armor_textfield", armor_textfield.getValue());
+				textstate.put("textin:food_textfield", food_textfield.getValue());
+				textstate.put("textin:coal_textfield", coal_textfield.getValue());
+				textstate.put("textin:ores_textfield", ores_textfield.getValue());
+				textstate.put("textin:other_textfield", other_textfield.getValue());
+				ReignModMod.PACKET_HANDLER.sendToServer(new RoyaleSettingsButtonMessage(8, x, y, z, textstate));
+				RoyaleSettingsButtonMessage.handleButtonAction(entity, 8, x, y, z, textstate);
 			}
 		});
 		guistate.put("button:imagebutton_but_up4", imagebutton_but_up4);
 		this.addRenderableWidget(imagebutton_but_up4);
 		imagebutton_but_down4 = new ImageButton(this.leftPos + 215, this.topPos + 96, 16, 16, 0, 0, 16, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_but_down4.png"), 16, 32, e -> {
 			if (true) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new RoyaleSettingsButtonMessage(9, x, y, z));
-				RoyaleSettingsButtonMessage.handleButtonAction(entity, 9, x, y, z);
+				textstate.put("textin:logs_textfield", logs_textfield.getValue());
+				textstate.put("textin:tools_textfield", tools_textfield.getValue());
+				textstate.put("textin:armor_textfield", armor_textfield.getValue());
+				textstate.put("textin:food_textfield", food_textfield.getValue());
+				textstate.put("textin:coal_textfield", coal_textfield.getValue());
+				textstate.put("textin:ores_textfield", ores_textfield.getValue());
+				textstate.put("textin:other_textfield", other_textfield.getValue());
+				ReignModMod.PACKET_HANDLER.sendToServer(new RoyaleSettingsButtonMessage(9, x, y, z, textstate));
+				RoyaleSettingsButtonMessage.handleButtonAction(entity, 9, x, y, z, textstate);
 			}
 		});
 		guistate.put("button:imagebutton_but_down4", imagebutton_but_down4);
 		this.addRenderableWidget(imagebutton_but_down4);
 		imagebutton_but_up5 = new ImageButton(this.leftPos + 197, this.topPos + 116, 16, 16, 0, 0, 16, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_but_up5.png"), 16, 32, e -> {
 			if (true) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new RoyaleSettingsButtonMessage(10, x, y, z));
-				RoyaleSettingsButtonMessage.handleButtonAction(entity, 10, x, y, z);
+				textstate.put("textin:logs_textfield", logs_textfield.getValue());
+				textstate.put("textin:tools_textfield", tools_textfield.getValue());
+				textstate.put("textin:armor_textfield", armor_textfield.getValue());
+				textstate.put("textin:food_textfield", food_textfield.getValue());
+				textstate.put("textin:coal_textfield", coal_textfield.getValue());
+				textstate.put("textin:ores_textfield", ores_textfield.getValue());
+				textstate.put("textin:other_textfield", other_textfield.getValue());
+				ReignModMod.PACKET_HANDLER.sendToServer(new RoyaleSettingsButtonMessage(10, x, y, z, textstate));
+				RoyaleSettingsButtonMessage.handleButtonAction(entity, 10, x, y, z, textstate);
 			}
 		});
 		guistate.put("button:imagebutton_but_up5", imagebutton_but_up5);
 		this.addRenderableWidget(imagebutton_but_up5);
 		imagebutton_but_down5 = new ImageButton(this.leftPos + 215, this.topPos + 116, 16, 16, 0, 0, 16, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_but_down5.png"), 16, 32, e -> {
 			if (true) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new RoyaleSettingsButtonMessage(11, x, y, z));
-				RoyaleSettingsButtonMessage.handleButtonAction(entity, 11, x, y, z);
+				textstate.put("textin:logs_textfield", logs_textfield.getValue());
+				textstate.put("textin:tools_textfield", tools_textfield.getValue());
+				textstate.put("textin:armor_textfield", armor_textfield.getValue());
+				textstate.put("textin:food_textfield", food_textfield.getValue());
+				textstate.put("textin:coal_textfield", coal_textfield.getValue());
+				textstate.put("textin:ores_textfield", ores_textfield.getValue());
+				textstate.put("textin:other_textfield", other_textfield.getValue());
+				ReignModMod.PACKET_HANDLER.sendToServer(new RoyaleSettingsButtonMessage(11, x, y, z, textstate));
+				RoyaleSettingsButtonMessage.handleButtonAction(entity, 11, x, y, z, textstate);
 			}
 		});
 		guistate.put("button:imagebutton_but_down5", imagebutton_but_down5);
 		this.addRenderableWidget(imagebutton_but_down5);
 		imagebutton_but_up6 = new ImageButton(this.leftPos + 197, this.topPos + 136, 16, 16, 0, 0, 16, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_but_up6.png"), 16, 32, e -> {
 			if (true) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new RoyaleSettingsButtonMessage(12, x, y, z));
-				RoyaleSettingsButtonMessage.handleButtonAction(entity, 12, x, y, z);
+				textstate.put("textin:logs_textfield", logs_textfield.getValue());
+				textstate.put("textin:tools_textfield", tools_textfield.getValue());
+				textstate.put("textin:armor_textfield", armor_textfield.getValue());
+				textstate.put("textin:food_textfield", food_textfield.getValue());
+				textstate.put("textin:coal_textfield", coal_textfield.getValue());
+				textstate.put("textin:ores_textfield", ores_textfield.getValue());
+				textstate.put("textin:other_textfield", other_textfield.getValue());
+				ReignModMod.PACKET_HANDLER.sendToServer(new RoyaleSettingsButtonMessage(12, x, y, z, textstate));
+				RoyaleSettingsButtonMessage.handleButtonAction(entity, 12, x, y, z, textstate);
 			}
 		});
 		guistate.put("button:imagebutton_but_up6", imagebutton_but_up6);
 		this.addRenderableWidget(imagebutton_but_up6);
 		imagebutton_but_down6 = new ImageButton(this.leftPos + 215, this.topPos + 136, 16, 16, 0, 0, 16, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_but_down6.png"), 16, 32, e -> {
 			if (true) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new RoyaleSettingsButtonMessage(13, x, y, z));
-				RoyaleSettingsButtonMessage.handleButtonAction(entity, 13, x, y, z);
+				textstate.put("textin:logs_textfield", logs_textfield.getValue());
+				textstate.put("textin:tools_textfield", tools_textfield.getValue());
+				textstate.put("textin:armor_textfield", armor_textfield.getValue());
+				textstate.put("textin:food_textfield", food_textfield.getValue());
+				textstate.put("textin:coal_textfield", coal_textfield.getValue());
+				textstate.put("textin:ores_textfield", ores_textfield.getValue());
+				textstate.put("textin:other_textfield", other_textfield.getValue());
+				ReignModMod.PACKET_HANDLER.sendToServer(new RoyaleSettingsButtonMessage(13, x, y, z, textstate));
+				RoyaleSettingsButtonMessage.handleButtonAction(entity, 13, x, y, z, textstate);
 			}
 		});
 		guistate.put("button:imagebutton_but_down6", imagebutton_but_down6);

@@ -19,6 +19,7 @@ public class HoarderScreen extends AbstractContainerScreen<HoarderMenu> {
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
+	private final static HashMap<String, String> textstate = new HashMap<>();
 
 	public HoarderScreen(HoarderMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -56,6 +57,10 @@ public class HoarderScreen extends AbstractContainerScreen<HoarderMenu> {
 		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/copper_coin.png"), this.leftPos + 108, this.topPos + 42, 0, 0, 16, 16, 16, 16);
 
 		RenderSystem.disableBlend();
+	}
+
+	public static HashMap<String, String> getTextboxValues() {
+		return textstate;
 	}
 
 	@Override
