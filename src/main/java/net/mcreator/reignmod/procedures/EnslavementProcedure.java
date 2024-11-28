@@ -10,6 +10,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.sounds.SoundSource;
@@ -48,7 +49,7 @@ public class EnslavementProcedure {
 					if ((sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() instanceof ShovelItem
 							&& (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == ItemStack.EMPTY.getItem()) {
 						if (entity.getXRot() >= 70 && entity.isShiftKeyDown()) {
-							if (HouseManager.pushPlayerToDomain(sourceentity)) {
+							if (HouseManager.pushPlayerToDomain((Player) sourceentity)) {
 								{
 									String _setval = sourceentity.getStringUUID();
 									entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
@@ -56,9 +57,10 @@ public class EnslavementProcedure {
 										capability.syncPlayerVariables(entity);
 									});
 								}
+								HouseManager.playerPrefixSynchronize((Player) entity);
 								if (!world.isClientSide() && world.getServer() != null)
 									world.getServer().getPlayerList()
-											.broadcastSystemMessage(Component.literal((entity.getDisplayName().getString() + "" + Component.translatable("knighting").getString() + HouseManager.getPlayerDomainTitle(sourceentity))), false);
+											.broadcastSystemMessage(Component.literal((entity.getDisplayName().getString() + "" + Component.translatable("knighting").getString() + HouseManager.getPlayerDomainTitle((Player) sourceentity))), false);
 								if (world instanceof Level _level) {
 									if (!_level.isClientSide()) {
 										_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.cow.hurt")), SoundSource.NEUTRAL, 1, 1);

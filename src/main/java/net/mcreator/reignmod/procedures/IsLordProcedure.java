@@ -2,6 +2,7 @@ package net.mcreator.reignmod.procedures;
 
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerLevel;
 
@@ -18,7 +19,7 @@ public class IsLordProcedure {
 			LevelAccessor _worldorig = world;
 			world = _origLevel.getServer().getLevel(Level.OVERWORLD);
 			if (world != null) {
-				isLord = HouseManager.isPlayerLord(player);
+				isLord = HouseManager.isPlayerLord((Player) player);
 			}
 			world = _worldorig;
 		}

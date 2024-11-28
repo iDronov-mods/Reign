@@ -16,7 +16,8 @@
     "HopperBlockMixin",
     "PlayerSetNameMixin",
     "ChestLockMixin",
-    "BarrelLockMixin"
+    "BarrelLockMixin",
+    "TabListNameFormatMixin"
   ],
   "client": [],
   "minVersion": "0.8"

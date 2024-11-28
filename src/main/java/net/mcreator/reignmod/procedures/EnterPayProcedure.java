@@ -36,6 +36,7 @@ public class EnterPayProcedure {
 		if (entity == null)
 			return;
 		double value = 0;
+		HouseManager.playerPrefixSynchronize((Player) entity);
 		if (IsKingProcedure.execute(world, entity)) {
 			if (!world.isClientSide() && world.getServer() != null)
 				world.getServer().getPlayerList().broadcastSystemMessage(Component.literal((Component.translatable("KingOnline").getString())), false);
@@ -69,19 +70,19 @@ public class EnterPayProcedure {
 						+ new java.text.DecimalFormat("##").format((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline))), false);
 			if (IsKingProcedure.execute(world, entity)) {
 				value = HouseManager.getHousesCount() * 256
-						+ HouseManager.getHousePlayerCount(entity) * 16 * (1 + 0.05 * (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline);
+						+ HouseManager.getHousePlayerCount((Player) entity) * 16 * (1 + 0.05 * (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline);
 				WalletGiveProcedure.execute(entity, value);
 				if (entity instanceof Player _player && !_player.level().isClientSide())
 					_player.displayClientMessage(Component.literal((Component.translatable("pay_king").getString() + " \u00A7l" + new java.text.DecimalFormat("##").format(value) + "\u00A7r " + Component.translatable("copper_coins_pay").getString())),
 							false);
 			} else if (IsLordProcedure.execute(world, entity)) {
-				value = HouseManager.getHousePlayerCount(entity) * 16 * (1 + 0.05 * (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline);
+				value = HouseManager.getHousePlayerCount((Player) entity) * 16 * (1 + 0.05 * (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline);
 				WalletGiveProcedure.execute(entity, value);
 				if (entity instanceof Player _player && !_player.level().isClientSide())
 					_player.displayClientMessage(Component.literal((Component.translatable("pay_lord").getString() + " \u00A7l" + new java.text.DecimalFormat("##").format(value) + "\u00A7r " + Component.translatable("copper_coins_pay").getString())),
 							false);
 			} else if (IsKnightProcedure.execute(world, entity)) {
-				value = HouseManager.getDomainPlayerCount(entity) * 16 * (1 + 0.05 * (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline);
+				value = HouseManager.getDomainPlayerCount((Player) entity) * 16 * (1 + 0.05 * (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline);
 				WalletGiveProcedure.execute(entity, value);
 				if (entity instanceof Player _player && !_player.level().isClientSide())
 					_player.displayClientMessage(

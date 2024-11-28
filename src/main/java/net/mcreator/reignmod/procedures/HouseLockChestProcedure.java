@@ -51,7 +51,7 @@ public class HouseLockChestProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getPersistentData().putString("owner", HouseManager.getPlayerHouseLord(entity));
+							_blockEntity.getPersistentData().putString("owner", HouseManager.getPlayerHouseLord((Player) entity));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -60,7 +60,7 @@ public class HouseLockChestProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getPersistentData().putString("owner_name", (HouseManager.getPlayerHouseColorCode(entity) + "" + HouseManager.getPlayerHouseTitle(entity)));
+							_blockEntity.getPersistentData().putString("owner_name", (HouseManager.getPlayerHouseColorCode((Player) entity) + "" + HouseManager.getPlayerHouseTitle((Player) entity)));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}

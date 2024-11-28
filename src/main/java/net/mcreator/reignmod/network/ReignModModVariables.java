@@ -97,6 +97,7 @@ public class ReignModModVariables {
 			clone.license_cowboy = original.license_cowboy;
 			clone.license_hunter = original.license_hunter;
 			clone.house = original.house;
+			clone.player_prefix = original.player_prefix;
 			if (!event.isWasDeath()) {
 			}
 		}
@@ -369,6 +370,7 @@ public class ReignModModVariables {
 		public boolean license_cowboy = false;
 		public boolean license_hunter = false;
 		public String house = "";
+		public String player_prefix = "";
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayer serverPlayer)
@@ -402,6 +404,7 @@ public class ReignModModVariables {
 			nbt.putBoolean("license_cowboy", license_cowboy);
 			nbt.putBoolean("license_hunter", license_hunter);
 			nbt.putString("house", house);
+			nbt.putString("player_prefix", player_prefix);
 			return nbt;
 		}
 
@@ -432,6 +435,7 @@ public class ReignModModVariables {
 			license_cowboy = nbt.getBoolean("license_cowboy");
 			license_hunter = nbt.getBoolean("license_hunter");
 			house = nbt.getString("house");
+			player_prefix = nbt.getString("player_prefix");
 		}
 	}
 
@@ -481,6 +485,7 @@ public class ReignModModVariables {
 					variables.license_cowboy = message.data.license_cowboy;
 					variables.license_hunter = message.data.license_hunter;
 					variables.house = message.data.house;
+					variables.player_prefix = message.data.player_prefix;
 				}
 			});
 			context.setPacketHandled(true);

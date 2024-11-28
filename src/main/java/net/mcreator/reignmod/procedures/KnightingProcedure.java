@@ -9,6 +9,7 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.tags.ItemTags;
@@ -51,7 +52,7 @@ public class KnightingProcedure {
 					if ((sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).is(ItemTags.create(new ResourceLocation("minecraft:swords")))
 							&& (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == ItemStack.EMPTY.getItem()) {
 						if (entity.getXRot() >= 70 && entity.isShiftKeyDown()) {
-							if (HouseManager.createDomain(sourceentity, entity)) {
+							if (HouseManager.createDomain((Player) sourceentity, (Player) entity)) {
 								{
 									String _setval = sourceentity.getStringUUID();
 									entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
@@ -59,9 +60,10 @@ public class KnightingProcedure {
 										capability.syncPlayerVariables(entity);
 									});
 								}
+								HouseManager.playerPrefixSynchronize((Player) entity);
 								if (!world.isClientSide() && world.getServer() != null)
 									world.getServer().getPlayerList()
-											.broadcastSystemMessage(Component.literal((entity.getDisplayName().getString() + "" + Component.translatable("knighting").getString() + HouseManager.getPlayerHouseTitle(sourceentity))), false);
+											.broadcastSystemMessage(Component.literal((entity.getDisplayName().getString() + "" + Component.translatable("knighting").getString() + HouseManager.getPlayerHouseTitle((Player) sourceentity))), false);
 								if (world instanceof Level _level) {
 									if (!_level.isClientSide()) {
 										_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.armor.equip_iron")), SoundSource.NEUTRAL, 1, 1);

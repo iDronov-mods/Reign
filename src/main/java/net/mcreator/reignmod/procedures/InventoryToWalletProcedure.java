@@ -14,6 +14,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.BlockPos;
 
+import net.mcreator.reignmod.network.ReignModModVariables;
 import net.mcreator.reignmod.init.ReignModModItems;
 
 import java.util.concurrent.atomic.AtomicReference;
@@ -25,10 +26,9 @@ public class InventoryToWalletProcedure {
 		boolean isHave = false;
 		boolean CoinHave = false;
 		ItemStack wallet_copy = ItemStack.EMPTY;
-		ItemStack coin_copy = ItemStack.EMPTY;
 		double index = 0;
-		double coin_index = 0;
 		double wallet_index = 0;
+		double value = 0;
 		index = 0;
 		while (index <= 35) {
 			if ((new Object() {
@@ -61,7 +61,20 @@ public class InventoryToWalletProcedure {
 				}
 			}.getItemStack((int) index, entity)).is(ItemTags.create(new ResourceLocation("reign:coins")))) {
 				CoinHave = true;
-				coin_copy = (new Object() {
+			}
+			index = index + 1;
+		}
+		if (isHave && CoinHave) {
+			index = 0;
+			if (world instanceof Level _level) {
+				if (!_level.isClientSide()) {
+					_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:wallet_shake")), SoundSource.NEUTRAL, (float) 0.7, (float) 1.1);
+				} else {
+					_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:wallet_shake")), SoundSource.NEUTRAL, (float) 0.7, (float) 1.1, false);
+				}
+			}
+			while (index <= 35) {
+				if ((new Object() {
 					public ItemStack getItemStack(int sltid, Entity entity) {
 						AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 						entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
@@ -69,45 +82,7 @@ public class InventoryToWalletProcedure {
 						});
 						return _retval.get();
 					}
-				}.getItemStack((int) index, entity));
-				coin_index = index;
-			}
-			index = index + 1;
-		}
-		if (isHave && CoinHave) {
-			if (world instanceof Level _level) {
-				if (!_level.isClientSide()) {
-					_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:wallet_shake")), SoundSource.NEUTRAL, (float) 0.7, 1);
-				} else {
-					_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:wallet_shake")), SoundSource.NEUTRAL, (float) 0.7, 1, false);
-				}
-			}
-			while (CoinHave) {
-				if (coin_copy.getItem() == ReignModModItems.COPPER_COIN.get()) {
-					wallet_copy.getOrCreateTag().putDouble("amount", (coin_copy.getCount() + wallet_copy.getOrCreateTag().getDouble("amount")));
-				} else if (coin_copy.getItem() == ReignModModItems.SILVER_COIN.get()) {
-					wallet_copy.getOrCreateTag().putDouble("amount", (coin_copy.getCount() * 16 + wallet_copy.getOrCreateTag().getDouble("amount")));
-				} else if (coin_copy.getItem() == ReignModModItems.GOLD_COIN.get()) {
-					wallet_copy.getOrCreateTag().putDouble("amount", (coin_copy.getCount() * 256 + wallet_copy.getOrCreateTag().getDouble("amount")));
-				} else {
-					wallet_copy.getOrCreateTag().putDouble("amount", (coin_copy.getCount() * 4096 + wallet_copy.getOrCreateTag().getDouble("amount")));
-				}
-				{
-					final int _slotid = (int) wallet_index;
-					final ItemStack _setstack = wallet_copy.copy();
-					_setstack.setCount(1);
-					entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
-						if (capability instanceof IItemHandlerModifiable _modHandlerEntSetSlot)
-							_modHandlerEntSetSlot.setStackInSlot(_slotid, _setstack);
-					});
-				}
-				if (entity instanceof Player _player) {
-					ItemStack _stktoremove = coin_copy;
-					_player.getInventory().clearOrCountMatchingItems(p -> _stktoremove.getItem() == p.getItem(), coin_copy.getCount(), _player.inventoryMenu.getCraftSlots());
-				}
-				CoinHave = false;
-				index = 0;
-				while (index <= 35) {
+				}.getItemStack((int) index, entity)).is(ItemTags.create(new ResourceLocation("reign:coins")))) {
 					if ((new Object() {
 						public ItemStack getItemStack(int sltid, Entity entity) {
 							AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
@@ -116,9 +91,8 @@ public class InventoryToWalletProcedure {
 							});
 							return _retval.get();
 						}
-					}.getItemStack((int) index, entity)).is(ItemTags.create(new ResourceLocation("reign:coins")))) {
-						CoinHave = true;
-						coin_copy = (new Object() {
+					}.getItemStack((int) index, entity)).getItem() == ReignModModItems.COPPER_COIN.get()) {
+						value = (new Object() {
 							public ItemStack getItemStack(int sltid, Entity entity) {
 								AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 								entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
@@ -126,12 +100,88 @@ public class InventoryToWalletProcedure {
 								});
 								return _retval.get();
 							}
-						}.getItemStack((int) index, entity));
-						coin_index = index;
-						break;
+						}.getItemStack((int) index, entity)).getCount();
+					} else if ((new Object() {
+						public ItemStack getItemStack(int sltid, Entity entity) {
+							AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
+							entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
+								_retval.set(capability.getStackInSlot(sltid).copy());
+							});
+							return _retval.get();
+						}
+					}.getItemStack((int) index, entity)).getItem() == ReignModModItems.SILVER_COIN.get()) {
+						value = (new Object() {
+							public ItemStack getItemStack(int sltid, Entity entity) {
+								AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
+								entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
+									_retval.set(capability.getStackInSlot(sltid).copy());
+								});
+								return _retval.get();
+							}
+						}.getItemStack((int) index, entity)).getCount() * 16;
+					} else if ((new Object() {
+						public ItemStack getItemStack(int sltid, Entity entity) {
+							AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
+							entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
+								_retval.set(capability.getStackInSlot(sltid).copy());
+							});
+							return _retval.get();
+						}
+					}.getItemStack((int) index, entity)).getItem() == ReignModModItems.GOLD_COIN.get()) {
+						value = (new Object() {
+							public ItemStack getItemStack(int sltid, Entity entity) {
+								AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
+								entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
+									_retval.set(capability.getStackInSlot(sltid).copy());
+								});
+								return _retval.get();
+							}
+						}.getItemStack((int) index, entity)).getCount() * 256;
+					} else {
+						value = (new Object() {
+							public ItemStack getItemStack(int sltid, Entity entity) {
+								AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
+								entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
+									_retval.set(capability.getStackInSlot(sltid).copy());
+								});
+								return _retval.get();
+							}
+						}.getItemStack((int) index, entity)).getCount() * 4096;
 					}
-					index = index + 1;
+					if (value + wallet_copy.getOrCreateTag().getDouble("amount") <= ReignModModVariables.MapVariables.get(world).MAX_AMOUNT_VALUE) {
+						wallet_copy.getOrCreateTag().putDouble("amount", (value + wallet_copy.getOrCreateTag().getDouble("amount")));
+						{
+							final int _slotid = (int) wallet_index;
+							final ItemStack _setstack = wallet_copy.copy();
+							_setstack.setCount(1);
+							entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
+								if (capability instanceof IItemHandlerModifiable _modHandlerEntSetSlot)
+									_modHandlerEntSetSlot.setStackInSlot(_slotid, _setstack);
+							});
+						}
+						if (entity instanceof Player _player) {
+							ItemStack _stktoremove = (new Object() {
+								public ItemStack getItemStack(int sltid, Entity entity) {
+									AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
+									entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
+										_retval.set(capability.getStackInSlot(sltid).copy());
+									});
+									return _retval.get();
+								}
+							}.getItemStack((int) index, entity));
+							_player.getInventory().clearOrCountMatchingItems(p -> _stktoremove.getItem() == p.getItem(), (new Object() {
+								public ItemStack getItemStack(int sltid, Entity entity) {
+									AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
+									entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
+										_retval.set(capability.getStackInSlot(sltid).copy());
+									});
+									return _retval.get();
+								}
+							}.getItemStack((int) index, entity)).getCount(), _player.inventoryMenu.getCraftSlots());
+						}
+					}
 				}
+				index = index + 1;
 			}
 		}
 	}

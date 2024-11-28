@@ -73,7 +73,7 @@ public class DomainLockChestProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getPersistentData().putString("owner_name", (HouseManager.getPlayerHouseColorCode(entity) + "" + HouseManager.getPlayerDomainTitle(entity)));
+							_blockEntity.getPersistentData().putString("owner_name", (HouseManager.getPlayerHouseColorCode((Player) entity) + "" + HouseManager.getPlayerDomainTitle((Player) entity)));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
