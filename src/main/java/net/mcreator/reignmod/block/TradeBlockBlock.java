@@ -67,14 +67,10 @@ public class TradeBlockBlock extends Block {
 	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
 		return switch (state.getValue(FACING)) {
-			default -> Shapes.or(box(0, 0, 0, 16, 6, 16), box(0, 14, 0, 16, 20, 16), box(14, 6, 0, 16, 14, 16), box(0, 6, 0, 2, 14, 16), box(2, 6, 0, 14, 14, 11), box(12, 6, 15, 13, 14, 16), box(9, 6, 15, 10, 14, 16), box(6, 6, 15, 7, 14, 16),
-					box(3, 6, 15, 4, 14, 16), box(1, 5, 16, 15, 6, 18), box(8, 6, 14, 10, 7, 16));
-			case NORTH -> Shapes.or(box(0, 0, 0, 16, 6, 16), box(0, 14, 0, 16, 20, 16), box(0, 6, 0, 2, 14, 16), box(14, 6, 0, 16, 14, 16), box(2, 6, 5, 14, 14, 16), box(3, 6, 0, 4, 14, 1), box(6, 6, 0, 7, 14, 1), box(9, 6, 0, 10, 14, 1),
-					box(12, 6, 0, 13, 14, 1), box(1, 5, -2, 15, 6, 0), box(6, 6, 0, 8, 7, 2));
-			case EAST -> Shapes.or(box(0, 0, 0, 16, 6, 16), box(0, 14, 0, 16, 20, 16), box(0, 6, 0, 16, 14, 2), box(0, 6, 14, 16, 14, 16), box(0, 6, 2, 11, 14, 14), box(15, 6, 3, 16, 14, 4), box(15, 6, 6, 16, 14, 7), box(15, 6, 9, 16, 14, 10),
-					box(15, 6, 12, 16, 14, 13), box(16, 5, 1, 18, 6, 15), box(14, 6, 6, 16, 7, 8));
-			case WEST -> Shapes.or(box(0, 0, 0, 16, 6, 16), box(0, 14, 0, 16, 20, 16), box(0, 6, 14, 16, 14, 16), box(0, 6, 0, 16, 14, 2), box(5, 6, 2, 16, 14, 14), box(0, 6, 12, 1, 14, 13), box(0, 6, 9, 1, 14, 10), box(0, 6, 6, 1, 14, 7),
-					box(0, 6, 3, 1, 14, 4), box(-2, 5, 1, 0, 6, 15), box(0, 6, 8, 2, 7, 10));
+			default -> box(0, 0, 0, 16, 20, 16);
+			case NORTH -> box(0, 0, 0, 16, 20, 16);
+			case EAST -> box(0, 0, 0, 16, 20, 16);
+			case WEST -> box(0, 0, 0, 16, 20, 16);
 		};
 	}
 

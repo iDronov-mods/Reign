@@ -176,8 +176,7 @@
     "inventoryDropWhenDestroyed": false,
     "inventoryComparatorPower": false,
     "inventoryOutSlotIDs": [
-      0,
-      1
+      0
     ],
     "inventoryInSlotIDs": [
       0,

@@ -1,5 +1,7 @@
 package net.mcreator.reignmod.procedures;
 
+import net.minecraftforge.items.ItemHandlerHelper;
+
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.Blocks;
@@ -18,11 +20,13 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.client.Minecraft;
 
 import net.mcreator.reignmod.network.ReignModModVariables;
+import net.mcreator.reignmod.init.ReignModModItems;
 import net.mcreator.reignmod.house.HouseManager;
 
 import java.util.function.Supplier;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.ArrayList;
 
 public class HouseCreateProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, HashMap guistate) {
@@ -31,6 +35,7 @@ public class HouseCreateProcedure {
 		String color = "";
 		String UUID_Player = "";
 		String house_name = "";
+		ItemStack heart = ItemStack.EMPTY;
 		house_name = guistate.containsKey("textin:house_name") ? (String) guistate.get("textin:house_name") : "";
 		if ((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(10)).getItem() : ItemStack.EMPTY).getItem() == Blocks.YELLOW_BANNER.asItem()) {
 			color = "yellow";
@@ -71,7 +76,7 @@ public class HouseCreateProcedure {
 								return false;
 							}
 						}.checkGamemode(entity)) {
-							if (!HouseManager.createHouse((Player) entity, house_name, color, 0)) {
+							if (!HouseManager.createHouse((Player) entity, house_name, color)) {
 								if (entity instanceof Player _player && !_player.level().isClientSide())
 									_player.displayClientMessage(Component.literal((Component.translatable("translation.key.houseNameTaken").getString())), false);
 								WalletGiveProcedure.execute(entity, 1024);
@@ -104,7 +109,16 @@ public class HouseCreateProcedure {
 										capability.syncPlayerVariables(entity);
 									});
 								}
-								HouseManager.playerPrefixSynchronize((Player) entity);
+								heart = new ItemStack(ReignModModItems.HEART_OF_HOUSE.get());
+								heart.getOrCreateTag().putString("UUID", (entity.getStringUUID()));
+								if (entity instanceof Player _player) {
+									ItemStack _setstack = heart.copy();
+									_setstack.setCount(1);
+									ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
+								}
+								for (Entity entityiterator : new ArrayList<>(world.players())) {
+									HouseManager.playerPrefixSynchronize((Player) entityiterator);
+								}
 								world.setBlock(BlockPos.containing(x, y, z),
 										((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(10)).getItem() : ItemStack.EMPTY)
 												.getItem() instanceof BlockItem _bi ? _bi.getBlock().defaultBlockState() : Blocks.AIR.defaultBlockState()),

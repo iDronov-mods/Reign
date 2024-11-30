@@ -10,6 +10,6 @@ import net.minecraft.resources.ResourceLocation;
 
 public class RuinLord2Item extends RecordItem {
 	public RuinLord2Item() {
-		super(0, () -> ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:light-after-darkness")), new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 3760);
+		super(0, () -> ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:ruinlord2")), new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 3760);
 	}
 }

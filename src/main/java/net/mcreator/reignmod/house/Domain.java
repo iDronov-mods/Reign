@@ -49,7 +49,7 @@ public class Domain implements INBTSerializable<CompoundTag> {
     public CompoundTag serializeNBT() {
         CompoundTag tag = new CompoundTag();
         tag.putString("lord_uuid", this.lordUUID);
-        tag.putString("knight_uuid", this.lordUUID);
+        tag.putString("knight_uuid", this.knightUUID);
         tag.putString("domain_title", this.domainTitle.getString());
 
         ListTag playersTag = new ListTag();

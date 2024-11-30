@@ -6,10 +6,15 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.reignmod.world.inventory.PrivateShopUIMenu;
+import net.mcreator.reignmod.procedures.PrivateShopProfitProcedure;
 import net.mcreator.reignmod.procedures.PrivateShopGetOwnerProcedure;
+import net.mcreator.reignmod.procedures.PrivateShopCountGoodsProcedure;
+import net.mcreator.reignmod.network.PrivateShopUIButtonMessage;
+import net.mcreator.reignmod.ReignModMod;
 
 import java.util.HashMap;
 
@@ -21,6 +26,8 @@ public class PrivateShopUIScreen extends AbstractContainerScreen<PrivateShopUIMe
 	private final int x, y, z;
 	private final Player entity;
 	private final static HashMap<String, String> textstate = new HashMap<>();
+	Button button_gcf;
+	Button button_clear;
 
 	public PrivateShopUIScreen(PrivateShopUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -53,17 +60,13 @@ public class PrivateShopUIScreen extends AbstractContainerScreen<PrivateShopUIMe
 
 		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/crown.png"), this.leftPos + 100, this.topPos + -12, 0, 0, 16, 16, 16, 16);
 
-		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/arrow.png"), this.leftPos + 72, this.topPos + 15, 0, 0, 32, 16, 32, 16);
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/arrow.png"), this.leftPos + 72, this.topPos + 26, 0, 0, 32, 16, 32, 16);
 
-		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/coin_slot.png"), this.leftPos + -18, this.topPos + 32, 0, 0, 12, 12, 12, 12);
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/coin_slot.png"), this.leftPos + 55, this.topPos + 28, 0, 0, 12, 12, 12, 12);
 
-		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/coin_slot.png"), this.leftPos + -18, this.topPos + 50, 0, 0, 12, 12, 12, 12);
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/copper_coin.png"), this.leftPos + 7, this.topPos + 67, 0, 0, 16, 16, 16, 16);
 
-		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/coin_slot.png"), this.leftPos + -18, this.topPos + 68, 0, 0, 12, 12, 12, 12);
-
-		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/coin_slot.png"), this.leftPos + -18, this.topPos + 86, 0, 0, 12, 12, 12, 12);
-
-		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/coin_slot.png"), this.leftPos + 55, this.topPos + 17, 0, 0, 12, 12, 12, 12);
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/plusui.png"), this.leftPos + 90, this.topPos + 48, 0, 0, 16, 16, 16, 16);
 
 		RenderSystem.disableBlend();
 	}
@@ -83,14 +86,36 @@ public class PrivateShopUIScreen extends AbstractContainerScreen<PrivateShopUIMe
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.private_shop_ui.label_private_shop"), 1, -10, -1, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.private_shop_ui.label_private_shop"), 0, -8, -1, false);
 		guiGraphics.drawString(this.font,
 
-				PrivateShopGetOwnerProcedure.execute(world, x, y, z), 122, -10, -1, false);
+				PrivateShopGetOwnerProcedure.execute(world, x, y, z), 123, -8, -1, false);
+		guiGraphics.drawString(this.font,
+
+				PrivateShopCountGoodsProcedure.execute(world, x, y, z), 127, 29, -12829636, false);
+		guiGraphics.drawString(this.font,
+
+				PrivateShopProfitProcedure.execute(world, x, y, z), 22, 71, -13421773, false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
+		button_gcf = Button.builder(Component.translatable("gui.reign_mod.private_shop_ui.button_gcf"), e -> {
+			if (true) {
+				ReignModMod.PACKET_HANDLER.sendToServer(new PrivateShopUIButtonMessage(0, x, y, z, textstate));
+				PrivateShopUIButtonMessage.handleButtonAction(entity, 0, x, y, z, textstate);
+			}
+		}).bounds(this.leftPos + 7, this.topPos + 160, 54, 20).build();
+		guistate.put("button:button_gcf", button_gcf);
+		this.addRenderableWidget(button_gcf);
+		button_clear = Button.builder(Component.translatable("gui.reign_mod.private_shop_ui.button_clear"), e -> {
+			if (true) {
+				ReignModMod.PACKET_HANDLER.sendToServer(new PrivateShopUIButtonMessage(1, x, y, z, textstate));
+				PrivateShopUIButtonMessage.handleButtonAction(entity, 1, x, y, z, textstate);
+			}
+		}).bounds(this.leftPos + 116, this.topPos + 160, 53, 20).build();
+		guistate.put("button:button_clear", button_clear);
+		this.addRenderableWidget(button_clear);
 	}
 }

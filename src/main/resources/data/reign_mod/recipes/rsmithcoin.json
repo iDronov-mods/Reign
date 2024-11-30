@@ -15,7 +15,7 @@
       "item": "minecraft:gold_block"
     },
     "c": {
-      "item": "minecraft:smithing_table"
+      "tag": "minecraft:anvil"
     },
     "d": {
       "item": "minecraft:cobblestone"

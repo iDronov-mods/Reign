@@ -116,7 +116,7 @@
     "slipperiness": 0.6,
     "speedFactor": 1.0,
     "jumpFactor": 1.0,
-    "reactionToPushing": "NORMAL",
+    "reactionToPushing": "DESTROY",
     "isNotColidable": false,
     "isCustomSoundType": false,
     "soundOnStep": {
@@ -143,7 +143,7 @@
     "isBonemealable": false,
     "hasInventory": true,
     "guiBoundTo": "KingtableUI",
-    "openGUIOnRightClick": true,
+    "openGUIOnRightClick": false,
     "inventorySize": 11,
     "inventoryStackSize": 64,
     "inventoryDropWhenDestroyed": false,
@@ -182,6 +182,9 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
+    "onRightClicked": {
+      "name": "WinKingtableOpen"
+    },
     "generateFeature": false,
     "restrictionBiomes": [],
     "blocksToReplace": [

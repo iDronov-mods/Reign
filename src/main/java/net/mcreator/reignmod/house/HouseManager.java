@@ -1,11 +1,11 @@
 package net.mcreator.reignmod.house;
 
 import net.mcreator.reignmod.network.ReignModModVariables;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.Entity;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
-import org.apache.logging.log4j.LogManager;
 import net.mcreator.reignmod.procedures.IsKingProcedure;
+import net.mcreator.reignmod.networking.packet.S2C.PlayerPrefixSyncS2CPacket;
+import net.mcreator.reignmod.networking.ReignNetworking;
 
 
 import java.util.*;
@@ -36,10 +36,10 @@ public class HouseManager {
         return 0;
     }
 
-    public static boolean createHouse(Player lordPlayer, String houseTitle, String houseColor, int houseHeartIdentifier) {
+    public static boolean createHouse(Player lordPlayer, String houseTitle, String houseColor) {
         HouseSavedData houseSavedData = HouseSavedData.getInstance();
         if (houseSavedData != null) {
-            return houseSavedData.addHouse(lordPlayer.getStringUUID(), houseTitle, houseColor, houseHeartIdentifier);
+            return houseSavedData.addHouse(lordPlayer.getStringUUID(), houseTitle, houseColor);
         }
         return false;
     }
@@ -121,23 +121,32 @@ public class HouseManager {
 
     public static void playerPrefixSynchronize(Player player) {
         String colorPrefix = HouseManager.getPlayerHouseColorCode(player);
-
         if (!Objects.equals(colorPrefix, "")) {
 
             if (IsKingProcedure.execute(player.getCommandSenderWorld(), player)) {
-                colorPrefix = "§r[§e👑§r] §l" + colorPrefix;
+                colorPrefix = "§r[§6👑§r] " + colorPrefix + "§l";
             } else if (HouseManager.isPlayerLord(player)) {
-                colorPrefix = "§r[§7🏰§r] §l" + colorPrefix;
+                colorPrefix = "§r[🏰] " + colorPrefix + "§l";
             } else if (HouseManager.isPlayerKnight(player)) {
-                colorPrefix = "§r[§7🗡§r] " + colorPrefix;
+                colorPrefix = "§r[🗡] " + colorPrefix;
             }
         }
+        String finalPlayerPrefix = colorPrefix;
+        HouseSavedData houseSavedData = HouseSavedData.getInstance();
+        houseSavedData.getHouseData().addOrUpdatePlayerCode(player.getStringUUID(), finalPlayerPrefix);
 
-        String finalColorPrefix = colorPrefix;
         player.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-            capability.player_prefix = finalColorPrefix;
+            capability.player_prefix = finalPlayerPrefix;
             capability.syncPlayerVariables(player);
         });
+
+        if (player instanceof ServerPlayer) {
+            ReignNetworking.sendToPlayer(new PlayerPrefixSyncS2CPacket(houseSavedData.getHouseData().getPlayerCodes()), (ServerPlayer) player);
+        }
+        player.refreshDisplayName();
+        if (player instanceof ServerPlayer) {
+            ((ServerPlayer) player).refreshTabListName();
+        }
     }
 
     private static House getPlayerHouse(Player player) {

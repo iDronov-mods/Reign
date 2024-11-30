@@ -14,10 +14,10 @@
     "DontCutSheepMixin",
     "HorseSaddleMixin",
     "HopperBlockMixin",
-    "PlayerSetNameMixin",
     "ChestLockMixin",
     "BarrelLockMixin",
-    "TabListNameFormatMixin"
+    "TabListNameFormatMixin",
+    "NameFormatMixin"
   ],
   "client": [],
   "minVersion": "0.8"

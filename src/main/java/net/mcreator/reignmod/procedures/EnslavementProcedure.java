@@ -59,8 +59,8 @@ public class EnslavementProcedure {
 								}
 								HouseManager.playerPrefixSynchronize((Player) entity);
 								if (!world.isClientSide() && world.getServer() != null)
-									world.getServer().getPlayerList()
-											.broadcastSystemMessage(Component.literal((entity.getDisplayName().getString() + "" + Component.translatable("knighting").getString() + HouseManager.getPlayerDomainTitle((Player) sourceentity))), false);
+									world.getServer().getPlayerList().broadcastSystemMessage(Component.literal((entity.getDisplayName().getString() + ""
+											+ Component.translatable((Component.translatable("translation.key.enslavement").getString())).getString() + HouseManager.getPlayerDomainTitle((Player) sourceentity))), false);
 								if (world instanceof Level _level) {
 									if (!_level.isClientSide()) {
 										_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.cow.hurt")), SoundSource.NEUTRAL, 1, 1);

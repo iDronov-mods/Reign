@@ -19,6 +19,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
+import net.mcreator.reignmod.procedures.PrivateShopKingAccessProcedure;
 import net.mcreator.reignmod.init.ReignModModMenus;
 
 import java.util.function.Supplier;
@@ -82,7 +83,7 @@ public class PrivateShopBuyerUIMenu extends AbstractContainerMenu implements Sup
 
 			@Override
 			public boolean mayPickup(Player entity) {
-				return false;
+				return !PrivateShopKingAccessProcedure.execute(world, entity);
 			}
 
 			@Override
@@ -105,6 +106,11 @@ public class PrivateShopBuyerUIMenu extends AbstractContainerMenu implements Sup
 		}));
 		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 116, 29) {
 			private final int slot = 2;
+
+			@Override
+			public boolean mayPickup(Player entity) {
+				return false;
+			}
 
 			@Override
 			public boolean mayPlace(ItemStack stack) {
@@ -247,6 +253,8 @@ public class PrivateShopBuyerUIMenu extends AbstractContainerMenu implements Sup
 				for (int j = 0; j < internal.getSlots(); ++j) {
 					if (j == 0)
 						continue;
+					if (j == 1)
+						continue;
 					if (j == 2)
 						continue;
 					playerIn.drop(internal.extractItem(j, internal.getStackInSlot(j).getCount(), false), false);
@@ -254,6 +262,8 @@ public class PrivateShopBuyerUIMenu extends AbstractContainerMenu implements Sup
 			} else {
 				for (int i = 0; i < internal.getSlots(); ++i) {
 					if (i == 0)
+						continue;
+					if (i == 1)
 						continue;
 					if (i == 2)
 						continue;

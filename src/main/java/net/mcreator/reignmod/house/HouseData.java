@@ -8,11 +8,13 @@ import java.util.List;
 public class HouseData{
     private final HashMap<String, House> houses;
     private final HashMap<String, Domain> domains;
+    private final HashMap<String, String> playerCodes;
     private final HashMap<String, Boolean> houseAvailableColors;
 
     public HouseData() {
         this.houses = new HashMap<>();
         this.domains = new HashMap<>();
+        this.playerCodes = new HashMap<>();
         this.houseAvailableColors = new HashMap<>();
 
         List<String> houseColors = List.of("yellow", "lime", "green", "aqua", "blue", "purple", "pink", "red", "orange", "black");
@@ -23,11 +25,13 @@ public class HouseData{
     public HouseData(HouseData houseData) {
         this.houses = houseData.houses;
         this.domains = houseData.domains;
+        this.playerCodes = houseData.playerCodes;
         this.houseAvailableColors = houseData.houseAvailableColors;
     }
 
     public HashMap<String, House> getHouses() { return this.houses;}
     public HashMap<String, Domain> getDomains() { return this.domains;}
+    public HashMap<String, String> getPlayerCodes() { return this.playerCodes;}
     public HashMap<String, Boolean> getHouseAvailableColors() { return this.houseAvailableColors;}
 
 
@@ -49,6 +53,10 @@ public class HouseData{
         if (!findHouseByLord(lordUUID).isNull()) {
             findHouseByLord(lordUUID).setHousePrisonCoordinates(new int[] {x, y, z});
         }
+    }
+
+    public void addOrUpdatePlayerCode(String playerUUID, String code) {
+        this.playerCodes.put(playerUUID, code);
     }
 
     public House findHouseByPlayerSuzerain(String suzerainUUID) {
@@ -77,12 +85,14 @@ public class HouseData{
     }
 
     public void pushHouse(House house) {
+        this.domains.putAll(house.getDomains());
         this.houses.putIfAbsent(house.getLordUUID(), house);
         pushDomain(this.findHouseByLord(house.getLordUUID()), new Domain(house.getLordUUID(), house.getLordUUID(), Component.translatable("lord_domain")));
         this.houseAvailableColors.put(house.getHouseColor(), false);
     }
 
     public void removeHouse(House house) {
+        house.getDomains().forEach((s, domain) -> this.removeDomain(house, domain));
         this.houses.remove(house.getLordUUID());
         this.houseAvailableColors.replace(house.getHouseColor(), true);
     }
@@ -90,8 +100,12 @@ public class HouseData{
     public void pushDomain(House house, Domain domain) {
         if (this.houses.containsKey(house.getLordUUID())) {
             this.houses.get(house.getLordUUID()).pushDomain(domain);
-            this.domains.putIfAbsent(domain.getKnightUUID(), domain);
+            this.addDomain(domain);
         }
+    }
+
+    public void addDomain(Domain domain) {
+        this.domains.putIfAbsent(domain.getKnightUUID(), domain);
     }
 
     public void removeDomain(House house, Domain domain) {

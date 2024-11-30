@@ -48,9 +48,9 @@ public class PrisonSpawnProcedure {
 							_ent.getXRot());
 			}
 			if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-				_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, -1, 0));
+				_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, -1, 2));
 			if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-				_entity.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, -1, 3));
+				_entity.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, -1, 5));
 			if (!world.isClientSide() && world.getServer() != null)
 				world.getServer().getPlayerList().broadcastSystemMessage(Component.literal((entity.getDisplayName().getString() + "" + Component.translatable("imprisoned").getString())), false);
 			if (entity instanceof ServerPlayer _player) {

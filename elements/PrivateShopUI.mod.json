@@ -21,8 +21,8 @@
             "value": -1,
             "falpha": 0.0
           },
-          "x": 127,
-          "y": 27
+          "x": 126,
+          "y": 29
         }
       },
       {
@@ -53,341 +53,19 @@
             "value": ""
           },
           "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 3,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": false,
-          "x": 133,
-          "y": 80
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": ""
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 4,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": false,
-          "x": 151,
-          "y": 80
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": ""
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 5,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": false,
-          "x": 169,
-          "y": 80
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": ""
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 6,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": false,
-          "x": 187,
-          "y": 80
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": ""
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 7,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": false,
-          "x": 205,
-          "y": 80
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": ""
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 8,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": false,
-          "x": 223,
-          "y": 80
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": ""
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 9,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": false,
-          "x": 241,
-          "y": 80
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": ""
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 10,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": false,
-          "x": 259,
-          "y": 80
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": ""
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 11,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": false,
-          "x": 277,
-          "y": 80
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": ""
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 12,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": false,
-          "x": 133,
-          "y": 98
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": ""
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 13,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": false,
-          "x": 151,
-          "y": 98
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": ""
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 14,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": false,
-          "x": 169,
-          "y": 98
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": ""
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 15,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": false,
-          "x": 187,
-          "y": 98
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": ""
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 16,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": false,
-          "x": 205,
-          "y": 98
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": ""
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 17,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": false,
-          "x": 223,
-          "y": 98
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": ""
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 18,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": false,
-          "x": 241,
-          "y": 98
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": ""
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 19,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": false,
-          "x": 259,
-          "y": 98
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": ""
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 20,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": false,
-          "x": 277,
-          "y": 98
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": ""
-          },
-          "disablePlacement": {
             "fixedValue": false,
             "name": "PrivateShopSetPrice"
           },
           "id": 1,
           "disablePickup": {
-            "fixedValue": false,
-            "name": "PrivateShopIsOwner"
+            "fixedValue": false
           },
           "dropItemsWhenNotBound": false,
+          "onSlotChanged": {
+            "name": "PrivateShopChoosePrice"
+          },
           "x": 178,
-          "y": 51
+          "y": 62
         }
       },
       {
@@ -405,115 +83,7 @@
           "image": "arrow.png",
           "use1Xscale": false,
           "x": 198,
-          "y": 52
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "coin_slot.png",
-          "use1Xscale": false,
-          "x": 108,
-          "y": 69
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "coin_slot.png",
-          "use1Xscale": false,
-          "x": 108,
-          "y": 87
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": "CUSTOM:PlatinumCoin"
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 21,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": true,
-          "x": 105,
-          "y": 66
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": "CUSTOM:GoldCoin"
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 22,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": true,
-          "x": 105,
-          "y": 84
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": "CUSTOM:SilverCoin"
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 23,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": true,
-          "x": 105,
-          "y": 102
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "coin_slot.png",
-          "use1Xscale": false,
-          "x": 108,
-          "y": 105
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": "CUSTOM:CopperCoin"
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 24,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": true,
-          "x": 105,
-          "y": 120
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "coin_slot.png",
-          "use1Xscale": false,
-          "x": 108,
-          "y": 123
+          "y": 63
         }
       },
       {
@@ -541,8 +111,119 @@
             "value": -1,
             "falpha": 0.0
           },
-          "x": 248,
-          "y": 27
+          "x": 249,
+          "y": 29
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": false,
+            "name": "PrivateShopSetGoods"
+          },
+          "id": 2,
+          "disablePickup": {
+            "fixedValue": true
+          },
+          "dropItemsWhenNotBound": false,
+          "onSlotChanged": {
+            "name": "PrivateShopChangeGoods"
+          },
+          "x": 233,
+          "y": 62
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "coin_slot.png",
+          "use1Xscale": false,
+          "x": 181,
+          "y": 65
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_private_shop_count_goods",
+          "text": {
+            "fixedValue": "",
+            "name": "PrivateShopCountGoods"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 253,
+          "y": 66
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "copper_coin.png",
+          "use1Xscale": false,
+          "x": 133,
+          "y": 104
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_gcf",
+          "text": "cash",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "PrivateShopCash"
+          },
+          "width": 54,
+          "height": 20,
+          "x": 133,
+          "y": 197
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_private_shop_count_goods1",
+          "text": {
+            "fixedValue": "",
+            "name": "PrivateShopProfit"
+          },
+          "color": {
+            "value": -13421773,
+            "falpha": 0.0
+          },
+          "x": 148,
+          "y": 108
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_clear",
+          "text": "clear",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "PrivateShopClearButton"
+          },
+          "width": 53,
+          "height": 20,
+          "x": 242,
+          "y": 197
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "plusui.png",
+          "use1Xscale": false,
+          "x": 216,
+          "y": 85
         }
       },
       {
@@ -554,25 +235,16 @@
           "disablePlacement": {
             "fixedValue": false
           },
-          "id": 2,
+          "id": 3,
           "disablePickup": {
             "fixedValue": false
           },
-          "dropItemsWhenNotBound": false,
+          "dropItemsWhenNotBound": true,
           "onSlotChanged": {
-            "name": "PrivateShopSetGoods"
+            "name": "PrivateShopAddGoods"
           },
           "x": 233,
-          "y": 51
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "coin_slot.png",
-          "use1Xscale": false,
-          "x": 181,
-          "y": 54
+          "y": 84
         }
       }
     ],

@@ -20,7 +20,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.reignmod.procedures.PrivateShopSetPriceProcedure;
-import net.mcreator.reignmod.procedures.PrivateShopIsOwnerProcedure;
+import net.mcreator.reignmod.procedures.PrivateShopSetGoodsProcedure;
 import net.mcreator.reignmod.network.PrivateShopUISlotMessage;
 import net.mcreator.reignmod.init.ReignModModMenus;
 import net.mcreator.reignmod.init.ReignModModItems;
@@ -48,7 +48,7 @@ public class PrivateShopUIMenu extends AbstractContainerMenu implements Supplier
 		super(ReignModModMenus.PRIVATE_SHOP_UI.get(), id);
 		this.entity = inv.player;
 		this.world = inv.player.level();
-		this.internal = new ItemStackHandler(25);
+		this.internal = new ItemStackHandler(4);
 		BlockPos pos = null;
 		if (extraData != null) {
 			pos = extraData.readBlockPos();
@@ -97,66 +97,13 @@ public class PrivateShopUIMenu extends AbstractContainerMenu implements Supplier
 				return ReignModModItems.TRADE_LICENSE.get() == stack.getItem();
 			}
 		}));
-		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 8, 44) {
-			private final int slot = 3;
-		}));
-		this.customSlots.put(4, this.addSlot(new SlotItemHandler(internal, 4, 26, 44) {
-			private final int slot = 4;
-		}));
-		this.customSlots.put(5, this.addSlot(new SlotItemHandler(internal, 5, 44, 44) {
-			private final int slot = 5;
-		}));
-		this.customSlots.put(6, this.addSlot(new SlotItemHandler(internal, 6, 62, 44) {
-			private final int slot = 6;
-		}));
-		this.customSlots.put(7, this.addSlot(new SlotItemHandler(internal, 7, 80, 44) {
-			private final int slot = 7;
-		}));
-		this.customSlots.put(8, this.addSlot(new SlotItemHandler(internal, 8, 98, 44) {
-			private final int slot = 8;
-		}));
-		this.customSlots.put(9, this.addSlot(new SlotItemHandler(internal, 9, 116, 44) {
-			private final int slot = 9;
-		}));
-		this.customSlots.put(10, this.addSlot(new SlotItemHandler(internal, 10, 134, 44) {
-			private final int slot = 10;
-		}));
-		this.customSlots.put(11, this.addSlot(new SlotItemHandler(internal, 11, 152, 44) {
-			private final int slot = 11;
-		}));
-		this.customSlots.put(12, this.addSlot(new SlotItemHandler(internal, 12, 8, 62) {
-			private final int slot = 12;
-		}));
-		this.customSlots.put(13, this.addSlot(new SlotItemHandler(internal, 13, 26, 62) {
-			private final int slot = 13;
-		}));
-		this.customSlots.put(14, this.addSlot(new SlotItemHandler(internal, 14, 44, 62) {
-			private final int slot = 14;
-		}));
-		this.customSlots.put(15, this.addSlot(new SlotItemHandler(internal, 15, 62, 62) {
-			private final int slot = 15;
-		}));
-		this.customSlots.put(16, this.addSlot(new SlotItemHandler(internal, 16, 80, 62) {
-			private final int slot = 16;
-		}));
-		this.customSlots.put(17, this.addSlot(new SlotItemHandler(internal, 17, 98, 62) {
-			private final int slot = 17;
-		}));
-		this.customSlots.put(18, this.addSlot(new SlotItemHandler(internal, 18, 116, 62) {
-			private final int slot = 18;
-		}));
-		this.customSlots.put(19, this.addSlot(new SlotItemHandler(internal, 19, 134, 62) {
-			private final int slot = 19;
-		}));
-		this.customSlots.put(20, this.addSlot(new SlotItemHandler(internal, 20, 152, 62) {
-			private final int slot = 20;
-		}));
-		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 53, 15) {
+		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 53, 26) {
 			private final int slot = 1;
 
 			@Override
-			public boolean mayPickup(Player entity) {
-				return !PrivateShopIsOwnerProcedure.execute(world, x, y, z, entity);
+			public void setChanged() {
+				super.setChanged();
+				slotChanged(1, 0, 0);
 			}
 
 			@Override
@@ -164,45 +111,32 @@ public class PrivateShopUIMenu extends AbstractContainerMenu implements Supplier
 				return !PrivateShopSetPriceProcedure.execute(itemstack);
 			}
 		}));
-		this.customSlots.put(21, this.addSlot(new SlotItemHandler(internal, 21, -20, 30) {
-			private final int slot = 21;
-
-			@Override
-			public boolean mayPlace(ItemStack stack) {
-				return ReignModModItems.PLATINUM_COIN.get() == stack.getItem();
-			}
-		}));
-		this.customSlots.put(22, this.addSlot(new SlotItemHandler(internal, 22, -20, 48) {
-			private final int slot = 22;
-
-			@Override
-			public boolean mayPlace(ItemStack stack) {
-				return ReignModModItems.GOLD_COIN.get() == stack.getItem();
-			}
-		}));
-		this.customSlots.put(23, this.addSlot(new SlotItemHandler(internal, 23, -20, 66) {
-			private final int slot = 23;
-
-			@Override
-			public boolean mayPlace(ItemStack stack) {
-				return ReignModModItems.SILVER_COIN.get() == stack.getItem();
-			}
-		}));
-		this.customSlots.put(24, this.addSlot(new SlotItemHandler(internal, 24, -20, 84) {
-			private final int slot = 24;
-
-			@Override
-			public boolean mayPlace(ItemStack stack) {
-				return ReignModModItems.COPPER_COIN.get() == stack.getItem();
-			}
-		}));
-		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 108, 15) {
+		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 108, 26) {
 			private final int slot = 2;
+
+			@Override
+			public boolean mayPickup(Player entity) {
+				return false;
+			}
 
 			@Override
 			public void setChanged() {
 				super.setChanged();
 				slotChanged(2, 0, 0);
+			}
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !PrivateShopSetGoodsProcedure.execute(world, x, y, z, itemstack);
+			}
+		}));
+		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 108, 48) {
+			private final int slot = 3;
+
+			@Override
+			public void setChanged() {
+				super.setChanged();
+				slotChanged(3, 0, 0);
 			}
 		}));
 		for (int si = 0; si < 3; ++si)
@@ -232,16 +166,16 @@ public class PrivateShopUIMenu extends AbstractContainerMenu implements Supplier
 		if (slot != null && slot.hasItem()) {
 			ItemStack itemstack1 = slot.getItem();
 			itemstack = itemstack1.copy();
-			if (index < 25) {
-				if (!this.moveItemStackTo(itemstack1, 25, this.slots.size(), true))
+			if (index < 4) {
+				if (!this.moveItemStackTo(itemstack1, 4, this.slots.size(), true))
 					return ItemStack.EMPTY;
 				slot.onQuickCraft(itemstack1, itemstack);
-			} else if (!this.moveItemStackTo(itemstack1, 0, 25, false)) {
-				if (index < 25 + 27) {
-					if (!this.moveItemStackTo(itemstack1, 25 + 27, this.slots.size(), true))
+			} else if (!this.moveItemStackTo(itemstack1, 0, 4, false)) {
+				if (index < 4 + 27) {
+					if (!this.moveItemStackTo(itemstack1, 4 + 27, this.slots.size(), true))
 						return ItemStack.EMPTY;
 				} else {
-					if (!this.moveItemStackTo(itemstack1, 25, 25 + 27, false))
+					if (!this.moveItemStackTo(itemstack1, 4, 4 + 27, false))
 						return ItemStack.EMPTY;
 				}
 				return ItemStack.EMPTY;
@@ -341,42 +275,6 @@ public class PrivateShopUIMenu extends AbstractContainerMenu implements Supplier
 				for (int j = 0; j < internal.getSlots(); ++j) {
 					if (j == 0)
 						continue;
-					if (j == 3)
-						continue;
-					if (j == 4)
-						continue;
-					if (j == 5)
-						continue;
-					if (j == 6)
-						continue;
-					if (j == 7)
-						continue;
-					if (j == 8)
-						continue;
-					if (j == 9)
-						continue;
-					if (j == 10)
-						continue;
-					if (j == 11)
-						continue;
-					if (j == 12)
-						continue;
-					if (j == 13)
-						continue;
-					if (j == 14)
-						continue;
-					if (j == 15)
-						continue;
-					if (j == 16)
-						continue;
-					if (j == 17)
-						continue;
-					if (j == 18)
-						continue;
-					if (j == 19)
-						continue;
-					if (j == 20)
-						continue;
 					if (j == 1)
 						continue;
 					if (j == 2)
@@ -386,42 +284,6 @@ public class PrivateShopUIMenu extends AbstractContainerMenu implements Supplier
 			} else {
 				for (int i = 0; i < internal.getSlots(); ++i) {
 					if (i == 0)
-						continue;
-					if (i == 3)
-						continue;
-					if (i == 4)
-						continue;
-					if (i == 5)
-						continue;
-					if (i == 6)
-						continue;
-					if (i == 7)
-						continue;
-					if (i == 8)
-						continue;
-					if (i == 9)
-						continue;
-					if (i == 10)
-						continue;
-					if (i == 11)
-						continue;
-					if (i == 12)
-						continue;
-					if (i == 13)
-						continue;
-					if (i == 14)
-						continue;
-					if (i == 15)
-						continue;
-					if (i == 16)
-						continue;
-					if (i == 17)
-						continue;
-					if (i == 18)
-						continue;
-					if (i == 19)
-						continue;
-					if (i == 20)
 						continue;
 					if (i == 1)
 						continue;

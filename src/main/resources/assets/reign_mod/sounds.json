@@ -63,30 +63,6 @@
       }
     ]
   },
-  "the-calm-before-the-storm": {
-    "sounds": [
-      {
-        "name": "reign_mod:the-calm-before-the-storm",
-        "stream": true
-      }
-    ]
-  },
-  "light-after-darkness": {
-    "sounds": [
-      {
-        "name": "reign_mod:lightafterdarkness",
-        "stream": true
-      }
-    ]
-  },
-  "lasto-beth-lammen": {
-    "sounds": [
-      {
-        "name": "reign_mod:lasto_beth_lammen",
-        "stream": true
-      }
-    ]
-  },
   "safe_open": {
     "sounds": [
       {
@@ -116,6 +92,30 @@
       {
         "name": "reign_mod:picklock_work2",
         "stream": false
+      }
+    ]
+  },
+  "ruinlord1": {
+    "sounds": [
+      {
+        "name": "reign_mod:the-calm-before-the-storm",
+        "stream": true
+      }
+    ]
+  },
+  "ruinlord2": {
+    "sounds": [
+      {
+        "name": "reign_mod:lightafterdarkness",
+        "stream": true
+      }
+    ]
+  },
+  "ruinlord3": {
+    "sounds": [
+      {
+        "name": "reign_mod:lasto_beth_lammen",
+        "stream": true
       }
     ]
   }

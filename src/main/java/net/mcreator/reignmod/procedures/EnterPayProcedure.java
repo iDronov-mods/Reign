@@ -36,6 +36,7 @@ public class EnterPayProcedure {
 		if (entity == null)
 			return;
 		double value = 0;
+		String prefix = "";
 		HouseManager.playerPrefixSynchronize((Player) entity);
 		if (IsKingProcedure.execute(world, entity)) {
 			if (!world.isClientSide() && world.getServer() != null)

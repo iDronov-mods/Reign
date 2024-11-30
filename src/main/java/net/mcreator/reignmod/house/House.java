@@ -18,19 +18,16 @@ public class House implements INBTSerializable<CompoundTag> {
     private HashMap<String, Domain> domains = new HashMap<>();
     private int[] houseIncubatorCoordinates = new int[3];
     private int[] housePrisonCoordinates = new int[3];
-    private int houseHeartIdentifier;
 
     public House() {
         this.lordUUID = "null";
         this.houseTitle = "null";
         this.houseColor = "null";
-        this.houseHeartIdentifier = -1;
     }
-    public House(String lordUUID, String houseTitle, String houseColor, int houseHeartIdentifier) {
+    public House(String lordUUID, String houseTitle, String houseColor) {
         this.lordUUID = lordUUID;
         this.houseTitle = houseTitle;
         this.houseColor = houseColor;
-        this.houseHeartIdentifier = houseHeartIdentifier;
         this.players.add(lordUUID);
     }
     public House(CompoundTag nbt) {
@@ -88,8 +85,9 @@ public class House implements INBTSerializable<CompoundTag> {
         this.players.add(domain.getKnightUUID());
     }
     public void removeDomain(String knightUUID) {
-        this.domains.remove(knightUUID);
-        this.domains.get(knightUUID).getPlayers().forEach(player -> this.players.remove(player));
+    	this.domains.get(knightUUID).getPlayers().forEach(player -> this.players.remove(player));
+		this.domains.remove(knightUUID);
+        
     }
 
     @Override
@@ -101,7 +99,6 @@ public class House implements INBTSerializable<CompoundTag> {
 
         tag.putIntArray("house_incubator_coordinates", this.houseIncubatorCoordinates);
         tag.putIntArray("house_prison_coordinates", this.housePrisonCoordinates);
-        tag.putInt("house_heart_item_identifier", this.houseHeartIdentifier);
 
         ListTag playersTag = new ListTag();
         this.players.forEach(player -> playersTag.add(StringTag.valueOf(player)));
@@ -121,7 +118,6 @@ public class House implements INBTSerializable<CompoundTag> {
 
         this.housePrisonCoordinates = nbt.getIntArray("house_incubator_coordinates");
         this.housePrisonCoordinates = nbt.getIntArray("house_prison_coordinates");
-        this.houseHeartIdentifier = nbt.getInt("house_heart_item_identifier");
 
         this.players.clear();
         ListTag playersTag = nbt.getList("players", 8);

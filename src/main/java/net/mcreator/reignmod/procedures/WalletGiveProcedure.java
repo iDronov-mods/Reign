@@ -32,7 +32,7 @@ public class WalletGiveProcedure {
 			}.getItemStack((int) slotIndex, entity));
 			if (item.getItem() == ReignModModItems.WALLET.get()) {
 				wallet = item;
-				if (wallet.getOrCreateTag().getDouble("amount") + value <= 262144) {
+				if (wallet.getOrCreateTag().getDouble("amount") + value <= 279616) {
 					wallet.getOrCreateTag().putDouble("amount", (wallet.getOrCreateTag().getDouble("amount") + value));
 					{
 						final int _slotid = (int) slotIndex;

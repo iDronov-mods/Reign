@@ -11,7 +11,11 @@ import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.reignmod.world.inventory.PrivateShopBuyerUIMenu;
 import net.mcreator.reignmod.procedures.WalletOutsideCostProcedure;
+import net.mcreator.reignmod.procedures.PrivateShopNoLicenseProcedure;
 import net.mcreator.reignmod.procedures.PrivateShopGetOwnerProcedure;
+import net.mcreator.reignmod.procedures.PrivateShopCountGoodsProcedure;
+import net.mcreator.reignmod.network.PrivateShopBuyerUIButtonMessage;
+import net.mcreator.reignmod.ReignModMod;
 
 import java.util.HashMap;
 
@@ -75,24 +79,36 @@ public class PrivateShopBuyerUIScreen extends AbstractContainerScreen<PrivateSho
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.private_shop_buyer_ui.label_private_shop"), 0, -10, -1, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.private_shop_buyer_ui.label_private_shop"), 0, -8, -1, false);
 		guiGraphics.drawString(this.font,
 
-				PrivateShopGetOwnerProcedure.execute(world, x, y, z), 122, -10, -1, false);
+				PrivateShopGetOwnerProcedure.execute(world, x, y, z), 122, -9, -1, false);
 		guiGraphics.drawString(this.font,
 
 				WalletOutsideCostProcedure.execute(entity), 15, 167, -1, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.private_shop_buyer_ui.label_count_left"), 62, 48, -12829636, false);
+		guiGraphics.drawString(this.font,
+
+				PrivateShopCountGoodsProcedure.execute(world, x, y, z), 43, 50, -12829636, false);
+		if (PrivateShopNoLicenseProcedure.execute(entity))
+			guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.private_shop_buyer_ui.label_not_licensed"), 0, -22, -3407821, false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
 		button_buy = Button.builder(Component.translatable("gui.reign_mod.private_shop_buyer_ui.button_buy"), e -> {
+			if (true) {
+				ReignModMod.PACKET_HANDLER.sendToServer(new PrivateShopBuyerUIButtonMessage(0, x, y, z, textstate));
+				PrivateShopBuyerUIButtonMessage.handleButtonAction(entity, 0, x, y, z, textstate);
+			}
 		}).bounds(this.leftPos + 61, this.topPos + 59, 72, 20).build();
 		guistate.put("button:button_buy", button_buy);
 		this.addRenderableWidget(button_buy);
 		button_x4 = Button.builder(Component.translatable("gui.reign_mod.private_shop_buyer_ui.button_x4"), e -> {
+			if (true) {
+				ReignModMod.PACKET_HANDLER.sendToServer(new PrivateShopBuyerUIButtonMessage(1, x, y, z, textstate));
+				PrivateShopBuyerUIButtonMessage.handleButtonAction(entity, 1, x, y, z, textstate);
+			}
 		}).bounds(this.leftPos + 43, this.topPos + 59, 18, 20).build();
 		guistate.put("button:button_x4", button_x4);
 		this.addRenderableWidget(button_x4);

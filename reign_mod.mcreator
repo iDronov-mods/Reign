@@ -2063,9 +2063,9 @@
       "registry_name": "fund_ui",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/world/inventory/FundUIMenu.java",
+          "src/main/java/net/mcreator/reignmod/network/FundUISlotMessage.java",
           "src/main/java/net/mcreator/reignmod/client/gui/FundUIScreen.java",
-          "src/main/java/net/mcreator/reignmod/network/FundUISlotMessage.java"
+          "src/main/java/net/mcreator/reignmod/world/inventory/FundUIMenu.java"
         ]
       },
       "path": "~/UI"
@@ -3306,8 +3306,8 @@
       "registry_name": "woodcutter_coin",
       "metadata": {
         "files": [
-          "src/main/resources/assets/reign_mod/models/item/woodcutter_coin.json",
-          "src/main/java/net/mcreator/reignmod/item/WoodcutterCoinItem.java"
+          "src/main/java/net/mcreator/reignmod/item/WoodcutterCoinItem.java",
+          "src/main/resources/assets/reign_mod/models/item/woodcutter_coin.json"
         ]
       },
       "path": "~/Items/Coins"
@@ -3334,8 +3334,8 @@
       "registry_name": "miner_coin",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/item/MinerCoinItem.java",
-          "src/main/resources/assets/reign_mod/models/item/miner_coin.json"
+          "src/main/resources/assets/reign_mod/models/item/miner_coin.json",
+          "src/main/java/net/mcreator/reignmod/item/MinerCoinItem.java"
         ]
       },
       "path": "~/Items/Coins"
@@ -5348,8 +5348,8 @@
       "registry_name": "ruin_lord_1",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/item/RuinLord1Item.java",
-          "src/main/resources/assets/reign_mod/models/item/ruin_lord_1.json"
+          "src/main/resources/assets/reign_mod/models/item/ruin_lord_1.json",
+          "src/main/java/net/mcreator/reignmod/item/RuinLord1Item.java"
         ]
       },
       "path": "~/Items/RuinLord"
@@ -5362,8 +5362,8 @@
       "registry_name": "ruin_lord_2",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/item/RuinLord2Item.java",
-          "src/main/resources/assets/reign_mod/models/item/ruin_lord_2.json"
+          "src/main/resources/assets/reign_mod/models/item/ruin_lord_2.json",
+          "src/main/java/net/mcreator/reignmod/item/RuinLord2Item.java"
         ]
       },
       "path": "~/Items/RuinLord"
@@ -5854,19 +5854,6 @@
       "path": "~/Scripts/Returns"
     },
     {
-      "name": "PlayerSetName",
-      "type": "mixin",
-      "compiles": true,
-      "locked_code": true,
-      "registry_name": "player_set_name",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/reignmod/mixins/PlayerSetNameMixin.java"
-        ]
-      },
-      "path": "~/Mixins"
-    },
-    {
       "name": "IsKing",
       "type": "procedure",
       "compiles": true,
@@ -6320,6 +6307,7 @@
         "files": [
           "src/main/java/net/mcreator/reignmod/network/PrivateShopUISlotMessage.java",
           "src/main/java/net/mcreator/reignmod/world/inventory/PrivateShopUIMenu.java",
+          "src/main/java/net/mcreator/reignmod/network/PrivateShopUIButtonMessage.java",
           "src/main/java/net/mcreator/reignmod/client/gui/PrivateShopUIScreen.java"
         ]
       },
@@ -6626,26 +6614,6 @@
       "path": "~/Scripts/OtherSystems/PrivateShopSystem"
     },
     {
-      "name": "PrivateShopSetPrice",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "private_shop_set_price",
-      "metadata": {
-        "return_type": "logic",
-        "files": [
-          "src/main/java/net/mcreator/reignmod/procedures/PrivateShopSetPriceProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "itemstack",
-            "type": "itemstack"
-          }
-        ]
-      },
-      "path": "~/Scripts/OtherSystems/PrivateShopSystem"
-    },
-    {
       "name": "PrivateShopSetGoods",
       "type": "procedure",
       "compiles": true,
@@ -6655,7 +6623,29 @@
         "files": [
           "src/main/java/net/mcreator/reignmod/procedures/PrivateShopSetGoodsProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "logic"
       },
       "path": "~/Scripts/OtherSystems/PrivateShopSystem"
     },
@@ -6703,7 +6693,8 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/reignmod/world/inventory/PrivateShopBuyerUIMenu.java",
-          "src/main/java/net/mcreator/reignmod/client/gui/PrivateShopBuyerUIScreen.java"
+          "src/main/java/net/mcreator/reignmod/client/gui/PrivateShopBuyerUIScreen.java",
+          "src/main/java/net/mcreator/reignmod/network/PrivateShopBuyerUIButtonMessage.java"
         ]
       },
       "path": "~/UI"
@@ -6807,54 +6798,6 @@
         ]
       },
       "path": "~/Scripts/CapitalSystem"
-    },
-    {
-      "name": "PrivateShopisKing",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "private_shopis_king",
-      "metadata": {
-        "return_type": "logic",
-        "files": [
-          "src/main/java/net/mcreator/reignmod/procedures/PrivateShopisKingProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Scripts/OtherSystems/PrivateShopSystem"
-    },
-    {
-      "name": "PrivateShopAddGoods",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "private_shop_add_goods",
-      "metadata": {
-        "return_type": "logic",
-        "files": [
-          "src/main/java/net/mcreator/reignmod/procedures/PrivateShopAddGoodsProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "itemstack",
-            "type": "itemstack"
-          }
-        ]
-      },
-      "path": "~/Scripts/OtherSystems/PrivateShopSystem"
     },
     {
       "name": "PrivateShopSetLicense",
@@ -7129,6 +7072,457 @@
         ]
       },
       "path": "~/Mixins"
+    },
+    {
+      "name": "NameFormat",
+      "type": "mixin",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "name_format",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/mixins/NameFormatMixin.java"
+        ]
+      },
+      "path": "~/Mixins"
+    },
+    {
+      "name": "PrivateShopCountGoods",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "private_shop_count_goods",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/PrivateShopCountGoodsProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/PrivateShopSystem"
+    },
+    {
+      "name": "PrivateShopProfit",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "private_shop_profit",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/PrivateShopProfitProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/PrivateShopSystem"
+    },
+    {
+      "name": "PrivateShopKingAccess",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "private_shop_king_access",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/PrivateShopKingAccessProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/PrivateShopSystem"
+    },
+    {
+      "name": "PrivateShopClearGoods",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "private_shop_clear_goods",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/PrivateShopClearGoodsProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/PrivateShopSystem"
+    },
+    {
+      "name": "RPrivateShop",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "r_private_shop",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/recipes/r_private_shop.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "PrivateShopChangeGoods",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "private_shop_change_goods",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/PrivateShopChangeGoodsProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Scripts/OtherSystems/PrivateShopSystem"
+    },
+    {
+      "name": "PrivateShopBuy",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "private_shop_buy",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/PrivateShopBuyProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/PrivateShopSystem"
+    },
+    {
+      "name": "PrivateShopAddGoods",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "private_shop_add_goods",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/PrivateShopAddGoodsProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/PrivateShopSystem"
+    },
+    {
+      "name": "PrivateShopSetPrice",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "private_shop_set_price",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/PrivateShopSetPriceProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/PrivateShopSystem"
+    },
+    {
+      "name": "PrivateShopChoosePrice",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "private_shop_choose_price",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/PrivateShopChoosePriceProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/PrivateShopSystem"
+    },
+    {
+      "name": "PrivateShopClearButton",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "private_shop_clear_button",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/PrivateShopClearButtonProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/PrivateShopSystem"
+    },
+    {
+      "name": "PrivateShopCash",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "private_shop_cash",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/PrivateShopCashProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/PrivateShopSystem"
+    },
+    {
+      "name": "KickFromHouse",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kick_from_house",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/KickFromHouseProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Scripts/HousesScript"
+    },
+    {
+      "name": "PrivateShopBuy4",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "private_shop_buy_4",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/PrivateShopBuy4Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/PrivateShopSystem"
+    },
+    {
+      "name": "PrivateShopNoLicense",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "private_shop_no_license",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/PrivateShopNoLicenseProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/PrivateShopSystem"
+    },
+    {
+      "name": "WinKingtableOpen",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "win_kingtable_open",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/WinKingtableOpenProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/UI"
     }
   ],
   "variable_elements": [
@@ -7517,30 +7911,6 @@
       "subtitle": ""
     },
     {
-      "name": "the-calm-before-the-storm",
-      "files": [
-        "the-calm-before-the-storm"
-      ],
-      "category": "music",
-      "subtitle": ""
-    },
-    {
-      "name": "light-after-darkness",
-      "files": [
-        "lightafterdarkness"
-      ],
-      "category": "music",
-      "subtitle": ""
-    },
-    {
-      "name": "lasto-beth-lammen",
-      "files": [
-        "lasto_beth_lammen"
-      ],
-      "category": "music",
-      "subtitle": ""
-    },
-    {
       "name": "safe_open",
       "files": [
         "safe_open"
@@ -7570,6 +7940,30 @@
         "picklock_work2"
       ],
       "category": "player",
+      "subtitle": ""
+    },
+    {
+      "name": "ruinlord1",
+      "files": [
+        "the-calm-before-the-storm"
+      ],
+      "category": "music",
+      "subtitle": ""
+    },
+    {
+      "name": "ruinlord2",
+      "files": [
+        "lightafterdarkness"
+      ],
+      "category": "music",
+      "subtitle": ""
+    },
+    {
+      "name": "ruinlord3",
+      "files": [
+        "lasto_beth_lammen"
+      ],
+      "category": "music",
       "subtitle": ""
     }
   ],
@@ -7844,6 +8238,7 @@
       "gui.reign_mod.win_view.tooltip_fisher_4": "+25% шанс подсечь. (100%)",
       "gui.reign_mod.win_view.tooltip_fisher_1": "50% шанс подсечь.",
       "NotLord": " больше не лорд.",
+      "translation.key.enslavement": "вступает в Домен: ",
       "effect.reign_mod.criminal": "Преступник",
       "gui.reign_mod.win_view.tooltip_fisher_2": "+25% шанс подсечь. (75%)",
       "gui.reign_mod.license_is_selected.label_all_experience_will_be_lost": "Весь опыт будет потерян.",
@@ -7857,8 +8252,9 @@
       "gui.reign_mod.market.label_cost": "цена",
       "item.reign_mod.crown_helmet": "Корона",
       "item.reign_mod.textbook": "Учебник ReignMod",
+      "gui.reign_mod.private_shop_ui.button_gcf": "снять",
       "gui.reign_mod.royale_settings.label_ores": "РУДЫ",
-      "gui.reign_mod.private_shop_ui.tooltip_private_shop_help": "private_shop_help",
+      "gui.reign_mod.private_shop_ui.tooltip_private_shop_help": "Продавайте товар на частном рынке",
       "gui.reign_mod.trader_point.sale_off": "OFF",
       "advancements.days_online_30.descr": "Месяц онлайн!",
       "translation.key.already_domain_locked": "Закрыто Доменом:",
@@ -7897,9 +8293,13 @@
       "subtitles.coin1": "",
       "gui.reign_mod.beta_textbook_2.button_back": "назад",
       "gui.reign_mod.hoarder.label_hoarder": "Барахольщик",
+      "subtitles.ruinlord3": "",
       "item.reign_mod.your_lawn_is_bool.desc": "Mow everything!",
+      "subtitles.ruinlord2": "",
+      "subtitles.ruinlord1": "",
       "gui.reign_mod.market.label_market": "Рынок",
       "translation.key.GriefCapital": "Я не могу это делать в столице.",
+      "translation.key.deleteDomain": "выгнан из Дома",
       "item.reign_mod.woodcutter_coin": "Монета дровосека",
       "translation.key.locked": "Закрыто на замок",
       "advancements.master_lock_picker.descr": "Взломайте сейф.",
@@ -7926,24 +8326,24 @@
       "gui.reign_mod.new_house.label_4": "4",
       "subtitles.wallet_shake": "",
       "NotSmithSay": "Я не умею работать с этим.",
-      "gui.reign_mod.private_shop_buyer_ui.label_private_shop": "private_shop",
+      "gui.reign_mod.private_shop_buyer_ui.label_private_shop": "Частная лавка",
       "item.reign_mod.honey_concentrate": "Концентрат мёда",
       "gui.reign_mod.dsf.button_blacksmith": "Кузнец    ",
       "gui.reign_mod.royale_settings.label_royal_decrees": "Королевские указы",
       "KingdomDelete": "Королевство распалось: ",
       "NotKing": "Недостаточно полномочий.",
-      "gui.reign_mod.private_shop_ui.button_buy": "Buy",
       "gui.reign_mod.add_license_list.button_alchemist": "Алхимик",
       "block.reign_mod.trade_block": "Пункт приёма",
       "block.reign_mod.plus": "Plus",
       "item.reign_mod.blackmark": "Чёрная метка",
-      "gui.reign_mod.private_shop_ui.label_private_shop": "private_shop",
+      "gui.reign_mod.private_shop_ui.label_private_shop": "Частная лавка",
       "subtitles.picklock_break": "",
       "gui.reign_mod.market_2.button_buy": "КУПИТЬ",
       "gui.reign_mod.walletwin.label_17569": "17569",
       "newhouse": "Основан Дом:",
       "item.reign_mod.ruin_lord_3.desc": "Ruin Lord - Lasto Beth Lammen",
       "gui.reign_mod.hoarder.tooltip_sell_64_units_of_any_product_f": "Продайте 64 единицы любого товара за 2 медные монеты.",
+      "gui.reign_mod.private_shop_ui.button_clear": "изъять",
       "gui.reign_mod.market_2.label_cost": "цена",
       "gui.reign_mod.add_license_list.tooltip_vybieritie_osnovnoi_stil_ighry": "Выберите основной стиль игры.",
       "gui.reign_mod.safe_ui.label_safe_label": "Сейф",
@@ -7970,6 +8370,7 @@
       "item.reign_mod.fragment_of_record_2": "Осколок пластинки #2",
       "item.reign_mod.fragment_of_record_3": "Осколок пластинки #3",
       "criminal_true": " объявлен преступником.",
+      "gui.reign_mod.private_shop_ui.label_profit": "прибыль:",
       "gui.reign_mod.win_view.tooltip_soldier_3": "+1 к урону мечом.",
       "gui.reign_mod.win_view.tooltip_soldier_2": "+50% урона стрел.",
       "gui.reign_mod.win_view.tooltip_soldier_5": "Восстановление части потерянного здоровья.",
@@ -7989,7 +8390,7 @@
       "pay_king": "Королевский доход:",
       "item.reign_mod.private_rental_3": "Роскошная частная аренда",
       "item.reign_mod.private_rental_2": "Обычная частная аренда",
-      "block.reign_mod.private_shop": "Private shop",
+      "block.reign_mod.private_shop": "Частная лавка",
       "gui.reign_mod.royale_settings.other_textfield": "",
       "gui.reign_mod.fund_ui.tooltip_3_kingdoms": "+3 Дома",
       "advancements.gotcha.title": "Попался!",
@@ -8005,6 +8406,7 @@
       "item.reign_mod.gold_lock": "Золотой замок",
       "pay_lord": "Прибыль Лорда:",
       "gui.reign_mod.new_kingdom_ui.label_color": "Цвет:",
+      "gui.reign_mod.private_shop_buyer_ui.label_not_licensed": "Лицензия отсутствует",
       "gui.reign_mod.win_view.tooltip_smith_lvl5": "Доступ к кузнечному столу.",
       "item.reign_mod.right_hand": "Знак Десницы",
       "gui.reign_mod.win_view.tooltip_smith_lvl2": "Ремонт на точиле.",
@@ -8014,7 +8416,7 @@
       "gui.reign_mod.win_view.tooltip_smith_lvl4": "Отсутствует брак.",
       "gui.reign_mod.win_view.tooltip_smith_lvl3": "Использование наковальни.",
       "subtitles.lasto-beth-lammen": "",
-      "gui.reign_mod.private_shop_buyer_ui.button_buy": "Buy",
+      "gui.reign_mod.private_shop_buyer_ui.button_buy": "КУПИТЬ",
       "subtitles.picklock_work": "",
       "gui.reign_mod.textbook_1.label_textbook": "Учебник",
       "gui.reign_mod.royale_settings.label_coal": "УГОЛЬ",
@@ -8028,7 +8430,7 @@
       "gui.reign_mod.coffers_ui.tooltip_this_is_where_government_money_i": "Здесь хранятся государственные деньги.",
       "gui.reign_mod.win_view.tooltip_fihsher_5": "Эффект подводного дыхания на 5 мин после ловли.",
       "gui.reign_mod.royale_settings.food_textfield": "",
-      "gui.reign_mod.private_shop_buyer_ui.tooltip_private_shop_help": "private_shop_help",
+      "gui.reign_mod.private_shop_buyer_ui.tooltip_private_shop_help": "Покупайте товар на частном рынке",
       "item.reign_mod.smith_coin": "Монета кузнеца",
       "gui.reign_mod.textbook_1.button_back": "далее",
       "gui.reign_mod.new_house.button_create": "Create",
@@ -8137,6 +8539,7 @@
       "gui.reign_mod.win_view.tooltip_fisher_4": "fisher_4",
       "NotLord": " now not lord.",
       "gui.reign_mod.win_view.tooltip_fisher_1": "fisher_1",
+      "translation.key.enslavement": "joins the Domain: ",
       "effect.reign_mod.criminal": "Criminal",
       "gui.reign_mod.win_view.tooltip_fisher_2": "fisher_2",
       "gui.reign_mod.license_is_selected.label_all_experience_will_be_lost": "All experience will be lost",
@@ -8150,6 +8553,7 @@
       "gui.reign_mod.market.label_cost": "cost",
       "item.reign_mod.crown_helmet": "Crown",
       "item.reign_mod.textbook": "Textbook ReignMod",
+      "gui.reign_mod.private_shop_ui.button_gcf": "cash",
       "gui.reign_mod.royale_settings.label_ores": "ORES",
       "gui.reign_mod.private_shop_ui.tooltip_private_shop_help": "private_shop_help",
       "gui.reign_mod.trader_point.sale_off": "OFF",
@@ -8190,10 +8594,14 @@
       "subtitles.coin1": "",
       "gui.reign_mod.beta_textbook_2.button_back": "back",
       "gui.reign_mod.hoarder.label_hoarder": "Hoarder",
+      "subtitles.ruinlord3": "",
       "item.reign_mod.your_lawn_is_bool.desc": "Mow everything!",
+      "subtitles.ruinlord2": "",
+      "subtitles.ruinlord1": "",
       "License_refuse": "License revoked.",
       "gui.reign_mod.market.label_market": "Market",
       "translation.key.GriefCapital": "I can\u0027t do this in the capital.",
+      "translation.key.deleteDomain": "kicked from House",
       "item.reign_mod.woodcutter_coin": "Woodcutter coin",
       "translation.key.locked": "Locked",
       "advancements.master_lock_picker.descr": "Crack the safe.",
@@ -8225,7 +8633,6 @@
       "gui.reign_mod.royale_settings.label_royal_decrees": "Royal Decrees",
       "KingdomDelete": "The kingdom fell apart: ",
       "NotKing": "Insufficient authority.",
-      "gui.reign_mod.private_shop_ui.button_buy": "Buy",
       "gui.reign_mod.add_license_list.button_alchemist": "Alchemist",
       "block.reign_mod.trade_block": "Trade Block",
       "block.reign_mod.plus": "Plus",
@@ -8237,6 +8644,7 @@
       "newhouse": "The House was founded: ",
       "item.reign_mod.ruin_lord_3.desc": "Ruin Lord - Lasto Beth Lammen",
       "gui.reign_mod.hoarder.tooltip_sell_64_units_of_any_product_f": "Sell ​​64 units of any product for 1 copper coin.",
+      "gui.reign_mod.private_shop_ui.button_clear": "clear",
       "gui.reign_mod.market_2.label_cost": "cost",
       "gui.reign_mod.add_license_list.tooltip_vybieritie_osnovnoi_stil_ighry": "Выберите дополнительный стиль игры.",
       "gui.reign_mod.safe_ui.label_safe_label": "safe_label",
@@ -8263,6 +8671,7 @@
       "item.reign_mod.fragment_of_record_2": "Fragment of record #2",
       "item.reign_mod.fragment_of_record_3": "Fragment of record #3",
       "criminal_true": " declared a criminal.",
+      "gui.reign_mod.private_shop_ui.label_profit": "profit:",
       "gui.reign_mod.win_view.tooltip_soldier_3": "soldier_3",
       "gui.reign_mod.win_view.tooltip_soldier_2": "soldier_2",
       "gui.reign_mod.win_view.tooltip_soldier_5": "soldier_5",
@@ -8298,6 +8707,7 @@
       "item.reign_mod.gold_lock": "Gold lock",
       "pay_lord": "Lord\u0027s Profit:",
       "gui.reign_mod.new_kingdom_ui.label_color": "color:",
+      "gui.reign_mod.private_shop_buyer_ui.label_not_licensed": "not_licensed",
       "gui.reign_mod.win_view.tooltip_smith_lvl5": "smith_lvl5",
       "item.reign_mod.right_hand": "Right Hand",
       "gui.reign_mod.win_view.tooltip_smith_lvl2": "smith_lvl2",
@@ -8548,7 +8958,7 @@
   "workspaceSettings": {
     "modid": "reign_mod",
     "modName": "Reign",
-    "version": "0.5.3",
+    "version": "0.6",
     "description": "Professions, trade and power",
     "author": "iDronov",
     "websiteURL": "https://t.me/reignmod",

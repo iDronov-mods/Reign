@@ -6,7 +6,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.components.EditBox;
 
 import net.mcreator.reignmod.house.HouseManager;
@@ -63,8 +62,6 @@ public class CreatePlusProcedure {
 			}
 			if (guistate.get("text:house_name") instanceof EditBox _tf)
 				_tf.setValue("");
-			if (entity instanceof Player _player && !_player.level().isClientSide())
-				_player.displayClientMessage(Component.literal(("" + HouseManager.isColorAvailable("yellow"))), false);
 			if (HouseManager.isColorAvailable("yellow")) {
 				if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 					ItemStack _setstack = new ItemStack(Blocks.YELLOW_BANNER).copy();

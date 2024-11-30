@@ -2,9 +2,15 @@ package net.mcreator.reignmod.house;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.StringTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.saveddata.SavedData;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class HouseSavedData extends SavedData {
 
@@ -17,6 +23,17 @@ public class HouseSavedData extends SavedData {
     public HouseSavedData(CompoundTag compoundTag) {
         ListTag housesTag = compoundTag.getList("houses", 10);
         housesTag.forEach(houseTag -> this.houseData.pushHouse(new House((CompoundTag) houseTag)));
+
+        ListTag domainsTag = compoundTag.getList("domains", 10);
+        domainsTag.forEach(domainTag -> this.houseData.addDomain(new Domain((CompoundTag) domainTag)));
+
+        ListTag playersListTag = compoundTag.getList("players", 8);
+        ListTag playersCodesListTag = compoundTag.getList("player_codes", 8);
+        Iterator<Tag> i1 = playersListTag.iterator();
+        Iterator<Tag> i2 = playersCodesListTag.iterator();
+        while (i1.hasNext() && i2.hasNext()) {
+            this.houseData.addOrUpdatePlayerCode(i1.next().getAsString(), i2.next().getAsString());
+        }
     }
 
     public static void initialize(ServerLevel serverLevel) {
@@ -33,10 +50,24 @@ public class HouseSavedData extends SavedData {
     }
 
     @Override
-    public CompoundTag save(CompoundTag compoundTag) { // Сохранение словаря домов
+    public CompoundTag save(CompoundTag compoundTag) {
         ListTag housesListTag = new ListTag();
         this.houseData.getHouses().forEach((lordUUID, house) -> housesListTag.add(house.serializeNBT()));
         compoundTag.put("houses", housesListTag);
+
+        ListTag domainsListTag = new ListTag();
+        this.houseData.getDomains().forEach((knightUUID, domain) -> domainsListTag.add(domain.serializeNBT()));
+        compoundTag.put("domains", domainsListTag);
+
+        ListTag playersListTag = new ListTag();
+        ListTag playersCodesListTag = new ListTag();
+        this.houseData.getPlayerCodes().forEach((playerUUID, playerCode) -> {
+            playersListTag.add(StringTag.valueOf(playerUUID));
+            playersCodesListTag.add(StringTag.valueOf(playerCode));
+        });
+        compoundTag.put("players", playersListTag);
+        compoundTag.put("player_codes", playersCodesListTag);
+
         return compoundTag;
     }
 
@@ -59,9 +90,9 @@ public class HouseSavedData extends SavedData {
         return houseData.getHouseAvailableColors().get(color);
     }
 
-    public Boolean addHouse(String lordUUID, String houseTitle, String houseColor, int houseHeartIdentifier) {
+    public Boolean addHouse(String lordUUID, String houseTitle, String houseColor) {
         if (this.houseData.getHouses().containsKey(lordUUID) || !this.houseData.getHouseAvailableColors().get(houseColor)) return false;
-        this.houseData.pushHouse(new House(lordUUID, houseTitle, houseColor, houseHeartIdentifier));
+        this.houseData.pushHouse(new House(lordUUID, houseTitle, houseColor));
         setDirty();
         return true;
     }
