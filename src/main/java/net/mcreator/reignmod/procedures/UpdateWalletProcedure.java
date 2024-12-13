@@ -22,8 +22,9 @@ public class UpdateWalletProcedure {
 		ItemStack wallet = ItemStack.EMPTY;
 		if ((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == ReignModModItems.WALLET.get()) {
 			wallet = (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY);
-		} else if ((entity instanceof LivingEntity _livEnt ? _livEnt.getOffhandItem() : ItemStack.EMPTY).getItem() == ReignModModItems.WALLET.get()) {
-			wallet = (entity instanceof LivingEntity _livEnt ? _livEnt.getOffhandItem() : ItemStack.EMPTY);
+		} else {
+			if (entity instanceof Player _player)
+				_player.closeContainer();
 		}
 		wallet.getOrCreateTag().putDouble("amount", (new Object() {
 			public int getAmount(int sltid) {

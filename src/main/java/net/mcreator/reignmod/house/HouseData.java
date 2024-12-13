@@ -92,7 +92,8 @@ public class HouseData{
     }
 
     public void removeHouse(House house) {
-        house.getDomains().forEach((s, domain) -> this.removeDomain(house, domain));
+        House houseCopy = new House(house.serializeNBT());
+        houseCopy.getDomains().forEach((s, domain) -> this.removeDomain(house, domain));
         this.houses.remove(house.getLordUUID());
         this.houseAvailableColors.replace(house.getHouseColor(), true);
     }

@@ -8,7 +8,6 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.inventory.ContainerLevelAccess;
@@ -20,6 +19,10 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
+import net.mcreator.reignmod.procedures.IncubatorMeatAddProcedure;
+import net.mcreator.reignmod.procedures.IncubatorFuelAddProcedure;
+import net.mcreator.reignmod.procedures.IncubatorFoodAddProcedure;
+import net.mcreator.reignmod.procedures.IncubatorDyeAddProcedure;
 import net.mcreator.reignmod.init.ReignModModMenus;
 import net.mcreator.reignmod.init.ReignModModItems;
 
@@ -91,126 +94,321 @@ public class HouseIncubatorUIMenu extends AbstractContainerMenu implements Suppl
 			private final int slot = 1;
 
 			@Override
-			public boolean mayPlace(ItemStack stack) {
-				return Items.BREAD == stack.getItem();
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorFuelAddProcedure.execute(itemstack);
 			}
 		}));
-		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 16, 48) {
+		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 34, 30) {
 			private final int slot = 2;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorFuelAddProcedure.execute(itemstack);
+			}
 		}));
-		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 16, 66) {
+		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 16, 48) {
 			private final int slot = 3;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorFuelAddProcedure.execute(itemstack);
+			}
 		}));
-		this.customSlots.put(4, this.addSlot(new SlotItemHandler(internal, 4, 16, 84) {
+		this.customSlots.put(4, this.addSlot(new SlotItemHandler(internal, 4, 34, 48) {
 			private final int slot = 4;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorFuelAddProcedure.execute(itemstack);
+			}
 		}));
-		this.customSlots.put(5, this.addSlot(new SlotItemHandler(internal, 5, 16, 102) {
+		this.customSlots.put(5, this.addSlot(new SlotItemHandler(internal, 5, 15, 66) {
 			private final int slot = 5;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorFuelAddProcedure.execute(itemstack);
+			}
 		}));
-		this.customSlots.put(6, this.addSlot(new SlotItemHandler(internal, 6, 16, 120) {
+		this.customSlots.put(6, this.addSlot(new SlotItemHandler(internal, 6, 34, 66) {
 			private final int slot = 6;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorFuelAddProcedure.execute(itemstack);
+			}
 		}));
-		this.customSlots.put(7, this.addSlot(new SlotItemHandler(internal, 7, 34, 30) {
+		this.customSlots.put(7, this.addSlot(new SlotItemHandler(internal, 7, 16, 84) {
 			private final int slot = 7;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorFuelAddProcedure.execute(itemstack);
+			}
 		}));
-		this.customSlots.put(8, this.addSlot(new SlotItemHandler(internal, 8, 34, 48) {
+		this.customSlots.put(8, this.addSlot(new SlotItemHandler(internal, 8, 34, 84) {
 			private final int slot = 8;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorFuelAddProcedure.execute(itemstack);
+			}
 		}));
-		this.customSlots.put(9, this.addSlot(new SlotItemHandler(internal, 9, 34, 66) {
+		this.customSlots.put(9, this.addSlot(new SlotItemHandler(internal, 9, 16, 102) {
 			private final int slot = 9;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorFuelAddProcedure.execute(itemstack);
+			}
 		}));
-		this.customSlots.put(10, this.addSlot(new SlotItemHandler(internal, 10, 34, 84) {
+		this.customSlots.put(10, this.addSlot(new SlotItemHandler(internal, 10, 34, 102) {
 			private final int slot = 10;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorFuelAddProcedure.execute(itemstack);
+			}
 		}));
-		this.customSlots.put(11, this.addSlot(new SlotItemHandler(internal, 11, 34, 102) {
+		this.customSlots.put(11, this.addSlot(new SlotItemHandler(internal, 11, 16, 120) {
 			private final int slot = 11;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorFuelAddProcedure.execute(itemstack);
+			}
 		}));
 		this.customSlots.put(12, this.addSlot(new SlotItemHandler(internal, 12, 34, 120) {
 			private final int slot = 12;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorFuelAddProcedure.execute(itemstack);
+			}
 		}));
 		this.customSlots.put(13, this.addSlot(new SlotItemHandler(internal, 13, 250, 30) {
 			private final int slot = 13;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorFoodAddProcedure.execute(itemstack);
+			}
 		}));
-		this.customSlots.put(14, this.addSlot(new SlotItemHandler(internal, 14, 250, 48) {
+		this.customSlots.put(14, this.addSlot(new SlotItemHandler(internal, 14, 268, 30) {
 			private final int slot = 14;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorFoodAddProcedure.execute(itemstack);
+			}
 		}));
-		this.customSlots.put(15, this.addSlot(new SlotItemHandler(internal, 15, 250, 66) {
+		this.customSlots.put(15, this.addSlot(new SlotItemHandler(internal, 15, 250, 48) {
 			private final int slot = 15;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorFoodAddProcedure.execute(itemstack);
+			}
 		}));
-		this.customSlots.put(16, this.addSlot(new SlotItemHandler(internal, 16, 250, 84) {
+		this.customSlots.put(16, this.addSlot(new SlotItemHandler(internal, 16, 268, 48) {
 			private final int slot = 16;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorFoodAddProcedure.execute(itemstack);
+			}
 		}));
-		this.customSlots.put(17, this.addSlot(new SlotItemHandler(internal, 17, 250, 102) {
+		this.customSlots.put(17, this.addSlot(new SlotItemHandler(internal, 17, 250, 66) {
 			private final int slot = 17;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorFoodAddProcedure.execute(itemstack);
+			}
 		}));
-		this.customSlots.put(18, this.addSlot(new SlotItemHandler(internal, 18, 250, 120) {
+		this.customSlots.put(18, this.addSlot(new SlotItemHandler(internal, 18, 268, 66) {
 			private final int slot = 18;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorFoodAddProcedure.execute(itemstack);
+			}
 		}));
-		this.customSlots.put(19, this.addSlot(new SlotItemHandler(internal, 19, 268, 30) {
+		this.customSlots.put(19, this.addSlot(new SlotItemHandler(internal, 19, 250, 84) {
 			private final int slot = 19;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorFoodAddProcedure.execute(itemstack);
+			}
 		}));
-		this.customSlots.put(20, this.addSlot(new SlotItemHandler(internal, 20, 268, 48) {
+		this.customSlots.put(20, this.addSlot(new SlotItemHandler(internal, 20, 268, 84) {
 			private final int slot = 20;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorFoodAddProcedure.execute(itemstack);
+			}
 		}));
-		this.customSlots.put(21, this.addSlot(new SlotItemHandler(internal, 21, 268, 66) {
+		this.customSlots.put(21, this.addSlot(new SlotItemHandler(internal, 21, 250, 102) {
 			private final int slot = 21;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorFoodAddProcedure.execute(itemstack);
+			}
 		}));
-		this.customSlots.put(22, this.addSlot(new SlotItemHandler(internal, 22, 268, 84) {
+		this.customSlots.put(22, this.addSlot(new SlotItemHandler(internal, 22, 268, 102) {
 			private final int slot = 22;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorFoodAddProcedure.execute(itemstack);
+			}
 		}));
-		this.customSlots.put(23, this.addSlot(new SlotItemHandler(internal, 23, 268, 102) {
+		this.customSlots.put(23, this.addSlot(new SlotItemHandler(internal, 23, 250, 120) {
 			private final int slot = 23;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorFoodAddProcedure.execute(itemstack);
+			}
 		}));
 		this.customSlots.put(24, this.addSlot(new SlotItemHandler(internal, 24, 268, 120) {
 			private final int slot = 24;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorFoodAddProcedure.execute(itemstack);
+			}
 		}));
 		this.customSlots.put(25, this.addSlot(new SlotItemHandler(internal, 25, 70, 30) {
 			private final int slot = 25;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorDyeAddProcedure.execute(itemstack);
+			}
 		}));
 		this.customSlots.put(26, this.addSlot(new SlotItemHandler(internal, 26, 88, 30) {
 			private final int slot = 26;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorDyeAddProcedure.execute(itemstack);
+			}
 		}));
 		this.customSlots.put(27, this.addSlot(new SlotItemHandler(internal, 27, 106, 30) {
 			private final int slot = 27;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorDyeAddProcedure.execute(itemstack);
+			}
 		}));
 		this.customSlots.put(28, this.addSlot(new SlotItemHandler(internal, 28, 124, 30) {
 			private final int slot = 28;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorDyeAddProcedure.execute(itemstack);
+			}
 		}));
 		this.customSlots.put(29, this.addSlot(new SlotItemHandler(internal, 29, 70, 48) {
 			private final int slot = 29;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorDyeAddProcedure.execute(itemstack);
+			}
 		}));
 		this.customSlots.put(30, this.addSlot(new SlotItemHandler(internal, 30, 88, 48) {
 			private final int slot = 30;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorDyeAddProcedure.execute(itemstack);
+			}
 		}));
 		this.customSlots.put(31, this.addSlot(new SlotItemHandler(internal, 31, 106, 48) {
 			private final int slot = 31;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorDyeAddProcedure.execute(itemstack);
+			}
 		}));
 		this.customSlots.put(32, this.addSlot(new SlotItemHandler(internal, 32, 124, 48) {
 			private final int slot = 32;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorDyeAddProcedure.execute(itemstack);
+			}
 		}));
 		this.customSlots.put(33, this.addSlot(new SlotItemHandler(internal, 33, 160, 30) {
 			private final int slot = 33;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorMeatAddProcedure.execute(itemstack);
+			}
 		}));
 		this.customSlots.put(34, this.addSlot(new SlotItemHandler(internal, 34, 178, 30) {
 			private final int slot = 34;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorMeatAddProcedure.execute(itemstack);
+			}
 		}));
 		this.customSlots.put(35, this.addSlot(new SlotItemHandler(internal, 35, 196, 30) {
 			private final int slot = 35;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorMeatAddProcedure.execute(itemstack);
+			}
 		}));
 		this.customSlots.put(36, this.addSlot(new SlotItemHandler(internal, 36, 214, 30) {
 			private final int slot = 36;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorMeatAddProcedure.execute(itemstack);
+			}
 		}));
 		this.customSlots.put(37, this.addSlot(new SlotItemHandler(internal, 37, 160, 48) {
 			private final int slot = 37;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorMeatAddProcedure.execute(itemstack);
+			}
 		}));
 		this.customSlots.put(38, this.addSlot(new SlotItemHandler(internal, 38, 178, 48) {
 			private final int slot = 38;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorMeatAddProcedure.execute(itemstack);
+			}
 		}));
 		this.customSlots.put(39, this.addSlot(new SlotItemHandler(internal, 39, 196, 48) {
 			private final int slot = 39;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorMeatAddProcedure.execute(itemstack);
+			}
 		}));
 		this.customSlots.put(40, this.addSlot(new SlotItemHandler(internal, 40, 214, 48) {
 			private final int slot = 40;
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !IncubatorMeatAddProcedure.execute(itemstack);
+			}
 		}));
 		for (int si = 0; si < 3; ++si)
 			for (int sj = 0; sj < 9; ++sj)

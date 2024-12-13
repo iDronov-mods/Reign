@@ -2,6 +2,7 @@ package net.mcreator.reignmod.procedures;
 
 import net.minecraftforge.items.ItemHandlerHelper;
 
+import net.minecraft.world.scores.PlayerTeam;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.Blocks;
@@ -26,7 +27,6 @@ import net.mcreator.reignmod.house.HouseManager;
 import java.util.function.Supplier;
 import java.util.Map;
 import java.util.HashMap;
-import java.util.ArrayList;
 
 public class HouseCreateProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, HashMap guistate) {
@@ -88,6 +88,8 @@ public class HouseCreateProcedure {
 										capability.syncPlayerVariables(entity);
 									});
 								}
+								HouseManager.playerPrefixSynchronize((Player) entity);
+								HouseManager.allPlayersPrefixPacketSend();
 								{
 									double _setval = x;
 									entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
@@ -109,15 +111,24 @@ public class HouseCreateProcedure {
 										capability.syncPlayerVariables(entity);
 									});
 								}
+								if (world instanceof Level _level)
+									_level.getScoreboard().addPlayerTeam(color);
+								{
+									Entity _entityTeam = entity;
+									PlayerTeam _pt = _entityTeam.level().getScoreboard().getPlayerTeam(color);
+									if (_pt != null) {
+										if (_entityTeam instanceof Player _player)
+											_entityTeam.level().getScoreboard().addPlayerToTeam(_player.getGameProfile().getName(), _pt);
+										else
+											_entityTeam.level().getScoreboard().addPlayerToTeam(_entityTeam.getStringUUID(), _pt);
+									}
+								}
 								heart = new ItemStack(ReignModModItems.HEART_OF_HOUSE.get());
 								heart.getOrCreateTag().putString("UUID", (entity.getStringUUID()));
 								if (entity instanceof Player _player) {
 									ItemStack _setstack = heart.copy();
 									_setstack.setCount(1);
 									ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
-								}
-								for (Entity entityiterator : new ArrayList<>(world.players())) {
-									HouseManager.playerPrefixSynchronize((Player) entityiterator);
 								}
 								world.setBlock(BlockPos.containing(x, y, z),
 										((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(10)).getItem() : ItemStack.EMPTY)

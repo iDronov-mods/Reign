@@ -41,6 +41,7 @@ public class Domain implements INBTSerializable<CompoundTag> {
     public void setPlayers(HashSet<String> players) { this.players = players; }
 
     public boolean isNull() { return Objects.equals(this.knightUUID, "null"); }
+	public boolean isPlayerInDomain(String playerUUID) { return players.contains(playerUUID); }
 
     public boolean pushPlayer(String player) { return this.players.add(player); }
     public void removePlayer(String player) { this.players.remove(player); }

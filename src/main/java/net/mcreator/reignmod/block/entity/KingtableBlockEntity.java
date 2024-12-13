@@ -94,7 +94,7 @@ public class KingtableBlockEntity extends RandomizableContainerBlockEntity imple
 
 	@Override
 	public Component getDisplayName() {
-		return Component.literal("King table");
+		return Component.literal("Royale table");
 	}
 
 	@Override
@@ -109,10 +109,6 @@ public class KingtableBlockEntity extends RandomizableContainerBlockEntity imple
 
 	@Override
 	public boolean canPlaceItem(int index, ItemStack stack) {
-		if (index == 0)
-			return false;
-		if (index == 1)
-			return false;
 		if (index == 2)
 			return false;
 		if (index == 3)

@@ -14,6 +14,7 @@ import net.minecraft.network.chat.Component;
 
 import net.mcreator.reignmod.procedures.WalletSetNameProcedure;
 import net.mcreator.reignmod.procedures.WalletNameProcedure;
+import net.mcreator.reignmod.procedures.WalletDropProcedure;
 
 import java.util.List;
 
@@ -34,5 +35,11 @@ public class WalletItem extends Item {
 		InteractionResultHolder<ItemStack> ar = super.use(world, entity, hand);
 		WalletSetNameProcedure.execute(world, entity.getX(), entity.getY(), entity.getZ(), entity, ar.getObject());
 		return ar;
+	}
+
+	@Override
+	public boolean onDroppedByPlayer(ItemStack itemstack, Player entity) {
+		WalletDropProcedure.execute(entity);
+		return true;
 	}
 }

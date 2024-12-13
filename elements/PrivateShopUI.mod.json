@@ -7,7 +7,7 @@
     "height": 166,
     "inventoryOffsetX": 0,
     "inventoryOffsetY": 0,
-    "renderBgLayer": true,
+    "renderBgLayer": false,
     "doesPauseGame": false,
     "components": [
       {
@@ -42,8 +42,8 @@
           "onSlotChanged": {
             "name": "PrivateShopSetLicense"
           },
-          "x": 105,
-          "y": 40
+          "x": 108,
+          "y": 37
         }
       },
       {
@@ -64,7 +64,7 @@
           "onSlotChanged": {
             "name": "PrivateShopChoosePrice"
           },
-          "x": 178,
+          "x": 169,
           "y": 62
         }
       },
@@ -75,15 +75,6 @@
           "use1Xscale": false,
           "x": 226,
           "y": 25
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "arrow.png",
-          "use1Xscale": false,
-          "x": 198,
-          "y": 63
         }
       },
       {
@@ -133,7 +124,7 @@
           "onSlotChanged": {
             "name": "PrivateShopChangeGoods"
           },
-          "x": 233,
+          "x": 241,
           "y": 62
         }
       },
@@ -155,20 +146,11 @@
             "name": "PrivateShopCountGoods"
           },
           "color": {
-            "value": -12829636,
+            "value": -1,
             "falpha": 0.0
           },
-          "x": 253,
+          "x": 264,
           "y": 66
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "copper_coin.png",
-          "use1Xscale": false,
-          "x": 133,
-          "y": 104
         }
       },
       {
@@ -195,10 +177,10 @@
             "name": "PrivateShopProfit"
           },
           "color": {
-            "value": -13421773,
+            "value": -1,
             "falpha": 0.0
           },
-          "x": 148,
+          "x": 151,
           "y": 108
         }
       },
@@ -218,15 +200,6 @@
         }
       },
       {
-        "type": "image",
-        "data": {
-          "image": "plusui.png",
-          "use1Xscale": false,
-          "x": 216,
-          "y": 85
-        }
-      },
-      {
         "type": "inputslot",
         "data": {
           "inputLimit": {
@@ -243,8 +216,26 @@
           "onSlotChanged": {
             "name": "PrivateShopAddGoods"
           },
-          "x": 233,
+          "x": 241,
           "y": 84
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "privateshopownerui.png",
+          "use1Xscale": false,
+          "x": 104,
+          "y": 20
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "copper_coin.png",
+          "use1Xscale": false,
+          "x": 135,
+          "y": 104
         }
       }
     ],

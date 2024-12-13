@@ -9,6 +9,8 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.BlockPos;
 
+import net.mcreator.reignmod.init.ReignModModItems;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class PrivateShopSetGoodsProcedure {
@@ -21,7 +23,7 @@ public class PrivateShopSetGoodsProcedure {
 					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 				return _retval.get();
 			}
-		}.getAmount(world, BlockPos.containing(x, y, z), 0) > 0) {
+		}.getAmount(world, BlockPos.containing(x, y, z), 0) > 0 || itemstack.getItem() == ReignModModItems.WALLET.get()) {
 			return true;
 		}
 		return false;

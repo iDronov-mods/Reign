@@ -78,7 +78,7 @@ public class PrivateShopBuyerUIMenu extends AbstractContainerMenu implements Sup
 					});
 			}
 		}
-		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, -19, 2) {
+		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, -17, 1) {
 			private final int slot = 0;
 
 			@Override
@@ -91,7 +91,7 @@ public class PrivateShopBuyerUIMenu extends AbstractContainerMenu implements Sup
 				return false;
 			}
 		}));
-		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 44, 29) {
+		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 44, 26) {
 			private final int slot = 1;
 
 			@Override
@@ -104,7 +104,7 @@ public class PrivateShopBuyerUIMenu extends AbstractContainerMenu implements Sup
 				return false;
 			}
 		}));
-		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 116, 29) {
+		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 116, 26) {
 			private final int slot = 2;
 
 			@Override

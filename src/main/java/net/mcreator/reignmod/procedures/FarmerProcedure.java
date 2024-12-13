@@ -89,11 +89,15 @@ public class FarmerProcedure {
 				if (entity instanceof Player _player)
 					_player.giveExperiencePoints(1);
 			}
-		} else if (blockstate.getBlock() == Blocks.SUGAR_CANE) {
-			yShift = 0;
-			while ((world.getBlockState(BlockPos.containing(x, y + yShift, z))).getBlock() == Blocks.SUGAR_CANE) {
-				world.setBlock(BlockPos.containing(x, y + yShift, z), Blocks.AIR.defaultBlockState(), 3);
-				yShift = yShift + 1;
+		} else {
+			if (blockstate.getBlock() == Blocks.SUGAR_CANE) {
+				yShift = 0;
+				while ((world.getBlockState(BlockPos.containing(x, y + yShift, z))).getBlock() == Blocks.SUGAR_CANE) {
+					world.setBlock(BlockPos.containing(x, y + yShift, z), Blocks.AIR.defaultBlockState(), 3);
+					yShift = yShift + 1;
+				}
+			} else if (blockstate.getBlock() == Blocks.PUMPKIN || blockstate.getBlock() == Blocks.MELON) {
+				world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
 			}
 		}
 	}

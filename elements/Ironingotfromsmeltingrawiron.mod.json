@@ -6,17 +6,17 @@
     "recipeRetstackSize": 1,
     "group": "",
     "cookingBookCategory": "MISC",
-    "xpReward": 1.0,
+    "xpReward": 0.2,
     "cookingTime": 200,
     "craftingBookCategory": "MISC",
     "recipeShapeless": false,
     "smeltingInputStack": {
-      "value": "Blocks.DEEPSLATE_GOLD_ORE"
+      "value": "Blocks.IRON_ORE"
     },
     "smeltingReturnStack": {
-      "value": "Items.GOLD_NUGGET"
+      "value": "Items.IRON_NUGGET"
     },
-    "name": "gold_ingot_from_deepslate_gold_ore",
+    "name": "iron_ingot_from_smelting_raw_iron",
     "namespace": "minecraft"
   }
 }

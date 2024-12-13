@@ -70,7 +70,7 @@
       }
     ],
     "customProperties": [],
-    "name": "King table",
+    "name": "Royale table",
     "specialInformation": {
       "fixedValue": []
     },
@@ -149,8 +149,6 @@
     "inventoryDropWhenDestroyed": false,
     "inventoryComparatorPower": true,
     "inventoryOutSlotIDs": [
-      0,
-      1,
       2,
       3,
       4,

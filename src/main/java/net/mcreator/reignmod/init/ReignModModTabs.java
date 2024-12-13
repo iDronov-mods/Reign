@@ -57,9 +57,10 @@ public class ReignModModTabs {
 				tabData.accept(ReignModModItems.RUIN_LORD_3.get());
 				tabData.accept(ReignModModItems.RUIN_LORD_2.get());
 				tabData.accept(ReignModModItems.RUIN_LORD_1.get());
-				tabData.accept(ReignModModItems.BLACKMARK.get());
 				tabData.accept(ReignModModItems.PICKLOCK.get());
 				tabData.accept(ReignModModItems.PEN_WITH_INK.get());
+				tabData.accept(ReignModModItems.BLACKMARK.get());
+				tabData.accept(ReignModModItems.ACCURSED_BLACK_MARK.get());
 			})
 
 					.build());

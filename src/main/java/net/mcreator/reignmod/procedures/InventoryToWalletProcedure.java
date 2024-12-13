@@ -14,7 +14,6 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.BlockPos;
 
-import net.mcreator.reignmod.network.ReignModModVariables;
 import net.mcreator.reignmod.init.ReignModModItems;
 
 import java.util.concurrent.atomic.AtomicReference;
@@ -148,7 +147,7 @@ public class InventoryToWalletProcedure {
 							}
 						}.getItemStack((int) index, entity)).getCount() * 4096;
 					}
-					if (value + wallet_copy.getOrCreateTag().getDouble("amount") <= ReignModModVariables.MapVariables.get(world).MAX_AMOUNT_VALUE) {
+					if (value + wallet_copy.getOrCreateTag().getDouble("amount") <= 279616) {
 						wallet_copy.getOrCreateTag().putDouble("amount", (value + wallet_copy.getOrCreateTag().getDouble("amount")));
 						{
 							final int _slotid = (int) wallet_index;

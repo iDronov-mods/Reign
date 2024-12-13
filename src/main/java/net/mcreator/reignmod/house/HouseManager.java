@@ -17,7 +17,7 @@ public class HouseManager {
     private static HashMap<String, String> fillColorCodes() {
         HashMap<String, String> colorCodes = new HashMap<>();
         List<String> colors = List.of("yellow", "lime", "green", "aqua", "blue", "purple", "pink", "red", "orange", "black");
-        List<String> codes = List.of("§e", "§a", "§2", "§b", "§1", "§5", "§d", "§c", "§6", "§8");
+        List<String> codes = List.of("§e", "§a", "§2", "§b", "§9", "§5", "§d", "§c", "§6", "§8");
 
         Iterator<String> colorsIterator = colors.iterator();
         Iterator<String> codesIterator = codes.iterator();
@@ -27,6 +27,27 @@ public class HouseManager {
         return colorCodes;
     }
 
+    public static Collection<House> getHouses() {
+        HouseSavedData houseSavedData = HouseSavedData.getInstance();
+
+        if (houseSavedData != null) {
+            return houseSavedData.getHouseData().getHouses().values();
+        }
+        return new ArrayList<>();
+    }
+
+	public static Collection<House> getHousesCopies() {
+        HouseSavedData houseSavedData = HouseSavedData.getInstance();
+
+        if (houseSavedData != null) {
+            Collection<House> houses = houseSavedData.getHouseData().getHouses().values();
+            Collection<House> housesCopies = new ArrayList<>();
+            houses.forEach(house -> {housesCopies.add(new House(house.serializeNBT()));});
+            return housesCopies;
+        }
+        return new ArrayList<>();
+    }
+    
     public static int getHousesCount() {
         HouseSavedData houseSavedData = HouseSavedData.getInstance();
 
@@ -53,11 +74,11 @@ public class HouseManager {
         return false;
     }
 
-    public static void deleteHouse(Player lordPlayer) {
+    public static void deleteHouse(String lordUUID) {
         HouseSavedData houseSavedData = HouseSavedData.getInstance();
 
         if (houseSavedData != null) {
-            houseSavedData.removeHouse(lordPlayer.getStringUUID());
+            houseSavedData.removeHouse(lordUUID);
         }
     }
 
@@ -69,12 +90,11 @@ public class HouseManager {
         }
     }
 
-    public static boolean pushPlayerToDomain(Player player) {
+   public static boolean pushPlayerToDomain(Player knightPlayer, Player player) {
         HouseSavedData houseSavedData = HouseSavedData.getInstance();
 
         if (houseSavedData != null) {
-            String suzerainUUID = getPlayerSuzerain(player);
-            return houseSavedData.pushPlayerToDomain(suzerainUUID, player.getStringUUID());
+            return houseSavedData.pushPlayerToDomain(knightPlayer.getStringUUID(), player.getStringUUID());
         }
         return false;
     }
@@ -115,8 +135,23 @@ public class HouseManager {
         return false;
     }
 
+    public static House getHouseByLordUUID(String lordUUID) {
+        HouseSavedData houseSavedData = HouseSavedData.getInstance();
+
+        if (houseSavedData != null) {
+            return houseSavedData.getHouseData().findHouseByLord(lordUUID);
+        }
+        return new House();
+    }
+
     public static String getPlayerSuzerain(Player player) {
         return (player.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).house;
+    }
+
+    public static String getPlayerDisplayName(Player player) {
+        String displayNameWithPrefix = player.getDisplayName().getString();
+        int playerNameLength = player.getName().getString().length();
+        return displayNameWithPrefix.substring(displayNameWithPrefix.length() - playerNameLength);
     }
 
     public static void playerPrefixSynchronize(Player player) {
@@ -126,9 +161,9 @@ public class HouseManager {
             if (IsKingProcedure.execute(player.getCommandSenderWorld(), player)) {
                 colorPrefix = "§r[§6👑§r] " + colorPrefix + "§l";
             } else if (HouseManager.isPlayerLord(player)) {
-                colorPrefix = "§r[🏰] " + colorPrefix + "§l";
+                colorPrefix = "§r[" + colorPrefix + "🏰§r] " + colorPrefix + "§l";
             } else if (HouseManager.isPlayerKnight(player)) {
-                colorPrefix = "§r[🗡] " + colorPrefix;
+                colorPrefix = "§r[" + colorPrefix + "🗡§r] " + colorPrefix;
             }
         }
         String finalPlayerPrefix = colorPrefix;
@@ -149,7 +184,15 @@ public class HouseManager {
         }
     }
 
-    private static House getPlayerHouse(Player player) {
+    public static void allPlayersPrefixPacketSend() {
+        var serverInstance = HouseSavedData.getServerInstance();
+        serverInstance.getPlayers(serverPlayer -> true).forEach(serverPlayer -> {
+            HouseSavedData houseSavedData = HouseSavedData.getInstance();
+            ReignNetworking.sendToPlayer(new PlayerPrefixSyncS2CPacket(houseSavedData.getHouseData().getPlayerCodes()), serverPlayer);
+        });
+    }
+
+    public static House getPlayerHouse(Player player) {
         HouseSavedData houseSavedData = HouseSavedData.getInstance();
 
         if (houseSavedData != null) {
@@ -183,7 +226,7 @@ public class HouseManager {
         return getPlayerHouse(player).getPlayers().size();
     }
 
-    private static Domain getPlayerDomain(Player player) {
+    public static Domain getPlayerDomain(Player player) {
         HouseSavedData houseSavedData = HouseSavedData.getInstance();
 
         if (houseSavedData != null) {
@@ -235,7 +278,7 @@ public class HouseManager {
     }
 
 
-    public void setHouseIncubatorCoordinates(String lordUUID, int x, int y, int z) {
+    public static void setHouseIncubatorCoordinates(String lordUUID, int x, int y, int z) {
         HouseSavedData houseSavedData = HouseSavedData.getInstance();
 
         if (houseSavedData != null) {

@@ -48,6 +48,7 @@ import net.mcreator.reignmod.item.CopperLockItem;
 import net.mcreator.reignmod.item.CopperCoinItem;
 import net.mcreator.reignmod.item.ContractKillItem;
 import net.mcreator.reignmod.item.BlackmarkItem;
+import net.mcreator.reignmod.item.AccursedBlackMarkItem;
 import net.mcreator.reignmod.ReignModMod;
 
 public class ReignModModItems {
@@ -99,6 +100,7 @@ public class ReignModModItems {
 	public static final RegistryObject<Item> PICKLOCK = REGISTRY.register("picklock", () -> new PicklockItem());
 	public static final RegistryObject<Item> INCUBATOR = block(ReignModModBlocks.INCUBATOR);
 	public static final RegistryObject<Item> HEART_OF_HOUSE = REGISTRY.register("heart_of_house", () -> new HeartOfHouseItem());
+	public static final RegistryObject<Item> ACCURSED_BLACK_MARK = REGISTRY.register("accursed_black_mark", () -> new AccursedBlackMarkItem());
 
 	// Start of user code block custom items
 	// End of user code block custom items

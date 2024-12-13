@@ -6,6 +6,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 
+import net.minecraft.world.scores.PlayerTeam;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.ItemStack;
@@ -51,7 +52,7 @@ public class KnightingProcedure {
 				if (IsLordProcedure.execute(world, sourceentity) && ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).house).isEmpty()) {
 					if ((sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).is(ItemTags.create(new ResourceLocation("minecraft:swords")))
 							&& (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == ItemStack.EMPTY.getItem()) {
-						if (entity.getXRot() >= 70 && entity.isShiftKeyDown()) {
+						if (entity.getXRot() >= 70 && entity.isShiftKeyDown() && HouseManager.getHouseDomainCount((Player) entity) < 3) {
 							if (HouseManager.createDomain((Player) sourceentity, (Player) entity)) {
 								{
 									String _setval = sourceentity.getStringUUID();
@@ -61,6 +62,7 @@ public class KnightingProcedure {
 									});
 								}
 								HouseManager.playerPrefixSynchronize((Player) entity);
+								HouseManager.allPlayersPrefixPacketSend();
 								if (!world.isClientSide() && world.getServer() != null)
 									world.getServer().getPlayerList()
 											.broadcastSystemMessage(Component.literal((entity.getDisplayName().getString() + "" + Component.translatable("knighting").getString() + HouseManager.getPlayerHouseTitle((Player) sourceentity))), false);
@@ -69,6 +71,19 @@ public class KnightingProcedure {
 										_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.armor.equip_iron")), SoundSource.NEUTRAL, 1, 1);
 									} else {
 										_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.armor.equip_iron")), SoundSource.NEUTRAL, 1, 1, false);
+									}
+								}
+								{
+									Entity _entityTeam = entity;
+									PlayerTeam _pt = _entityTeam.level().getScoreboard().getPlayerTeam(
+											(sourceentity instanceof LivingEntity _teamEnt && _teamEnt.level().getScoreboard().getPlayersTeam(_teamEnt instanceof Player _pl ? _pl.getGameProfile().getName() : _teamEnt.getStringUUID()) != null
+													? _teamEnt.level().getScoreboard().getPlayersTeam(_teamEnt instanceof Player _pl ? _pl.getGameProfile().getName() : _teamEnt.getStringUUID()).getName()
+													: ""));
+									if (_pt != null) {
+										if (_entityTeam instanceof Player _player)
+											_entityTeam.level().getScoreboard().addPlayerToTeam(_player.getGameProfile().getName(), _pt);
+										else
+											_entityTeam.level().getScoreboard().addPlayerToTeam(_entityTeam.getStringUUID(), _pt);
 									}
 								}
 								if (entity instanceof ServerPlayer _player) {
@@ -80,7 +95,7 @@ public class KnightingProcedure {
 									}
 								}
 								if (world instanceof ServerLevel _level)
-									_level.sendParticles(ParticleTypes.CRIT, x, y, z, 3, 1, 1, 1, 1);
+									_level.sendParticles(ParticleTypes.CRIT, x, y, z, 3, 0, 0, 0, 1);
 							}
 						}
 					}

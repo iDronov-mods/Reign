@@ -6,17 +6,17 @@
     "recipeRetstackSize": 1,
     "group": "",
     "cookingBookCategory": "MISC",
-    "xpReward": 1.0,
+    "xpReward": 0.5,
     "cookingTime": 200,
     "craftingBookCategory": "MISC",
     "recipeShapeless": false,
     "smeltingInputStack": {
-      "value": "Blocks.RAW_GOLD_BLOCK"
+      "value": "Blocks.GOLD_ORE"
     },
     "smeltingReturnStack": {
       "value": "Items.GOLD_NUGGET"
     },
-    "name": "gold_ingot_from_raw_gold_block",
+    "name": "gold_ingot_from_smelting_gold_ore",
     "namespace": "minecraft"
   }
 }

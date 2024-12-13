@@ -16,7 +16,7 @@
     "smeltingReturnStack": {
       "value": "Items.GOLD_NUGGET"
     },
-    "name": "gold_ingot",
+    "name": "gold_ingot_from_smelting_raw_gold",
     "namespace": "minecraft"
   }
 }

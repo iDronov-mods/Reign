@@ -41,8 +41,6 @@ public class PrivateShopBuyerUIScreen extends AbstractContainerScreen<PrivateSho
 		this.imageHeight = 166;
 	}
 
-	private static final ResourceLocation texture = new ResourceLocation("reign_mod:textures/screens/private_shop_buyer_ui.png");
-
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(guiGraphics);
@@ -57,11 +55,12 @@ public class PrivateShopBuyerUIScreen extends AbstractContainerScreen<PrivateSho
 		RenderSystem.setShaderColor(1, 1, 1, 1);
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
-		guiGraphics.blit(texture, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 
 		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/crown.png"), this.leftPos + 96, this.topPos + -12, 0, 0, 16, 16, 16, 16);
 
 		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/arrow.png"), this.leftPos + 72, this.topPos + 29, 0, 0, 32, 16, 32, 16);
+
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/privateshopbuyerui.png"), this.leftPos + -22, this.topPos + -17, 0, 0, 220, 200, 220, 200);
 
 		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/wallet.png"), this.leftPos + 0, this.topPos + 161, 0, 0, 16, 16, 16, 16);
 
@@ -88,9 +87,10 @@ public class PrivateShopBuyerUIScreen extends AbstractContainerScreen<PrivateSho
 				WalletOutsideCostProcedure.execute(entity), 15, 167, -1, false);
 		guiGraphics.drawString(this.font,
 
-				PrivateShopCountGoodsProcedure.execute(world, x, y, z), 43, 50, -12829636, false);
+				PrivateShopCountGoodsProcedure.execute(world, x, y, z), 98, 49, -1, false);
 		if (PrivateShopNoLicenseProcedure.execute(entity))
 			guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.private_shop_buyer_ui.label_not_licensed"), 0, -22, -3407821, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.private_shop_buyer_ui.label_available"), 43, 49, -13312, false);
 	}
 
 	@Override

@@ -41,6 +41,9 @@
     "onRightClickedInAir": {
       "name": "WalletSetName"
     },
+    "onDroppedByPlayer": {
+      "name": "WalletDrop"
+    },
     "enableRanged": false,
     "shootConstantly": false,
     "rangedItemChargesPower": false,

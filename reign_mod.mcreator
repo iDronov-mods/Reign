@@ -289,7 +289,7 @@
           "src/main/resources/data/reign_mod/recipes/c_9goldcoin.json"
         ]
       },
-      "path": "~/Recipes"
+      "path": "~/Recipes/Coins"
     },
     {
       "name": "C9silvercoin",
@@ -302,7 +302,7 @@
           "src/main/resources/data/reign_mod/recipes/c_9silvercoin.json"
         ]
       },
-      "path": "~/Recipes"
+      "path": "~/Recipes/Coins"
     },
     {
       "name": "C9coppercoin",
@@ -315,7 +315,7 @@
           "src/main/resources/data/reign_mod/recipes/c_9coppercoin.json"
         ]
       },
-      "path": "~/Recipes"
+      "path": "~/Recipes/Coins"
     },
     {
       "name": "LicenseIsSelected",
@@ -376,7 +376,7 @@
           }
         ]
       },
-      "path": "~/Scripts/LicensesSystem"
+      "path": "~/Scripts/LicensesSystem/ExpSkills"
     },
     {
       "name": "Returnwoodcutter",
@@ -983,10 +983,10 @@
       "registry_name": "market",
       "metadata": {
         "files": [
+          "src/main/java/net/mcreator/reignmod/client/gui/MarketScreen.java",
           "src/main/java/net/mcreator/reignmod/network/MarketButtonMessage.java",
           "src/main/java/net/mcreator/reignmod/world/inventory/MarketMenu.java",
-          "src/main/java/net/mcreator/reignmod/network/MarketSlotMessage.java",
-          "src/main/java/net/mcreator/reignmod/client/gui/MarketScreen.java"
+          "src/main/java/net/mcreator/reignmod/network/MarketSlotMessage.java"
         ]
       },
       "path": "~/UI"
@@ -3365,7 +3365,7 @@
           "src/main/resources/data/reign_mod/recipes/rwoodcuttercoin.json"
         ]
       },
-      "path": "~/Recipes"
+      "path": "~/Recipes/Coins"
     },
     {
       "name": "Rminercoin",
@@ -3378,7 +3378,7 @@
           "src/main/resources/data/reign_mod/recipes/rminercoin.json"
         ]
       },
-      "path": "~/Recipes"
+      "path": "~/Recipes/Coins"
     },
     {
       "name": "Rsmithcoin",
@@ -3391,7 +3391,7 @@
           "src/main/resources/data/reign_mod/recipes/rsmithcoin.json"
         ]
       },
-      "path": "~/Recipes"
+      "path": "~/Recipes/Coins"
     },
     {
       "name": "Rfarmercoin",
@@ -3404,7 +3404,7 @@
           "src/main/resources/data/reign_mod/recipes/rfarmercoin.json"
         ]
       },
-      "path": "~/Recipes"
+      "path": "~/Recipes/Coins"
     },
     {
       "name": "Coin4Platinum",
@@ -3417,7 +3417,7 @@
           "src/main/resources/data/reign_mod/recipes/coin_4_platinum.json"
         ]
       },
-      "path": "~/Recipes"
+      "path": "~/Recipes/Coins"
     },
     {
       "name": "CreateCrown",
@@ -4233,8 +4233,8 @@
       "registry_name": "walletwin",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/world/inventory/WalletwinMenu.java",
           "src/main/java/net/mcreator/reignmod/client/gui/WalletwinScreen.java",
+          "src/main/java/net/mcreator/reignmod/world/inventory/WalletwinMenu.java",
           "src/main/java/net/mcreator/reignmod/network/WalletwinSlotMessage.java"
         ]
       },
@@ -5057,19 +5057,6 @@
       "path": "~/Recipes"
     },
     {
-      "name": "RNetherit2",
-      "type": "recipe",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "r_netherit_2",
-      "metadata": {
-        "files": [
-          "src/main/resources/data/reign_mod/recipes/r_netherit_2.json"
-        ]
-      },
-      "path": "~/Recipes"
-    },
-    {
       "name": "Change0Slot",
       "type": "procedure",
       "compiles": true,
@@ -5200,8 +5187,8 @@
       "registry_name": "kingtable_ui",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/network/KingtableUISlotMessage.java",
           "src/main/java/net/mcreator/reignmod/world/inventory/KingtableUIMenu.java",
+          "src/main/java/net/mcreator/reignmod/network/KingtableUISlotMessage.java",
           "src/main/java/net/mcreator/reignmod/client/gui/KingtableUIScreen.java"
         ]
       },
@@ -5406,7 +5393,7 @@
           "src/main/resources/data/reign_mod/recipes/ruin_lord_1_r.json"
         ]
       },
-      "path": "~/Recipes"
+      "path": "~/Recipes/RuinLord"
     },
     {
       "name": "RuinLord2r",
@@ -5419,7 +5406,7 @@
           "src/main/resources/data/reign_mod/recipes/ruin_lord_2r.json"
         ]
       },
-      "path": "~/Recipes"
+      "path": "~/Recipes/RuinLord"
     },
     {
       "name": "RuinLord3r",
@@ -5432,7 +5419,7 @@
           "src/main/resources/data/reign_mod/recipes/ruin_lord_3r.json"
         ]
       },
-      "path": "~/Recipes"
+      "path": "~/Recipes/RuinLord"
     },
     {
       "name": "HouseCreate",
@@ -6407,84 +6394,6 @@
       "path": "~/Recipes"
     },
     {
-      "name": "Ironingot",
-      "type": "recipe",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "ironingot",
-      "metadata": {
-        "files": [
-          "src/main/resources/data/minecraft/recipes/iron_ingot.json"
-        ]
-      },
-      "path": "~/Recipes"
-    },
-    {
-      "name": "Ironingotfromrawironblock",
-      "type": "recipe",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "ironingotfromrawironblock",
-      "metadata": {
-        "files": [
-          "src/main/resources/data/minecraft/recipes/iron_ingot_from_raw_iron_block.json"
-        ]
-      },
-      "path": "~/Recipes"
-    },
-    {
-      "name": "Goldingot",
-      "type": "recipe",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "goldingot",
-      "metadata": {
-        "files": [
-          "src/main/resources/data/minecraft/recipes/gold_ingot.json"
-        ]
-      },
-      "path": "~/Recipes"
-    },
-    {
-      "name": "Goldingotfromrawgoldblock",
-      "type": "recipe",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "goldingotfromrawgoldblock",
-      "metadata": {
-        "files": [
-          "src/main/resources/data/minecraft/recipes/gold_ingot_from_raw_gold_block.json"
-        ]
-      },
-      "path": "~/Recipes"
-    },
-    {
-      "name": "Ironingotfromdeepslateironore",
-      "type": "recipe",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "ironingotfromdeepslateironore",
-      "metadata": {
-        "files": [
-          "src/main/resources/data/minecraft/recipes/iron_ingot_from_deepslate_iron_ore.json"
-        ]
-      },
-      "path": "~/Recipes"
-    },
-    {
-      "name": "Goldingotfromdeepslategoldore",
-      "type": "recipe",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "goldingotfromdeepslategoldore",
-      "metadata": {
-        "files": [
-          "src/main/resources/data/minecraft/recipes/gold_ingot_from_deepslate_gold_ore.json"
-        ]
-      },
-      "path": "~/Recipes"
-    },
-    {
       "name": "SleightOfHandAndNoBugs",
       "type": "achievement",
       "compiles": true,
@@ -7009,6 +6918,10 @@
             "type": "blockstate"
           },
           {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
             "name": "x",
             "type": "number"
           },
@@ -7430,7 +7343,20 @@
         "files": [
           "src/main/java/net/mcreator/reignmod/procedures/KickFromHouseProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
       },
       "path": "~/Scripts/HousesScript"
     },
@@ -7523,6 +7449,562 @@
         ]
       },
       "path": "~/UI"
+    },
+    {
+      "name": "WalletDrop",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wallet_drop",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/WalletDropProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/WalletSystem"
+    },
+    {
+      "name": "AccursedBlackMark",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "accursed_black_mark",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/item/AccursedBlackMarkItem.java",
+          "src/main/resources/assets/reign_mod/models/item/accursed_black_mark.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "RAccursedBlackMark",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "r_accursed_black_mark",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/recipes/r_accursed_black_mark.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "SoldierSpawn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "soldier_spawn",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/SoldierSpawnProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/ExpSkills"
+    },
+    {
+      "name": "SerfBuyout",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "serf_buyout",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/SerfBuyoutProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript"
+    },
+    {
+      "name": "ClearHouse",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "clear_house",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ClearHouseProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript"
+    },
+    {
+      "name": "HouseSynchronize",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "house_synchronize",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/HouseSynchronizeProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript"
+    },
+    {
+      "name": "DontCollectHoney",
+      "type": "mixin",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "dont_collect_honey",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/mixins/DontCollectHoneyMixin.java"
+        ]
+      },
+      "path": "~/Mixins"
+    },
+    {
+      "name": "GetTrueName",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_true_name",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/GetTrueNameProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "ChunkOwner",
+      "type": "overlay",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chunk_owner",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/client/screens/ChunkOwnerOverlay.java"
+        ]
+      },
+      "path": "~/UI"
+    },
+    {
+      "name": "FeedHeart",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "feed_heart",
+      "metadata": {
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/FeedHeartProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "count_domains",
+            "type": "number"
+          },
+          {
+            "name": "count_players",
+            "type": "number"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/IncubatorSystem"
+    },
+    {
+      "name": "IncubatorSet",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "incubator_set",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/IncubatorSetProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/IncubatorSystem"
+    },
+    {
+      "name": "IncubatorFuelAdd",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "incubator_fuel_add",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/IncubatorFuelAddProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/IncubatorSystem"
+    },
+    {
+      "name": "IncubatorFoodAdd",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "incubator_food_add",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/IncubatorFoodAddProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/IncubatorSystem"
+    },
+    {
+      "name": "IncubatorMeatAdd",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "incubator_meat_add",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/IncubatorMeatAddProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/IncubatorSystem"
+    },
+    {
+      "name": "IncubatorGetFuelPerHour",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "incubator_get_fuel_per_hour",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/IncubatorGetFuelPerHourProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/IncubatorSystem"
+    },
+    {
+      "name": "IncubatorDyeAdd",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "incubator_dye_add",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/IncubatorDyeAddProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/IncubatorSystem"
+    },
+    {
+      "name": "IncubatorHeartHit",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "incubator_heart_hit",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/IncubatorHeartHitProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/IncubatorSystem"
+    },
+    {
+      "name": "IncubatorGetFoodPerHour",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "incubator_get_food_per_hour",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/IncubatorGetFoodPerHourProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/IncubatorSystem"
+    },
+    {
+      "name": "Ironingotfromsmeltingrawiron",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ironingotfromsmeltingrawiron",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/minecraft/recipes/iron_ingot_from_smelting_raw_iron.json"
+        ]
+      },
+      "path": "~/Recipes/VanilaRecipesChange"
+    },
+    {
+      "name": "Ironingotfromsmeltingironore",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ironingotfromsmeltingironore",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/minecraft/recipes/iron_ingot_from_smelting_iron_ore.json"
+        ]
+      },
+      "path": "~/Recipes/VanilaRecipesChange"
+    },
+    {
+      "name": "Ironingotfromsmeltingdeepslateironore",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ironingotfromsmeltingdeepslateironore",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/minecraft/recipes/iron_ingot_from_smelting_deepslate_iron_ore.json"
+        ]
+      },
+      "path": "~/Recipes/VanilaRecipesChange"
+    },
+    {
+      "name": "Goldingotfromsmeltinggoldore",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "goldingotfromsmeltinggoldore",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/minecraft/recipes/gold_ingot_from_smelting_gold_ore.json"
+        ]
+      },
+      "path": "~/Recipes/VanilaRecipesChange"
+    },
+    {
+      "name": "Goldingotfromsmeltingnethergoldore",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "goldingotfromsmeltingnethergoldore",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/minecraft/recipes/gold_ingot_from_smelting_nether_gold_ore.json"
+        ]
+      },
+      "path": "~/Recipes/VanilaRecipesChange"
+    },
+    {
+      "name": "Goldingotfromsmeltingrawgold",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "goldingotfromsmeltingrawgold",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/minecraft/recipes/gold_ingot_from_smelting_raw_gold.json"
+        ]
+      },
+      "path": "~/Recipes/VanilaRecipesChange"
+    },
+    {
+      "name": "Goldingotfromsmeltingdeepslategoldore",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "goldingotfromsmeltingdeepslategoldore",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/minecraft/recipes/gold_ingot_from_smelting_deepslate_gold_ore.json"
+        ]
+      },
+      "path": "~/Recipes/VanilaRecipesChange"
+    },
+    {
+      "name": "HousesGetList",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "houses_get_list",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/HousesGetListProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript"
+    },
+    {
+      "name": "HousesList",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "houses_list",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/HousesList.java"
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -7965,6 +8447,22 @@
       ],
       "category": "music",
       "subtitle": ""
+    },
+    {
+      "name": "heart_better",
+      "files": [
+        "heart_better"
+      ],
+      "category": "block",
+      "subtitle": ""
+    },
+    {
+      "name": "heart_hit",
+      "files": [
+        "heart_hit"
+      ],
+      "category": "block",
+      "subtitle": ""
     }
   ],
   "tag_elements": {
@@ -8171,25 +8669,29 @@
       "RuinLord3",
       "RuinLord2",
       "RuinLord1",
-      "Blackmark",
       "Picklock",
-      "PenWithInk"
+      "PenWithInk",
+      "Blackmark",
+      "AccursedBlackMark"
     ]
   },
   "language_map": {
     "ru_ru": {
       "item_group.reign_mod.creative_tab": "Reign",
       "item.reign_mod.ruin_lord_2.desc": "Ruin Lord - Light after darkness",
+      "translation.key.removePlayerFromDomain": "больше не собственность Домена ",
       "gui.reign_mod.win_view.tooltip_cattle_breeding": "Скотоводство",
       "gui.reign_mod.license_is_selected.label_the_main_license_has_been_select": "Основная лицензия уже выбрана.",
       "translation.key.houseNoPayMoney": "Для создания Дома нужно внести 4 золотых.",
       "NotAlchemistSay": "Надеюсь оно не взорвётся...",
+      "translation.key.per_hour": " /час",
       "gui.reign_mod.new_house.tooltip_napishitie_imia_i_vybieritie_tsviet_bud": "Выберите имя и цвет нового королевства",
       "gui.reign_mod.dfgdfgdf.button_buy": "КУПИТЬ",
       "item.reign_mod.your_lawn_is_bool": "Your Lawn Is Bool",
-      "subtitles.thecalmbeforethestorm": "",
       "item.reign_mod.farmer_coin": "Монета фермера",
+      "subtitles.thecalmbeforethestorm": "",
       "gui.reign_mod.win_view.tooltip_chance_to_get_a_haste_effect": "Добыча глубинных пород.",
+      "gui.reign_mod.house_incubator_ui.label_fuel": "топливо",
       "gui.reign_mod.win_view.tooltip_netherite_mining": "Добыча Незерита",
       "gui.reign_mod.walletwin.label_wallet": "Кошель",
       "translation.key.cant_use_lock_freeman": "Вольным не позволено этим пользоваться.",
@@ -8206,6 +8708,7 @@
       "gui.reign_mod.trader_point.label_punkt_priioma": "Пункт приёма",
       "gui.reign_mod.dsf.button_woodcutter": "Дровосек  ",
       "block.reign_mod.fund": "Фонд",
+      "translation.key.houses_list": "\u003d\u003d\u003d Дома Королевства: \u003d\u003d\u003d",
       "gui.reign_mod.royale_settings.tools_textfield": "",
       "key.reign_mod.open_royale_settings": "Открыть королевские настройки",
       "gui.reign_mod.private_shop_buyer_ui.label_count_left": "count_left",
@@ -8213,16 +8716,18 @@
       "pay_slave": "Нашёл на земле:",
       "gui.reign_mod.kingtable_ui.label_kingtable_lable": "Королевский стол",
       "gui.reign_mod.kingtable_ui.tooltip_kingtable_help": "kingtable_help",
-      "advancements.full_lvl.descr": "Полностью улучшите лицензию.",
       "advancements.welcome_to_reign.descr": "Один, что правит всеми.",
-      "advancements.days_online_7.descr": "7 дней подряд онлайн!",
+      "advancements.full_lvl.descr": "Полностью улучшите лицензию.",
       "gui.reign_mod.dsf.button_button_cowboy": "Пастух",
+      "advancements.days_online_7.descr": "7 дней подряд онлайн!",
+      "translation.key.house_delete": "перестал существовать",
       "gui.reign_mod.safe_ui.tooltip_safe_help": "Подальше от посторонних глаз.",
       "gui.reign_mod.win_view.tooltip_and_another_20_of_field_yields": "+50% урожайности с полей.",
       "translation.key.houseNameTaken": "Дом с таким именем уже существует!",
       "translation.key.goldlock_tooltip": "§o§7Замок Дома",
-      "item.reign_mod.contract_kill": "Контракт на убийство",
       "gui.reign_mod.add_license_list.button_enchanter": "Чародей",
+      "item.reign_mod.contract_kill": "Контракт на убийство",
+      "subtitles.heart_hit": "",
       "item.reign_mod.trade_license": "Лицензия на торговлю",
       "gui.reign_mod.dsf.button_miner": "Шахтер    ",
       "gui.reign_mod.fund_ui.tooltip_iron_processing": "Обработка железа",
@@ -8239,6 +8744,7 @@
       "gui.reign_mod.win_view.tooltip_fisher_1": "50% шанс подсечь.",
       "NotLord": " больше не лорд.",
       "translation.key.enslavement": "вступает в Домен: ",
+      "item.reign_mod.accursed_black_mark": "Проклятая чёрная метка",
       "effect.reign_mod.criminal": "Преступник",
       "gui.reign_mod.win_view.tooltip_fisher_2": "+25% шанс подсечь. (75%)",
       "gui.reign_mod.license_is_selected.label_all_experience_will_be_lost": "Весь опыт будет потерян.",
@@ -8258,6 +8764,7 @@
       "gui.reign_mod.trader_point.sale_off": "OFF",
       "advancements.days_online_30.descr": "Месяц онлайн!",
       "translation.key.already_domain_locked": "Закрыто Доменом:",
+      "gui.reign_mod.house_incubator_ui.label_meat": "мясо",
       "gui.reign_mod.win_view.tooltip_another_20_yield_from_fields": "Пчеловодство",
       "gui.reign_mod.win_view.label_licenses_are_your_line_of_busine": "Лицензия - ваш род деятельности.",
       "item.reign_mod.ruin_lord_3": "Dusty record",
@@ -8301,15 +8808,19 @@
       "translation.key.GriefCapital": "Я не могу это делать в столице.",
       "translation.key.deleteDomain": "выгнан из Дома",
       "item.reign_mod.woodcutter_coin": "Монета дровосека",
+      "gui.reign_mod.house_incubator_ui.label_0_x": "0 / ч",
       "translation.key.locked": "Закрыто на замок",
       "advancements.master_lock_picker.descr": "Взломайте сейф.",
       "item.reign_mod.cowboy_coin": "Монета пастуха",
       "advancements.strained_experience.descr": "Заставьте себя выкинуть этот опыт из головы.",
+      "gui.reign_mod.house_incubator_ui.label_food": "еда",
       "license_refuse": "Лицензия отозвана.",
       "gui.reign_mod.royale_settings.logs_textfield": "",
       "gui.reign_mod.win_view.tooltip_25_no_damage_to_pickaxe": "20% шанс не повредить инструмент.",
       "advancements.days_online_7.title": "Постоялец",
       "newera": "Мир переходит в новую эру: ",
+      "gui.reign_mod.house_incubator_ui.tooltip_incubator_label_help": "incubator_label_help",
+      "gui.reign_mod.private_shop_buyer_ui.label_available": "доступно:",
       "gui.reign_mod.royale_settings.label_tools": "ИНСТРУМ.",
       "gui.reign_mod.license_is_selected.button_refuse": "Отказаться",
       "gui.reign_mod.win_view.tooltip_10_yield_from_fields": "Выращивание корнеплодов.",
@@ -8329,6 +8840,7 @@
       "gui.reign_mod.private_shop_buyer_ui.label_private_shop": "Частная лавка",
       "item.reign_mod.honey_concentrate": "Концентрат мёда",
       "gui.reign_mod.dsf.button_blacksmith": "Кузнец    ",
+      "gui.reign_mod.chunk_owner.label_solniechnyi_oplot": "Солнечный оплот",
       "gui.reign_mod.royale_settings.label_royal_decrees": "Королевские указы",
       "KingdomDelete": "Королевство распалось: ",
       "NotKing": "Недостаточно полномочий.",
@@ -8338,7 +8850,10 @@
       "item.reign_mod.blackmark": "Чёрная метка",
       "gui.reign_mod.private_shop_ui.label_private_shop": "Частная лавка",
       "subtitles.picklock_break": "",
+      "gui.reign_mod.house_incubator_ui.tooltip_incubator_fuel_help": "incubator_fuel_help",
+      "gui.reign_mod.house_incubator_ui.label_96_chas": "96 /час",
       "gui.reign_mod.market_2.button_buy": "КУПИТЬ",
+      "gui.reign_mod.house_incubator_ui.label_wool": "шерсть",
       "gui.reign_mod.walletwin.label_17569": "17569",
       "newhouse": "Основан Дом:",
       "item.reign_mod.ruin_lord_3.desc": "Ruin Lord - Lasto Beth Lammen",
@@ -8376,6 +8891,7 @@
       "gui.reign_mod.win_view.tooltip_soldier_5": "Восстановление части потерянного здоровья.",
       "gui.reign_mod.win_view.tooltip_soldier_4": "Прилив силы после получения урона.",
       "NotCowboy1LVL": "Я пока не научился стричь овец.",
+      "gui.reign_mod.house_incubator_ui.label_0_ch": "0 / ч",
       "gui.reign_mod.win_view.tooltip_soldier_1": "Первые тренировки.",
       "item.reign_mod.wallet": "Кошель",
       "gui.reign_mod.win_view.tooltip_you_can_have_up_to_two_licenses": "Вы можете иметь до 2 лицензий",
@@ -8384,6 +8900,7 @@
       "gui.reign_mod.add_license_is_selected.label_the_main_license_has_been_select": "Доп. лицензия уже выбрана.",
       "gui.reign_mod.trader_point.tooltip_sell_your_goods_to_the_capital": "Продавайте свои товары столице за деньги",
       "block.reign_mod.hoarder_block": "Барахольщик",
+      "translation.key.oath_broken": "Клятва нарушена...",
       "item.reign_mod.picklock": "Отмычка",
       "block.reign_mod.coffers": "Казна",
       "item.reign_mod.private_rental_1": "Скромная частная аренда",
@@ -8396,6 +8913,7 @@
       "advancements.gotcha.title": "Попался!",
       "advancements.true_to_the_oath.title": "Верный клятве",
       "criminal_false": " помилован.",
+      "gui.reign_mod.house_incubator_ui.label_dye": "краска",
       "gui.reign_mod.coffers_ui.label_coffers": "КАЗНА",
       "translation.key.keyinfo": "Ключ игрока:",
       "item.reign_mod.ruin_lord_1.desc": "Ruin Lord - The calm before the storm",
@@ -8440,6 +8958,7 @@
       "gui.reign_mod.fund_ui.tooltip_netherite_processing": "Обработка незерита",
       "count_days": "Дней подряд:",
       "BeeLock": "Какие-то неправильные пчёлы...",
+      "gui.reign_mod.house_incubator_ui.tooltip_incubator_food_help": "incubator_food_help",
       "pay_knight": "Зарплата сэра:",
       "advancements.full_lvl.title": "Мастер",
       "item.reign_mod.silver_coin": "Серебрянная монета",
@@ -8452,6 +8971,7 @@
       "block.reign_mod.rock": "Добрый камень",
       "item.reign_mod.state_rental_2": "Обычная государственная аренда",
       "gui.reign_mod.private_shop_buyer_ui.button_x4": "X4",
+      "subtitles.heart_better": "",
       "item.reign_mod.state_rental_3": "Роскошная государственная аренда",
       "advancements.sleight_of_hand_and_no_bugs.descr": "Взломайте замок.",
       "gui.reign_mod.win_view.tooltip_growing_blockplants": "Выращивание блочных культур",
@@ -8481,16 +9001,19 @@
     "en_us": {
       "item.reign_mod.ruin_lord_2.desc": "Ruin Lord - Light after darkness",
       "item_group.reign_mod.creative_tab": "Reign",
+      "translation.key.removePlayerFromDomain": "is no longer belongs to the Domain",
       "gui.reign_mod.win_view.tooltip_cattle_breeding": "Cattle breeding",
       "gui.reign_mod.license_is_selected.label_the_main_license_has_been_select": "The main license has been selected.",
+      "translation.key.per_hour": "",
       "translation.key.houseNoPayMoney": "To create a House you need to contribute 4 gold.",
       "NotAlchemistSay": "I hope it doesn\u0027t explode...",
       "gui.reign_mod.new_house.tooltip_napishitie_imia_i_vybieritie_tsviet_bud": "Выберите имя и цвет нового королевства",
       "item.reign_mod.your_lawn_is_bool": "Your Lawn Is Bool",
       "gui.reign_mod.dfgdfgdf.button_buy": "buy",
-      "subtitles.thecalmbeforethestorm": "",
       "item.reign_mod.farmer_coin": "Farmer coin",
+      "subtitles.thecalmbeforethestorm": "",
       "gui.reign_mod.win_view.tooltip_chance_to_get_a_haste_effect": "Chance to get a haste effect",
+      "gui.reign_mod.house_incubator_ui.label_fuel": "fuel",
       "gui.reign_mod.win_view.tooltip_netherite_mining": "Netherite Mining",
       "gui.reign_mod.walletwin.label_wallet": "Wallet",
       "translation.key.cant_use_lock_freeman": "Freemen are not allowed to use this. ",
@@ -8507,6 +9030,7 @@
       "gui.reign_mod.royale_settings.label_armor": "ARMOR",
       "gui.reign_mod.dsf.button_woodcutter": "Woodcutter",
       "block.reign_mod.fund": "Fund",
+      "translation.key.houses_list": "\u003d\u003d\u003d Houses in the Kingdom: \u003d\u003d\u003d",
       "gui.reign_mod.royale_settings.tools_textfield": "",
       "key.reign_mod.open_royale_settings": "Open Royale Settings",
       "gui.reign_mod.private_shop_buyer_ui.label_count_left": "count_left",
@@ -8514,23 +9038,25 @@
       "pay_slave": "Found on the ground:",
       "gui.reign_mod.kingtable_ui.label_kingtable_lable": "kingtable_lable",
       "gui.reign_mod.kingtable_ui.tooltip_kingtable_help": "kingtable_help",
-      "advancements.welcome_to_reign.descr": "One who rules them all.",
       "advancements.full_lvl.descr": "Upgrade your license completely.",
+      "advancements.welcome_to_reign.descr": "One who rules them all.",
       "gui.reign_mod.dsf.button_button_cowboy": "Cowboy",
       "advancements.days_online_7.descr": "7 days in a row online!",
+      "translation.key.house_delete": "ceased to exist",
       "gui.reign_mod.safe_ui.tooltip_safe_help": "safe_help",
       "gui.reign_mod.win_view.tooltip_and_another_20_of_field_yields": "and another 20% of field yields!",
       "translation.key.houseNameTaken": "A House with this name already exists!",
       "translation.key.goldlock_tooltip": "§o§7House lock.",
-      "item.reign_mod.contract_kill": "Contract to Kill",
       "gui.reign_mod.add_license_list.button_enchanter": "Enchanter",
+      "item.reign_mod.contract_kill": "Contract to Kill",
+      "subtitles.heart_hit": "",
       "item.reign_mod.trade_license": "Trade license",
       "gui.reign_mod.dsf.button_miner": "Miner",
       "gui.reign_mod.fund_ui.tooltip_iron_processing": "Iron processing",
       "gui.reign_mod.win_view.tooltip_10_chance_to_gain_a_chopping_sp": "10% chance to gain a chopping speed boost.",
       "gui.reign_mod.royale_settings.label_logs": "LOGS",
       "advancements.strained_experience.title": "Strained Experience",
-      "block.reign_mod.kingtable": "King table",
+      "block.reign_mod.kingtable": "Royale table",
       "gui.reign_mod.dsf.label_osnovnyie_litsienzii": "Основные лицензии",
       "advancements.sleight_of_hand_and_no_bugs.title": "Sleight Of Hand And No Bugs",
       "gui.reign_mod.fund_ui.tooltip_1_kingdom": "+1 kingdom",
@@ -8540,6 +9066,7 @@
       "NotLord": " now not lord.",
       "gui.reign_mod.win_view.tooltip_fisher_1": "fisher_1",
       "translation.key.enslavement": "joins the Domain: ",
+      "item.reign_mod.accursed_black_mark": "Accursed Black Mark",
       "effect.reign_mod.criminal": "Criminal",
       "gui.reign_mod.win_view.tooltip_fisher_2": "fisher_2",
       "gui.reign_mod.license_is_selected.label_all_experience_will_be_lost": "All experience will be lost",
@@ -8559,6 +9086,7 @@
       "gui.reign_mod.trader_point.sale_off": "OFF",
       "advancements.days_online_30.descr": "A month online!",
       "translation.key.already_domain_locked": "Locked by Domain:",
+      "gui.reign_mod.house_incubator_ui.label_meat": "meat",
       "gui.reign_mod.win_view.tooltip_another_20_yield_from_fields": "another +20% yield from fields",
       "gui.reign_mod.win_view.label_licenses_are_your_line_of_busine": "Licenses are your line of business.",
       "item.reign_mod.ruin_lord_3": "Dusty record",
@@ -8603,14 +9131,18 @@
       "translation.key.GriefCapital": "I can\u0027t do this in the capital.",
       "translation.key.deleteDomain": "kicked from House",
       "item.reign_mod.woodcutter_coin": "Woodcutter coin",
+      "gui.reign_mod.house_incubator_ui.label_0_x": "0 /час",
       "translation.key.locked": "Locked",
       "advancements.master_lock_picker.descr": "Crack the safe.",
       "item.reign_mod.cowboy_coin": "Cowboy coin",
       "advancements.strained_experience.descr": "Push yourself and squeeze the experience out of your head.",
+      "gui.reign_mod.house_incubator_ui.label_food": "food",
       "gui.reign_mod.royale_settings.logs_textfield": "",
       "gui.reign_mod.win_view.tooltip_25_no_damage_to_pickaxe": "20% no damage to the instrument",
       "advancements.days_online_7.title": "Resident",
       "newera": "The world is moving into a new era: ",
+      "gui.reign_mod.house_incubator_ui.tooltip_incubator_label_help": "incubator_label_help",
+      "gui.reign_mod.private_shop_buyer_ui.label_available": "available:",
       "gui.reign_mod.royale_settings.label_tools": "TOOLS",
       "gui.reign_mod.license_is_selected.button_refuse": "   Refuse   ",
       "gui.reign_mod.win_view.tooltip_10_yield_from_fields": "+10% yield from fields",
@@ -8630,6 +9162,7 @@
       "gui.reign_mod.private_shop_buyer_ui.label_private_shop": "private_shop",
       "item.reign_mod.honey_concentrate": "Honey Concentrate",
       "gui.reign_mod.dsf.button_blacksmith": "Smith",
+      "gui.reign_mod.chunk_owner.label_solniechnyi_oplot": "Солнечный оплот",
       "gui.reign_mod.royale_settings.label_royal_decrees": "Royal Decrees",
       "KingdomDelete": "The kingdom fell apart: ",
       "NotKing": "Insufficient authority.",
@@ -8639,7 +9172,10 @@
       "item.reign_mod.blackmark": "Black mark",
       "gui.reign_mod.private_shop_ui.label_private_shop": "private_shop",
       "subtitles.picklock_break": "",
+      "gui.reign_mod.house_incubator_ui.tooltip_incubator_fuel_help": "incubator_fuel_help",
+      "gui.reign_mod.house_incubator_ui.label_96_chas": "96 /час",
       "gui.reign_mod.market_2.button_buy": "BUY",
+      "gui.reign_mod.house_incubator_ui.label_wool": "wool",
       "gui.reign_mod.walletwin.label_17569": "17569",
       "newhouse": "The House was founded: ",
       "item.reign_mod.ruin_lord_3.desc": "Ruin Lord - Lasto Beth Lammen",
@@ -8677,6 +9213,7 @@
       "gui.reign_mod.win_view.tooltip_soldier_5": "soldier_5",
       "gui.reign_mod.win_view.tooltip_soldier_4": "soldier_4",
       "NotCowboy1Lvl": "I haven\u0027t learned how to shear sheep yet.",
+      "gui.reign_mod.house_incubator_ui.label_0_ch": "0 /час",
       "gui.reign_mod.win_view.tooltip_soldier_1": "soldier_1",
       "item.reign_mod.wallet": "Wallet",
       "gui.reign_mod.win_view.tooltip_you_can_have_up_to_two_licenses": "You can have up to two licenses.",
@@ -8685,6 +9222,7 @@
       "gui.reign_mod.add_license_is_selected.label_the_main_license_has_been_select": "The add. license has been selected.",
       "gui.reign_mod.trader_point.tooltip_sell_your_goods_to_the_capital": "Sell ​​your goods to the capital for money",
       "block.reign_mod.hoarder_block": "Hoarder",
+      "translation.key.oath_broken": "Oath broken...",
       "item.reign_mod.picklock": "Picklock",
       "block.reign_mod.coffers": "Coffers",
       "item.reign_mod.private_rental_1": "Small private rental",
@@ -8697,6 +9235,7 @@
       "advancements.gotcha.title": "Gotcha!",
       "advancements.true_to_the_oath.title": "True To The Oath",
       "criminal_false": " pardoned.",
+      "gui.reign_mod.house_incubator_ui.label_dye": "dye",
       "gui.reign_mod.coffers_ui.label_coffers": "COFFERS",
       "translation.key.keyinfo": "Player key:",
       "item.reign_mod.ruin_lord_1.desc": "Ruin Lord - The calm before the storm",
@@ -8742,6 +9281,7 @@
       "gui.reign_mod.fund_ui.tooltip_netherite_processing": "Netherite processing",
       "count_days": "Days in a row:",
       "BeeLock": "Some wrong bees...",
+      "gui.reign_mod.house_incubator_ui.tooltip_incubator_food_help": "incubator_food_help",
       "pay_knight": "Sir\u0027s salary:",
       "advancements.full_lvl.title": "Master",
       "item.reign_mod.silver_coin": "Silver coin",
@@ -8754,6 +9294,7 @@
       "block.reign_mod.rock": "Rock",
       "item.reign_mod.state_rental_2": "Average state rent",
       "gui.reign_mod.private_shop_buyer_ui.button_x4": "X4",
+      "subtitles.heart_better": "",
       "item.reign_mod.state_rental_3": "Big state rent",
       "advancements.sleight_of_hand_and_no_bugs.descr": "Pick the lock.",
       "gui.reign_mod.win_view.tooltip_growing_blockplants": "Growing block-plants",
@@ -8802,7 +9343,20 @@
       },
       {
         "name": "Recipes",
-        "children": []
+        "children": [
+          {
+            "name": "Coins",
+            "children": []
+          },
+          {
+            "name": "RuinLord",
+            "children": []
+          },
+          {
+            "name": "VanilaRecipesChange",
+            "children": []
+          }
+        ]
       },
       {
         "name": "Misc",
@@ -8915,6 +9469,10 @@
               {
                 "name": "PrivateShopSystem",
                 "children": []
+              },
+              {
+                "name": "DropEvents",
+                "children": []
               }
             ]
           },
@@ -8924,7 +9482,12 @@
           },
           {
             "name": "HousesScript",
-            "children": []
+            "children": [
+              {
+                "name": "IncubatorSystem",
+                "children": []
+              }
+            ]
           }
         ]
       },
@@ -8958,7 +9521,7 @@
   "workspaceSettings": {
     "modid": "reign_mod",
     "modName": "Reign",
-    "version": "0.6",
+    "version": "0.6.2",
     "description": "Professions, trade and power",
     "author": "iDronov",
     "websiteURL": "https://t.me/reignmod",
@@ -8970,7 +9533,7 @@
     "dependants": [],
     "mcreatorDependencies": [],
     "currentGenerator": "forge-1.20.1",
-    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
+    "credits": "Become a king or serve your lord.",
     "modElementsPackage": "net.mcreator.reignmod"
   },
   "mcreatorVersion": 202400342716

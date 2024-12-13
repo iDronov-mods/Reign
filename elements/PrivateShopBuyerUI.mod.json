@@ -7,7 +7,7 @@
     "height": 166,
     "inventoryOffsetX": 0,
     "inventoryOffsetY": 0,
-    "renderBgLayer": true,
+    "renderBgLayer": false,
     "doesPauseGame": false,
     "components": [
       {
@@ -78,8 +78,8 @@
             "name": "PrivateShopKingAccess"
           },
           "dropItemsWhenNotBound": false,
-          "x": 106,
-          "y": 38
+          "x": 108,
+          "y": 37
         }
       },
       {
@@ -106,7 +106,7 @@
           },
           "dropItemsWhenNotBound": false,
           "x": 169,
-          "y": 65
+          "y": 62
         }
       },
       {
@@ -164,20 +164,11 @@
             "name": "PrivateShopCountGoods"
           },
           "color": {
-            "value": -12829636,
+            "value": -1,
             "falpha": 0.0
           },
-          "x": 169,
-          "y": 87
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "wallet.png",
-          "use1Xscale": false,
-          "x": 126,
-          "y": 198
+          "x": 224,
+          "y": 86
         }
       },
       {
@@ -189,7 +180,7 @@
           },
           "dropItemsWhenNotBound": false,
           "x": 241,
-          "y": 65
+          "y": 62
         }
       },
       {
@@ -208,6 +199,39 @@
           },
           "x": 126,
           "y": 15
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_available",
+          "text": {
+            "fixedValue": "available:"
+          },
+          "color": {
+            "value": -13312,
+            "falpha": 0.0
+          },
+          "x": 169,
+          "y": 86
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "privateshopbuyerui.png",
+          "use1Xscale": false,
+          "x": 104,
+          "y": 20
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "wallet.png",
+          "use1Xscale": false,
+          "x": 126,
+          "y": 198
         }
       }
     ],

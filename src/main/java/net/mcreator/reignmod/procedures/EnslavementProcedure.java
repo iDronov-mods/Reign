@@ -6,6 +6,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 
+import net.minecraft.world.scores.PlayerTeam;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.ShovelItem;
@@ -48,8 +49,8 @@ public class EnslavementProcedure {
 				if (IsKnightProcedure.execute(world, sourceentity) && ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).house).isEmpty()) {
 					if ((sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() instanceof ShovelItem
 							&& (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == ItemStack.EMPTY.getItem()) {
-						if (entity.getXRot() >= 70 && entity.isShiftKeyDown()) {
-							if (HouseManager.pushPlayerToDomain((Player) sourceentity)) {
+						if (entity.getXRot() >= 70 && entity.isShiftKeyDown() && HouseManager.getDomainPlayerCount((Player) sourceentity) < 5) {
+							if (HouseManager.pushPlayerToDomain((Player) sourceentity, (Player) entity)) {
 								{
 									String _setval = sourceentity.getStringUUID();
 									entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
@@ -58,14 +59,28 @@ public class EnslavementProcedure {
 									});
 								}
 								HouseManager.playerPrefixSynchronize((Player) entity);
+								HouseManager.allPlayersPrefixPacketSend();
 								if (!world.isClientSide() && world.getServer() != null)
-									world.getServer().getPlayerList().broadcastSystemMessage(Component.literal((entity.getDisplayName().getString() + ""
+									world.getServer().getPlayerList().broadcastSystemMessage(Component.literal((entity.getDisplayName().getString() + " "
 											+ Component.translatable((Component.translatable("translation.key.enslavement").getString())).getString() + HouseManager.getPlayerDomainTitle((Player) sourceentity))), false);
 								if (world instanceof Level _level) {
 									if (!_level.isClientSide()) {
-										_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.cow.hurt")), SoundSource.NEUTRAL, 1, 1);
+										_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.armor.equip_leather")), SoundSource.NEUTRAL, 1, 1);
 									} else {
-										_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.cow.hurt")), SoundSource.NEUTRAL, 1, 1, false);
+										_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.armor.equip_leather")), SoundSource.NEUTRAL, 1, 1, false);
+									}
+								}
+								{
+									Entity _entityTeam = entity;
+									PlayerTeam _pt = _entityTeam.level().getScoreboard().getPlayerTeam(
+											(sourceentity instanceof LivingEntity _teamEnt && _teamEnt.level().getScoreboard().getPlayersTeam(_teamEnt instanceof Player _pl ? _pl.getGameProfile().getName() : _teamEnt.getStringUUID()) != null
+													? _teamEnt.level().getScoreboard().getPlayersTeam(_teamEnt instanceof Player _pl ? _pl.getGameProfile().getName() : _teamEnt.getStringUUID()).getName()
+													: ""));
+									if (_pt != null) {
+										if (_entityTeam instanceof Player _player)
+											_entityTeam.level().getScoreboard().addPlayerToTeam(_player.getGameProfile().getName(), _pt);
+										else
+											_entityTeam.level().getScoreboard().addPlayerToTeam(_entityTeam.getStringUUID(), _pt);
 									}
 								}
 								world.addParticle(ParticleTypes.ASH, x, y, z, 0, 2, 0);

@@ -40,7 +40,7 @@
       }
     ],
     "recipeReturnStack": {
-      "value": "Items.IRON_INGOT"
+      "value": "CUSTOM:IronLock"
     },
     "name": "r_iron_lock",
     "namespace": "mod"

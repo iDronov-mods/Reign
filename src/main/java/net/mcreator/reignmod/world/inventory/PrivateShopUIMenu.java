@@ -83,7 +83,7 @@ public class PrivateShopUIMenu extends AbstractContainerMenu implements Supplier
 					});
 			}
 		}
-		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, -20, 4) {
+		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, -17, 1) {
 			private final int slot = 0;
 
 			@Override
@@ -97,7 +97,7 @@ public class PrivateShopUIMenu extends AbstractContainerMenu implements Supplier
 				return ReignModModItems.TRADE_LICENSE.get() == stack.getItem();
 			}
 		}));
-		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 53, 26) {
+		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 44, 26) {
 			private final int slot = 1;
 
 			@Override
@@ -111,7 +111,7 @@ public class PrivateShopUIMenu extends AbstractContainerMenu implements Supplier
 				return !PrivateShopSetPriceProcedure.execute(itemstack);
 			}
 		}));
-		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 108, 26) {
+		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 116, 26) {
 			private final int slot = 2;
 
 			@Override
@@ -130,7 +130,7 @@ public class PrivateShopUIMenu extends AbstractContainerMenu implements Supplier
 				return !PrivateShopSetGoodsProcedure.execute(world, x, y, z, itemstack);
 			}
 		}));
-		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 108, 48) {
+		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 116, 48) {
 			private final int slot = 3;
 
 			@Override

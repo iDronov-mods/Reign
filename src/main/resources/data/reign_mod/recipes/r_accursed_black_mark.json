@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "reign_mod:platinum_coin"
+    },
+    {
+      "item": "reign_mod:blackmark"
+    }
+  ],
+  "result": {
+    "item": "reign_mod:accursed_black_mark",
+    "count": 1
+  }
+}

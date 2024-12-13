@@ -8,15 +8,14 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.saveddata.SavedData;
 
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
 
 public class HouseSavedData extends SavedData {
 
     private final HouseData houseData = new HouseData();
 
     private static HouseSavedData instance;
+    private static ServerLevel serverLevelInstance;
 
     public HouseSavedData() {}
 
@@ -39,6 +38,7 @@ public class HouseSavedData extends SavedData {
     public static void initialize(ServerLevel serverLevel) {
         if (instance == null) {
             instance = serverLevel.getDataStorage().computeIfAbsent(HouseSavedData::new, HouseSavedData::new, "house_data");
+            serverLevelInstance = serverLevel;
         }
     }
 
@@ -47,6 +47,10 @@ public class HouseSavedData extends SavedData {
             throw new IllegalStateException("HouseSavedData has not been initialized. Call initialize(ServerLevel) first.");
         }
         return instance;
+    }
+
+    public static ServerLevel getServerInstance() {
+        return serverLevelInstance;
     }
 
     @Override
@@ -97,7 +101,7 @@ public class HouseSavedData extends SavedData {
         return true;
     }
 
-    public void removeHouse(String lordUUID) {
+     public void removeHouse(String lordUUID) {
         this.houseData.removeHouse(this.houseData.findHouseByLord(lordUUID));
         setDirty();
     }

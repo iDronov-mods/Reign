@@ -118,5 +118,21 @@
         "stream": true
       }
     ]
+  },
+  "heart_better": {
+    "sounds": [
+      {
+        "name": "reign_mod:heart_better",
+        "stream": false
+      }
+    ]
+  },
+  "heart_hit": {
+    "sounds": [
+      {
+        "name": "reign_mod:heart_hit",
+        "stream": false
+      }
+    ]
   }
 }

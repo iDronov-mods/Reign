@@ -11,7 +11,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.reignmod.network.ReignModModVariables;
@@ -122,8 +121,6 @@ public class BuyProcedure {
 						}
 					}.getAmount(68) * 4096;
 				}
-				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal(("cost (BUY): " + cost)), false);
 				if (WalletPayProcedure.execute(entity, cost)) {
 					if (entity instanceof Player _player) {
 						ItemStack _setstack = (entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(69)).getItem() : ItemStack.EMPTY).copy();
