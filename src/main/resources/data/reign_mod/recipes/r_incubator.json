@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aba",
+    "cdc",
+    "eee"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:cobbled_deepslate"
+    },
+    "b": {
+      "item": "minecraft:hopper"
+    },
+    "c": {
+      "item": "minecraft:glass"
+    },
+    "d": {
+      "item": "minecraft:water_bucket"
+    },
+    "e": {
+      "item": "minecraft:deepslate"
+    }
+  },
+  "result": {
+    "item": "reign_mod:incubator",
+    "count": 1
+  }
+}

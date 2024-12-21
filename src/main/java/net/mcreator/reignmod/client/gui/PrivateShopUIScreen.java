@@ -57,8 +57,6 @@ public class PrivateShopUIScreen extends AbstractContainerScreen<PrivateShopUIMe
 
 		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/crown.png"), this.leftPos + 100, this.topPos + -12, 0, 0, 16, 16, 16, 16);
 
-		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/coin_slot.png"), this.leftPos + 55, this.topPos + 28, 0, 0, 12, 12, 12, 12);
-
 		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/privateshopownerui.png"), this.leftPos + -22, this.topPos + -17, 0, 0, 220, 200, 220, 200);
 
 		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/copper_coin.png"), this.leftPos + 9, this.topPos + 67, 0, 0, 16, 16, 16, 16);
@@ -87,7 +85,7 @@ public class PrivateShopUIScreen extends AbstractContainerScreen<PrivateShopUIMe
 				PrivateShopGetOwnerProcedure.execute(world, x, y, z), 123, -8, -1, false);
 		guiGraphics.drawString(this.font,
 
-				PrivateShopCountGoodsProcedure.execute(world, x, y, z), 138, 29, -1, false);
+				PrivateShopCountGoodsProcedure.execute(world, x, y, z), 139, 31, -1, false);
 		guiGraphics.drawString(this.font,
 
 				PrivateShopProfitProcedure.execute(world, x, y, z), 25, 71, -1, false);

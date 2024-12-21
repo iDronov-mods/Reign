@@ -108,7 +108,7 @@
       "name": "CapitalBlockCheck"
     },
     "isBonemealable": false,
-    "hasInventory": true,
+    "hasInventory": false,
     "guiBoundTo": "Market",
     "openGUIOnRightClick": false,
     "inventorySize": 70,

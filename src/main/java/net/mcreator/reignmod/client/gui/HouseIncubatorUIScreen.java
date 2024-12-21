@@ -9,8 +9,17 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.reignmod.world.inventory.HouseIncubatorUIMenu;
-import net.mcreator.reignmod.procedures.IncubatorGetFuelPerHourProcedure;
-import net.mcreator.reignmod.procedures.IncubatorGetFoodPerHourProcedure;
+import net.mcreator.reignmod.procedures.HouseHPValueProcedure;
+import net.mcreator.reignmod.procedures.HouseHP9Procedure;
+import net.mcreator.reignmod.procedures.HouseHP8Procedure;
+import net.mcreator.reignmod.procedures.HouseHP7Procedure;
+import net.mcreator.reignmod.procedures.HouseHP6Procedure;
+import net.mcreator.reignmod.procedures.HouseHP5Procedure;
+import net.mcreator.reignmod.procedures.HouseHP4Procedure;
+import net.mcreator.reignmod.procedures.HouseHP3Procedure;
+import net.mcreator.reignmod.procedures.HouseHP2Procedure;
+import net.mcreator.reignmod.procedures.HouseHP1Procedure;
+import net.mcreator.reignmod.procedures.HouseHP10Procedure;
 
 import java.util.HashMap;
 
@@ -60,6 +69,36 @@ public class HouseIncubatorUIScreen extends AbstractContainerScreen<HouseIncubat
 
 		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/crown.png"), this.leftPos + 273, this.topPos + -13, 0, 0, 16, 16, 16, 16);
 
+		if (HouseHP1Procedure.execute(world, x, y, z, entity)) {
+			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/house_hp_point.png"), this.leftPos + 45, this.topPos + -13, 0, 0, 20, 4, 20, 4);
+		}
+		if (HouseHP2Procedure.execute(world, x, y, z, entity)) {
+			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/house_hp_point.png"), this.leftPos + 66, this.topPos + -13, 0, 0, 20, 4, 20, 4);
+		}
+		if (HouseHP3Procedure.execute(world, x, y, z, entity)) {
+			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/house_hp_point.png"), this.leftPos + 87, this.topPos + -13, 0, 0, 20, 4, 20, 4);
+		}
+		if (HouseHP4Procedure.execute(world, x, y, z, entity)) {
+			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/house_hp_point.png"), this.leftPos + 108, this.topPos + -13, 0, 0, 20, 4, 20, 4);
+		}
+		if (HouseHP5Procedure.execute(world, x, y, z, entity)) {
+			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/house_hp_point.png"), this.leftPos + 129, this.topPos + -13, 0, 0, 20, 4, 20, 4);
+		}
+		if (HouseHP6Procedure.execute(world, x, y, z, entity)) {
+			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/house_hp_point.png"), this.leftPos + 150, this.topPos + -13, 0, 0, 20, 4, 20, 4);
+		}
+		if (HouseHP7Procedure.execute(world, x, y, z, entity)) {
+			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/house_hp_point.png"), this.leftPos + 171, this.topPos + -13, 0, 0, 20, 4, 20, 4);
+		}
+		if (HouseHP8Procedure.execute(world, x, y, z, entity)) {
+			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/house_hp_point.png"), this.leftPos + 192, this.topPos + -13, 0, 0, 20, 4, 20, 4);
+		}
+		if (HouseHP9Procedure.execute(world, x, y, z, entity)) {
+			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/house_hp_point.png"), this.leftPos + 213, this.topPos + -13, 0, 0, 20, 4, 20, 4);
+		}
+		if (HouseHP10Procedure.execute(world, x, y, z, entity)) {
+			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/house_hp_point.png"), this.leftPos + 234, this.topPos + -13, 0, 0, 20, 4, 20, 4);
+		}
 		RenderSystem.disableBlend();
 	}
 
@@ -74,17 +113,16 @@ public class HouseIncubatorUIScreen extends AbstractContainerScreen<HouseIncubat
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.house_incubator_ui.label_incubator"), 125, -23, -1, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.house_incubator_ui.label_incubator"), 127, -27, -1, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.house_incubator_ui.label_fuel"), 15, 139, -1, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.house_incubator_ui.label_food"), 249, 139, -1, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.house_incubator_ui.label_meat"), 159, 67, -1, false);
-		guiGraphics.drawString(this.font,
-
-				IncubatorGetFuelPerHourProcedure.execute(world, x, y, z, entity), 15, 149, -6710887, false);
-		guiGraphics.drawString(this.font,
-
-				IncubatorGetFoodPerHourProcedure.execute(world, x, y, z, entity), 249, 150, -6710887, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.house_incubator_ui.label_proc_incubator_get_fuel_per_hour"), 15, 149, -6710887, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.house_incubator_ui.label_proc_incubator_get_food_per_hour"), 249, 150, -6710887, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.house_incubator_ui.label_wool"), 69, 67, -1, false);
+		guiGraphics.drawString(this.font,
+
+				HouseHPValueProcedure.execute(world, x, y, z, entity), 5, -15, -1, false);
 	}
 
 	@Override

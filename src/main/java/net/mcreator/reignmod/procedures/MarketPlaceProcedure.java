@@ -856,7 +856,7 @@ public class MarketPlaceProcedure {
 				_player.containerMenu.broadcastChanges();
 			}
 		}
-		SlotUpdateProcedure.execute(world, entity);
+		SlotUpdateProcedure.execute(entity);
 		return true;
 	}
 }

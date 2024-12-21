@@ -1,0 +1,7 @@
+{
+  "_fv": 69,
+  "_type": "procedure",
+  "definition": {
+    "procedurexml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"event_trigger\" deletable=\"false\" x=\"40\" y=\"40\"><field name=\"trigger\">no_ext_trigger</field><next><block type=\"entity_send_chat\"><value name=\"text\"><block type=\"get_localized_text\"><value name=\"key\"><block type=\"text\"><field name=\"TEXT\">translation.key.houses_list</field></block></value></block></value><value name=\"entity\"><block type=\"entity_from_deps\"></block></value><value name=\"actbar\"><block type=\"logic_boolean\"><field name=\"BOOL\">FALSE</field></block></value><next><block type=\"java_code\"><field name=\"CODE\">var houses = HouseManager.getHousesCopies();&amp;#10;\t\t&amp;#10;\t\thouses.forEach(house -&gt; {&amp;#10;\t\t\t&amp;#10;\t\t\tString name = house.getHouseTitle();\t\t\t                                                int hp = getHouseHP();&amp;#10;&amp;#10;if (entity instanceof Player _player &amp;&amp; !_player.level().isClientSide())&amp;#10;_player.displayClientMessage(Component.literal(name +  \" -----&gt; \" + hp), false);&amp;#10;&amp;#10;}</field></block></next></block></next></block></xml>"
+  }
+}

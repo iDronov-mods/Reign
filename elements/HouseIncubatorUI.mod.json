@@ -21,8 +21,8 @@
             "value": -1,
             "falpha": 0.0
           },
-          "x": 189,
-          "y": 14
+          "x": 191,
+          "y": 10
         }
       },
       {
@@ -884,8 +884,7 @@
         "data": {
           "name": "label_proc_incubator_get_fuel_per_hour",
           "text": {
-            "fixedValue": "FuelPerHour",
-            "name": "IncubatorGetFuelPerHour"
+            "fixedValue": "4 / hour"
           },
           "color": {
             "value": -6710887,
@@ -926,8 +925,7 @@
         "data": {
           "name": "label_proc_incubator_get_food_per_hour",
           "text": {
-            "fixedValue": "incubator_food_count",
-            "name": "IncubatorGetFoodPerHour"
+            "fixedValue": "2 / hour"
           },
           "color": {
             "value": -6710887,
@@ -950,6 +948,142 @@
           },
           "x": 133,
           "y": 104
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "house_hp_point.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "HouseHP1"
+          },
+          "x": 109,
+          "y": 24
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "house_hp_point.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "HouseHP2"
+          },
+          "x": 130,
+          "y": 24
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "house_hp_point.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "HouseHP3"
+          },
+          "x": 151,
+          "y": 24
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "house_hp_point.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "HouseHP4"
+          },
+          "x": 172,
+          "y": 24
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "house_hp_point.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "HouseHP5"
+          },
+          "x": 193,
+          "y": 24
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "house_hp_point.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "HouseHP6"
+          },
+          "x": 214,
+          "y": 24
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "house_hp_point.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "HouseHP7"
+          },
+          "x": 235,
+          "y": 24
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "house_hp_point.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "HouseHP8"
+          },
+          "x": 256,
+          "y": 24
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "house_hp_point.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "HouseHP9"
+          },
+          "x": 277,
+          "y": 24
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "house_hp_point.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "HouseHP10"
+          },
+          "x": 298,
+          "y": 24
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_house_hp_value",
+          "text": {
+            "fixedValue": "",
+            "name": "HouseHPValue"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 69,
+          "y": 22
         }
       }
     ],

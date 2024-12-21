@@ -1247,6 +1247,42 @@ public class MarketMenu extends AbstractContainerMenu implements Supplier<Map<In
 						continue;
 					if (j == 68)
 						continue;
+					if (j == 69)
+						continue;
+					if (j == 51)
+						continue;
+					if (j == 52)
+						continue;
+					if (j == 53)
+						continue;
+					if (j == 54)
+						continue;
+					if (j == 55)
+						continue;
+					if (j == 56)
+						continue;
+					if (j == 57)
+						continue;
+					if (j == 58)
+						continue;
+					if (j == 59)
+						continue;
+					if (j == 60)
+						continue;
+					if (j == 61)
+						continue;
+					if (j == 62)
+						continue;
+					if (j == 63)
+						continue;
+					if (j == 64)
+						continue;
+					if (j == 65)
+						continue;
+					if (j == 66)
+						continue;
+					if (j == 67)
+						continue;
 					playerIn.drop(internal.extractItem(j, internal.getStackInSlot(j).getCount(), false), false);
 				}
 			} else {
@@ -1354,6 +1390,42 @@ public class MarketMenu extends AbstractContainerMenu implements Supplier<Map<In
 					if (i == 50)
 						continue;
 					if (i == 68)
+						continue;
+					if (i == 69)
+						continue;
+					if (i == 51)
+						continue;
+					if (i == 52)
+						continue;
+					if (i == 53)
+						continue;
+					if (i == 54)
+						continue;
+					if (i == 55)
+						continue;
+					if (i == 56)
+						continue;
+					if (i == 57)
+						continue;
+					if (i == 58)
+						continue;
+					if (i == 59)
+						continue;
+					if (i == 60)
+						continue;
+					if (i == 61)
+						continue;
+					if (i == 62)
+						continue;
+					if (i == 63)
+						continue;
+					if (i == 64)
+						continue;
+					if (i == 65)
+						continue;
+					if (i == 66)
+						continue;
+					if (i == 67)
 						continue;
 					playerIn.getInventory().placeItemBackInInventory(internal.extractItem(i, internal.getStackInSlot(i).getCount(), false));
 				}

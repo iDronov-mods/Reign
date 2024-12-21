@@ -214,6 +214,10 @@ public class HouseManager {
         return colorCodes.getOrDefault(getPlayerHouseColor(player), "");
     }
 
+    public static String getHouseColorCode(String color) {
+        return colorCodes.getOrDefault(color, "");
+    }
+
     public static String getPlayerHouseLord(Player player) {
         return getPlayerHouse(player).getLordUUID();
     }

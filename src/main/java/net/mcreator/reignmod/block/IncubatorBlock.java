@@ -1,8 +1,6 @@
 
 package net.mcreator.reignmod.block;
 
-import net.minecraftforge.network.NetworkHooks;
-
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -24,24 +22,17 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.Containers;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 
-import net.mcreator.reignmod.world.inventory.HouseIncubatorUIMenu;
 import net.mcreator.reignmod.procedures.IncubatorSetProcedure;
 import net.mcreator.reignmod.procedures.IncubatorHeartHitProcedure;
 import net.mcreator.reignmod.block.entity.IncubatorBlockEntity;
-
-import io.netty.buffer.Unpooled;
 
 public class IncubatorBlock extends Block implements EntityBlock {
 	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
@@ -94,19 +85,6 @@ public class IncubatorBlock extends Block implements EntityBlock {
 	@Override
 	public InteractionResult use(BlockState blockstate, Level world, BlockPos pos, Player entity, InteractionHand hand, BlockHitResult hit) {
 		super.use(blockstate, world, pos, entity, hand, hit);
-		if (entity instanceof ServerPlayer player) {
-			NetworkHooks.openScreen(player, new MenuProvider() {
-				@Override
-				public Component getDisplayName() {
-					return Component.literal("Incubator");
-				}
-
-				@Override
-				public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
-					return new HouseIncubatorUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(pos));
-				}
-			}, pos);
-		}
 		int x = pos.getX();
 		int y = pos.getY();
 		int z = pos.getZ();
@@ -114,7 +92,7 @@ public class IncubatorBlock extends Block implements EntityBlock {
 		double hitY = hit.getLocation().y;
 		double hitZ = hit.getLocation().z;
 		Direction direction = hit.getDirection();
-		IncubatorHeartHitProcedure.execute(world, x, y, z);
+		IncubatorHeartHitProcedure.execute(world, x, y, z, entity);
 		return InteractionResult.SUCCESS;
 	}
 

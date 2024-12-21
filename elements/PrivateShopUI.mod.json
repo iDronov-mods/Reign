@@ -53,12 +53,11 @@
             "value": ""
           },
           "disablePlacement": {
-            "fixedValue": false,
-            "name": "PrivateShopSetPrice"
+            "fixedValue": false
           },
           "id": 1,
           "disablePickup": {
-            "fixedValue": false
+            "fixedValue": true
           },
           "dropItemsWhenNotBound": false,
           "onSlotChanged": {
@@ -129,15 +128,6 @@
         }
       },
       {
-        "type": "image",
-        "data": {
-          "image": "coin_slot.png",
-          "use1Xscale": false,
-          "x": 181,
-          "y": 65
-        }
-      },
-      {
         "type": "label",
         "data": {
           "name": "label_proc_private_shop_count_goods",
@@ -149,8 +139,8 @@
             "value": -1,
             "falpha": 0.0
           },
-          "x": 264,
-          "y": 66
+          "x": 265,
+          "y": 68
         }
       },
       {

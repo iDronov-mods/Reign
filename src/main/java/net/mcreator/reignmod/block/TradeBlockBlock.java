@@ -99,7 +99,7 @@ public class TradeBlockBlock extends Block {
 			int x = pos.getX();
 			int y = pos.getY();
 			int z = pos.getZ();
-			return CapitalBlockCheckProcedure.execute(world);
+			return CapitalBlockCheckProcedure.execute(world, x, z);
 		}
 		return super.canSurvive(blockstate, worldIn, pos);
 	}

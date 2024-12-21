@@ -24,7 +24,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class FeedHeartProcedure {
-	public static double execute(LevelAccessor world, double x, double y, double z, double count_domains, double count_players) {
+	public static double execute(LevelAccessor world, double x, double y, double z, double HP, double count_domains, double count_players) {
 		BlockState incubator = Blocks.AIR.defaultBlockState();
 		String Lord_UUID = "";
 		double hp_change = 0;
@@ -54,8 +54,8 @@ public class FeedHeartProcedure {
 								return "";
 							}
 						}.getValue(world, BlockPos.containing(x, y, z), "UUID");
-						fuel_count = count_domains * 4 * 1;
-						food_count = count_players * 2 * 1;
+						fuel_count = count_domains * 2 * 1;
+						food_count = count_players * 1 * 1;
 						index = 1;
 						while (index <= 12 && fuel_count > 0) {
 							while ((new Object() {
@@ -215,6 +215,15 @@ public class FeedHeartProcedure {
 							hp_change = hp_change - 25;
 						} else {
 							hp_change = hp_change + 10;
+						}
+						if (!world.isClientSide()) {
+							BlockPos _bp = BlockPos.containing(x, y, z);
+							BlockEntity _blockEntity = world.getBlockEntity(_bp);
+							BlockState _bs = world.getBlockState(_bp);
+							if (_blockEntity != null)
+								_blockEntity.getPersistentData().putDouble("HP", Math.min(HP + hp_change, 1000));
+							if (world instanceof Level _level)
+								_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 						}
 					} else {
 						hp_change = -70;

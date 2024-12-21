@@ -14,7 +14,6 @@ import net.minecraft.world.level.block.Block;
 import net.mcreator.reignmod.block.entity.SafeBlockEntity;
 import net.mcreator.reignmod.block.entity.PrivateShopBlockEntity;
 import net.mcreator.reignmod.block.entity.PlusBlockEntity;
-import net.mcreator.reignmod.block.entity.MarketBlockBlockEntity;
 import net.mcreator.reignmod.block.entity.KingtableBlockEntity;
 import net.mcreator.reignmod.block.entity.IncubatorBlockEntity;
 import net.mcreator.reignmod.block.entity.FundBlockEntity;
@@ -23,7 +22,6 @@ import net.mcreator.reignmod.ReignModMod;
 
 public class ReignModModBlockEntities {
 	public static final DeferredRegister<BlockEntityType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, ReignModMod.MODID);
-	public static final RegistryObject<BlockEntityType<?>> MARKET_BLOCK = register("market_block", ReignModModBlocks.MARKET_BLOCK, MarketBlockBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> COFFERS = register("coffers", ReignModModBlocks.COFFERS, CoffersBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> FUND = register("fund", ReignModModBlocks.FUND, FundBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> PLUS = register("plus", ReignModModBlocks.PLUS, PlusBlockEntity::new);

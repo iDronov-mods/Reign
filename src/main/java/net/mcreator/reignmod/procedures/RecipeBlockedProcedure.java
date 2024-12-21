@@ -178,13 +178,13 @@ public class RecipeBlockedProcedure {
 					_player.giveExperiencePoints(3);
 			} else if (itemstack.getItem() instanceof ArmorItem) {
 				if (entity instanceof Player _player)
-					_player.giveExperiencePoints(14);
+					_player.giveExperiencePoints(8);
 			} else if (itemstack.getItem() instanceof BowItem) {
 				if (entity instanceof Player _player)
 					_player.giveExperiencePoints(6);
 			} else if (itemstack.getItem() instanceof CrossbowItem) {
 				if (entity instanceof Player _player)
-					_player.giveExperiencePoints(10);
+					_player.giveExperiencePoints(8);
 			}
 		}
 	}

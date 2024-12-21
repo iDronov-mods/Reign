@@ -42,7 +42,7 @@ public class CapitalCreateProcedure {
 					Blocks.STRIPPED_OAK_LOG.defaultBlockState(), 3);
 			world.setBlock(BlockPos.containing(ReignModModVariables.MapVariables.get(world).CAPITAL_X - 0, ReignModModVariables.MapVariables.get(world).CAPITAL_Y - 1, ReignModModVariables.MapVariables.get(world).CAPITAL_Z - 0),
 					Blocks.BEDROCK.defaultBlockState(), 3);
-			ReignModMod.queueServerWork(20, () -> {
+			ReignModMod.queueServerWork(10, () -> {
 				world.setBlock(BlockPos.containing(ReignModModVariables.MapVariables.get(world).CAPITAL_X - 4, ReignModModVariables.MapVariables.get(world).CAPITAL_Y, ReignModModVariables.MapVariables.get(world).CAPITAL_Z + 4),
 						Blocks.SPRUCE_FENCE.defaultBlockState(), 3);
 				world.setBlock(BlockPos.containing(ReignModModVariables.MapVariables.get(world).CAPITAL_X - 4, ReignModModVariables.MapVariables.get(world).CAPITAL_Y, ReignModModVariables.MapVariables.get(world).CAPITAL_Z - 4),
@@ -52,7 +52,7 @@ public class CapitalCreateProcedure {
 				world.setBlock(BlockPos.containing(ReignModModVariables.MapVariables.get(world).CAPITAL_X + 4, ReignModModVariables.MapVariables.get(world).CAPITAL_Y, ReignModModVariables.MapVariables.get(world).CAPITAL_Z + 4),
 						Blocks.SPRUCE_FENCE.defaultBlockState(), 3);
 			});
-			ReignModMod.queueServerWork(40, () -> {
+			ReignModMod.queueServerWork(10, () -> {
 				world.setBlock(BlockPos.containing(ReignModModVariables.MapVariables.get(world).CAPITAL_X - 4, ReignModModVariables.MapVariables.get(world).CAPITAL_Y + 1, ReignModModVariables.MapVariables.get(world).CAPITAL_Z + 4),
 						ReignModModBlocks.PLUS.get().defaultBlockState(), 3);
 				if (!world.isClientSide()) {

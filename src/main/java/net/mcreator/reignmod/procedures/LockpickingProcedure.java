@@ -104,7 +104,7 @@ public class LockpickingProcedure {
 				}
 			}
 			if (Mth.nextInt(RandomSource.create(), 1, 100) <= chance) {
-				if ((world.getBlockState(BlockPos.containing(block_x, block_y, block_z))).getBlock() == Blocks.CHEST) {
+				if ((world.getBlockState(BlockPos.containing(block_x, block_y, block_z))).getBlock() == Blocks.CHEST || (world.getBlockState(BlockPos.containing(block_x, block_y, block_z))).getBlock() == Blocks.BARREL) {
 					if (!world.isClientSide()) {
 						BlockPos _bp = BlockPos.containing(block_x, block_y, block_z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);

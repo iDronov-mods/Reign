@@ -16,7 +16,8 @@ import net.minecraft.commands.arguments.MessageArgument;
 import net.minecraft.commands.Commands;
 
 import net.mcreator.reignmod.procedures.SetEventProcedure;
-import net.mcreator.reignmod.procedures.HousesGetListProcedure;
+import net.mcreator.reignmod.procedures.HousesGetListHPProcedure;
+import net.mcreator.reignmod.procedures.FeedKSetProcedure;
 import net.mcreator.reignmod.procedures.EraSetProcedure;
 import net.mcreator.reignmod.procedures.EraResetProcedure;
 
@@ -70,7 +71,7 @@ public class ReignEventsCommand {
 
 					EraResetProcedure.execute(world);
 					return 0;
-				}))).then(Commands.literal("houses").executes(arguments -> {
+				}))).then(Commands.literal("houses").then(Commands.literal("list").executes(arguments -> {
 					Level world = arguments.getSource().getUnsidedLevel();
 					double x = arguments.getSource().getPosition().x();
 					double y = arguments.getSource().getPosition().y();
@@ -82,8 +83,22 @@ public class ReignEventsCommand {
 					if (entity != null)
 						direction = entity.getDirection();
 
-					HousesGetListProcedure.execute(entity);
+					HousesGetListHPProcedure.execute(entity);
 					return 0;
-				})));
+				})).then(Commands.literal("feed").then(Commands.literal("set").then(Commands.argument("value", DoubleArgumentType.doubleArg(0.5, 10)).executes(arguments -> {
+					Level world = arguments.getSource().getUnsidedLevel();
+					double x = arguments.getSource().getPosition().x();
+					double y = arguments.getSource().getPosition().y();
+					double z = arguments.getSource().getPosition().z();
+					Entity entity = arguments.getSource().getEntity();
+					if (entity == null && world instanceof ServerLevel _servLevel)
+						entity = FakePlayerFactory.getMinecraft(_servLevel);
+					Direction direction = Direction.DOWN;
+					if (entity != null)
+						direction = entity.getDirection();
+
+					FeedKSetProcedure.execute(world, arguments);
+					return 0;
+				}))))));
 	}
 }

@@ -959,7 +959,7 @@
           "disablePickup": {
             "fixedValue": true
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
           "x": 150,
           "y": 120
         }
@@ -1015,7 +1015,7 @@
             "fixedValue": false,
             "name": "MarketPlace"
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
           "x": 60,
           "y": 95
         }
@@ -1032,7 +1032,7 @@
             "fixedValue": false,
             "name": "MarketPlace"
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
           "x": 78,
           "y": 95
         }
@@ -1049,7 +1049,7 @@
             "fixedValue": false,
             "name": "MarketPlace"
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
           "x": 96,
           "y": 95
         }
@@ -1066,7 +1066,7 @@
             "fixedValue": false,
             "name": "MarketPlace"
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
           "x": 114,
           "y": 95
         }
@@ -1083,7 +1083,7 @@
             "fixedValue": false,
             "name": "MarketPlace"
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
           "x": 132,
           "y": 95
         }
@@ -1100,7 +1100,7 @@
             "fixedValue": false,
             "name": "MarketPlace"
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
           "x": 150,
           "y": 95
         }
@@ -1117,7 +1117,7 @@
             "fixedValue": false,
             "name": "MarketPlace"
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
           "x": 168,
           "y": 95
         }
@@ -1134,7 +1134,7 @@
             "fixedValue": false,
             "name": "MarketPlace"
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
           "x": 186,
           "y": 95
         }
@@ -1151,7 +1151,7 @@
             "fixedValue": false,
             "name": "MarketPlace"
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
           "x": 204,
           "y": 95
         }
@@ -1168,7 +1168,7 @@
             "fixedValue": false,
             "name": "MarketPlace"
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
           "x": 222,
           "y": 95
         }
@@ -1185,7 +1185,7 @@
             "fixedValue": false,
             "name": "MarketPlace"
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
           "x": 240,
           "y": 95
         }
@@ -1202,7 +1202,7 @@
             "fixedValue": false,
             "name": "MarketPlace"
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
           "x": 258,
           "y": 95
         }
@@ -1219,7 +1219,7 @@
             "fixedValue": false,
             "name": "MarketPlace"
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
           "x": 276,
           "y": 95
         }
@@ -1232,7 +1232,7 @@
             "fixedValue": false,
             "name": "MarketPlace"
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
           "x": 294,
           "y": 95
         }
@@ -1249,7 +1249,7 @@
             "fixedValue": false,
             "name": "MarketPlace"
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
           "x": 312,
           "y": 95
         }
@@ -1266,7 +1266,7 @@
             "fixedValue": false,
             "name": "MarketPlace"
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
           "x": 330,
           "y": 95
         }
@@ -1283,7 +1283,7 @@
             "fixedValue": false,
             "name": "MarketPlace"
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
           "x": 348,
           "y": 95
         }

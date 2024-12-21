@@ -14,12 +14,19 @@ public static void execute( Entity entity ) {
 	var houses = HouseManager.getHousesCopies();
 	
 	houses.forEach(house -> {
-			
+
 		String name = house.getHouseTitle();
-		int hp = house.getHouseHP();
+		String color_prefix = HouseManager.getHouseColorCode(house.getHouseColor());
+		int count_domains = house.getDomains().size();
+		int count_players = house.getPlayers().size();
 
 		if (entity instanceof Player _player && !_player.level().isClientSide())
-		_player.displayClientMessage(Component.literal(name +  " -----> " + hp +" / 1000 HP"), false);
+		_player.displayClientMessage(Component.literal(color_prefix+ "§l" + name + "§r: ")
+    	.append(Component.translatable("translation.key.domains"))
+    	.append(Component.literal(": " + count_domains + ", "))
+    	.append(Component.translatable("translation.key.players"))
+    	.append(Component.literal(": " + count_players)), false);
+
 	});
 	}
 }

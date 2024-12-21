@@ -7,63 +7,11 @@
       {
         "type": "image",
         "data": {
-          "image": "woodcutter_logo.png",
-          "use1Xscale": false,
-          "displayCondition": {
-            "name": "Returnwoodcutter"
-          },
-          "anchorPoint": "TOP_LEFT",
-          "x": 6,
-          "y": 8
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "smith_logo.png",
-          "use1Xscale": false,
-          "displayCondition": {
-            "name": "Returnsmith"
-          },
-          "anchorPoint": "TOP_LEFT",
-          "x": 6,
-          "y": 8
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": ".png",
-          "use1Xscale": false,
-          "displayCondition": {
-            "name": "Returnfarmer"
-          },
-          "anchorPoint": "TOP_LEFT",
-          "x": 6,
-          "y": 8
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "miner_logo.png",
-          "use1Xscale": false,
-          "displayCondition": {
-            "name": "Returnminer"
-          },
-          "anchorPoint": "TOP_LEFT",
-          "x": 6,
-          "y": 8
-        }
-      },
-      {
-        "type": "image",
-        "data": {
           "image": "crown.png",
           "use1Xscale": false,
           "anchorPoint": "CENTER",
           "x": 267,
-          "y": 26
+          "y": 25
         }
       }
     ],
@@ -74,7 +22,7 @@
       "sy": 18,
       "ox": 11,
       "oy": 15,
-      "snapOnGrid": true
+      "snapOnGrid": false
     }
   }
 }

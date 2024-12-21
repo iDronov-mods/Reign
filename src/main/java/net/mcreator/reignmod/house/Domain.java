@@ -67,7 +67,7 @@ public class Domain implements INBTSerializable<CompoundTag> {
         this.domainTitle = Component.literal(nbt.getString("domain_title"));
 
         this.players.clear();
-        ListTag playersTag = nbt.getList("players", 10);
+        ListTag playersTag = nbt.getList("players", 8);
         playersTag.forEach(tag -> this.players.add(tag.getAsString()));
     }
 }

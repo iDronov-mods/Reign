@@ -19,7 +19,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
-import net.mcreator.reignmod.procedures.PrivateShopSetPriceProcedure;
 import net.mcreator.reignmod.procedures.PrivateShopSetGoodsProcedure;
 import net.mcreator.reignmod.network.PrivateShopUISlotMessage;
 import net.mcreator.reignmod.init.ReignModModMenus;
@@ -101,14 +100,14 @@ public class PrivateShopUIMenu extends AbstractContainerMenu implements Supplier
 			private final int slot = 1;
 
 			@Override
-			public void setChanged() {
-				super.setChanged();
-				slotChanged(1, 0, 0);
+			public boolean mayPickup(Player entity) {
+				return false;
 			}
 
 			@Override
-			public boolean mayPlace(ItemStack itemstack) {
-				return !PrivateShopSetPriceProcedure.execute(itemstack);
+			public void setChanged() {
+				super.setChanged();
+				slotChanged(1, 0, 0);
 			}
 		}));
 		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 116, 26) {
@@ -127,7 +126,7 @@ public class PrivateShopUIMenu extends AbstractContainerMenu implements Supplier
 
 			@Override
 			public boolean mayPlace(ItemStack itemstack) {
-				return !PrivateShopSetGoodsProcedure.execute(world, x, y, z, itemstack);
+				return !PrivateShopSetGoodsProcedure.execute(world, x, y, z, entity, itemstack);
 			}
 		}));
 		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 116, 48) {

@@ -12,6 +12,7 @@ import net.minecraft.world.level.LevelAccessor;
 
 
 
+
 @Mod.EventBusSubscriber
 public class HourlyEventHandler {
     // Последнее время срабатывания (в миллисекундах)
@@ -23,7 +24,7 @@ public class HourlyEventHandler {
             long currentTime = System.currentTimeMillis();
             
             // Проверяем, прошёл ли час (3600000 мс = 1 час)
-            if (currentTime - lastExecutionTime >= 7200000L) { //каждые 2 ч
+            if (currentTime - lastExecutionTime >= 2 * 3600000L) { //каждые 3 ч
                 lastExecutionTime = currentTime; // Обновляем время последнего срабатывания
                 triggerHourlyEvent();           // Вызываем ваше событие
             }
@@ -44,8 +45,9 @@ public class HourlyEventHandler {
 			int y = coords[1];
 			int z = coords[2];
 
-			int addHp = (int) FeedHeartProcedure.execute(HouseSavedData.getServerInstance(), x, y, z, house.getDomains().size(), house.getPlayers().size());
+			int addHp = (int) FeedHeartProcedure.execute(HouseSavedData.getServerInstance(), x, y, z, house.getHouseHP(), house.getDomains().size(), house.getPlayers().size());
 			
+
 			if (HouseManager.getHouseByLordUUID(house.getLordUUID()).addHouseHP(addHp) == 0){
 				HouseManager.deleteHouse(house.getLordUUID());
 				HouseSavedData.getServerInstance().getServer().getPlayerList().broadcastSystemMessage(Component.literal(house.getHouseTitle()+" " + (Component.translatable("translation.key.house_delete").getString())), false);

@@ -187,6 +187,7 @@ public class ReignModModVariables {
 		public boolean EVENT_STARVATION = false;
 		public double Tutorial_pass = 0.0;
 		public double MAX_AMOUNT_VALUE = 279616.0;
+		public double FEED_K = 1.0;
 
 		public static MapVariables load(CompoundTag tag) {
 			MapVariables data = new MapVariables();
@@ -222,6 +223,7 @@ public class ReignModModVariables {
 			EVENT_STARVATION = nbt.getBoolean("EVENT_STARVATION");
 			Tutorial_pass = nbt.getDouble("Tutorial_pass");
 			MAX_AMOUNT_VALUE = nbt.getDouble("MAX_AMOUNT_VALUE");
+			FEED_K = nbt.getDouble("FEED_K");
 		}
 
 		@Override
@@ -253,6 +255,7 @@ public class ReignModModVariables {
 			nbt.putBoolean("EVENT_STARVATION", EVENT_STARVATION);
 			nbt.putDouble("Tutorial_pass", Tutorial_pass);
 			nbt.putDouble("MAX_AMOUNT_VALUE", MAX_AMOUNT_VALUE);
+			nbt.putDouble("FEED_K", FEED_K);
 			return nbt;
 		}
 

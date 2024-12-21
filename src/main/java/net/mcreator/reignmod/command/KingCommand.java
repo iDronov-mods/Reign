@@ -20,7 +20,7 @@ import net.mcreator.reignmod.procedures.CreateCrownProcedure;
 public class KingCommand {
 	@SubscribeEvent
 	public static void registerCommand(RegisterCommandsEvent event) {
-		event.getDispatcher().register(Commands.literal("king").requires(s -> s.hasPermission(2)).then(Commands.literal("create").executes(arguments -> {
+		event.getDispatcher().register(Commands.literal("king").requires(s -> s.hasPermission(3)).then(Commands.literal("create").executes(arguments -> {
 			Level world = arguments.getSource().getUnsidedLevel();
 			double x = arguments.getSource().getPosition().x();
 			double y = arguments.getSource().getPosition().y();
