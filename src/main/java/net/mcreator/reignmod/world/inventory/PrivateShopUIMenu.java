@@ -19,7 +19,10 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
+import net.mcreator.reignmod.procedures.PrivateShopSetPriceProcedure;
 import net.mcreator.reignmod.procedures.PrivateShopSetGoodsProcedure;
+import net.mcreator.reignmod.procedures.PrivateShopClearPriceProcedure;
+import net.mcreator.reignmod.procedures.PrivateShopClearGoodsProcedure;
 import net.mcreator.reignmod.network.PrivateShopUISlotMessage;
 import net.mcreator.reignmod.init.ReignModModMenus;
 import net.mcreator.reignmod.init.ReignModModItems;
@@ -101,7 +104,7 @@ public class PrivateShopUIMenu extends AbstractContainerMenu implements Supplier
 
 			@Override
 			public boolean mayPickup(Player entity) {
-				return false;
+				return !PrivateShopClearPriceProcedure.execute(world, x, y, z, entity);
 			}
 
 			@Override
@@ -109,24 +112,23 @@ public class PrivateShopUIMenu extends AbstractContainerMenu implements Supplier
 				super.setChanged();
 				slotChanged(1, 0, 0);
 			}
+
+			@Override
+			public boolean mayPlace(ItemStack itemstack) {
+				return !PrivateShopSetPriceProcedure.execute(entity, itemstack);
+			}
 		}));
 		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 116, 26) {
 			private final int slot = 2;
 
 			@Override
 			public boolean mayPickup(Player entity) {
-				return false;
-			}
-
-			@Override
-			public void setChanged() {
-				super.setChanged();
-				slotChanged(2, 0, 0);
+				return !PrivateShopClearGoodsProcedure.execute(world, x, y, z, entity);
 			}
 
 			@Override
 			public boolean mayPlace(ItemStack itemstack) {
-				return !PrivateShopSetGoodsProcedure.execute(world, x, y, z, entity, itemstack);
+				return !PrivateShopSetGoodsProcedure.execute(entity, itemstack);
 			}
 		}));
 		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 116, 48) {

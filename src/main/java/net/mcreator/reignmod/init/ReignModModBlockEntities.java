@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.Block;
 
 import net.mcreator.reignmod.block.entity.SafeBlockEntity;
+import net.mcreator.reignmod.block.entity.PrivatedoorBlockEntity;
 import net.mcreator.reignmod.block.entity.PrivateShopBlockEntity;
 import net.mcreator.reignmod.block.entity.PlusBlockEntity;
 import net.mcreator.reignmod.block.entity.KingtableBlockEntity;
@@ -29,6 +30,7 @@ public class ReignModModBlockEntities {
 	public static final RegistryObject<BlockEntityType<?>> SAFE = register("safe", ReignModModBlocks.SAFE, SafeBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> PRIVATE_SHOP = register("private_shop", ReignModModBlocks.PRIVATE_SHOP, PrivateShopBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> INCUBATOR = register("incubator", ReignModModBlocks.INCUBATOR, IncubatorBlockEntity::new);
+	public static final RegistryObject<BlockEntityType<?>> PRIVATEDOOR = register("privatedoor", ReignModModBlocks.PRIVATEDOOR, PrivatedoorBlockEntity::new);
 
 	// Start of user code block custom block entities
 	// End of user code block custom block entities

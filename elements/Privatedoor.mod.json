@@ -2,76 +2,44 @@
   "_fv": 69,
   "_type": "block",
   "definition": {
-    "texture": "minecraft:dark_oak_planks",
-    "textureTop": "",
+    "texture": "down_house_door",
+    "textureTop": "up_house_door",
     "textureLeft": "",
     "textureFront": "",
     "textureRight": "",
     "textureBack": "",
-    "renderType": 2,
-    "customModelName": "privateshop:default",
-    "rotationMode": 1,
+    "renderType": 11,
+    "customModelName": "Single texture",
+    "rotationMode": 0,
     "enablePitch": false,
     "emissiveRendering": false,
     "displayFluidOverlay": false,
-    "itemTexture": "",
-    "particleTexture": "",
+    "itemTexture": "private_door_icon",
+    "particleTexture": "down_house_door",
+    "blockBase": "Door",
     "tintType": "No tint",
     "isItemTinted": false,
     "hasTransparency": true,
     "connectedSides": false,
-    "transparencyType": "SOLID",
+    "transparencyType": "CUTOUT",
     "disableOffset": false,
     "boundingBoxes": [
       {
-        "mx": 1.0,
-        "my": 0.0,
-        "mz": 1.0,
-        "Mx": 15.0,
-        "My": 11.0,
-        "Mz": 15.0,
-        "subtract": false
-      },
-      {
-        "mx": 4.0,
-        "my": 12.0,
-        "mz": 4.0,
-        "Mx": 12.0,
-        "My": 13.0,
-        "Mz": 12.0,
-        "subtract": false
-      },
-      {
-        "mx": 3.0,
-        "my": 5.0,
-        "mz": 0.0,
-        "Mx": 13.0,
-        "My": 10.0,
-        "Mz": 1.0,
-        "subtract": false
-      },
-      {
         "mx": 0.0,
-        "my": 11.0,
+        "my": 0.0,
         "mz": 0.0,
         "Mx": 16.0,
-        "My": 12.0,
+        "My": 16.0,
         "Mz": 16.0,
         "subtract": false
       }
     ],
-    "customProperties": [
-      {
-        "name": "CUSTOM:licsensed",
-        "type": "logic",
-        "value": false
-      }
-    ],
-    "name": "Private shop",
+    "customProperties": [],
+    "name": "Private door",
     "specialInformation": {
       "fixedValue": []
     },
-    "hardness": 2.0,
+    "hardness": 3.0,
     "resistance": 10.0,
     "hasGravity": false,
     "isWaterloggable": false,
@@ -80,7 +48,7 @@
         "value": "CUSTOM:CreativeTab"
       }
     ],
-    "destroyTool": "axe",
+    "destroyTool": "pickaxe",
     "customDrop": {
       "value": ""
     },
@@ -106,7 +74,7 @@
       "value": ""
     },
     "offsetType": "NONE",
-    "aiPathNodeType": "DEFAULT",
+    "aiPathNodeType": "WALKABLE_DOOR",
     "flammability": 0,
     "fireSpreadSpeed": 0,
     "isLadder": false,
@@ -117,7 +85,7 @@
     "isNotColidable": false,
     "isCustomSoundType": false,
     "soundOnStep": {
-      "value": "WOOD"
+      "value": "METAL"
     },
     "breakSound": {
       "value": ""
@@ -135,23 +103,18 @@
       "value": ""
     },
     "luminance": 0,
-    "unbreakable": true,
-    "vanillaToolTier": "NONE",
+    "unbreakable": false,
+    "vanillaToolTier": "IRON",
     "isBonemealable": false,
     "hasInventory": true,
-    "guiBoundTo": "PrivateShopUI",
+    "guiBoundTo": "<NONE>",
     "openGUIOnRightClick": false,
-    "inventorySize": 4,
+    "inventorySize": 9,
     "inventoryStackSize": 64,
     "inventoryDropWhenDestroyed": false,
     "inventoryComparatorPower": false,
     "inventoryOutSlotIDs": [],
-    "inventoryInSlotIDs": [
-      0,
-      1,
-      2,
-      3
-    ],
+    "inventoryInSlotIDs": [],
     "hasEnergyStorage": false,
     "energyInitial": 0,
     "energyCapacity": 400000,
@@ -160,15 +123,6 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
-    "onRightClicked": {
-      "name": "WinPrivateShopOpen"
-    },
-    "onStartToDestroy": {
-      "name": "PrivateShopBreak"
-    },
-    "onBlockPlayedBy": {
-      "name": "PrivateShopIsPlaced"
-    },
     "generateFeature": false,
     "restrictionBiomes": [],
     "blocksToReplace": [

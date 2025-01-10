@@ -11,7 +11,7 @@ import net.minecraft.core.BlockPos;
 import java.util.function.Supplier;
 import java.util.Map;
 
-public class PrivateShopClearGoodsProcedure {
+public class PrivateShopClearPriceProcedure {
 	public static boolean execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return false;
@@ -24,7 +24,9 @@ public class PrivateShopClearGoodsProcedure {
 			}
 		}.getValue(world, BlockPos.containing(x, y, z), "count") == 0) {
 			if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
-				((Slot) _slots.get(2)).set(ItemStack.EMPTY);
+				ItemStack _setstack = ItemStack.EMPTY.copy();
+				_setstack.setCount(0);
+				((Slot) _slots.get(1)).set(_setstack);
 				_player.containerMenu.broadcastChanges();
 			}
 		}

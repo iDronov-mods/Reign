@@ -88,7 +88,7 @@ public class EnterPayProcedure {
 					_player.displayClientMessage(
 							Component.literal((Component.translatable("pay_knight").getString() + " \u00A7l" + new java.text.DecimalFormat("##").format(value) + "\u00A7r " + Component.translatable("copper_coins_pay").getString())), false);
 			} else if (IsSlaveProcedure.execute(world, entity)) {
-				value = 16 * (1 + 0.5 * (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline);
+				value = 16 * (1 + 0.1 * (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline);
 				WalletGiveProcedure.execute(entity, value);
 				if (entity instanceof Player _player && !_player.level().isClientSide())
 					_player.displayClientMessage(

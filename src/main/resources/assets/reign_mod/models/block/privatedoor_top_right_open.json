@@ -1,0 +1,9 @@
+{
+  "parent": "block/door_top_right_open",
+  "textures": {
+    "particle": "reign_mod:block/down_house_door",
+    "bottom": "reign_mod:block/down_house_door",
+    "top": "reign_mod:block/up_house_door"
+  },
+  "render_type": "cutout"
+}

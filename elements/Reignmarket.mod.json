@@ -1,0 +1,32 @@
+{
+  "_fv": 69,
+  "_type": "config",
+  "definition": {
+    "pools": [
+      {
+        "category": "MARKET PRICES",
+        "entries": [
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 3.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "oak log",
+            "varname": "oak_log",
+            "enablecomment": false,
+            "stringlist": []
+          }
+        ]
+      }
+    ],
+    "file": "reign_market",
+    "configType": 0
+  }
+}

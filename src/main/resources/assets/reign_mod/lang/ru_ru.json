@@ -6,6 +6,7 @@
   "gui.reign_mod.house_incubator_ui.label_proc_incubator_get_food_per_hour": "2 / hour",
   "gui.reign_mod.win_view.tooltip_cattle_breeding": "Скотоводство",
   "gui.reign_mod.license_is_selected.label_the_main_license_has_been_select": "Основная лицензия уже выбрана.",
+  "block.reign_mod.privatedoor": "Private door",
   "translation.key.houseNoPayMoney": "Для создания Дома нужно внести 4 золотых.",
   "NotAlchemistSay": "Надеюсь оно не взорвётся...",
   "translation.key.per_hour": " /час",

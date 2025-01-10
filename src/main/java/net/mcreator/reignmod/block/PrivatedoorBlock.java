@@ -1,0 +1,53 @@
+
+package net.mcreator.reignmod.block;
+
+import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.material.PushReaction;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.core.BlockPos;
+
+import net.mcreator.reignmod.block.entity.PrivatedoorBlockEntity;
+
+public class PrivatedoorBlock extends DoorBlock implements EntityBlock {
+	public PrivatedoorBlock() {
+		super(BlockBehaviour.Properties.of().sound(SoundType.METAL).strength(3f, 10f).noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((bs, br, bp) -> false).dynamicShape(), BlockSetType.STONE);
+	}
+
+	@Override
+	public int getLightBlock(BlockState state, BlockGetter worldIn, BlockPos pos) {
+		return 0;
+	}
+
+	@Override
+	public BlockPathTypes getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
+		return BlockPathTypes.WALKABLE_DOOR;
+	}
+
+	@Override
+	public MenuProvider getMenuProvider(BlockState state, Level worldIn, BlockPos pos) {
+		BlockEntity tileEntity = worldIn.getBlockEntity(pos);
+		return tileEntity instanceof MenuProvider menuProvider ? menuProvider : null;
+	}
+
+	@Override
+	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+		return new PrivatedoorBlockEntity(pos, state);
+	}
+
+	@Override
+	public boolean triggerEvent(BlockState state, Level world, BlockPos pos, int eventID, int eventParam) {
+		super.triggerEvent(state, world, pos, eventID, eventParam);
+		BlockEntity blockEntity = world.getBlockEntity(pos);
+		return blockEntity == null ? false : blockEntity.triggerEvent(eventID, eventParam);
+	}
+}

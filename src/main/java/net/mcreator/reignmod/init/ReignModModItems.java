@@ -10,6 +10,7 @@ import net.minecraftforge.registries.DeferredRegister;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.DoubleHighBlockItem;
 import net.minecraft.world.item.BlockItem;
 
 import net.mcreator.reignmod.item.YourLawnIsBoolItem;
@@ -101,10 +102,15 @@ public class ReignModModItems {
 	public static final RegistryObject<Item> INCUBATOR = block(ReignModModBlocks.INCUBATOR);
 	public static final RegistryObject<Item> HEART_OF_HOUSE = REGISTRY.register("heart_of_house", () -> new HeartOfHouseItem());
 	public static final RegistryObject<Item> ACCURSED_BLACK_MARK = REGISTRY.register("accursed_black_mark", () -> new AccursedBlackMarkItem());
+	public static final RegistryObject<Item> PRIVATEDOOR = doubleBlock(ReignModModBlocks.PRIVATEDOOR);
 
 	// Start of user code block custom items
 	// End of user code block custom items
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
+	}
+
+	private static RegistryObject<Item> doubleBlock(RegistryObject<Block> block) {
+		return REGISTRY.register(block.getId().getPath(), () -> new DoubleHighBlockItem(block.get(), new Item.Properties()));
 	}
 }

@@ -21,7 +21,6 @@ public class PrivateShopSetPriceProcedure {
 				((Slot) _slots.get(1)).set(_setstack);
 				_player.containerMenu.broadcastChanges();
 			}
-			return true;
 		}
 		return true;
 	}

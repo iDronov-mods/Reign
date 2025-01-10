@@ -53,11 +53,13 @@
             "value": ""
           },
           "disablePlacement": {
-            "fixedValue": false
+            "fixedValue": false,
+            "name": "PrivateShopSetPrice"
           },
           "id": 1,
           "disablePickup": {
-            "fixedValue": true
+            "fixedValue": false,
+            "name": "PrivateShopClearPrice"
           },
           "dropItemsWhenNotBound": false,
           "onSlotChanged": {
@@ -117,12 +119,10 @@
           },
           "id": 2,
           "disablePickup": {
-            "fixedValue": true
+            "fixedValue": false,
+            "name": "PrivateShopClearGoods"
           },
           "dropItemsWhenNotBound": false,
-          "onSlotChanged": {
-            "name": "PrivateShopChangeGoods"
-          },
           "x": 241,
           "y": 62
         }

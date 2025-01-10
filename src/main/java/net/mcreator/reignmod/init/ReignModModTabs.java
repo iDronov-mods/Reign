@@ -61,6 +61,7 @@ public class ReignModModTabs {
 				tabData.accept(ReignModModItems.PEN_WITH_INK.get());
 				tabData.accept(ReignModModItems.BLACKMARK.get());
 				tabData.accept(ReignModModItems.ACCURSED_BLACK_MARK.get());
+				tabData.accept(ReignModModBlocks.PRIVATEDOOR.get().asItem());
 			})
 
 					.build());

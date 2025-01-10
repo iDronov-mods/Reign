@@ -2900,7 +2900,12 @@
         "files": [
           "src/main/java/net/mcreator/reignmod/procedures/WoodcutetterProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
       },
       "path": "~/Scripts/LicensesSystem/ExpSkills"
     },
@@ -6543,22 +6548,6 @@
           {
             "name": "itemstack",
             "type": "itemstack"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ],
         "return_type": "logic"
@@ -7106,6 +7095,10 @@
           "src/main/java/net/mcreator/reignmod/procedures/PrivateShopClearGoodsProcedure.java"
         ],
         "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
           {
             "name": "x",
             "type": "number"
@@ -8502,6 +8495,80 @@
         ]
       },
       "path": "~/Commands"
+    },
+    {
+      "name": "PrivateShopClearPrice",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "private_shop_clear_price",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/PrivateShopClearPriceProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/PrivateShopSystem"
+    },
+    {
+      "name": "Privatedoor",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "privatedoor",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/reign_mod/models/block/privatedoor_bottom_left.json",
+          "src/main/java/net/mcreator/reignmod/block/PrivatedoorBlock.java",
+          "src/main/resources/assets/reign_mod/models/block/privatedoor_top_right_open.json",
+          "src/main/resources/assets/reign_mod/models/item/privatedoor.json",
+          "src/main/resources/assets/reign_mod/models/block/privatedoor_bottom_right_open.json",
+          "src/main/resources/assets/reign_mod/blockstates/privatedoor.json",
+          "src/main/resources/assets/reign_mod/models/block/privatedoor_top_left_open.json",
+          "src/main/resources/assets/reign_mod/models/block/privatedoor_bottom_left_open.json",
+          "src/main/resources/assets/reign_mod/models/block/privatedoor_top_left.json",
+          "src/main/java/net/mcreator/reignmod/block/entity/PrivatedoorBlockEntity.java",
+          "src/main/resources/assets/reign_mod/models/block/privatedoor_bottom_right.json",
+          "src/main/resources/assets/reign_mod/models/block/privatedoor_top_right.json",
+          "src/main/resources/data/reign_mod/loot_tables/blocks/privatedoor.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "Reignmarket",
+      "type": "config",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "reignmarket",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/configuration/ReignmarketConfiguration.java"
+        ]
+      },
+      "path": "~/Misc"
     }
   ],
   "variable_elements": [
@@ -8976,6 +9043,7 @@
       "CUSTOM:PlatinumCoin"
     ],
     "BLOCKS:minecraft:mineable/pickaxe": [
+      "~CUSTOM:Privatedoor",
       "~CUSTOM:Safe",
       "~CUSTOM:Rock",
       "~CUSTOM:HoarderBlock",
@@ -9175,7 +9243,8 @@
       "Picklock",
       "PenWithInk",
       "Blackmark",
-      "AccursedBlackMark"
+      "AccursedBlackMark",
+      "Privatedoor"
     ]
   },
   "language_map": {
@@ -9187,6 +9256,7 @@
       "gui.reign_mod.house_incubator_ui.label_proc_incubator_get_food_per_hour": "2 / hour",
       "gui.reign_mod.win_view.tooltip_cattle_breeding": "Скотоводство",
       "gui.reign_mod.license_is_selected.label_the_main_license_has_been_select": "Основная лицензия уже выбрана.",
+      "block.reign_mod.privatedoor": "Private door",
       "translation.key.houseNoPayMoney": "Для создания Дома нужно внести 4 золотых.",
       "NotAlchemistSay": "Надеюсь оно не взорвётся...",
       "translation.key.per_hour": " /час",
@@ -9517,6 +9587,7 @@
       "gui.reign_mod.house_incubator_ui.label_proc_incubator_get_food_per_hour": "2 / hour",
       "gui.reign_mod.win_view.tooltip_cattle_breeding": "Cattle breeding",
       "gui.reign_mod.license_is_selected.label_the_main_license_has_been_select": "The main license has been selected.",
+      "block.reign_mod.privatedoor": "Private door",
       "translation.key.per_hour": "",
       "translation.key.houseNoPayMoney": "To create a House you need to contribute 4 gold.",
       "NotAlchemistSay": "I hope it doesn\u0027t explode...",
@@ -9790,7 +9861,7 @@
       "gui.reign_mod.win_view.tooltip_fihsher_5": "fihsher_5",
       "translation.key.domains": "Domains",
       "gui.reign_mod.royale_settings.food_textfield": "",
-      "gui.reign_mod.private_shop_buyer_ui.tooltip_private_shop_help": "Buy goods on the private market",
+      "gui.reign_mod.private_shop_buyer_ui.tooltip_private_shop_help": "private_shop_help",
       "item.reign_mod.smith_coin": "Smith coin",
       "gui.reign_mod.textbook_1.button_back": "back",
       "gui.reign_mod.new_house.button_create": "Create",
