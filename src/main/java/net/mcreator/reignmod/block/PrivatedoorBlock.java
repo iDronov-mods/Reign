@@ -10,12 +10,14 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.core.BlockPos;
 
+import net.mcreator.reignmod.procedures.PrivateDoorIgnorRedstoneProcedure;
 import net.mcreator.reignmod.block.entity.PrivatedoorBlockEntity;
 
 public class PrivatedoorBlock extends DoorBlock implements EntityBlock {
@@ -31,6 +33,14 @@ public class PrivatedoorBlock extends DoorBlock implements EntityBlock {
 	@Override
 	public BlockPathTypes getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
 		return BlockPathTypes.WALKABLE_DOOR;
+	}
+
+	@Override
+	public void neighborChanged(BlockState blockstate, Level world, BlockPos pos, Block neighborBlock, BlockPos fromPos, boolean moving) {
+		super.neighborChanged(blockstate, world, pos, neighborBlock, fromPos, moving);
+		if (world.getBestNeighborSignal(pos) > 0) {
+			PrivateDoorIgnorRedstoneProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
+		}
 	}
 
 	@Override

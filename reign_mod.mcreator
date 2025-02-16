@@ -325,9 +325,9 @@
       "registry_name": "license_is_selected",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/client/gui/LicenseIsSelectedScreen.java",
           "src/main/java/net/mcreator/reignmod/network/LicenseIsSelectedButtonMessage.java",
-          "src/main/java/net/mcreator/reignmod/world/inventory/LicenseIsSelectedMenu.java"
+          "src/main/java/net/mcreator/reignmod/world/inventory/LicenseIsSelectedMenu.java",
+          "src/main/java/net/mcreator/reignmod/client/gui/LicenseIsSelectedScreen.java"
         ]
       },
       "path": "~/UI/LicensesUI"
@@ -1940,9 +1940,9 @@
       "registry_name": "add_license_is_selected",
       "metadata": {
         "files": [
+          "src/main/java/net/mcreator/reignmod/world/inventory/AddLicenseIsSelectedMenu.java",
           "src/main/java/net/mcreator/reignmod/network/AddLicenseIsSelectedButtonMessage.java",
-          "src/main/java/net/mcreator/reignmod/client/gui/AddLicenseIsSelectedScreen.java",
-          "src/main/java/net/mcreator/reignmod/world/inventory/AddLicenseIsSelectedMenu.java"
+          "src/main/java/net/mcreator/reignmod/client/gui/AddLicenseIsSelectedScreen.java"
         ]
       },
       "path": "~/UI/LicensesUI"
@@ -2902,8 +2902,8 @@
         ],
         "dependencies": [
           {
-            "name": "world",
-            "type": "world"
+            "name": "entity",
+            "type": "entity"
           }
         ]
       },
@@ -5011,10 +5011,6 @@
         ],
         "dependencies": [
           {
-            "name": "blockstate",
-            "type": "blockstate"
-          },
-          {
             "name": "entity",
             "type": "entity"
           },
@@ -5713,8 +5709,8 @@
       "registry_name": "safe_ui",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/world/inventory/SafeUIMenu.java",
-          "src/main/java/net/mcreator/reignmod/client/gui/SafeUIScreen.java"
+          "src/main/java/net/mcreator/reignmod/client/gui/SafeUIScreen.java",
+          "src/main/java/net/mcreator/reignmod/world/inventory/SafeUIMenu.java"
         ]
       },
       "path": "~/UI"
@@ -7994,18 +7990,6 @@
       "path": "~/Scripts/HousesScript"
     },
     {
-      "name": "HousesList",
-      "type": "code",
-      "compiles": true,
-      "locked_code": true,
-      "registry_name": "houses_list",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/reignmod/HousesList.java"
-        ]
-      }
-    },
-    {
       "name": "FeedKSet",
       "type": "procedure",
       "compiles": true,
@@ -8558,17 +8542,775 @@
       "path": "~/Blocks"
     },
     {
-      "name": "Reignmarket",
+      "name": "LicensesWindow",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "licenses_window",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/client/gui/LicensesWindowScreen.java",
+          "src/main/java/net/mcreator/reignmod/network/LicensesWindowButtonMessage.java",
+          "src/main/java/net/mcreator/reignmod/world/inventory/LicensesWindowMenu.java"
+        ]
+      },
+      "path": "~/UI/LicensesUI"
+    },
+    {
+      "name": "RentalBlock",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rental_block",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/reign_mod/models/block/rental_block.json",
+          "src/main/resources/assets/reign_mod/blockstates/rental_block.json",
+          "src/main/java/net/mcreator/reignmod/block/RentalBlockBlock.java",
+          "src/main/resources/data/reign_mod/loot_tables/blocks/rental_block.json",
+          "src/main/resources/assets/reign_mod/models/item/rental_block.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "PrivateDoorIgnorRedstone",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "private_door_ignor_redstone",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/PrivateDoorIgnorRedstoneProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/LockSystem"
+    },
+    {
+      "name": "Woodcutterwindow",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "woodcutterwindow",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/client/gui/WoodcutterwindowScreen.java",
+          "src/main/java/net/mcreator/reignmod/network/WoodcutterwindowButtonMessage.java",
+          "src/main/java/net/mcreator/reignmod/world/inventory/WoodcutterwindowMenu.java"
+        ]
+      },
+      "path": "~/UI/LicensesUI/Licenses_windows"
+    },
+    {
+      "name": "OpenWoodcutterWindow",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_woodcutter_window",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/OpenWoodcutterWindowProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/UI/LicensesUI/Licenses_windows"
+    },
+    {
+      "name": "ObeliskFoundation",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "obelisk_foundation",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/block/ObeliskFoundationBlock.java",
+          "src/main/resources/assets/reign_mod/blockstates/obelisk_foundation.json",
+          "src/main/resources/data/reign_mod/loot_tables/blocks/obelisk_foundation.json",
+          "src/main/resources/assets/reign_mod/models/item/obelisk_foundation.json",
+          "src/main/resources/assets/reign_mod/models/block/obelisk_foundation.json"
+        ]
+      },
+      "path": "~/Blocks/Obelisk"
+    },
+    {
+      "name": "ObeliskStem",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "obelisk_stem",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/reign_mod/blockstates/obelisk_stem.json",
+          "src/main/resources/assets/reign_mod/models/item/obelisk_stem.json",
+          "src/main/resources/data/reign_mod/loot_tables/blocks/obelisk_stem.json",
+          "src/main/java/net/mcreator/reignmod/block/ObeliskStemBlock.java",
+          "src/main/resources/assets/reign_mod/models/block/obelisk_stem.json"
+        ]
+      },
+      "path": "~/Blocks/Obelisk"
+    },
+    {
+      "name": "ObeliskCap",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "obelisk_cap",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/reign_mod/blockstates/obelisk_cap.json",
+          "src/main/java/net/mcreator/reignmod/block/ObeliskCapBlock.java",
+          "src/main/resources/assets/reign_mod/models/block/obelisk_cap.json",
+          "src/main/resources/data/reign_mod/loot_tables/blocks/obelisk_cap.json",
+          "src/main/resources/assets/reign_mod/models/item/obelisk_cap.json"
+        ]
+      },
+      "path": "~/Blocks/Obelisk"
+    },
+    {
+      "name": "ObeliskCapKnight",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "obelisk_cap_knight",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/block/ObeliskCapKnightBlock.java",
+          "src/main/resources/assets/reign_mod/models/block/obelisk_cap_knight.json",
+          "src/main/resources/assets/reign_mod/blockstates/obelisk_cap_knight.json",
+          "src/main/resources/data/reign_mod/loot_tables/blocks/obelisk_cap_knight.json",
+          "src/main/resources/assets/reign_mod/models/item/obelisk_cap_knight.json"
+        ]
+      },
+      "path": "~/Blocks/Obelisk"
+    },
+    {
+      "name": "IsHaveMainLicenses",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "is_have_main_licenses",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/IsHaveMainLicensesProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "IsHaveAddLicenses",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "is_have_add_licenses",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/IsHaveAddLicensesProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "IsNotHaveMainLicenses",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "is_not_have_main_licenses",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/IsNotHaveMainLicensesProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "IsNotHaveAddLicenses",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "is_not_have_add_licenses",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/IsNotHaveAddLicensesProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "RefuseLicensesWindow",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "refuse_licenses_window",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/world/inventory/RefuseLicensesWindowMenu.java",
+          "src/main/java/net/mcreator/reignmod/client/gui/RefuseLicensesWindowScreen.java"
+        ]
+      },
+      "path": "~/UI/LicensesUI"
+    },
+    {
+      "name": "RefuseMainLicensesWin",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "refuse_main_licenses_win",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/RefuseMainLicensesWinProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/UI/LicensesUI"
+    },
+    {
+      "name": "RefuseAddLicensesWin",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "refuse_add_licenses_win",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/RefuseAddLicensesWinProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/UI/LicensesUI"
+    },
+    {
+      "name": "ReturnNotWoodcutter",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_not_woodcutter",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnNotWoodcutterProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "ReturnNotMiner",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_not_miner",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnNotMinerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "ReturnNotSmith",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_not_smith",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnNotSmithProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "ReturnNotFarmer",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_not_farmer",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnNotFarmerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "ReturnNotCowboy",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_not_cowboy",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnNotCowboyProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "ReturnNotFisher",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_not_fisher",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnNotFisherProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "ReturnNotAlchemist",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_not_alchemist",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnNotAlchemistProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "ReturnNotEnchanter",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_not_enchanter",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnNotEnchanterProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "ReturnNotSoldier",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_not_soldier",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnNotSoldierProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "ReturnNotHunter",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_not_hunter",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnNotHunterProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "ReturnReverseNotWoodcutter",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_reverse_not_woodcutter",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnReverseNotWoodcutterProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "ReturnReverseNotMiner",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_reverse_not_miner",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnReverseNotMinerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "ReturnReverseNotSmith",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_reverse_not_smith",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnReverseNotSmithProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "ReturnReverseNotFarmer",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_reverse_not_farmer",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnReverseNotFarmerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "ReturnReverseNotCowboy",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_reverse_not_cowboy",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnReverseNotCowboyProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "ReturnReverseNotFisher",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_reverse_not_fisher",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnReverseNotFisherProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "ReturnReverseNotAlchemist",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_reverse_not_alchemist",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnReverseNotAlchemistProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "ReturnReverseNotEnchanter",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_reverse_not_enchanter",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnReverseNotEnchanterProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "ReturnReverseNotSoldier",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_reverse_not_soldier",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnReverseNotSoldierProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "ReturnReverseNotHunter",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_reverse_not_hunter",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnReverseNotHunterProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/Returns"
+    },
+    {
+      "name": "ReignCommon",
       "type": "config",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "reignmarket",
+      "registry_name": "reign_common",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/configuration/ReignmarketConfiguration.java"
+          "src/main/java/net/mcreator/reignmod/configuration/ReignCommonConfiguration.java"
         ]
       },
-      "path": "~/Misc"
+      "path": "~/Config"
+    },
+    {
+      "name": "ReignMarket",
+      "type": "config",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "reign_market",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/configuration/ReignMarketConfiguration.java"
+        ]
+      },
+      "path": "~/Config"
     }
   ],
   "variable_elements": [
@@ -9244,7 +9986,12 @@
       "PenWithInk",
       "Blackmark",
       "AccursedBlackMark",
-      "Privatedoor"
+      "Privatedoor",
+      "RentalBlock",
+      "ObeliskFoundation",
+      "ObeliskStem",
+      "ObeliskCap",
+      "ObeliskCapKnight"
     ]
   },
   "language_map": {
@@ -9257,9 +10004,10 @@
       "gui.reign_mod.win_view.tooltip_cattle_breeding": "Скотоводство",
       "gui.reign_mod.license_is_selected.label_the_main_license_has_been_select": "Основная лицензия уже выбрана.",
       "block.reign_mod.privatedoor": "Private door",
-      "translation.key.houseNoPayMoney": "Для создания Дома нужно внести 4 золотых.",
-      "NotAlchemistSay": "Надеюсь оно не взорвётся...",
       "translation.key.per_hour": " /час",
+      "NotAlchemistSay": "Надеюсь оно не взорвётся...",
+      "translation.key.houseNoPayMoney": "Для создания Дома нужно внести 4 золотых.",
+      "gui.reign_mod.woodcutterwindow.label_forester": "Forester",
       "gui.reign_mod.new_house.tooltip_napishitie_imia_i_vybieritie_tsviet_bud": "Выберите имя и цвет нового королевства",
       "translation.key.house_rename": "Ваш Дом переименован.",
       "gui.reign_mod.dfgdfgdf.button_buy": "КУПИТЬ",
@@ -9278,6 +10026,7 @@
       "gui.reign_mod.add_license_list.button_soldier": "Солдат",
       "subtitles.the-calm-before-the-storm": "",
       "gui.reign_mod.dsf.button_farmer": "Фермер      ",
+      "block.reign_mod.obelisk_cap": "Простое навершие обелиска",
       "NotEnchanterSay": "Не знаю что это такое...",
       "gui.reign_mod.add_license_list.label_osnovnyie_litsienzii": "Основные лицензии",
       "gui.reign_mod.royale_settings.label_armor": "БРОНЯ",
@@ -9324,6 +10073,7 @@
       "effect.reign_mod.criminal": "Преступник",
       "gui.reign_mod.win_view.tooltip_fisher_2": "+25% шанс подсечь. (75%)",
       "gui.reign_mod.license_is_selected.label_all_experience_will_be_lost": "Весь опыт будет потерян.",
+      "gui.reign_mod.woodcutterwindow.label_woodcutter": "WOODCUTTER",
       "item.reign_mod.copper_lock": "Медный замок",
       "piston": "Механизм сломался. Может, ещё не время?",
       "gui.reign_mod.royale_settings.coal_textfield": "",
@@ -9364,6 +10114,7 @@
       "newlord": "Первый своего имени: ",
       "item.reign_mod.miner_coin": "Монета шахтёра",
       "gui.reign_mod.add_license_list.button_hunter_button": "Охотник",
+      "block.reign_mod.obelisk_stem": "Стержень обелиска",
       "copper_coins_pay": "медяков.",
       "block.reign_mod.market_block": "Рынок",
       "gui.reign_mod.market.tooltip_buy_goods_for_money": "Покупайте товары за монеты",
@@ -9399,9 +10150,11 @@
       "gui.reign_mod.house_incubator_ui.tooltip_incubator_label_help": "Питайте Сердце, чтобы Дом существовал",
       "gui.reign_mod.private_shop_buyer_ui.label_available": "доступно:",
       "gui.reign_mod.royale_settings.label_tools": "ИНСТРУМ.",
+      "block.reign_mod.obelisk_foundation": "Основа обелиска",
       "gui.reign_mod.license_is_selected.button_refuse": "Отказаться",
       "gui.reign_mod.win_view.tooltip_10_yield_from_fields": "Выращивание корнеплодов.",
       "gui.reign_mod.house_incubator_ui.label_proc_incubator_get_fuel_per_hour": "4 / hour",
+      "gui.reign_mod.woodcutterwindow.label_main_licenses": "Основная лицензия",
       "translation.key.already_locked": "Замок уже заперт",
       "gui.reign_mod.win_view.tooltip_another_20_additional_drops": "ещё +20% дополнительного дропа.",
       "advancements.days_online_14.title": "Местный знаток",
@@ -9411,9 +10164,11 @@
       "gui.reign_mod.royale_settings.label_food": "ЕДА",
       "advancements.one_lvl.descr": "Улучшите лицензию.",
       "subtitles.locked_chest": "",
+      "gui.reign_mod.woodcutterwindow.label_charcoal_burner": "Charcoal burner",
       "advancements.so_slippery.title": "Эх, ускользнула!",
       "gui.reign_mod.new_house.label_4": "4",
       "subtitles.wallet_shake": "",
+      "block.reign_mod.obelisk_cap_knight": "Могучее навершие обелиска",
       "NotSmithSay": "Я не умею работать с этим.",
       "gui.reign_mod.private_shop_buyer_ui.label_private_shop": "Частная лавка",
       "item.reign_mod.honey_concentrate": "Концентрат мёда",
@@ -9423,6 +10178,7 @@
       "KingdomDelete": "Королевство распалось: ",
       "NotKing": "Недостаточно полномочий.",
       "gui.reign_mod.add_license_list.button_alchemist": "Алхимик",
+      "gui.reign_mod.woodcutterwindow.label_main_license": "Main license",
       "block.reign_mod.trade_block": "Пункт приёма",
       "block.reign_mod.plus": "Plus",
       "item.reign_mod.blackmark": "Чёрная метка",
@@ -9436,6 +10192,7 @@
       "gui.reign_mod.walletwin.label_17569": "17569",
       "newhouse": "Основан Дом:",
       "item.reign_mod.ruin_lord_3.desc": "Ruin Lord - Lasto Beth Lammen",
+      "block.reign_mod.rental_block": "Rental Block",
       "gui.reign_mod.hoarder.tooltip_sell_64_units_of_any_product_f": "Продайте 64 единицы любого товара за 2 медные монеты.",
       "gui.reign_mod.private_shop_ui.button_clear": "изъять",
       "gui.reign_mod.market_2.label_cost": "цена",
@@ -9443,6 +10200,7 @@
       "gui.reign_mod.safe_ui.label_safe_label": "Сейф",
       "item.reign_mod.gold_coin": "Золотая монета",
       "gui.reign_mod.market.button_x4": "X4",
+      "gui.reign_mod.woodcutterwindow.label_coal_burner": "Coal burner",
       "gui.reign_mod.royale_settings.armor_textfield": "",
       "gui.reign_mod.win_view.tooltip_1_to_axe_damage": "+1 к урону топором.",
       "gui.reign_mod.fund_ui.label_forward_to_a_new_time": "К новому времени...",
@@ -9493,11 +10251,13 @@
       "advancements.gotcha.title": "Попался!",
       "advancements.true_to_the_oath.title": "Верный клятве",
       "criminal_false": " помилован.",
+      "gui.reign_mod.woodcutterwindow.button_select": "select",
       "gui.reign_mod.house_incubator_ui.label_dye": "краска",
       "gui.reign_mod.coffers_ui.label_coffers": "КАЗНА",
       "translation.key.keyinfo": "Ключ игрока:",
       "item.reign_mod.ruin_lord_1.desc": "Ruin Lord - The calm before the storm",
       "gui.reign_mod.new_house.label_coins": "монеты",
+      "gui.reign_mod.woodcutterwindow.button_empty": "\u003c\u003c",
       "NoFisherSay": "Какая скользкая!",
       "gui.reign_mod.dsfminor.tooltip_vybieritie_osnovnoi_stil_ighry": "Выберите основной стиль игры.",
       "gui.reign_mod.add_license_is_selected.label_all_experience_will_be_lost": "Весь опыт будет потерян.",
@@ -9555,10 +10315,12 @@
       "subtitles.heart_better": "",
       "item.reign_mod.state_rental_3": "Роскошная государственная аренда",
       "advancements.sleight_of_hand_and_no_bugs.descr": "Взломайте замок.",
+      "gui.reign_mod.licenses_window.label_drovosiek": "Дровосек",
       "gui.reign_mod.win_view.tooltip_growing_blockplants": "Выращивание блочных культур",
       "subtitles.picklock_work2": "",
       "item.reign_mod.state_rental_1": "Скромная государственная аренда",
       "gui.reign_mod.fund_ui.tooltip_opening_the_end": "Открытие Края",
+      "gui.reign_mod.woodcutterwindow.button_refuse": "refuse",
       "item.reign_mod.platinum_coin": "Платиновая монета",
       "gui.reign_mod.textbook_1.label_reignmod": "ReignMod",
       "gui.reign_mod.add_license_list.label_dop_litsienzii": "Доп. лицензии",
@@ -9588,9 +10350,10 @@
       "gui.reign_mod.win_view.tooltip_cattle_breeding": "Cattle breeding",
       "gui.reign_mod.license_is_selected.label_the_main_license_has_been_select": "The main license has been selected.",
       "block.reign_mod.privatedoor": "Private door",
-      "translation.key.per_hour": "",
-      "translation.key.houseNoPayMoney": "To create a House you need to contribute 4 gold.",
       "NotAlchemistSay": "I hope it doesn\u0027t explode...",
+      "translation.key.houseNoPayMoney": "To create a House you need to contribute 4 gold.",
+      "translation.key.per_hour": "",
+      "gui.reign_mod.woodcutterwindow.label_forester": "Forester",
       "gui.reign_mod.new_house.tooltip_napishitie_imia_i_vybieritie_tsviet_bud": "Выберите имя и цвет нового королевства",
       "translation.key.house_rename": "Your house has been renamed.",
       "item.reign_mod.your_lawn_is_bool": "Your Lawn Is Bool",
@@ -9609,6 +10372,7 @@
       "gui.reign_mod.add_license_list.button_soldier": "Soldier",
       "subtitles.the-calm-before-the-storm": "",
       "gui.reign_mod.dsf.button_farmer": "Farmer",
+      "block.reign_mod.obelisk_cap": "Obelisk Cap",
       "NotEnchanterSay": "I don\u0027t know what this is...",
       "gui.reign_mod.add_license_list.label_osnovnyie_litsienzii": "Доп. лицензии",
       "gui.reign_mod.trader_point.label_punkt_priioma": "Пункт приёма",
@@ -9628,7 +10392,7 @@
       "gui.reign_mod.dsf.button_button_cowboy": "Cowboy",
       "advancements.days_online_7.descr": "7 days in a row online!",
       "translation.key.house_delete": "ceased to exist",
-      "gui.reign_mod.safe_ui.tooltip_safe_help": "Away from prying eyes.",
+      "gui.reign_mod.safe_ui.tooltip_safe_help": "safe_help",
       "gui.reign_mod.win_view.tooltip_and_another_20_of_field_yields": "and another 20% of field yields!",
       "translation.key.houseNameTaken": "A House with this name already exists!",
       "translation.key.goldlock_tooltip": "§o§7House lock.",
@@ -9655,6 +10419,7 @@
       "effect.reign_mod.criminal": "Criminal",
       "gui.reign_mod.win_view.tooltip_fisher_2": "fisher_2",
       "gui.reign_mod.license_is_selected.label_all_experience_will_be_lost": "All experience will be lost",
+      "gui.reign_mod.woodcutterwindow.label_woodcutter": "WOODCUTTER",
       "item.reign_mod.copper_lock": "Copper lock",
       "piston": "The mechanism is broken. Maybe it\u0027s not time yet?",
       "gui.reign_mod.royale_settings.coal_textfield": "",
@@ -9695,6 +10460,7 @@
       "newlord": "The first of his name: ",
       "item.reign_mod.miner_coin": "Miner coin",
       "gui.reign_mod.add_license_list.button_hunter_button": "Hunter",
+      "block.reign_mod.obelisk_stem": "Obelisk Stem",
       "copper_coins_pay": "copper coins.",
       "block.reign_mod.market_block": "Market",
       "gui.reign_mod.market.tooltip_buy_goods_for_money": "Buy goods for money",
@@ -9730,9 +10496,11 @@
       "gui.reign_mod.house_incubator_ui.tooltip_incubator_label_help": "incubator_label_help",
       "gui.reign_mod.private_shop_buyer_ui.label_available": "available:",
       "gui.reign_mod.royale_settings.label_tools": "TOOLS",
+      "block.reign_mod.obelisk_foundation": "Obelisk Foundation",
       "gui.reign_mod.license_is_selected.button_refuse": "   Refuse   ",
       "gui.reign_mod.win_view.tooltip_10_yield_from_fields": "+10% yield from fields",
       "gui.reign_mod.house_incubator_ui.label_proc_incubator_get_fuel_per_hour": "4 / hour",
+      "gui.reign_mod.woodcutterwindow.label_main_licenses": "Main Licenses",
       "translation.key.already_locked": "Already locked",
       "gui.reign_mod.win_view.tooltip_another_20_additional_drops": "another +20% additional drops.",
       "advancements.days_online_14.title": "The local expert",
@@ -9742,9 +10510,11 @@
       "gui.reign_mod.royale_settings.label_food": "FOOD",
       "advancements.one_lvl.descr": "Upgrade your license.",
       "subtitles.locked_chest": "",
+      "gui.reign_mod.woodcutterwindow.label_charcoal_burner": "Charcoal burner",
       "advancements.so_slippery.title": "The fish has come off!",
       "gui.reign_mod.new_house.label_4": "4",
       "subtitles.wallet_shake": "",
+      "block.reign_mod.obelisk_cap_knight": "Obelisk Cap Knight",
       "NotSmithSay": "I don\u0027t know how to work with this.",
       "gui.reign_mod.private_shop_buyer_ui.label_private_shop": "private_shop",
       "item.reign_mod.honey_concentrate": "Honey Concentrate",
@@ -9754,6 +10524,7 @@
       "KingdomDelete": "The kingdom fell apart: ",
       "NotKing": "Insufficient authority.",
       "gui.reign_mod.add_license_list.button_alchemist": "Alchemist",
+      "gui.reign_mod.woodcutterwindow.label_main_license": "Main license",
       "block.reign_mod.trade_block": "Trade Block",
       "block.reign_mod.plus": "Plus",
       "item.reign_mod.blackmark": "Black mark",
@@ -9767,6 +10538,7 @@
       "gui.reign_mod.walletwin.label_17569": "17569",
       "newhouse": "The House was founded: ",
       "item.reign_mod.ruin_lord_3.desc": "Ruin Lord - Lasto Beth Lammen",
+      "block.reign_mod.rental_block": "Rental Block",
       "gui.reign_mod.hoarder.tooltip_sell_64_units_of_any_product_f": "Sell ​​64 units of any product for 1 copper coin.",
       "gui.reign_mod.private_shop_ui.button_clear": "clear",
       "gui.reign_mod.market_2.label_cost": "cost",
@@ -9774,6 +10546,7 @@
       "gui.reign_mod.safe_ui.label_safe_label": "safe_label",
       "item.reign_mod.gold_coin": "Gold coin",
       "gui.reign_mod.market.button_x4": "X4",
+      "gui.reign_mod.woodcutterwindow.label_coal_burner": "Coal burner",
       "gui.reign_mod.royale_settings.armor_textfield": "",
       "gui.reign_mod.win_view.tooltip_1_to_axe_damage": "+1 to axe damage.",
       "gui.reign_mod.fund_ui.label_forward_to_a_new_time": "Forward to a new time...",
@@ -9824,11 +10597,13 @@
       "advancements.gotcha.title": "Gotcha!",
       "advancements.true_to_the_oath.title": "True To The Oath",
       "criminal_false": " pardoned.",
+      "gui.reign_mod.woodcutterwindow.button_select": "select",
       "gui.reign_mod.house_incubator_ui.label_dye": "dye",
       "gui.reign_mod.coffers_ui.label_coffers": "COFFERS",
       "translation.key.keyinfo": "Player key:",
       "item.reign_mod.ruin_lord_1.desc": "Ruin Lord - The calm before the storm",
       "gui.reign_mod.new_house.label_coins": "coins",
+      "gui.reign_mod.woodcutterwindow.button_empty": "\u003c\u003c",
       "NoFisherSay": "So slippery!",
       "gui.reign_mod.dsfminor.tooltip_vybieritie_osnovnoi_stil_ighry": "Choose your play style.",
       "gui.reign_mod.add_license_is_selected.label_all_experience_will_be_lost": "All experience will be lost",
@@ -9887,10 +10662,12 @@
       "subtitles.heart_better": "",
       "item.reign_mod.state_rental_3": "Big state rent",
       "advancements.sleight_of_hand_and_no_bugs.descr": "Pick the lock.",
+      "gui.reign_mod.licenses_window.label_drovosiek": "Дровосек",
       "gui.reign_mod.win_view.tooltip_growing_blockplants": "Growing block-plants",
       "subtitles.picklock_work2": "",
       "item.reign_mod.state_rental_1": "Small state rent",
       "gui.reign_mod.fund_ui.tooltip_opening_the_end": "Opening the End.",
+      "gui.reign_mod.woodcutterwindow.button_refuse": "refuse",
       "item.reign_mod.platinum_coin": "Platinum coin",
       "gui.reign_mod.textbook_1.label_reignmod": "ReignMod",
       "gui.reign_mod.add_license_list.label_dop_litsienzii": "Доп. лицензии",
@@ -9957,7 +10734,12 @@
         "children": [
           {
             "name": "LicensesUI",
-            "children": []
+            "children": [
+              {
+                "name": "Licenses_windows",
+                "children": []
+              }
+            ]
           },
           {
             "name": "Textbook",
@@ -10088,7 +10870,12 @@
       },
       {
         "name": "Blocks",
-        "children": []
+        "children": [
+          {
+            "name": "Obelisk",
+            "children": []
+          }
+        ]
       },
       {
         "name": "Buttons",
@@ -10109,6 +10896,10 @@
       },
       {
         "name": "Achievements",
+        "children": []
+      },
+      {
+        "name": "Config",
         "children": []
       }
     ]

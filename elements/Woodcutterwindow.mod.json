@@ -1,0 +1,260 @@
+{
+  "_fv": 69,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 222,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": false,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "license_window_background.png",
+          "use1Xscale": false,
+          "x": 103,
+          "y": 37
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "big_woodcutter_logo.png",
+          "use1Xscale": false,
+          "x": 112,
+          "y": 46
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_woodcutter",
+          "text": {
+            "fixedValue": "WOODCUTTER"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 166,
+          "y": 46
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_forester",
+          "text": {
+            "fixedValue": "Forester"
+          },
+          "color": {
+            "value": -10066330,
+            "falpha": 0.0
+          },
+          "x": 245,
+          "y": 88
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_first.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Mlvl1"
+          },
+          "x": 188,
+          "y": 75
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_next.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Mlvl2"
+          },
+          "x": 194,
+          "y": 75
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_next_r.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Mlvl3"
+          },
+          "x": 214,
+          "y": 81
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_next_l.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Mlvl3"
+          },
+          "x": 214,
+          "y": 68
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_next_corner_up.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Mlvl4"
+          },
+          "x": 242,
+          "y": 70
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_next_corner_down.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Mlvl4"
+          },
+          "x": 242,
+          "y": 81
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_first.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Mlvl4"
+          },
+          "x": 260,
+          "y": 75
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_next.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Mlvl5"
+          },
+          "x": 266,
+          "y": 75
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_refuse",
+          "text": "refuse",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "RefuseMainLicensesWin"
+          },
+          "displayCondition": {
+            "name": "Returnwoodcutter"
+          },
+          "width": 56,
+          "height": 20,
+          "x": 118,
+          "y": 189
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_select",
+          "text": "select",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "ChooseWoodcutter"
+          },
+          "displayCondition": {
+            "name": "IsNotHaveMainLicenses"
+          },
+          "width": 56,
+          "height": 20,
+          "x": 253,
+          "y": 189
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_empty",
+          "text": "<<",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "WinViewOpen"
+          },
+          "width": 19,
+          "height": 20,
+          "x": 82,
+          "y": 38
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_main_license",
+          "text": {
+            "fixedValue": "Main license"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 104,
+          "y": 25
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_lvl_up_button",
+          "image": "lvl_up_button.png",
+          "hoveredImage": "lvl_up_button_hover.png",
+          "displayCondition": {
+            "name": "MainButtonUp"
+          },
+          "x": 167,
+          "y": 70
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_coal_burner",
+          "text": {
+            "fixedValue": "Coal burner"
+          },
+          "color": {
+            "value": -10066330,
+            "falpha": 0.0
+          },
+          "x": 244,
+          "y": 57
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

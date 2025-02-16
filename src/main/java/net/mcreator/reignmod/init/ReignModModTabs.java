@@ -62,6 +62,11 @@ public class ReignModModTabs {
 				tabData.accept(ReignModModItems.BLACKMARK.get());
 				tabData.accept(ReignModModItems.ACCURSED_BLACK_MARK.get());
 				tabData.accept(ReignModModBlocks.PRIVATEDOOR.get().asItem());
+				tabData.accept(ReignModModBlocks.RENTAL_BLOCK.get().asItem());
+				tabData.accept(ReignModModBlocks.OBELISK_FOUNDATION.get().asItem());
+				tabData.accept(ReignModModBlocks.OBELISK_STEM.get().asItem());
+				tabData.accept(ReignModModBlocks.OBELISK_CAP.get().asItem());
+				tabData.accept(ReignModModBlocks.OBELISK_CAP_KNIGHT.get().asItem());
 			})
 
 					.build());

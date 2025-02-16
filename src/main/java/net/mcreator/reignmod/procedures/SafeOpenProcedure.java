@@ -16,6 +16,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.util.Mth;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
@@ -61,20 +62,36 @@ public class SafeOpenProcedure {
 					}
 				}, _bpos);
 			}
-			if (world instanceof Level _level) {
-				if (!_level.isClientSide()) {
-					_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:safe_open")), SoundSource.BLOCKS, (float) 0.5, (float) Mth.nextDouble(RandomSource.create(), 0.9, 1.1));
-				} else {
-					_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:safe_open")), SoundSource.BLOCKS, (float) 0.5, (float) Mth.nextDouble(RandomSource.create(), 0.9, 1.1), false);
+			if (world instanceof ServerLevel _origLevel) {
+				LevelAccessor _worldorig = world;
+				world = _origLevel.getServer().getLevel(Level.OVERWORLD);
+				if (world != null) {
+					if (world instanceof Level _level) {
+						if (!_level.isClientSide()) {
+							_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:safe_open")), SoundSource.BLOCKS, (float) 0.5,
+									(float) Mth.nextDouble(RandomSource.create(), 0.9, 1.1));
+						} else {
+							_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:safe_open")), SoundSource.BLOCKS, (float) 0.5, (float) Mth.nextDouble(RandomSource.create(), 0.9, 1.1), false);
+						}
+					}
 				}
+				world = _worldorig;
 			}
 		} else {
-			if (world instanceof Level _level) {
-				if (!_level.isClientSide()) {
-					_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:locked_chest")), SoundSource.BLOCKS, (float) 0.5, (float) Mth.nextDouble(RandomSource.create(), 0.9, 1.1));
-				} else {
-					_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:locked_chest")), SoundSource.BLOCKS, (float) 0.5, (float) Mth.nextDouble(RandomSource.create(), 0.9, 1.1), false);
+			if (world instanceof ServerLevel _origLevel) {
+				LevelAccessor _worldorig = world;
+				world = _origLevel.getServer().getLevel(Level.OVERWORLD);
+				if (world != null) {
+					if (world instanceof Level _level) {
+						if (!_level.isClientSide()) {
+							_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:locked_chest")), SoundSource.BLOCKS, (float) 0.5,
+									(float) Mth.nextDouble(RandomSource.create(), 0.9, 1.1));
+						} else {
+							_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:locked_chest")), SoundSource.BLOCKS, (float) 0.5, (float) Mth.nextDouble(RandomSource.create(), 0.9, 1.1), false);
+						}
+					}
 				}
+				world = _worldorig;
 			}
 		}
 	}

@@ -11,6 +11,7 @@ import net.minecraftforge.common.extensions.IForgeMenuType;
 
 import net.minecraft.world.inventory.MenuType;
 
+import net.mcreator.reignmod.world.inventory.WoodcutterwindowMenu;
 import net.mcreator.reignmod.world.inventory.WinViewMenu;
 import net.mcreator.reignmod.world.inventory.WalletwinMenu;
 import net.mcreator.reignmod.world.inventory.TraderPointMenu;
@@ -18,10 +19,12 @@ import net.mcreator.reignmod.world.inventory.TextbookmainMenu;
 import net.mcreator.reignmod.world.inventory.Textbook1Menu;
 import net.mcreator.reignmod.world.inventory.SafeUIMenu;
 import net.mcreator.reignmod.world.inventory.RoyaleSettingsMenu;
+import net.mcreator.reignmod.world.inventory.RefuseLicensesWindowMenu;
 import net.mcreator.reignmod.world.inventory.PrivateShopUIMenu;
 import net.mcreator.reignmod.world.inventory.PrivateShopBuyerUIMenu;
 import net.mcreator.reignmod.world.inventory.NewHouseMenu;
 import net.mcreator.reignmod.world.inventory.MarketMenu;
+import net.mcreator.reignmod.world.inventory.LicensesWindowMenu;
 import net.mcreator.reignmod.world.inventory.LicenseIsSelectedMenu;
 import net.mcreator.reignmod.world.inventory.KingtableUIMenu;
 import net.mcreator.reignmod.world.inventory.HouseIncubatorUIMenu;
@@ -59,4 +62,7 @@ public class ReignModModMenus {
 	public static final RegistryObject<MenuType<HouseIncubatorUIMenu>> HOUSE_INCUBATOR_UI = REGISTRY.register("house_incubator_ui", () -> IForgeMenuType.create(HouseIncubatorUIMenu::new));
 	public static final RegistryObject<MenuType<PrivateShopUIMenu>> PRIVATE_SHOP_UI = REGISTRY.register("private_shop_ui", () -> IForgeMenuType.create(PrivateShopUIMenu::new));
 	public static final RegistryObject<MenuType<PrivateShopBuyerUIMenu>> PRIVATE_SHOP_BUYER_UI = REGISTRY.register("private_shop_buyer_ui", () -> IForgeMenuType.create(PrivateShopBuyerUIMenu::new));
+	public static final RegistryObject<MenuType<LicensesWindowMenu>> LICENSES_WINDOW = REGISTRY.register("licenses_window", () -> IForgeMenuType.create(LicensesWindowMenu::new));
+	public static final RegistryObject<MenuType<WoodcutterwindowMenu>> WOODCUTTERWINDOW = REGISTRY.register("woodcutterwindow", () -> IForgeMenuType.create(WoodcutterwindowMenu::new));
+	public static final RegistryObject<MenuType<RefuseLicensesWindowMenu>> REFUSE_LICENSES_WINDOW = REGISTRY.register("refuse_licenses_window", () -> IForgeMenuType.create(RefuseLicensesWindowMenu::new));
 }

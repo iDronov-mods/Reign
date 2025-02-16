@@ -1,0 +1,9 @@
+{
+  "parent": "reign_mod:custom/rent_block",
+  "textures": {
+    "all": "minecraft:block/spruce_planks",
+    "particle": "minecraft:block/spruce_planks",
+    "0": "reign_mod:block/rent_block_texture"
+  },
+  "render_type": "solid"
+}

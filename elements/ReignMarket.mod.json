@@ -4,22 +4,22 @@
   "definition": {
     "pools": [
       {
-        "category": "MARKET PRICES",
+        "category": "Market",
         "entries": [
           {
             "item": {
               "value": ""
             },
-            "silkTouchMode": 1,
+            "silkTouchMode": 0,
             "block": {
               "value": ""
             },
             "logicField": 0,
-            "numberField": 3.0,
+            "numberField": 0.0,
             "textDefault": "",
             "comment": "",
-            "vardisplay": "oak log",
-            "varname": "oak_log",
+            "vardisplay": "logs",
+            "varname": "logs",
             "enablecomment": false,
             "stringlist": []
           }

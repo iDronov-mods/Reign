@@ -2,13 +2,13 @@ package net.mcreator.reignmod.configuration;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 
-public class ReignmarketConfiguration {
+public class ReignMarketConfiguration {
 	public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
 	public static final ForgeConfigSpec SPEC;
-	public static final ForgeConfigSpec.ConfigValue<Double> OAK_LOG;
+	public static final ForgeConfigSpec.ConfigValue<Boolean> LOGS;
 	static {
-		BUILDER.push("MARKET PRICES");
-		OAK_LOG = BUILDER.define("oak log", (double) 3);
+		BUILDER.push("Market");
+		LOGS = BUILDER.define("logs", true);
 		BUILDER.pop();
 
 		SPEC = BUILDER.build();

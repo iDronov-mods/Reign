@@ -1,0 +1,675 @@
+{
+  "_fv": 69,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": false,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "licensesui.png",
+          "use1Xscale": false,
+          "x": 63,
+          "y": 20
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "hunter_logo.png",
+          "use1Xscale": false,
+          "x": 268,
+          "y": 192
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "farmer.png",
+          "use1Xscale": false,
+          "x": 100,
+          "y": 154
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "miner_logo.png",
+          "use1Xscale": false,
+          "x": 100,
+          "y": 70
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "cowboy_logo.png",
+          "use1Xscale": false,
+          "x": 142,
+          "y": 192
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "enchanter_logo.png",
+          "use1Xscale": false,
+          "x": 324,
+          "y": 112
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "soldier_logo.png",
+          "use1Xscale": false,
+          "x": 310,
+          "y": 154
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "woodcutter_logo.png",
+          "use1Xscale": false,
+          "x": 142,
+          "y": 32
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "smith_logo.png",
+          "use1Xscale": false,
+          "x": 86,
+          "y": 112
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "alchemist_logo.png",
+          "use1Xscale": false,
+          "x": 310,
+          "y": 70
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "fisher_logo.png",
+          "use1Xscale": false,
+          "x": 268,
+          "y": 32
+        }
+      },
+      {
+        "type": "entitymodel",
+        "data": {
+          "entityModel": {
+            "name": "ReturnMe"
+          },
+          "scale": 60,
+          "rotationX": 0,
+          "followMouseMovement": true,
+          "x": 203,
+          "y": 171
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "licensessmallwin.png",
+          "use1Xscale": false,
+          "x": 172,
+          "y": 29
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_icon_license_slot",
+          "image": "icon_license_slot.png",
+          "hoveredImage": "icon_license_hover.png",
+          "displayCondition": {
+            "name": "ReturnReverseNotMiner"
+          },
+          "x": 98,
+          "y": 68
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_first.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Mlvl1"
+          },
+          "x": 184,
+          "y": 31
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "small_lvl_point_next.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Mlvl2"
+          },
+          "x": 190,
+          "y": 31
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "small_lvl_point_next.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Mlvl3"
+          },
+          "x": 206,
+          "y": 31
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "small_lvl_point_next.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Mlvl4"
+          },
+          "x": 222,
+          "y": 31
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "small_lvl_point_next.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Mlvl5"
+          },
+          "x": 238,
+          "y": 31
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_first.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Alvl1"
+          },
+          "x": 184,
+          "y": 43
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "small_lvl_point_next.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Alvl2"
+          },
+          "x": 190,
+          "y": 43
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "small_lvl_point_next.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Alvl3"
+          },
+          "x": 206,
+          "y": 43
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "small_lvl_point_next.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Alvl4"
+          },
+          "x": 222,
+          "y": 43
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "small_lvl_point_next.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Alvl5"
+          },
+          "x": 238,
+          "y": 43
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "hunter_logo.png",
+          "use1Xscale": true,
+          "displayCondition": {
+            "name": "Returnhunter"
+          },
+          "x": 173,
+          "y": 42
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "soldier_logo.png",
+          "use1Xscale": true,
+          "displayCondition": {
+            "name": "Returnsoldier"
+          },
+          "x": 173,
+          "y": 42
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "alchemist_logo.png",
+          "use1Xscale": true,
+          "displayCondition": {
+            "name": "Returnalchemist"
+          },
+          "x": 173,
+          "y": 42
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "enchanter_logo.png",
+          "use1Xscale": true,
+          "displayCondition": {
+            "name": "Returnlibrarian"
+          },
+          "x": 173,
+          "y": 42
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "fisher_logo.png",
+          "use1Xscale": true,
+          "displayCondition": {
+            "name": "Returnfisher"
+          },
+          "x": 173,
+          "y": 42
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "farmer.png",
+          "use1Xscale": true,
+          "displayCondition": {
+            "name": "Returnfarmer"
+          },
+          "x": 173,
+          "y": 30
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "smith_logo.png",
+          "use1Xscale": true,
+          "displayCondition": {
+            "name": "Returnsmith"
+          },
+          "x": 173,
+          "y": 30
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "cowboy_logo.png",
+          "use1Xscale": true,
+          "displayCondition": {
+            "name": "Returncowboy"
+          },
+          "x": 173,
+          "y": 30
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "miner_logo.png",
+          "use1Xscale": true,
+          "displayCondition": {
+            "name": "Returnminer"
+          },
+          "x": 173,
+          "y": 30
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "woodcutter_logo.png",
+          "use1Xscale": true,
+          "displayCondition": {
+            "name": "Returnwoodcutter"
+          },
+          "x": 173,
+          "y": 30
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_icon_license_slot1",
+          "image": "icon_license_slot.png",
+          "hoveredImage": "icon_license_hover.png",
+          "onClick": {
+            "name": "OpenWoodcutterWindow"
+          },
+          "displayCondition": {
+            "name": "ReturnReverseNotWoodcutter"
+          },
+          "x": 140,
+          "y": 30
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_icon_license_slot2",
+          "image": "icon_license_slot.png",
+          "hoveredImage": "icon_license_hover.png",
+          "displayCondition": {
+            "name": "ReturnReverseNotSmith"
+          },
+          "x": 84,
+          "y": 110
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_icon_license_slot3",
+          "image": "icon_license_slot.png",
+          "hoveredImage": "icon_license_hover.png",
+          "displayCondition": {
+            "name": "ReturnReverseNotFarmer"
+          },
+          "x": 98,
+          "y": 152
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_icon_license_slot4",
+          "image": "icon_license_slot.png",
+          "hoveredImage": "icon_license_hover.png",
+          "displayCondition": {
+            "name": "ReturnReverseNotCowboy"
+          },
+          "x": 140,
+          "y": 190
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_icon_license_slot5",
+          "image": "icon_license_slot.png",
+          "hoveredImage": "icon_license_hover.png",
+          "onClick": {
+            "name": "ChooseAlchemist"
+          },
+          "displayCondition": {
+            "name": "ReturnReverseNotAlchemist"
+          },
+          "x": 308,
+          "y": 68
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_icon_license_slot6",
+          "image": "icon_license_slot.png",
+          "hoveredImage": "icon_license_hover.png",
+          "onClick": {
+            "name": "ChooseEnchanter"
+          },
+          "displayCondition": {
+            "name": "ReturnReverseNotEnchanter"
+          },
+          "x": 322,
+          "y": 110
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_icon_license_slot7",
+          "image": "icon_license_slot.png",
+          "hoveredImage": "icon_license_hover.png",
+          "onClick": {
+            "name": "ChooseSoldier"
+          },
+          "displayCondition": {
+            "name": "ReturnReverseNotSoldier"
+          },
+          "x": 308,
+          "y": 152
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_icon_license_slot8",
+          "image": "icon_license_slot.png",
+          "hoveredImage": "icon_license_hover.png",
+          "onClick": {
+            "name": "ChooseHunter"
+          },
+          "displayCondition": {
+            "name": "ReturnReverseNotHunter"
+          },
+          "x": 266,
+          "y": 190
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_icon_license_slot9",
+          "image": "icon_license_slot.png",
+          "hoveredImage": "icon_license_hover.png",
+          "onClick": {
+            "name": "ChooseFisher"
+          },
+          "displayCondition": {
+            "name": "ReturnReverseNotFisher"
+          },
+          "x": 266,
+          "y": 30
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "icon_license_closed.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnNotWoodcutter"
+          },
+          "x": 142,
+          "y": 32
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "icon_license_closed.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnNotMiner"
+          },
+          "x": 100,
+          "y": 70
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "icon_license_closed.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnNotSmith"
+          },
+          "x": 86,
+          "y": 112
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "icon_license_closed.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnNotFarmer"
+          },
+          "x": 100,
+          "y": 154
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "icon_license_closed.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnNotCowboy"
+          },
+          "x": 142,
+          "y": 192
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "icon_license_closed.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnNotFisher"
+          },
+          "x": 268,
+          "y": 32
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "icon_license_closed.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnNotAlchemist"
+          },
+          "x": 310,
+          "y": 70
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "icon_license_closed.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnNotEnchanter"
+          },
+          "x": 324,
+          "y": 112
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "icon_license_closed.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnNotSoldier"
+          },
+          "x": 310,
+          "y": 155
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "icon_license_closed.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnNotHunter"
+          },
+          "x": 268,
+          "y": 192
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_up_button.png",
+          "use1Xscale": true,
+          "displayCondition": {
+            "name": "MainButtonUp"
+          },
+          "x": 163,
+          "y": 30
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_up_button.png",
+          "use1Xscale": true,
+          "displayCondition": {
+            "name": "AddButtonUp"
+          },
+          "x": 163,
+          "y": 42
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

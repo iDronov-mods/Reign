@@ -8,7 +8,7 @@ public class CapitalBlockCheckProcedure {
 	public static boolean execute(LevelAccessor world, double x, double z) {
 		if (!ReignModModVariables.MapVariables.get(world).CapitalHave) {
 			return false;
-		} else if (Math.abs(x - ReignModModVariables.MapVariables.get(world).CAPITAL_X) <= 64 && Math.abs(z - ReignModModVariables.MapVariables.get(world).CAPITAL_Z) <= 64) {
+		} else if (Math.abs(x - ReignModModVariables.MapVariables.get(world).CAPITAL_X) <= 128 && Math.abs(z - ReignModModVariables.MapVariables.get(world).CAPITAL_Z) <= 128) {
 			return true;
 		}
 		return false;

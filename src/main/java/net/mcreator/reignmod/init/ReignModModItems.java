@@ -103,6 +103,11 @@ public class ReignModModItems {
 	public static final RegistryObject<Item> HEART_OF_HOUSE = REGISTRY.register("heart_of_house", () -> new HeartOfHouseItem());
 	public static final RegistryObject<Item> ACCURSED_BLACK_MARK = REGISTRY.register("accursed_black_mark", () -> new AccursedBlackMarkItem());
 	public static final RegistryObject<Item> PRIVATEDOOR = doubleBlock(ReignModModBlocks.PRIVATEDOOR);
+	public static final RegistryObject<Item> RENTAL_BLOCK = block(ReignModModBlocks.RENTAL_BLOCK);
+	public static final RegistryObject<Item> OBELISK_FOUNDATION = block(ReignModModBlocks.OBELISK_FOUNDATION);
+	public static final RegistryObject<Item> OBELISK_STEM = block(ReignModModBlocks.OBELISK_STEM);
+	public static final RegistryObject<Item> OBELISK_CAP = block(ReignModModBlocks.OBELISK_CAP);
+	public static final RegistryObject<Item> OBELISK_CAP_KNIGHT = block(ReignModModBlocks.OBELISK_CAP_KNIGHT);
 
 	// Start of user code block custom items
 	// End of user code block custom items

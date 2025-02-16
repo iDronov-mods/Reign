@@ -2,10 +2,10 @@
   "mappings": {
     "default": {
       "map": {
-        "glass": "heartofhouseglass_texture",
-        "main": "heartofhouse_texture",
-        "fluid": "fluid_texture",
-        "heart": "heart_texture"
+        "0": "heartofhouseglass_texture",
+        "1": "heartofhouse_texture",
+        "3": "heart_texture",
+        "4": "fluid_texture"
       },
       "name": "default"
     }

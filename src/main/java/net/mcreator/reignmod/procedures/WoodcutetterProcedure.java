@@ -5,10 +5,12 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.event.level.BlockEvent;
 
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.network.chat.Component;
 
-import net.mcreator.reignmod.configuration.ReignmarketConfiguration;
+import net.mcreator.reignmod.configuration.ReignMarketConfiguration;
+import net.mcreator.reignmod.configuration.ReignCommonConfiguration;
 
 import javax.annotation.Nullable;
 
@@ -16,15 +18,19 @@ import javax.annotation.Nullable;
 public class WoodcutetterProcedure {
 	@SubscribeEvent
 	public static void onBlockBreak(BlockEvent.BreakEvent event) {
-		execute(event, event.getLevel());
+		execute(event, event.getPlayer());
 	}
 
-	public static void execute(LevelAccessor world) {
-		execute(null, world);
+	public static void execute(Entity entity) {
+		execute(null, entity);
 	}
 
-	private static void execute(@Nullable Event event, LevelAccessor world) {
-		if (!world.isClientSide() && world.getServer() != null)
-			world.getServer().getPlayerList().broadcastSystemMessage(Component.literal(("" + (double) ReignmarketConfiguration.OAK_LOG.get())), false);
+	private static void execute(@Nullable Event event, Entity entity) {
+		if (entity == null)
+			return;
+		if (entity instanceof Player _player && !_player.level().isClientSide())
+			_player.displayClientMessage(Component.literal(("" + (double) ReignMarketConfiguration.LOGS.get())), false);
+		if (entity instanceof Player _player && !_player.level().isClientSide())
+			_player.displayClientMessage(Component.literal(("" + ReignCommonConfiguration.TAX.get())), false);
 	}
 }

@@ -13,8 +13,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
+import net.mcreator.reignmod.world.inventory.LicensesWindowMenu;
 import net.mcreator.reignmod.world.inventory.LicenseIsSelectedMenu;
-import net.mcreator.reignmod.world.inventory.DsfMenu;
 import net.mcreator.reignmod.network.ReignModModVariables;
 
 import io.netty.buffer.Unpooled;
@@ -50,12 +50,12 @@ public class OpenLicenseListProcedure {
 				NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 					@Override
 					public Component getDisplayName() {
-						return Component.literal("Dsf");
+						return Component.literal("LicensesWindow");
 					}
 
 					@Override
 					public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
-						return new DsfMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
+						return new LicensesWindowMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
 					}
 				}, _bpos);
 			}

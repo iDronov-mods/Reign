@@ -3,10 +3,10 @@
   "textures": {
     "all": "minecraft:block/cauldron_top",
     "particle": "minecraft:block/cauldron_top",
-    "glass": "reign_mod:block/heartofhouseglass_texture",
-    "main": "reign_mod:block/heartofhouse_texture",
-    "fluid": "reign_mod:block/fluid_texture",
-    "heart": "reign_mod:block/heart_texture"
+    "0": "reign_mod:block/heartofhouseglass_texture",
+    "1": "reign_mod:block/heartofhouse_texture",
+    "3": "reign_mod:block/fluid_texture",
+    "4": "reign_mod:block/heart_texture"
   },
   "render_type": "translucent"
 }
