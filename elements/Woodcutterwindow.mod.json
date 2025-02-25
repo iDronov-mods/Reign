@@ -22,6 +22,15 @@
       {
         "type": "image",
         "data": {
+          "image": "main_licenses_expbar.png",
+          "use1Xscale": false,
+          "x": 188,
+          "y": 62
+        }
+      },
+      {
+        "type": "image",
+        "data": {
           "image": "big_woodcutter_logo.png",
           "use1Xscale": false,
           "x": 112,
@@ -41,21 +50,6 @@
           },
           "x": 166,
           "y": 46
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_forester",
-          "text": {
-            "fixedValue": "Forester"
-          },
-          "color": {
-            "value": -10066330,
-            "falpha": 0.0
-          },
-          "x": 245,
-          "y": 88
         }
       },
       {
@@ -221,6 +215,66 @@
         }
       },
       {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_first.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Mlvl1"
+          },
+          "x": 118,
+          "y": 107
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_first.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Mlvl2"
+          },
+          "x": 118,
+          "y": 125
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_first.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Mlvl3"
+          },
+          "x": 118,
+          "y": 143
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_first.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Mlvl4"
+          },
+          "x": 118,
+          "y": 161
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_first.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Mlvl5"
+          },
+          "x": 118,
+          "y": 179
+        }
+      },
+      {
         "type": "imagebutton",
         "data": {
           "name": "imagebutton_lvl_up_button",
@@ -231,21 +285,6 @@
           },
           "x": 167,
           "y": 70
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_coal_burner",
-          "text": {
-            "fixedValue": "Coal burner"
-          },
-          "color": {
-            "value": -10066330,
-            "falpha": 0.0
-          },
-          "x": 244,
-          "y": 57
         }
       }
     ],

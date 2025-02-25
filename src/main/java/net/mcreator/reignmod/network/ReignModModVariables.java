@@ -188,6 +188,8 @@ public class ReignModModVariables {
 		public double Tutorial_pass = 0.0;
 		public double MAX_AMOUNT_VALUE = 279616.0;
 		public double FEED_K = 1.0;
+		public double market_money = 0;
+		public boolean market_update = false;
 
 		public static MapVariables load(CompoundTag tag) {
 			MapVariables data = new MapVariables();
@@ -224,6 +226,8 @@ public class ReignModModVariables {
 			Tutorial_pass = nbt.getDouble("Tutorial_pass");
 			MAX_AMOUNT_VALUE = nbt.getDouble("MAX_AMOUNT_VALUE");
 			FEED_K = nbt.getDouble("FEED_K");
+			market_money = nbt.getDouble("market_money");
+			market_update = nbt.getBoolean("market_update");
 		}
 
 		@Override
@@ -256,6 +260,8 @@ public class ReignModModVariables {
 			nbt.putDouble("Tutorial_pass", Tutorial_pass);
 			nbt.putDouble("MAX_AMOUNT_VALUE", MAX_AMOUNT_VALUE);
 			nbt.putDouble("FEED_K", FEED_K);
+			nbt.putDouble("market_money", market_money);
+			nbt.putBoolean("market_update", market_update);
 			return nbt;
 		}
 

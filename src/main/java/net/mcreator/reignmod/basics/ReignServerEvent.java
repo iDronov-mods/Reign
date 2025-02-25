@@ -17,6 +17,11 @@ public class ReignServerEvent {
     public static void onServerStarted(ServerStartedEvent event) {
         MinecraftServer server = event.getServer();
         ServerLevel overworld = server.overworld();
+
+        LogManager.getLogger("ReignMod").info("Mod configs are loading...");
+        ConfigLoader.initialize();
+        LogManager.getLogger("ReignMod").info("Mod configs are successfully loaded!");
+
         LogManager.getLogger("ReignMod").info("House data is loading...");
         HouseSavedData.initialize(overworld);
         HouseSavedData.getInstance();

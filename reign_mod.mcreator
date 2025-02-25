@@ -165,7 +165,7 @@
           }
         ]
       },
-      "path": "~/Scripts/LicensesSystem/ExpSkills"
+      "path": "~/Scripts/LicensesSystem/ExpSkills/Farmer"
     },
     {
       "name": "OpenLicenseList",
@@ -376,7 +376,7 @@
           }
         ]
       },
-      "path": "~/Scripts/LicensesSystem/ExpSkills"
+      "path": "~/Scripts/LicensesSystem/ExpSkills/Smith"
     },
     {
       "name": "Returnwoodcutter",
@@ -568,10 +568,6 @@
             "type": "entity"
           },
           {
-            "name": "guistate",
-            "type": "map"
-          },
-          {
             "name": "x",
             "type": "number"
           },
@@ -599,8 +595,8 @@
       "registry_name": "royale_settings",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/client/gui/RoyaleSettingsScreen.java",
           "src/main/java/net/mcreator/reignmod/world/inventory/RoyaleSettingsMenu.java",
+          "src/main/java/net/mcreator/reignmod/client/gui/RoyaleSettingsScreen.java",
           "src/main/java/net/mcreator/reignmod/network/RoyaleSettingsButtonMessage.java"
         ]
       },
@@ -1103,6 +1099,10 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -1300,7 +1300,7 @@
           }
         ]
       },
-      "path": "~/Scripts/LicensesSystem/ExpSkills"
+      "path": "~/Scripts/LicensesSystem/ExpSkills/Cowboy"
     },
     {
       "name": "Coffers",
@@ -2007,7 +2007,7 @@
           }
         ]
       },
-      "path": "~/Scripts/LicensesSystem/ExpSkills"
+      "path": "~/Scripts/LicensesSystem/ExpSkills/Soldier"
     },
     {
       "name": "SoSlippery",
@@ -2907,7 +2907,7 @@
           }
         ]
       },
-      "path": "~/Scripts/LicensesSystem/ExpSkills"
+      "path": "~/Scripts/LicensesSystem/ExpSkills/Woodcutter"
     },
     {
       "name": "TrueToTheOath",
@@ -2959,7 +2959,7 @@
           }
         ]
       },
-      "path": "~/Scripts/LicensesSystem"
+      "path": "~/Scripts/OtherSystems"
     },
     {
       "name": "StrainedExperience",
@@ -3050,7 +3050,7 @@
           }
         ]
       },
-      "path": "~/Scripts/LicensesSystem/ExpSkills"
+      "path": "~/Scripts/LicensesSystem/ExpSkills/Miner"
     },
     {
       "name": "Farmer",
@@ -3089,7 +3089,7 @@
           }
         ]
       },
-      "path": "~/Scripts/LicensesSystem/ExpSkills"
+      "path": "~/Scripts/LicensesSystem/ExpSkills/Farmer"
     },
     {
       "name": "TreeFallen",
@@ -3210,7 +3210,7 @@
           }
         ]
       },
-      "path": "~/Scripts/LicensesSystem/ExpSkills"
+      "path": "~/Scripts/LicensesSystem/ExpSkills/Farmer"
     },
     {
       "name": "BeeEffect",
@@ -3300,7 +3300,7 @@
           }
         ]
       },
-      "path": "~/Scripts/LicensesSystem/ExpSkills"
+      "path": "~/Scripts/LicensesSystem/ExpSkills/Smith"
     },
     {
       "name": "WoodcutterCoin",
@@ -3774,7 +3774,7 @@
           }
         ]
       },
-      "path": "~/Scripts/LicensesSystem/ExpSkills"
+      "path": "~/Scripts/LicensesSystem/ExpSkills/Smith"
     },
     {
       "name": "DeleteLeaves",
@@ -3915,7 +3915,7 @@
           }
         ]
       },
-      "path": "~/Scripts/LicensesSystem/ExpSkills"
+      "path": "~/Scripts/LicensesSystem/ExpSkills/Smith"
     },
     {
       "name": "DeleteBerry",
@@ -3938,7 +3938,7 @@
           }
         ]
       },
-      "path": "~/Scripts/LicensesSystem"
+      "path": "~/Scripts/LicensesSystem/ExpSkills/Farmer"
     },
     {
       "name": "Hoarder",
@@ -3949,8 +3949,8 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/reignmod/client/gui/HoarderScreen.java",
-          "src/main/java/net/mcreator/reignmod/world/inventory/HoarderMenu.java",
-          "src/main/java/net/mcreator/reignmod/network/HoarderSlotMessage.java"
+          "src/main/java/net/mcreator/reignmod/network/HoarderSlotMessage.java",
+          "src/main/java/net/mcreator/reignmod/world/inventory/HoarderMenu.java"
         ]
       },
       "path": "~/UI"
@@ -4099,7 +4099,7 @@
           }
         ]
       },
-      "path": "~/Scripts/LicensesSystem/ExpSkills"
+      "path": "~/Scripts/LicensesSystem/ExpSkills/Fisher"
     },
     {
       "name": "Compasdeath",
@@ -4131,7 +4131,7 @@
           }
         ]
       },
-      "path": "~/Scripts/LicensesSystem/ExpSkills"
+      "path": "~/Scripts/LicensesSystem/ExpSkills/Farmer"
     },
     {
       "name": "Blackmark",
@@ -4164,7 +4164,7 @@
           }
         ]
       },
-      "path": "~/Scripts/LicensesSystem/ExpSkills"
+      "path": "~/Scripts/LicensesSystem/ExpSkills/Fisher"
     },
     {
       "name": "Rblackmark",
@@ -4868,7 +4868,7 @@
         ],
         "dependencies": []
       },
-      "path": "~/Scripts/LicensesSystem/ExpSkills"
+      "path": "~/Scripts/LicensesSystem/ExpSkills/Cowboy"
     },
     {
       "name": "CapitalBlockCheck",
@@ -4919,7 +4919,7 @@
           }
         ]
       },
-      "path": "~/Scripts/LicensesSystem/ExpSkills"
+      "path": "~/Scripts/LicensesSystem/ExpSkills/Hunter"
     },
     {
       "name": "ChooseCowboy",
@@ -5009,24 +5009,7 @@
         "files": [
           "src/main/java/net/mcreator/reignmod/procedures/DefendGrifCapitalProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Scripts/CapitalSystem"
     },
@@ -6613,7 +6596,7 @@
         ],
         "dependencies": []
       },
-      "path": "~/Scripts/LicensesSystem"
+      "path": "~/Scripts"
     },
     {
       "name": "WalletOutsideCost",
@@ -7513,7 +7496,7 @@
           }
         ]
       },
-      "path": "~/Scripts/LicensesSystem/ExpSkills"
+      "path": "~/Scripts/LicensesSystem/ExpSkills/Soldier"
     },
     {
       "name": "SerfBuyout",
@@ -9311,6 +9294,131 @@
         ]
       },
       "path": "~/Config"
+    },
+    {
+      "name": "MarketPriceSet",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "market_price_set",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/MarketPriceSetProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "tax",
+            "type": "number"
+          },
+          {
+            "name": "goodsName",
+            "type": "string"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem"
+    },
+    {
+      "name": "GetFillingMultiplier",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_filling_multiplier",
+      "metadata": {
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/GetFillingMultiplierProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "goodsName",
+            "type": "string"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem"
+    },
+    {
+      "name": "GetPriceWithFillFactor",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_price_with_fill_factor",
+      "metadata": {
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/GetPriceWithFillFactorProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "goodsName",
+            "type": "string"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem"
+    },
+    {
+      "name": "MarketUpdateTick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "market_update_tick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/MarketUpdateTickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem"
+    },
+    {
+      "name": "PlantCrops",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "plant_crops",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/PlantCropsProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/LicensesSystem/ExpSkills/Farmer"
     }
   ],
   "variable_elements": [
@@ -9637,6 +9745,18 @@
       "type": "number",
       "scope": "map",
       "value": "1.0"
+    },
+    {
+      "name": "market_money",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "market_update",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
     }
   ],
   "sound_elements": [
@@ -10055,6 +10175,7 @@
       "subtitles.heart_hit": "",
       "item.reign_mod.trade_license": "Лицензия на торговлю",
       "gui.reign_mod.dsf.button_miner": "Шахтер    ",
+      "translation.key.pickupCoinInfoWin": "",
       "gui.reign_mod.fund_ui.tooltip_iron_processing": "Обработка железа",
       "gui.reign_mod.royale_settings.label_logs": "БРЕВНА",
       "gui.reign_mod.win_view.tooltip_10_chance_to_gain_a_chopping_sp": "10% шанс получить ускорение при рубке.",
@@ -10073,7 +10194,7 @@
       "effect.reign_mod.criminal": "Преступник",
       "gui.reign_mod.win_view.tooltip_fisher_2": "+25% шанс подсечь. (75%)",
       "gui.reign_mod.license_is_selected.label_all_experience_will_be_lost": "Весь опыт будет потерян.",
-      "gui.reign_mod.woodcutterwindow.label_woodcutter": "WOODCUTTER",
+      "gui.reign_mod.woodcutterwindow.label_woodcutter": "ДРОВОСЕК",
       "item.reign_mod.copper_lock": "Медный замок",
       "piston": "Механизм сломался. Может, ещё не время?",
       "gui.reign_mod.royale_settings.coal_textfield": "",
@@ -10161,6 +10282,7 @@
       "gui.reign_mod.dsf.tooltip_vybieritie_osnovnoi_stil_ighry": "Выберите основной стиль игры.",
       "subtitles.wallet_sound": "",
       "KingOnline": "§6Король в сети!",
+      "gui.reign_mod.market.label_price": "Price",
       "gui.reign_mod.royale_settings.label_food": "ЕДА",
       "advancements.one_lvl.descr": "Улучшите лицензию.",
       "subtitles.locked_chest": "",
@@ -10178,7 +10300,7 @@
       "KingdomDelete": "Королевство распалось: ",
       "NotKing": "Недостаточно полномочий.",
       "gui.reign_mod.add_license_list.button_alchemist": "Алхимик",
-      "gui.reign_mod.woodcutterwindow.label_main_license": "Main license",
+      "gui.reign_mod.woodcutterwindow.label_main_license": "Основная лицензия",
       "block.reign_mod.trade_block": "Пункт приёма",
       "block.reign_mod.plus": "Plus",
       "item.reign_mod.blackmark": "Чёрная метка",
@@ -10302,7 +10424,7 @@
       "gui.reign_mod.house_incubator_ui.tooltip_incubator_food_help": "2 еды в час за каждого члена",
       "pay_knight": "Зарплата сэра:",
       "advancements.full_lvl.title": "Мастер",
-      "item.reign_mod.silver_coin": "Серебрянная монета",
+      "item.reign_mod.silver_coin": "Серебряная монета",
       "gui.reign_mod.new_house.label_name": "Choose color",
       "gui.reign_mod.win_view.tooltip_luck_in_mining_precious_ores": "+33% доп. дропа драгоценных руд",
       "item.reign_mod.fragment_of_record": "Осколок пластинки #1",
@@ -10350,9 +10472,9 @@
       "gui.reign_mod.win_view.tooltip_cattle_breeding": "Cattle breeding",
       "gui.reign_mod.license_is_selected.label_the_main_license_has_been_select": "The main license has been selected.",
       "block.reign_mod.privatedoor": "Private door",
-      "NotAlchemistSay": "I hope it doesn\u0027t explode...",
-      "translation.key.houseNoPayMoney": "To create a House you need to contribute 4 gold.",
       "translation.key.per_hour": "",
+      "translation.key.houseNoPayMoney": "To create a House you need to contribute 4 gold.",
+      "NotAlchemistSay": "I hope it doesn\u0027t explode...",
       "gui.reign_mod.woodcutterwindow.label_forester": "Forester",
       "gui.reign_mod.new_house.tooltip_napishitie_imia_i_vybieritie_tsviet_bud": "Выберите имя и цвет нового королевства",
       "translation.key.house_rename": "Your house has been renamed.",
@@ -10401,6 +10523,7 @@
       "subtitles.heart_hit": "",
       "item.reign_mod.trade_license": "Trade license",
       "gui.reign_mod.dsf.button_miner": "Miner",
+      "translation.key.pickupCoinInfoWin": "",
       "gui.reign_mod.fund_ui.tooltip_iron_processing": "Iron processing",
       "gui.reign_mod.win_view.tooltip_10_chance_to_gain_a_chopping_sp": "10% chance to gain a chopping speed boost.",
       "gui.reign_mod.royale_settings.label_logs": "LOGS",
@@ -10507,6 +10630,7 @@
       "gui.reign_mod.dsf.tooltip_vybieritie_osnovnoi_stil_ighry": "Выберите основной стиль игры.",
       "subtitles.wallet_sound": "",
       "KingOnline": "§6The king is online!",
+      "gui.reign_mod.market.label_price": "Price",
       "gui.reign_mod.royale_settings.label_food": "FOOD",
       "advancements.one_lvl.descr": "Upgrade your license.",
       "subtitles.locked_chest": "",
@@ -10525,7 +10649,7 @@
       "NotKing": "Insufficient authority.",
       "gui.reign_mod.add_license_list.button_alchemist": "Alchemist",
       "gui.reign_mod.woodcutterwindow.label_main_license": "Main license",
-      "block.reign_mod.trade_block": "Trade Block",
+      "block.reign_mod.trade_block": "Trade block",
       "block.reign_mod.plus": "Plus",
       "item.reign_mod.blackmark": "Black mark",
       "gui.reign_mod.private_shop_ui.label_private_shop": "private_shop",
@@ -10785,7 +10909,48 @@
               },
               {
                 "name": "ExpSkills",
-                "children": []
+                "children": [
+                  {
+                    "name": "Woodcutter",
+                    "children": []
+                  },
+                  {
+                    "name": "Miner",
+                    "children": []
+                  },
+                  {
+                    "name": "Smith",
+                    "children": []
+                  },
+                  {
+                    "name": "Farmer",
+                    "children": []
+                  },
+                  {
+                    "name": "Cowboy",
+                    "children": []
+                  },
+                  {
+                    "name": "Fisher",
+                    "children": []
+                  },
+                  {
+                    "name": "Enchanter",
+                    "children": []
+                  },
+                  {
+                    "name": "Alchemist",
+                    "children": []
+                  },
+                  {
+                    "name": "Soldier",
+                    "children": []
+                  },
+                  {
+                    "name": "Hunter",
+                    "children": []
+                  }
+                ]
               }
             ]
           },

@@ -680,7 +680,7 @@ public class MarketUpdateProcedure {
 			_player.containerMenu.broadcastChanges();
 		}
 		if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
-			ItemStack _setstack = new ItemStack(Items.COOKIE).copy();
+			ItemStack _setstack = new ItemStack(Items.CARROT).copy();
 			_setstack.setCount((int) (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -689,7 +689,7 @@ public class MarketUpdateProcedure {
 					return -1;
 				}
 			}.getValue(world, BlockPos.containing(ReignModModVariables.MapVariables.get(world).CAPITAL_X, ReignModModVariables.MapVariables.get(world).CAPITAL_Y, ReignModModVariables.MapVariables.get(world).CAPITAL_Z),
-					(ForgeRegistries.ITEMS.getKey(Items.COOKIE).toString()))));
+					(ForgeRegistries.ITEMS.getKey(Items.CARROT).toString()))));
 			((Slot) _slots.get(62)).set(_setstack);
 			_player.containerMenu.broadcastChanges();
 		}
@@ -736,7 +736,7 @@ public class MarketUpdateProcedure {
 			_player.containerMenu.broadcastChanges();
 		}
 		if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
-			ItemStack _setstack = new ItemStack(Items.COOKED_MUTTON).copy();
+			ItemStack _setstack = new ItemStack(Items.COOKED_COD).copy();
 			_setstack.setCount((int) (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -745,12 +745,12 @@ public class MarketUpdateProcedure {
 					return -1;
 				}
 			}.getValue(world, BlockPos.containing(ReignModModVariables.MapVariables.get(world).CAPITAL_X, ReignModModVariables.MapVariables.get(world).CAPITAL_Y, ReignModModVariables.MapVariables.get(world).CAPITAL_Z),
-					(ForgeRegistries.ITEMS.getKey(Items.COOKED_MUTTON).toString()))));
+					(ForgeRegistries.ITEMS.getKey(Items.COOKED_COD).toString()))));
 			((Slot) _slots.get(63)).set(_setstack);
 			_player.containerMenu.broadcastChanges();
 		}
 		if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
-			ItemStack _setstack = new ItemStack(Blocks.GRASS_BLOCK).copy();
+			ItemStack _setstack = new ItemStack(Blocks.COBBLESTONE).copy();
 			_setstack.setCount((int) (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -759,12 +759,12 @@ public class MarketUpdateProcedure {
 					return -1;
 				}
 			}.getValue(world, BlockPos.containing(ReignModModVariables.MapVariables.get(world).CAPITAL_X, ReignModModVariables.MapVariables.get(world).CAPITAL_Y, ReignModModVariables.MapVariables.get(world).CAPITAL_Z),
-					(ForgeRegistries.ITEMS.getKey(Blocks.GRASS_BLOCK.asItem()).toString()))));
+					(ForgeRegistries.ITEMS.getKey(Blocks.COBBLESTONE.asItem()).toString()))));
 			((Slot) _slots.get(13)).set(_setstack);
 			_player.containerMenu.broadcastChanges();
 		}
 		if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
-			ItemStack _setstack = new ItemStack(Blocks.GRASS_BLOCK).copy();
+			ItemStack _setstack = new ItemStack(Blocks.SAND).copy();
 			_setstack.setCount((int) (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -773,12 +773,12 @@ public class MarketUpdateProcedure {
 					return -1;
 				}
 			}.getValue(world, BlockPos.containing(ReignModModVariables.MapVariables.get(world).CAPITAL_X, ReignModModVariables.MapVariables.get(world).CAPITAL_Y, ReignModModVariables.MapVariables.get(world).CAPITAL_Z),
-					(ForgeRegistries.ITEMS.getKey(Blocks.GRASS_BLOCK.asItem()).toString()))));
+					(ForgeRegistries.ITEMS.getKey(Blocks.SAND.asItem()).toString()))));
 			((Slot) _slots.get(30)).set(_setstack);
 			_player.containerMenu.broadcastChanges();
 		}
 		if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
-			ItemStack _setstack = new ItemStack(Blocks.GRASS_BLOCK).copy();
+			ItemStack _setstack = new ItemStack(Blocks.WHITE_WOOL).copy();
 			_setstack.setCount((int) (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -787,12 +787,12 @@ public class MarketUpdateProcedure {
 					return -1;
 				}
 			}.getValue(world, BlockPos.containing(ReignModModVariables.MapVariables.get(world).CAPITAL_X, ReignModModVariables.MapVariables.get(world).CAPITAL_Y, ReignModModVariables.MapVariables.get(world).CAPITAL_Z),
-					(ForgeRegistries.ITEMS.getKey(Blocks.GRASS_BLOCK.asItem()).toString()))));
+					(ForgeRegistries.ITEMS.getKey(Blocks.WHITE_WOOL.asItem()).toString()))));
 			((Slot) _slots.get(47)).set(_setstack);
 			_player.containerMenu.broadcastChanges();
 		}
 		if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
-			ItemStack _setstack = new ItemStack(Blocks.GRASS_BLOCK).copy();
+			ItemStack _setstack = new ItemStack(Blocks.CLAY).copy();
 			_setstack.setCount((int) (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -801,8 +801,22 @@ public class MarketUpdateProcedure {
 					return -1;
 				}
 			}.getValue(world, BlockPos.containing(ReignModModVariables.MapVariables.get(world).CAPITAL_X, ReignModModVariables.MapVariables.get(world).CAPITAL_Y, ReignModModVariables.MapVariables.get(world).CAPITAL_Z),
-					(ForgeRegistries.ITEMS.getKey(Blocks.GRASS_BLOCK.asItem()).toString()))));
+					(ForgeRegistries.ITEMS.getKey(Blocks.CLAY.asItem()).toString()))));
 			((Slot) _slots.get(64)).set(_setstack);
+			_player.containerMenu.broadcastChanges();
+		}
+		if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+			ItemStack _setstack = new ItemStack(Items.GLASS_BOTTLE).copy();
+			_setstack.setCount((int) (new Object() {
+				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
+					BlockEntity blockEntity = world.getBlockEntity(pos);
+					if (blockEntity != null)
+						return blockEntity.getPersistentData().getDouble(tag);
+					return -1;
+				}
+			}.getValue(world, BlockPos.containing(ReignModModVariables.MapVariables.get(world).CAPITAL_X, ReignModModVariables.MapVariables.get(world).CAPITAL_Y, ReignModModVariables.MapVariables.get(world).CAPITAL_Z),
+					(ForgeRegistries.ITEMS.getKey(Items.GLASS_BOTTLE).toString()))));
+			((Slot) _slots.get(36)).set(_setstack);
 			_player.containerMenu.broadcastChanges();
 		}
 		if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
@@ -830,11 +844,11 @@ public class MarketUpdateProcedure {
 				}
 			}.getValue(world, BlockPos.containing(ReignModModVariables.MapVariables.get(world).CAPITAL_X, ReignModModVariables.MapVariables.get(world).CAPITAL_Y, ReignModModVariables.MapVariables.get(world).CAPITAL_Z),
 					(ForgeRegistries.ITEMS.getKey(Items.EXPERIENCE_BOTTLE).toString()))));
-			((Slot) _slots.get(31)).set(_setstack);
+			((Slot) _slots.get(53)).set(_setstack);
 			_player.containerMenu.broadcastChanges();
 		}
 		if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
-			ItemStack _setstack = new ItemStack(Blocks.WHITE_WOOL).copy();
+			ItemStack _setstack = new ItemStack(Items.BLAZE_ROD).copy();
 			_setstack.setCount((int) (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -843,7 +857,7 @@ public class MarketUpdateProcedure {
 					return -1;
 				}
 			}.getValue(world, BlockPos.containing(ReignModModVariables.MapVariables.get(world).CAPITAL_X, ReignModModVariables.MapVariables.get(world).CAPITAL_Y, ReignModModVariables.MapVariables.get(world).CAPITAL_Z),
-					(ForgeRegistries.ITEMS.getKey(Blocks.WHITE_WOOL.asItem()).toString()))));
+					(ForgeRegistries.ITEMS.getKey(Items.BLAZE_ROD).toString()))));
 			((Slot) _slots.get(48)).set(_setstack);
 			_player.containerMenu.broadcastChanges();
 		}
@@ -971,6 +985,20 @@ public class MarketUpdateProcedure {
 			}.getValue(world, BlockPos.containing(ReignModModVariables.MapVariables.get(world).CAPITAL_X, ReignModModVariables.MapVariables.get(world).CAPITAL_Y, ReignModModVariables.MapVariables.get(world).CAPITAL_Z),
 					(ForgeRegistries.ITEMS.getKey(Items.SLIME_BALL).toString()))));
 			((Slot) _slots.get(67)).set(_setstack);
+			_player.containerMenu.broadcastChanges();
+		}
+		if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+			ItemStack _setstack = new ItemStack(Blocks.HAY_BLOCK).copy();
+			_setstack.setCount((int) (new Object() {
+				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
+					BlockEntity blockEntity = world.getBlockEntity(pos);
+					if (blockEntity != null)
+						return blockEntity.getPersistentData().getDouble(tag);
+					return -1;
+				}
+			}.getValue(world, BlockPos.containing(ReignModModVariables.MapVariables.get(world).CAPITAL_X, ReignModModVariables.MapVariables.get(world).CAPITAL_Y, ReignModModVariables.MapVariables.get(world).CAPITAL_Z),
+					(ForgeRegistries.ITEMS.getKey(Blocks.HAY_BLOCK.asItem()).toString()))));
+			((Slot) _slots.get(31)).set(_setstack);
 			_player.containerMenu.broadcastChanges();
 		}
 	}

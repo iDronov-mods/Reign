@@ -4,22 +4,1371 @@
   "definition": {
     "pools": [
       {
-        "category": "Market",
+        "category": "Logs",
         "entries": [
           {
             "item": {
               "value": ""
             },
-            "silkTouchMode": 0,
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 1.0,
+            "textDefault": "",
+            "comment": "price coefficient for logs [0.5 - 2.0]",
+            "vardisplay": "logs_multiplier",
+            "varname": "logs_multiplier",
+            "enablecomment": true,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "oak_log",
+            "varname": "oak_log",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "spruce_log",
+            "varname": "spruce_log",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "birch_log",
+            "varname": "birch_log",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "acacia_log",
+            "varname": "acacia_log",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "dark_oak_log",
+            "varname": "dark_oak_log",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "jungle_log",
+            "varname": "jungle_log",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "mangrove_log",
+            "varname": "mangrove_log",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "cherry_log",
+            "varname": "cherry_log",
+            "enablecomment": false,
+            "stringlist": []
+          }
+        ]
+      },
+      {
+        "category": "Fuel",
+        "entries": [
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 1.0,
+            "textDefault": "",
+            "comment": "price coefficient for coal [0.5 - 2.0]",
+            "vardisplay": "fuel_multiplier",
+            "varname": "fuel_multiplier",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "coal",
+            "varname": "coal",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "charcoal",
+            "varname": "charcoal",
+            "enablecomment": false,
+            "stringlist": []
+          }
+        ]
+      },
+      {
+        "category": "Ores",
+        "entries": [
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 1.0,
+            "textDefault": "",
+            "comment": "price coefficient for ores [0.5 - 2.0]",
+            "vardisplay": "ores_multiplier",
+            "varname": "ores_multiplier",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "raw_copper",
+            "varname": "raw_copper",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "raw_iron",
+            "varname": "raw_iron",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "raw_gold",
+            "varname": "raw_gold",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 32.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "diamond",
+            "varname": "diamond",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "lapis_lazuli",
+            "varname": "lapis_lazuli",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "redstone_dust",
+            "varname": "redstone",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 48.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "emerald",
+            "varname": "emerald",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 240.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "netherite_scrap",
+            "varname": "netherite_scrap",
+            "enablecomment": false,
+            "stringlist": []
+          }
+        ]
+      },
+      {
+        "category": "Ingots",
+        "entries": [
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 1.0,
+            "textDefault": "",
+            "comment": "price coefficient for ingots [0.5 - 2.0]",
+            "vardisplay": "ingots_multiplier",
+            "varname": "ingots_multiplier",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "copper_ingot",
+            "varname": "copper_ingot",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 6.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "iron_ingot",
+            "varname": "iron_ingot",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 6.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "gold_ingot",
+            "varname": "gold_ingot",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 1024.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "netherite_ingot",
+            "varname": "netherite_ingot",
+            "enablecomment": false,
+            "stringlist": []
+          }
+        ]
+      },
+      {
+        "category": "Tools",
+        "entries": [
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 1.0,
+            "textDefault": "",
+            "comment": "price coefficient for tools [0.5 - 2.0]",
+            "vardisplay": "tools_multiplier",
+            "varname": "tools_multiplier",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 10.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "iron_sword",
+            "varname": "iron_sword",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 14.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "iron_pickaxe",
+            "varname": "iron_pickaxe",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 14.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "iron_axe",
+            "varname": "iron_axe",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 6.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "iron_shovel",
+            "varname": "iron_shovel",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 24.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "iron_helmet",
+            "varname": "iron_helmet",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 40.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "iron_chestplate",
+            "varname": "iron_chestplate",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 32.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "iron_leggings",
+            "varname": "iron_leggings",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 20.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "iron_boots",
+            "varname": "iron_boots",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 72.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "diamond_sword",
+            "varname": "diamond_sword",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 104.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "diamond_pickaxe",
+            "varname": "diamond_pickaxe",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 104.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "diamond_axe",
+            "varname": "diamond_axe",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 40.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "diamond_shovel",
+            "varname": "diamond_shovel",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 172.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "diamond_helmet",
+            "varname": "diamond_helmet",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 300.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "diamond_chestplate",
+            "varname": "diamond_chestplate",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 236.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "diamond_leggings",
+            "varname": "diamond_leggings",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 140.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "diamond_boots",
+            "varname": "diamond_boots",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 10.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "shield",
+            "varname": "shield",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 10.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "shears",
+            "varname": "shears",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 16.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "bow",
+            "varname": "bow",
+            "enablecomment": false,
+            "stringlist": []
+          }
+        ]
+      },
+      {
+        "category": "Food",
+        "entries": [
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 1.0,
+            "textDefault": "",
+            "comment": "price coefficient for foods [0.5 - 2.0]",
+            "vardisplay": "food_multiplier",
+            "varname": "food_multiplier",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "bread",
+            "varname": "bread",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "baked_potato",
+            "varname": "baked_potato",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "pumpkin_pie",
+            "varname": "pumpkin_pie",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "carrot",
+            "varname": "carrot",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "cooked_beef",
+            "varname": "cooked_beef",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "cooked_porkchop",
+            "varname": "cooked_porkchop",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "cooked_chicken",
+            "varname": "cooked_chicken",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "cooked_cod",
+            "varname": "cooked_cod",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 10.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "hay_block",
+            "varname": "hay_block",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 8.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "honey_bottle",
+            "varname": "honey_bottle",
+            "enablecomment": false,
+            "stringlist": []
+          }
+        ]
+      },
+      {
+        "category": "Blocks",
+        "entries": [
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 1.0,
+            "textDefault": "",
+            "comment": "price coefficient for blocks [0.5 - 2.0]",
+            "vardisplay": "blocks_multiplier",
+            "varname": "blocks_multiplier",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "cobblestone",
+            "varname": "cobblestone",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "sand",
+            "varname": "sand",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "wool",
+            "varname": "white_wool",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "clay",
+            "varname": "clay",
+            "enablecomment": false,
+            "stringlist": []
+          }
+        ]
+      },
+      {
+        "category": "Other",
+        "entries": [
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "glass_bottle",
+            "varname": "glass_bottle",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "arrow",
+            "varname": "arrow",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 6.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "experience_bottle",
+            "varname": "experience_bottle",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 6.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "gunpowder",
+            "varname": "gunpowder",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "bone",
+            "varname": "bone",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "string",
+            "varname": "string",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "slime_ball",
+            "varname": "slime_ball",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "paper",
+            "varname": "paper",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "feather",
+            "varname": "feather",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "glowstone_dust",
+            "varname": "glowstone_dust",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 20.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "ender_pearl",
+            "varname": "ender_pearl",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "leather",
+            "varname": "leather",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 16.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "blaze_rod",
+            "varname": "blaze_rod",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
             "block": {
               "value": ""
             },
             "logicField": 0,
             "numberField": 0.0,
             "textDefault": "",
-            "comment": "",
-            "vardisplay": "logs",
-            "varname": "logs",
+            "comment": "price coefficient for other [0.5 - 2.0]",
+            "vardisplay": "other_multiplier",
+            "varname": "other_multiplier",
+            "enablecomment": false,
+            "stringlist": []
+          }
+        ]
+      },
+      {
+        "category": "Max amount",
+        "entries": [
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 16.0,
+            "textDefault": "",
+            "comment": "The maximum number of instruments on the market",
+            "vardisplay": "tools_max_amount",
+            "varname": "tools_max_amount",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 960.0,
+            "textDefault": "",
+            "comment": "The maximum number of goods on the market",
+            "vardisplay": "goods_max_amount",
+            "varname": "goods_max_amount",
             "enablecomment": false,
             "stringlist": []
           }

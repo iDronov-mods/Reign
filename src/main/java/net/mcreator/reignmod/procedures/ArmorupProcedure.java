@@ -6,8 +6,8 @@ import net.mcreator.reignmod.network.ReignModModVariables;
 
 public class ArmorupProcedure {
 	public static void execute(LevelAccessor world) {
-		if (ReignModModVariables.MapVariables.get(world).armor_price < 100) {
-			ReignModModVariables.MapVariables.get(world).armor_price = ReignModModVariables.MapVariables.get(world).armor_price + 20;
+		if (ReignModModVariables.MapVariables.get(world).armor_price < 2) {
+			ReignModModVariables.MapVariables.get(world).armor_price = ReignModModVariables.MapVariables.get(world).armor_price + 0.1;
 			ReignModModVariables.MapVariables.get(world).syncData(world);
 		}
 	}

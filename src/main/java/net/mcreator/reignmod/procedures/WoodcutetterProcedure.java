@@ -9,8 +9,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.network.chat.Component;
 
-import net.mcreator.reignmod.configuration.ReignMarketConfiguration;
-import net.mcreator.reignmod.configuration.ReignCommonConfiguration;
+import net.mcreator.reignmod.basics.ConfigLoader;
 
 import javax.annotation.Nullable;
 
@@ -29,8 +28,6 @@ public class WoodcutetterProcedure {
 		if (entity == null)
 			return;
 		if (entity instanceof Player _player && !_player.level().isClientSide())
-			_player.displayClientMessage(Component.literal(("" + (double) ReignMarketConfiguration.LOGS.get())), false);
-		if (entity instanceof Player _player && !_player.level().isClientSide())
-			_player.displayClientMessage(Component.literal(("" + ReignCommonConfiguration.TAX.get())), false);
+			_player.displayClientMessage(Component.literal(("" + ConfigLoader.getPrice("logs"))), false);
 	}
 }

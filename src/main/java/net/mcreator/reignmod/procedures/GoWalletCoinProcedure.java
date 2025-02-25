@@ -11,6 +11,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.network.chat.Component;
 
 import net.mcreator.reignmod.world.inventory.WalletwinMenu;
 import net.mcreator.reignmod.init.ReignModModItems;
@@ -34,20 +35,28 @@ public class GoWalletCoinProcedure {
 		ItemStack wallet_copy = ItemStack.EMPTY;
 		double index = 0;
 		double value = 0;
+		String prefix = "";
 		if (itemstack.is(ItemTags.create(new ResourceLocation("reign:coins")))) {
 			if (itemstack.getItem() == ReignModModItems.COPPER_COIN.get()) {
+				prefix = " \u00A76";
 				value = itemstack.getCount();
 			} else if (itemstack.getItem() == ReignModModItems.SILVER_COIN.get()) {
+				prefix = " \u00A77";
 				value = itemstack.getCount() * 16;
 			} else if (itemstack.getItem() == ReignModModItems.GOLD_COIN.get()) {
+				prefix = " \u00A7e";
 				value = itemstack.getCount() * 256;
 			} else {
+				prefix = " \u00A79";
 				value = itemstack.getCount() * 4096;
 			}
 			if (entity instanceof Player _plr16 && _plr16.containerMenu instanceof WalletwinMenu) {
 				if (entity instanceof Player _player)
 					_player.closeContainer();
 			}
+			if (entity instanceof Player _player && !_player.level().isClientSide())
+				_player.displayClientMessage(
+						Component.literal((itemstack.getCount() + " " + prefix + ((itemstack.getDisplayName().getString()).replace("[", "")).replace("]", "") + " \u00A78(" + new java.text.DecimalFormat("##").format(value) + ")\u00A7r")), true);
 			WalletGiveProcedure.execute(entity, value);
 			SoundGiveCoinProcedure.execute(world, x, y, z);
 			itemstack.setCount(0);

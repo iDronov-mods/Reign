@@ -12,7 +12,6 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.mcreator.reignmod.world.inventory.MarketMenu;
 import net.mcreator.reignmod.procedures.WalletOutsideCostProcedure;
 import net.mcreator.reignmod.procedures.TextMarketTaxProcedure;
-import net.mcreator.reignmod.procedures.TextMarketBarProcedure;
 import net.mcreator.reignmod.procedures.ReturnMarketBar33Procedure;
 import net.mcreator.reignmod.procedures.ReturnMarketBar23Procedure;
 import net.mcreator.reignmod.procedures.ReturnMarketBar13Procedure;
@@ -40,18 +39,16 @@ public class MarketScreen extends AbstractContainerScreen<MarketMenu> {
 		this.y = container.y;
 		this.z = container.z;
 		this.entity = container.entity;
-		this.imageWidth = 319;
+		this.imageWidth = 323;
 		this.imageHeight = 166;
 	}
-
-	private static final ResourceLocation texture = new ResourceLocation("reign_mod:textures/screens/market.png");
 
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(guiGraphics);
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
-		if (mouseX > leftPos + 286 && mouseX < leftPos + 310 && mouseY > topPos + -22 && mouseY < topPos + 2)
+		if (mouseX > leftPos + 287 && mouseX < leftPos + 311 && mouseY > topPos + -22 && mouseY < topPos + 2)
 			guiGraphics.renderTooltip(font, Component.translatable("gui.reign_mod.market.tooltip_buy_goods_for_money"), mouseX, mouseY);
 	}
 
@@ -60,32 +57,31 @@ public class MarketScreen extends AbstractContainerScreen<MarketMenu> {
 		RenderSystem.setShaderColor(1, 1, 1, 1);
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
-		guiGraphics.blit(texture, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 
-		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/crown.png"), this.leftPos + 290, this.topPos + -12, 0, 0, 16, 16, 16, 16);
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/market_ui.png"), this.leftPos + -1, this.topPos + 0, 0, 0, 324, 166, 324, 166);
 
-		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/copper_coin.png"), this.leftPos + 36, this.topPos + -14, 0, 0, 16, 16, 16, 16);
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/crown.png"), this.leftPos + 292, this.topPos + -12, 0, 0, 16, 16, 16, 16);
 
-		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/silver_coin.png"), this.leftPos + 47, this.topPos + -14, 0, 0, 16, 16, 16, 16);
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/copper_coin.png"), this.leftPos + 35, this.topPos + -14, 0, 0, 16, 16, 16, 16);
 
-		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/gold_coin.png"), this.leftPos + 58, this.topPos + -14, 0, 0, 16, 16, 16, 16);
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/silver_coin.png"), this.leftPos + 46, this.topPos + -14, 0, 0, 16, 16, 16, 16);
 
-		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/arrow.png"), this.leftPos + 53, this.topPos + 84, 0, 0, 32, 16, 32, 16);
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/gold_coin.png"), this.leftPos + 57, this.topPos + -14, 0, 0, 16, 16, 16, 16);
 
 		if (ReturnMarketBar03Procedure.execute(entity)) {
-			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/count_bar0-3.png"), this.leftPos + 53, this.topPos + 102, 0, 0, 31, 6, 31, 6);
+			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/count_bar0-3.png"), this.leftPos + 106, this.topPos + 90, 0, 0, 31, 6, 31, 6);
 		}
 		if (ReturnMarketBar13Procedure.execute(world, entity)) {
-			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/count_bar1-3.png"), this.leftPos + 53, this.topPos + 102, 0, 0, 31, 6, 31, 6);
+			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/count_bar1-3.png"), this.leftPos + 106, this.topPos + 90, 0, 0, 31, 6, 31, 6);
 		}
 		if (ReturnMarketBar23Procedure.execute(world, entity)) {
-			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/count_bar2-3.png"), this.leftPos + 53, this.topPos + 102, 0, 0, 31, 6, 31, 6);
+			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/count_bar2-3.png"), this.leftPos + 106, this.topPos + 90, 0, 0, 31, 6, 31, 6);
 		}
 		if (ReturnMarketBar33Procedure.execute(world, entity)) {
-			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/count_bar3-3.png"), this.leftPos + 53, this.topPos + 102, 0, 0, 31, 6, 31, 6);
+			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/count_bar3-3.png"), this.leftPos + 106, this.topPos + 90, 0, 0, 31, 6, 31, 6);
 		}
 
-		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/wallet.png"), this.leftPos + -2, this.topPos + 161, 0, 0, 16, 16, 16, 16);
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/wallet.png"), this.leftPos + 0, this.topPos + 161, 0, 0, 16, 16, 16, 16);
 
 		RenderSystem.disableBlend();
 	}
@@ -112,16 +108,14 @@ public class MarketScreen extends AbstractContainerScreen<MarketMenu> {
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.market.label_market"), 0, -11, -1, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.market.label_market"), 0, -10, -1, false);
 		guiGraphics.drawString(this.font,
 
-				TextMarketBarProcedure.execute(world, entity), 61, 109, -12829636, false);
+				TextMarketTaxProcedure.execute(world, entity), 15, 121, -3355444, false);
 		guiGraphics.drawString(this.font,
 
-				TextMarketTaxProcedure.execute(world, entity), 6, 126, -6710887, false);
-		guiGraphics.drawString(this.font,
-
-				WalletOutsideCostProcedure.execute(entity), 13, 167, -1, false);
+				WalletOutsideCostProcedure.execute(entity), 15, 167, -1, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.market.label_price"), 15, 90, -3355444, false);
 	}
 
 	@Override
@@ -132,7 +126,7 @@ public class MarketScreen extends AbstractContainerScreen<MarketMenu> {
 				ReignModMod.PACKET_HANDLER.sendToServer(new MarketButtonMessage(0, x, y, z, textstate));
 				MarketButtonMessage.handleButtonAction(entity, 0, x, y, z, textstate);
 			}
-		}).bounds(this.leftPos + 24, this.topPos + 139, 90, 20).build();
+		}).bounds(this.leftPos + 52, this.topPos + 140, 90, 20).build();
 		guistate.put("button:button_buy", button_buy);
 		this.addRenderableWidget(button_buy);
 		button_x4 = Button.builder(Component.translatable("gui.reign_mod.market.button_x4"), e -> {
@@ -140,7 +134,7 @@ public class MarketScreen extends AbstractContainerScreen<MarketMenu> {
 				ReignModMod.PACKET_HANDLER.sendToServer(new MarketButtonMessage(1, x, y, z, textstate));
 				MarketButtonMessage.handleButtonAction(entity, 1, x, y, z, textstate);
 			}
-		}).bounds(this.leftPos + 6, this.topPos + 139, 18, 20).build();
+		}).bounds(this.leftPos + 10, this.topPos + 140, 18, 20).build();
 		guistate.put("button:button_x4", button_x4);
 		this.addRenderableWidget(button_x4);
 	}

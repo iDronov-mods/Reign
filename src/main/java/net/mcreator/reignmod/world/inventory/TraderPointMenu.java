@@ -332,7 +332,7 @@ public class TraderPointMenu extends AbstractContainerMenu implements Supplier<M
 			if (!world.hasChunkAt(new BlockPos(x, y, z)))
 				return;
 			if (mode == 0) {
-				TradingProcedure.execute(world, x, y, z, entity, guistate);
+				TradingProcedure.execute(world, x, y, z, entity);
 			}
 			if (mode == 1) {
 				TraderClosedProcedure.execute(world, x, y, z, entity);

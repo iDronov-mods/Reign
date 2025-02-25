@@ -63,6 +63,8 @@ public class WoodcutterwindowScreen extends AbstractContainerScreen<Woodcutterwi
 
 		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/license_window_background.png"), this.leftPos + 0, this.topPos + 0, 0, 0, 222, 166, 222, 166);
 
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/main_licenses_expbar.png"), this.leftPos + 85, this.topPos + 25, 0, 0, 103, 32, 103, 32);
+
 		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/big_woodcutter_logo.png"), this.leftPos + 9, this.topPos + 9, 0, 0, 48, 48, 48, 48);
 
 		if (Mlvl1Procedure.execute(entity)) {
@@ -89,6 +91,21 @@ public class WoodcutterwindowScreen extends AbstractContainerScreen<Woodcutterwi
 		if (Mlvl5Procedure.execute(entity)) {
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/lvl_point_next.png"), this.leftPos + 163, this.topPos + 38, 0, 0, 24, 6, 24, 6);
 		}
+		if (Mlvl1Procedure.execute(entity)) {
+			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/lvl_point_first.png"), this.leftPos + 15, this.topPos + 70, 0, 0, 6, 6, 6, 6);
+		}
+		if (Mlvl2Procedure.execute(entity)) {
+			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/lvl_point_first.png"), this.leftPos + 15, this.topPos + 88, 0, 0, 6, 6, 6, 6);
+		}
+		if (Mlvl3Procedure.execute(entity)) {
+			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/lvl_point_first.png"), this.leftPos + 15, this.topPos + 106, 0, 0, 6, 6, 6, 6);
+		}
+		if (Mlvl4Procedure.execute(entity)) {
+			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/lvl_point_first.png"), this.leftPos + 15, this.topPos + 124, 0, 0, 6, 6, 6, 6);
+		}
+		if (Mlvl5Procedure.execute(entity)) {
+			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/lvl_point_first.png"), this.leftPos + 15, this.topPos + 142, 0, 0, 6, 6, 6, 6);
+		}
 		RenderSystem.disableBlend();
 	}
 
@@ -104,9 +121,7 @@ public class WoodcutterwindowScreen extends AbstractContainerScreen<Woodcutterwi
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.woodcutterwindow.label_woodcutter"), 63, 9, -1, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.woodcutterwindow.label_forester"), 142, 51, -10066330, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.woodcutterwindow.label_main_license"), 1, -12, -1, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.woodcutterwindow.label_coal_burner"), 141, 20, -10066330, false);
 	}
 
 	@Override

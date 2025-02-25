@@ -7,7 +7,7 @@ import net.mcreator.reignmod.network.ReignModModVariables;
 public class OresdownProcedure {
 	public static void execute(LevelAccessor world) {
 		if (ReignModModVariables.MapVariables.get(world).ores_price > 0) {
-			ReignModModVariables.MapVariables.get(world).ores_price = ReignModModVariables.MapVariables.get(world).ores_price - 20;
+			ReignModModVariables.MapVariables.get(world).ores_price = ReignModModVariables.MapVariables.get(world).ores_price - 0.1;
 			ReignModModVariables.MapVariables.get(world).syncData(world);
 		}
 	}

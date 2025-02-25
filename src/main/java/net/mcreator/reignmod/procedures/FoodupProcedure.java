@@ -6,8 +6,8 @@ import net.mcreator.reignmod.network.ReignModModVariables;
 
 public class FoodupProcedure {
 	public static void execute(LevelAccessor world) {
-		if (ReignModModVariables.MapVariables.get(world).food_price < 100) {
-			ReignModModVariables.MapVariables.get(world).food_price = ReignModModVariables.MapVariables.get(world).food_price + 25;
+		if (ReignModModVariables.MapVariables.get(world).food_price < 2) {
+			ReignModModVariables.MapVariables.get(world).food_price = ReignModModVariables.MapVariables.get(world).food_price + 0.25;
 			ReignModModVariables.MapVariables.get(world).syncData(world);
 		}
 	}
