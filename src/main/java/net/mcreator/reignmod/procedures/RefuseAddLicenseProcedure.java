@@ -68,6 +68,7 @@ public class RefuseAddLicenseProcedure {
 				capability.syncPlayerVariables(entity);
 			});
 		}
+		LicensesAttributesProcedure.execute(entity);
 		if (entity instanceof Player _player && !_player.level().isClientSide())
 			_player.displayClientMessage(Component.literal((Component.translatable("license_refuse").getString())), true);
 		if (entity instanceof Player _player)

@@ -21,7 +21,7 @@ public class ReturnMarketBar03Procedure {
 				}
 				return 0;
 			}
-		}.getAmount(69) != 0) {
+		}.getAmount(68) != 0) {
 			return false;
 		}
 		return true;

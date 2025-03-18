@@ -1,0 +1,9 @@
+{
+  "parent": "reign_mod:custom/finial_of_reign",
+  "textures": {
+    "all": "minecraft:block/black_concrete_powder",
+    "particle": "minecraft:block/black_concrete_powder",
+    "2": "reign_mod:block/finial_of_reign_texture"
+  },
+  "render_type": "solid"
+}

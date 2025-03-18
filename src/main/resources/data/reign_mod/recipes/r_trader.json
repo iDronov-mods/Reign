@@ -3,14 +3,17 @@
   "category": "misc",
   "pattern": [
     "aaa",
-    "a a",
-    "bbb"
+    "aba",
+    "ccc"
   ],
   "key": {
     "a": {
       "tag": "minecraft:planks"
     },
     "b": {
+      "item": "reign_mod:silver_coin"
+    },
+    "c": {
       "item": "minecraft:stone"
     }
   },

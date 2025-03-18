@@ -2,7 +2,10 @@
   "mappings": {
     "default": {
       "map": {
-        "0": "trader_texture"
+        "copper_coin": "copper_coin",
+        "missing": "",
+        "main_texture": "trader_texture",
+        "silver_coin": "silver_coin"
       },
       "name": "default"
     }

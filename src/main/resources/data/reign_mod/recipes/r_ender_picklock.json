@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:ender_eye"
+    },
+    {
+      "item": "reign_mod:picklock"
+    }
+  ],
+  "result": {
+    "item": "reign_mod:ender_picklock",
+    "count": 1
+  }
+}

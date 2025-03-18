@@ -63,10 +63,10 @@ public class HoarderBlockBlock extends Block {
 	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
 		return switch (state.getValue(FACING)) {
-			default -> box(0, 0, 0, 16, 12, 16);
-			case NORTH -> box(0, 0, 0, 16, 12, 16);
-			case EAST -> box(0, 0, 0, 16, 12, 16);
-			case WEST -> box(0, 0, 0, 16, 12, 16);
+			default -> Shapes.or(box(0, 0, 0, 16, 8, 16), box(0, 8, 13, 16, 10, 16), box(0, 8, 0, 16, 10, 3), box(13, 8, 3, 16, 10, 13), box(0, 8, 3, 3, 10, 13));
+			case NORTH -> Shapes.or(box(0, 0, 0, 16, 8, 16), box(0, 8, 0, 16, 10, 3), box(0, 8, 13, 16, 10, 16), box(0, 8, 3, 3, 10, 13), box(13, 8, 3, 16, 10, 13));
+			case EAST -> Shapes.or(box(0, 0, 0, 16, 8, 16), box(13, 8, 0, 16, 10, 16), box(0, 8, 0, 3, 10, 16), box(3, 8, 0, 13, 10, 3), box(3, 8, 13, 13, 10, 16));
+			case WEST -> Shapes.or(box(0, 0, 0, 16, 8, 16), box(0, 8, 0, 3, 10, 16), box(13, 8, 0, 16, 10, 16), box(3, 8, 13, 13, 10, 16), box(3, 8, 0, 13, 10, 3));
 		};
 	}
 

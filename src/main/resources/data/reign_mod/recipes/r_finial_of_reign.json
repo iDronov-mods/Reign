@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aba",
+    "aca",
+    "aca"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:charcoal"
+    },
+    "b": {
+      "item": "minecraft:smooth_stone"
+    },
+    "c": {
+      "item": "minecraft:cobbled_deepslate"
+    }
+  },
+  "result": {
+    "item": "reign_mod:finial_of_reign",
+    "count": 1
+  }
+}

@@ -1,6 +1,5 @@
 package net.mcreator.reignmod.procedures;
 
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.tags.BlockTags;
@@ -10,7 +9,7 @@ import net.minecraft.core.BlockPos;
 import net.mcreator.reignmod.ReignModMod;
 
 public class DeleteLeavesProcedure {
-	public static void execute(LevelAccessor world, double x, double y, double z, BlockState leaves, double count) {
+	public static void execute(LevelAccessor world, double x, double y, double z, double count) {
 		if (count < 4) {
 			if (!(world.getBlockState(BlockPos.containing(x, y - 1, z))).is(BlockTags.create(new ResourceLocation("minecraft:logs")))
 					&& (world.getBlockState(BlockPos.containing(x, y, z))).is(BlockTags.create(new ResourceLocation("minecraft:leaves")))) {
@@ -21,56 +20,56 @@ public class DeleteLeavesProcedure {
 				}
 			}
 			ReignModMod.queueServerWork(10, () -> {
-				if ((world.getBlockState(BlockPos.containing(x + 0, y + 1, z + 0))).getBlock() == leaves.getBlock()) {
-					DeleteLeavesProcedure.execute(world, x + 0, y + 1, z + 0, leaves, count + 1);
+				if ((world.getBlockState(BlockPos.containing(x + 0, y + 1, z + 0))).is(BlockTags.create(new ResourceLocation("minecraft:leaves")))) {
+					DeleteLeavesProcedure.execute(world, x + 0, y + 1, z + 0, count + 1);
 				}
-				if ((world.getBlockState(BlockPos.containing(x + 1, y + 1, z + 0))).getBlock() == leaves.getBlock()) {
-					DeleteLeavesProcedure.execute(world, x + 1, y + 1, z + 0, leaves, count + 1);
+				if ((world.getBlockState(BlockPos.containing(x + 1, y + 1, z + 0))).is(BlockTags.create(new ResourceLocation("minecraft:leaves")))) {
+					DeleteLeavesProcedure.execute(world, x + 1, y + 1, z + 0, count + 1);
 				}
-				if ((world.getBlockState(BlockPos.containing(x + 1, y + 1, z + 1))).getBlock() == leaves.getBlock()) {
-					DeleteLeavesProcedure.execute(world, x + 1, y + 1, z + 1, leaves, count + 1);
+				if ((world.getBlockState(BlockPos.containing(x + 1, y + 1, z + 1))).is(BlockTags.create(new ResourceLocation("minecraft:leaves")))) {
+					DeleteLeavesProcedure.execute(world, x + 1, y + 1, z + 1, count + 1);
 				}
-				if ((world.getBlockState(BlockPos.containing(x + 0, y + 1, z + 1))).getBlock() == leaves.getBlock()) {
-					DeleteLeavesProcedure.execute(world, x + 0, y + 1, z + 1, leaves, count + 1);
+				if ((world.getBlockState(BlockPos.containing(x + 0, y + 1, z + 1))).is(BlockTags.create(new ResourceLocation("minecraft:leaves")))) {
+					DeleteLeavesProcedure.execute(world, x + 0, y + 1, z + 1, count + 1);
 				}
-				if ((world.getBlockState(BlockPos.containing(x + -1, y + 1, z + 1))).getBlock() == leaves.getBlock()) {
-					DeleteLeavesProcedure.execute(world, x + -1, y + 1, z + 1, leaves, count + 1);
+				if ((world.getBlockState(BlockPos.containing(x + -1, y + 1, z + 1))).is(BlockTags.create(new ResourceLocation("minecraft:leaves")))) {
+					DeleteLeavesProcedure.execute(world, x + -1, y + 1, z + 1, count + 1);
 				}
-				if ((world.getBlockState(BlockPos.containing(x + -1, y + 1, z + 0))).getBlock() == leaves.getBlock()) {
-					DeleteLeavesProcedure.execute(world, x + -1, y + 1, z + 0, leaves, count + 1);
+				if ((world.getBlockState(BlockPos.containing(x + -1, y + 1, z + 0))).is(BlockTags.create(new ResourceLocation("minecraft:leaves")))) {
+					DeleteLeavesProcedure.execute(world, x + -1, y + 1, z + 0, count + 1);
 				}
-				if ((world.getBlockState(BlockPos.containing(x + -1, y + 1, z + -1))).getBlock() == leaves.getBlock()) {
-					DeleteLeavesProcedure.execute(world, x + -1, y + 1, z + -1, leaves, count + 1);
+				if ((world.getBlockState(BlockPos.containing(x + -1, y + 1, z + -1))).is(BlockTags.create(new ResourceLocation("minecraft:leaves")))) {
+					DeleteLeavesProcedure.execute(world, x + -1, y + 1, z + -1, count + 1);
 				}
-				if ((world.getBlockState(BlockPos.containing(x + 0, y + 1, z + -1))).getBlock() == leaves.getBlock()) {
-					DeleteLeavesProcedure.execute(world, x + 0, y + 1, z + -1, leaves, count + 1);
+				if ((world.getBlockState(BlockPos.containing(x + 0, y + 1, z + -1))).is(BlockTags.create(new ResourceLocation("minecraft:leaves")))) {
+					DeleteLeavesProcedure.execute(world, x + 0, y + 1, z + -1, count + 1);
 				}
-				if ((world.getBlockState(BlockPos.containing(x + 1, y + 1, z + -1))).getBlock() == leaves.getBlock()) {
-					DeleteLeavesProcedure.execute(world, x + 1, y + 1, z + -1, leaves, count + 1);
+				if ((world.getBlockState(BlockPos.containing(x + 1, y + 1, z + -1))).is(BlockTags.create(new ResourceLocation("minecraft:leaves")))) {
+					DeleteLeavesProcedure.execute(world, x + 1, y + 1, z + -1, count + 1);
 				}
-				if ((world.getBlockState(BlockPos.containing(x + 1, y + 0, z + 0))).getBlock() == leaves.getBlock()) {
-					DeleteLeavesProcedure.execute(world, x + 1, y + 0, z + 0, leaves, count + 1);
+				if ((world.getBlockState(BlockPos.containing(x + 1, y + 0, z + 0))).is(BlockTags.create(new ResourceLocation("minecraft:leaves")))) {
+					DeleteLeavesProcedure.execute(world, x + 1, y + 0, z + 0, count + 1);
 				}
-				if ((world.getBlockState(BlockPos.containing(x + 1, y + 0, z + 1))).getBlock() == leaves.getBlock()) {
-					DeleteLeavesProcedure.execute(world, x + 1, y + 0, z + 1, leaves, count + 1);
+				if ((world.getBlockState(BlockPos.containing(x + 1, y + 0, z + 1))).is(BlockTags.create(new ResourceLocation("minecraft:leaves")))) {
+					DeleteLeavesProcedure.execute(world, x + 1, y + 0, z + 1, count + 1);
 				}
-				if ((world.getBlockState(BlockPos.containing(x + 0, y + 0, z + 1))).getBlock() == leaves.getBlock()) {
-					DeleteLeavesProcedure.execute(world, x + 0, y + 0, z + 1, leaves, count + 1);
+				if ((world.getBlockState(BlockPos.containing(x + 0, y + 0, z + 1))).is(BlockTags.create(new ResourceLocation("minecraft:leaves")))) {
+					DeleteLeavesProcedure.execute(world, x + 0, y + 0, z + 1, count + 1);
 				}
-				if ((world.getBlockState(BlockPos.containing(x + -1, y + 0, z + 1))).getBlock() == leaves.getBlock()) {
-					DeleteLeavesProcedure.execute(world, x + -1, y + 0, z + 1, leaves, count + 1);
+				if ((world.getBlockState(BlockPos.containing(x + -1, y + 0, z + 1))).is(BlockTags.create(new ResourceLocation("minecraft:leaves")))) {
+					DeleteLeavesProcedure.execute(world, x + -1, y + 0, z + 1, count + 1);
 				}
-				if ((world.getBlockState(BlockPos.containing(x + -1, y + 0, z + 0))).getBlock() == leaves.getBlock()) {
-					DeleteLeavesProcedure.execute(world, x + -1, y + 0, z + 0, leaves, count + 1);
+				if ((world.getBlockState(BlockPos.containing(x + -1, y + 0, z + 0))).is(BlockTags.create(new ResourceLocation("minecraft:leaves")))) {
+					DeleteLeavesProcedure.execute(world, x + -1, y + 0, z + 0, count + 1);
 				}
-				if ((world.getBlockState(BlockPos.containing(x + -1, y + 0, z + -1))).getBlock() == leaves.getBlock()) {
-					DeleteLeavesProcedure.execute(world, x + -1, y + 0, z + -1, leaves, count + 1);
+				if ((world.getBlockState(BlockPos.containing(x + -1, y + 0, z + -1))).is(BlockTags.create(new ResourceLocation("minecraft:leaves")))) {
+					DeleteLeavesProcedure.execute(world, x + -1, y + 0, z + -1, count + 1);
 				}
-				if ((world.getBlockState(BlockPos.containing(x + 0, y + 0, z + -1))).getBlock() == leaves.getBlock()) {
-					DeleteLeavesProcedure.execute(world, x + 0, y + 0, z + -1, leaves, count + 1);
+				if ((world.getBlockState(BlockPos.containing(x + 0, y + 0, z + -1))).is(BlockTags.create(new ResourceLocation("minecraft:leaves")))) {
+					DeleteLeavesProcedure.execute(world, x + 0, y + 0, z + -1, count + 1);
 				}
-				if ((world.getBlockState(BlockPos.containing(x + 1, y + 0, z + -1))).getBlock() == leaves.getBlock()) {
-					DeleteLeavesProcedure.execute(world, x + 1, y + 0, z + -1, leaves, count + 1);
+				if ((world.getBlockState(BlockPos.containing(x + 1, y + 0, z + -1))).is(BlockTags.create(new ResourceLocation("minecraft:leaves")))) {
+					DeleteLeavesProcedure.execute(world, x + 1, y + 0, z + -1, count + 1);
 				}
 			});
 		}

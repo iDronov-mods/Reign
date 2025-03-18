@@ -23,6 +23,7 @@ import net.mcreator.reignmod.item.StateRental2Item;
 import net.mcreator.reignmod.item.StateRental1Item;
 import net.mcreator.reignmod.item.SmithCoinItem;
 import net.mcreator.reignmod.item.SilverCoinItem;
+import net.mcreator.reignmod.item.ShacklesItem;
 import net.mcreator.reignmod.item.RuinLord3Item;
 import net.mcreator.reignmod.item.RuinLord2Item;
 import net.mcreator.reignmod.item.RuinLord1Item;
@@ -43,6 +44,7 @@ import net.mcreator.reignmod.item.FragmentOfRecordItem;
 import net.mcreator.reignmod.item.FragmentOfRecord3Item;
 import net.mcreator.reignmod.item.FragmentOfRecord2Item;
 import net.mcreator.reignmod.item.FarmerCoinItem;
+import net.mcreator.reignmod.item.EnderPicklockItem;
 import net.mcreator.reignmod.item.CrownItem;
 import net.mcreator.reignmod.item.CowboyCoinItem;
 import net.mcreator.reignmod.item.CopperLockItem;
@@ -105,9 +107,11 @@ public class ReignModModItems {
 	public static final RegistryObject<Item> PRIVATEDOOR = doubleBlock(ReignModModBlocks.PRIVATEDOOR);
 	public static final RegistryObject<Item> RENTAL_BLOCK = block(ReignModModBlocks.RENTAL_BLOCK);
 	public static final RegistryObject<Item> OBELISK_FOUNDATION = block(ReignModModBlocks.OBELISK_FOUNDATION);
-	public static final RegistryObject<Item> OBELISK_STEM = block(ReignModModBlocks.OBELISK_STEM);
-	public static final RegistryObject<Item> OBELISK_CAP = block(ReignModModBlocks.OBELISK_CAP);
-	public static final RegistryObject<Item> OBELISK_CAP_KNIGHT = block(ReignModModBlocks.OBELISK_CAP_KNIGHT);
+	public static final RegistryObject<Item> ENDER_PICKLOCK = REGISTRY.register("ender_picklock", () -> new EnderPicklockItem());
+	public static final RegistryObject<Item> SHACKLES = REGISTRY.register("shackles", () -> new ShacklesItem());
+	public static final RegistryObject<Item> FINIAL_OF_REIGN = block(ReignModModBlocks.FINIAL_OF_REIGN);
+	public static final RegistryObject<Item> FINIAL_OF_MIGHT = block(ReignModModBlocks.FINIAL_OF_MIGHT);
+	public static final RegistryObject<Item> SHAFT = block(ReignModModBlocks.SHAFT);
 
 	// Start of user code block custom items
 	// End of user code block custom items

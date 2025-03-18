@@ -1,9 +1,11 @@
 {
   "parent": "reign_mod:custom/market",
   "textures": {
-    "all": "minecraft:block/chiseled_quartz_block",
-    "particle": "minecraft:block/chiseled_quartz_block",
-    "0": "reign_mod:block/market_texture_free"
+    "all": "minecraft:block/smooth_stone",
+    "particle": "minecraft:block/smooth_stone",
+    "missing": "reign_mod:block/gold_coin",
+    "main_texture": "reign_mod:block/market_texture_free",
+    "gold_coin": "reign_mod:block/gold_coin"
   },
   "render_type": "solid"
 }

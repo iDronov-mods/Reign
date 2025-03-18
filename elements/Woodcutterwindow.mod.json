@@ -24,8 +24,8 @@
         "data": {
           "image": "main_licenses_expbar.png",
           "use1Xscale": false,
-          "x": 188,
-          "y": 62
+          "x": 166,
+          "y": 61
         }
       },
       {
@@ -38,21 +38,6 @@
         }
       },
       {
-        "type": "label",
-        "data": {
-          "name": "label_woodcutter",
-          "text": {
-            "fixedValue": "WOODCUTTER"
-          },
-          "color": {
-            "value": -1,
-            "falpha": 0.0
-          },
-          "x": 166,
-          "y": 46
-        }
-      },
-      {
         "type": "image",
         "data": {
           "image": "lvl_point_first.png",
@@ -60,8 +45,8 @@
           "displayCondition": {
             "name": "Mlvl1"
           },
-          "x": 188,
-          "y": 75
+          "x": 166,
+          "y": 74
         }
       },
       {
@@ -72,8 +57,8 @@
           "displayCondition": {
             "name": "Mlvl2"
           },
-          "x": 194,
-          "y": 75
+          "x": 172,
+          "y": 74
         }
       },
       {
@@ -82,10 +67,10 @@
           "image": "lvl_point_next_r.png",
           "use1Xscale": false,
           "displayCondition": {
-            "name": "Mlvl3"
+            "name": "IsRLvl"
           },
-          "x": 214,
-          "y": 81
+          "x": 192,
+          "y": 80
         }
       },
       {
@@ -94,10 +79,10 @@
           "image": "lvl_point_next_l.png",
           "use1Xscale": false,
           "displayCondition": {
-            "name": "Mlvl3"
+            "name": "IsNotRLvl"
           },
-          "x": 214,
-          "y": 68
+          "x": 192,
+          "y": 67
         }
       },
       {
@@ -106,10 +91,10 @@
           "image": "lvl_point_next_corner_up.png",
           "use1Xscale": false,
           "displayCondition": {
-            "name": "Mlvl4"
+            "name": "IsNotRLvlFor4"
           },
-          "x": 242,
-          "y": 70
+          "x": 220,
+          "y": 69
         }
       },
       {
@@ -118,10 +103,10 @@
           "image": "lvl_point_next_corner_down.png",
           "use1Xscale": false,
           "displayCondition": {
-            "name": "Mlvl4"
+            "name": "IsRLvlFor4"
           },
-          "x": 242,
-          "y": 81
+          "x": 220,
+          "y": 80
         }
       },
       {
@@ -132,8 +117,8 @@
           "displayCondition": {
             "name": "Mlvl4"
           },
-          "x": 260,
-          "y": 75
+          "x": 238,
+          "y": 74
         }
       },
       {
@@ -144,26 +129,8 @@
           "displayCondition": {
             "name": "Mlvl5"
           },
-          "x": 266,
-          "y": 75
-        }
-      },
-      {
-        "type": "button",
-        "data": {
-          "name": "button_refuse",
-          "text": "refuse",
-          "isUndecorated": false,
-          "onClick": {
-            "name": "RefuseMainLicensesWin"
-          },
-          "displayCondition": {
-            "name": "Returnwoodcutter"
-          },
-          "width": 56,
-          "height": 20,
-          "x": 118,
-          "y": 189
+          "x": 244,
+          "y": 74
         }
       },
       {
@@ -180,7 +147,7 @@
           },
           "width": 56,
           "height": 20,
-          "x": 253,
+          "x": 252,
           "y": 189
         }
       },
@@ -215,76 +182,330 @@
         }
       },
       {
-        "type": "image",
+        "type": "label",
         "data": {
-          "image": "lvl_point_first.png",
-          "use1Xscale": false,
-          "displayCondition": {
-            "name": "Mlvl1"
+          "name": "label_l",
+          "text": {
+            "fixedValue": "L"
           },
-          "x": 118,
-          "y": 107
+          "color": {
+            "value": -6710887,
+            "falpha": 0.0
+          },
+          "x": 220,
+          "y": 57
         }
       },
       {
-        "type": "image",
+        "type": "label",
         "data": {
-          "image": "lvl_point_first.png",
-          "use1Xscale": false,
-          "displayCondition": {
-            "name": "Mlvl2"
+          "name": "label_r",
+          "text": {
+            "fixedValue": "R"
           },
-          "x": 118,
-          "y": 125
+          "color": {
+            "value": -6710887,
+            "falpha": 0.0
+          },
+          "x": 220,
+          "y": 88
         }
       },
       {
-        "type": "image",
+        "type": "label",
         "data": {
-          "image": "lvl_point_first.png",
-          "use1Xscale": false,
-          "displayCondition": {
-            "name": "Mlvl3"
+          "name": "label_string_1",
+          "text": {
+            "fixedValue": "String_1"
+          },
+          "color": {
+            "value": -3355444,
+            "falpha": 0.0
           },
           "x": 118,
-          "y": 143
+          "y": 106
         }
       },
       {
-        "type": "image",
+        "type": "label",
         "data": {
-          "image": "lvl_point_first.png",
-          "use1Xscale": false,
-          "displayCondition": {
-            "name": "Mlvl4"
+          "name": "label_string_2",
+          "text": {
+            "fixedValue": "String_2"
+          },
+          "color": {
+            "value": -3355444,
+            "falpha": 0.0
           },
           "x": 118,
-          "y": 161
+          "y": 124
         }
       },
       {
-        "type": "image",
+        "type": "label",
         "data": {
-          "image": "lvl_point_first.png",
-          "use1Xscale": false,
-          "displayCondition": {
-            "name": "Mlvl5"
+          "name": "label_string_3",
+          "text": {
+            "fixedValue": "String_3"
+          },
+          "color": {
+            "value": -3355444,
+            "falpha": 0.0
           },
           "x": 118,
-          "y": 179
+          "y": 135
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_string_4",
+          "text": {
+            "fixedValue": "String_4"
+          },
+          "color": {
+            "value": -3355444,
+            "falpha": 0.0
+          },
+          "x": 118,
+          "y": 146
         }
       },
       {
         "type": "imagebutton",
         "data": {
-          "name": "imagebutton_lvl_up_button",
-          "image": "lvl_up_button.png",
-          "hoveredImage": "lvl_up_button_hover.png",
-          "displayCondition": {
-            "name": "MainButtonUp"
+          "name": "imagebutton_upgrade_lvl",
+          "image": "upgrade_lvl.png",
+          "hoveredImage": "upgrade_lvl_hover.png",
+          "onClick": {
+            "name": "LvlUp"
           },
-          "x": 167,
-          "y": 70
+          "displayCondition": {
+            "name": "MainLvlUp1"
+          },
+          "x": 161,
+          "y": 69
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_upgrade_lvl1",
+          "image": "upgrade_lvl.png",
+          "hoveredImage": "upgrade_lvl_hover.png",
+          "onClick": {
+            "name": "LvlUp"
+          },
+          "displayCondition": {
+            "name": "MainLvlUp2"
+          },
+          "x": 185,
+          "y": 69
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_upgrade_lvl2",
+          "image": "upgrade_lvl.png",
+          "hoveredImage": "upgrade_lvl_hover.png",
+          "onClick": {
+            "name": "LvlUp"
+          },
+          "displayCondition": {
+            "name": "MainLvlUp3"
+          },
+          "x": 209,
+          "y": 62
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_upgrade_lvl3",
+          "image": "upgrade_lvl.png",
+          "hoveredImage": "upgrade_lvl_hover.png",
+          "onClick": {
+            "name": "LvlUpR"
+          },
+          "displayCondition": {
+            "name": "MainLvlUp3"
+          },
+          "x": 209,
+          "y": 76
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_upgrade_lvl4",
+          "image": "upgrade_lvl.png",
+          "hoveredImage": "upgrade_lvl_hover.png",
+          "onClick": {
+            "name": "LvlUp"
+          },
+          "displayCondition": {
+            "name": "MainLvlUp4"
+          },
+          "x": 233,
+          "y": 69
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_upgrade_lvl5",
+          "image": "upgrade_lvl.png",
+          "hoveredImage": "upgrade_lvl_hover.png",
+          "onClick": {
+            "name": "LvlUp"
+          },
+          "displayCondition": {
+            "name": "MainLvlUp5"
+          },
+          "x": 257,
+          "y": 69
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_refuse",
+          "text": "refuse",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "RefuseMainLicensesWin"
+          },
+          "displayCondition": {
+            "name": "IsHaveMainLicenses"
+          },
+          "width": 67,
+          "height": 20,
+          "x": 121,
+          "y": 189
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_string_5",
+          "text": {
+            "fixedValue": "String_5"
+          },
+          "color": {
+            "value": -3355444,
+            "falpha": 0.0
+          },
+          "x": 118,
+          "y": 157
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_string_6",
+          "text": {
+            "fixedValue": "String_6"
+          },
+          "color": {
+            "value": -10066330,
+            "falpha": 0.0
+          },
+          "x": 118,
+          "y": 175
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_lvl1_description",
+          "text": {
+            "fixedValue": "lvl1_description"
+          },
+          "width": 8,
+          "height": 8,
+          "x": 165,
+          "y": 73
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_lvl2_description",
+          "text": {
+            "fixedValue": "lvl2_description"
+          },
+          "width": 8,
+          "height": 8,
+          "x": 189,
+          "y": 73
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_lvl3_description_l",
+          "text": {
+            "fixedValue": "lvl3_description_L"
+          },
+          "width": 8,
+          "height": 8,
+          "x": 213,
+          "y": 66
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_lvl3_description_r",
+          "text": {
+            "fixedValue": "lvl3_description_R"
+          },
+          "width": 8,
+          "height": 8,
+          "x": 213,
+          "y": 80
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_lvl4_description",
+          "text": {
+            "fixedValue": "lvl4_description"
+          },
+          "width": 8,
+          "height": 8,
+          "x": 237,
+          "y": 73
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_lvl5_description",
+          "text": {
+            "fixedValue": "lvl5_description"
+          },
+          "width": 8,
+          "height": 8,
+          "x": 261,
+          "y": 73
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_main_label",
+          "text": {
+            "fixedValue": "main_label"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 166,
+          "y": 46
         }
       }
     ],

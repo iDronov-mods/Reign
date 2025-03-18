@@ -43,8 +43,7 @@ public class FalseBrickProcedure {
 			if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 				_entity.addEffect(new MobEffectInstance(MobEffects.HUNGER, 40, 40, false, false));
 		} else if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).license_miner == false
-				&& (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).is(ItemTags.create(new ResourceLocation("minecraft:pickaxes"))) && (blockstate.is(BlockTags.create(new ResourceLocation("forge:ores")))
-						|| blockstate.getBlock() == Blocks.DEEPSLATE || blockstate.getBlock() == Blocks.COBBLED_DEEPSLATE || blockstate.getBlock() == Blocks.DEEPSLATE_TILES || blockstate.getBlock() == Blocks.DEEPSLATE_BRICKS)) {
+				&& (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).is(ItemTags.create(new ResourceLocation("minecraft:pickaxes"))) && blockstate.is(BlockTags.create(new ResourceLocation("forge:ores")))) {
 			world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
 			if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 				_entity.addEffect(new MobEffectInstance(MobEffects.HUNGER, 40, 40, false, false));

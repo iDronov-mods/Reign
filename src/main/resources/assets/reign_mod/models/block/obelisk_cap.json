@@ -1,9 +1,0 @@
-{
-  "parent": "reign_mod:custom/obelisk_cap",
-  "textures": {
-    "all": "minecraft:block/black_concrete_powder",
-    "particle": "minecraft:block/black_concrete_powder",
-    "0": "reign_mod:block/obelisk_cap"
-  },
-  "render_type": "solid"
-}

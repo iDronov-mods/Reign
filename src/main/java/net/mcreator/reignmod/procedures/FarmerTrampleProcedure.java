@@ -26,7 +26,7 @@ public class FarmerTrampleProcedure {
 		if (entity == null)
 			return;
 		if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).license_farmer
-				&& (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).ADD_LVL > 0) {
+				&& (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).MAIN_LVL >= 4) {
 			if (event != null && event.isCancelable()) {
 				event.setCanceled(true);
 			} else if (event != null && event.hasResult()) {

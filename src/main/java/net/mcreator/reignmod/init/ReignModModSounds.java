@@ -32,4 +32,5 @@ public class ReignModModSounds {
 	public static final RegistryObject<SoundEvent> RUINLORD3 = REGISTRY.register("ruinlord3", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("reign_mod", "ruinlord3")));
 	public static final RegistryObject<SoundEvent> HEART_BETTER = REGISTRY.register("heart_better", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("reign_mod", "heart_better")));
 	public static final RegistryObject<SoundEvent> HEART_HIT = REGISTRY.register("heart_hit", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("reign_mod", "heart_hit")));
+	public static final RegistryObject<SoundEvent> SEAL_CLICK = REGISTRY.register("seal_click", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("reign_mod", "seal_click")));
 }

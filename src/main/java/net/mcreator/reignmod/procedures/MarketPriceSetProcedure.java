@@ -35,7 +35,7 @@ public class MarketPriceSetProcedure {
 			((Slot) _slots.get(72)).set(ItemStack.EMPTY);
 			_player.containerMenu.broadcastChanges();
 		}
-		totalPrice = GetPriceWithFillFactorProcedure.execute(world, goodsName);
+		totalPrice = GetPriceWithFillFactorProcedure.execute(goodsName);
 		addTax = tax * totalPrice;
 		totalPrice = totalPrice + addTax;
 		if (totalPrice >= 4096) {

@@ -567,7 +567,6 @@ public class MarketPlaceProcedure {
 			}
 			MarketPriceSetProcedure.execute(world, entity, ReignModModVariables.MapVariables.get(world).food_price, "hay_block");
 		}
-		SlotUpdateProcedure.execute(entity);
 		return true;
 	}
 }

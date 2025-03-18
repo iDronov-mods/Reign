@@ -3,12 +3,18 @@
   "category": "misc",
   "pattern": [
     "aaa",
-    "a a",
-    "aaa"
+    "aba",
+    "ccc"
   ],
   "key": {
     "a": {
-      "item": "minecraft:diorite"
+      "item": "minecraft:smooth_stone"
+    },
+    "b": {
+      "item": "reign_mod:gold_coin"
+    },
+    "c": {
+      "tag": "minecraft:logs"
     }
   },
   "result": {

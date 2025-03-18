@@ -3,7 +3,8 @@
   "textures": {
     "all": "minecraft:block/white_terracotta",
     "particle": "minecraft:block/white_terracotta",
-    "0": "reign_mod:block/hoarder_texture"
+    "copper_coin": "reign_mod:block/copper_coin",
+    "4": "reign_mod:block/hoarder_texture"
   },
   "render_type": "solid"
 }

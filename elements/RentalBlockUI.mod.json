@@ -1,0 +1,185 @@
+{
+  "_fv": 69,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 223,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": false,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": true,
+            "name": "RentalAgreementSet"
+          },
+          "id": 0,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 206,
+          "y": 73
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_area",
+          "text": {
+            "fixedValue": "area",
+            "name": "RentalArea"
+          },
+          "color": {
+            "value": -13421824,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "RentalNotLocked"
+          },
+          "x": 189,
+          "y": 46
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_rental_block",
+          "text": {
+            "fixedValue": "Rental block"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 103,
+          "y": 26
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "rental_block_ui.png",
+          "use1Xscale": false,
+          "x": 103,
+          "y": 37
+        }
+      },
+      {
+        "type": "textfield",
+        "data": {
+          "placeholder": "",
+          "name": "x_value",
+          "width": 26,
+          "height": 20,
+          "x": 118,
+          "y": 72
+        }
+      },
+      {
+        "type": "textfield",
+        "data": {
+          "placeholder": "",
+          "name": "z_value",
+          "width": 26,
+          "height": 20,
+          "x": 144,
+          "y": 72
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_delete",
+          "text": "Delete",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "RentalDelete"
+          },
+          "width": 52,
+          "height": 20,
+          "x": 254,
+          "y": 83
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_set",
+          "text": "Set",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "RentalSet"
+          },
+          "width": 52,
+          "height": 20,
+          "x": 254,
+          "y": 61
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_x",
+          "text": {
+            "fixedValue": "x"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 128,
+          "y": 91
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_z",
+          "text": {
+            "fixedValue": "z"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 155,
+          "y": 91
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_rental_area_locked",
+          "text": {
+            "fixedValue": "",
+            "name": "RentalAreaLocked"
+          },
+          "color": {
+            "value": -13421824,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "RentalIsLocked"
+          },
+          "x": 189,
+          "y": 46
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

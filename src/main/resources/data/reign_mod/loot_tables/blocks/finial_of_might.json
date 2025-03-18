@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "reign_mod:blocks/finial_of_might",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "reign_mod:finial_of_might"
+        }
+      ]
+    }
+  ]
+}

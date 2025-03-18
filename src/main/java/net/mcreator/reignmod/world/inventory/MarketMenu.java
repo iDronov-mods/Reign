@@ -24,9 +24,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
-import net.mcreator.reignmod.procedures.MarketUpdateProcedure;
+import net.mcreator.reignmod.procedures.MarketUpdateTickProcedure;
 import net.mcreator.reignmod.procedures.MarketPlaceProcedure;
-import net.mcreator.reignmod.procedures.CloseMarketProcedure;
 import net.mcreator.reignmod.procedures.ClearMarketSlotsProcedure;
 import net.mcreator.reignmod.network.MarketSlotMessage;
 import net.mcreator.reignmod.init.ReignModModMenus;
@@ -1049,7 +1048,7 @@ public class MarketMenu extends AbstractContainerMenu implements Supplier<Map<In
 				this.addSlot(new Slot(inv, sj + (si + 1) * 9, 144 + 8 + sj * 18, 0 + 84 + si * 18));
 		for (int si = 0; si < 9; ++si)
 			this.addSlot(new Slot(inv, si, 144 + 8 + si * 18, 0 + 142));
-		ClearMarketSlotsProcedure.execute(world, entity);
+		ClearMarketSlotsProcedure.execute();
 	}
 
 	@Override
@@ -1176,9 +1175,6 @@ public class MarketMenu extends AbstractContainerMenu implements Supplier<Map<In
 	@Override
 	public void removed(Player playerIn) {
 		super.removed(playerIn);
-		if (this.world != null && this.world.isClientSide) {
-			textBoxStart();
-		}
 		if (!bound && playerIn instanceof ServerPlayer serverPlayer) {
 			if (!serverPlayer.isAlive() || serverPlayer.hasDisconnected()) {
 				for (int j = 0; j < internal.getSlots(); ++j) {
@@ -1491,11 +1487,6 @@ public class MarketMenu extends AbstractContainerMenu implements Supplier<Map<In
 		}
 	}
 
-	public void textBoxStart() {
-		ReignModMod.PACKET_HANDLER.sendToServer(new MarketOtherMessage(1, x, y, z, MarketScreen.getTextboxValues()));
-		MarketOtherMessage.handleOtherAction(entity, 1, x, y, z, MarketScreen.getTextboxValues());
-	}
-
 	public Map<Integer, Slot> get() {
 		return customSlots;
 	}
@@ -1555,10 +1546,7 @@ public class MarketMenu extends AbstractContainerMenu implements Supplier<Map<In
 			if (!world.hasChunkAt(new BlockPos(x, y, z)))
 				return;
 			if (mode == 0) {
-				MarketUpdateProcedure.execute(world, entity);
-			}
-			if (mode == 1) {
-				CloseMarketProcedure.execute(world, x, y, z, entity);
+				MarketUpdateTickProcedure.execute(world, entity);
 			}
 		}
 

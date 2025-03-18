@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aba",
+    "aba",
+    "aba"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:charcoal"
+    },
+    "b": {
+      "item": "minecraft:cobbled_deepslate"
+    }
+  },
+  "result": {
+    "item": "reign_mod:shaft",
+    "count": 1
+  }
+}

@@ -15,6 +15,8 @@ import net.minecraft.core.BlockPos;
 import net.mcreator.reignmod.world.inventory.WoodcutterwindowMenu;
 import net.mcreator.reignmod.procedures.WinViewOpenProcedure;
 import net.mcreator.reignmod.procedures.RefuseMainLicensesWinProcedure;
+import net.mcreator.reignmod.procedures.LvlUpRProcedure;
+import net.mcreator.reignmod.procedures.LvlUpProcedure;
 import net.mcreator.reignmod.procedures.ChooseWoodcutterProcedure;
 import net.mcreator.reignmod.ReignModMod;
 
@@ -79,15 +81,39 @@ public class WoodcutterwindowButtonMessage {
 			return;
 		if (buttonID == 0) {
 
-			RefuseMainLicensesWinProcedure.execute(world, x, y, z, entity);
+			ChooseWoodcutterProcedure.execute(entity);
 		}
 		if (buttonID == 1) {
 
-			ChooseWoodcutterProcedure.execute(entity);
+			WinViewOpenProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 2) {
 
-			WinViewOpenProcedure.execute(world, x, y, z, entity);
+			RefuseMainLicensesWinProcedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 3) {
+
+			LvlUpProcedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 4) {
+
+			LvlUpProcedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 5) {
+
+			LvlUpProcedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 6) {
+
+			LvlUpRProcedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 7) {
+
+			LvlUpProcedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 8) {
+
+			LvlUpProcedure.execute(world, x, y, z, entity);
 		}
 	}
 

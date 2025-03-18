@@ -3,7 +3,10 @@
   "textures": {
     "all": "minecraft:block/oak_planks",
     "particle": "minecraft:block/oak_planks",
-    "0": "reign_mod:block/trader_texture"
+    "copper_coin": "reign_mod:block/copper_coin",
+    "missing": "reign_mod:block/",
+    "main_texture": "reign_mod:block/trader_texture",
+    "silver_coin": "reign_mod:block/silver_coin"
   },
   "render_type": "solid"
 }

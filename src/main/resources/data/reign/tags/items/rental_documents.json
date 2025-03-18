@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "reign_mod:private_rental_1",
+    "reign_mod:private_rental_2",
+    "reign_mod:private_rental_3",
+    "reign_mod:state_rental_1",
+    "reign_mod:state_rental_2",
+    "reign_mod:state_rental_3"
+  ]
+}

@@ -33,7 +33,13 @@
         "subtract": false
       }
     ],
-    "customProperties": [],
+    "customProperties": [
+      {
+        "name": "CUSTOM:locked",
+        "type": "logic",
+        "value": false
+      }
+    ],
     "name": "Rental Block",
     "specialInformation": {
       "fixedValue": []
@@ -105,15 +111,17 @@
     "unbreakable": false,
     "vanillaToolTier": "NONE",
     "isBonemealable": false,
-    "hasInventory": false,
-    "guiBoundTo": "<NONE>",
-    "openGUIOnRightClick": false,
-    "inventorySize": 9,
+    "hasInventory": true,
+    "guiBoundTo": "RentalBlockUI",
+    "openGUIOnRightClick": true,
+    "inventorySize": 2,
     "inventoryStackSize": 64,
     "inventoryDropWhenDestroyed": true,
-    "inventoryComparatorPower": true,
+    "inventoryComparatorPower": false,
     "inventoryOutSlotIDs": [],
-    "inventoryInSlotIDs": [],
+    "inventoryInSlotIDs": [
+      0
+    ],
     "hasEnergyStorage": false,
     "energyInitial": 0,
     "energyCapacity": 400000,
@@ -122,6 +130,15 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
+    "onDestroyedByPlayer": {
+      "name": "RentalBlockDestroy"
+    },
+    "onDestroyedByExplosion": {
+      "name": "RentalBlockDestroy"
+    },
+    "onStartToDestroy": {
+      "name": "RentalBlockBreak"
+    },
     "generateFeature": false,
     "restrictionBiomes": [],
     "blocksToReplace": [

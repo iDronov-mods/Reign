@@ -15,7 +15,7 @@ import net.mcreator.reignmod.procedures.TextMarketTaxProcedure;
 import net.mcreator.reignmod.procedures.ReturnMarketBar33Procedure;
 import net.mcreator.reignmod.procedures.ReturnMarketBar23Procedure;
 import net.mcreator.reignmod.procedures.ReturnMarketBar13Procedure;
-import net.mcreator.reignmod.procedures.ReturnMarketBar03Procedure;
+import net.mcreator.reignmod.procedures.CopperCostTextProcedure;
 import net.mcreator.reignmod.network.MarketButtonMessage;
 import net.mcreator.reignmod.ReignModMod;
 
@@ -68,16 +68,15 @@ public class MarketScreen extends AbstractContainerScreen<MarketMenu> {
 
 		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/gold_coin.png"), this.leftPos + 57, this.topPos + -14, 0, 0, 16, 16, 16, 16);
 
-		if (ReturnMarketBar03Procedure.execute(entity)) {
-			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/count_bar0-3.png"), this.leftPos + 106, this.topPos + 90, 0, 0, 31, 6, 31, 6);
-		}
-		if (ReturnMarketBar13Procedure.execute(world, entity)) {
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/count_bar0-3.png"), this.leftPos + 106, this.topPos + 90, 0, 0, 31, 6, 31, 6);
+
+		if (ReturnMarketBar13Procedure.execute(entity)) {
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/count_bar1-3.png"), this.leftPos + 106, this.topPos + 90, 0, 0, 31, 6, 31, 6);
 		}
-		if (ReturnMarketBar23Procedure.execute(world, entity)) {
+		if (ReturnMarketBar23Procedure.execute(entity)) {
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/count_bar2-3.png"), this.leftPos + 106, this.topPos + 90, 0, 0, 31, 6, 31, 6);
 		}
-		if (ReturnMarketBar33Procedure.execute(world, entity)) {
+		if (ReturnMarketBar33Procedure.execute(entity)) {
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/count_bar3-3.png"), this.leftPos + 106, this.topPos + 90, 0, 0, 31, 6, 31, 6);
 		}
 
@@ -115,7 +114,10 @@ public class MarketScreen extends AbstractContainerScreen<MarketMenu> {
 		guiGraphics.drawString(this.font,
 
 				WalletOutsideCostProcedure.execute(entity), 15, 167, -1, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.market.label_price"), 15, 90, -3355444, false);
+		guiGraphics.drawString(this.font,
+
+				CopperCostTextProcedure.execute(entity), 15, 90, -3355444, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.market.label_market_wallet"), 74, -11, -3355444, false);
 	}
 
 	@Override

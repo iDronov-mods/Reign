@@ -15,7 +15,6 @@ import net.minecraft.advancements.AdvancementProgress;
 import net.minecraft.advancements.Advancement;
 
 import net.mcreator.reignmod.network.ReignModModVariables;
-import net.mcreator.reignmod.house.HouseManager;
 
 import javax.annotation.Nullable;
 
@@ -35,20 +34,19 @@ public class EnterPayProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return;
-		double value = 0;
 		String prefix = "";
+		double value = 0;
 		if (IsKingProcedure.execute(world, entity)) {
 			if (!world.isClientSide() && world.getServer() != null)
 				world.getServer().getPlayerList().broadcastSystemMessage(Component.literal((Component.translatable("KingOnline").getString())), false);
 		}
-		if (!((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).LastEnter_Day == Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
-				&& (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).LastEnter_Month == Calendar.getInstance().get(Calendar.MONTH))) {
-			if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).LastEnter_Day == Calendar.getInstance().get(Calendar.DAY_OF_MONTH) - 1
-					&& (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).LastEnter_Month == Calendar.getInstance().get(Calendar.MONTH)
-					|| Calendar.getInstance().get(Calendar.DAY_OF_MONTH) == 1
-							&& ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).LastEnter_Day == 30
-									|| (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).LastEnter_Day == 31)
-							&& (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).LastEnter_Month == Calendar.getInstance().get(Calendar.MONTH) - 1) {
+		if (!((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).LastEnter_Day == Calendar.getInstance().get(Calendar.DAY_OF_WEEK)
+				&& (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).LastEnter_Week == Calendar.getInstance().get(Calendar.WEEK_OF_YEAR))) {
+			if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).LastEnter_Day == Calendar.getInstance().get(Calendar.DAY_OF_WEEK) - 1
+					&& (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).LastEnter_Week == Calendar.getInstance().get(Calendar.WEEK_OF_YEAR)
+					|| (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).LastEnter_Week == Calendar.getInstance().get(Calendar.WEEK_OF_YEAR) - 1
+							&& (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).LastEnter_Day == 7
+					|| (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).LastEnter_Week == 52 && Calendar.getInstance().get(Calendar.WEEK_OF_YEAR) == 1) {
 				{
 					double _setval = (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline + 1;
 					entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
@@ -68,32 +66,14 @@ public class EnterPayProcedure {
 			if (entity instanceof Player _player && !_player.level().isClientSide())
 				_player.displayClientMessage(Component.literal((Component.translatable("count_days").getString() + " "
 						+ new java.text.DecimalFormat("##").format((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline))), false);
-			if (IsKingProcedure.execute(world, entity)) {
-				value = HouseManager.getHousesCount() * 256
-						+ HouseManager.getHousePlayerCount((Player) entity) * 64 * (1 + 0.05 * (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline);
-				WalletGiveProcedure.execute(entity, value);
-				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal((Component.translatable("pay_king").getString() + " \u00A7l" + new java.text.DecimalFormat("##").format(value) + "\u00A7r " + Component.translatable("copper_coins_pay").getString())),
-							false);
-			} else if (IsLordProcedure.execute(world, entity)) {
-				value = HouseManager.getHousePlayerCount((Player) entity) * 64 * (1 + 0.05 * (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline);
-				WalletGiveProcedure.execute(entity, value);
-				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal((Component.translatable("pay_lord").getString() + " \u00A7l" + new java.text.DecimalFormat("##").format(value) + "\u00A7r " + Component.translatable("copper_coins_pay").getString())),
-							false);
-			} else if (IsKnightProcedure.execute(world, entity)) {
-				value = HouseManager.getDomainPlayerCount((Player) entity) * 32 * (1 + 0.05 * (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline);
-				WalletGiveProcedure.execute(entity, value);
-				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(
-							Component.literal((Component.translatable("pay_knight").getString() + " \u00A7l" + new java.text.DecimalFormat("##").format(value) + "\u00A7r " + Component.translatable("copper_coins_pay").getString())), false);
-			} else if (IsSlaveProcedure.execute(world, entity)) {
-				value = 16 * (1 + 0.1 * (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline);
-				WalletGiveProcedure.execute(entity, value);
-				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(
-							Component.literal((Component.translatable("pay_slave").getString() + " \u00A7l" + new java.text.DecimalFormat("##").format(value) + "\u00A7r " + Component.translatable("copper_coins_pay").getString())), false);
+			value = 8 + (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline * 8;
+			if (value >= 550) {
+				value = 550;
 			}
+			if (entity instanceof Player _player)
+				_player.giveExperiencePoints((int) value);
+			if (entity instanceof Player _player && !_player.level().isClientSide())
+				_player.displayClientMessage(Component.literal((Component.translatable("translation.key.get_dailypay_exp").getString() + " " + value)), false);
 		}
 		if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline == 7) {
 			if (entity instanceof ServerPlayer _player) {
@@ -122,6 +102,15 @@ public class EnterPayProcedure {
 						_player.getAdvancements().award(_adv, criteria);
 				}
 			}
+		} else if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline >= 100) {
+			if (entity instanceof ServerPlayer _player) {
+				Advancement _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation("reign_mod:days_online_30"));
+				AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
+				if (!_ap.isDone()) {
+					for (String criteria : _ap.getRemainingCriteria())
+						_player.getAdvancements().award(_adv, criteria);
+				}
+			}
 		}
 		{
 			double _setval = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
@@ -131,9 +120,9 @@ public class EnterPayProcedure {
 			});
 		}
 		{
-			double _setval = Calendar.getInstance().get(Calendar.MONTH);
+			double _setval = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
 			entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-				capability.LastEnter_Month = _setval;
+				capability.LastEnter_Week = _setval;
 				capability.syncPlayerVariables(entity);
 			});
 		}

@@ -2,87 +2,27 @@ package net.mcreator.reignmod.basics;
 
 import net.mcreator.reignmod.configuration.ReignCommonConfiguration;
 import net.mcreator.reignmod.configuration.ReignMarketConfiguration;
+import net.mcreator.reignmod.market.MarketItem;
 
 import java.util.HashMap;
 
 public class ConfigLoader {
-
-    // Вспомогательный Record для хранения цены и максимального количества товара
-    public record MarketItem(double price, double maxAmount, double inPack) {}
-
     // -------------------- Переменные и структуры данных --------------------
 
     // Хранение данных товаров: ключ – название предмета, значение – объект с ценой и макс количеством
     private static final HashMap<String, MarketItem> marketItems = new HashMap<>();
+
+    // ---------- Getter для карты товаров ----------
+    public static HashMap<String, MarketItem> getMarketItems() {
+        return marketItems;
+    }
+
 
     // Статические переменные для настроек из ReignCommonConfiguration
     private static boolean DISABLE_VANILLA_VILLAGERS;
     private static boolean DISABLE_MARKET_TAX;
     private static boolean DISABLE_HOUSE_FEEDING;
     private static boolean DISABLE_DAILY_PAYOUTS;
-
-    // -------------------- Публичные методы класса --------------------
-
-    /**
-     * Метод инициализации, который должен быть вызван для загрузки конфигураций.
-     * Вызывает загрузку как рыночных цен, так и общих настроек.
-     */
-    public static void initialize() {
-        loadMarketPrices();
-        loadCommonConfig();
-    }
-
-    // ---------- Методы файла конфигурации "Городской рынок" ----------
-
-    /**
-     * Возвращает цену предмета по его названию.
-     *
-     * @param itemName имя предмета (например, "iron_sword")
-     * @return цена предмета или null, если предмет не найден
-     */
-    public static Double getPrice(String itemName) {
-        MarketItem item = marketItems.get(itemName);
-        return (item != null) ? item.price() : null;
-    }
-
-    /**
-     * Возвращает максимальное количество товара для указанного предмета.
-     *
-     * @param itemName имя предмета (например, "iron_sword")
-     * @return максимальное количество или null, если предмет не найден
-     */
-    public static Double getMaxAmount(String itemName) {
-        MarketItem item = marketItems.get(itemName);
-        return (item != null) ? item.maxAmount() : null;
-    }
-
-    /**
-     * Возвращает количество товара в одной пачке для указанного предмета.
-     *
-     * @param itemName имя предмета (например, "iron_sword")
-     * @return максимальное количество или null, если предмет не найден
-     */
-    public static Double getInPack(String itemName) {
-        MarketItem item = marketItems.get(itemName);
-        return (item != null) ? item.inPack() : null;
-    }
-
-    /**
-     * Проверяет наличие ключа в HashMap.
-     *
-     * @param itemName имя предмета (например, "iron_sword")
-     * @return true, если предмет записан в marketItems, иначе false;
-     */
-    public static boolean itemInMarket(String item) {
-        return marketItems.containsKey(item);
-    }
-
-    /**
-     * Возвращает словарь товаров с их ценами и максимальным количеством.
-     */
-    public static HashMap<String, MarketItem> getMarketItems() {
-        return marketItems;
-    }
 
     // ---------- Методы файла конфигурации "Общие настройки" ----------
 
@@ -134,6 +74,15 @@ public class ConfigLoader {
         double validBasePrice = clamp(basePrice, 4.0, 4096.0);
         double computedPrice = validBasePrice * validMultiplier;
         return clamp(computedPrice, 4.0, 8192.0);
+    }
+
+    /**
+     * Метод инициализации, который должен быть вызван для загрузки конфигураций.
+     * Вызывает загрузку как рыночных цен, так и общих настроек.
+     */
+    public static void initialize() {
+        loadMarketPrices();
+        loadCommonConfig();
     }
 
     /**

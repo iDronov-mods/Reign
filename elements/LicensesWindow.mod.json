@@ -137,6 +137,9 @@
           "name": "imagebutton_icon_license_slot",
           "image": "icon_license_slot.png",
           "hoveredImage": "icon_license_hover.png",
+          "onClick": {
+            "name": "OpenMinerWindow"
+          },
           "displayCondition": {
             "name": "ReturnReverseNotMiner"
           },
@@ -406,6 +409,9 @@
           "name": "imagebutton_icon_license_slot2",
           "image": "icon_license_slot.png",
           "hoveredImage": "icon_license_hover.png",
+          "onClick": {
+            "name": "OpenSmithWindow"
+          },
           "displayCondition": {
             "name": "ReturnReverseNotSmith"
           },
@@ -419,6 +425,9 @@
           "name": "imagebutton_icon_license_slot3",
           "image": "icon_license_slot.png",
           "hoveredImage": "icon_license_hover.png",
+          "onClick": {
+            "name": "OpenFarmerWindow"
+          },
           "displayCondition": {
             "name": "ReturnReverseNotFarmer"
           },
@@ -432,6 +441,9 @@
           "name": "imagebutton_icon_license_slot4",
           "image": "icon_license_slot.png",
           "hoveredImage": "icon_license_hover.png",
+          "onClick": {
+            "name": "OpenCowboyWindow"
+          },
           "displayCondition": {
             "name": "ReturnReverseNotCowboy"
           },
@@ -446,7 +458,7 @@
           "image": "icon_license_slot.png",
           "hoveredImage": "icon_license_hover.png",
           "onClick": {
-            "name": "ChooseAlchemist"
+            "name": "OpenAlchemistWindow"
           },
           "displayCondition": {
             "name": "ReturnReverseNotAlchemist"
@@ -462,7 +474,7 @@
           "image": "icon_license_slot.png",
           "hoveredImage": "icon_license_hover.png",
           "onClick": {
-            "name": "ChooseEnchanter"
+            "name": "OpenEnchanterWindow"
           },
           "displayCondition": {
             "name": "ReturnReverseNotEnchanter"
@@ -478,7 +490,7 @@
           "image": "icon_license_slot.png",
           "hoveredImage": "icon_license_hover.png",
           "onClick": {
-            "name": "ChooseSoldier"
+            "name": "OpenSoldierWindow"
           },
           "displayCondition": {
             "name": "ReturnReverseNotSoldier"
@@ -494,7 +506,7 @@
           "image": "icon_license_slot.png",
           "hoveredImage": "icon_license_hover.png",
           "onClick": {
-            "name": "ChooseHunter"
+            "name": "OpenHunterWindow"
           },
           "displayCondition": {
             "name": "ReturnReverseNotHunter"
@@ -510,7 +522,7 @@
           "image": "icon_license_slot.png",
           "hoveredImage": "icon_license_hover.png",
           "onClick": {
-            "name": "ChooseFisher"
+            "name": "OpenFisherWindow"
           },
           "displayCondition": {
             "name": "ReturnReverseNotFisher"
@@ -647,7 +659,7 @@
           "displayCondition": {
             "name": "MainButtonUp"
           },
-          "x": 163,
+          "x": 173,
           "y": 30
         }
       },
@@ -659,7 +671,7 @@
           "displayCondition": {
             "name": "AddButtonUp"
           },
-          "x": 163,
+          "x": 173,
           "y": 42
         }
       }

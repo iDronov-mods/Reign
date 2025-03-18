@@ -14,11 +14,15 @@ import net.minecraft.core.BlockPos;
 
 import net.mcreator.reignmod.world.inventory.LicensesWindowMenu;
 import net.mcreator.reignmod.procedures.OpenWoodcutterWindowProcedure;
-import net.mcreator.reignmod.procedures.ChooseSoldierProcedure;
-import net.mcreator.reignmod.procedures.ChooseHunterProcedure;
-import net.mcreator.reignmod.procedures.ChooseFisherProcedure;
-import net.mcreator.reignmod.procedures.ChooseEnchanterProcedure;
-import net.mcreator.reignmod.procedures.ChooseAlchemistProcedure;
+import net.mcreator.reignmod.procedures.OpenSoldierWindowProcedure;
+import net.mcreator.reignmod.procedures.OpenSmithWindowProcedure;
+import net.mcreator.reignmod.procedures.OpenMinerWindowProcedure;
+import net.mcreator.reignmod.procedures.OpenHunterWindowProcedure;
+import net.mcreator.reignmod.procedures.OpenFisherWindowProcedure;
+import net.mcreator.reignmod.procedures.OpenFarmerWindowProcedure;
+import net.mcreator.reignmod.procedures.OpenEnchanterWindowProcedure;
+import net.mcreator.reignmod.procedures.OpenCowboyWindowProcedure;
+import net.mcreator.reignmod.procedures.OpenAlchemistWindowProcedure;
 import net.mcreator.reignmod.ReignModMod;
 
 import java.util.function.Supplier;
@@ -80,29 +84,45 @@ public class LicensesWindowButtonMessage {
 		// security measure to prevent arbitrary chunk generation
 		if (!world.hasChunkAt(new BlockPos(x, y, z)))
 			return;
+		if (buttonID == 0) {
+
+			OpenMinerWindowProcedure.execute(world, x, y, z, entity);
+		}
 		if (buttonID == 1) {
 
 			OpenWoodcutterWindowProcedure.execute(world, x, y, z, entity);
 		}
+		if (buttonID == 2) {
+
+			OpenSmithWindowProcedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 3) {
+
+			OpenFarmerWindowProcedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 4) {
+
+			OpenCowboyWindowProcedure.execute(world, x, y, z, entity);
+		}
 		if (buttonID == 5) {
 
-			ChooseAlchemistProcedure.execute(entity);
+			OpenAlchemistWindowProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 6) {
 
-			ChooseEnchanterProcedure.execute(entity);
+			OpenEnchanterWindowProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 7) {
 
-			ChooseSoldierProcedure.execute(entity);
+			OpenSoldierWindowProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 8) {
 
-			ChooseHunterProcedure.execute(entity);
+			OpenHunterWindowProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 9) {
 
-			ChooseFisherProcedure.execute(entity);
+			OpenFisherWindowProcedure.execute(world, x, y, z, entity);
 		}
 	}
 

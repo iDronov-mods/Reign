@@ -2,23 +2,22 @@ package net.mcreator.reignmod.procedures;
 
 import net.minecraftforge.registries.ForgeRegistries;
 
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.core.BlockPos;
 
-import net.mcreator.reignmod.network.ReignModModVariables;
+import net.mcreator.reignmod.market.MarketManager;
 
 import java.util.function.Supplier;
 import java.util.Map;
 
 public class ReturnMarketBar13Procedure {
-	public static boolean execute(LevelAccessor world, Entity entity) {
+	public static boolean execute(Entity entity) {
 		if (entity == null)
 			return false;
+		String stringName = "";
+		double k = 0;
 		if (new Object() {
 			public int getAmount(int sltid) {
 				if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
@@ -28,26 +27,11 @@ public class ReturnMarketBar13Procedure {
 				}
 				return 0;
 			}
-		}.getAmount(69) != 0) {
-			if (KpricesetProcedure.execute(new Object() {
-				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
-					BlockEntity blockEntity = world.getBlockEntity(pos);
-					if (blockEntity != null)
-						return blockEntity.getPersistentData().getDouble(tag);
-					return -1;
-				}
-			}.getValue(world, BlockPos.containing(ReignModModVariables.MapVariables.get(world).CAPITAL_X, ReignModModVariables.MapVariables.get(world).CAPITAL_Y, ReignModModVariables.MapVariables.get(world).CAPITAL_Z), (ForgeRegistries.ITEMS
-					.getKey((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(69)).getItem() : ItemStack.EMPTY).getItem()).toString())), new Object() {
-						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
-							BlockEntity blockEntity = world.getBlockEntity(pos);
-							if (blockEntity != null)
-								return blockEntity.getPersistentData().getDouble(tag);
-							return -1;
-						}
-					}.getValue(world, BlockPos.containing(ReignModModVariables.MapVariables.get(world).CAPITAL_X, ReignModModVariables.MapVariables.get(world).CAPITAL_Y, ReignModModVariables.MapVariables.get(world).CAPITAL_Z),
-							((ForgeRegistries.ITEMS
-									.getKey((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(69)).getItem() : ItemStack.EMPTY).getItem()).toString())
-									+ "_max"))) == 1) {
+		}.getAmount(68) != 0) {
+			stringName = ForgeRegistries.ITEMS.getKey((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(68)).getItem() : ItemStack.EMPTY).getItem())
+					.toString();
+			k = MarketManager.getItemCount(stringName) / MarketManager.getMaxAmount(stringName);
+			if (k >= 0.25 && k < 0.5) {
 				return true;
 			}
 		}

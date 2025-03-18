@@ -64,9 +64,11 @@ public class ReignModModTabs {
 				tabData.accept(ReignModModBlocks.PRIVATEDOOR.get().asItem());
 				tabData.accept(ReignModModBlocks.RENTAL_BLOCK.get().asItem());
 				tabData.accept(ReignModModBlocks.OBELISK_FOUNDATION.get().asItem());
-				tabData.accept(ReignModModBlocks.OBELISK_STEM.get().asItem());
-				tabData.accept(ReignModModBlocks.OBELISK_CAP.get().asItem());
-				tabData.accept(ReignModModBlocks.OBELISK_CAP_KNIGHT.get().asItem());
+				tabData.accept(ReignModModItems.ENDER_PICKLOCK.get());
+				tabData.accept(ReignModModItems.SHACKLES.get());
+				tabData.accept(ReignModModBlocks.FINIAL_OF_REIGN.get().asItem());
+				tabData.accept(ReignModModBlocks.FINIAL_OF_MIGHT.get().asItem());
+				tabData.accept(ReignModModBlocks.SHAFT.get().asItem());
 			})
 
 					.build());

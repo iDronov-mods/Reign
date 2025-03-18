@@ -2,7 +2,8 @@
   "mappings": {
     "default": {
       "map": {
-        "0": "hoarder_texture"
+        "copper_coin": "copper_coin",
+        "4": "hoarder_texture"
       },
       "name": "default"
     }

@@ -1,0 +1,48 @@
+{
+  "_fv": 69,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "Items.COAL#1"
+      },
+      {
+        "value": "Blocks.SMOOTH_STONE"
+      },
+      {
+        "value": "Items.COAL#1"
+      },
+      {
+        "value": "Items.COAL#1"
+      },
+      {
+        "value": "Blocks.COBBLED_DEEPSLATE"
+      },
+      {
+        "value": "Items.COAL#1"
+      },
+      {
+        "value": "Items.COAL#1"
+      },
+      {
+        "value": "Blocks.COBBLED_DEEPSLATE"
+      },
+      {
+        "value": "Items.COAL#1"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:FinialOfReign"
+    },
+    "name": "r_finial_of_reign",
+    "namespace": "mod"
+  }
+}

@@ -271,6 +271,42 @@
           "x": 92,
           "y": 48
         }
+      },
+      {
+        "type": "textfield",
+        "data": {
+          "placeholder": "",
+          "name": "owners",
+          "width": 67,
+          "height": 20,
+          "x": 189,
+          "y": 54
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_seal",
+          "image": "seal.png",
+          "hoveredImage": "seal_hover.png",
+          "onClick": {
+            "name": "KingTableNBTSet"
+          },
+          "x": 194,
+          "y": 96
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "seal_done.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "RentalSealDone"
+          },
+          "x": 191,
+          "y": 96
+        }
       }
     ],
     "onOpen": {

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "reign_mod:block/finial_of_reign"
+    },
+    "facing=east": {
+      "model": "reign_mod:block/finial_of_reign",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "reign_mod:block/finial_of_reign",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "reign_mod:block/finial_of_reign",
+      "y": 270
+    }
+  }
+}

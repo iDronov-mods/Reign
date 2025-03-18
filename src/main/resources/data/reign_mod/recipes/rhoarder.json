@@ -2,19 +2,18 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-    " a ",
-    "bcb",
-    "bbb"
+    "aba",
+    "ccc"
   ],
   "key": {
     "a": {
-      "item": "reign_mod:copper_coin"
+      "tag": "minecraft:logs"
     },
     "b": {
-      "item": "minecraft:white_terracotta"
+      "tag": "minecraft:dirt"
     },
     "c": {
-      "tag": "minecraft:dirt"
+      "item": "minecraft:white_terracotta"
     }
   },
   "result": {

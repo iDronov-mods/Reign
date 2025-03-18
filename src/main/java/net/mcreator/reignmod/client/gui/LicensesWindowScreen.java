@@ -221,10 +221,10 @@ public class LicensesWindowScreen extends AbstractContainerScreen<LicensesWindow
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/icon_license_closed.png"), this.leftPos + 142, this.topPos + 155, 0, 0, 16, 16, 16, 16);
 		}
 		if (MainButtonUpProcedure.execute(entity)) {
-			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/lvl_up_button.png"), this.leftPos + 37, this.topPos + -7, 0, 0, 8, 8, 8, 8);
+			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/lvl_up_button.png"), this.leftPos + 47, this.topPos + -7, 0, 0, 8, 8, 8, 8);
 		}
 		if (AddButtonUpProcedure.execute(entity)) {
-			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/lvl_up_button.png"), this.leftPos + 37, this.topPos + 5, 0, 0, 8, 8, 8, 8);
+			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/lvl_up_button.png"), this.leftPos + 47, this.topPos + 5, 0, 0, 8, 8, 8, 8);
 		}
 		RenderSystem.disableBlend();
 	}
@@ -246,6 +246,10 @@ public class LicensesWindowScreen extends AbstractContainerScreen<LicensesWindow
 	public void init() {
 		super.init();
 		imagebutton_icon_license_slot = new ImageButton(this.leftPos + -28, this.topPos + 31, 20, 20, 0, 0, 20, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_icon_license_slot.png"), 20, 40, e -> {
+			if (ReturnReverseNotMinerProcedure.execute(entity)) {
+				ReignModMod.PACKET_HANDLER.sendToServer(new LicensesWindowButtonMessage(0, x, y, z, textstate));
+				LicensesWindowButtonMessage.handleButtonAction(entity, 0, x, y, z, textstate);
+			}
 		}) {
 			@Override
 			public void render(GuiGraphics guiGraphics, int gx, int gy, float ticks) {
@@ -270,6 +274,10 @@ public class LicensesWindowScreen extends AbstractContainerScreen<LicensesWindow
 		guistate.put("button:imagebutton_icon_license_slot1", imagebutton_icon_license_slot1);
 		this.addRenderableWidget(imagebutton_icon_license_slot1);
 		imagebutton_icon_license_slot2 = new ImageButton(this.leftPos + -42, this.topPos + 73, 20, 20, 0, 0, 20, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_icon_license_slot2.png"), 20, 40, e -> {
+			if (ReturnReverseNotSmithProcedure.execute(entity)) {
+				ReignModMod.PACKET_HANDLER.sendToServer(new LicensesWindowButtonMessage(2, x, y, z, textstate));
+				LicensesWindowButtonMessage.handleButtonAction(entity, 2, x, y, z, textstate);
+			}
 		}) {
 			@Override
 			public void render(GuiGraphics guiGraphics, int gx, int gy, float ticks) {
@@ -280,6 +288,10 @@ public class LicensesWindowScreen extends AbstractContainerScreen<LicensesWindow
 		guistate.put("button:imagebutton_icon_license_slot2", imagebutton_icon_license_slot2);
 		this.addRenderableWidget(imagebutton_icon_license_slot2);
 		imagebutton_icon_license_slot3 = new ImageButton(this.leftPos + -28, this.topPos + 115, 20, 20, 0, 0, 20, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_icon_license_slot3.png"), 20, 40, e -> {
+			if (ReturnReverseNotFarmerProcedure.execute(entity)) {
+				ReignModMod.PACKET_HANDLER.sendToServer(new LicensesWindowButtonMessage(3, x, y, z, textstate));
+				LicensesWindowButtonMessage.handleButtonAction(entity, 3, x, y, z, textstate);
+			}
 		}) {
 			@Override
 			public void render(GuiGraphics guiGraphics, int gx, int gy, float ticks) {
@@ -290,6 +302,10 @@ public class LicensesWindowScreen extends AbstractContainerScreen<LicensesWindow
 		guistate.put("button:imagebutton_icon_license_slot3", imagebutton_icon_license_slot3);
 		this.addRenderableWidget(imagebutton_icon_license_slot3);
 		imagebutton_icon_license_slot4 = new ImageButton(this.leftPos + 14, this.topPos + 153, 20, 20, 0, 0, 20, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_icon_license_slot4.png"), 20, 40, e -> {
+			if (ReturnReverseNotCowboyProcedure.execute(entity)) {
+				ReignModMod.PACKET_HANDLER.sendToServer(new LicensesWindowButtonMessage(4, x, y, z, textstate));
+				LicensesWindowButtonMessage.handleButtonAction(entity, 4, x, y, z, textstate);
+			}
 		}) {
 			@Override
 			public void render(GuiGraphics guiGraphics, int gx, int gy, float ticks) {

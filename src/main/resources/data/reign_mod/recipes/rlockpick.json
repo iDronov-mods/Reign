@@ -3,7 +3,7 @@
   "category": "misc",
   "pattern": [
     "a  ",
-    " a ",
+    " b ",
     "  b"
   ],
   "key": {
@@ -11,7 +11,7 @@
       "item": "minecraft:iron_nugget"
     },
     "b": {
-      "item": "minecraft:iron_block"
+      "item": "minecraft:iron_ingot"
     }
   },
   "result": {

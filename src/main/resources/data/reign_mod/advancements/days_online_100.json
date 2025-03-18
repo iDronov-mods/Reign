@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:netherite_pickaxe"
+    },
+    "title": {
+      "translate": "advancements.days_online_100.title"
+    },
+    "description": {
+      "translate": "advancements.days_online_100.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "days_online_100_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 3000
+  },
+  "parent": "reign_mod:days_online_30"
+}

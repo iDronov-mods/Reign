@@ -42,6 +42,8 @@ public class TraderPointScreen extends AbstractContainerScreen<TraderPointMenu> 
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
 		if (mouseX > leftPos + 117 && mouseX < leftPos + 141 && mouseY > topPos + -20 && mouseY < topPos + 4)
 			guiGraphics.renderTooltip(font, Component.translatable("gui.reign_mod.trader_point.tooltip_sell_your_goods_to_the_capital"), mouseX, mouseY);
+		if (mouseX > leftPos + 0 && mouseX < leftPos + 18 && mouseY > topPos + 167 && mouseY < topPos + 185)
+			guiGraphics.renderTooltip(font, Component.translatable("gui.reign_mod.trader_point.tooltip_coinage_help"), mouseX, mouseY);
 	}
 
 	@Override
@@ -50,7 +52,7 @@ public class TraderPointScreen extends AbstractContainerScreen<TraderPointMenu> 
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
 
-		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/trader.png"), this.leftPos + 0, this.topPos + 0, 0, 0, 200, 166, 200, 166);
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/trader.png"), this.leftPos + -25, this.topPos + -42, 0, 0, 250, 250, 250, 250);
 
 		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/gold_coin.png"), this.leftPos + 177, this.topPos + 62, 0, 0, 16, 16, 16, 16);
 
@@ -88,6 +90,7 @@ public class TraderPointScreen extends AbstractContainerScreen<TraderPointMenu> 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.trader_point.label_punkt_priioma"), 1, -12, -1, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.trader_point.label_coinage"), 20, 170, -1, false);
 	}
 
 	@Override

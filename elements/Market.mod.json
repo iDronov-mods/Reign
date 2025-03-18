@@ -1261,9 +1261,6 @@
         "data": {
           "image": "count_bar0-3.png",
           "use1Xscale": false,
-          "displayCondition": {
-            "name": "ReturnMarketBar03"
-          },
           "x": 158,
           "y": 127
         }
@@ -1410,7 +1407,8 @@
         "data": {
           "name": "label_price",
           "text": {
-            "fixedValue": "Price"
+            "fixedValue": "Price",
+            "name": "CopperCostText"
           },
           "color": {
             "value": -3355444,
@@ -1419,16 +1417,28 @@
           "x": 67,
           "y": 127
         }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_market_wallet",
+          "text": {
+            "fixedValue": "market_wallet"
+          },
+          "color": {
+            "value": -3355444,
+            "falpha": 0.0
+          },
+          "x": 126,
+          "y": 26
+        }
       }
     ],
     "onOpen": {
       "name": "ClearMarketSlots"
     },
     "onTick": {
-      "name": "MarketUpdate"
-    },
-    "onClosed": {
-      "name": "CloseMarket"
+      "name": "MarketUpdateTick"
     },
     "gridSettings": {
       "sx": 18,

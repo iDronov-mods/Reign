@@ -15,21 +15,21 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraft.world.level.block.Block;
 
 import net.mcreator.reignmod.block.TradeBlockBlock;
+import net.mcreator.reignmod.block.ShaftBlock;
 import net.mcreator.reignmod.block.SafeBlock;
 import net.mcreator.reignmod.block.RockBlock;
 import net.mcreator.reignmod.block.RentalBlockBlock;
 import net.mcreator.reignmod.block.PrivatedoorBlock;
 import net.mcreator.reignmod.block.PrivateShopBlock;
 import net.mcreator.reignmod.block.PlusBlock;
-import net.mcreator.reignmod.block.ObeliskStemBlock;
 import net.mcreator.reignmod.block.ObeliskFoundationBlock;
-import net.mcreator.reignmod.block.ObeliskCapKnightBlock;
-import net.mcreator.reignmod.block.ObeliskCapBlock;
 import net.mcreator.reignmod.block.MarketBlockBlock;
 import net.mcreator.reignmod.block.KingtableBlock;
 import net.mcreator.reignmod.block.IncubatorBlock;
 import net.mcreator.reignmod.block.HoarderBlockBlock;
 import net.mcreator.reignmod.block.FundBlock;
+import net.mcreator.reignmod.block.FinialOfReignBlock;
+import net.mcreator.reignmod.block.FinialOfMightBlock;
 import net.mcreator.reignmod.block.CoffersBlock;
 import net.mcreator.reignmod.ReignModMod;
 
@@ -49,9 +49,9 @@ public class ReignModModBlocks {
 	public static final RegistryObject<Block> PRIVATEDOOR = REGISTRY.register("privatedoor", () -> new PrivatedoorBlock());
 	public static final RegistryObject<Block> RENTAL_BLOCK = REGISTRY.register("rental_block", () -> new RentalBlockBlock());
 	public static final RegistryObject<Block> OBELISK_FOUNDATION = REGISTRY.register("obelisk_foundation", () -> new ObeliskFoundationBlock());
-	public static final RegistryObject<Block> OBELISK_STEM = REGISTRY.register("obelisk_stem", () -> new ObeliskStemBlock());
-	public static final RegistryObject<Block> OBELISK_CAP = REGISTRY.register("obelisk_cap", () -> new ObeliskCapBlock());
-	public static final RegistryObject<Block> OBELISK_CAP_KNIGHT = REGISTRY.register("obelisk_cap_knight", () -> new ObeliskCapKnightBlock());
+	public static final RegistryObject<Block> FINIAL_OF_REIGN = REGISTRY.register("finial_of_reign", () -> new FinialOfReignBlock());
+	public static final RegistryObject<Block> FINIAL_OF_MIGHT = REGISTRY.register("finial_of_might", () -> new FinialOfMightBlock());
+	public static final RegistryObject<Block> SHAFT = REGISTRY.register("shaft", () -> new ShaftBlock());
 
 	// Start of user code block custom blocks
 	// End of user code block custom blocks

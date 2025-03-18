@@ -19,6 +19,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.util.Mth;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.BlockPos;
@@ -65,7 +66,8 @@ public class SmithReapairStoneProcedure {
 								_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.grindstone.use")), SoundSource.NEUTRAL, 1, 1, false);
 							}
 						}
-						world.addParticle(ParticleTypes.LAVA, x, y, z, 1, 1, 1);
+						if (world instanceof ServerLevel _level)
+							_level.sendParticles(ParticleTypes.LAVA, x, y, z, 2, 0.5, 0.5, 0.5, 2);
 					}
 				}
 			}
@@ -78,7 +80,7 @@ public class SmithReapairStoneProcedure {
 							_player.giveExperiencePoints(-8);
 						{
 							ItemStack _ist = (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY);
-							if (_ist.hurt(Mth.nextInt(RandomSource.create(), -12, -4), RandomSource.create(), null)) {
+							if (_ist.hurt(Mth.nextInt(RandomSource.create(), -8, -4), RandomSource.create(), null)) {
 								_ist.shrink(1);
 								_ist.setDamageValue(0);
 							}
@@ -90,7 +92,8 @@ public class SmithReapairStoneProcedure {
 								_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.wood.hit")), SoundSource.NEUTRAL, 1, 1, false);
 							}
 						}
-						world.addParticle(ParticleTypes.ASH, x, y, z, 1, 1, 1);
+						if (world instanceof ServerLevel _level)
+							_level.sendParticles(ParticleTypes.ASH, x, y, z, 2, 0.5, 0.5, 0.5, 2);
 					}
 				}
 			}

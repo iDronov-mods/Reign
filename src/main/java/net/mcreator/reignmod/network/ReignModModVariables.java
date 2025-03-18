@@ -98,6 +98,9 @@ public class ReignModModVariables {
 			clone.license_hunter = original.license_hunter;
 			clone.house = original.house;
 			clone.player_prefix = original.player_prefix;
+			clone.R_LVL = original.R_LVL;
+			clone.LastEnter_Week = original.LastEnter_Week;
+			clone.efficiency = original.efficiency;
 			if (!event.isWasDeath()) {
 			}
 		}
@@ -179,17 +182,12 @@ public class ReignModModVariables {
 		public double CAPITAL_Y = 0;
 		public double CAPITAL_Z = 0;
 		public double crown_id = 0;
-		public double count_woodcutter = 0;
-		public double count_smith = 0;
-		public double count_miner = 0;
-		public double count_farmer = 0;
 		public boolean EVENT_PLAGUE = false;
 		public boolean EVENT_STARVATION = false;
 		public double Tutorial_pass = 0.0;
 		public double MAX_AMOUNT_VALUE = 279616.0;
 		public double FEED_K = 1.0;
 		public double market_money = 0;
-		public boolean market_update = false;
 
 		public static MapVariables load(CompoundTag tag) {
 			MapVariables data = new MapVariables();
@@ -217,17 +215,12 @@ public class ReignModModVariables {
 			CAPITAL_Y = nbt.getDouble("CAPITAL_Y");
 			CAPITAL_Z = nbt.getDouble("CAPITAL_Z");
 			crown_id = nbt.getDouble("crown_id");
-			count_woodcutter = nbt.getDouble("count_woodcutter");
-			count_smith = nbt.getDouble("count_smith");
-			count_miner = nbt.getDouble("count_miner");
-			count_farmer = nbt.getDouble("count_farmer");
 			EVENT_PLAGUE = nbt.getBoolean("EVENT_PLAGUE");
 			EVENT_STARVATION = nbt.getBoolean("EVENT_STARVATION");
 			Tutorial_pass = nbt.getDouble("Tutorial_pass");
 			MAX_AMOUNT_VALUE = nbt.getDouble("MAX_AMOUNT_VALUE");
 			FEED_K = nbt.getDouble("FEED_K");
 			market_money = nbt.getDouble("market_money");
-			market_update = nbt.getBoolean("market_update");
 		}
 
 		@Override
@@ -251,17 +244,12 @@ public class ReignModModVariables {
 			nbt.putDouble("CAPITAL_Y", CAPITAL_Y);
 			nbt.putDouble("CAPITAL_Z", CAPITAL_Z);
 			nbt.putDouble("crown_id", crown_id);
-			nbt.putDouble("count_woodcutter", count_woodcutter);
-			nbt.putDouble("count_smith", count_smith);
-			nbt.putDouble("count_miner", count_miner);
-			nbt.putDouble("count_farmer", count_farmer);
 			nbt.putBoolean("EVENT_PLAGUE", EVENT_PLAGUE);
 			nbt.putBoolean("EVENT_STARVATION", EVENT_STARVATION);
 			nbt.putDouble("Tutorial_pass", Tutorial_pass);
 			nbt.putDouble("MAX_AMOUNT_VALUE", MAX_AMOUNT_VALUE);
 			nbt.putDouble("FEED_K", FEED_K);
 			nbt.putDouble("market_money", market_money);
-			nbt.putBoolean("market_update", market_update);
 			return nbt;
 		}
 
@@ -380,6 +368,9 @@ public class ReignModModVariables {
 		public boolean license_hunter = false;
 		public String house = "";
 		public String player_prefix = "";
+		public boolean R_LVL = false;
+		public double LastEnter_Week = 0;
+		public double efficiency = 0;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayer serverPlayer)
@@ -414,6 +405,9 @@ public class ReignModModVariables {
 			nbt.putBoolean("license_hunter", license_hunter);
 			nbt.putString("house", house);
 			nbt.putString("player_prefix", player_prefix);
+			nbt.putBoolean("R_LVL", R_LVL);
+			nbt.putDouble("LastEnter_Week", LastEnter_Week);
+			nbt.putDouble("efficiency", efficiency);
 			return nbt;
 		}
 
@@ -445,6 +439,9 @@ public class ReignModModVariables {
 			license_hunter = nbt.getBoolean("license_hunter");
 			house = nbt.getString("house");
 			player_prefix = nbt.getString("player_prefix");
+			R_LVL = nbt.getBoolean("R_LVL");
+			LastEnter_Week = nbt.getDouble("LastEnter_Week");
+			efficiency = nbt.getDouble("efficiency");
 		}
 	}
 
@@ -495,6 +492,9 @@ public class ReignModModVariables {
 					variables.license_hunter = message.data.license_hunter;
 					variables.house = message.data.house;
 					variables.player_prefix = message.data.player_prefix;
+					variables.R_LVL = message.data.R_LVL;
+					variables.LastEnter_Week = message.data.LastEnter_Week;
+					variables.efficiency = message.data.efficiency;
 				}
 			});
 			context.setPacketHandled(true);

@@ -12,31 +12,31 @@
     "recipeShapeless": false,
     "recipeSlots": [
       {
-        "value": "Blocks.STONE#3"
+        "value": "Blocks.SMOOTH_STONE"
       },
       {
-        "value": "Blocks.STONE#3"
+        "value": "Blocks.SMOOTH_STONE"
       },
       {
-        "value": "Blocks.STONE#3"
+        "value": "Blocks.SMOOTH_STONE"
       },
       {
-        "value": "Blocks.STONE#3"
+        "value": "Blocks.SMOOTH_STONE"
       },
       {
-        "value": ""
+        "value": "CUSTOM:GoldCoin"
       },
       {
-        "value": "Blocks.STONE#3"
+        "value": "Blocks.SMOOTH_STONE"
       },
       {
-        "value": "Blocks.STONE#3"
+        "value": "Blocks.LOG"
       },
       {
-        "value": "Blocks.STONE#3"
+        "value": "Blocks.LOG"
       },
       {
-        "value": "Blocks.STONE#3"
+        "value": "Blocks.LOG"
       }
     ],
     "recipeReturnStack": {

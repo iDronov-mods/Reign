@@ -2,7 +2,9 @@
   "mappings": {
     "default": {
       "map": {
-        "0": "market_texture_free"
+        "missing": "gold_coin",
+        "main_texture": "market_texture_free",
+        "gold_coin": "gold_coin"
       },
       "name": "default"
     }

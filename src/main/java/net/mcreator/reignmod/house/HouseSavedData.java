@@ -1,5 +1,6 @@
 package net.mcreator.reignmod.house;
 
+import net.mcreator.reignmod.basics.ReignSavedData;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
@@ -7,15 +8,15 @@ import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.saveddata.SavedData;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Iterator;
 
-public class HouseSavedData extends SavedData {
+public class HouseSavedData extends ReignSavedData {
 
     private final HouseData houseData = new HouseData();
 
     private static HouseSavedData instance;
-    private static ServerLevel serverLevelInstance;
 
     public HouseSavedData() {}
 
@@ -35,10 +36,15 @@ public class HouseSavedData extends SavedData {
         }
     }
 
+    @Override
+    protected String getDataKey() {
+        return "house_data";
+    }
+
     public static void initialize(ServerLevel serverLevel) {
         if (instance == null) {
             instance = serverLevel.getDataStorage().computeIfAbsent(HouseSavedData::new, HouseSavedData::new, "house_data");
-            serverLevelInstance = serverLevel;
+            instance.serverLevelInstance = serverLevel;
         }
     }
 
@@ -49,12 +55,16 @@ public class HouseSavedData extends SavedData {
         return instance;
     }
 
+	public static void resetInstance() {
+        instance = null;
+    }
+
     public static ServerLevel getServerInstance() {
-        return serverLevelInstance;
+        return getInstance().getServerLevelInstance();
     }
 
     @Override
-    public CompoundTag save(CompoundTag compoundTag) {
+    public @NotNull CompoundTag save(CompoundTag compoundTag) {
         ListTag housesListTag = new ListTag();
         this.houseData.getHouses().forEach((lordUUID, house) -> housesListTag.add(house.serializeNBT()));
         compoundTag.put("houses", housesListTag);

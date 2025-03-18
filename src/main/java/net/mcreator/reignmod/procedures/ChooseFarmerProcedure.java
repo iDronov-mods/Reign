@@ -17,6 +17,13 @@ public class ChooseFarmerProcedure {
 				capability.syncPlayerVariables(entity);
 			});
 		}
+		{
+			double _setval = 50;
+			entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+				capability.efficiency = _setval;
+				capability.syncPlayerVariables(entity);
+			});
+		}
 		if (entity instanceof Player _player && !_player.level().isClientSide())
 			_player.displayClientMessage(Component.literal("You are a Farmer!"), true);
 		if (entity instanceof Player _player)

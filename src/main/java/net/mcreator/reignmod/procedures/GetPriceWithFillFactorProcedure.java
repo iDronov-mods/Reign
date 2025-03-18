@@ -1,15 +1,9 @@
 package net.mcreator.reignmod.procedures;
 
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.network.chat.Component;
-import net.minecraft.core.BlockPos;
-
-import net.mcreator.reignmod.network.ReignModModVariables;
-import net.mcreator.reignmod.basics.ConfigLoader;
+import net.mcreator.reignmod.market.MarketManager;
 
 public class GetPriceWithFillFactorProcedure {
-	public static double execute(LevelAccessor world, String goodsName) {
+	public static double execute(String goodsName) {
 		if (goodsName == null)
 			return 0;
 		String goods = "";
@@ -20,17 +14,10 @@ public class GetPriceWithFillFactorProcedure {
 		double max_amount = 0;
 		double trashhold = 0;
 		goods = "minecraft:" + goodsName;
-		price = ConfigLoader.getPrice(goods);
-		max_amount = ConfigLoader.getMaxAmount(goods);
+		price = MarketManager.getPrice(goods);
+		max_amount = MarketManager.getMaxAmount(goods);
 		min_price = price / 4;
-		amount = new Object() {
-			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
-				BlockEntity blockEntity = world.getBlockEntity(pos);
-				if (blockEntity != null)
-					return blockEntity.getPersistentData().getDouble(tag);
-				return -1;
-			}
-		}.getValue(world, BlockPos.containing(ReignModModVariables.MapVariables.get(world).CAPITAL_X, ReignModModVariables.MapVariables.get(world).CAPITAL_Y, ReignModModVariables.MapVariables.get(world).CAPITAL_Z), goods);
+		amount = MarketManager.getItemCount(goods);
 		trashhold = max_amount / 4;
 		if (amount <= trashhold) {
 			totalPrice = price;
@@ -40,8 +27,6 @@ public class GetPriceWithFillFactorProcedure {
 				totalPrice = min_price;
 			}
 		}
-		if (!world.isClientSide() && world.getServer() != null)
-			world.getServer().getPlayerList().broadcastSystemMessage(Component.literal(("" + amount)), false);
 		return totalPrice;
 	}
 }

@@ -48,6 +48,13 @@ public class RefuseLicenseProcedure {
 			});
 		}
 		{
+			boolean _setval = false;
+			entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+				capability.R_LVL = _setval;
+				capability.syncPlayerVariables(entity);
+			});
+		}
+		{
 			double _setval = 0;
 			entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 				capability.MAIN_LVL = _setval;
@@ -68,6 +75,14 @@ public class RefuseLicenseProcedure {
 				capability.syncPlayerVariables(entity);
 			});
 		}
+		{
+			double _setval = 0;
+			entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+				capability.efficiency = _setval;
+				capability.syncPlayerVariables(entity);
+			});
+		}
+		LicensesAttributesProcedure.execute(entity);
 		if (entity instanceof Player _player && !_player.level().isClientSide())
 			_player.displayClientMessage(Component.literal((Component.translatable("license_refuse").getString())), true);
 		if (entity instanceof Player _player)

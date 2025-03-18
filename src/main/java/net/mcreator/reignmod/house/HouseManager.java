@@ -144,6 +144,15 @@ public class HouseManager {
         return new House();
     }
 
+    public static Domain getDomainByKnightUUID(String knightUUID) {
+        HouseSavedData houseSavedData = HouseSavedData.getInstance();
+
+        if (houseSavedData != null) {
+            return houseSavedData.getHouseData().findDomainByKnight(knightUUID);
+        }
+        return new Domain();
+    }
+
     public static String getPlayerSuzerain(Player player) {
         return (player.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).house;
     }

@@ -12,28 +12,37 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraft.client.gui.screens.MenuScreens;
 
 import net.mcreator.reignmod.client.gui.WoodcutterwindowScreen;
-import net.mcreator.reignmod.client.gui.WinViewScreen;
 import net.mcreator.reignmod.client.gui.WalletwinScreen;
 import net.mcreator.reignmod.client.gui.TraderPointScreen;
 import net.mcreator.reignmod.client.gui.TextbookmainScreen;
 import net.mcreator.reignmod.client.gui.Textbook1Screen;
+import net.mcreator.reignmod.client.gui.SoldierWindowScreen;
+import net.mcreator.reignmod.client.gui.SmithWindowScreen;
 import net.mcreator.reignmod.client.gui.SafeUIScreen;
 import net.mcreator.reignmod.client.gui.RoyaleSettingsScreen;
+import net.mcreator.reignmod.client.gui.RentalBlockUIScreen;
 import net.mcreator.reignmod.client.gui.RefuseLicensesWindowScreen;
 import net.mcreator.reignmod.client.gui.PrivateShopUIScreen;
 import net.mcreator.reignmod.client.gui.PrivateShopBuyerUIScreen;
 import net.mcreator.reignmod.client.gui.NewHouseScreen;
+import net.mcreator.reignmod.client.gui.MinerWindowScreen;
 import net.mcreator.reignmod.client.gui.MarketScreen;
 import net.mcreator.reignmod.client.gui.LicensesWindowScreen;
 import net.mcreator.reignmod.client.gui.LicenseIsSelectedScreen;
 import net.mcreator.reignmod.client.gui.KingtableUIScreen;
+import net.mcreator.reignmod.client.gui.HunterWindowScreen;
 import net.mcreator.reignmod.client.gui.HouseIncubatorUIScreen;
 import net.mcreator.reignmod.client.gui.HoarderScreen;
 import net.mcreator.reignmod.client.gui.FundUIScreen;
+import net.mcreator.reignmod.client.gui.FisherWindowScreen;
+import net.mcreator.reignmod.client.gui.FarmerWindowScreen;
+import net.mcreator.reignmod.client.gui.EnchanterWindowScreen;
 import net.mcreator.reignmod.client.gui.DsfScreen;
+import net.mcreator.reignmod.client.gui.CowboyWindowScreen;
 import net.mcreator.reignmod.client.gui.CoffersUIScreen;
 import net.mcreator.reignmod.client.gui.BetaTextbookScreen;
 import net.mcreator.reignmod.client.gui.BetaTextbook2Screen;
+import net.mcreator.reignmod.client.gui.AlchemistWindowScreen;
 import net.mcreator.reignmod.client.gui.AddLicenseListScreen;
 import net.mcreator.reignmod.client.gui.AddLicenseIsSelectedScreen;
 
@@ -44,7 +53,6 @@ public class ReignModModScreens {
 		event.enqueueWork(() -> {
 			MenuScreens.register(ReignModModMenus.DSF.get(), DsfScreen::new);
 			MenuScreens.register(ReignModModMenus.LICENSE_IS_SELECTED.get(), LicenseIsSelectedScreen::new);
-			MenuScreens.register(ReignModModMenus.WIN_VIEW.get(), WinViewScreen::new);
 			MenuScreens.register(ReignModModMenus.TRADER_POINT.get(), TraderPointScreen::new);
 			MenuScreens.register(ReignModModMenus.ROYALE_SETTINGS.get(), RoyaleSettingsScreen::new);
 			MenuScreens.register(ReignModModMenus.MARKET.get(), MarketScreen::new);
@@ -67,6 +75,16 @@ public class ReignModModScreens {
 			MenuScreens.register(ReignModModMenus.LICENSES_WINDOW.get(), LicensesWindowScreen::new);
 			MenuScreens.register(ReignModModMenus.WOODCUTTERWINDOW.get(), WoodcutterwindowScreen::new);
 			MenuScreens.register(ReignModModMenus.REFUSE_LICENSES_WINDOW.get(), RefuseLicensesWindowScreen::new);
+			MenuScreens.register(ReignModModMenus.RENTAL_BLOCK_UI.get(), RentalBlockUIScreen::new);
+			MenuScreens.register(ReignModModMenus.MINER_WINDOW.get(), MinerWindowScreen::new);
+			MenuScreens.register(ReignModModMenus.SMITH_WINDOW.get(), SmithWindowScreen::new);
+			MenuScreens.register(ReignModModMenus.FARMER_WINDOW.get(), FarmerWindowScreen::new);
+			MenuScreens.register(ReignModModMenus.COWBOY_WINDOW.get(), CowboyWindowScreen::new);
+			MenuScreens.register(ReignModModMenus.FISHER_WINDOW.get(), FisherWindowScreen::new);
+			MenuScreens.register(ReignModModMenus.ALCHEMIST_WINDOW.get(), AlchemistWindowScreen::new);
+			MenuScreens.register(ReignModModMenus.ENCHANTER_WINDOW.get(), EnchanterWindowScreen::new);
+			MenuScreens.register(ReignModModMenus.SOLDIER_WINDOW.get(), SoldierWindowScreen::new);
+			MenuScreens.register(ReignModModMenus.HUNTER_WINDOW.get(), HunterWindowScreen::new);
 		});
 	}
 }

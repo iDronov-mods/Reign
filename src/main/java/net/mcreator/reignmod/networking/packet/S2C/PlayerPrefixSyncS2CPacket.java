@@ -1,9 +1,8 @@
 package net.mcreator.reignmod.networking.packet.S2C;
 
+import net.mcreator.reignmod.networking.ClientPlayerData;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.network.NetworkEvent;
-import net.mcreator.reignmod.networking.ClientPlayerData;
-
 
 import java.util.HashMap;
 import java.util.function.Supplier;
@@ -23,12 +22,11 @@ public class PlayerPrefixSyncS2CPacket {
         buf.writeMap(playersPrefixes, FriendlyByteBuf::writeUtf, FriendlyByteBuf::writeUtf);
     }
 
-    public boolean handle(Supplier<NetworkEvent.Context> supplier) {
+    public void handle(Supplier<NetworkEvent.Context> supplier) {
         NetworkEvent.Context context = supplier.get();
         context.enqueueWork(() -> {
-            // HERE WE ARE ON THE CLIENT!
-            ClientPlayerData.set(playersPrefixes);
+            // Клиентская логика
+            ClientPlayerData.setPlayersPrefixes(playersPrefixes);
         });
-        return true;
     }
 }

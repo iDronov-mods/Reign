@@ -134,5 +134,13 @@
         "stream": false
       }
     ]
+  },
+  "seal_click": {
+    "sounds": [
+      {
+        "name": "reign_mod:seal_click",
+        "stream": false
+      }
+    ]
   }
 }

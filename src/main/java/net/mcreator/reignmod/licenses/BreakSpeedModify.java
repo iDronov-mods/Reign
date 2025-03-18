@@ -40,5 +40,19 @@ public class BreakSpeedModify {
                 event.setNewSpeed(event.getNewSpeed() / 5.0f);
             }
         }
+
+        // Замедление для deepslate_blocks
+        if (blockState.is(BlockTags.create(new ResourceLocation("minecraft:deepslate_blocks")))) {
+            boolean hasMinerLicense = player.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+                    .map(vars -> vars.license_miner)
+                    .orElse(false);
+            boolean hasRLvl = player.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+                    .map(vars -> vars.R_LVL)
+                    .orElse(false);
+                    
+            if (hasMinerLicense && player.experienceLevel < 3 || !hasRLvl) {
+                event.setNewSpeed(event.getNewSpeed() / 5.0f);
+            }
+        }
     }
 }

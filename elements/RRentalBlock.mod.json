@@ -1,0 +1,48 @@
+{
+  "_fv": 69,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:CopperLock"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "Blocks.WOOL#13"
+      },
+      {
+        "value": "Blocks.WOOL#13"
+      },
+      {
+        "value": "Blocks.WOOL#13"
+      },
+      {
+        "value": "Blocks.PLANKS"
+      },
+      {
+        "value": "Blocks.PLANKS"
+      },
+      {
+        "value": "Blocks.PLANKS"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:RentalBlock"
+    },
+    "name": "r_rental_block",
+    "namespace": "mod"
+  }
+}

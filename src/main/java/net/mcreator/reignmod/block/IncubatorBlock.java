@@ -38,7 +38,7 @@ public class IncubatorBlock extends Block implements EntityBlock {
 	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
 	public IncubatorBlock() {
-		super(BlockBehaviour.Properties.of().sound(SoundType.NETHERRACK).strength(3f, 10000f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false));
+		super(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(3f, 10000f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false));
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
 	}
 
@@ -55,6 +55,18 @@ public class IncubatorBlock extends Block implements EntityBlock {
 	@Override
 	public VoxelShape getVisualShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
 		return Shapes.empty();
+	}
+
+	@Override
+	public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+		return switch (state.getValue(FACING)) {
+			default -> Shapes.or(box(0, 0, 0, 16, 14, 16), box(1, 15, 1, 2, 16, 15), box(2, 15, 14, 14, 16, 15), box(2, 15, 1, 14, 16, 2), box(0, 14, 12, 16, 15, 16), box(0, 14, 0, 16, 15, 4), box(12, 14, 4, 16, 15, 12), box(0, 14, 4, 4, 15, 12));
+			case NORTH ->
+				Shapes.or(box(0, 0, 0, 16, 14, 16), box(14, 15, 1, 15, 16, 15), box(2, 15, 1, 14, 16, 2), box(2, 15, 14, 14, 16, 15), box(0, 14, 0, 16, 15, 4), box(0, 14, 12, 16, 15, 16), box(0, 14, 4, 4, 15, 12), box(12, 14, 4, 16, 15, 12));
+			case EAST ->
+				Shapes.or(box(0, 0, 0, 16, 14, 16), box(1, 15, 14, 15, 16, 15), box(14, 15, 2, 15, 16, 14), box(1, 15, 2, 2, 16, 14), box(12, 14, 0, 16, 15, 16), box(0, 14, 0, 4, 15, 16), box(4, 14, 0, 12, 15, 4), box(4, 14, 12, 12, 15, 16));
+			case WEST -> Shapes.or(box(0, 0, 0, 16, 14, 16), box(1, 15, 1, 15, 16, 2), box(1, 15, 2, 2, 16, 14), box(14, 15, 2, 15, 16, 14), box(0, 14, 0, 4, 15, 16), box(12, 14, 0, 16, 15, 16), box(4, 14, 12, 12, 15, 16), box(4, 14, 0, 12, 15, 4));
+		};
 	}
 
 	@Override

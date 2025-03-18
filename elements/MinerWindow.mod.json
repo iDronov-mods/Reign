@@ -1,0 +1,520 @@
+{
+  "_fv": 69,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 222,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": false,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "license_window_background.png",
+          "use1Xscale": false,
+          "x": 103,
+          "y": 37
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "main_licenses_expbar.png",
+          "use1Xscale": false,
+          "x": 166,
+          "y": 61
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_first.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Mlvl1"
+          },
+          "x": 166,
+          "y": 74
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_next.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Mlvl2"
+          },
+          "x": 172,
+          "y": 74
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_next_r.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "IsRLvl"
+          },
+          "x": 192,
+          "y": 80
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_next_l.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "IsNotRLvl"
+          },
+          "x": 192,
+          "y": 67
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_next_corner_up.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "IsNotRLvlFor4"
+          },
+          "x": 220,
+          "y": 69
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_next_corner_down.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "IsRLvlFor4"
+          },
+          "x": 220,
+          "y": 80
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_first.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Mlvl4"
+          },
+          "x": 238,
+          "y": 74
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "lvl_point_next.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Mlvl5"
+          },
+          "x": 244,
+          "y": 74
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_select",
+          "text": "select",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "ChooseMiner"
+          },
+          "displayCondition": {
+            "name": "IsNotHaveMainLicenses"
+          },
+          "width": 56,
+          "height": 20,
+          "x": 252,
+          "y": 189
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_empty",
+          "text": "<<",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "WinViewOpen"
+          },
+          "width": 19,
+          "height": 20,
+          "x": 82,
+          "y": 38
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_main_license",
+          "text": {
+            "fixedValue": "Main license"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 104,
+          "y": 25
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_l",
+          "text": {
+            "fixedValue": "L"
+          },
+          "color": {
+            "value": -6710887,
+            "falpha": 0.0
+          },
+          "x": 220,
+          "y": 57
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_r",
+          "text": {
+            "fixedValue": "R"
+          },
+          "color": {
+            "value": -6710887,
+            "falpha": 0.0
+          },
+          "x": 220,
+          "y": 88
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_string_1",
+          "text": {
+            "fixedValue": "String_1"
+          },
+          "color": {
+            "value": -3355444,
+            "falpha": 0.0
+          },
+          "x": 118,
+          "y": 106
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_string_2",
+          "text": {
+            "fixedValue": "String_2"
+          },
+          "color": {
+            "value": -3355444,
+            "falpha": 0.0
+          },
+          "x": 118,
+          "y": 124
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_string_3",
+          "text": {
+            "fixedValue": "String_3"
+          },
+          "color": {
+            "value": -3355444,
+            "falpha": 0.0
+          },
+          "x": 118,
+          "y": 135
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_string_4",
+          "text": {
+            "fixedValue": "String_4"
+          },
+          "color": {
+            "value": -3355444,
+            "falpha": 0.0
+          },
+          "x": 118,
+          "y": 146
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_upgrade_lvl",
+          "image": "upgrade_lvl.png",
+          "hoveredImage": "upgrade_lvl_hover.png",
+          "onClick": {
+            "name": "LvlUp"
+          },
+          "displayCondition": {
+            "name": "MainLvlUp1"
+          },
+          "x": 161,
+          "y": 69
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_upgrade_lvl1",
+          "image": "upgrade_lvl.png",
+          "hoveredImage": "upgrade_lvl_hover.png",
+          "onClick": {
+            "name": "LvlUp"
+          },
+          "displayCondition": {
+            "name": "MainLvlUp2"
+          },
+          "x": 185,
+          "y": 69
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_upgrade_lvl2",
+          "image": "upgrade_lvl.png",
+          "hoveredImage": "upgrade_lvl_hover.png",
+          "onClick": {
+            "name": "LvlUp"
+          },
+          "displayCondition": {
+            "name": "MainLvlUp3"
+          },
+          "x": 209,
+          "y": 62
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_upgrade_lvl3",
+          "image": "upgrade_lvl.png",
+          "hoveredImage": "upgrade_lvl_hover.png",
+          "onClick": {
+            "name": "LvlUpR"
+          },
+          "displayCondition": {
+            "name": "MainLvlUp3"
+          },
+          "x": 209,
+          "y": 76
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_upgrade_lvl4",
+          "image": "upgrade_lvl.png",
+          "hoveredImage": "upgrade_lvl_hover.png",
+          "onClick": {
+            "name": "LvlUp"
+          },
+          "displayCondition": {
+            "name": "MainLvlUp4"
+          },
+          "x": 233,
+          "y": 69
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_upgrade_lvl5",
+          "image": "upgrade_lvl.png",
+          "hoveredImage": "upgrade_lvl_hover.png",
+          "onClick": {
+            "name": "LvlUp"
+          },
+          "displayCondition": {
+            "name": "MainLvlUp5"
+          },
+          "x": 257,
+          "y": 69
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_refuse",
+          "text": "refuse",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "RefuseMainLicensesWin"
+          },
+          "displayCondition": {
+            "name": "IsHaveMainLicenses"
+          },
+          "width": 67,
+          "height": 20,
+          "x": 121,
+          "y": 189
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_string_5",
+          "text": {
+            "fixedValue": "String_5"
+          },
+          "color": {
+            "value": -3355444,
+            "falpha": 0.0
+          },
+          "x": 118,
+          "y": 157
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_string_6",
+          "text": {
+            "fixedValue": "String_6"
+          },
+          "color": {
+            "value": -10066330,
+            "falpha": 0.0
+          },
+          "x": 118,
+          "y": 175
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_lvl1_description",
+          "text": {
+            "fixedValue": "lvl1_description"
+          },
+          "width": 8,
+          "height": 8,
+          "x": 165,
+          "y": 73
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_lvl2_description",
+          "text": {
+            "fixedValue": "lvl2_description"
+          },
+          "width": 8,
+          "height": 8,
+          "x": 189,
+          "y": 73
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_lvl3_description_l",
+          "text": {
+            "fixedValue": "lvl3_description_L"
+          },
+          "width": 8,
+          "height": 8,
+          "x": 213,
+          "y": 66
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_lvl3_description_r",
+          "text": {
+            "fixedValue": "lvl3_description_R"
+          },
+          "width": 8,
+          "height": 8,
+          "x": 213,
+          "y": 80
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_lvl4_description",
+          "text": {
+            "fixedValue": "lvl4_description"
+          },
+          "width": 8,
+          "height": 8,
+          "x": 237,
+          "y": 73
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_lvl5_description",
+          "text": {
+            "fixedValue": "lvl5_description"
+          },
+          "width": 8,
+          "height": 8,
+          "x": 261,
+          "y": 73
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_main_label",
+          "text": {
+            "fixedValue": "main_label"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 166,
+          "y": 46
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "big_miner_logo.png",
+          "use1Xscale": false,
+          "x": 112,
+          "y": 46
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}
