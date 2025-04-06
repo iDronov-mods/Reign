@@ -1,12 +1,9 @@
 package net.mcreator.reignmod.procedures;
 
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.network.chat.Component;
-import net.mcreator.reignmod.house.House;
-
-
 import net.mcreator.reignmod.house.HouseManager;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 
 public class HousesGetListProcedure {
 public static void execute( Entity entity ) {

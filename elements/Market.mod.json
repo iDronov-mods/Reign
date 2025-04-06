@@ -1330,7 +1330,7 @@
             "falpha": 0.0
           },
           "x": 67,
-          "y": 204
+          "y": 208
         }
       },
       {
@@ -1339,7 +1339,7 @@
           "image": "wallet.png",
           "use1Xscale": false,
           "x": 52,
-          "y": 198
+          "y": 203
         }
       },
       {
@@ -1423,7 +1423,8 @@
         "data": {
           "name": "label_market_wallet",
           "text": {
-            "fixedValue": "market_wallet"
+            "fixedValue": "market_wallet",
+            "name": "ReturnMarketCopper"
           },
           "color": {
             "value": -3355444,

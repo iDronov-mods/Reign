@@ -13,13 +13,13 @@ public class ClientPlayerData {
     private static Map<String, String> playersPrefixes = new HashMap<>();
     // Координаты чанка, для которого мы знаем разрешение
     private static int lastKnownChunkX = Integer.MIN_VALUE;
+    private static int lastKnownChunkZ = Integer.MIN_VALUE;
+    // Можно ли ломать в этом чанке?
+    private static boolean canBreakInThisChunk = true;
 
     public static Map<String, String> getPlayersPrefixes() {
         return playersPrefixes;
     }
-    private static int lastKnownChunkZ = Integer.MIN_VALUE;
-    // Можно ли ломать в этом чанке?
-    private static boolean canBreakInThisChunk = true;
 
     public static void setPlayersPrefixes(Map<String, String> playersPrefixes) {
         ClientPlayerData.playersPrefixes = playersPrefixes;
@@ -35,6 +35,14 @@ public class ClientPlayerData {
         lastKnownChunkX = Integer.MIN_VALUE;
         lastKnownChunkZ = Integer.MIN_VALUE;
         canBreakInThisChunk = true;
+    }
+
+    public static boolean isLastKnown(int chunkX, int chunkZ) {
+        return lastKnownChunkX == chunkX || lastKnownChunkZ == chunkZ;
+    }
+
+    public static boolean isLastKnownEmpty() {
+        return lastKnownChunkX == Integer.MIN_VALUE || lastKnownChunkZ == Integer.MIN_VALUE;
     }
 
     public static int getLastKnownChunkX() {

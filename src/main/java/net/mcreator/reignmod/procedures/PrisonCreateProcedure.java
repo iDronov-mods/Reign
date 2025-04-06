@@ -1,9 +1,8 @@
 package net.mcreator.reignmod.procedures;
 
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.network.chat.Component;
-
 import net.mcreator.reignmod.network.ReignModModVariables;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.level.LevelAccessor;
 
 public class PrisonCreateProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z) {

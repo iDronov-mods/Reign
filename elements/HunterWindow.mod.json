@@ -43,7 +43,7 @@
           "image": "lvl_point_first.png",
           "use1Xscale": false,
           "displayCondition": {
-            "name": "Mlvl1"
+            "name": "Alvl1"
           },
           "x": 166,
           "y": 74
@@ -55,7 +55,7 @@
           "image": "lvl_point_next.png",
           "use1Xscale": false,
           "displayCondition": {
-            "name": "Mlvl2"
+            "name": "Alvl2"
           },
           "x": 172,
           "y": 74
@@ -67,7 +67,7 @@
           "image": "lvl_point_next.png",
           "use1Xscale": false,
           "displayCondition": {
-            "name": "Mlvl4"
+            "name": "Alvl4"
           },
           "x": 220,
           "y": 74
@@ -79,7 +79,7 @@
           "image": "lvl_point_next.png",
           "use1Xscale": false,
           "displayCondition": {
-            "name": "Mlvl5"
+            "name": "Alvl5"
           },
           "x": 244,
           "y": 74

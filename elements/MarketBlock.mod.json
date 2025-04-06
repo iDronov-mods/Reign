@@ -119,7 +119,7 @@
     "specialInformation": {
       "fixedValue": []
     },
-    "hardness": 2.0,
+    "hardness": 3.0,
     "resistance": 10.0,
     "hasGravity": false,
     "isWaterloggable": false,
@@ -191,7 +191,7 @@
     "isBonemealable": false,
     "hasInventory": false,
     "guiBoundTo": "Market",
-    "openGUIOnRightClick": false,
+    "openGUIOnRightClick": true,
     "inventorySize": 70,
     "inventoryStackSize": 960,
     "inventoryDropWhenDestroyed": false,

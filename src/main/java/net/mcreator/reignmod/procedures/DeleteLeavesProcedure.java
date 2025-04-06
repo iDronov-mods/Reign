@@ -1,12 +1,11 @@
 package net.mcreator.reignmod.procedures;
 
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.core.BlockPos;
-
 import net.mcreator.reignmod.ReignModMod;
+import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
 
 public class DeleteLeavesProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, double count) {

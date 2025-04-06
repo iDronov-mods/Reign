@@ -1,21 +1,18 @@
 package net.mcreator.reignmod.procedures;
 
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.eventbus.api.Event;
-import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
-
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.network.chat.Component;
-import net.minecraft.client.gui.screens.Screen;
-
-import net.mcreator.reignmod.init.ReignModModItems;
 import net.mcreator.reignmod.init.ReignModModBlocks;
+import net.mcreator.reignmod.init.ReignModModItems;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.event.entity.player.ItemTooltipEvent;
+import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 
 import javax.annotation.Nullable;
-
 import java.util.List;
 
 @Mod.EventBusSubscriber
@@ -77,22 +74,57 @@ public class TooltipRendererProcedure {
 				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.trader_short").getString())));
 			}
 		} else if (itemstack.getItem() == ReignModModItems.COPPER_LOCK.get()) {
-			if (Screen.hasShiftDown()) {
-				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.copperlock").getString())));
-			} else {
-				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.copperlock_short").getString())));
-			}
+			tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.copperlock_short").getString())));
 		} else if (itemstack.getItem() == ReignModModItems.IRON_LOCK.get()) {
-			if (Screen.hasShiftDown()) {
-				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.ironlock").getString())));
-			} else {
-				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.ironlock_short").getString())));
-			}
+			tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.ironlock_short").getString())));
 		} else if (itemstack.getItem() == ReignModModItems.GOLD_LOCK.get()) {
+			tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.goldlock_short").getString())));
+		}
+		if (itemstack.getItem() == ReignModModBlocks.KINGTABLE.get().asItem()) {
 			if (Screen.hasShiftDown()) {
-				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.goldlock").getString())));
+				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.royale_table").getString())));
 			} else {
-				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.goldlock_short").getString())));
+				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.royale_table_short").getString())));
+			}
+		} else if (itemstack.getItem() == ReignModModItems.HEART_OF_HOUSE.get()) {
+			if (Screen.hasShiftDown()) {
+				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.heart_of_house").getString())));
+			} else {
+				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.heart_of_house_short").getString())));
+			}
+		} else if (itemstack.getItem() == ReignModModBlocks.INCUBATOR.get().asItem()) {
+			if (Screen.hasShiftDown()) {
+				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.incubator").getString())));
+			} else {
+				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.incubator_short").getString())));
+			}
+		} else if (itemstack.getItem() == ReignModModBlocks.PRIVATEDOOR.get().asItem()) {
+			if (Screen.hasShiftDown()) {
+				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.private_door").getString())));
+			} else {
+				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.private_door_short").getString())));
+			}
+		} else if (itemstack.getItem() == ReignModModItems.PICKLOCK.get()) {
+			tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.lockpick_short").getString())));
+		} else if (itemstack.getItem() == ReignModModItems.ENDER_PICKLOCK.get()) {
+			tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.ender_lockpick_short").getString())));
+		}
+		if (itemstack.getItem() == ReignModModItems.SHACKLES.get()) {
+			tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.shackles_short").getString())));
+		} else if (itemstack.getItem() == ReignModModBlocks.FINIAL_OF_MIGHT.get().asItem()) {
+			tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.finial_of_might_short").getString())));
+		} else if (itemstack.getItem() == ReignModModBlocks.FINIAL_OF_REIGN.get().asItem()) {
+			tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.finial_of_reign_short").getString())));
+		} else if (itemstack.getItem() == ReignModModBlocks.OBELISK_FOUNDATION.get().asItem()) {
+			tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.obelisk_foundation_short").getString())));
+		} else if (itemstack.getItem() == ReignModModBlocks.SHAFT.get().asItem()) {
+			tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.shaft_short").getString())));
+		}
+		if (itemstack.getItem() == ReignModModItems.HONEY_CONCENTRATE.get()) {
+			if (Screen.hasShiftDown()) {
+				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.honey_concentrate").getString())));
+			} else {
+				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.honey_concentrate_short").getString())));
 			}
 		}
 	}

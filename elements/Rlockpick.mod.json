@@ -36,7 +36,7 @@
         "value": ""
       },
       {
-        "value": "Items.IRON_INGOT"
+        "value": "Blocks.IRON_BLOCK"
       }
     ],
     "recipeReturnStack": {

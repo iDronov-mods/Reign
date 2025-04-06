@@ -7,7 +7,6 @@ import net.minecraft.nbt.StringTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.level.saveddata.SavedData;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Iterator;
@@ -36,16 +35,15 @@ public class HouseSavedData extends ReignSavedData {
         }
     }
 
-    @Override
-    protected String getDataKey() {
-        return "house_data";
-    }
-
     public static void initialize(ServerLevel serverLevel) {
         if (instance == null) {
             instance = serverLevel.getDataStorage().computeIfAbsent(HouseSavedData::new, HouseSavedData::new, "house_data");
             instance.serverLevelInstance = serverLevel;
         }
+    }
+
+    public static void resetInstance() {
+        instance = null;
     }
 
     public static HouseSavedData getInstance() {
@@ -55,12 +53,13 @@ public class HouseSavedData extends ReignSavedData {
         return instance;
     }
 
-	public static void resetInstance() {
-        instance = null;
-    }
-
     public static ServerLevel getServerInstance() {
         return getInstance().getServerLevelInstance();
+    }
+
+    @Override
+    protected String getDataKey() {
+        return "house_data";
     }
 
     @Override

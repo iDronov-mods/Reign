@@ -18,6 +18,16 @@ public class ClaimOwner {
         this.mainOwner = mainOwner;
     }
 
+    public static ClaimOwner deserializeNBT(CompoundTag tag) {
+        UUID main = UUID.fromString(tag.getString("mainOwner"));
+        ClaimOwner owner = new ClaimOwner(main);
+        ListTag coOwnersList = tag.getList("coOwners", 8); // 8 = строковые теги
+        for (int i = 0; i < coOwnersList.size(); i++) {
+            owner.addCoOwner(UUID.fromString(coOwnersList.getString(i)));
+        }
+        return owner;
+    }
+
     public UUID getMainOwner() {
         return mainOwner;
     }
@@ -60,15 +70,5 @@ public class ClaimOwner {
         }
         tag.put("coOwners", coOwnersList);
         return tag;
-    }
-
-    public static ClaimOwner deserializeNBT(CompoundTag tag) {
-        UUID main = UUID.fromString(tag.getString("mainOwner"));
-        ClaimOwner owner = new ClaimOwner(main);
-        ListTag coOwnersList = tag.getList("coOwners", 8); // 8 = строковые теги
-        for (int i = 0; i < coOwnersList.size(); i++) {
-            owner.addCoOwner(UUID.fromString(coOwnersList.getString(i)));
-        }
-        return owner;
     }
 }

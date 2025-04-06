@@ -33,7 +33,13 @@
         "subtract": false
       }
     ],
-    "customProperties": [],
+    "customProperties": [
+      {
+        "name": "CUSTOM:protected",
+        "type": "logic",
+        "value": false
+      }
+    ],
     "name": "Finial of reign",
     "specialInformation": {
       "fixedValue": []
@@ -80,7 +86,7 @@
     "slipperiness": 0.6,
     "speedFactor": 1.0,
     "jumpFactor": 1.0,
-    "reactionToPushing": "NORMAL",
+    "reactionToPushing": "BLOCK",
     "isNotColidable": false,
     "isCustomSoundType": false,
     "soundOnStep": {

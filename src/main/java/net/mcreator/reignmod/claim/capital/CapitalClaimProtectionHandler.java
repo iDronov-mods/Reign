@@ -7,8 +7,8 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.level.BlockEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import org.apache.logging.log4j.LogManager;
 
 import static net.mcreator.reignmod.ReignModMod.MODID;
@@ -54,7 +54,8 @@ public class CapitalClaimProtectionHandler {
     @SubscribeEvent
     public static void onBreakSpeed(PlayerEvent.BreakSpeed event) {
         LogManager.getLogger("ReignMod").info("breaking speed ev");
-        if (!(event.getEntity() instanceof ServerPlayer player) || !player.level().dimension().equals(Level.OVERWORLD)) return;
+        if (!(event.getEntity() instanceof ServerPlayer player) || !player.level().dimension().equals(Level.OVERWORLD))
+            return;
         BlockPos pos = event.getPosition().get();
         if (!hasPermission(player, pos)) {
             event.setNewSpeed(event.getNewSpeed() / 5.0F);
@@ -64,7 +65,8 @@ public class CapitalClaimProtectionHandler {
     @SubscribeEvent
     public static void onBlockBreak(BlockEvent.BreakEvent event) {
         LogManager.getLogger("ReignMod").info("breaking block");
-        if (!(event.getPlayer() instanceof ServerPlayer player) || !player.level().dimension().equals(Level.OVERWORLD)) return;
+        if (!(event.getPlayer() instanceof ServerPlayer player) || !player.level().dimension().equals(Level.OVERWORLD))
+            return;
         BlockPos pos = event.getPos();
         if (!hasPermission(player, pos)) {
             event.setCanceled(true);
@@ -74,7 +76,8 @@ public class CapitalClaimProtectionHandler {
     @SubscribeEvent
     public static void onBlockPlace(BlockEvent.EntityPlaceEvent event) {
         LogManager.getLogger("ReignMod").info("placing block");
-        if (!(event.getEntity() instanceof ServerPlayer player) || !player.level().dimension().equals(Level.OVERWORLD)) return;
+        if (!(event.getEntity() instanceof ServerPlayer player) || !player.level().dimension().equals(Level.OVERWORLD))
+            return;
         BlockPos pos = event.getPos();
         if (!hasPermission(player, pos)) {
             event.setCanceled(true);

@@ -85,14 +85,12 @@ public class ReignModModVariables {
 			clone.MAIN_LVL = original.MAIN_LVL;
 			clone.ADD_LVL = original.ADD_LVL;
 			clone.last_refuse_day = original.last_refuse_day;
-			clone.last_refuse_month = original.last_refuse_month;
 			clone.isCriminal = original.isCriminal;
 			clone.Kingdom_X = original.Kingdom_X;
 			clone.Kingdom_Y = original.Kingdom_Y;
 			clone.Kingdom_Z = original.Kingdom_Z;
 			clone.FirstEnter = original.FirstEnter;
 			clone.LastEnter_Day = original.LastEnter_Day;
-			clone.LastEnter_Month = original.LastEnter_Month;
 			clone.DaysOnline = original.DaysOnline;
 			clone.license_cowboy = original.license_cowboy;
 			clone.license_hunter = original.license_hunter;
@@ -101,6 +99,7 @@ public class ReignModModVariables {
 			clone.R_LVL = original.R_LVL;
 			clone.LastEnter_Week = original.LastEnter_Week;
 			clone.efficiency = original.efficiency;
+			clone.last_refuse_week = original.last_refuse_week;
 			if (!event.isWasDeath()) {
 			}
 		}
@@ -187,7 +186,9 @@ public class ReignModModVariables {
 		public double Tutorial_pass = 0.0;
 		public double MAX_AMOUNT_VALUE = 279616.0;
 		public double FEED_K = 1.0;
-		public double market_money = 0;
+		public double market_copper = 0;
+		public double market_copper_all = 0;
+		public double SurgingSource = 0.0;
 
 		public static MapVariables load(CompoundTag tag) {
 			MapVariables data = new MapVariables();
@@ -220,7 +221,9 @@ public class ReignModModVariables {
 			Tutorial_pass = nbt.getDouble("Tutorial_pass");
 			MAX_AMOUNT_VALUE = nbt.getDouble("MAX_AMOUNT_VALUE");
 			FEED_K = nbt.getDouble("FEED_K");
-			market_money = nbt.getDouble("market_money");
+			market_copper = nbt.getDouble("market_copper");
+			market_copper_all = nbt.getDouble("market_copper_all");
+			SurgingSource = nbt.getDouble("SurgingSource");
 		}
 
 		@Override
@@ -249,7 +252,9 @@ public class ReignModModVariables {
 			nbt.putDouble("Tutorial_pass", Tutorial_pass);
 			nbt.putDouble("MAX_AMOUNT_VALUE", MAX_AMOUNT_VALUE);
 			nbt.putDouble("FEED_K", FEED_K);
-			nbt.putDouble("market_money", market_money);
+			nbt.putDouble("market_copper", market_copper);
+			nbt.putDouble("market_copper_all", market_copper_all);
+			nbt.putDouble("SurgingSource", SurgingSource);
 			return nbt;
 		}
 
@@ -355,14 +360,12 @@ public class ReignModModVariables {
 		public double MAIN_LVL = 0;
 		public double ADD_LVL = 0;
 		public double last_refuse_day = 0;
-		public double last_refuse_month = 0;
 		public boolean isCriminal = false;
 		public double Kingdom_X = 0;
 		public double Kingdom_Y = 0;
 		public double Kingdom_Z = 0;
 		public boolean FirstEnter = false;
 		public double LastEnter_Day = 0;
-		public double LastEnter_Month = 0;
 		public double DaysOnline = 0;
 		public boolean license_cowboy = false;
 		public boolean license_hunter = false;
@@ -371,6 +374,7 @@ public class ReignModModVariables {
 		public boolean R_LVL = false;
 		public double LastEnter_Week = 0;
 		public double efficiency = 0;
+		public double last_refuse_week = 0;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayer serverPlayer)
@@ -392,14 +396,12 @@ public class ReignModModVariables {
 			nbt.putDouble("MAIN_LVL", MAIN_LVL);
 			nbt.putDouble("ADD_LVL", ADD_LVL);
 			nbt.putDouble("last_refuse_day", last_refuse_day);
-			nbt.putDouble("last_refuse_month", last_refuse_month);
 			nbt.putBoolean("isCriminal", isCriminal);
 			nbt.putDouble("Kingdom_X", Kingdom_X);
 			nbt.putDouble("Kingdom_Y", Kingdom_Y);
 			nbt.putDouble("Kingdom_Z", Kingdom_Z);
 			nbt.putBoolean("FirstEnter", FirstEnter);
 			nbt.putDouble("LastEnter_Day", LastEnter_Day);
-			nbt.putDouble("LastEnter_Month", LastEnter_Month);
 			nbt.putDouble("DaysOnline", DaysOnline);
 			nbt.putBoolean("license_cowboy", license_cowboy);
 			nbt.putBoolean("license_hunter", license_hunter);
@@ -408,6 +410,7 @@ public class ReignModModVariables {
 			nbt.putBoolean("R_LVL", R_LVL);
 			nbt.putDouble("LastEnter_Week", LastEnter_Week);
 			nbt.putDouble("efficiency", efficiency);
+			nbt.putDouble("last_refuse_week", last_refuse_week);
 			return nbt;
 		}
 
@@ -426,14 +429,12 @@ public class ReignModModVariables {
 			MAIN_LVL = nbt.getDouble("MAIN_LVL");
 			ADD_LVL = nbt.getDouble("ADD_LVL");
 			last_refuse_day = nbt.getDouble("last_refuse_day");
-			last_refuse_month = nbt.getDouble("last_refuse_month");
 			isCriminal = nbt.getBoolean("isCriminal");
 			Kingdom_X = nbt.getDouble("Kingdom_X");
 			Kingdom_Y = nbt.getDouble("Kingdom_Y");
 			Kingdom_Z = nbt.getDouble("Kingdom_Z");
 			FirstEnter = nbt.getBoolean("FirstEnter");
 			LastEnter_Day = nbt.getDouble("LastEnter_Day");
-			LastEnter_Month = nbt.getDouble("LastEnter_Month");
 			DaysOnline = nbt.getDouble("DaysOnline");
 			license_cowboy = nbt.getBoolean("license_cowboy");
 			license_hunter = nbt.getBoolean("license_hunter");
@@ -442,6 +443,7 @@ public class ReignModModVariables {
 			R_LVL = nbt.getBoolean("R_LVL");
 			LastEnter_Week = nbt.getDouble("LastEnter_Week");
 			efficiency = nbt.getDouble("efficiency");
+			last_refuse_week = nbt.getDouble("last_refuse_week");
 		}
 	}
 
@@ -479,14 +481,12 @@ public class ReignModModVariables {
 					variables.MAIN_LVL = message.data.MAIN_LVL;
 					variables.ADD_LVL = message.data.ADD_LVL;
 					variables.last_refuse_day = message.data.last_refuse_day;
-					variables.last_refuse_month = message.data.last_refuse_month;
 					variables.isCriminal = message.data.isCriminal;
 					variables.Kingdom_X = message.data.Kingdom_X;
 					variables.Kingdom_Y = message.data.Kingdom_Y;
 					variables.Kingdom_Z = message.data.Kingdom_Z;
 					variables.FirstEnter = message.data.FirstEnter;
 					variables.LastEnter_Day = message.data.LastEnter_Day;
-					variables.LastEnter_Month = message.data.LastEnter_Month;
 					variables.DaysOnline = message.data.DaysOnline;
 					variables.license_cowboy = message.data.license_cowboy;
 					variables.license_hunter = message.data.license_hunter;
@@ -495,6 +495,7 @@ public class ReignModModVariables {
 					variables.R_LVL = message.data.R_LVL;
 					variables.LastEnter_Week = message.data.LastEnter_Week;
 					variables.efficiency = message.data.efficiency;
+					variables.last_refuse_week = message.data.last_refuse_week;
 				}
 			});
 			context.setPacketHandled(true);

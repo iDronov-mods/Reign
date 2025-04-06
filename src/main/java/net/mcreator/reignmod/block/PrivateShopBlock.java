@@ -1,39 +1,33 @@
 
 package net.mcreator.reignmod.block;
 
-import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraft.world.phys.shapes.Shapes;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.level.material.PushReaction;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.Rotation;
-import net.minecraft.world.level.block.Mirror;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
-import net.minecraft.world.level.block.EntityBlock;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.MenuProvider;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.core.Direction;
-import net.minecraft.core.BlockPos;
-
-import net.mcreator.reignmod.procedures.WinPrivateShopOpenProcedure;
-import net.mcreator.reignmod.procedures.PrivateShopIsPlacedProcedure;
-import net.mcreator.reignmod.procedures.PrivateShopBreakProcedure;
 import net.mcreator.reignmod.block.entity.PrivateShopBlockEntity;
+import net.mcreator.reignmod.procedures.PrivateShopBreakProcedure;
+import net.mcreator.reignmod.procedures.PrivateShopIsPlacedProcedure;
+import net.mcreator.reignmod.procedures.WinPrivateShopOpenProcedure;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.material.PushReaction;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class PrivateShopBlock extends Block implements EntityBlock {
 	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
@@ -62,10 +56,10 @@ public class PrivateShopBlock extends Block implements EntityBlock {
 	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
 		return switch (state.getValue(FACING)) {
-			default -> Shapes.or(box(1, 0, 1, 15, 11, 15), box(4, 12, 4, 12, 13, 12), box(3, 5, 15, 13, 10, 16), box(0, 11, 0, 16, 12, 16));
-			case NORTH -> Shapes.or(box(1, 0, 1, 15, 11, 15), box(4, 12, 4, 12, 13, 12), box(3, 5, 0, 13, 10, 1), box(0, 11, 0, 16, 12, 16));
-			case EAST -> Shapes.or(box(1, 0, 1, 15, 11, 15), box(4, 12, 4, 12, 13, 12), box(15, 5, 3, 16, 10, 13), box(0, 11, 0, 16, 12, 16));
-			case WEST -> Shapes.or(box(1, 0, 1, 15, 11, 15), box(4, 12, 4, 12, 13, 12), box(0, 5, 3, 1, 10, 13), box(0, 11, 0, 16, 12, 16));
+			default -> Shapes.or(box(1, 0, 1, 15, 11, 14), box(0, 11, 0, 16, 12, 16), box(3, 5, 14, 13, 10, 15));
+			case NORTH -> Shapes.or(box(1, 0, 2, 15, 11, 15), box(0, 11, 0, 16, 12, 16), box(3, 5, 1, 13, 10, 2));
+			case EAST -> Shapes.or(box(1, 0, 1, 14, 11, 15), box(0, 11, 0, 16, 12, 16), box(14, 5, 3, 15, 10, 13));
+			case WEST -> Shapes.or(box(2, 0, 1, 15, 11, 15), box(0, 11, 0, 16, 12, 16), box(1, 5, 3, 2, 10, 13));
 		};
 	}
 

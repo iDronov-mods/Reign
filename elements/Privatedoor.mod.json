@@ -34,7 +34,19 @@
         "subtract": false
       }
     ],
-    "customProperties": [],
+    "customProperties": [
+      {
+        "arrayData": [
+          "none",
+          "copper",
+          "iron",
+          "gold"
+        ],
+        "name": "CUSTOM:lock_type",
+        "type": "string",
+        "value": "none"
+      }
+    ],
     "name": "Private door",
     "specialInformation": {
       "fixedValue": []

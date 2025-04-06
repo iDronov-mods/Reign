@@ -1,10 +1,9 @@
 package net.mcreator.reignmod.procedures;
 
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.network.chat.Component;
-
 import net.mcreator.reignmod.network.ReignModModVariables;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 
 public class ChooseMinerProcedure {
 	public static void execute(Entity entity) {

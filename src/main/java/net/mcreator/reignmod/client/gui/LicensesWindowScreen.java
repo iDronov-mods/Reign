@@ -98,6 +98,26 @@ public class LicensesWindowScreen extends AbstractContainerScreen<LicensesWindow
 			InventoryScreen.renderEntityInInventoryFollowsAngle(guiGraphics, this.leftPos + 87, this.topPos + 154, 60, 0f + (float) Math.atan((this.leftPos + 87 - mouseX) / 40.0), (float) Math.atan((this.topPos + 105 - mouseY) / 40.0), livingEntity);
 		}
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
+		if (mouseX > leftPos + 15 && mouseX < leftPos + 33 && mouseY > topPos + -6 && mouseY < topPos + 12)
+			guiGraphics.renderTooltip(font, Component.translatable("gui.reign_mod.licenses_window.tooltip_win_woodcutter_help"), mouseX, mouseY);
+		if (mouseX > leftPos + -27 && mouseX < leftPos + -9 && mouseY > topPos + 32 && mouseY < topPos + 50)
+			guiGraphics.renderTooltip(font, Component.translatable("gui.reign_mod.licenses_window.tooltip_win_miner_help"), mouseX, mouseY);
+		if (mouseX > leftPos + -41 && mouseX < leftPos + -23 && mouseY > topPos + 74 && mouseY < topPos + 91)
+			guiGraphics.renderTooltip(font, Component.translatable("gui.reign_mod.licenses_window.tooltip_win_smith_help"), mouseX, mouseY);
+		if (mouseX > leftPos + -27 && mouseX < leftPos + -9 && mouseY > topPos + 116 && mouseY < topPos + 134)
+			guiGraphics.renderTooltip(font, Component.translatable("gui.reign_mod.licenses_window.tooltip_win_farmer_help"), mouseX, mouseY);
+		if (mouseX > leftPos + 15 && mouseX < leftPos + 33 && mouseY > topPos + 154 && mouseY < topPos + 172)
+			guiGraphics.renderTooltip(font, Component.translatable("gui.reign_mod.licenses_window.tooltip_win_cowboy_help"), mouseX, mouseY);
+		if (mouseX > leftPos + 141 && mouseX < leftPos + 159 && mouseY > topPos + -6 && mouseY < topPos + 12)
+			guiGraphics.renderTooltip(font, Component.translatable("gui.reign_mod.licenses_window.tooltip_win_fisher_help"), mouseX, mouseY);
+		if (mouseX > leftPos + 183 && mouseX < leftPos + 201 && mouseY > topPos + 32 && mouseY < topPos + 50)
+			guiGraphics.renderTooltip(font, Component.translatable("gui.reign_mod.licenses_window.tooltip_win_alchemist_help"), mouseX, mouseY);
+		if (mouseX > leftPos + 197 && mouseX < leftPos + 215 && mouseY > topPos + 74 && mouseY < topPos + 92)
+			guiGraphics.renderTooltip(font, Component.translatable("gui.reign_mod.licenses_window.tooltip_win_enchanter_help"), mouseX, mouseY);
+		if (mouseX > leftPos + 183 && mouseX < leftPos + 201 && mouseY > topPos + 116 && mouseY < topPos + 134)
+			guiGraphics.renderTooltip(font, Component.translatable("gui.reign_mod.licenses_window.tooltip_win_soldier_help"), mouseX, mouseY);
+		if (mouseX > leftPos + 141 && mouseX < leftPos + 159 && mouseY > topPos + 154 && mouseY < topPos + 172)
+			guiGraphics.renderTooltip(font, Component.translatable("gui.reign_mod.licenses_window.tooltip_win_hunter_help"), mouseX, mouseY);
 	}
 
 	@Override

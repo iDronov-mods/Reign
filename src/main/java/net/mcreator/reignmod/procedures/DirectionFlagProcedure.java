@@ -1,8 +1,7 @@
 package net.mcreator.reignmod.procedures;
 
-import net.minecraft.world.level.LevelAccessor;
-
 import net.mcreator.reignmod.network.ReignModModVariables;
+import net.minecraft.world.level.LevelAccessor;
 
 public class DirectionFlagProcedure {
 	public static double execute(LevelAccessor world, double x, double z) {

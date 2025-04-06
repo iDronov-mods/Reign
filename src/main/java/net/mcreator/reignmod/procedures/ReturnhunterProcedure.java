@@ -1,8 +1,7 @@
 package net.mcreator.reignmod.procedures;
 
-import net.minecraft.world.entity.Entity;
-
 import net.mcreator.reignmod.network.ReignModModVariables;
+import net.minecraft.world.entity.Entity;
 
 public class ReturnhunterProcedure {
 	public static boolean execute(Entity entity) {

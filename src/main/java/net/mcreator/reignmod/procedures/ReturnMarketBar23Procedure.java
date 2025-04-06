@@ -1,16 +1,14 @@
 package net.mcreator.reignmod.procedures;
 
+import net.mcreator.reignmod.market.MarketManager;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.Entity;
-
-import net.mcreator.reignmod.market.MarketManager;
-
-import java.util.function.Supplier;
 import java.util.Map;
+import java.util.function.Supplier;
 
 public class ReturnMarketBar23Procedure {
 	public static boolean execute(Entity entity) {

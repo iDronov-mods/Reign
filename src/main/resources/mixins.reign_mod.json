@@ -20,7 +20,10 @@
     "NameFormatMixin",
     "BeehiveBlockMixin",
     "NoCropDropMixin",
-    "BrewingStandMixin"
+    "BrewingStandMixin",
+    "DoorBlockMixin",
+    "FenceGateBlockMixin",
+    "TrapDoorBlockMixin"
   ],
   "client": [],
   "minVersion": "0.8"

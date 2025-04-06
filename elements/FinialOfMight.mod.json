@@ -51,24 +51,6 @@
         "subtract": false
       },
       {
-        "mx": 2.0,
-        "my": 9.0,
-        "mz": 6.0,
-        "Mx": 4.0,
-        "My": 11.0,
-        "Mz": 10.0,
-        "subtract": false
-      },
-      {
-        "mx": 11.0,
-        "my": 8.0,
-        "mz": 6.0,
-        "Mx": 13.0,
-        "My": 10.0,
-        "Mz": 10.0,
-        "subtract": false
-      },
-      {
         "mx": 7.0,
         "my": 11.0,
         "mz": 7.0,
@@ -87,7 +69,13 @@
         "subtract": false
       }
     ],
-    "customProperties": [],
+    "customProperties": [
+      {
+        "name": "CUSTOM:protected",
+        "type": "logic",
+        "value": false
+      }
+    ],
     "name": "Finial of might",
     "specialInformation": {
       "fixedValue": []
@@ -134,7 +122,7 @@
     "slipperiness": 0.6,
     "speedFactor": 1.0,
     "jumpFactor": 1.0,
-    "reactionToPushing": "NORMAL",
+    "reactionToPushing": "BLOCK",
     "isNotColidable": false,
     "isCustomSoundType": false,
     "soundOnStep": {

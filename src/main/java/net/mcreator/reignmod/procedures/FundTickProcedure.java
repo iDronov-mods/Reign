@@ -42,6 +42,8 @@ public class FundTickProcedure {
 				((Slot) _slots.get(1)).remove(1);
 				_player.containerMenu.broadcastChanges();
 			}
+			ReignModModVariables.MapVariables.get(world).market_copper_all = Math.max(ReignModModVariables.MapVariables.get(world).market_copper_all - 4096, 0);
+			ReignModModVariables.MapVariables.get(world).syncData(world);
 			if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 				((Slot) _slots.get(0)).remove(1);
 				_player.containerMenu.broadcastChanges();

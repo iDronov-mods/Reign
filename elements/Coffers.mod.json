@@ -186,7 +186,7 @@
     "unbreakable": true,
     "vanillaToolTier": "NONE",
     "placingCondition": {
-      "name": "CapitalBlockCheck"
+      "name": "CoffersPlaced"
     },
     "isBonemealable": false,
     "hasInventory": true,
@@ -217,10 +217,7 @@
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
     "onRightClicked": {
-      "name": "WinCoffersOpen"
-    },
-    "onBlockAdded": {
-      "name": "BlockPlaced"
+      "name": "CoffersOpen"
     },
     "generateFeature": false,
     "restrictionBiomes": [],

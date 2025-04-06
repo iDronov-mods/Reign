@@ -62,16 +62,16 @@ public class RefuseLicenseProcedure {
 			});
 		}
 		{
-			double _setval = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+			double _setval = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
 			entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 				capability.last_refuse_day = _setval;
 				capability.syncPlayerVariables(entity);
 			});
 		}
 		{
-			double _setval = Calendar.getInstance().get(Calendar.MONTH);
+			double _setval = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
 			entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-				capability.last_refuse_month = _setval;
+				capability.last_refuse_week = _setval;
 				capability.syncPlayerVariables(entity);
 			});
 		}

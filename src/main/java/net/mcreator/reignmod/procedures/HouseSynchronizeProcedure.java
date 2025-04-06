@@ -1,16 +1,17 @@
 package net.mcreator.reignmod.procedures;
 
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.eventbus.api.Event;
-import net.minecraftforge.event.entity.player.PlayerEvent;
-
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.Entity;
-
-import net.mcreator.reignmod.network.ReignModModVariables;
 import net.mcreator.reignmod.house.HouseManager;
+import net.mcreator.reignmod.network.ReignModModVariables;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 
 import javax.annotation.Nullable;
 
@@ -30,32 +31,41 @@ public class HouseSynchronizeProcedure {
 			return;
 		boolean changed = false;
 		String pUUID = "";
-		pUUID = entity.getStringUUID();
-		if (!((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).house).isEmpty() && HouseManager.getPlayerHouse((Player) entity).isNull()) {
-			{
-				String _setval = "";
-				entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-					capability.house = _setval;
-					capability.syncPlayerVariables(entity);
-				});
-			}
-			changed = true;
-		}
-		if (IsSlaveProcedure.execute(world, entity)) {
-			if (!HouseManager.getPlayerDomain((Player) entity).isPlayerInDomain(pUUID)) {
-				{
-					String _setval = "";
-					entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-						capability.house = _setval;
-						capability.syncPlayerVariables(entity);
-					});
+		if (world instanceof ServerLevel _origLevel) {
+			LevelAccessor _worldorig = world;
+			world = _origLevel.getServer().getLevel(Level.OVERWORLD);
+			if (world != null) {
+				pUUID = entity.getStringUUID();
+				if (!((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).house).isEmpty() && HouseManager.getPlayerHouse((Player) entity).isNull()) {
+					if (entity instanceof Player _player && !_player.level().isClientSide())
+						_player.displayClientMessage(Component.literal("\u0423\u0434\u0430\u043B\u0451\u043D!"), false);
+					{
+						String _setval = "";
+						entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+							capability.house = _setval;
+							capability.syncPlayerVariables(entity);
+						});
+					}
+					changed = true;
 				}
-				changed = true;
+				if (IsSlaveProcedure.execute(world, entity)) {
+					if (!HouseManager.getPlayerDomain((Player) entity).isPlayerInDomain(pUUID)) {
+						{
+							String _setval = "";
+							entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.house = _setval;
+								capability.syncPlayerVariables(entity);
+							});
+						}
+						changed = true;
+					}
+				}
+				HouseManager.playerPrefixSynchronize((Player) entity);
+				if (changed) {
+					HouseManager.allPlayersPrefixPacketSend();
+				}
 			}
-		}
-		HouseManager.playerPrefixSynchronize((Player) entity);
-		if (changed) {
-			HouseManager.allPlayersPrefixPacketSend();
+			world = _worldorig;
 		}
 	}
 }

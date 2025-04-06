@@ -6,10 +6,10 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.gui.components.Checkbox;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.reignmod.world.inventory.TraderPointMenu;
+import net.mcreator.reignmod.procedures.ReturnMarketCopperProcedure;
 import net.mcreator.reignmod.ReignModMod;
 
 import java.util.HashMap;
@@ -22,7 +22,6 @@ public class TraderPointScreen extends AbstractContainerScreen<TraderPointMenu> 
 	private final int x, y, z;
 	private final Player entity;
 	private final static HashMap<String, String> textstate = new HashMap<>();
-	public static Checkbox sale_off;
 
 	public TraderPointScreen(TraderPointMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -40,7 +39,7 @@ public class TraderPointScreen extends AbstractContainerScreen<TraderPointMenu> 
 		this.renderBackground(guiGraphics);
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
-		if (mouseX > leftPos + 117 && mouseX < leftPos + 141 && mouseY > topPos + -20 && mouseY < topPos + 4)
+		if (mouseX > leftPos + 159 && mouseX < leftPos + 183 && mouseY > topPos + -21 && mouseY < topPos + 3)
 			guiGraphics.renderTooltip(font, Component.translatable("gui.reign_mod.trader_point.tooltip_sell_your_goods_to_the_capital"), mouseX, mouseY);
 		if (mouseX > leftPos + 0 && mouseX < leftPos + 18 && mouseY > topPos + 167 && mouseY < topPos + 185)
 			guiGraphics.renderTooltip(font, Component.translatable("gui.reign_mod.trader_point.tooltip_coinage_help"), mouseX, mouseY);
@@ -60,13 +59,14 @@ public class TraderPointScreen extends AbstractContainerScreen<TraderPointMenu> 
 
 		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/silver_coin.png"), this.leftPos + 6, this.topPos + 13, 0, 0, 16, 16, 16, 16);
 
-		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/crown.png"), this.leftPos + 122, this.topPos + -12, 0, 0, 16, 16, 16, 16);
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/crown.png"), this.leftPos + 163, this.topPos + -12, 0, 0, 16, 16, 16, 16);
+
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/copper_coin.png"), this.leftPos + 19, this.topPos + 168, 0, 0, 16, 16, 16, 16);
 
 		RenderSystem.disableBlend();
 	}
 
 	public static HashMap<String, String> getTextboxValues() {
-		textstate.put("checkboxin:sale_off", sale_off.selected() ? "true" : "false");
 		return textstate;
 	}
 
@@ -82,22 +82,20 @@ public class TraderPointScreen extends AbstractContainerScreen<TraderPointMenu> 
 	@Override
 	public void containerTick() {
 		super.containerTick();
-		textstate.put("checkboxin:sale_off", sale_off.selected() ? "true" : "false");
 		ReignModMod.PACKET_HANDLER.sendToServer(new TraderPointMenu.TraderPointOtherMessage(0, x, y, z, textstate));
 		TraderPointMenu.TraderPointOtherMessage.handleOtherAction(entity, 0, x, y, z, textstate);
 	}
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.trader_point.label_punkt_priioma"), 1, -12, -1, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.trader_point.label_coinage"), 20, 170, -1, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnMarketCopperProcedure.execute(world), 35, 172, -1, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.trader_point.label_trader"), 0, -10, -1, false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		sale_off = new Checkbox(this.leftPos + 153, this.topPos + -22, 20, 20, Component.translatable("gui.reign_mod.trader_point.sale_off"), false);
-		guistate.put("checkbox:sale_off", sale_off);
-		this.addRenderableWidget(sale_off);
 	}
 }

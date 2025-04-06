@@ -142,5 +142,21 @@
         "stream": false
       }
     ]
+  },
+  "minting": {
+    "sounds": [
+      {
+        "name": "reign_mod:minting",
+        "stream": false
+      }
+    ]
+  },
+  "fall_source": {
+    "sounds": [
+      {
+        "name": "reign_mod:fall_source",
+        "stream": false
+      }
+    ]
   }
 }

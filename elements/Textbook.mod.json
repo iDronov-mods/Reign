@@ -37,9 +37,6 @@
     "guiBoundTo": "<NONE>",
     "inventorySize": 0,
     "inventoryStackSize": 64,
-    "onRightClickedInAir": {
-      "name": "BackSheet"
-    },
     "enableRanged": false,
     "shootConstantly": false,
     "rangedItemChargesPower": false,

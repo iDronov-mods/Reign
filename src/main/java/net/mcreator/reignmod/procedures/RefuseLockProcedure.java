@@ -1,12 +1,11 @@
 package net.mcreator.reignmod.procedures;
 
-import net.minecraft.world.level.GameType;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.client.Minecraft;
-
 import net.mcreator.reignmod.network.ReignModModVariables;
+import net.minecraft.client.Minecraft;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.GameType;
 
 import java.util.Calendar;
 
@@ -26,8 +25,8 @@ public class RefuseLockProcedure {
 		}.checkGamemode(entity)) {
 			return true;
 		}
-		if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).last_refuse_day == Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
-				&& (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).last_refuse_month == Calendar.getInstance().get(Calendar.MONTH)) {
+		if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).last_refuse_day == Calendar.getInstance().get(Calendar.DAY_OF_WEEK)
+				&& (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).last_refuse_week == Calendar.getInstance().get(Calendar.WEEK_OF_YEAR)) {
 			return false;
 		}
 		return true;

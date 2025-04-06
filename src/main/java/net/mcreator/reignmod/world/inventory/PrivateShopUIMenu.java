@@ -1,37 +1,35 @@
 
 package net.mcreator.reignmod.world.inventory;
 
-import net.minecraftforge.items.SlotItemHandler;
-import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.inventory.ContainerLevelAccess;
-import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.core.BlockPos;
-
-import net.mcreator.reignmod.procedures.PrivateShopSetPriceProcedure;
-import net.mcreator.reignmod.procedures.PrivateShopSetGoodsProcedure;
-import net.mcreator.reignmod.procedures.PrivateShopClearPriceProcedure;
-import net.mcreator.reignmod.procedures.PrivateShopClearGoodsProcedure;
-import net.mcreator.reignmod.network.PrivateShopUISlotMessage;
-import net.mcreator.reignmod.init.ReignModModMenus;
-import net.mcreator.reignmod.init.ReignModModItems;
-import net.mcreator.reignmod.client.gui.PrivateShopUIScreen;
 import net.mcreator.reignmod.ReignModMod;
+import net.mcreator.reignmod.client.gui.PrivateShopUIScreen;
+import net.mcreator.reignmod.init.ReignModModItems;
+import net.mcreator.reignmod.init.ReignModModMenus;
+import net.mcreator.reignmod.network.PrivateShopUISlotMessage;
+import net.mcreator.reignmod.procedures.PrivateShopClearGoodsProcedure;
+import net.mcreator.reignmod.procedures.PrivateShopClearPriceProcedure;
+import net.mcreator.reignmod.procedures.PrivateShopSetGoodsProcedure;
+import net.mcreator.reignmod.procedures.PrivateShopSetPriceProcedure;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.items.SlotItemHandler;
 
-import java.util.function.Supplier;
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Supplier;
 
 public class PrivateShopUIMenu extends AbstractContainerMenu implements Supplier<Map<Integer, Slot>> {
 	public final static HashMap<String, Object> guistate = new HashMap<>();
@@ -128,7 +126,7 @@ public class PrivateShopUIMenu extends AbstractContainerMenu implements Supplier
 
 			@Override
 			public boolean mayPlace(ItemStack itemstack) {
-				return !PrivateShopSetGoodsProcedure.execute(entity, itemstack);
+				return !PrivateShopSetGoodsProcedure.execute(world, x, y, z, entity, itemstack);
 			}
 		}));
 		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 116, 48) {

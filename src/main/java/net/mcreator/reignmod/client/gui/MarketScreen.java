@@ -12,6 +12,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.mcreator.reignmod.world.inventory.MarketMenu;
 import net.mcreator.reignmod.procedures.WalletOutsideCostProcedure;
 import net.mcreator.reignmod.procedures.TextMarketTaxProcedure;
+import net.mcreator.reignmod.procedures.ReturnMarketCopperProcedure;
 import net.mcreator.reignmod.procedures.ReturnMarketBar33Procedure;
 import net.mcreator.reignmod.procedures.ReturnMarketBar23Procedure;
 import net.mcreator.reignmod.procedures.ReturnMarketBar13Procedure;
@@ -80,7 +81,7 @@ public class MarketScreen extends AbstractContainerScreen<MarketMenu> {
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/count_bar3-3.png"), this.leftPos + 106, this.topPos + 90, 0, 0, 31, 6, 31, 6);
 		}
 
-		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/wallet.png"), this.leftPos + 0, this.topPos + 161, 0, 0, 16, 16, 16, 16);
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/wallet.png"), this.leftPos + 0, this.topPos + 166, 0, 0, 16, 16, 16, 16);
 
 		RenderSystem.disableBlend();
 	}
@@ -113,11 +114,13 @@ public class MarketScreen extends AbstractContainerScreen<MarketMenu> {
 				TextMarketTaxProcedure.execute(world, entity), 15, 121, -3355444, false);
 		guiGraphics.drawString(this.font,
 
-				WalletOutsideCostProcedure.execute(entity), 15, 167, -1, false);
+				WalletOutsideCostProcedure.execute(entity), 15, 171, -1, false);
 		guiGraphics.drawString(this.font,
 
 				CopperCostTextProcedure.execute(entity), 15, 90, -3355444, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.market.label_market_wallet"), 74, -11, -3355444, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnMarketCopperProcedure.execute(world), 74, -11, -3355444, false);
 	}
 
 	@Override

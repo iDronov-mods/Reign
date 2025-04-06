@@ -14,8 +14,6 @@ import net.minecraft.client.gui.screens.MenuScreens;
 import net.mcreator.reignmod.client.gui.WoodcutterwindowScreen;
 import net.mcreator.reignmod.client.gui.WalletwinScreen;
 import net.mcreator.reignmod.client.gui.TraderPointScreen;
-import net.mcreator.reignmod.client.gui.TextbookmainScreen;
-import net.mcreator.reignmod.client.gui.Textbook1Screen;
 import net.mcreator.reignmod.client.gui.SoldierWindowScreen;
 import net.mcreator.reignmod.client.gui.SmithWindowScreen;
 import net.mcreator.reignmod.client.gui.SafeUIScreen;
@@ -38,10 +36,9 @@ import net.mcreator.reignmod.client.gui.FisherWindowScreen;
 import net.mcreator.reignmod.client.gui.FarmerWindowScreen;
 import net.mcreator.reignmod.client.gui.EnchanterWindowScreen;
 import net.mcreator.reignmod.client.gui.DsfScreen;
+import net.mcreator.reignmod.client.gui.DomainUIScreen;
 import net.mcreator.reignmod.client.gui.CowboyWindowScreen;
 import net.mcreator.reignmod.client.gui.CoffersUIScreen;
-import net.mcreator.reignmod.client.gui.BetaTextbookScreen;
-import net.mcreator.reignmod.client.gui.BetaTextbook2Screen;
 import net.mcreator.reignmod.client.gui.AlchemistWindowScreen;
 import net.mcreator.reignmod.client.gui.AddLicenseListScreen;
 import net.mcreator.reignmod.client.gui.AddLicenseIsSelectedScreen;
@@ -60,12 +57,8 @@ public class ReignModModScreens {
 			MenuScreens.register(ReignModModMenus.ADD_LICENSE_LIST.get(), AddLicenseListScreen::new);
 			MenuScreens.register(ReignModModMenus.ADD_LICENSE_IS_SELECTED.get(), AddLicenseIsSelectedScreen::new);
 			MenuScreens.register(ReignModModMenus.FUND_UI.get(), FundUIScreen::new);
-			MenuScreens.register(ReignModModMenus.TEXTBOOK_1.get(), Textbook1Screen::new);
-			MenuScreens.register(ReignModModMenus.BETA_TEXTBOOK.get(), BetaTextbookScreen::new);
-			MenuScreens.register(ReignModModMenus.BETA_TEXTBOOK_2.get(), BetaTextbook2Screen::new);
 			MenuScreens.register(ReignModModMenus.HOARDER.get(), HoarderScreen::new);
 			MenuScreens.register(ReignModModMenus.WALLETWIN.get(), WalletwinScreen::new);
-			MenuScreens.register(ReignModModMenus.TEXTBOOKMAIN.get(), TextbookmainScreen::new);
 			MenuScreens.register(ReignModModMenus.KINGTABLE_UI.get(), KingtableUIScreen::new);
 			MenuScreens.register(ReignModModMenus.NEW_HOUSE.get(), NewHouseScreen::new);
 			MenuScreens.register(ReignModModMenus.SAFE_UI.get(), SafeUIScreen::new);
@@ -85,6 +78,7 @@ public class ReignModModScreens {
 			MenuScreens.register(ReignModModMenus.ENCHANTER_WINDOW.get(), EnchanterWindowScreen::new);
 			MenuScreens.register(ReignModModMenus.SOLDIER_WINDOW.get(), SoldierWindowScreen::new);
 			MenuScreens.register(ReignModModMenus.HUNTER_WINDOW.get(), HunterWindowScreen::new);
+			MenuScreens.register(ReignModModMenus.DOMAIN_UI.get(), DomainUIScreen::new);
 		});
 	}
 }

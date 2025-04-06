@@ -28,71 +28,17 @@
         "my": 0.0,
         "mz": 0.0,
         "Mx": 16.0,
-        "My": 14.0,
+        "My": 15.0,
         "Mz": 16.0,
         "subtract": false
       },
       {
-        "mx": 14.0,
+        "mx": 1.0,
         "my": 15.0,
         "mz": 1.0,
         "Mx": 15.0,
         "My": 16.0,
         "Mz": 15.0,
-        "subtract": false
-      },
-      {
-        "mx": 2.0,
-        "my": 15.0,
-        "mz": 1.0,
-        "Mx": 14.0,
-        "My": 16.0,
-        "Mz": 2.0,
-        "subtract": false
-      },
-      {
-        "mx": 2.0,
-        "my": 15.0,
-        "mz": 14.0,
-        "Mx": 14.0,
-        "My": 16.0,
-        "Mz": 15.0,
-        "subtract": false
-      },
-      {
-        "mx": 0.0,
-        "my": 14.0,
-        "mz": 0.0,
-        "Mx": 16.0,
-        "My": 15.0,
-        "Mz": 4.0,
-        "subtract": false
-      },
-      {
-        "mx": 0.0,
-        "my": 14.0,
-        "mz": 12.0,
-        "Mx": 16.0,
-        "My": 15.0,
-        "Mz": 16.0,
-        "subtract": false
-      },
-      {
-        "mx": 0.0,
-        "my": 14.0,
-        "mz": 4.0,
-        "Mx": 4.0,
-        "My": 15.0,
-        "Mz": 12.0,
-        "subtract": false
-      },
-      {
-        "mx": 12.0,
-        "my": 14.0,
-        "mz": 4.0,
-        "Mx": 16.0,
-        "My": 15.0,
-        "Mz": 12.0,
         "subtract": false
       }
     ],
@@ -101,7 +47,7 @@
     "specialInformation": {
       "fixedValue": []
     },
-    "hardness": 3.0,
+    "hardness": 5.0,
     "resistance": 10000.0,
     "hasGravity": false,
     "isWaterloggable": false,
@@ -110,9 +56,9 @@
         "value": "CUSTOM:CreativeTab"
       }
     ],
-    "destroyTool": "Not specified",
+    "destroyTool": "pickaxe",
     "customDrop": {
-      "value": ""
+      "value": "CUSTOM:HeartOfHouse"
     },
     "dropAmount": 1,
     "useLootTableForDrops": false,
@@ -147,7 +93,7 @@
     "isNotColidable": false,
     "isCustomSoundType": false,
     "soundOnStep": {
-      "value": "STONE"
+      "value": "METAL"
     },
     "breakSound": {
       "value": ""
@@ -171,16 +117,12 @@
     "hasInventory": true,
     "guiBoundTo": "HouseIncubatorUI",
     "openGUIOnRightClick": false,
-    "inventorySize": 41,
+    "inventorySize": 8,
     "inventoryStackSize": 64,
-    "inventoryDropWhenDestroyed": true,
-    "inventoryComparatorPower": true,
-    "inventoryOutSlotIDs": [
-      0
-    ],
-    "inventoryInSlotIDs": [
-      0
-    ],
+    "inventoryDropWhenDestroyed": false,
+    "inventoryComparatorPower": false,
+    "inventoryOutSlotIDs": [],
+    "inventoryInSlotIDs": [],
     "hasEnergyStorage": false,
     "energyInitial": 0,
     "energyCapacity": 400000,

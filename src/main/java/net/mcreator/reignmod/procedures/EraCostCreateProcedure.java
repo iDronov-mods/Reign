@@ -1,15 +1,13 @@
 package net.mcreator.reignmod.procedures;
 
-import net.minecraftforge.items.IItemHandlerModifiable;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.core.BlockPos;
-
-import net.mcreator.reignmod.network.ReignModModVariables;
 import net.mcreator.reignmod.init.ReignModModItems;
+import net.mcreator.reignmod.network.ReignModModVariables;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.items.IItemHandlerModifiable;
 
 import java.util.concurrent.atomic.AtomicReference;
 

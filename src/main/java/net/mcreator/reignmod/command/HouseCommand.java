@@ -13,7 +13,10 @@ import net.minecraft.core.Direction;
 import net.minecraft.commands.arguments.MessageArgument;
 import net.minecraft.commands.Commands;
 
+import net.mcreator.reignmod.procedures.HouseWantedProcedure;
 import net.mcreator.reignmod.procedures.HouseRenameProcedure;
+import net.mcreator.reignmod.procedures.HousePardonProcedure;
+import net.mcreator.reignmod.procedures.HouseCriminalProcedure;
 
 @Mod.EventBusSubscriber
 public class HouseCommand {
@@ -34,6 +37,48 @@ public class HouseCommand {
 						direction = entity.getDirection();
 
 					HouseRenameProcedure.execute(world, arguments, entity);
+					return 0;
+				}))).then(Commands.literal("wanted").executes(arguments -> {
+					Level world = arguments.getSource().getUnsidedLevel();
+					double x = arguments.getSource().getPosition().x();
+					double y = arguments.getSource().getPosition().y();
+					double z = arguments.getSource().getPosition().z();
+					Entity entity = arguments.getSource().getEntity();
+					if (entity == null && world instanceof ServerLevel _servLevel)
+						entity = FakePlayerFactory.getMinecraft(_servLevel);
+					Direction direction = Direction.DOWN;
+					if (entity != null)
+						direction = entity.getDirection();
+
+					HouseWantedProcedure.execute(entity);
+					return 0;
+				})).then(Commands.literal("pardon").then(Commands.argument("player", MessageArgument.message()).executes(arguments -> {
+					Level world = arguments.getSource().getUnsidedLevel();
+					double x = arguments.getSource().getPosition().x();
+					double y = arguments.getSource().getPosition().y();
+					double z = arguments.getSource().getPosition().z();
+					Entity entity = arguments.getSource().getEntity();
+					if (entity == null && world instanceof ServerLevel _servLevel)
+						entity = FakePlayerFactory.getMinecraft(_servLevel);
+					Direction direction = Direction.DOWN;
+					if (entity != null)
+						direction = entity.getDirection();
+
+					HousePardonProcedure.execute(world, arguments, entity);
+					return 0;
+				}))).then(Commands.literal("criminal").then(Commands.argument("player", MessageArgument.message()).executes(arguments -> {
+					Level world = arguments.getSource().getUnsidedLevel();
+					double x = arguments.getSource().getPosition().x();
+					double y = arguments.getSource().getPosition().y();
+					double z = arguments.getSource().getPosition().z();
+					Entity entity = arguments.getSource().getEntity();
+					if (entity == null && world instanceof ServerLevel _servLevel)
+						entity = FakePlayerFactory.getMinecraft(_servLevel);
+					Direction direction = Direction.DOWN;
+					if (entity != null)
+						direction = entity.getDirection();
+
+					HouseCriminalProcedure.execute(world, arguments, entity);
 					return 0;
 				}))));
 	}

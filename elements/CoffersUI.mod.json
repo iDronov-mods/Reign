@@ -7,16 +7,25 @@
     "height": 166,
     "inventoryOffsetX": 0,
     "inventoryOffsetY": 0,
-    "renderBgLayer": true,
+    "renderBgLayer": false,
     "doesPauseGame": false,
     "components": [
       {
         "type": "image",
         "data": {
+          "image": "coffers_ui_new.png",
+          "use1Xscale": false,
+          "x": 126,
+          "y": 37
+        }
+      },
+      {
+        "type": "image",
+        "data": {
           "image": "crown.png",
           "use1Xscale": false,
-          "x": 139,
-          "y": 24
+          "x": 257,
+          "y": 23
         }
       },
       {
@@ -26,10 +35,10 @@
           "text": {
             "fixedValue": "This is where government money is kept."
           },
-          "width": 24,
-          "height": 24,
-          "x": 135,
-          "y": 20
+          "width": 16,
+          "height": 13,
+          "x": 256,
+          "y": 24
         }
       },
       {
@@ -51,10 +60,10 @@
         "type": "inputslot",
         "data": {
           "inputLimit": {
-            "value": "CUSTOM:PlatinumCoin"
+            "value": ""
           },
           "disablePlacement": {
-            "fixedValue": false
+            "fixedValue": true
           },
           "color": {
             "value": -3342337,
@@ -62,12 +71,9 @@
           },
           "id": 0,
           "disablePickup": {
-            "fixedValue": false
+            "fixedValue": true
           },
-          "dropItemsWhenNotBound": true,
-          "onSlotChanged": {
-            "name": "CoffersOptimally"
-          },
+          "dropItemsWhenNotBound": false,
           "x": 151,
           "y": 72
         }
@@ -76,10 +82,10 @@
         "type": "inputslot",
         "data": {
           "inputLimit": {
-            "value": "CUSTOM:GoldCoin"
+            "value": ""
           },
           "disablePlacement": {
-            "fixedValue": false
+            "fixedValue": true
           },
           "color": {
             "value": -52,
@@ -87,12 +93,9 @@
           },
           "id": 1,
           "disablePickup": {
-            "fixedValue": false
+            "fixedValue": true
           },
-          "dropItemsWhenNotBound": true,
-          "onSlotChanged": {
-            "name": "CoffersOptimally"
-          },
+          "dropItemsWhenNotBound": false,
           "x": 187,
           "y": 72
         }
@@ -101,10 +104,10 @@
         "type": "inputslot",
         "data": {
           "inputLimit": {
-            "value": "CUSTOM:SilverCoin"
+            "value": ""
           },
           "disablePlacement": {
-            "fixedValue": false
+            "fixedValue": true
           },
           "color": {
             "value": -3355444,
@@ -112,12 +115,9 @@
           },
           "id": 2,
           "disablePickup": {
-            "fixedValue": false
+            "fixedValue": true
           },
-          "dropItemsWhenNotBound": true,
-          "onSlotChanged": {
-            "name": "CoffersOptimally"
-          },
+          "dropItemsWhenNotBound": false,
           "x": 223,
           "y": 72
         }
@@ -126,10 +126,10 @@
         "type": "inputslot",
         "data": {
           "inputLimit": {
-            "value": "CUSTOM:CopperCoin"
+            "value": ""
           },
           "disablePlacement": {
-            "fixedValue": false
+            "fixedValue": true
           },
           "color": {
             "value": -13108,
@@ -137,41 +137,41 @@
           },
           "id": 3,
           "disablePickup": {
-            "fixedValue": false
+            "fixedValue": true
           },
-          "dropItemsWhenNotBound": true,
-          "onSlotChanged": {
-            "name": "CoffersOptimally"
-          },
+          "dropItemsWhenNotBound": false,
           "x": 259,
           "y": 72
         }
       },
       {
-        "type": "image",
+        "type": "label",
         "data": {
-          "image": "copper_coin.png",
-          "use1Xscale": false,
-          "x": 260,
-          "y": 90
+          "name": "label_coffers1",
+          "text": {
+            "fixedValue": "Coffers"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 126,
+          "y": 27
         }
       },
       {
-        "type": "image",
+        "type": "button",
         "data": {
-          "image": "gold_coin.png",
-          "use1Xscale": false,
-          "x": 188,
-          "y": 90
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "silver_coin.png",
-          "use1Xscale": false,
-          "x": 224,
-          "y": 90
+          "name": "button_take",
+          "text": "Take",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "TakeFromCoffers"
+          },
+          "width": 54,
+          "height": 20,
+          "x": 187,
+          "y": 97
         }
       },
       {
@@ -179,8 +179,36 @@
         "data": {
           "image": "platinum_coin.png",
           "use1Xscale": false,
-          "x": 152,
-          "y": 90
+          "x": 205,
+          "y": 89
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_capital_service",
+          "text": {
+            "fixedValue": "Capital service"
+          },
+          "color": {
+            "value": -3355444,
+            "falpha": 0.0
+          },
+          "x": 131,
+          "y": 45
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_coffers_take_help",
+          "text": {
+            "fixedValue": "coffers_take_help"
+          },
+          "width": 52,
+          "height": 18,
+          "x": 188,
+          "y": 98
         }
       }
     ],

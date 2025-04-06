@@ -6,8 +6,7 @@ import net.minecraft.nbt.StringTag;
 import net.minecraft.network.chat.Component;
 import net.minecraftforge.common.util.INBTSerializable;
 
-import java.util.HashSet;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * Домен (рыцарский), принадлежащий лорду.
@@ -16,7 +15,9 @@ public class Domain implements INBTSerializable<CompoundTag> {
     private String lordUUID;
     private String knightUUID;
     private Component domainTitle;
+    private String claimId;
     private HashSet<String> players = new HashSet<>();
+    private HashMap<String, Integer> suspectPlayers = new HashMap<>();
 
     /**
      * Новое поле domainHP (здоровье домена).
@@ -26,9 +27,10 @@ public class Domain implements INBTSerializable<CompoundTag> {
     private int domainHP;
 
     public Domain() {
-        this.domainTitle = Component.literal("null");
-        this.lordUUID = "null";
-        this.knightUUID = "null";
+        this.domainTitle = Component.literal("");
+        this.lordUUID = null;
+        this.knightUUID = null;
+        this.claimId = null;
         this.domainHP = -1;  // По умолчанию -1
     }
 
@@ -37,6 +39,7 @@ public class Domain implements INBTSerializable<CompoundTag> {
         this.knightUUID = knightUUID;
         this.domainTitle = knightDisplayName;
         this.players.add(knightUUID);
+        this.claimId = null;
         this.domainHP = 300; // Стандартное значение 300
     }
 
@@ -106,19 +109,67 @@ public class Domain implements INBTSerializable<CompoundTag> {
     //              Логика проверки
     // -------------------------------------------------
     public boolean isNull() {
-        return Objects.equals(this.knightUUID, "null");
+        return Objects.equals(this.knightUUID, null);
     }
 
     public boolean isPlayerInDomain(String playerUUID) {
         return players.contains(playerUUID);
     }
 
-    public boolean pushPlayer(String player) {
-        return this.players.add(player);
+    public void pushPlayer(String player) {
+        this.players.add(player);
     }
 
     public void removePlayer(String player) {
         this.players.remove(player);
+    }
+
+    //--------------------------------------------------------------------------------
+    //                            ПОДОЗРИТЕЛЬНЫЕ ИГРОКИ
+    //--------------------------------------------------------------------------------
+
+    public void adjustSuspicionForPlayer(String playerId, int amount) {
+        int current = suspectPlayers.getOrDefault(playerId, 0);
+        int updated = current + amount;
+
+        if (updated <= 0) {
+            suspectPlayers.remove(playerId);
+            return;
+        }
+        if (updated >= 100) {
+            suspectPlayers.remove(playerId);
+            HouseManager.getHouseByLordUUID(getLordUUID()).addWantedPlayer(playerId);
+            return;
+        }
+        suspectPlayers.put(playerId, updated);
+    }
+
+    public void adjustSuspicionForAll(int amount) {
+        List<String> keys = new ArrayList<>(suspectPlayers.keySet());
+        for (String playerId : keys) {
+            adjustSuspicionForPlayer(playerId, amount);
+        }
+    }
+
+    public List<Map.Entry<String, Integer>> getSortedSuspects(int maxCount) {
+        Vector<Map.Entry<String, Integer>> list = new Vector<>(suspectPlayers.entrySet());
+        list.sort((a, b) -> Integer.compare(b.getValue(), a.getValue()));
+        if (maxCount > 0 && maxCount < list.size()) {
+            return list.subList(0, maxCount);
+        }
+        return list;
+    }
+
+    //--------------------------------------------------------------------------------
+    //                                 CLAIM ID
+    //--------------------------------------------------------------------------------
+
+    public String getClaimId() {
+        return claimId;
+    }
+
+    public void setClaimId(String claimId) {
+        this.claimId = claimId;
     }
 
     // -------------------------------------------------
@@ -138,6 +189,16 @@ public class Domain implements INBTSerializable<CompoundTag> {
         this.players.forEach(player -> playersTag.add(StringTag.valueOf(player)));
         tag.put("players", playersTag);
 
+        // Suspect players
+        ListTag suspectList = new ListTag();
+        for (Map.Entry<String, Integer> entry : suspectPlayers.entrySet()) {
+            CompoundTag eTag = new CompoundTag();
+            eTag.putString("player_id", entry.getKey());
+            eTag.putInt("suspicion", entry.getValue());
+            suspectList.add(eTag);
+        }
+        tag.put("suspects", suspectList);
+
         return tag;
     }
 
@@ -153,5 +214,17 @@ public class Domain implements INBTSerializable<CompoundTag> {
         this.players.clear();
         ListTag playersTag = nbt.getList("players", 8);
         playersTag.forEach(tag -> this.players.add(tag.getAsString()));
+
+        // Suspects
+        suspectPlayers.clear();
+        if (nbt.contains("suspects")) {
+            ListTag suspectList = nbt.getList("suspects", 10);
+            for (int i = 0; i < suspectList.size(); i++) {
+                CompoundTag eTag = suspectList.getCompound(i);
+                String pid = eTag.getString("player_id");
+                int susValue = eTag.getInt("suspicion");
+                suspectPlayers.put(pid, susValue);
+            }
+        }
     }
 }

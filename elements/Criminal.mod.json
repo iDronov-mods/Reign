@@ -8,10 +8,10 @@
       "value": -16777216,
       "falpha": 0.0
     },
-    "isInstant": true,
+    "isInstant": false,
     "mobEffectCategory": "HARMFUL",
     "renderStatusInInventory": true,
-    "renderStatusInHUD": false,
+    "renderStatusInHUD": true,
     "isCuredByMilk": false,
     "isProtectedByTotem": false,
     "isCuredbyHoney": false

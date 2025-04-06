@@ -50,21 +50,6 @@
         }
       },
       {
-        "type": "label",
-        "data": {
-          "name": "label_punkt_priioma",
-          "text": {
-            "fixedValue": "Пункт приёма"
-          },
-          "color": {
-            "value": -1,
-            "falpha": 0.0
-          },
-          "x": 115,
-          "y": 25
-        }
-      },
-      {
         "type": "image",
         "data": {
           "image": "gold_coin.png",
@@ -96,7 +81,7 @@
         "data": {
           "image": "crown.png",
           "use1Xscale": false,
-          "x": 236,
+          "x": 277,
           "y": 25
         }
       },
@@ -109,17 +94,8 @@
           },
           "width": 24,
           "height": 24,
-          "x": 231,
-          "y": 17
-        }
-      },
-      {
-        "type": "checkbox",
-        "data": {
-          "name": "sale_off",
-          "text": "OFF",
-          "x": 267,
-          "y": 15
+          "x": 273,
+          "y": 16
         }
       },
       {
@@ -172,23 +148,8 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": true,
-          "x": 133,
+          "x": 114,
           "y": 204
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_coinage",
-          "text": {
-            "fixedValue": "Coinage"
-          },
-          "color": {
-            "value": -1,
-            "falpha": 0.0
-          },
-          "x": 134,
-          "y": 207
         }
       },
       {
@@ -202,6 +163,46 @@
           "height": 18,
           "x": 114,
           "y": 204
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "copper_coin.png",
+          "use1Xscale": false,
+          "x": 133,
+          "y": 205
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_market_copper",
+          "text": {
+            "fixedValue": "market_copper",
+            "name": "ReturnMarketCopper"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 149,
+          "y": 209
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_trader",
+          "text": {
+            "fixedValue": "Trader"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 114,
+          "y": 27
         }
       }
     ],

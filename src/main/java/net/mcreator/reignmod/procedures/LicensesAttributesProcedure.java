@@ -1,10 +1,9 @@
 package net.mcreator.reignmod.procedures;
 
-import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Entity;
-
 import net.mcreator.reignmod.network.ReignModModVariables;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 
 public class LicensesAttributesProcedure {
 	public static void execute(Entity entity) {

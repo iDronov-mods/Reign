@@ -1,11 +1,9 @@
 package net.mcreator.reignmod.procedures;
 
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.core.BlockPos;
-
-import java.util.UUID;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.entity.BlockEntity;
 
 public class HouseHPValueProcedure {
 	public static String execute(LevelAccessor world, double x, double y, double z, Entity entity) {

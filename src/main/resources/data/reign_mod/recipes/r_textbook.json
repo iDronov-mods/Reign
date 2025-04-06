@@ -1,14 +1,18 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "ingredients": [
-    {
+  "pattern": [
+    "a",
+    "b"
+  ],
+  "key": {
+    "a": {
       "item": "reign_mod:copper_coin"
     },
-    {
+    "b": {
       "item": "minecraft:book"
     }
-  ],
+  },
   "result": {
     "item": "reign_mod:textbook",
     "count": 1

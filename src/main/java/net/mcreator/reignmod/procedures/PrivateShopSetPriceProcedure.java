@@ -1,14 +1,14 @@
 package net.mcreator.reignmod.procedures;
 
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.ItemStack;
 
-import java.util.function.Supplier;
 import java.util.Map;
+import java.util.function.Supplier;
 
 public class PrivateShopSetPriceProcedure {
 	public static boolean execute(Entity entity, ItemStack itemstack) {

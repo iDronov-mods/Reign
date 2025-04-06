@@ -1,0 +1,118 @@
+{
+  "_fv": 69,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 180,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": false,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "ui_domain.png",
+          "use1Xscale": false,
+          "x": 133,
+          "y": 21
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_hp",
+          "text": {
+            "fixedValue": "hp"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 282,
+          "y": 34
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "house_hp_point.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "DomainHP16"
+          },
+          "x": 151,
+          "y": 38
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "house_hp_point.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "DomainHP26"
+          },
+          "x": 172,
+          "y": 38
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "house_hp_point.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "DomainHP36"
+          },
+          "x": 193,
+          "y": 38
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "house_hp_point.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "DomainHP46"
+          },
+          "x": 214,
+          "y": 38
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "house_hp_point.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "DomainHP56"
+          },
+          "x": 235,
+          "y": 38
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "house_hp_point.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "DomainHP66"
+          },
+          "x": 256,
+          "y": 38
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

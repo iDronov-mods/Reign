@@ -1,7 +1,7 @@
 package net.mcreator.reignmod.procedures;
 
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.LevelAccessor;
 
 public class PrivateShopBuy4Procedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {

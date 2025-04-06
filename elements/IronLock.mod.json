@@ -29,8 +29,7 @@
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
     "specialInformation": {
-      "fixedValue": [],
-      "name": "TooltipIronLock"
+      "fixedValue": []
     },
     "glowCondition": {
       "fixedValue": false

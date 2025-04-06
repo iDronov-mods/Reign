@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "reign_mod:gold_lock",
+    "reign_mod:copper_lock",
+    "reign_mod:iron_lock"
+  ]
+}

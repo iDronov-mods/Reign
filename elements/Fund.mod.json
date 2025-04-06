@@ -196,6 +196,9 @@
     "onRandomUpdateEvent": {
       "name": "FoundParticles"
     },
+    "onEntityWalksOn": {
+      "name": "FundGetBlackMark"
+    },
     "generateFeature": false,
     "restrictionBiomes": [],
     "blocksToReplace": [

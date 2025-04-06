@@ -17,9 +17,10 @@ import net.minecraft.commands.Commands;
 
 import net.mcreator.reignmod.procedures.SetEventProcedure;
 import net.mcreator.reignmod.procedures.HousesGetListHPProcedure;
-import net.mcreator.reignmod.procedures.FeedKSetProcedure;
 import net.mcreator.reignmod.procedures.EraSetProcedure;
 import net.mcreator.reignmod.procedures.EraResetProcedure;
+import net.mcreator.reignmod.procedures.CapitalSurgingSetProcedure;
+import net.mcreator.reignmod.procedures.CapitalSurgingGetProcedure;
 
 import com.mojang.brigadier.arguments.DoubleArgumentType;
 import com.mojang.brigadier.arguments.BoolArgumentType;
@@ -85,7 +86,7 @@ public class ReignEventsCommand {
 
 					HousesGetListHPProcedure.execute(entity);
 					return 0;
-				})).then(Commands.literal("feed").then(Commands.literal("set").then(Commands.argument("value", DoubleArgumentType.doubleArg(0.5, 10)).executes(arguments -> {
+				}))).then(Commands.literal("capital").then(Commands.literal("surging").then(Commands.literal("get").executes(arguments -> {
 					Level world = arguments.getSource().getUnsidedLevel();
 					double x = arguments.getSource().getPosition().x();
 					double y = arguments.getSource().getPosition().y();
@@ -97,7 +98,21 @@ public class ReignEventsCommand {
 					if (entity != null)
 						direction = entity.getDirection();
 
-					FeedKSetProcedure.execute(world, arguments);
+					CapitalSurgingGetProcedure.execute(entity);
+					return 0;
+				})).then(Commands.literal("set").then(Commands.argument("value", DoubleArgumentType.doubleArg(0, 100)).executes(arguments -> {
+					Level world = arguments.getSource().getUnsidedLevel();
+					double x = arguments.getSource().getPosition().x();
+					double y = arguments.getSource().getPosition().y();
+					double z = arguments.getSource().getPosition().z();
+					Entity entity = arguments.getSource().getEntity();
+					if (entity == null && world instanceof ServerLevel _servLevel)
+						entity = FakePlayerFactory.getMinecraft(_servLevel);
+					Direction direction = Direction.DOWN;
+					if (entity != null)
+						direction = entity.getDirection();
+
+					CapitalSurgingSetProcedure.execute(arguments);
 					return 0;
 				}))))));
 	}

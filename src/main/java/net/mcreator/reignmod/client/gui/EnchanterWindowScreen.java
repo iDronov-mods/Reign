@@ -11,13 +11,13 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.reignmod.world.inventory.EnchanterWindowMenu;
-import net.mcreator.reignmod.procedures.Mlvl5Procedure;
-import net.mcreator.reignmod.procedures.Mlvl4Procedure;
-import net.mcreator.reignmod.procedures.Mlvl2Procedure;
-import net.mcreator.reignmod.procedures.Mlvl1Procedure;
 import net.mcreator.reignmod.procedures.IsNotHaveAddLicensesProcedure;
 import net.mcreator.reignmod.procedures.IsHaveAddLicensesProcedure;
+import net.mcreator.reignmod.procedures.Alvl5Procedure;
+import net.mcreator.reignmod.procedures.Alvl4Procedure;
 import net.mcreator.reignmod.procedures.Alvl3Procedure;
+import net.mcreator.reignmod.procedures.Alvl2Procedure;
+import net.mcreator.reignmod.procedures.Alvl1Procedure;
 import net.mcreator.reignmod.procedures.AddLvlUp5Procedure;
 import net.mcreator.reignmod.procedures.AddLvlUp4Procedure;
 import net.mcreator.reignmod.procedures.AddLvlUp3Procedure;
@@ -85,16 +85,16 @@ public class EnchanterWindowScreen extends AbstractContainerScreen<EnchanterWind
 
 		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/big_enchanter_logo.png"), this.leftPos + 9, this.topPos + 9, 0, 0, 48, 48, 48, 48);
 
-		if (Mlvl1Procedure.execute(entity)) {
+		if (Alvl1Procedure.execute(entity)) {
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/lvl_point_first.png"), this.leftPos + 63, this.topPos + 37, 0, 0, 6, 6, 6, 6);
 		}
-		if (Mlvl2Procedure.execute(entity)) {
+		if (Alvl2Procedure.execute(entity)) {
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/lvl_point_next.png"), this.leftPos + 69, this.topPos + 37, 0, 0, 24, 6, 24, 6);
 		}
-		if (Mlvl4Procedure.execute(entity)) {
+		if (Alvl4Procedure.execute(entity)) {
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/lvl_point_next.png"), this.leftPos + 117, this.topPos + 37, 0, 0, 24, 6, 24, 6);
 		}
-		if (Mlvl5Procedure.execute(entity)) {
+		if (Alvl5Procedure.execute(entity)) {
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/lvl_point_next.png"), this.leftPos + 141, this.topPos + 37, 0, 0, 24, 6, 24, 6);
 		}
 		if (Alvl3Procedure.execute(entity)) {

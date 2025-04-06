@@ -24,13 +24,46 @@ public class TerritoryClaim {
         this.centerY = centerY;
     }
 
-    public int getStartX() { return startX; }
-    public int getStartZ() { return startZ; }
-    public int getEndX() { return endX; }
-    public int getEndZ() { return endZ; }
-    public int getCenterX() { return centerX; }
-    public int getCenterZ() { return centerZ; }
-    public int getCenterY() { return centerY; }
+    public static TerritoryClaim deserializeNBT(CompoundTag tag) {
+        int startX = tag.getInt("startX");
+        int startZ = tag.getInt("startZ");
+        int endX = tag.getInt("endX");
+        int endZ = tag.getInt("endZ");
+        int centerX = tag.getInt("centerX");
+        int centerZ = tag.getInt("centerZ");
+        int centerY = tag.getInt("centerY");
+        int width = endX - startX;
+        int height = endZ - startZ;
+        return new TerritoryClaim(centerX, centerY, centerZ, width, height);
+    }
+
+    public int getStartX() {
+        return startX;
+    }
+
+    public int getStartZ() {
+        return startZ;
+    }
+
+    public int getEndX() {
+        return endX;
+    }
+
+    public int getEndZ() {
+        return endZ;
+    }
+
+    public int getCenterX() {
+        return centerX;
+    }
+
+    public int getCenterZ() {
+        return centerZ;
+    }
+
+    public int getCenterY() {
+        return centerY;
+    }
 
     /**
      * Проверяет, находится ли блок с координатами (x, z) внутри данного привата.
@@ -42,8 +75,7 @@ public class TerritoryClaim {
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
-        if (!(obj instanceof TerritoryClaim)) return false;
-        TerritoryClaim other = (TerritoryClaim) obj;
+        if (!(obj instanceof TerritoryClaim other)) return false;
         return centerX == other.centerX && centerZ == other.centerZ && centerY == other.centerY;
     }
 
@@ -57,18 +89,5 @@ public class TerritoryClaim {
         tag.putInt("centerZ", centerZ);
         tag.putInt("centerY", centerY);
         return tag;
-    }
-
-    public static TerritoryClaim deserializeNBT(CompoundTag tag) {
-        int startX = tag.getInt("startX");
-        int startZ = tag.getInt("startZ");
-        int endX = tag.getInt("endX");
-        int endZ = tag.getInt("endZ");
-        int centerX = tag.getInt("centerX");
-        int centerZ = tag.getInt("centerZ");
-        int centerY = tag.getInt("centerY");
-        int width = endX - startX;
-        int height = endZ - startZ;
-        return new TerritoryClaim(centerX, centerY, centerZ, width, height);
     }
 }

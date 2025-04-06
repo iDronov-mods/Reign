@@ -1,12 +1,12 @@
 package net.mcreator.reignmod.claim.capital;
 
 import com.mojang.authlib.GameProfile;
+import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.players.GameProfileCache;
 import net.minecraft.world.entity.player.Player;
-import org.apache.logging.log4j.core.jmx.Server;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,11 +23,13 @@ public class CapitalClaimManager {
     // Координаты сердца столицы (фонд) в мировых координатах
     private static int capitalHeartX = 0;
     private static int capitalHeartZ = 0;
+
     // Для приведения мировых координат к локальным: локальный центр = ( (CAPITAL_SIZE+1)/2, (CAPITAL_SIZE+1)/2 )
     // offset = (capitalHeart - (CAPITAL_SIZE+1)/2)
     private static int offsetX() {
         return capitalHeartX - ((CapitalClaimSavedData.CAPITAL_SIZE + 1) / 2);
     }
+
     private static int offsetZ() {
         return capitalHeartZ - ((CapitalClaimSavedData.CAPITAL_SIZE + 1) / 2);
     }
@@ -57,26 +59,31 @@ public class CapitalClaimManager {
 
     /**
      * Добавляет приват.
+     *
      * @param serverPlayer Игрок, инициирующий создание привата.
-     * @param owners Строка с никнеймами владельцев, разделёнными запятыми и/или пробелами.
-     *               Первый ник – главный владелец, остальные – совладельцы.
-     * @param centerX Мировая X-координата центра привата.
-     * @param centerY Мировая Y-координата центра привата.
-     * @param centerZ Мировая Z-координата центра привата.
-     * @param width Ширина привата (нечётное число).
-     * @param height Высота привата (нечётное число).
+     * @param owners       Строка с никнеймами владельцев, разделёнными запятыми и/или пробелами.
+     *                     Первый ник – главный владелец, остальные – совладельцы.
+     * @param centerX      Мировая X-координата центра привата.
+     * @param centerY      Мировая Y-координата центра привата.
+     * @param centerZ      Мировая Z-координата центра привата.
+     * @param width        Ширина привата (нечётное число).
+     * @param height       Высота привата (нечётное число).
      */
     public static boolean addClaim(ServerPlayer serverPlayer, String owners, double centerX, double centerY, double centerZ, String width, String height) {
         // Проверяем, включена ли система привата
         if (!CapitalClaimSavedData.getInstance().isCapitalClaimsEnabled()) {
-            serverPlayer.sendSystemMessage(Component.translatable("capitalclaim.system.disabled"));
+            if (Minecraft.getInstance().player != null) {
+                Minecraft.getInstance().player.displayClientMessage(Component.translatable("capitalclaim.system.disabled"), true);
+            }
             return false;
         }
 
         // Парсим строку с никнеймами
         List<String> ownerNames = parseOwnerNames(owners);
         if (ownerNames.isEmpty()) {
-            serverPlayer.sendSystemMessage(Component.translatable("capitalclaim.add.fail", "Empty owners list"));
+            if (Minecraft.getInstance().player != null) {
+                Minecraft.getInstance().player.displayClientMessage(Component.translatable("capitalclaim.add.fail", "Empty owners list"), true);
+            }
             return false;
         }
 
@@ -84,7 +91,9 @@ public class CapitalClaimManager {
         // Получаем UUID главного владельца
         UUID mainOwnerUUID = getOfflinePlayerUUID(server, ownerNames.get(0));
         if (mainOwnerUUID == null) {
-            serverPlayer.sendSystemMessage(Component.translatable("capitalclaim.add.fail", "Main owner not found: " + ownerNames.get(0)));
+            if (Minecraft.getInstance().player != null) {
+                Minecraft.getInstance().player.displayClientMessage(Component.translatable("capitalclaim.add.fail", "Main owner not found: " + ownerNames.get(0)), true);
+            }
             return false;
         }
         ClaimOwner claimOwner = new ClaimOwner(mainOwnerUUID);
@@ -96,7 +105,9 @@ public class CapitalClaimManager {
             if (uuid != null) {
                 claimOwner.addCoOwner(uuid);
             } else {
-                serverPlayer.sendSystemMessage(Component.translatable("capitalclaim.add.warn", "Co-owner not found: " + name));
+                if (Minecraft.getInstance().player != null) {
+                    Minecraft.getInstance().player.displayClientMessage(Component.translatable("capitalclaim.add.warn", "Co-owner not found: " + name), true);
+                }
             }
         }
 
@@ -112,7 +123,9 @@ public class CapitalClaimManager {
             intWidth = Integer.parseInt(width);
             intHeight = Integer.parseInt(height);
         } catch (NumberFormatException e) {
-            serverPlayer.sendSystemMessage(Component.translatable("capitalclaim.add.fail", "Invalid width/height format."));
+            if (Minecraft.getInstance().player != null) {
+                Minecraft.getInstance().player.displayClientMessage(Component.translatable("capitalclaim.add.fail", "Invalid width/height format."), true);
+            }
             return false;
         }
 
@@ -120,7 +133,9 @@ public class CapitalClaimManager {
         try {
             claim = new TerritoryClaim(localCenterX, intCenterY, localCenterZ, intWidth, intHeight);
         } catch (IllegalArgumentException ex) {
-            serverPlayer.sendSystemMessage(Component.translatable("capitalclaim.add.fail", ex.getMessage()));
+            if (Minecraft.getInstance().player != null) {
+                Minecraft.getInstance().player.displayClientMessage(Component.translatable("capitalclaim.add.fail", ex.getMessage()), true);
+            }
             return false;
         }
 
@@ -131,11 +146,15 @@ public class CapitalClaimManager {
             for (int i = 1; i < ownerNames.size(); i++) {
                 ownersList.append(", ").append(ownerNames.get(i));
             }
-            serverPlayer.sendSystemMessage(Component.translatable("capitalclaim.add.success",
-                    (int) centerX, intCenterY, (int) centerZ, ownersList.toString()));
+            if (Minecraft.getInstance().player != null) {
+                Minecraft.getInstance().player.displayClientMessage(Component.translatable("capitalclaim.add.success",
+                        (int) centerX, intCenterY, (int) centerZ, ownersList.toString()), true);
+            }
             return true;
         } else {
-            serverPlayer.sendSystemMessage(Component.translatable("capitalclaim.add.fail", "Area is occupied or invalid."));
+            if (Minecraft.getInstance().player != null) {
+                Minecraft.getInstance().player.displayClientMessage(Component.translatable("capitalclaim.add.fail", "Area is occupied or invalid."), true);
+            }
             return false;
         }
     }
@@ -143,7 +162,7 @@ public class CapitalClaimManager {
     /**
      * Удаляет приват по центру, возвращая результат вызвавшему функцию игроку.
      *
-     * @param player Игрок, инициирующий удаление.
+     * @param player  Игрок, инициирующий удаление.
      * @param centerX Мировая X-координата центра привата.
      * @param centerZ Мировая Z-координата центра привата.
      */
@@ -156,10 +175,14 @@ public class CapitalClaimManager {
             int localCenterX = toLocalX((int) centerX);
             int localCenterZ = toLocalZ((int) centerZ);
             if (CapitalClaimSavedData.getInstance().removeClaim(localCenterX, localCenterZ)) {
-                serverPlayer.sendSystemMessage(Component.translatable("capitalclaim.remove.success"));
+                if (Minecraft.getInstance().player != null) {
+                    Minecraft.getInstance().player.displayClientMessage(Component.translatable("capitalclaim.remove.success"), true);
+                }
                 return true;
             } else {
-                serverPlayer.sendSystemMessage(Component.translatable("capitalclaim.remove.fail"));
+                if (Minecraft.getInstance().player != null) {
+                    Minecraft.getInstance().player.displayClientMessage(Component.translatable("capitalclaim.remove.fail"), true);
+                }
             }
         }
         return false;

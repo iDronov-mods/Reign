@@ -28,12 +28,27 @@
         "my": 0.0,
         "mz": 0.0,
         "Mx": 16.0,
-        "My": 16.0,
+        "My": 10.0,
         "Mz": 16.0,
+        "subtract": false
+      },
+      {
+        "mx": 1.0,
+        "my": 10.0,
+        "mz": 1.0,
+        "Mx": 15.0,
+        "My": 16.0,
+        "Mz": 15.0,
         "subtract": false
       }
     ],
-    "customProperties": [],
+    "customProperties": [
+      {
+        "name": "CUSTOM:protected",
+        "type": "logic",
+        "value": false
+      }
+    ],
     "name": "Obelisk foundation",
     "specialInformation": {
       "fixedValue": []
@@ -80,7 +95,7 @@
     "slipperiness": 0.6,
     "speedFactor": 1.0,
     "jumpFactor": 1.0,
-    "reactionToPushing": "NORMAL",
+    "reactionToPushing": "BLOCK",
     "isNotColidable": false,
     "isCustomSoundType": false,
     "soundOnStep": {

@@ -1,10 +1,7 @@
 
 package net.mcreator.reignmod.potion;
 
-import net.minecraftforge.client.extensions.common.IClientMobEffectExtensions;
-
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffect;
 
@@ -17,11 +14,6 @@ public class CriminalMobEffect extends MobEffect {
 	}
 
 	@Override
-	public boolean isInstantenous() {
-		return true;
-	}
-
-	@Override
 	public List<ItemStack> getCurativeItems() {
 		ArrayList<ItemStack> cures = new ArrayList<ItemStack>();
 		return cures;
@@ -30,15 +22,5 @@ public class CriminalMobEffect extends MobEffect {
 	@Override
 	public boolean isDurationEffectTick(int duration, int amplifier) {
 		return true;
-	}
-
-	@Override
-	public void initializeClient(java.util.function.Consumer<IClientMobEffectExtensions> consumer) {
-		consumer.accept(new IClientMobEffectExtensions() {
-			@Override
-			public boolean isVisibleInGui(MobEffectInstance effect) {
-				return false;
-			}
-		});
 	}
 }

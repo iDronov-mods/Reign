@@ -1,12 +1,13 @@
 package net.mcreator.reignmod.house;
 
+import net.mcreator.reignmod.claim.capital.CapitalClaimManager;
 import net.mcreator.reignmod.network.ReignModModVariables;
+import net.mcreator.reignmod.networking.ReignNetworking;
+import net.mcreator.reignmod.networking.packet.S2C.PlayerPrefixSyncS2CPacket;
+import net.mcreator.reignmod.procedures.IsKingProcedure;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
-import net.mcreator.reignmod.procedures.IsKingProcedure;
-import net.mcreator.reignmod.networking.packet.S2C.PlayerPrefixSyncS2CPacket;
-import net.mcreator.reignmod.networking.ReignNetworking;
-
+import net.minecraftforge.common.UsernameCache;
 
 import java.util.*;
 
@@ -106,6 +107,37 @@ public class HouseManager {
             String suzerainUUID = getPlayerSuzerain(player);
             houseSavedData.removePlayerFromDomain(suzerainUUID, player.getStringUUID());
         }
+    }
+
+    public static boolean removePlayerFromDomain(String knightUUID, String playerName) {
+        HouseSavedData houseSavedData = HouseSavedData.getInstance();
+
+        if (houseSavedData != null) {
+            UUID found = CapitalClaimManager.getOfflinePlayerUUID(HouseSavedData.getServerInstance().getServer(), playerName);
+            if (found != null) {
+                houseSavedData.removePlayerFromDomain(knightUUID, found.toString());
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean addWantedPlayer(String lordUUID, String playerName) {
+        UUID found = CapitalClaimManager.getOfflinePlayerUUID(HouseSavedData.getServerInstance().getServer(), playerName);
+        if (found != null) {
+            getHouseByLordUUID(lordUUID).addWantedPlayer(found.toString());
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean removeWantedPlayer(String lordUUID, String playerName) {
+        UUID found = CapitalClaimManager.getOfflinePlayerUUID(HouseSavedData.getServerInstance().getServer(), playerName);
+        if (found != null) {
+            getHouseByLordUUID(lordUUID).removeWantedPlayer(found.toString());
+            return true;
+        }
+        return false;
     }
 
     public static boolean isPlayerLord(Player lordPlayer) {
@@ -239,6 +271,14 @@ public class HouseManager {
         return getPlayerHouse(player).getPlayers().size();
     }
 
+    public static ArrayList<String> getHouseWantedPlayers(ServerPlayer serverPlayer) {
+        var found = getPlayerHouse(serverPlayer).getWantedPlayers();
+        ArrayList<String> domainWantedPlayers = new ArrayList<>(found.size());
+        found.forEach( (sus) -> domainWantedPlayers.add(HouseSavedData.getInstance().getHouseData().getPlayerCodes().getOrDefault(sus, "") +
+                getOfflinePlayerName(sus)));
+        return domainWantedPlayers;
+    }
+
     public static Domain getPlayerDomain(Player player) {
         HouseSavedData houseSavedData = HouseSavedData.getInstance();
 
@@ -254,7 +294,7 @@ public class HouseManager {
         if (houseSavedData != null) {
             return houseSavedData.getHouseData().findDomainByKnight(knightUUID).getLordUUID();
         }
-        return "null";
+        return null;
     }
 
     public static String getPlayerDomainTitle(Player player) {
@@ -267,6 +307,22 @@ public class HouseManager {
 
     public static int getDomainPlayerCount(Player player) {
         return getPlayerDomain(player).getPlayers().size();
+    }
+
+    public static ArrayList<String> getDomainPlayers(String knightUUID) {
+        var found = getDomainByKnightUUID(knightUUID).getPlayers();
+        ArrayList<String> domainPlayers = new ArrayList<>(found.size());
+        found.forEach( (sus) -> domainPlayers.add(HouseSavedData.getInstance().getHouseData().getPlayerCodes().getOrDefault(sus, "") +
+                getOfflinePlayerName(sus)));
+        return domainPlayers;
+    }
+
+    public static ArrayList<String> getDomainSuspectPlayers(String knightUUID, int count) {
+        var found = getDomainByKnightUUID(knightUUID).getSortedSuspects(count);
+        ArrayList<String> domainSuspectPlayers = new ArrayList<>(found.size());
+        found.forEach( (sus) -> domainSuspectPlayers.add(HouseSavedData.getInstance().getHouseData().getPlayerCodes().getOrDefault(sus.getKey(), "") +
+                getOfflinePlayerName(sus.getKey()) + "§r: " + sus.getValue()));
+        return domainSuspectPlayers;
     }
 
     private static int[] getHouseIncubatorCoordinates(String lordUUID) {
@@ -326,5 +382,13 @@ public class HouseManager {
         if (houseSavedData != null) {
             houseSavedData.getHouseData().setHousePrisonCoordinates(lordUUID, x, y, z);
         }
+    }
+
+    public static String getOfflinePlayerName(String playerUUID) {
+        String playerName = UsernameCache.getLastKnownUsername(UUID.fromString(playerUUID));
+        if (playerName != null) {
+            return playerName;
+        }
+        return "";
     }
 }

@@ -1,8 +1,8 @@
 
 package net.mcreator.reignmod.item;
 
-import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 
 public class FragmentOfRecord2Item extends Item {
 	public FragmentOfRecord2Item() {

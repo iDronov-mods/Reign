@@ -1,33 +1,27 @@
 
 package net.mcreator.reignmod.world.inventory;
 
-import net.minecraftforge.items.SlotItemHandler;
-import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.inventory.ContainerLevelAccess;
-import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.core.BlockPos;
-
-import net.mcreator.reignmod.network.CoffersUISlotMessage;
 import net.mcreator.reignmod.init.ReignModModMenus;
-import net.mcreator.reignmod.init.ReignModModItems;
-import net.mcreator.reignmod.client.gui.CoffersUIScreen;
-import net.mcreator.reignmod.ReignModMod;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.items.SlotItemHandler;
 
-import java.util.function.Supplier;
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Supplier;
 
 public class CoffersUIMenu extends AbstractContainerMenu implements Supplier<Map<Integer, Slot>> {
 	public final static HashMap<String, Object> guistate = new HashMap<>();
@@ -85,56 +79,52 @@ public class CoffersUIMenu extends AbstractContainerMenu implements Supplier<Map
 			private final int slot = 0;
 
 			@Override
-			public void setChanged() {
-				super.setChanged();
-				slotChanged(0, 0, 0);
+			public boolean mayPickup(Player entity) {
+				return false;
 			}
 
 			@Override
-			public boolean mayPlace(ItemStack stack) {
-				return ReignModModItems.PLATINUM_COIN.get() == stack.getItem();
+			public boolean mayPlace(ItemStack itemstack) {
+				return false;
 			}
 		}));
 		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 62, 36) {
 			private final int slot = 1;
 
 			@Override
-			public void setChanged() {
-				super.setChanged();
-				slotChanged(1, 0, 0);
+			public boolean mayPickup(Player entity) {
+				return false;
 			}
 
 			@Override
-			public boolean mayPlace(ItemStack stack) {
-				return ReignModModItems.GOLD_COIN.get() == stack.getItem();
+			public boolean mayPlace(ItemStack itemstack) {
+				return false;
 			}
 		}));
 		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 98, 36) {
 			private final int slot = 2;
 
 			@Override
-			public void setChanged() {
-				super.setChanged();
-				slotChanged(2, 0, 0);
+			public boolean mayPickup(Player entity) {
+				return false;
 			}
 
 			@Override
-			public boolean mayPlace(ItemStack stack) {
-				return ReignModModItems.SILVER_COIN.get() == stack.getItem();
+			public boolean mayPlace(ItemStack itemstack) {
+				return false;
 			}
 		}));
 		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 134, 36) {
 			private final int slot = 3;
 
 			@Override
-			public void setChanged() {
-				super.setChanged();
-				slotChanged(3, 0, 0);
+			public boolean mayPickup(Player entity) {
+				return false;
 			}
 
 			@Override
-			public boolean mayPlace(ItemStack stack) {
-				return ReignModModItems.COPPER_COIN.get() == stack.getItem();
+			public boolean mayPlace(ItemStack itemstack) {
+				return false;
 			}
 		}));
 		for (int si = 0; si < 3; ++si)
@@ -271,20 +261,29 @@ public class CoffersUIMenu extends AbstractContainerMenu implements Supplier<Map
 		if (!bound && playerIn instanceof ServerPlayer serverPlayer) {
 			if (!serverPlayer.isAlive() || serverPlayer.hasDisconnected()) {
 				for (int j = 0; j < internal.getSlots(); ++j) {
+					if (j == 0)
+						continue;
+					if (j == 1)
+						continue;
+					if (j == 2)
+						continue;
+					if (j == 3)
+						continue;
 					playerIn.drop(internal.extractItem(j, internal.getStackInSlot(j).getCount(), false), false);
 				}
 			} else {
 				for (int i = 0; i < internal.getSlots(); ++i) {
+					if (i == 0)
+						continue;
+					if (i == 1)
+						continue;
+					if (i == 2)
+						continue;
+					if (i == 3)
+						continue;
 					playerIn.getInventory().placeItemBackInInventory(internal.extractItem(i, internal.getStackInSlot(i).getCount(), false));
 				}
 			}
-		}
-	}
-
-	private void slotChanged(int slotid, int ctype, int meta) {
-		if (this.world != null && this.world.isClientSide()) {
-			ReignModMod.PACKET_HANDLER.sendToServer(new CoffersUISlotMessage(slotid, x, y, z, ctype, meta, CoffersUIScreen.getTextboxValues()));
-			CoffersUISlotMessage.handleSlotAction(entity, slotid, ctype, meta, x, y, z, CoffersUIScreen.getTextboxValues());
 		}
 	}
 

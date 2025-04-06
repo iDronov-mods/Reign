@@ -13,7 +13,11 @@ public class GetPriceWithFillFactorProcedure {
 		double price = 0;
 		double max_amount = 0;
 		double trashhold = 0;
-		goods = "minecraft:" + goodsName;
+		if (goodsName.contains("minecraft:")) {
+			goods = goodsName;
+		} else {
+			goods = "minecraft:" + goodsName;
+		}
 		price = MarketManager.getPrice(goods);
 		max_amount = MarketManager.getMaxAmount(goods);
 		min_price = price / 4;

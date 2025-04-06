@@ -15,18 +15,18 @@ import java.util.Map;
  * где для каждого блока хранится владелец привата (null, если приват отсутствует).
  */
 public class CapitalClaimSavedData extends ReignSavedData {
+    public static final int CAPITAL_SIZE = 511;
+    private static final int PRIME = 31;
+    private static CapitalClaimSavedData instance;
     // Карта заявок по владельцам
     private final HashMap<ClaimOwner, HashMap<Long, TerritoryClaim>> claimsMap = new HashMap<>();
     // ownerGrid: для каждого блока столицы хранится владелец привата (или null)
     private final ClaimOwner[][] ownerGrid = new ClaimOwner[CAPITAL_SIZE][CAPITAL_SIZE];
-    private static final int PRIME = 31;
-    public static final int CAPITAL_SIZE = 511;
-    private static CapitalClaimSavedData instance;
-
     // Булевая переменная, определяющая, включена ли система привата (по умолчанию false)
     private boolean capitalClaimsEnabled = false;
 
-    public CapitalClaimSavedData() {}
+    public CapitalClaimSavedData() {
+    }
 
     public CapitalClaimSavedData(CompoundTag compoundTag) {
         ListTag claimList = compoundTag.getList("claims", 10); // 10 = CompoundTag
@@ -60,6 +60,10 @@ public class CapitalClaimSavedData extends ReignSavedData {
 
     public static void resetInstance() {
         instance = null;
+    }
+
+    public static long calculateHash(int x, int z) {
+        return ((long) x * PRIME) ^ ((long) z * PRIME);
     }
 
     // Методы включения/выключения системы привата
@@ -150,10 +154,6 @@ public class CapitalClaimSavedData extends ReignSavedData {
                 ownerGrid[x][z] = null;
             }
         }
-    }
-
-    public static long calculateHash(int x, int z) {
-        return ((long) x * PRIME) ^ ((long) z * PRIME);
     }
 
     @Override

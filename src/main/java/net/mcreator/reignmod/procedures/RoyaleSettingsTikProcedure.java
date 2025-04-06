@@ -1,9 +1,8 @@
 package net.mcreator.reignmod.procedures;
 
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.client.gui.components.EditBox;
-
 import net.mcreator.reignmod.network.ReignModModVariables;
+import net.minecraft.client.gui.components.EditBox;
+import net.minecraft.world.level.LevelAccessor;
 
 import java.util.HashMap;
 

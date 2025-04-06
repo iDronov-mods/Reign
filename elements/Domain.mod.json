@@ -1,0 +1,10 @@
+{
+  "_fv": 69,
+  "_type": "command",
+  "definition": {
+    "commandName": "domain",
+    "type": "STANDARD",
+    "permissionLevel": "No requirement",
+    "argsxml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"args_start\" deletable=\"false\" x=\"40\" y=\"40\"><next><block type=\"literal\"><field name=\"name\">suspects</field><statement name=\"args\"><block type=\"call_procedure\"><field name=\"procedure\">DomainSuspects</field></block></statement><next><block type=\"literal\"><field name=\"name\">list</field><statement name=\"args\"><block type=\"call_procedure\"><field name=\"procedure\">DomainList</field></block></statement><next><block type=\"literal\"><field name=\"name\">kick</field><statement name=\"args\"><block type=\"message\"><field name=\"name\">Player</field><statement name=\"args\"><block type=\"call_procedure\"><field name=\"procedure\">DomainKickSlave</field></block></statement></block></statement></block></next></block></next></block></next></block></xml>"
+  }
+}
