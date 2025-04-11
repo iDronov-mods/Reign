@@ -1,38 +1,40 @@
 
 package net.mcreator.reignmod.world.inventory;
 
-import net.mcreator.reignmod.ReignModMod;
-import net.mcreator.reignmod.client.gui.MarketScreen;
-import net.mcreator.reignmod.init.ReignModModMenus;
-import net.mcreator.reignmod.network.MarketSlotMessage;
-import net.mcreator.reignmod.procedures.ClearMarketSlotsProcedure;
-import net.mcreator.reignmod.procedures.MarketPlaceProcedure;
-import net.mcreator.reignmod.procedures.MarketUpdateTickProcedure;
-import net.minecraft.core.BlockPos;
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ContainerLevelAccess;
-import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.network.NetworkEvent;
+import net.minecraftforge.items.SlotItemHandler;
+import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
-import java.util.HashMap;
-import java.util.Map;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.core.BlockPos;
+
+import net.mcreator.reignmod.procedures.MarketUpdateTickProcedure;
+import net.mcreator.reignmod.procedures.MarketPlaceProcedure;
+import net.mcreator.reignmod.procedures.ClearMarketSlotsProcedure;
+import net.mcreator.reignmod.network.MarketSlotMessage;
+import net.mcreator.reignmod.init.ReignModModMenus;
+import net.mcreator.reignmod.client.gui.MarketScreen;
+import net.mcreator.reignmod.ReignModMod;
+
 import java.util.function.Supplier;
+import java.util.Map;
+import java.util.HashMap;
 
 public class MarketMenu extends AbstractContainerMenu implements Supplier<Map<Integer, Slot>> {
 	public final static HashMap<String, Object> guistate = new HashMap<>();

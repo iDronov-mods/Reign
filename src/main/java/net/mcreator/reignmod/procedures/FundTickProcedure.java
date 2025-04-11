@@ -25,6 +25,7 @@ import net.minecraft.commands.CommandSource;
 import net.minecraft.client.Minecraft;
 
 import net.mcreator.reignmod.network.ReignModModVariables;
+import net.mcreator.reignmod.kingdom.KingdomData;
 import net.mcreator.reignmod.init.ReignModModItems;
 import net.mcreator.reignmod.ReignModMod;
 
@@ -58,6 +59,7 @@ public class FundTickProcedure {
 				}
 				ReignModModVariables.MapVariables.get(world).ERA = ReignModModVariables.MapVariables.get(world).ERA + 1;
 				ReignModModVariables.MapVariables.get(world).syncData(world);
+				KingdomData.upgradeCapitalEra();
 				if (world.isClientSide())
 					Minecraft.getInstance().gameRenderer.displayItemActivation(new ItemStack(ReignModModItems.PLATINUM_COIN.get()));
 				ReignModMod.queueServerWork(40, () -> {

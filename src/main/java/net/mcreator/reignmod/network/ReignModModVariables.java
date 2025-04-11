@@ -189,6 +189,9 @@ public class ReignModModVariables {
 		public double market_copper = 0;
 		public double market_copper_all = 0;
 		public double SurgingSource = 0.0;
+		public double exp_price = 0;
+		public double private_price = 0;
+		public boolean coinage_block = false;
 
 		public static MapVariables load(CompoundTag tag) {
 			MapVariables data = new MapVariables();
@@ -224,6 +227,9 @@ public class ReignModModVariables {
 			market_copper = nbt.getDouble("market_copper");
 			market_copper_all = nbt.getDouble("market_copper_all");
 			SurgingSource = nbt.getDouble("SurgingSource");
+			exp_price = nbt.getDouble("exp_price");
+			private_price = nbt.getDouble("private_price");
+			coinage_block = nbt.getBoolean("coinage_block");
 		}
 
 		@Override
@@ -255,6 +261,9 @@ public class ReignModModVariables {
 			nbt.putDouble("market_copper", market_copper);
 			nbt.putDouble("market_copper_all", market_copper_all);
 			nbt.putDouble("SurgingSource", SurgingSource);
+			nbt.putDouble("exp_price", exp_price);
+			nbt.putDouble("private_price", private_price);
+			nbt.putBoolean("coinage_block", coinage_block);
 			return nbt;
 		}
 

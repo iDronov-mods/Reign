@@ -1,21 +1,22 @@
 package net.mcreator.reignmod.procedures;
 
-import net.mcreator.reignmod.init.ReignModModItems;
-import net.mcreator.reignmod.network.ReignModModVariables;
-import net.minecraft.advancements.Advancement;
-import net.minecraft.advancements.AdvancementProgress;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.advancements.AdvancementProgress;
+import net.minecraft.advancements.Advancement;
 
-import java.util.Map;
+import net.mcreator.reignmod.network.ReignModModVariables;
+import net.mcreator.reignmod.init.ReignModModItems;
+
 import java.util.function.Supplier;
+import java.util.Map;
 
 public class HoarderSellProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
@@ -53,7 +54,9 @@ public class HoarderSellProcedure {
 				((Slot) _slots.get(1)).set(_setstack);
 				_player.containerMenu.broadcastChanges();
 			}
-			ReignModModVariables.MapVariables.get(world).market_copper_all = ReignModModVariables.MapVariables.get(world).market_copper_all + 1;
+			ReignModModVariables.MapVariables.get(world).market_copper_all = ReignModModVariables.MapVariables.get(world).market_copper_all + 2;
+			ReignModModVariables.MapVariables.get(world).syncData(world);
+			ReignModModVariables.MapVariables.get(world).market_copper = ReignModModVariables.MapVariables.get(world).market_copper + 1;
 			ReignModModVariables.MapVariables.get(world).syncData(world);
 			SoundGiveCoinProcedure.execute(world, x, y, z);
 			if (entity instanceof ServerPlayer _player) {

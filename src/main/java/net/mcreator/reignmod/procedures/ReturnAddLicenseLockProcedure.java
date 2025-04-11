@@ -1,7 +1,8 @@
 package net.mcreator.reignmod.procedures;
 
-import net.mcreator.reignmod.network.ReignModModVariables;
 import net.minecraft.world.level.LevelAccessor;
+
+import net.mcreator.reignmod.network.ReignModModVariables;
 
 public class ReturnAddLicenseLockProcedure {
 	public static boolean execute(LevelAccessor world) {

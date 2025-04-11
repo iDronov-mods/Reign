@@ -1,7 +1,8 @@
 package net.mcreator.reignmod.procedures;
 
-import net.mcreator.reignmod.network.ReignModModVariables;
 import net.minecraft.world.entity.Entity;
+
+import net.mcreator.reignmod.network.ReignModModVariables;
 
 public class ReturnfarmerProcedure {
 	public static boolean execute(Entity entity) {

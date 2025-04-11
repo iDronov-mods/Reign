@@ -950,9 +950,9 @@
           "onClick": {
             "name": "Buy"
           },
-          "width": 90,
+          "width": 88,
           "height": 20,
-          "x": 104,
+          "x": 106,
           "y": 177
         }
       },
@@ -960,14 +960,14 @@
         "type": "button",
         "data": {
           "name": "button_x4",
-          "text": "X4",
+          "text": "4x",
           "isUndecorated": false,
           "onClick": {
             "name": "Buy4"
           },
-          "width": 18,
+          "width": 21,
           "height": 20,
-          "x": 62,
+          "x": 84,
           "y": 177
         }
       },
@@ -1432,6 +1432,21 @@
           },
           "x": 126,
           "y": 26
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_x16",
+          "text": "16x",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "Buy16"
+          },
+          "width": 21,
+          "height": 20,
+          "x": 62,
+          "y": 177
         }
       }
     ],

@@ -3,11 +3,11 @@
   "_type": "item",
   "definition": {
     "renderType": 0,
-    "texture": "state_rent3",
+    "texture": "acrchitect_compass",
     "customModelName": "Normal",
     "customProperties": {},
     "states": [],
-    "name": "Big state rent",
+    "name": "Architect's Compass",
     "rarity": "COMMON",
     "creativeTabs": [
       {
@@ -29,15 +29,17 @@
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
     "specialInformation": {
-      "fixedValue": [],
-      "name": "DocumentsOwnersInfo"
+      "fixedValue": []
     },
     "glowCondition": {
       "fixedValue": false
     },
     "guiBoundTo": "<NONE>",
     "inventorySize": 9,
-    "inventoryStackSize": 64,
+    "inventoryStackSize": 1,
+    "onRightClickedOnBlock": {
+      "name": "RemovePositions"
+    },
     "enableRanged": false,
     "shootConstantly": false,
     "rangedItemChargesPower": false,

@@ -39,6 +39,7 @@ import net.mcreator.reignmod.client.gui.DsfScreen;
 import net.mcreator.reignmod.client.gui.DomainUIScreen;
 import net.mcreator.reignmod.client.gui.CowboyWindowScreen;
 import net.mcreator.reignmod.client.gui.CoffersUIScreen;
+import net.mcreator.reignmod.client.gui.CoffersTaxUIScreen;
 import net.mcreator.reignmod.client.gui.AlchemistWindowScreen;
 import net.mcreator.reignmod.client.gui.AddLicenseListScreen;
 import net.mcreator.reignmod.client.gui.AddLicenseIsSelectedScreen;
@@ -79,6 +80,7 @@ public class ReignModModScreens {
 			MenuScreens.register(ReignModModMenus.SOLDIER_WINDOW.get(), SoldierWindowScreen::new);
 			MenuScreens.register(ReignModModMenus.HUNTER_WINDOW.get(), HunterWindowScreen::new);
 			MenuScreens.register(ReignModModMenus.DOMAIN_UI.get(), DomainUIScreen::new);
+			MenuScreens.register(ReignModModMenus.COFFERS_TAX_UI.get(), CoffersTaxUIScreen::new);
 		});
 	}
 }

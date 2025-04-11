@@ -73,7 +73,7 @@ public class EnterPayProcedure {
 			if (entity instanceof Player _player)
 				_player.giveExperiencePoints((int) value);
 			if (entity instanceof Player _player && !_player.level().isClientSide())
-				_player.displayClientMessage(Component.literal((Component.translatable("translation.key.get_dailypay_exp").getString() + " " + value)), false);
+				_player.displayClientMessage(Component.literal((Component.translatable("translation.key.get_dailypay_exp").getString() + " \u00A7a" + new java.text.DecimalFormat("##").format(value))), false);
 		}
 		if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline == 7) {
 			if (entity instanceof ServerPlayer _player) {
@@ -104,7 +104,7 @@ public class EnterPayProcedure {
 			}
 		} else if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline >= 100) {
 			if (entity instanceof ServerPlayer _player) {
-				Advancement _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation("reign_mod:days_online_30"));
+				Advancement _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation("reign_mod:days_online_100"));
 				AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
 				if (!_ap.isDone()) {
 					for (String criteria : _ap.getRemainingCriteria())

@@ -1,16 +1,17 @@
 package net.mcreator.reignmod.procedures;
 
-import net.mcreator.reignmod.network.ReignModModVariables;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.Entity;
 
-import java.util.Map;
+import net.mcreator.reignmod.network.ReignModModVariables;
+
 import java.util.function.Supplier;
+import java.util.Map;
 
 public class MarketPlaceProcedure {
 	public static boolean execute(LevelAccessor world, Entity entity, double slot) {
@@ -402,7 +403,7 @@ public class MarketPlaceProcedure {
 				((Slot) _slots.get(68)).set(_setstack);
 				_player.containerMenu.broadcastChanges();
 			}
-			MarketPriceSetProcedure.execute(world, entity, ReignModModVariables.MapVariables.get(world).other_price, "experience_bottle");
+			MarketPriceSetProcedure.execute(world, entity, ReignModModVariables.MapVariables.get(world).exp_price, "experience_bottle");
 		} else if (slot == 36) {
 			if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 				ItemStack _setstack = new ItemStack(Items.GLASS_BOTTLE).copy();

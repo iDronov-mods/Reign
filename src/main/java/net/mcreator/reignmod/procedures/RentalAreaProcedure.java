@@ -1,17 +1,18 @@
 package net.mcreator.reignmod.procedures;
 
-import net.mcreator.reignmod.basics.ReignCommon;
-import net.mcreator.reignmod.init.ReignModModItems;
-import net.minecraft.client.gui.components.EditBox;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.network.chat.Component;
+import net.minecraft.client.gui.components.EditBox;
 
-import java.util.HashMap;
-import java.util.Map;
+import net.mcreator.reignmod.init.ReignModModItems;
+import net.mcreator.reignmod.basics.ReignCommon;
+
 import java.util.function.Supplier;
+import java.util.Map;
+import java.util.HashMap;
 
 public class RentalAreaProcedure {
 	public static String execute(Entity entity, HashMap guistate) {
@@ -40,13 +41,7 @@ public class RentalAreaProcedure {
 			} else if ((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY)
 					.getItem() == ReignModModItems.PRIVATE_RENTAL_3.get()) {
 				max = 1024;
-			} else if ((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY).getItem() == ReignModModItems.STATE_RENTAL_1
-					.get()) {
-				max = 25;
-			} else if ((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY).getItem() == ReignModModItems.STATE_RENTAL_2
-					.get()) {
-				max = 1024;
-			} else if ((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY).getItem() == ReignModModItems.STATE_RENTAL_3
+			} else if ((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY).getItem() == ReignModModItems.STATE_RENTAL
 					.get()) {
 				max = 4096;
 			}

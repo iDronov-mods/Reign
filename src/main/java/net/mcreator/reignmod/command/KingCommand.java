@@ -32,7 +32,7 @@ public class KingCommand {
 			if (entity != null)
 				direction = entity.getDirection();
 
-			CreateCrownProcedure.execute(world, entity);
+			CreateCrownProcedure.execute(world);
 			return 0;
 		})));
 	}

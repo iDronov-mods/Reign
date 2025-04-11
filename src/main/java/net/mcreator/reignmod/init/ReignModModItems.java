@@ -16,11 +16,10 @@ import net.minecraft.world.item.BlockItem;
 import net.mcreator.reignmod.item.YourLawnIsBoolItem;
 import net.mcreator.reignmod.item.WoodcutterCoinItem;
 import net.mcreator.reignmod.item.WalletItem;
+import net.mcreator.reignmod.item.TreasurerKeyItem;
 import net.mcreator.reignmod.item.TradeLicenseItem;
 import net.mcreator.reignmod.item.TextbookItem;
-import net.mcreator.reignmod.item.StateRental3Item;
-import net.mcreator.reignmod.item.StateRental2Item;
-import net.mcreator.reignmod.item.StateRental1Item;
+import net.mcreator.reignmod.item.StateRentalItem;
 import net.mcreator.reignmod.item.SmithCoinItem;
 import net.mcreator.reignmod.item.SilverCoinItem;
 import net.mcreator.reignmod.item.ShacklesItem;
@@ -35,6 +34,7 @@ import net.mcreator.reignmod.item.PlatinumCoinItem;
 import net.mcreator.reignmod.item.PicklockItem;
 import net.mcreator.reignmod.item.PenWithInkItem;
 import net.mcreator.reignmod.item.MinerCoinItem;
+import net.mcreator.reignmod.item.MarshalInsigniaItem;
 import net.mcreator.reignmod.item.IronLockItem;
 import net.mcreator.reignmod.item.HoneyConcentrateItem;
 import net.mcreator.reignmod.item.HeartOfHouseItem;
@@ -51,6 +51,7 @@ import net.mcreator.reignmod.item.CopperLockItem;
 import net.mcreator.reignmod.item.CopperCoinItem;
 import net.mcreator.reignmod.item.ContractKillItem;
 import net.mcreator.reignmod.item.BlackmarkItem;
+import net.mcreator.reignmod.item.ArchitectCompassItem;
 import net.mcreator.reignmod.item.AccursedBlackMarkItem;
 import net.mcreator.reignmod.ReignModMod;
 
@@ -88,9 +89,6 @@ public class ReignModModItems {
 	public static final RegistryObject<Item> PRIVATE_RENTAL_1 = REGISTRY.register("private_rental_1", () -> new PrivateRental1Item());
 	public static final RegistryObject<Item> PRIVATE_RENTAL_2 = REGISTRY.register("private_rental_2", () -> new PrivateRental2Item());
 	public static final RegistryObject<Item> PRIVATE_RENTAL_3 = REGISTRY.register("private_rental_3", () -> new PrivateRental3Item());
-	public static final RegistryObject<Item> STATE_RENTAL_1 = REGISTRY.register("state_rental_1", () -> new StateRental1Item());
-	public static final RegistryObject<Item> STATE_RENTAL_2 = REGISTRY.register("state_rental_2", () -> new StateRental2Item());
-	public static final RegistryObject<Item> STATE_RENTAL_3 = REGISTRY.register("state_rental_3", () -> new StateRental3Item());
 	public static final RegistryObject<Item> CONTRACT_KILL = REGISTRY.register("contract_kill", () -> new ContractKillItem());
 	public static final RegistryObject<Item> GOLD_LOCK = REGISTRY.register("gold_lock", () -> new GoldLockItem());
 	public static final RegistryObject<Item> COPPER_LOCK = REGISTRY.register("copper_lock", () -> new CopperLockItem());
@@ -112,6 +110,10 @@ public class ReignModModItems {
 	public static final RegistryObject<Item> FINIAL_OF_REIGN = block(ReignModModBlocks.FINIAL_OF_REIGN);
 	public static final RegistryObject<Item> FINIAL_OF_MIGHT = block(ReignModModBlocks.FINIAL_OF_MIGHT);
 	public static final RegistryObject<Item> SHAFT = block(ReignModModBlocks.SHAFT);
+	public static final RegistryObject<Item> ARCHITECT_COMPASS = REGISTRY.register("architect_compass", () -> new ArchitectCompassItem());
+	public static final RegistryObject<Item> TREASURER_KEY = REGISTRY.register("treasurer_key", () -> new TreasurerKeyItem());
+	public static final RegistryObject<Item> MARSHAL_INSIGNIA = REGISTRY.register("marshal_insignia", () -> new MarshalInsigniaItem());
+	public static final RegistryObject<Item> STATE_RENTAL = REGISTRY.register("state_rental", () -> new StateRentalItem());
 
 	// Start of user code block custom items
 	// End of user code block custom items

@@ -32,6 +32,7 @@ public class MarketScreen extends AbstractContainerScreen<MarketMenu> {
 	private final static HashMap<String, String> textstate = new HashMap<>();
 	Button button_buy;
 	Button button_x4;
+	Button button_x16;
 
 	public MarketScreen(MarketMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -131,7 +132,7 @@ public class MarketScreen extends AbstractContainerScreen<MarketMenu> {
 				ReignModMod.PACKET_HANDLER.sendToServer(new MarketButtonMessage(0, x, y, z, textstate));
 				MarketButtonMessage.handleButtonAction(entity, 0, x, y, z, textstate);
 			}
-		}).bounds(this.leftPos + 52, this.topPos + 140, 90, 20).build();
+		}).bounds(this.leftPos + 54, this.topPos + 140, 88, 20).build();
 		guistate.put("button:button_buy", button_buy);
 		this.addRenderableWidget(button_buy);
 		button_x4 = Button.builder(Component.translatable("gui.reign_mod.market.button_x4"), e -> {
@@ -139,8 +140,16 @@ public class MarketScreen extends AbstractContainerScreen<MarketMenu> {
 				ReignModMod.PACKET_HANDLER.sendToServer(new MarketButtonMessage(1, x, y, z, textstate));
 				MarketButtonMessage.handleButtonAction(entity, 1, x, y, z, textstate);
 			}
-		}).bounds(this.leftPos + 10, this.topPos + 140, 18, 20).build();
+		}).bounds(this.leftPos + 32, this.topPos + 140, 21, 20).build();
 		guistate.put("button:button_x4", button_x4);
 		this.addRenderableWidget(button_x4);
+		button_x16 = Button.builder(Component.translatable("gui.reign_mod.market.button_x16"), e -> {
+			if (true) {
+				ReignModMod.PACKET_HANDLER.sendToServer(new MarketButtonMessage(2, x, y, z, textstate));
+				MarketButtonMessage.handleButtonAction(entity, 2, x, y, z, textstate);
+			}
+		}).bounds(this.leftPos + 10, this.topPos + 140, 21, 20).build();
+		guistate.put("button:button_x16", button_x16);
+		this.addRenderableWidget(button_x16);
 	}
 }

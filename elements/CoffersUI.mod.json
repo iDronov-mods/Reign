@@ -15,8 +15,8 @@
         "data": {
           "image": "coffers_ui_new.png",
           "use1Xscale": false,
-          "x": 126,
-          "y": 37
+          "x": 74,
+          "y": -20
         }
       },
       {
@@ -188,14 +188,15 @@
         "data": {
           "name": "label_capital_service",
           "text": {
-            "fixedValue": "Capital service"
+            "fixedValue": "Capital service",
+            "name": "ReturnCapitalService"
           },
           "color": {
-            "value": -3355444,
+            "value": -6710887,
             "falpha": 0.0
           },
-          "x": 131,
-          "y": 45
+          "x": 133,
+          "y": 41
         }
       },
       {
@@ -209,6 +210,57 @@
           "height": 18,
           "x": 188,
           "y": 98
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_capital_service_help",
+          "text": {
+            "fixedValue": "capital_service_help"
+          },
+          "width": 113,
+          "height": 14,
+          "x": 127,
+          "y": 38
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_amount",
+          "text": {
+            "fixedValue": "amount",
+            "name": "ReturnCoffersAmount"
+          },
+          "color": {
+            "value": -3381760,
+            "falpha": 0.0
+          },
+          "x": 145,
+          "y": 52
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "copper_coin.png",
+          "use1Xscale": false,
+          "x": 129,
+          "y": 48
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_tab_button",
+          "image": "tab_button.png",
+          "hoveredImage": "tab_hover_button.png",
+          "onClick": {
+            "name": "ToCoffersTaxTAB"
+          },
+          "x": 103,
+          "y": 66
         }
       }
     ],

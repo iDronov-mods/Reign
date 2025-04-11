@@ -227,6 +227,37 @@
           "x": 135,
           "y": 104
         }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_private_tax_text",
+          "text": {
+            "fixedValue": "",
+            "name": "PrivateTaxText"
+          },
+          "color": {
+            "value": -26368,
+            "falpha": 0.0
+          },
+          "x": 175,
+          "y": 94
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_tax",
+          "text": {
+            "fixedValue": "Tax:"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 133,
+          "y": 94
+        }
       }
     ],
     "gridSettings": {

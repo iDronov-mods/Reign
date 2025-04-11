@@ -39,6 +39,7 @@ import net.mcreator.reignmod.world.inventory.DsfMenu;
 import net.mcreator.reignmod.world.inventory.DomainUIMenu;
 import net.mcreator.reignmod.world.inventory.CowboyWindowMenu;
 import net.mcreator.reignmod.world.inventory.CoffersUIMenu;
+import net.mcreator.reignmod.world.inventory.CoffersTaxUIMenu;
 import net.mcreator.reignmod.world.inventory.AlchemistWindowMenu;
 import net.mcreator.reignmod.world.inventory.AddLicenseListMenu;
 import net.mcreator.reignmod.world.inventory.AddLicenseIsSelectedMenu;
@@ -77,4 +78,5 @@ public class ReignModModMenus {
 	public static final RegistryObject<MenuType<SoldierWindowMenu>> SOLDIER_WINDOW = REGISTRY.register("soldier_window", () -> IForgeMenuType.create(SoldierWindowMenu::new));
 	public static final RegistryObject<MenuType<HunterWindowMenu>> HUNTER_WINDOW = REGISTRY.register("hunter_window", () -> IForgeMenuType.create(HunterWindowMenu::new));
 	public static final RegistryObject<MenuType<DomainUIMenu>> DOMAIN_UI = REGISTRY.register("domain_ui", () -> IForgeMenuType.create(DomainUIMenu::new));
+	public static final RegistryObject<MenuType<CoffersTaxUIMenu>> COFFERS_TAX_UI = REGISTRY.register("coffers_tax_ui", () -> IForgeMenuType.create(CoffersTaxUIMenu::new));
 }

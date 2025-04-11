@@ -1,14 +1,15 @@
 package net.mcreator.reignmod.procedures;
 
-import net.mcreator.reignmod.init.ReignModModBlocks;
-import net.mcreator.reignmod.kingdom.KingdomManager;
-import net.mcreator.reignmod.network.ReignModModVariables;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.Level;
+import net.minecraft.core.BlockPos;
+
+import net.mcreator.reignmod.network.ReignModModVariables;
+import net.mcreator.reignmod.kingdom.KingdomData;
+import net.mcreator.reignmod.init.ReignModModBlocks;
 
 public class CapitalServeProcedure {
 	public static boolean execute(LevelAccessor world) {
@@ -16,7 +17,7 @@ public class CapitalServeProcedure {
 		BlockState coffers = Blocks.AIR.defaultBlockState();
 		if ((world.getBlockState(BlockPos.containing(ReignModModVariables.MapVariables.get(world).VC_X, ReignModModVariables.MapVariables.get(world).VC_Y, ReignModModVariables.MapVariables.get(world).VC_Z))).getBlock() == ReignModModBlocks.COFFERS
 				.get()) {
-			coins = KingdomManager.getCapitalService();;
+			coins = KingdomData.getCapitalMaintenance();;
 			if (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);

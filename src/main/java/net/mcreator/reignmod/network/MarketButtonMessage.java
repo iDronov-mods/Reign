@@ -15,6 +15,7 @@ import net.minecraft.core.BlockPos;
 import net.mcreator.reignmod.world.inventory.MarketMenu;
 import net.mcreator.reignmod.procedures.BuyProcedure;
 import net.mcreator.reignmod.procedures.Buy4Procedure;
+import net.mcreator.reignmod.procedures.Buy16Procedure;
 import net.mcreator.reignmod.ReignModMod;
 
 import java.util.function.Supplier;
@@ -83,6 +84,10 @@ public class MarketButtonMessage {
 		if (buttonID == 1) {
 
 			Buy4Procedure.execute(world, entity);
+		}
+		if (buttonID == 2) {
+
+			Buy16Procedure.execute(world, entity);
 		}
 	}
 

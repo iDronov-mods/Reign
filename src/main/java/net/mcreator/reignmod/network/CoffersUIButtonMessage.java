@@ -13,6 +13,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.reignmod.world.inventory.CoffersUIMenu;
+import net.mcreator.reignmod.procedures.ToCoffersTaxTABProcedure;
 import net.mcreator.reignmod.procedures.TakeFromCoffersProcedure;
 import net.mcreator.reignmod.ReignModMod;
 
@@ -78,6 +79,10 @@ public class CoffersUIButtonMessage {
 		if (buttonID == 0) {
 
 			TakeFromCoffersProcedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 1) {
+
+			ToCoffersTaxTABProcedure.execute(world, x, y, z, entity);
 		}
 	}
 

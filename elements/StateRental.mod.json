@@ -3,18 +3,18 @@
   "_type": "item",
   "definition": {
     "renderType": 0,
-    "texture": "state_rent2",
+    "texture": "state_rent",
     "customModelName": "Normal",
     "customProperties": {},
     "states": [],
-    "name": "Average state rent",
+    "name": "Building permit",
     "rarity": "COMMON",
     "creativeTabs": [
       {
         "value": "CUSTOM:CreativeTab"
       }
     ],
-    "stackSize": 1,
+    "stackSize": 64,
     "enchantability": 0,
     "useDuration": 0,
     "toolType": 1.0,
@@ -29,8 +29,7 @@
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
     "specialInformation": {
-      "fixedValue": [],
-      "name": "DocumentsOwnersInfo"
+      "fixedValue": []
     },
     "glowCondition": {
       "fixedValue": false

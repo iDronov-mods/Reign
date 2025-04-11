@@ -1,22 +1,24 @@
 package net.mcreator.reignmod.procedures;
 
-import com.mojang.brigadier.context.CommandContext;
-import com.mojang.brigadier.exceptions.CommandSyntaxException;
-import net.mcreator.reignmod.init.ReignModModMobEffects;
-import net.mcreator.reignmod.network.ReignModModVariables;
-import net.minecraft.commands.CommandSourceStack;
-import net.minecraft.commands.arguments.EntityArgument;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.network.chat.Component;
+import net.minecraft.commands.arguments.EntityArgument;
+import net.minecraft.commands.CommandSourceStack;
+
+import net.mcreator.reignmod.network.ReignModModVariables;
+import net.mcreator.reignmod.init.ReignModModMobEffects;
+
+import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import com.mojang.brigadier.context.CommandContext;
 
 public class CriminalFalseProcedure {
 	public static void execute(LevelAccessor world, CommandContext<CommandSourceStack> arguments, Entity entity) {
 		if (entity == null)
 			return;
-		if (IsKingProcedure.execute(world, entity)) {
+		if (IsKingProcedure.execute(world, entity) || IsRightHandProcedure.execute(entity) || IsMarshalProcedure.execute(entity)) {
 			{
 				boolean _setval = false;
 				(new Object() {

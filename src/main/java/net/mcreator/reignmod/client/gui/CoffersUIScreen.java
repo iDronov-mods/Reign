@@ -6,10 +6,13 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.reignmod.world.inventory.CoffersUIMenu;
+import net.mcreator.reignmod.procedures.ReturnCoffersAmountProcedure;
+import net.mcreator.reignmod.procedures.ReturnCapitalServiceProcedure;
 import net.mcreator.reignmod.network.CoffersUIButtonMessage;
 import net.mcreator.reignmod.ReignModMod;
 
@@ -24,6 +27,7 @@ public class CoffersUIScreen extends AbstractContainerScreen<CoffersUIMenu> {
 	private final Player entity;
 	private final static HashMap<String, String> textstate = new HashMap<>();
 	Button button_take;
+	ImageButton imagebutton_tab_button;
 
 	public CoffersUIScreen(CoffersUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -45,6 +49,8 @@ public class CoffersUIScreen extends AbstractContainerScreen<CoffersUIMenu> {
 			guiGraphics.renderTooltip(font, Component.translatable("gui.reign_mod.coffers_ui.tooltip_this_is_where_government_money_i"), mouseX, mouseY);
 		if (mouseX > leftPos + 62 && mouseX < leftPos + 114 && mouseY > topPos + 61 && mouseY < topPos + 79)
 			guiGraphics.renderTooltip(font, Component.translatable("gui.reign_mod.coffers_ui.tooltip_coffers_take_help"), mouseX, mouseY);
+		if (mouseX > leftPos + 1 && mouseX < leftPos + 114 && mouseY > topPos + 1 && mouseY < topPos + 15)
+			guiGraphics.renderTooltip(font, Component.translatable("gui.reign_mod.coffers_ui.tooltip_capital_service_help"), mouseX, mouseY);
 	}
 
 	@Override
@@ -53,11 +59,13 @@ public class CoffersUIScreen extends AbstractContainerScreen<CoffersUIMenu> {
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
 
-		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/coffers_ui_new.png"), this.leftPos + 0, this.topPos + 0, 0, 0, 176, 166, 176, 166);
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/coffers_ui_new.png"), this.leftPos + -52, this.topPos + -57, 0, 0, 280, 280, 280, 280);
 
 		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/crown.png"), this.leftPos + 131, this.topPos + -14, 0, 0, 16, 16, 16, 16);
 
 		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/platinum_coin.png"), this.leftPos + 79, this.topPos + 52, 0, 0, 16, 16, 16, 16);
+
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/copper_coin.png"), this.leftPos + 3, this.topPos + 11, 0, 0, 16, 16, 16, 16);
 
 		RenderSystem.disableBlend();
 	}
@@ -75,7 +83,12 @@ public class CoffersUIScreen extends AbstractContainerScreen<CoffersUIMenu> {
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.coffers_ui.label_coffers"), 68, 11, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.coffers_ui.label_coffers1"), 0, -10, -1, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.coffers_ui.label_capital_service"), 5, 8, -3355444, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnCapitalServiceProcedure.execute(world, x, y, z), 7, 4, -6710887, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnCoffersAmountProcedure.execute(world, x, y, z), 19, 15, -3381760, false);
 	}
 
 	@Override
@@ -89,5 +102,13 @@ public class CoffersUIScreen extends AbstractContainerScreen<CoffersUIMenu> {
 		}).bounds(this.leftPos + 61, this.topPos + 60, 54, 20).build();
 		guistate.put("button:button_take", button_take);
 		this.addRenderableWidget(button_take);
+		imagebutton_tab_button = new ImageButton(this.leftPos + -23, this.topPos + 29, 23, 22, 0, 0, 22, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_tab_button.png"), 23, 44, e -> {
+			if (true) {
+				ReignModMod.PACKET_HANDLER.sendToServer(new CoffersUIButtonMessage(1, x, y, z, textstate));
+				CoffersUIButtonMessage.handleButtonAction(entity, 1, x, y, z, textstate);
+			}
+		});
+		guistate.put("button:imagebutton_tab_button", imagebutton_tab_button);
+		this.addRenderableWidget(imagebutton_tab_button);
 	}
 }

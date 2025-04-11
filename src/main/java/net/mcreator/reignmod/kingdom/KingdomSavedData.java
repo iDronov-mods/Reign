@@ -1,104 +1,89 @@
 package net.mcreator.reignmod.kingdom;
 
+import net.mcreator.reignmod.basics.ReignSavedData;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.level.saveddata.SavedData;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.jetbrains.annotations.NotNull;
 
-public class KingdomSavedData extends SavedData {
-    private static final String DATA_NAME = "kingdom_data";
-    private static final Logger LOGGER = LogManager.getLogger();
+import java.util.Map;
+
+public class KingdomSavedData extends ReignSavedData {
+
+    private static KingdomSavedData instance;
 
     public KingdomSavedData() {}
 
-    public static KingdomSavedData load(CompoundTag tag) {
-        KingdomSavedData data = new KingdomSavedData();
-
-        LOGGER.info("Loading KingdomSavedData...");
-
-        if (tag.contains("FundX")) {
-            KingdomManager.setFundCoordinates(
-                    tag.getInt("FundX"),
-                    tag.getInt("FundY"),
-                    tag.getInt("FundZ")
-            );
-            LOGGER.info("FundCoordinates loaded: {}", arrayToString(KingdomManager.getFundCoordinates()));
-        }
-
-        if (tag.contains("CoffersX")) {
-            KingdomManager.setCoffersCoordinates(
-                    tag.getInt("CoffersX"),
-                    tag.getInt("CoffersY"),
-                    tag.getInt("CoffersZ")
-            );
-            LOGGER.info("CoffersCoordinates loaded: {}", arrayToString(KingdomManager.getCoffersCoordinates()));
-        }
-
-        if (tag.contains("PrisonX")) {
-            KingdomManager.setCapitalPrisonCoordinates(
-                    tag.getInt("PrisonX"),
-                    tag.getInt("PrisonY"),
-                    tag.getInt("PrisonZ")
-            );
-            LOGGER.info("CapitalPrisonCoordinates loaded: {}", arrayToString(KingdomManager.getCapitalPrisonCoordinates()));
-        }
-
-        if (tag.contains("SurgingSource")) {
-            KingdomManager.setSurgingSource(tag.getInt("SurgingSource"));
-            LOGGER.info("SurgingSource loaded: {}", KingdomManager.getSurgingSource());
-        }
-
-        if (tag.contains("Discontent")) {
-            KingdomManager.setDiscontent(tag.getInt("Discontent"));
-            LOGGER.info("Discontent loaded: {}", KingdomManager.getDiscontent());
-        }
-
-        return data;
+    public KingdomSavedData(CompoundTag tag) {
+        loadFromNBT(tag);
     }
 
     @Override
-    public CompoundTag save(CompoundTag tag) {
-        LOGGER.info("Saving KingdomSavedData...");
+    protected String getDataKey() {
+        return "kingdom_data";
+    }
 
-        int[] fund = KingdomManager.getFundCoordinates();
-        tag.putInt("FundX", fund[0]);
-        tag.putInt("FundY", fund[1]);
-        tag.putInt("FundZ", fund[2]);
+    public static void initialize(ServerLevel serverLevel) {
+        if (instance == null) {
+            instance = serverLevel.getDataStorage().computeIfAbsent(KingdomSavedData::new, KingdomSavedData::new, "kingdom_data");
+            instance.serverLevelInstance = serverLevel;
+        }
+    }
 
-        int[] coffers = KingdomManager.getCoffersCoordinates();
-        tag.putInt("CoffersX", coffers[0]);
-        tag.putInt("CoffersY", coffers[1]);
-        tag.putInt("CoffersZ", coffers[2]);
+    public static void resetInstance() {
+        instance = null;
+    }
 
-        int[] prison = KingdomManager.getCapitalPrisonCoordinates();
-        tag.putInt("PrisonX", prison[0]);
-        tag.putInt("PrisonY", prison[1]);
-        tag.putInt("PrisonZ", prison[2]);
+    public static KingdomSavedData getInstance() {
+        if (instance == null) {
+            throw new IllegalStateException("KingdomSavedData is not initialized!");
+        }
+        return instance;
+    }
 
-        tag.putInt("SurgingSource", KingdomManager.getSurgingSource());
-        tag.putInt("Discontent", KingdomManager.getDiscontent());
+    public static ServerLevel getServerInstance() {
+        return getInstance().getServerLevelInstance();
+    }
+
+    @Override
+    public @NotNull CompoundTag save(@NotNull CompoundTag tag) {
+        tag.putInt("capital_era", KingdomData.getCapitalEra());
+        tag.putInt("capital_discontent", KingdomData.getCapitalDiscontent());
+        tag.putInt("source_disturbance", KingdomData.getSourceDisturbance());
+
+        tag.putIntArray("fund_coordinates", KingdomData.getFundCoordinates());
+        tag.putIntArray("coffers_coordinates", KingdomData.getCoffersCoordinates());
+        tag.putIntArray("prison_coordinates", KingdomData.getPrisonCoordinates());
+
+        CompoundTag courtTag = new CompoundTag();
+        for (Map.Entry<KingdomData.CourtPosition, String> entry : KingdomData.getAllCourtiers().entrySet()) {
+            if (entry.getValue() != null) {
+                courtTag.putString(entry.getKey().name(), entry.getValue());
+            }
+        }
+        tag.put("court_positions", courtTag);
 
         return tag;
     }
 
-    public static KingdomSavedData get(ServerLevel level) {
-        LOGGER.info("Retrieving KingdomSavedData...");
-        return level.getDataStorage().computeIfAbsent(KingdomSavedData::load, KingdomSavedData::new, DATA_NAME);
-    }
+    private void loadFromNBT(CompoundTag tag) {
+        KingdomData.setCapitalEra(tag.getInt("capital_era"));
+        KingdomData.setCapitalDiscontent(tag.getInt("capital_discontent"));
+        KingdomData.setSourceDisturbance(tag.getInt("source_disturbance"));
 
-    public static void set(ServerLevel level, KingdomSavedData data) {
-        LOGGER.info("Saving KingdomSavedData to storage...");
-        level.getDataStorage().set(DATA_NAME, data);
-        data.setDirty();
-    }
+        int[] fundCoordinates = tag.getIntArray("fund_coordinates");
+        int[] coffersCoordinates = tag.getIntArray("coffers_coordinates");
+        int[] prisonCoordinates = tag.getIntArray("prison_coordinates");
 
-    public void markDirtyAndSave(ServerLevel level) {
-        LOGGER.info("Marking KingdomSavedData as dirty and saving...");
-        set(level, this);
-    }
+        KingdomData.setFundCoordinates(fundCoordinates[0], fundCoordinates[1], fundCoordinates[2]);
+        KingdomData.setCoffersCoordinates(coffersCoordinates[0], coffersCoordinates[1], coffersCoordinates[2]);
+        KingdomData.setPrisonCoordinates(prisonCoordinates[0], prisonCoordinates[1], prisonCoordinates[2]);
 
-    private static String arrayToString(int[] coords) {
-        return "[" + coords[0] + ", " + coords[1] + ", " + coords[2] + "]";
+        if (tag.contains("court_positions")) {
+            CompoundTag courtTag = tag.getCompound("court_positions");
+            for (String key : courtTag.getAllKeys()) {
+                KingdomData.CourtPosition pos = KingdomData.CourtPosition.valueOf(key);
+                KingdomData.assignCourtier(pos, courtTag.getString(key));
+            }
+        }
     }
 }

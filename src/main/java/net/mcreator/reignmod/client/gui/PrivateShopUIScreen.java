@@ -10,6 +10,7 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.reignmod.world.inventory.PrivateShopUIMenu;
+import net.mcreator.reignmod.procedures.PrivateTaxTextProcedure;
 import net.mcreator.reignmod.procedures.PrivateShopProfitProcedure;
 import net.mcreator.reignmod.procedures.PrivateShopGetOwnerProcedure;
 import net.mcreator.reignmod.procedures.PrivateShopCountGoodsProcedure;
@@ -89,6 +90,10 @@ public class PrivateShopUIScreen extends AbstractContainerScreen<PrivateShopUIMe
 		guiGraphics.drawString(this.font,
 
 				PrivateShopProfitProcedure.execute(world, x, y, z), 25, 71, -1, false);
+		guiGraphics.drawString(this.font,
+
+				PrivateTaxTextProcedure.execute(world), 49, 57, -26368, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.private_shop_ui.label_tax"), 7, 57, -1, false);
 	}
 
 	@Override

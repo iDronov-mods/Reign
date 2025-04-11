@@ -1,0 +1,624 @@
+{
+  "_fv": 69,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": false,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "coffers_tax_ui.png",
+          "use1Xscale": false,
+          "x": 74,
+          "y": -20
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_tab_button",
+          "image": "tab_button.png",
+          "hoveredImage": "tab_hover_button.png",
+          "onClick": {
+            "name": "CoffersOpen"
+          },
+          "x": 103,
+          "y": 42
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_taxation",
+          "text": {
+            "fixedValue": "Taxation"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 126,
+          "y": 27
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "crown.png",
+          "use1Xscale": false,
+          "x": 270,
+          "y": 24
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_taxation_help",
+          "text": {
+            "fixedValue": "taxation_help"
+          },
+          "width": 16,
+          "height": 12,
+          "x": 270,
+          "y": 26
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_logs_tax_label",
+          "text": {
+            "fixedValue": "logs_tax_label"
+          },
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "x": 140,
+          "y": 50
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_tax_up_button",
+          "image": "tax_up_button.png",
+          "hoveredImage": "tax_up_hover_button.png",
+          "onClick": {
+            "name": "Logsup"
+          },
+          "x": 266,
+          "y": 50
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_tax_down_button",
+          "image": "tax_down_button.png",
+          "hoveredImage": "tax_down_hover_button.png",
+          "onClick": {
+            "name": "Logsdown"
+          },
+          "x": 280,
+          "y": 50
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_logs",
+          "text": {
+            "fixedValue": "logs",
+            "name": "LogsTaxText"
+          },
+          "color": {
+            "value": -10092493,
+            "falpha": 0.0
+          },
+          "x": 225,
+          "y": 50
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_coal_tax_label",
+          "text": {
+            "fixedValue": "coal_tax_label"
+          },
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "x": 140,
+          "y": 64
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_coal_tax_text",
+          "text": {
+            "fixedValue": "",
+            "name": "CoalTaxText"
+          },
+          "color": {
+            "value": -10092493,
+            "falpha": 0.0
+          },
+          "x": 225,
+          "y": 64
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_tax_up_button1",
+          "image": "tax_up_button.png",
+          "hoveredImage": "tax_up_hover_button.png",
+          "onClick": {
+            "name": "Coalup"
+          },
+          "x": 266,
+          "y": 64
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_tax_down_button1",
+          "image": "tax_down_button.png",
+          "hoveredImage": "tax_down_hover_button.png",
+          "onClick": {
+            "name": "Coaldown"
+          },
+          "x": 280,
+          "y": 64
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_tax_up_button2",
+          "image": "tax_up_button.png",
+          "hoveredImage": "tax_up_hover_button.png",
+          "onClick": {
+            "name": "Oresup"
+          },
+          "x": 266,
+          "y": 78
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_tax_down_button2",
+          "image": "tax_down_button.png",
+          "hoveredImage": "tax_down_hover_button.png",
+          "onClick": {
+            "name": "Oresdown"
+          },
+          "x": 280,
+          "y": 78
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_tax_up_button3",
+          "image": "tax_up_button.png",
+          "hoveredImage": "tax_up_hover_button.png",
+          "onClick": {
+            "name": "Toolsup"
+          },
+          "x": 266,
+          "y": 92
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_tax_down_button3",
+          "image": "tax_down_button.png",
+          "hoveredImage": "tax_down_hover_button.png",
+          "onClick": {
+            "name": "Toolsdown"
+          },
+          "x": 280,
+          "y": 92
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_ores_tax_label",
+          "text": {
+            "fixedValue": "ores_tax_label"
+          },
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "x": 140,
+          "y": 78
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_tools_tax_label",
+          "text": {
+            "fixedValue": "tools_tax_label"
+          },
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "x": 140,
+          "y": 92
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_armor_tax_label",
+          "text": {
+            "fixedValue": "armor_tax_label"
+          },
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "x": 140,
+          "y": 106
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_food_tax_label",
+          "text": {
+            "fixedValue": "food_tax_label"
+          },
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "x": 140,
+          "y": 120
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_exp_tax_label",
+          "text": {
+            "fixedValue": "exp_tax_label"
+          },
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "x": 140,
+          "y": 134
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_private_tax_label",
+          "text": {
+            "fixedValue": "private_tax_label"
+          },
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "x": 140,
+          "y": 162
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_other_tax_label",
+          "text": {
+            "fixedValue": "other_tax_label"
+          },
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "x": 140,
+          "y": 148
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_ores_tax_text",
+          "text": {
+            "fixedValue": "",
+            "name": "OresTaxText"
+          },
+          "color": {
+            "value": -10092493,
+            "falpha": 0.0
+          },
+          "x": 225,
+          "y": 78
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_tools_tax_text",
+          "text": {
+            "fixedValue": "",
+            "name": "ToolsTaxText"
+          },
+          "color": {
+            "value": -10092493,
+            "falpha": 0.0
+          },
+          "x": 225,
+          "y": 92
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_armor_tax_text",
+          "text": {
+            "fixedValue": "",
+            "name": "ArmorTaxText"
+          },
+          "color": {
+            "value": -10092493,
+            "falpha": 0.0
+          },
+          "x": 225,
+          "y": 106
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_food_tax_text",
+          "text": {
+            "fixedValue": "",
+            "name": "FoodTaxText"
+          },
+          "color": {
+            "value": -10092493,
+            "falpha": 0.0
+          },
+          "x": 225,
+          "y": 120
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_tax_up_button4",
+          "image": "tax_up_button.png",
+          "hoveredImage": "tax_up_hover_button.png",
+          "onClick": {
+            "name": "Armorup"
+          },
+          "x": 266,
+          "y": 106
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_tax_down_button4",
+          "image": "tax_down_button.png",
+          "hoveredImage": "tax_down_hover_button.png",
+          "onClick": {
+            "name": "Armordown"
+          },
+          "x": 280,
+          "y": 106
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_tax_up_button5",
+          "image": "tax_up_button.png",
+          "hoveredImage": "tax_up_hover_button.png",
+          "onClick": {
+            "name": "Foodup"
+          },
+          "x": 266,
+          "y": 120
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_tax_down_button5",
+          "image": "tax_down_button.png",
+          "hoveredImage": "tax_down_hover_button.png",
+          "onClick": {
+            "name": "Fooddown"
+          },
+          "x": 280,
+          "y": 120
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_tax_up_button6",
+          "image": "tax_up_button.png",
+          "hoveredImage": "tax_up_hover_button.png",
+          "onClick": {
+            "name": "Expup"
+          },
+          "x": 266,
+          "y": 134
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_tax_down_button6",
+          "image": "tax_down_button.png",
+          "hoveredImage": "tax_down_hover_button.png",
+          "onClick": {
+            "name": "Expdown"
+          },
+          "x": 279,
+          "y": 134
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_tax_up_button7",
+          "image": "tax_up_button.png",
+          "hoveredImage": "tax_up_hover_button.png",
+          "onClick": {
+            "name": "Otherup"
+          },
+          "x": 266,
+          "y": 148
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_tax_down_button7",
+          "image": "tax_down_button.png",
+          "hoveredImage": "tax_down_hover_button.png",
+          "onClick": {
+            "name": "Otherdown"
+          },
+          "x": 279,
+          "y": 148
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_tax_up_button8",
+          "image": "tax_up_button.png",
+          "hoveredImage": "tax_up_hover_button.png",
+          "onClick": {
+            "name": "Privateup"
+          },
+          "x": 266,
+          "y": 162
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_tax_down_button8",
+          "image": "tax_down_button.png",
+          "hoveredImage": "tax_down_hover_button.png",
+          "onClick": {
+            "name": "Privatedown"
+          },
+          "x": 279,
+          "y": 162
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_exp_tax_text",
+          "text": {
+            "fixedValue": "",
+            "name": "ExpTaxText"
+          },
+          "color": {
+            "value": -10092493,
+            "falpha": 0.0
+          },
+          "x": 225,
+          "y": 134
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_other_tax_text",
+          "text": {
+            "fixedValue": "",
+            "name": "OtherTaxText"
+          },
+          "color": {
+            "value": -10092493,
+            "falpha": 0.0
+          },
+          "x": 225,
+          "y": 148
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_private_tax_text",
+          "text": {
+            "fixedValue": "",
+            "name": "PrivateTaxText"
+          },
+          "color": {
+            "value": -10092493,
+            "falpha": 0.0
+          },
+          "x": 225,
+          "y": 162
+        }
+      },
+      {
+        "type": "checkbox",
+        "data": {
+          "name": "coinage",
+          "text": "",
+          "isCheckedProcedure": {
+            "name": "IsCoinageBlock"
+          },
+          "x": 137,
+          "y": 176
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_coinage_block_label",
+          "text": {
+            "fixedValue": "coinage_block_label"
+          },
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "x": 159,
+          "y": 178
+        }
+      }
+    ],
+    "onTick": {
+      "name": "SetCoinageBlockTick"
+    },
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}
