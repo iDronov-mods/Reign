@@ -40,9 +40,6 @@
     "onRightClickedOnBlock": {
       "name": "HousePrisonSet"
     },
-    "onEntityHitWith": {
-      "name": "Arrest"
-    },
     "enableRanged": false,
     "shootConstantly": false,
     "rangedItemChargesPower": false,

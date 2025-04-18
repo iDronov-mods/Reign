@@ -1,5 +1,6 @@
 package net.mcreator.reignmod.house;
 
+import net.mcreator.reignmod.kingdom.KingdomData;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
@@ -12,12 +13,18 @@ import java.util.*;
  * Домен (рыцарский), принадлежащий лорду.
  */
 public class Domain implements INBTSerializable<CompoundTag> {
+    public enum DomainDebuffs {
+        disease,
+        robbers
+    }
+
     private String lordUUID;
     private String knightUUID;
     private Component domainTitle;
     private String claimId;
     private HashSet<String> players = new HashSet<>();
-    private HashMap<String, Integer> suspectPlayers = new HashMap<>();
+    private final EnumMap<DomainDebuffs, Boolean> domainDebuffs = new EnumMap<>(DomainDebuffs.class);
+    private final HashMap<String, Integer> suspectPlayers = new HashMap<>();
 
     /**
      * Новое поле domainHP (здоровье домена).
@@ -37,7 +44,7 @@ public class Domain implements INBTSerializable<CompoundTag> {
     public Domain(String lordUUID, String knightUUID, Component knightDisplayName) {
         this.lordUUID = lordUUID;
         this.knightUUID = knightUUID;
-        this.domainTitle = knightDisplayName;
+        this.domainTitle = Component.translatable("translation.key.domain").append(" ").append(knightDisplayName);
         this.players.add(knightUUID);
         this.claimId = null;
         this.domainHP = 300; // Стандартное значение 300
@@ -142,6 +149,7 @@ public class Domain implements INBTSerializable<CompoundTag> {
             return;
         }
         suspectPlayers.put(playerId, updated);
+        HouseSavedData.getInstance().setDirty();
     }
 
     public void adjustSuspicionForAll(int amount) {
@@ -149,6 +157,7 @@ public class Domain implements INBTSerializable<CompoundTag> {
         for (String playerId : keys) {
             adjustSuspicionForPlayer(playerId, amount);
         }
+        HouseSavedData.getInstance().setDirty();
     }
 
     public List<Map.Entry<String, Integer>> getSortedSuspects(int maxCount) {
@@ -170,6 +179,23 @@ public class Domain implements INBTSerializable<CompoundTag> {
 
     public void setClaimId(String claimId) {
         this.claimId = claimId;
+        HouseSavedData.getInstance().setDirty();
+    }
+
+    //--------------------------------------------------------------------------------
+    //                                 ДЕБАФФЫ ДОМЕНОВ
+    //--------------------------------------------------------------------------------
+
+    public Boolean getDebuff(DomainDebuffs debuff) {
+        return domainDebuffs.get(debuff);
+    }
+
+    public void toggleOnDebuff(DomainDebuffs debuff) {
+        domainDebuffs.put(debuff, true);
+    }
+
+    public void toggleOffDebuff(DomainDebuffs debuff) {
+        domainDebuffs.put(debuff, false);
     }
 
     // -------------------------------------------------
@@ -199,6 +225,15 @@ public class Domain implements INBTSerializable<CompoundTag> {
         }
         tag.put("suspects", suspectList);
 
+        // Domain Debuffs
+        CompoundTag debuffsTag = new CompoundTag();
+        for (Map.Entry<DomainDebuffs, Boolean> entry : domainDebuffs.entrySet()) {
+            if (entry.getValue() != null) {
+                debuffsTag.putBoolean(entry.getKey().name(), entry.getValue());
+            }
+        }
+        tag.put("domain_debuffs", debuffsTag);
+
         return tag;
     }
 
@@ -224,6 +259,15 @@ public class Domain implements INBTSerializable<CompoundTag> {
                 String pid = eTag.getString("player_id");
                 int susValue = eTag.getInt("suspicion");
                 suspectPlayers.put(pid, susValue);
+            }
+        }
+
+        // Domain Debuffs
+        if (nbt.contains("domain_debuffs")) {
+            CompoundTag debuffsTag = nbt.getCompound("domain_debuffs");
+            for (String key : debuffsTag.getAllKeys()) {
+                DomainDebuffs pos = DomainDebuffs.valueOf(key);
+                domainDebuffs.put(pos, debuffsTag.getBoolean(key));
             }
         }
     }

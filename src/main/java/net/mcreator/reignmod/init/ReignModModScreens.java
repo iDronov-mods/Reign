@@ -17,7 +17,6 @@ import net.mcreator.reignmod.client.gui.TraderPointScreen;
 import net.mcreator.reignmod.client.gui.SoldierWindowScreen;
 import net.mcreator.reignmod.client.gui.SmithWindowScreen;
 import net.mcreator.reignmod.client.gui.SafeUIScreen;
-import net.mcreator.reignmod.client.gui.RoyaleSettingsScreen;
 import net.mcreator.reignmod.client.gui.RentalBlockUIScreen;
 import net.mcreator.reignmod.client.gui.RefuseLicensesWindowScreen;
 import net.mcreator.reignmod.client.gui.PrivateShopUIScreen;
@@ -29,6 +28,7 @@ import net.mcreator.reignmod.client.gui.LicensesWindowScreen;
 import net.mcreator.reignmod.client.gui.LicenseIsSelectedScreen;
 import net.mcreator.reignmod.client.gui.KingtableUIScreen;
 import net.mcreator.reignmod.client.gui.HunterWindowScreen;
+import net.mcreator.reignmod.client.gui.HouseSuspectsUIScreen;
 import net.mcreator.reignmod.client.gui.HouseIncubatorUIScreen;
 import net.mcreator.reignmod.client.gui.HoarderScreen;
 import net.mcreator.reignmod.client.gui.FundUIScreen;
@@ -52,7 +52,6 @@ public class ReignModModScreens {
 			MenuScreens.register(ReignModModMenus.DSF.get(), DsfScreen::new);
 			MenuScreens.register(ReignModModMenus.LICENSE_IS_SELECTED.get(), LicenseIsSelectedScreen::new);
 			MenuScreens.register(ReignModModMenus.TRADER_POINT.get(), TraderPointScreen::new);
-			MenuScreens.register(ReignModModMenus.ROYALE_SETTINGS.get(), RoyaleSettingsScreen::new);
 			MenuScreens.register(ReignModModMenus.MARKET.get(), MarketScreen::new);
 			MenuScreens.register(ReignModModMenus.COFFERS_UI.get(), CoffersUIScreen::new);
 			MenuScreens.register(ReignModModMenus.ADD_LICENSE_LIST.get(), AddLicenseListScreen::new);
@@ -81,6 +80,7 @@ public class ReignModModScreens {
 			MenuScreens.register(ReignModModMenus.HUNTER_WINDOW.get(), HunterWindowScreen::new);
 			MenuScreens.register(ReignModModMenus.DOMAIN_UI.get(), DomainUIScreen::new);
 			MenuScreens.register(ReignModModMenus.COFFERS_TAX_UI.get(), CoffersTaxUIScreen::new);
+			MenuScreens.register(ReignModModMenus.HOUSE_SUSPECTS_UI.get(), HouseSuspectsUIScreen::new);
 		});
 	}
 }

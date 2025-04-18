@@ -4,6 +4,7 @@ import net.mcreator.reignmod.claim.capital.CapitalClaimManager;
 import net.mcreator.reignmod.network.ReignModModVariables;
 import net.mcreator.reignmod.networking.ReignNetworking;
 import net.mcreator.reignmod.networking.packet.S2C.PlayerPrefixSyncS2CPacket;
+import net.mcreator.reignmod.procedures.HouseDeleteProcedure;
 import net.mcreator.reignmod.procedures.IsKingProcedure;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
@@ -79,6 +80,7 @@ public class HouseManager {
         HouseSavedData houseSavedData = HouseSavedData.getInstance();
 
         if (houseSavedData != null) {
+            HouseDeleteProcedure.execute(HouseSavedData.getServerInstance(), getHouseByLordUUID(lordUUID).getHouseTitleWithColor());
             houseSavedData.removeHouse(lordUUID);
         }
     }
@@ -122,20 +124,67 @@ public class HouseManager {
         return false;
     }
 
+    public enum removeDirectVassalResult {
+        PLAYER_NOT_FOUND,
+        INSUFFICIENT_AUTHORITY,
+        DOMAIN_IS_PROTECTED,
+        SUCCESS
+    }
+
+    public static removeDirectVassalResult removeDirectVassal(String suzerainUUID, String playerName) {
+        HouseSavedData houseSavedData = HouseSavedData.getInstance();
+
+        if (houseSavedData != null) {
+            Domain foundDomain = houseSavedData.getHouseData().findDomainByKnight(suzerainUUID);
+            House foundHouse = houseSavedData.getHouseData().findHouseByLord(suzerainUUID);
+
+            UUID foundPlayerUUID = CapitalClaimManager.getOfflinePlayerUUID(HouseSavedData.getServerInstance().getServer(), playerName);
+            if (foundPlayerUUID == null) {
+                return removeDirectVassalResult.PLAYER_NOT_FOUND;
+            }
+
+            if (!foundHouse.isNull()) {
+                Domain playerDomain = houseSavedData.getHouseData().findDomainByKnight(foundPlayerUUID.toString());
+                if (!playerDomain.isNull() && playerDomain.getLordUUID().equals(suzerainUUID)) {
+                    if (playerDomain.getClaimId() == null) {
+                        return removeDirectVassalResult.DOMAIN_IS_PROTECTED;
+                    }
+
+                    houseSavedData.removeDomain(suzerainUUID, foundPlayerUUID.toString());
+                    return removeDirectVassalResult.SUCCESS;
+                }
+            }
+
+            if (!foundDomain.isNull()) {
+                if (foundDomain.getPlayers().contains(foundPlayerUUID.toString())) {
+                    houseSavedData.removePlayerFromDomain(suzerainUUID, foundPlayerUUID.toString());
+                    return removeDirectVassalResult.SUCCESS;
+                }
+            }
+        }
+        return removeDirectVassalResult.INSUFFICIENT_AUTHORITY;
+    }
+
     public static boolean addWantedPlayer(String lordUUID, String playerName) {
-        UUID found = CapitalClaimManager.getOfflinePlayerUUID(HouseSavedData.getServerInstance().getServer(), playerName);
-        if (found != null) {
-            getHouseByLordUUID(lordUUID).addWantedPlayer(found.toString());
-            return true;
+        HouseSavedData houseSavedData = HouseSavedData.getInstance();
+        if (houseSavedData != null) {
+            UUID found = CapitalClaimManager.getOfflinePlayerUUID(HouseSavedData.getServerInstance().getServer(), playerName);
+            if (found != null) {
+                houseSavedData.addWantedPlayer(lordUUID, found.toString());
+                return true;
+            }
         }
         return false;
     }
 
     public static boolean removeWantedPlayer(String lordUUID, String playerName) {
-        UUID found = CapitalClaimManager.getOfflinePlayerUUID(HouseSavedData.getServerInstance().getServer(), playerName);
-        if (found != null) {
-            getHouseByLordUUID(lordUUID).removeWantedPlayer(found.toString());
-            return true;
+        HouseSavedData houseSavedData = HouseSavedData.getInstance();
+        if (houseSavedData != null) {
+            UUID found = CapitalClaimManager.getOfflinePlayerUUID(HouseSavedData.getServerInstance().getServer(), playerName);
+            if (found != null) {
+                houseSavedData.removeWantedPlayer(lordUUID, found.toString());
+                return true;
+            }
         }
         return false;
     }
@@ -309,6 +358,14 @@ public class HouseManager {
         return getPlayerDomain(player).getPlayers().size();
     }
 
+    public static int getDomainCount() {
+        HouseSavedData houseSavedData = HouseSavedData.getInstance();
+        if (houseSavedData != null) {
+            return houseSavedData.getHouseData().getDomains().size();
+        }
+        return -1;
+    }
+
     public static ArrayList<String> getDomainPlayers(String knightUUID) {
         var found = getDomainByKnightUUID(knightUUID).getPlayers();
         ArrayList<String> domainPlayers = new ArrayList<>(found.size());
@@ -323,6 +380,48 @@ public class HouseManager {
         found.forEach( (sus) -> domainSuspectPlayers.add(HouseSavedData.getInstance().getHouseData().getPlayerCodes().getOrDefault(sus.getKey(), "") +
                 getOfflinePlayerName(sus.getKey()) + "§r: " + sus.getValue()));
         return domainSuspectPlayers;
+    }
+
+    public Optional<Boolean> getDomainDebuff(String lordUUID, String knightUUID, Domain.DomainDebuffs debuff) {
+        return getHouseByLordUUID(lordUUID).getDebuff(knightUUID, debuff);
+    }
+
+    public boolean toggleOnDebuff(String lordUUID, String knightUUID, Domain.DomainDebuffs debuff) {
+        return getHouseByLordUUID(lordUUID).toggleOnDebuff(knightUUID, debuff);
+    }
+
+    public boolean toggleOffDebuff(String lordUUID, String knightUUID, Domain.DomainDebuffs debuff) {
+        return getHouseByLordUUID(lordUUID).toggleOffDebuff(knightUUID, debuff);
+    }
+
+    private static int[] getHousePlusCoordinates(String lordUUID) {
+        HouseSavedData houseSavedData = HouseSavedData.getInstance();
+
+        if (houseSavedData != null) {
+            return houseSavedData.getHouseData().getHousePlusCoordinates(lordUUID);
+        }
+        return new int[] {0, 0, 0};
+    }
+    public static boolean isHousePlusNull(String lordUUID) {
+        return Arrays.equals(getHousePlusCoordinates(lordUUID), new int[]{0, 0, 0});
+    }
+    public static int getHousePlusX(String lordUUID) {
+        return getHousePlusCoordinates(lordUUID)[0];
+    }
+    public static int getHousePlusY(String lordUUID) {
+        return getHousePlusCoordinates(lordUUID)[1];
+    }
+    public static int getHousePlusZ(String lordUUID) {
+        return getHousePlusCoordinates(lordUUID)[2];
+    }
+
+    public static void setHousePlusCoordinates(String lordUUID, int x, int y, int z) {
+        HouseSavedData houseSavedData = HouseSavedData.getInstance();
+
+        if (houseSavedData != null) {
+            houseSavedData.getHouseData().setHousePlusCoordinates(lordUUID, x, y, z);
+            houseSavedData.setDirty();
+        }
     }
 
     private static int[] getHouseIncubatorCoordinates(String lordUUID) {
@@ -352,6 +451,7 @@ public class HouseManager {
 
         if (houseSavedData != null) {
             houseSavedData.getHouseData().setHouseIncubatorCoordinates(lordUUID, x, y, z);
+            houseSavedData.setDirty();
         }
     }
 
@@ -381,7 +481,80 @@ public class HouseManager {
 
         if (houseSavedData != null) {
             houseSavedData.getHouseData().setHousePrisonCoordinates(lordUUID, x, y, z);
+            houseSavedData.setDirty();
         }
+    }
+
+    public static int getHouseNeed(ServerPlayer player, HouseNeedType type) {
+        HouseSavedData houseSavedData = HouseSavedData.getInstance();
+        return houseSavedData.getHouseNeed(player.getStringUUID(), type);
+    }
+
+    public static void setHouseNeed(ServerPlayer player, HouseNeedType type, int value) {
+        HouseSavedData houseSavedData = HouseSavedData.getInstance();
+        houseSavedData.setHouseNeed(player.getStringUUID(), type, value);
+    }
+
+    public static int adjustHouseNeed(ServerPlayer player, HouseNeedType type, int delta) {
+        HouseSavedData houseSavedData = HouseSavedData.getInstance();
+        return houseSavedData.adjustHouseNeed(player.getStringUUID(), type, delta);
+    }
+
+    public static void feedHouses() {
+        ArrayList<String> houses_to_delete = new ArrayList<>();
+        var houses = HouseManager.getHouses();
+
+        for (House house : houses) {
+            var domains = house.getDomains().values();
+            int lvl = house.getHouseLevel();
+            int add_hp = -70 - (lvl * 12);
+
+            int need_fuel = domains.size() * 2;
+            int need_bread = house.getPlayers().size();
+            int need_roots = lvl >= 3 ? house.getPlayers().size() : 0;
+            int need_meat = lvl >= 4 ? domains.size() : 0;
+            int need_wool = lvl >= 5 ? domains.size() : 0;
+            int need_sweets = lvl >= 6 ? 1 : 0;
+            int need_jewelry = lvl >= 7 ? 1 : 0;
+
+            if (house.getNeed(HouseNeedType.FUEL) >= need_fuel) add_hp += 50;
+            house.adjustNeed(HouseNeedType.FUEL, -need_fuel);
+
+            if (house.getNeed(HouseNeedType.BREAD) >= need_bread)  add_hp += 50;
+            house.adjustNeed(HouseNeedType.BREAD, -need_bread);
+
+            if (house.getNeed(HouseNeedType.ROOTS) >= need_roots && lvl >= 3) add_hp += 20;
+            house.adjustNeed(HouseNeedType.ROOTS, -need_roots);
+
+            if (house.getNeed(HouseNeedType.MEAT) >= need_meat && lvl >= 4) add_hp += 20;
+            house.adjustNeed(HouseNeedType.MEAT, -need_meat);
+
+            if (house.getNeed(HouseNeedType.WOOL) >= need_wool && lvl >= 5) add_hp += 10;
+            house.adjustNeed(HouseNeedType.WOOL, -need_wool);
+
+            if (house.getNeed(HouseNeedType.SWEETS) >= need_sweets && lvl >= 6) add_hp += 10;
+            house.adjustNeed(HouseNeedType.SWEETS, -need_sweets);
+
+            if (house.getNeed(HouseNeedType.JEWELRY) >= need_jewelry && lvl >= 7) add_hp += 10;
+            house.adjustNeed(HouseNeedType.JEWELRY, -need_jewelry);
+
+            int add_from_domains = 0;
+            for (Domain domain : domains) {
+                add_from_domains += 3 * (domain.getDomainHP()/300);
+            }
+
+            System.out.println("ADD: " + add_hp);
+            add_hp += add_from_domains;
+
+            if(house.addHouseHP(Math.max(-40, Math.min(add_hp, 40))) == 0) {
+                houses_to_delete.add(house.getLordUUID());
+            }
+
+            HouseSavedData.getInstance().setDirty();
+            house.updateIncubatorInfo();
+        }
+
+        houses_to_delete.forEach(HouseManager::deleteHouse);
     }
 
     public static String getOfflinePlayerName(String playerUUID) {

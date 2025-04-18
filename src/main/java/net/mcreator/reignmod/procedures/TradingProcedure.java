@@ -228,7 +228,8 @@ public class TradingProcedure {
 						}
 					}
 				}
-				if ((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(5)).getItem() : ItemStack.EMPTY).getItem() == Items.COPPER_INGOT) {
+				if ((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(5)).getItem() : ItemStack.EMPTY).getItem() == Items.COPPER_INGOT
+						&& !ReignModModVariables.MapVariables.get(world).coinage_block) {
 					coinage_count = new Object() {
 						public int getAmount(int sltid) {
 							if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
@@ -263,6 +264,36 @@ public class TradingProcedure {
 							}.getAmount(1)));
 							((Slot) _slots.get(1)).set(_setstack);
 							_player.containerMenu.broadcastChanges();
+						}
+						while (new Object() {
+							public int getAmount(int sltid) {
+								if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+									ItemStack stack = ((Slot) _slots.get(sltid)).getItem();
+									if (stack != null)
+										return stack.getCount();
+								}
+								return 0;
+							}
+						}.getAmount(1) >= 16) {
+							if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+								((Slot) _slots.get(1)).remove(16);
+								_player.containerMenu.broadcastChanges();
+							}
+							if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+								ItemStack _setstack = new ItemStack(ReignModModItems.SILVER_COIN.get()).copy();
+								_setstack.setCount((int) (new Object() {
+									public int getAmount(int sltid) {
+										if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+											ItemStack stack = ((Slot) _slots.get(sltid)).getItem();
+											if (stack != null)
+												return stack.getCount();
+										}
+										return 0;
+									}
+								}.getAmount(2) + 1));
+								((Slot) _slots.get(2)).set(_setstack);
+								_player.containerMenu.broadcastChanges();
+							}
 						}
 						SoundGiveCoinProcedure.execute(world, x, y, z);
 					} else {

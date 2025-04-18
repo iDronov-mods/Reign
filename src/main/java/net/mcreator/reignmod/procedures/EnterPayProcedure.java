@@ -15,6 +15,7 @@ import net.minecraft.advancements.AdvancementProgress;
 import net.minecraft.advancements.Advancement;
 
 import net.mcreator.reignmod.network.ReignModModVariables;
+import net.mcreator.reignmod.configuration.ReignCommonConfiguration;
 
 import javax.annotation.Nullable;
 
@@ -66,14 +67,16 @@ public class EnterPayProcedure {
 			if (entity instanceof Player _player && !_player.level().isClientSide())
 				_player.displayClientMessage(Component.literal((Component.translatable("count_days").getString() + " "
 						+ new java.text.DecimalFormat("##").format((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline))), false);
-			value = 8 + (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline * 8;
-			if (value >= 550) {
-				value = 550;
+			if (!ReignCommonConfiguration.DISABLE_DAILY_PAYOUTS.get()) {
+				value = 8 + (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline * 8;
+				if (value >= 550) {
+					value = 550;
+				}
+				if (entity instanceof Player _player)
+					_player.giveExperiencePoints((int) value);
+				if (entity instanceof Player _player && !_player.level().isClientSide())
+					_player.displayClientMessage(Component.literal((Component.translatable("translation.key.get_dailypay_exp").getString() + " \u00A7a" + new java.text.DecimalFormat("##").format(value))), false);
 			}
-			if (entity instanceof Player _player)
-				_player.giveExperiencePoints((int) value);
-			if (entity instanceof Player _player && !_player.level().isClientSide())
-				_player.displayClientMessage(Component.literal((Component.translatable("translation.key.get_dailypay_exp").getString() + " \u00A7a" + new java.text.DecimalFormat("##").format(value))), false);
 		}
 		if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline == 7) {
 			if (entity instanceof ServerPlayer _player) {
@@ -113,7 +116,7 @@ public class EnterPayProcedure {
 			}
 		}
 		{
-			double _setval = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+			double _setval = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
 			entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 				capability.LastEnter_Day = _setval;
 				capability.syncPlayerVariables(entity);

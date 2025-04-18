@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "  a",
+    " a ",
+    "b  "
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:iron_ingot"
+    },
+    "b": {
+      "item": "reign_mod:platinum_coin"
+    }
+  },
+  "result": {
+    "item": "reign_mod:treasurer_key",
+    "count": 1
+  }
+}

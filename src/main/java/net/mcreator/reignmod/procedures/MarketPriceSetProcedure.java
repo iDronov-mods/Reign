@@ -1,14 +1,15 @@
 package net.mcreator.reignmod.procedures;
 
-import net.mcreator.reignmod.init.ReignModModItems;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.Entity;
 
-import java.util.Map;
+import net.mcreator.reignmod.init.ReignModModItems;
+
 import java.util.function.Supplier;
+import java.util.Map;
 
 public class MarketPriceSetProcedure {
 	public static void execute(LevelAccessor world, Entity entity, double tax, String goodsName) {
@@ -34,7 +35,7 @@ public class MarketPriceSetProcedure {
 			((Slot) _slots.get(72)).set(ItemStack.EMPTY);
 			_player.containerMenu.broadcastChanges();
 		}
-		totalPrice = GetPriceWithFillFactorProcedure.execute(goodsName);
+		totalPrice = GetPriceWithFillFactorProcedure.execute(world, goodsName);
 		addTax = tax * totalPrice;
 		totalPrice = totalPrice + addTax;
 		if (totalPrice >= 4096) {

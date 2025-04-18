@@ -3,7 +3,6 @@ package net.mcreator.reignmod.procedures;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.ItemStack;
@@ -20,8 +19,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
-import net.minecraft.commands.CommandSourceStack;
-import net.minecraft.commands.CommandSource;
 import net.minecraft.client.Minecraft;
 
 import net.mcreator.reignmod.network.ReignModModVariables;
@@ -63,9 +60,7 @@ public class FundTickProcedure {
 				if (world.isClientSide())
 					Minecraft.getInstance().gameRenderer.displayItemActivation(new ItemStack(ReignModModItems.PLATINUM_COIN.get()));
 				ReignModMod.queueServerWork(40, () -> {
-					if (world instanceof ServerLevel _level)
-						_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
-								"weather rain");
+					world.getLevelData().setRaining(true);
 					EraCostCreateProcedure.execute(world, ReignModModVariables.MapVariables.get(world).CAPITAL_X, ReignModModVariables.MapVariables.get(world).CAPITAL_Y, ReignModModVariables.MapVariables.get(world).CAPITAL_Z);
 				});
 				ReignModMod.queueServerWork(80, () -> {
@@ -75,12 +70,13 @@ public class FundTickProcedure {
 					}
 				});
 				if (!world.isClientSide() && world.getServer() != null)
-					world.getServer().getPlayerList().broadcastSystemMessage(Component.literal((Component.translatable("newera").getString() + "" + ReignModModVariables.MapVariables.get(world).ERA)), false);
+					world.getServer().getPlayerList()
+							.broadcastSystemMessage(Component.literal((Component.translatable((Component.translatable("translation.key.new_era").getString())).getString() + "" + ReignModModVariables.MapVariables.get(world).ERA)), false);
 				if (world instanceof Level _level) {
 					if (!_level.isClientSide()) {
-						_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.firework_rocket.launch")), SoundSource.MASTER, 1, 1);
+						_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.lightning_bolt.thunder")), SoundSource.MASTER, 1, 1);
 					} else {
-						_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.firework_rocket.launch")), SoundSource.MASTER, 1, 1, false);
+						_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.lightning_bolt.thunder")), SoundSource.MASTER, 1, 1, false);
 					}
 				}
 				if (ReignModModVariables.MapVariables.get(world).ERA == 6) {

@@ -155,24 +155,36 @@ public class TooltipRendererProcedure {
 			}
 		}
 		if (itemstack.getItem() == ReignModModItems.PRIVATE_RENTAL_1.get()) {
+			if (!(itemstack.getOrCreateTag().getString("owners")).isEmpty()) {
+				tooltip.add(Component.literal(("\u00A7f\u00A7o" + itemstack.getOrCreateTag().getString("owners"))));
+			}
 			if (Screen.hasShiftDown()) {
 				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.private_rent").getString())));
 			} else {
 				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.private_rent1_short").getString())));
 			}
 		} else if (itemstack.getItem() == ReignModModItems.PRIVATE_RENTAL_2.get()) {
+			if (!(itemstack.getOrCreateTag().getString("owners")).isEmpty()) {
+				tooltip.add(Component.literal(("\u00A7f\u00A7o" + itemstack.getOrCreateTag().getString("owners"))));
+			}
 			if (Screen.hasShiftDown()) {
 				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.private_rent").getString())));
 			} else {
 				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.private_rent2_short").getString())));
 			}
 		} else if (itemstack.getItem() == ReignModModItems.PRIVATE_RENTAL_3.get()) {
+			if (!(itemstack.getOrCreateTag().getString("owners")).isEmpty()) {
+				tooltip.add(Component.literal(("\u00A7f\u00A7o" + itemstack.getOrCreateTag().getString("owners"))));
+			}
 			if (Screen.hasShiftDown()) {
 				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.private_rent").getString())));
 			} else {
 				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.private_rent3_short").getString())));
 			}
 		} else if (itemstack.getItem() == ReignModModItems.STATE_RENTAL.get()) {
+			if (!(itemstack.getOrCreateTag().getString("owners")).isEmpty()) {
+				tooltip.add(Component.literal(("\u00A7f\u00A7o" + itemstack.getOrCreateTag().getString("owners"))));
+			}
 			if (Screen.hasShiftDown()) {
 				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.state_rent").getString())));
 			} else {

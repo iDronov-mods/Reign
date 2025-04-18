@@ -86,6 +86,7 @@ public class DomainUIScreen extends AbstractContainerScreen<DomainUIMenu> {
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.domain_ui.label_hp"), 158, -3, -1, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.domain_ui.label_players"), 54, 25, -12829636, false);
 	}
 
 	@Override

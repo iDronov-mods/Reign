@@ -15,6 +15,7 @@ import net.minecraft.core.BlockPos;
 import net.mcreator.reignmod.world.inventory.CoffersUIMenu;
 import net.mcreator.reignmod.procedures.ToCoffersTaxTABProcedure;
 import net.mcreator.reignmod.procedures.TakeFromCoffersProcedure;
+import net.mcreator.reignmod.procedures.CapitalPayOffProcedure;
 import net.mcreator.reignmod.ReignModMod;
 
 import java.util.function.Supplier;
@@ -81,6 +82,10 @@ public class CoffersUIButtonMessage {
 			TakeFromCoffersProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 1) {
+
+			CapitalPayOffProcedure.execute(world);
+		}
+		if (buttonID == 2) {
 
 			ToCoffersTaxTABProcedure.execute(world, x, y, z, entity);
 		}

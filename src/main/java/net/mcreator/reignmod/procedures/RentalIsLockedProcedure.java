@@ -1,8 +1,8 @@
 package net.mcreator.reignmod.procedures;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.core.BlockPos;
 
 public class RentalIsLockedProcedure {
 	public static boolean execute(LevelAccessor world, double x, double y, double z) {

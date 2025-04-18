@@ -1,12 +1,14 @@
 package net.mcreator.reignmod.procedures;
 
-import net.mcreator.reignmod.basics.ConfigLoader;
-import net.minecraft.world.entity.Entity;
-import net.minecraftforge.event.entity.EntityJoinLevelEvent;
-import net.minecraftforge.eventbus.api.Event;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+
+import net.minecraft.world.entity.Entity;
+
+import net.mcreator.reignmod.basics.ConfigLoader;
 
 import javax.annotation.Nullable;
 

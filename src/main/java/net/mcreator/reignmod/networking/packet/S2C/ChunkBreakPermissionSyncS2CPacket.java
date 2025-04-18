@@ -37,7 +37,7 @@ public class ChunkBreakPermissionSyncS2CPacket {
         NetworkEvent.Context ctx = supplier.get();
         ctx.enqueueWork(() -> {
             // Клиентская логика
-            ClientPlayerData.setLastKnown(this.chunkX, this.chunkZ, this.canBreak);
+            ClientPlayerData.setLastKnownChunk(this.chunkX, this.chunkZ, this.canBreak);
         });
     }
 }

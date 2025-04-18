@@ -13,9 +13,9 @@ import net.minecraft.core.Direction;
 import net.minecraft.commands.arguments.MessageArgument;
 import net.minecraft.commands.Commands;
 
+import net.mcreator.reignmod.procedures.KickOfflinePlayerFromHouseProcedure;
 import net.mcreator.reignmod.procedures.DomainSuspectsProcedure;
 import net.mcreator.reignmod.procedures.DomainListProcedure;
-import net.mcreator.reignmod.procedures.DomainKickSlaveProcedure;
 
 @Mod.EventBusSubscriber
 public class DomainCommand {
@@ -51,7 +51,7 @@ public class DomainCommand {
 
 					DomainListProcedure.execute(world, entity);
 					return 0;
-				})).then(Commands.literal("kick").then(Commands.argument("Player", MessageArgument.message()).executes(arguments -> {
+				})).then(Commands.literal("kick").then(Commands.argument("player", MessageArgument.message()).executes(arguments -> {
 					Level world = arguments.getSource().getUnsidedLevel();
 					double x = arguments.getSource().getPosition().x();
 					double y = arguments.getSource().getPosition().y();
@@ -63,7 +63,7 @@ public class DomainCommand {
 					if (entity != null)
 						direction = entity.getDirection();
 
-					DomainKickSlaveProcedure.execute(arguments, entity);
+					KickOfflinePlayerFromHouseProcedure.execute(arguments, entity);
 					return 0;
 				}))));
 	}

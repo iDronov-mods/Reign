@@ -1,18 +1,23 @@
 package net.mcreator.reignmod.procedures;
 
-import net.mcreator.reignmod.network.ReignModModVariables;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.level.LevelAccessor;
+
+import net.mcreator.reignmod.kingdom.KingdomData;
 
 public class PrisonCreateProcedure {
-	public static void execute(LevelAccessor world, double x, double y, double z) {
-		ReignModModVariables.MapVariables.get(world).Prison_X = Math.floor(x);
-		ReignModModVariables.MapVariables.get(world).syncData(world);
-		ReignModModVariables.MapVariables.get(world).Prison_Y = Math.floor(y);
-		ReignModModVariables.MapVariables.get(world).syncData(world);
-		ReignModModVariables.MapVariables.get(world).Prison_Z = Math.floor(z);
-		ReignModModVariables.MapVariables.get(world).syncData(world);
-		if (!world.isClientSide() && world.getServer() != null)
-			world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("The prison is set."), false);
+	public static void execute(Entity entity) {
+		if (entity == null)
+			return;
+		double x_prison = 0;
+		double y_prison = 0;
+		double z_prison = 0;
+		x_prison = entity.getX();
+		y_prison = entity.getY();
+		z_prison = entity.getZ();
+		KingdomData.setPrisonCoordinates((int) x_prison, (int) y_prison, (int) z_prison);
+		if (entity instanceof Player _player && !_player.level().isClientSide())
+			_player.displayClientMessage(Component.literal((Component.translatable("translation.royale_prison_set").getString())), false);
 	}
 }

@@ -78,7 +78,6 @@ public class ReignModModVariables {
 			clone.license_miner = original.license_miner;
 			clone.license_farmer = original.license_farmer;
 			clone.license_soldier = original.license_soldier;
-			clone.Hand_of_the_King = original.Hand_of_the_King;
 			clone.license_alchemist = original.license_alchemist;
 			clone.license_librarian = original.license_librarian;
 			clone.taxInTransaction = original.taxInTransaction;
@@ -86,9 +85,6 @@ public class ReignModModVariables {
 			clone.ADD_LVL = original.ADD_LVL;
 			clone.last_refuse_day = original.last_refuse_day;
 			clone.isCriminal = original.isCriminal;
-			clone.Kingdom_X = original.Kingdom_X;
-			clone.Kingdom_Y = original.Kingdom_Y;
-			clone.Kingdom_Z = original.Kingdom_Z;
 			clone.FirstEnter = original.FirstEnter;
 			clone.LastEnter_Day = original.LastEnter_Day;
 			clone.DaysOnline = original.DaysOnline;
@@ -100,6 +96,7 @@ public class ReignModModVariables {
 			clone.LastEnter_Week = original.LastEnter_Week;
 			clone.efficiency = original.efficiency;
 			clone.last_refuse_week = original.last_refuse_week;
+			clone.prison_house = original.prison_house;
 			if (!event.isWasDeath()) {
 			}
 		}
@@ -169,13 +166,7 @@ public class ReignModModVariables {
 		public double tools_price = 0;
 		public double other_price = 0;
 		public double ores_price = 0;
-		public double VC_X = 0;
-		public double VC_Y = 0;
-		public double VC_Z = 0;
 		public double ERA = 0.0;
-		public double Prison_X = 0;
-		public double Prison_Y = 0;
-		public double Prison_Z = 0;
 		public boolean CapitalHave = false;
 		public double CAPITAL_X = 0;
 		public double CAPITAL_Y = 0;
@@ -207,13 +198,7 @@ public class ReignModModVariables {
 			tools_price = nbt.getDouble("tools_price");
 			other_price = nbt.getDouble("other_price");
 			ores_price = nbt.getDouble("ores_price");
-			VC_X = nbt.getDouble("VC_X");
-			VC_Y = nbt.getDouble("VC_Y");
-			VC_Z = nbt.getDouble("VC_Z");
 			ERA = nbt.getDouble("ERA");
-			Prison_X = nbt.getDouble("Prison_X");
-			Prison_Y = nbt.getDouble("Prison_Y");
-			Prison_Z = nbt.getDouble("Prison_Z");
 			CapitalHave = nbt.getBoolean("CapitalHave");
 			CAPITAL_X = nbt.getDouble("CAPITAL_X");
 			CAPITAL_Y = nbt.getDouble("CAPITAL_Y");
@@ -241,13 +226,7 @@ public class ReignModModVariables {
 			nbt.putDouble("tools_price", tools_price);
 			nbt.putDouble("other_price", other_price);
 			nbt.putDouble("ores_price", ores_price);
-			nbt.putDouble("VC_X", VC_X);
-			nbt.putDouble("VC_Y", VC_Y);
-			nbt.putDouble("VC_Z", VC_Z);
 			nbt.putDouble("ERA", ERA);
-			nbt.putDouble("Prison_X", Prison_X);
-			nbt.putDouble("Prison_Y", Prison_Y);
-			nbt.putDouble("Prison_Z", Prison_Z);
 			nbt.putBoolean("CapitalHave", CapitalHave);
 			nbt.putDouble("CAPITAL_X", CAPITAL_X);
 			nbt.putDouble("CAPITAL_Y", CAPITAL_Y);
@@ -362,7 +341,6 @@ public class ReignModModVariables {
 		public boolean license_miner = false;
 		public boolean license_farmer = false;
 		public boolean license_soldier = false;
-		public boolean Hand_of_the_King = false;
 		public boolean license_alchemist = false;
 		public boolean license_librarian = false;
 		public double taxInTransaction = 0;
@@ -370,9 +348,6 @@ public class ReignModModVariables {
 		public double ADD_LVL = 0;
 		public double last_refuse_day = 0;
 		public boolean isCriminal = false;
-		public double Kingdom_X = 0;
-		public double Kingdom_Y = 0;
-		public double Kingdom_Z = 0;
 		public boolean FirstEnter = false;
 		public double LastEnter_Day = 0;
 		public double DaysOnline = 0;
@@ -384,6 +359,7 @@ public class ReignModModVariables {
 		public double LastEnter_Week = 0;
 		public double efficiency = 0;
 		public double last_refuse_week = 0;
+		public String prison_house = "\"\"";
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayer serverPlayer)
@@ -398,7 +374,6 @@ public class ReignModModVariables {
 			nbt.putBoolean("license_miner", license_miner);
 			nbt.putBoolean("license_farmer", license_farmer);
 			nbt.putBoolean("license_soldier", license_soldier);
-			nbt.putBoolean("Hand_of_the_King", Hand_of_the_King);
 			nbt.putBoolean("license_alchemist", license_alchemist);
 			nbt.putBoolean("license_librarian", license_librarian);
 			nbt.putDouble("taxInTransaction", taxInTransaction);
@@ -406,9 +381,6 @@ public class ReignModModVariables {
 			nbt.putDouble("ADD_LVL", ADD_LVL);
 			nbt.putDouble("last_refuse_day", last_refuse_day);
 			nbt.putBoolean("isCriminal", isCriminal);
-			nbt.putDouble("Kingdom_X", Kingdom_X);
-			nbt.putDouble("Kingdom_Y", Kingdom_Y);
-			nbt.putDouble("Kingdom_Z", Kingdom_Z);
 			nbt.putBoolean("FirstEnter", FirstEnter);
 			nbt.putDouble("LastEnter_Day", LastEnter_Day);
 			nbt.putDouble("DaysOnline", DaysOnline);
@@ -420,6 +392,7 @@ public class ReignModModVariables {
 			nbt.putDouble("LastEnter_Week", LastEnter_Week);
 			nbt.putDouble("efficiency", efficiency);
 			nbt.putDouble("last_refuse_week", last_refuse_week);
+			nbt.putString("prison_house", prison_house);
 			return nbt;
 		}
 
@@ -431,7 +404,6 @@ public class ReignModModVariables {
 			license_miner = nbt.getBoolean("license_miner");
 			license_farmer = nbt.getBoolean("license_farmer");
 			license_soldier = nbt.getBoolean("license_soldier");
-			Hand_of_the_King = nbt.getBoolean("Hand_of_the_King");
 			license_alchemist = nbt.getBoolean("license_alchemist");
 			license_librarian = nbt.getBoolean("license_librarian");
 			taxInTransaction = nbt.getDouble("taxInTransaction");
@@ -439,9 +411,6 @@ public class ReignModModVariables {
 			ADD_LVL = nbt.getDouble("ADD_LVL");
 			last_refuse_day = nbt.getDouble("last_refuse_day");
 			isCriminal = nbt.getBoolean("isCriminal");
-			Kingdom_X = nbt.getDouble("Kingdom_X");
-			Kingdom_Y = nbt.getDouble("Kingdom_Y");
-			Kingdom_Z = nbt.getDouble("Kingdom_Z");
 			FirstEnter = nbt.getBoolean("FirstEnter");
 			LastEnter_Day = nbt.getDouble("LastEnter_Day");
 			DaysOnline = nbt.getDouble("DaysOnline");
@@ -453,6 +422,7 @@ public class ReignModModVariables {
 			LastEnter_Week = nbt.getDouble("LastEnter_Week");
 			efficiency = nbt.getDouble("efficiency");
 			last_refuse_week = nbt.getDouble("last_refuse_week");
+			prison_house = nbt.getString("prison_house");
 		}
 	}
 
@@ -483,7 +453,6 @@ public class ReignModModVariables {
 					variables.license_miner = message.data.license_miner;
 					variables.license_farmer = message.data.license_farmer;
 					variables.license_soldier = message.data.license_soldier;
-					variables.Hand_of_the_King = message.data.Hand_of_the_King;
 					variables.license_alchemist = message.data.license_alchemist;
 					variables.license_librarian = message.data.license_librarian;
 					variables.taxInTransaction = message.data.taxInTransaction;
@@ -491,9 +460,6 @@ public class ReignModModVariables {
 					variables.ADD_LVL = message.data.ADD_LVL;
 					variables.last_refuse_day = message.data.last_refuse_day;
 					variables.isCriminal = message.data.isCriminal;
-					variables.Kingdom_X = message.data.Kingdom_X;
-					variables.Kingdom_Y = message.data.Kingdom_Y;
-					variables.Kingdom_Z = message.data.Kingdom_Z;
 					variables.FirstEnter = message.data.FirstEnter;
 					variables.LastEnter_Day = message.data.LastEnter_Day;
 					variables.DaysOnline = message.data.DaysOnline;
@@ -505,6 +471,7 @@ public class ReignModModVariables {
 					variables.LastEnter_Week = message.data.LastEnter_Week;
 					variables.efficiency = message.data.efficiency;
 					variables.last_refuse_week = message.data.last_refuse_week;
+					variables.prison_house = message.data.prison_house;
 				}
 			});
 			context.setPacketHandled(true);

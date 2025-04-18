@@ -17,6 +17,7 @@ public class ClaimData implements INBTSerializable<CompoundTag> {
     private final Set<Long> claimedChunks = new HashSet<>();
     private String claimId;
     private String ownerId;
+    private String ownerName;
     private ClaimType claimType;
     private int centerChunkX;
     private int centerChunkZ;
@@ -24,9 +25,10 @@ public class ClaimData implements INBTSerializable<CompoundTag> {
     public ClaimData() {
     }
 
-    public ClaimData(String claimId, String ownerId, ClaimType claimType, int centerChunkX, int centerChunkZ) {
+    public ClaimData(String claimId, String ownerId, String ownerName, ClaimType claimType, int centerChunkX, int centerChunkZ) {
         this.claimId = claimId;
         this.ownerId = ownerId;
+        this.ownerName = ownerName;
         this.claimType = claimType;
         this.centerChunkX = centerChunkX;
         this.centerChunkZ = centerChunkZ;
@@ -46,6 +48,14 @@ public class ClaimData implements INBTSerializable<CompoundTag> {
 
     public void setOwnerId(String ownerId) {
         this.ownerId = ownerId;
+    }
+
+    public String getOwnerName() {
+        return ownerName;
+    }
+
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
     }
 
     public ClaimType getClaimType() {
@@ -83,6 +93,7 @@ public class ClaimData implements INBTSerializable<CompoundTag> {
         CompoundTag tag = new CompoundTag();
         tag.putString("claim_id", claimId);
         tag.putString("owner_id", ownerId);
+        tag.putString("owner_name", ownerName);
         tag.putString("claim_type", claimType.name());
         tag.putInt("center_chunk_x", centerChunkX);
         tag.putInt("center_chunk_z", centerChunkZ);
@@ -100,6 +111,7 @@ public class ClaimData implements INBTSerializable<CompoundTag> {
     public void deserializeNBT(CompoundTag tag) {
         this.claimId = tag.getString("claim_id");
         this.ownerId = tag.getString("owner_id");
+        this.ownerName = tag.getString("owner_name");
         this.claimType = ClaimType.valueOf(tag.getString("claim_type"));
         this.centerChunkX = tag.getInt("center_chunk_x");
         this.centerChunkZ = tag.getInt("center_chunk_z");

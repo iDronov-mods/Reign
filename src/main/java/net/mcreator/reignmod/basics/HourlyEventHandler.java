@@ -1,5 +1,6 @@
 package net.mcreator.reignmod.basics;
 
+import net.mcreator.reignmod.configuration.ReignCommonConfiguration;
 import net.mcreator.reignmod.kingdom.KingdomData;
 import net.mcreator.reignmod.procedures.CapitalServeProcedure;
 import net.minecraftforge.event.TickEvent;
@@ -27,7 +28,7 @@ public class HourlyEventHandler {
             long currentTime = System.currentTimeMillis();
             
             // Проверяем, прошёл ли час (3600000 мс = 1 час)
-            if (currentTime - lastExecutionTime >= 2 * 3600000L) { //каждые 3 ч
+            if (currentTime - lastExecutionTime >= 360L) { //каждые 1 ч
                 lastExecutionTime = currentTime; // Обновляем время последнего срабатывания
                 triggerHourlyEvent();           // Вызываем ваше событие
             }
@@ -38,8 +39,8 @@ public class HourlyEventHandler {
         // Ваша логика срабатывания события
         System.out.println("Another real hour has passed!");
 
-        KingdomData.feedHouses();
-        KingdomData.feedCapital();
+        if (!ReignCommonConfiguration.DISABLE_HOUSE_FEEDING.get()) HouseManager.feedHouses();
+        if (!ReignCommonConfiguration.DISABLE_CAPITAL_FEEDING.get())KingdomData.feedCapital();
 
     }
 

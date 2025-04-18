@@ -34,6 +34,15 @@ public class HouseData{
     public HashMap<String, String> getPlayerCodes() { return this.playerCodes;}
     public HashMap<String, Boolean> getHouseAvailableColors() { return this.houseAvailableColors;}
 
+    public int[] getHousePlusCoordinates(String lordUUID) {
+        return findHouseByLord(lordUUID).getHousePlusCoordinates();
+    }
+
+    public void setHousePlusCoordinates(String lordUUID, int x, int y, int z) {
+        if (!findHouseByLord(lordUUID).isNull()) {
+            findHouseByLord(lordUUID).setHousePlusCoordinates(new int[] {x, y, z});
+        }
+    }
 
     public int[] getHouseIncubatorCoordinates(String lordUUID) {
         return findHouseByLord(lordUUID).getHouseIncubatorCoordinates();
@@ -91,11 +100,12 @@ public class HouseData{
         this.houseAvailableColors.put(house.getHouseColor(), false);
     }
 
-    public void removeHouse(House house) {
+    public int[] removeHouse(House house) {
         House houseCopy = new House(house.serializeNBT());
         houseCopy.getDomains().forEach((s, domain) -> this.removeDomain(house, domain));
         this.houses.remove(house.getLordUUID());
         this.houseAvailableColors.replace(house.getHouseColor(), true);
+        return houseCopy.getHousePlusCoordinates();
     }
 
     public void pushDomain(House house, Domain domain) {

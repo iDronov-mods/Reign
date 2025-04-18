@@ -1,10 +1,11 @@
 package net.mcreator.reignmod.procedures;
 
-import net.mcreator.reignmod.market.MarketManager;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.server.level.ServerLevel;
+
+import net.mcreator.reignmod.market.MarketManager;
 
 public class MarketUpdateTickProcedure {
 	public static void execute(LevelAccessor world, Entity entity) {

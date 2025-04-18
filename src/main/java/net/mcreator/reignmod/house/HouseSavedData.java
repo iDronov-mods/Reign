@@ -1,6 +1,8 @@
 package net.mcreator.reignmod.house;
 
 import net.mcreator.reignmod.basics.ReignSavedData;
+import net.mcreator.reignmod.claim.capital.CapitalClaimManager;
+import net.mcreator.reignmod.procedures.ReturnPlusProcedure;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
@@ -10,6 +12,7 @@ import net.minecraft.server.level.ServerLevel;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Iterator;
+import java.util.UUID;
 
 public class HouseSavedData extends ReignSavedData {
 
@@ -111,8 +114,11 @@ public class HouseSavedData extends ReignSavedData {
     }
 
      public void removeHouse(String lordUUID) {
-        this.houseData.removeHouse(this.houseData.findHouseByLord(lordUUID));
-        setDirty();
+        if (this.houseData.getHouses().containsKey(lordUUID)) {
+            int[] plusCoordinates = this.houseData.removeHouse(this.houseData.findHouseByLord(lordUUID));
+            ReturnPlusProcedure.execute(getServerInstance(),plusCoordinates[0],plusCoordinates[1],plusCoordinates[2]);
+            setDirty();
+        }
     }
 
     public Boolean addDomain(String lordUUID, String knightUUID, String knightDisplayName) {
@@ -140,5 +146,40 @@ public class HouseSavedData extends ReignSavedData {
     public void removePlayerFromDomain(String knightUUID, String playerUUID) {
         this.houseData.removePlayerFromDomain(this.houseData.findHouseByKnight(knightUUID), this.houseData.findDomainByKnight(knightUUID), playerUUID);
         setDirty();
+    }
+
+    public void addWantedPlayer(String lordUUID, String playerUUID) {
+        this.houseData.findHouseByLord(lordUUID).addWantedPlayer(playerUUID);
+        setDirty();
+    }
+
+    public void removeWantedPlayer(String lordUUID, String playerUUID) {
+        this.houseData.findHouseByLord(lordUUID).removeWantedPlayer(playerUUID);
+        setDirty();
+    }
+
+    public int getHouseNeed(String lordUUID, HouseNeedType type) {
+        House found = this.houseData.findHouseByLord(lordUUID);
+        if (!found.isNull()) {
+            return found.getNeed(type);
+        }
+        return -1;
+    }
+
+    public void setHouseNeed(String lordUUID, HouseNeedType type, int value) {
+        House found = this.houseData.findHouseByLord(lordUUID);
+        if (!found.isNull()) {
+            setDirty();
+            found.setNeed(type, value);
+        }
+    }
+
+    public int adjustHouseNeed(String lordUUID, HouseNeedType type, int delta) {
+        House found = this.houseData.findHouseByLord(lordUUID);
+        if (!found.isNull()) {
+            setDirty();
+            return found.adjustNeed(type, delta);
+        }
+        return -1;
     }
 }

@@ -17,7 +17,10 @@ import net.minecraft.advancements.AdvancementProgress;
 import net.minecraft.advancements.Advancement;
 
 import net.mcreator.reignmod.network.ReignModModVariables;
+import net.mcreator.reignmod.kingdom.KingdomData;
 import net.mcreator.reignmod.init.ReignModModMobEffects;
+import net.mcreator.reignmod.house.HouseSavedData;
+import net.mcreator.reignmod.house.House;
 
 import javax.annotation.Nullable;
 
@@ -35,24 +38,49 @@ public class PrisonSpawnProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return;
+		double x_house_prison = 0;
+		double y_house_prison = 0;
+		double z_house_prison = 0;
+		String SuzerainUUID = "";
 		if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).isCriminal) {
 			if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 				_entity.addEffect(new MobEffectInstance(ReignModModMobEffects.CRIMINAL.get(), -1, 0));
 		}
-		if (entity instanceof LivingEntity _livEnt1 && _livEnt1.hasEffect(ReignModModMobEffects.CRIMINAL.get())) {
+		if (!((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).prison_house).isEmpty()) {
+			SuzerainUUID = (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).house;
+			House house = HouseSavedData.getInstance().getHouseData().findHouseByPlayerSuzerain(SuzerainUUID);
+			x_house_prison = house.getHousePrisonCoordinates()[0];
+			y_house_prison = house.getHousePrisonCoordinates()[1];
+			z_house_prison = house.getHousePrisonCoordinates()[2];
 			{
 				Entity _ent = entity;
-				_ent.teleportTo(ReignModModVariables.MapVariables.get(world).Prison_X, ReignModModVariables.MapVariables.get(world).Prison_Y, ReignModModVariables.MapVariables.get(world).Prison_Z);
+				_ent.teleportTo(x_house_prison, y_house_prison, z_house_prison);
 				if (_ent instanceof ServerPlayer _serverPlayer)
-					_serverPlayer.connection.teleport(ReignModModVariables.MapVariables.get(world).Prison_X, ReignModModVariables.MapVariables.get(world).Prison_Y, ReignModModVariables.MapVariables.get(world).Prison_Z, _ent.getYRot(),
-							_ent.getXRot());
+					_serverPlayer.connection.teleport(x_house_prison, y_house_prison, z_house_prison, _ent.getYRot(), _ent.getXRot());
+			}
+			if (!world.isClientSide() && world.getServer() != null)
+				world.getServer().getPlayerList()
+						.broadcastSystemMessage(Component.literal((entity.getDisplayName().getString() + " \u00A78" + Component.translatable("translation.key.house_imprisoned").getString() + " " + house.getHouseTitleWithColor())), false);
+			{
+				String _setval = "";
+				entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					capability.prison_house = _setval;
+					capability.syncPlayerVariables(entity);
+				});
+			}
+		} else if (entity instanceof LivingEntity _livEnt5 && _livEnt5.hasEffect(ReignModModMobEffects.CRIMINAL.get())) {
+			{
+				Entity _ent = entity;
+				_ent.teleportTo(KingdomData.getPrisonCoordinates()[0], KingdomData.getPrisonCoordinates()[1], KingdomData.getPrisonCoordinates()[2]);
+				if (_ent instanceof ServerPlayer _serverPlayer)
+					_serverPlayer.connection.teleport(KingdomData.getPrisonCoordinates()[0], KingdomData.getPrisonCoordinates()[1], KingdomData.getPrisonCoordinates()[2], _ent.getYRot(), _ent.getXRot());
 			}
 			if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 				_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, -1, 2));
 			if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 				_entity.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, -1, 5));
 			if (!world.isClientSide() && world.getServer() != null)
-				world.getServer().getPlayerList().broadcastSystemMessage(Component.literal((entity.getDisplayName().getString() + "" + Component.translatable("imprisoned").getString())), false);
+				world.getServer().getPlayerList().broadcastSystemMessage(Component.literal((entity.getDisplayName().getString() + " \u00A78" + Component.translatable("translation.key.royale_imprisoned").getString())), false);
 			if (entity instanceof ServerPlayer _player) {
 				Advancement _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation("reign_mod:gotcha"));
 				AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);

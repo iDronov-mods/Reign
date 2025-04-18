@@ -13,6 +13,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.mcreator.reignmod.world.inventory.CoffersUIMenu;
 import net.mcreator.reignmod.procedures.ReturnCoffersAmountProcedure;
 import net.mcreator.reignmod.procedures.ReturnCapitalServiceProcedure;
+import net.mcreator.reignmod.procedures.CapitalClaimDIsabledProcedure;
 import net.mcreator.reignmod.network.CoffersUIButtonMessage;
 import net.mcreator.reignmod.ReignModMod;
 
@@ -27,6 +28,7 @@ public class CoffersUIScreen extends AbstractContainerScreen<CoffersUIMenu> {
 	private final Player entity;
 	private final static HashMap<String, String> textstate = new HashMap<>();
 	Button button_take;
+	Button button_pay_off;
 	ImageButton imagebutton_tab_button;
 
 	public CoffersUIScreen(CoffersUIMenu container, Inventory inventory, Component text) {
@@ -89,6 +91,8 @@ public class CoffersUIScreen extends AbstractContainerScreen<CoffersUIMenu> {
 		guiGraphics.drawString(this.font,
 
 				ReturnCoffersAmountProcedure.execute(world, x, y, z), 19, 15, -3381760, false);
+		if (CapitalClaimDIsabledProcedure.execute(world, x, y, z))
+			guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.coffers_ui.label_pay_off_text"), 60, 173, -3407821, false);
 	}
 
 	@Override
@@ -102,10 +106,24 @@ public class CoffersUIScreen extends AbstractContainerScreen<CoffersUIMenu> {
 		}).bounds(this.leftPos + 61, this.topPos + 60, 54, 20).build();
 		guistate.put("button:button_take", button_take);
 		this.addRenderableWidget(button_take);
-		imagebutton_tab_button = new ImageButton(this.leftPos + -23, this.topPos + 29, 23, 22, 0, 0, 22, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_tab_button.png"), 23, 44, e -> {
-			if (true) {
+		button_pay_off = Button.builder(Component.translatable("gui.reign_mod.coffers_ui.button_pay_off"), e -> {
+			if (CapitalClaimDIsabledProcedure.execute(world, x, y, z)) {
 				ReignModMod.PACKET_HANDLER.sendToServer(new CoffersUIButtonMessage(1, x, y, z, textstate));
 				CoffersUIButtonMessage.handleButtonAction(entity, 1, x, y, z, textstate);
+			}
+		}).bounds(this.leftPos + -1, this.topPos + 169, 58, 20).build(builder -> new Button(builder) {
+			@Override
+			public void render(GuiGraphics guiGraphics, int gx, int gy, float ticks) {
+				if (CapitalClaimDIsabledProcedure.execute(world, x, y, z))
+					super.render(guiGraphics, gx, gy, ticks);
+			}
+		});
+		guistate.put("button:button_pay_off", button_pay_off);
+		this.addRenderableWidget(button_pay_off);
+		imagebutton_tab_button = new ImageButton(this.leftPos + -23, this.topPos + 29, 23, 22, 0, 0, 22, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_tab_button.png"), 23, 44, e -> {
+			if (true) {
+				ReignModMod.PACKET_HANDLER.sendToServer(new CoffersUIButtonMessage(2, x, y, z, textstate));
+				CoffersUIButtonMessage.handleButtonAction(entity, 2, x, y, z, textstate);
 			}
 		});
 		guistate.put("button:imagebutton_tab_button", imagebutton_tab_button);

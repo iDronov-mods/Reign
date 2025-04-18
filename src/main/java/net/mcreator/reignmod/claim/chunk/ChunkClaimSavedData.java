@@ -47,6 +47,10 @@ public class ChunkClaimSavedData extends SavedData {
         return instance;
     }
 
+    public static void resetInstance() {
+        instance = null;
+    }
+
     public static ServerLevel getServerInstance() {
         return serverLevelInstance;
     }

@@ -1,22 +1,35 @@
 package net.mcreator.reignmod.procedures;
 
-import net.mcreator.reignmod.network.ReignModModVariables;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.util.Mth;
-import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.eventbus.api.Event;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.items.IItemHandlerModifiable;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
+
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.ShovelItem;
+import net.minecraft.world.item.ShieldItem;
+import net.minecraft.world.item.PickaxeItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.HoeItem;
+import net.minecraft.world.item.CrossbowItem;
+import net.minecraft.world.item.BowItem;
+import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.util.RandomSource;
+import net.minecraft.util.Mth;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.client.gui.screens.Screen;
+
+import net.mcreator.reignmod.network.ReignModModVariables;
 
 import javax.annotation.Nullable;
+
 import java.util.concurrent.atomic.AtomicReference;
 
 @Mod.EventBusSubscriber
@@ -37,14 +50,19 @@ public class RecipeBlockedProcedure {
 		double previousRecipe = 0;
 		ItemStack ShiftItem = ItemStack.EMPTY;
 		if (itemstack.is(ItemTags.create(new ResourceLocation("reign:smith_items"))) && !(entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).license_smith) {
-			{
-				ItemStack _ist = itemstack;
-				if (_ist.hurt((int) (itemstack.getMaxDamage() * Mth.nextDouble(RandomSource.create(), 0.9, 0.98)), RandomSource.create(), null)) {
-					_ist.shrink(1);
-					_ist.setDamageValue(0);
+			if (!Screen.hasShiftDown()) {
+				if (itemstack.isDamaged()) {
+					itemstack.shrink(1);
 				}
+				{
+					ItemStack _ist = itemstack;
+					if (_ist.hurt((int) (itemstack.getMaxDamage() * Mth.nextDouble(RandomSource.create(), 0.9, 0.98)), RandomSource.create(), null)) {
+						_ist.shrink(1);
+						_ist.setDamageValue(0);
+					}
+				}
+				itemstack.getOrCreateTag().putBoolean("crafted", true);
 			}
-			itemstack.getOrCreateTag().putBoolean("crafted", true);
 			slotIndex = 0;
 			while (slotIndex <= 35) {
 				if ((new Object() {
@@ -65,25 +83,23 @@ public class RecipeBlockedProcedure {
 							return _retval.get();
 						}
 					}.getItemStack((int) slotIndex, entity));
-					if (!ShiftItem.isDamaged()) {
-						if (!(entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).license_smith && ShiftItem.getOrCreateTag().getBoolean("crafted") == false) {
-							{
-								ItemStack _ist = ShiftItem;
-								if (_ist.hurt((int) (ShiftItem.getMaxDamage() * Mth.nextDouble(RandomSource.create(), 0.9, 0.98)), RandomSource.create(), null)) {
-									_ist.shrink(1);
-									_ist.setDamageValue(0);
-								}
+					if (!ShiftItem.isDamaged() && ShiftItem.getOrCreateTag().getBoolean("crafted") == false) {
+						{
+							ItemStack _ist = ShiftItem;
+							if (_ist.hurt((int) (ShiftItem.getMaxDamage() * Mth.nextDouble(RandomSource.create(), 0.9, 0.98)), RandomSource.create(), null)) {
+								_ist.shrink(1);
+								_ist.setDamageValue(0);
 							}
-							ShiftItem.getOrCreateTag().putBoolean("crafted", true);
-							{
-								final int _slotid = (int) slotIndex;
-								final ItemStack _setstack = ShiftItem.copy();
-								_setstack.setCount(1);
-								entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
-									if (capability instanceof IItemHandlerModifiable _modHandlerEntSetSlot)
-										_modHandlerEntSetSlot.setStackInSlot(_slotid, _setstack);
-								});
-							}
+						}
+						ShiftItem.getOrCreateTag().putBoolean("crafted", true);
+						{
+							final int _slotid = (int) slotIndex;
+							final ItemStack _setstack = ShiftItem.copy();
+							_setstack.setCount(1);
+							entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
+								if (capability instanceof IItemHandlerModifiable _modHandlerEntSetSlot)
+									_modHandlerEntSetSlot.setStackInSlot(_slotid, _setstack);
+							});
 						}
 					}
 				}

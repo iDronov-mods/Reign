@@ -94,7 +94,7 @@ public class BuyProcedure {
 						MarketManager.decreaseItemAmount(stringName, inPack);
 						if (entity instanceof Player _player && !_player.level().isClientSide())
 							_player.displayClientMessage(Component.literal("2"), false);
-						tax = Math.floor(cost - GetPriceWithFillFactorProcedure.execute(ForgeRegistries.ITEMS
+						tax = Math.floor(cost - GetPriceWithFillFactorProcedure.execute(world, ForgeRegistries.ITEMS
 								.getKey((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(68)).getItem() : ItemStack.EMPTY).getItem()).toString()));
 						if (entity instanceof Player _player && !_player.level().isClientSide())
 							_player.displayClientMessage(Component.literal("3"), false);

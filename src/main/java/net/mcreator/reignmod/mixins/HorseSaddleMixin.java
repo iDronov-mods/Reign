@@ -15,11 +15,24 @@ import net.mcreator.reignmod.house.HouseManager;
 
 @Mixin(Horse.class)
 public class HorseSaddleMixin {
-    @Inject(at = @At("HEAD"), method = "mobInteract", cancellable = true)
-    private void onSaddle(Player entity, InteractionHand p_29854_, CallbackInfoReturnable<InteractionResult> cir) {
-        ReignModModVariables.PlayerVariables playerVars = entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(null);
-        if (playerVars == null || !playerVars.license_cowboy && !HouseManager.isPlayerKnight((Player)entity) && !HouseManager.isPlayerLord((Player)entity)) {
-            cir.setReturnValue(InteractionResult.CONSUME);
-        }
-    }
+//    @Inject(at = @At("HEAD"), method = "mobInteract", cancellable = true)
+//    private void onSaddle(Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResult> cir) {
+//        if (!(player instanceof ServerPlayer)) return; // работаем только с серверным игроком
+//
+//        ReignModModVariables.PlayerVariables playerVars = player.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(null);
+//        if (playerVars == null) {
+//            cir.setReturnValue(InteractionResult.CONSUME);
+//            return;
+//        }
+//
+//        boolean isCowboy = playerVars.license_cowboy;
+//        boolean isKnight = HouseManager.isPlayerKnight(player);
+//        boolean isLord = HouseManager.isPlayerLord(player);
+//
+//        if (!isCowboy && !isKnight && !isLord) {
+//            cir.setReturnValue(InteractionResult.CONSUME);
+//        }
+//    }
 }
+
+

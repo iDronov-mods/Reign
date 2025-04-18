@@ -4,10 +4,7 @@ import net.mcreator.reignmod.claim.capital.CapitalClaimManager;
 import net.mcreator.reignmod.house.House;
 import net.mcreator.reignmod.house.HouseManager;
 import net.mcreator.reignmod.house.HouseSavedData;
-import net.mcreator.reignmod.procedures.CapitalCreateProcedure;
-import net.mcreator.reignmod.procedures.CapitalServeProcedure;
-import net.mcreator.reignmod.procedures.FeedHeartProcedure;
-import net.mcreator.reignmod.procedures.KingOverthrowProcedure;
+import net.mcreator.reignmod.procedures.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -111,18 +108,13 @@ public class KingdomData {
 
     public static void upgradeCapitalEra() {
         capitalEra++;
+        updateFundInfo();
     }
 
     public static int getCapitalMaintenance() {
-        Collection<House> houses = HouseManager.getHousesCopies();
-        int domainCount = 0;
         int multiplier = (capitalEra < 3) ? 1 : (capitalEra > 7) ? 3 : 2;
 
-        for (House house : houses) {
-            domainCount += house.getDomains().size();
-        }
-
-        return domainCount * multiplier;
+        return HouseManager.getDomainCount() * multiplier;
     }
 
     public static void increaseCoffersAmount(int amount) {
@@ -155,31 +147,7 @@ public class KingdomData {
         blockEntity.setChanged();
         return true;
     }
-
-    // Кормление Домов:
-    public static void feedHouses() {
-        var houses = HouseManager.getHousesCopies();
-
-        houses.forEach(house -> {
-
-            int[] coords = house.getHouseIncubatorCoordinates();
-            int x = coords[0];
-            int y = coords[1];
-            int z = coords[2];
-
-            int addHp = (int) FeedHeartProcedure.execute(HouseSavedData.getServerInstance(), x, y, z, house.getHouseHP(), house.getDomains().size(), house.getPlayers().size());
-
-
-            if (HouseManager.getHouseByLordUUID(house.getLordUUID()).addHouseHP(addHp) == 0){
-                HouseManager.deleteHouse(house.getLordUUID());
-                HouseSavedData.getServerInstance().getServer().getPlayerList().broadcastSystemMessage(Component.literal(house.getHouseTitle()+" " + (Component.translatable("translation.key.house_delete").getString())), false);
-
-            }
-
-        });
-    }
-
-
+    
     public static void feedCapital() {
         boolean have = CapitalServeProcedure.execute(HouseSavedData.getServerInstance());
 
@@ -188,11 +156,12 @@ public class KingdomData {
             CapitalClaimManager.enable();
         }
         else {
-            KingdomData.setSourceDisturbance(KingdomData.getSourceDisturbance() + 5);
+            if(getSourceDisturbance() < 90) setSourceDisturbance(getSourceDisturbance() + 5);
             CapitalClaimManager.disable();
         }
 
         waveDiscontent();
+        updateCoffersInfo();
 
     }
 
@@ -214,6 +183,15 @@ public class KingdomData {
             setSourceDisturbance(50);
         }
 
+        updateFundInfo();
+    }
+
+    public static void updateFundInfo() {
+        FundUpdateInfoProcedure.execute(HouseSavedData.getServerInstance(), fundCoordinates[0], fundCoordinates[1], fundCoordinates[2]);
+    }
+
+    public static void updateCoffersInfo() {
+        CoffersUpdateInfoProcedure.execute(HouseSavedData.getServerInstance(), coffersCoordinates[0], coffersCoordinates[1], coffersCoordinates[2]);
     }
 
     // ------------------------ БЛОКИ ------------------------

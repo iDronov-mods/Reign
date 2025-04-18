@@ -29,8 +29,7 @@
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
     "specialInformation": {
-      "fixedValue": [],
-      "name": "TradeLicenseTooltip"
+      "fixedValue": []
     },
     "glowCondition": {
       "fixedValue": false

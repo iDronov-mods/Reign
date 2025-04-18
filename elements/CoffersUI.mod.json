@@ -262,6 +262,42 @@
           "x": 103,
           "y": 66
         }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_pay_off",
+          "text": "Pay off",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "CapitalPayOff"
+          },
+          "displayCondition": {
+            "name": "CapitalClaimDIsabled"
+          },
+          "width": 58,
+          "height": 20,
+          "x": 125,
+          "y": 206
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_pay_off_text",
+          "text": {
+            "fixedValue": "pay_off_text"
+          },
+          "color": {
+            "value": -3407821,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "CapitalClaimDIsabled"
+          },
+          "x": 186,
+          "y": 210
+        }
       }
     ],
     "gridSettings": {

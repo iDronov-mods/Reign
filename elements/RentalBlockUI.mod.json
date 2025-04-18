@@ -22,7 +22,8 @@
           },
           "id": 0,
           "disablePickup": {
-            "fixedValue": false
+            "fixedValue": false,
+            "name": "RentalIsLocked"
           },
           "dropItemsWhenNotBound": true,
           "x": 206,
@@ -103,6 +104,9 @@
           "onClick": {
             "name": "RentalDelete"
           },
+          "displayCondition": {
+            "name": "RentalIsLocked"
+          },
           "width": 52,
           "height": 20,
           "x": 254,
@@ -117,6 +121,9 @@
           "isUndecorated": false,
           "onClick": {
             "name": "RentalSet"
+          },
+          "displayCondition": {
+            "name": "RentalNotLocked"
           },
           "width": 52,
           "height": 20,
@@ -171,6 +178,18 @@
           },
           "x": 189,
           "y": 46
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "iron_lock.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "RentalIsLocked"
+          },
+          "x": 216,
+          "y": 82
         }
       }
     ],

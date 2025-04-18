@@ -119,7 +119,7 @@
     "specialInformation": {
       "fixedValue": []
     },
-    "hardness": 1.0,
+    "hardness": 2.0,
     "resistance": 10.0,
     "hasGravity": false,
     "isWaterloggable": false,
@@ -185,9 +185,6 @@
     "luminance": 0,
     "unbreakable": false,
     "vanillaToolTier": "NONE",
-    "placingCondition": {
-      "name": "CapitalBlockCheck"
-    },
     "isBonemealable": false,
     "hasInventory": false,
     "guiBoundTo": "TraderPoint",

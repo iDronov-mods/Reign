@@ -23,7 +23,11 @@
     "BrewingStandMixin",
     "DoorBlockMixin",
     "FenceGateBlockMixin",
-    "TrapDoorBlockMixin"
+    "TrapDoorBlockMixin",
+    "NoMilkingCowMixin",
+    "NoMilkingGoatMixin",
+    "NoMilkingMushroomMixin",
+    "CapitalExplosionCancelMixin"
   ],
   "client": [],
   "minVersion": "0.8"

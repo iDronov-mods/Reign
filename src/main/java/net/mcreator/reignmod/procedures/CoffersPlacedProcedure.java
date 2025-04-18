@@ -1,22 +1,15 @@
 package net.mcreator.reignmod.procedures;
 
-import net.minecraft.world.level.LevelAccessor;
-
-import net.mcreator.reignmod.network.ReignModModVariables;
 import net.mcreator.reignmod.kingdom.KingdomData;
 
 public class CoffersPlacedProcedure {
-	public static boolean execute(LevelAccessor world, double x, double y, double z) {
-		if (CapitalBlockCheckProcedure.execute(world, x, y, z)) {
-			KingdomData.setCoffersCoordinates((int) x, (int) y, (int) z);
-			ReignModModVariables.MapVariables.get(world).VC_X = x;
-			ReignModModVariables.MapVariables.get(world).syncData(world);
-			ReignModModVariables.MapVariables.get(world).VC_Y = y;
-			ReignModModVariables.MapVariables.get(world).syncData(world);
-			ReignModModVariables.MapVariables.get(world).VC_Z = z;
-			ReignModModVariables.MapVariables.get(world).syncData(world);
-			return true;
-		}
-		return false;
+	public static void execute(double x, double y, double z) {
+		double x_coffers = 0;
+		double y_coffers = 0;
+		double z_coffers = 0;
+		x_coffers = x;
+		y_coffers = y;
+		z_coffers = z;
+		KingdomData.setCoffersCoordinates((int) x_coffers, (int) y_coffers, (int) z_coffers);
 	}
 }

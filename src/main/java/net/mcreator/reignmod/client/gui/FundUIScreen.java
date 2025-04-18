@@ -19,6 +19,7 @@ import net.mcreator.reignmod.procedures.ReturnEra3Procedure;
 import net.mcreator.reignmod.procedures.ReturnEra2Procedure;
 import net.mcreator.reignmod.procedures.ReturnEra1Procedure;
 import net.mcreator.reignmod.procedures.ReturnEra10Procedure;
+import net.mcreator.reignmod.procedures.ReturnDiscontentProcedure;
 import net.mcreator.reignmod.ReignModMod;
 
 import java.util.HashMap;
@@ -140,6 +141,9 @@ public class FundUIScreen extends AbstractContainerScreen<FundUIMenu> {
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.fund_ui.label_forward_to_a_new_time"), 30, 70, -12829636, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnDiscontentProcedure.execute(world, x, y, z), 1, 169, -1, false);
 	}
 
 	@Override

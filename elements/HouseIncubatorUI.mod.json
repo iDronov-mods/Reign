@@ -39,8 +39,8 @@
         "data": {
           "image": "crown.png",
           "use1Xscale": false,
-          "x": 337,
-          "y": 24
+          "x": 241,
+          "y": 48
         }
       },
       {
@@ -50,10 +50,10 @@
           "text": {
             "fixedValue": "incubator_label_help"
           },
-          "width": 24,
-          "height": 24,
-          "x": 333,
-          "y": 19
+          "width": 17,
+          "height": 11,
+          "x": 241,
+          "y": 49
         }
       },
       {
@@ -211,14 +211,15 @@
         "data": {
           "name": "label_players",
           "text": {
-            "fixedValue": "players"
+            "fixedValue": "players",
+            "name": "IncubatorReturnDomainPlayers"
           },
           "color": {
             "value": -13421773,
             "falpha": 0.0
           },
-          "x": 135,
-          "y": 68
+          "x": 137,
+          "y": 69
         }
       },
       {
@@ -226,14 +227,15 @@
         "data": {
           "name": "label_domains",
           "text": {
-            "fixedValue": "domains"
+            "fixedValue": "domains",
+            "name": "IncubatorReturnDomains"
           },
           "color": {
             "value": -13421773,
             "falpha": 0.0
           },
-          "x": 192,
-          "y": 68
+          "x": 194,
+          "y": 69
         }
       },
       {
@@ -254,8 +256,767 @@
           "x": 100,
           "y": 98
         }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_all_players",
+          "text": {
+            "fixedValue": "all_players",
+            "name": "IncubatorReturnAllPlayers"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 262,
+          "y": 69
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_tab_button",
+          "image": "tab_button.png",
+          "hoveredImage": "tab_hover_button.png",
+          "onClick": {
+            "name": "ToHouseSuspectsTAB"
+          },
+          "x": 97,
+          "y": 149
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_1-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needfuel15"
+          },
+          "x": 132,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_2-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needfuel25"
+          },
+          "x": 132,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_3-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needfuel35"
+          },
+          "x": 132,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_4-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needfuel45"
+          },
+          "x": 132,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_5-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needfuel55"
+          },
+          "x": 132,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "incubator_need_not_have.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "NotHaveFuel"
+          },
+          "x": 141,
+          "y": 116
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "incubator_need_have.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "HaveFuel"
+          },
+          "x": 141,
+          "y": 116
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_1-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needbread15"
+          },
+          "x": 156,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_2-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needbread25"
+          },
+          "x": 156,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_3-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needbread35"
+          },
+          "x": 156,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_4-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needbread45"
+          },
+          "x": 156,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_5-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needbread55"
+          },
+          "x": 156,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "incubator_need_not_have.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "NotHaveBread"
+          },
+          "x": 165,
+          "y": 116
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "incubator_need_have.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "HaveBread"
+          },
+          "x": 165,
+          "y": 116
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_1-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needroots15"
+          },
+          "x": 180,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_2-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needroots25"
+          },
+          "x": 180,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_3-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needroots35"
+          },
+          "x": 180,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_4-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needroots45"
+          },
+          "x": 180,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_5-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needroots55"
+          },
+          "x": 180,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "incubator_need_not_have.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "NotHaveRoots"
+          },
+          "x": 189,
+          "y": 116
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "incubator_need_have.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "HaveRoots"
+          },
+          "x": 189,
+          "y": 116
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_1-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needmeat15"
+          },
+          "x": 204,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_2-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needmeat25"
+          },
+          "x": 204,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_3-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needmeat35"
+          },
+          "x": 204,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_4-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needmeat45"
+          },
+          "x": 204,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_5-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needmeat55"
+          },
+          "x": 204,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "incubator_need_not_have.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "NotHaveMeat"
+          },
+          "x": 213,
+          "y": 116
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "incubator_need_have.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "HaveMeat"
+          },
+          "x": 213,
+          "y": 116
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_1-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needwool15"
+          },
+          "x": 228,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_2-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needwool25"
+          },
+          "x": 228,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_3-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needwool35"
+          },
+          "x": 228,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_4-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needwool45"
+          },
+          "x": 228,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_5-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needwool55"
+          },
+          "x": 228,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "incubator_need_not_have.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "NotHaveWool"
+          },
+          "x": 237,
+          "y": 116
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "incubator_need_have.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "HaveWool"
+          },
+          "x": 237,
+          "y": 116
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_1-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needsweets15"
+          },
+          "x": 252,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_2-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needsweets25"
+          },
+          "x": 252,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_3-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needsweets35"
+          },
+          "x": 252,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_4-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needsweets45"
+          },
+          "x": 252,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_5-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needsweets55"
+          },
+          "x": 252,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "incubator_need_not_have.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "NotHaveSweets"
+          },
+          "x": 261,
+          "y": 116
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "incubator_need_have.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "HaveSweets"
+          },
+          "x": 261,
+          "y": 116
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_1-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needjewelry15"
+          },
+          "x": 276,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_2-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needjewelry25"
+          },
+          "x": 276,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_3-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needjewelry35"
+          },
+          "x": 276,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_4-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needjewelry45"
+          },
+          "x": 276,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "need_5-5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Needjewelry55"
+          },
+          "x": 276,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "incubator_need_not_have.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "NotHaveJewelry"
+          },
+          "x": 285,
+          "y": 116
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "incubator_need_have.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "HaveJewelry"
+          },
+          "x": 285,
+          "y": 116
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_proc_incubator_bread_help",
+          "text": {
+            "fixedValue": "",
+            "name": "IncubatorBreadHelp"
+          },
+          "width": 16,
+          "height": 16,
+          "x": 158,
+          "y": 99
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_proc_incubator_roots_help",
+          "text": {
+            "fixedValue": "",
+            "name": "IncubatorRootsHelp"
+          },
+          "width": 16,
+          "height": 16,
+          "x": 182,
+          "y": 99
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_proc_incubator_meat_help",
+          "text": {
+            "fixedValue": "",
+            "name": "IncubatorMeatHelp"
+          },
+          "width": 16,
+          "height": 16,
+          "x": 206,
+          "y": 99
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_proc_incubator_wool_help",
+          "text": {
+            "fixedValue": "",
+            "name": "IncubatorWoolHelp"
+          },
+          "width": 16,
+          "height": 16,
+          "x": 230,
+          "y": 99
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_proc_incubator_sweats_help",
+          "text": {
+            "fixedValue": "",
+            "name": "IncubatorSweatsHelp"
+          },
+          "width": 16,
+          "height": 16,
+          "x": 254,
+          "y": 99
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_proc_incubator_jewelry_help",
+          "text": {
+            "fixedValue": "",
+            "name": "IncubatorJewelryHelp"
+          },
+          "width": 16,
+          "height": 16,
+          "x": 278,
+          "y": 99
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_lvl_house",
+          "text": {
+            "fixedValue": "Lvl_House",
+            "name": "IncubatorHouseLevel"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 242,
+          "y": 30
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_domain_players",
+          "text": {
+            "fixedValue": "domain_players"
+          },
+          "width": 8,
+          "height": 11,
+          "x": 127,
+          "y": 67
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_domains_help",
+          "text": {
+            "fixedValue": "domains_help"
+          },
+          "width": 9,
+          "height": 10,
+          "x": 182,
+          "y": 67
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_all_players_help",
+          "text": {
+            "fixedValue": "all_players_help"
+          },
+          "width": 16,
+          "height": 9,
+          "x": 241,
+          "y": 68
+        }
       }
     ],
+    "onTick": {
+      "name": "IncubatorTick"
+    },
     "gridSettings": {
       "sx": 18,
       "sy": 18,

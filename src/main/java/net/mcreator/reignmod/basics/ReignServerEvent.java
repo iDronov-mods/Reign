@@ -52,6 +52,7 @@ public class ReignServerEvent {
     public static void onServerStopping(ServerStoppingEvent event) {
         MarketSavedData.resetInstance();
         HouseSavedData.resetInstance();
+        ChunkClaimSavedData.resetInstance();
         CapitalClaimSavedData.resetInstance();
     }
 }

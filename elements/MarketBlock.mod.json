@@ -165,7 +165,7 @@
     "isNotColidable": false,
     "isCustomSoundType": false,
     "soundOnStep": {
-      "value": "POLISHED_DEEPSLATE"
+      "value": "STONE"
     },
     "breakSound": {
       "value": ""
@@ -185,9 +185,6 @@
     "luminance": 0,
     "unbreakable": false,
     "vanillaToolTier": "NONE",
-    "placingCondition": {
-      "name": "CapitalBlockCheck"
-    },
     "isBonemealable": false,
     "hasInventory": false,
     "guiBoundTo": "Market",

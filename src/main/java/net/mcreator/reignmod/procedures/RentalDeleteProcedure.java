@@ -4,8 +4,10 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.reignmod.claim.capital.CapitalClaimManager;
@@ -16,7 +18,8 @@ public class RentalDeleteProcedure {
 			return false;
 		double center_x = 0;
 		double center_z = 0;
-		if (IsKingProcedure.execute(world, entity)) {
+		boolean flag = false;
+		if (IsKingProcedure.execute(world, entity) || IsRightHandProcedure.execute(entity)) {
 			center_x = new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -33,7 +36,15 @@ public class RentalDeleteProcedure {
 					return -1;
 				}
 			}.getValue(world, BlockPos.containing(x, y, z), "center_z");
-			if (CapitalClaimManager.removeClaim((ServerPlayer) entity, center_x, center_z)) {
+			if (world instanceof ServerLevel _origLevel) {
+				LevelAccessor _worldorig = world;
+				world = _origLevel.getServer().getLevel(Level.OVERWORLD);
+				if (world != null) {
+					flag = CapitalClaimManager.removeClaim((ServerPlayer) entity, center_x, center_z);
+				}
+				world = _worldorig;
+			}
+			if (flag) {
 				{
 					BlockPos _pos = BlockPos.containing(x, y, z);
 					BlockState _bs = world.getBlockState(_pos);

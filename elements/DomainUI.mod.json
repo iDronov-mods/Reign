@@ -105,6 +105,21 @@
           "x": 256,
           "y": 38
         }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_players",
+          "text": {
+            "fixedValue": "players"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 178,
+          "y": 62
+        }
       }
     ],
     "gridSettings": {

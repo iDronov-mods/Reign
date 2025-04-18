@@ -1,15 +1,16 @@
 package net.mcreator.reignmod.procedures;
 
-import net.mcreator.reignmod.market.MarketManager;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.Entity;
 
-import java.util.Map;
+import net.mcreator.reignmod.market.MarketManager;
+
 import java.util.function.Supplier;
+import java.util.Map;
 
 public class MarketUpdateProcedure {
 	public static void execute(Entity entity) {

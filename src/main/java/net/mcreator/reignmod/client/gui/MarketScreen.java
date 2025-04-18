@@ -72,13 +72,13 @@ public class MarketScreen extends AbstractContainerScreen<MarketMenu> {
 
 		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/count_bar0-3.png"), this.leftPos + 106, this.topPos + 90, 0, 0, 31, 6, 31, 6);
 
-		if (ReturnMarketBar13Procedure.execute(entity)) {
+		if (ReturnMarketBar13Procedure.execute(world, entity)) {
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/count_bar1-3.png"), this.leftPos + 106, this.topPos + 90, 0, 0, 31, 6, 31, 6);
 		}
-		if (ReturnMarketBar23Procedure.execute(entity)) {
+		if (ReturnMarketBar23Procedure.execute(world, entity)) {
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/count_bar2-3.png"), this.leftPos + 106, this.topPos + 90, 0, 0, 31, 6, 31, 6);
 		}
-		if (ReturnMarketBar33Procedure.execute(entity)) {
+		if (ReturnMarketBar33Procedure.execute(world, entity)) {
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/count_bar3-3.png"), this.leftPos + 106, this.topPos + 90, 0, 0, 31, 6, 31, 6);
 		}
 
@@ -121,7 +121,7 @@ public class MarketScreen extends AbstractContainerScreen<MarketMenu> {
 				CopperCostTextProcedure.execute(entity), 15, 90, -3355444, false);
 		guiGraphics.drawString(this.font,
 
-				ReturnMarketCopperProcedure.execute(world), 74, -11, -3355444, false);
+				ReturnMarketCopperProcedure.execute(world), 76, -10, -3355444, false);
 	}
 
 	@Override

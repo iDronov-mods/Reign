@@ -1,6 +1,7 @@
 package net.mcreator.reignmod.house;
 
 import net.mcreator.reignmod.procedures.ClearHouseProcedure;
+import net.mcreator.reignmod.procedures.IncubatorUpdateInfoProcedure;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
@@ -25,14 +26,18 @@ public class House implements INBTSerializable<CompoundTag> {
     private String lordUUID;
     private String houseTitle;
     private String houseColor;
-    private String claimId;
-    private int houseLevel;
+    private String claimId = null;
+    private int houseLevel = 1;
     private int houseHP;
-    private int[] houseIncubatorCoordinates;
-    private int[] housePrisonCoordinates;
     private HashSet<String> players;
-    private HashMap<String, Domain> domains;
-    private HashSet<String> wantedPlayers;
+    private int[] housePlusCoordinates = new int[3];
+    private int[] houseIncubatorCoordinates = new int[3];
+    private int[] housePrisonCoordinates = new int[3];
+    private final EnumMap<HouseNeedType, Integer> needs = new EnumMap<>(HouseNeedType.class);
+    private final HashMap<String, Domain> domains = new HashMap<>();
+    private final HashSet<String> wantedPlayers = new HashSet<>();
+
+    public final static int MAX_NEED_AMOUNT = 4096;
 
     //--------------------------------------------------------------------------------
     //                                 КОНСТРУКТОРЫ
@@ -44,12 +49,6 @@ public class House implements INBTSerializable<CompoundTag> {
         this.houseColor = null;
         this.houseHP = -1;
         this.players = new HashSet<>();
-        this.domains = new HashMap<>();
-        this.houseIncubatorCoordinates = new int[3];
-        this.housePrisonCoordinates = new int[3];
-        this.wantedPlayers = new HashSet<>();
-        this.claimId = null;
-        this.houseLevel = 1;
     }
 
     public House(String lordUUID, String houseTitle, String houseColor) {
@@ -59,12 +58,6 @@ public class House implements INBTSerializable<CompoundTag> {
         this.houseHP = 1000;
         this.players = new HashSet<>();
         this.players.add(lordUUID);
-        this.domains = new HashMap<>();
-        this.houseIncubatorCoordinates = new int[3];
-        this.housePrisonCoordinates = new int[3];
-        this.wantedPlayers = new HashSet<>();
-        this.claimId = null;
-        this.houseLevel = 1;
     }
 
     public House(CompoundTag nbt) {
@@ -94,6 +87,10 @@ public class House implements INBTSerializable<CompoundTag> {
 
     public String getHouseColor() {
         return houseColor;
+    }
+
+    public String getHouseTitleWithColor() {
+        return HouseManager.getHouseColorCode(getHouseColor()) + getHouseTitle() + "§r";
     }
 
     public void setHouseColor(String houseColor) {
@@ -126,25 +123,33 @@ public class House implements INBTSerializable<CompoundTag> {
         return domains;
     }
 
-    public void setDomains(HashMap<String, Domain> domains) {
-        this.domains = domains;
+
+    public int[] getHousePlusCoordinates() {
+        return housePlusCoordinates;
     }
+
+    public void setHousePlusCoordinates(int[] coordinates) {
+        this.housePlusCoordinates = coordinates;
+    }
+
 
     public int[] getHouseIncubatorCoordinates() {
         return houseIncubatorCoordinates;
     }
 
-    public void setHouseIncubatorCoordinates(int[] coords) {
-        this.houseIncubatorCoordinates = coords;
+    public void setHouseIncubatorCoordinates(int[] coordinates) {
+        this.houseIncubatorCoordinates = coordinates;
     }
+
 
     public int[] getHousePrisonCoordinates() {
         return housePrisonCoordinates;
     }
 
-    public void setHousePrisonCoordinates(int[] coords) {
-        this.housePrisonCoordinates = coords;
+    public void setHousePrisonCoordinates(int[] coordinates) {
+        this.housePrisonCoordinates = coordinates;
     }
+
 
     public boolean isNull() {
         return Objects.equals(lordUUID, null);
@@ -244,6 +249,32 @@ public class House implements INBTSerializable<CompoundTag> {
     }
 
     //--------------------------------------------------------------------------------
+    //                                 ПОТРЕБНОСТИ
+    //--------------------------------------------------------------------------------
+
+    public int getNeed(HouseNeedType type) {
+        return needs.getOrDefault(type, 0);
+    }
+
+    public void setNeed(HouseNeedType type, int value) {
+        needs.put(type, Math.min(MAX_NEED_AMOUNT, Math.max(0, value)));
+    }
+
+    public int adjustNeed(HouseNeedType type, int delta) {
+        int newValue = getNeed(type) + delta;
+        setNeed(type, newValue);
+        return getNeed(type);
+    }
+
+    public int getFreeNeedCapacity(HouseNeedType type){
+        return MAX_NEED_AMOUNT - getNeed(type);
+    }
+
+    public void updateIncubatorInfo(){
+        IncubatorUpdateInfoProcedure.execute(HouseSavedData.getServerInstance(), houseIncubatorCoordinates[0], houseIncubatorCoordinates[1], houseIncubatorCoordinates[2], lordUUID);
+    }
+
+    //--------------------------------------------------------------------------------
     //                                 CLAIM ID
     //--------------------------------------------------------------------------------
 
@@ -253,6 +284,7 @@ public class House implements INBTSerializable<CompoundTag> {
 
     public void setClaimId(String claimId) {
         this.claimId = claimId;
+        HouseSavedData.getInstance().setDirty();
     }
 
     //--------------------------------------------------------------------------------
@@ -296,6 +328,33 @@ public class House implements INBTSerializable<CompoundTag> {
     }
 
     //--------------------------------------------------------------------------------
+    //                                 ДЕБАФФЫ ДОМЕНОВ
+    //--------------------------------------------------------------------------------
+
+    public Optional<Boolean> getDebuff(String knightUUID, Domain.DomainDebuffs debuff) {
+        if (domains.containsKey(knightUUID)) {
+            return Optional.ofNullable(domains.get(knightUUID).getDebuff(debuff));
+        }
+        return Optional.empty();
+    }
+
+    public boolean toggleOnDebuff(String knightUUID, Domain.DomainDebuffs debuff) {
+        if (domains.containsKey(knightUUID)) {
+            domains.get(knightUUID).toggleOnDebuff(debuff);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean toggleOffDebuff(String knightUUID, Domain.DomainDebuffs debuff) {
+        if (domains.containsKey(knightUUID)) {
+            domains.get(knightUUID).toggleOffDebuff(debuff);
+            return true;
+        }
+        return false;
+    }
+
+    //--------------------------------------------------------------------------------
     //                        СЕРИАЛИЗАЦИЯ / ДЕСЕРИАЛИЗАЦИЯ
     //--------------------------------------------------------------------------------
 
@@ -308,6 +367,7 @@ public class House implements INBTSerializable<CompoundTag> {
         tag.putString("house_color", houseColor);
         tag.putInt("house_hp", houseHP);
 
+        tag.putIntArray("house_plus_coordinates", housePlusCoordinates);
         tag.putIntArray("house_incubator_coordinates", houseIncubatorCoordinates);
         tag.putIntArray("house_prison_coordinates", housePrisonCoordinates);
 
@@ -332,6 +392,13 @@ public class House implements INBTSerializable<CompoundTag> {
         }
         tag.put("wanted", wantedList);
 
+        // Needs
+        CompoundTag needsTag = new CompoundTag();
+        for (HouseNeedType type : HouseNeedType.values()) {
+            needsTag.putInt(type.name(), getNeed(type));
+        }
+        tag.put("house_needs", needsTag);
+
         // Claim ID
         tag.putString("house_claimId", (claimId == null) ? "" : claimId);
 
@@ -348,6 +415,7 @@ public class House implements INBTSerializable<CompoundTag> {
         houseColor = nbt.getString("house_color");
         houseHP = nbt.getInt("house_hp");
 
+        housePlusCoordinates = nbt.getIntArray("house_plus_coordinates");
         houseIncubatorCoordinates = nbt.getIntArray("house_incubator_coordinates");
         housePrisonCoordinates = nbt.getIntArray("house_prison_coordinates");
 
@@ -372,6 +440,14 @@ public class House implements INBTSerializable<CompoundTag> {
             ListTag wantedList = nbt.getList("wanted", 8);
             for (int i = 0; i < wantedList.size(); i++) {
                 wantedPlayers.add(wantedList.getString(i));
+            }
+        }
+
+        // Needs
+        if (nbt.contains("house_needs")) {
+            CompoundTag needsTag = nbt.getCompound("house_needs");
+            for (HouseNeedType type : HouseNeedType.values()) {
+                setNeed(type, needsTag.getInt(type.name()));
             }
         }
 

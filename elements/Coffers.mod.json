@@ -185,9 +185,6 @@
     "luminance": 0,
     "unbreakable": true,
     "vanillaToolTier": "NONE",
-    "placingCondition": {
-      "name": "CoffersPlaced"
-    },
     "isBonemealable": false,
     "hasInventory": true,
     "guiBoundTo": "CoffersUI",

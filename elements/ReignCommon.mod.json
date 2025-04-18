@@ -73,6 +73,40 @@
             "varname": "disable_daily_payouts",
             "enablecomment": false,
             "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 0,
+            "block": {
+              "value": ""
+            },
+            "logicField": 1,
+            "numberField": 1.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "disable_capital_feeding",
+            "varname": "disable_capital_feeding",
+            "enablecomment": false,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 1.0,
+            "textDefault": "",
+            "comment": "Frequency of feeding Houses and capital, in hours. (Default: 1)",
+            "vardisplay": "hourly_meal_period",
+            "varname": "hourly_meal_period",
+            "enablecomment": true,
+            "stringlist": []
           }
         ]
       }

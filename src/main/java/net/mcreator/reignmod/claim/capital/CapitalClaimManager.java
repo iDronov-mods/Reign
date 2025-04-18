@@ -1,6 +1,8 @@
 package net.mcreator.reignmod.claim.capital;
 
 import com.mojang.authlib.GameProfile;
+import net.mcreator.reignmod.networking.ReignNetworking;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
@@ -72,18 +74,14 @@ public class CapitalClaimManager {
     public static boolean addClaim(ServerPlayer serverPlayer, String owners, double centerX, double centerY, double centerZ, String width, String height) {
         // Проверяем, включена ли система привата
         if (!CapitalClaimSavedData.getInstance().isCapitalClaimsEnabled()) {
-            if (Minecraft.getInstance().player != null) {
-                Minecraft.getInstance().player.displayClientMessage(Component.translatable("capitalclaim.system.disabled"), true);
-            }
+            serverPlayer.displayClientMessage(Component.translatable("capitalclaim.system.disabled"), true);
             return false;
         }
 
         // Парсим строку с никнеймами
         List<String> ownerNames = parseOwnerNames(owners);
         if (ownerNames.isEmpty()) {
-            if (Minecraft.getInstance().player != null) {
-                Minecraft.getInstance().player.displayClientMessage(Component.translatable("capitalclaim.add.fail", "Empty owners list"), true);
-            }
+            serverPlayer.displayClientMessage(Component.translatable("capitalclaim.add.fail", "Empty owners list"), true);
             return false;
         }
 
@@ -91,9 +89,7 @@ public class CapitalClaimManager {
         // Получаем UUID главного владельца
         UUID mainOwnerUUID = getOfflinePlayerUUID(server, ownerNames.get(0));
         if (mainOwnerUUID == null) {
-            if (Minecraft.getInstance().player != null) {
-                Minecraft.getInstance().player.displayClientMessage(Component.translatable("capitalclaim.add.fail", "Main owner not found: " + ownerNames.get(0)), true);
-            }
+            serverPlayer.displayClientMessage(Component.translatable("capitalclaim.add.fail", "Main owner not found: " + ownerNames.get(0)), true);
             return false;
         }
         ClaimOwner claimOwner = new ClaimOwner(mainOwnerUUID);
@@ -105,9 +101,7 @@ public class CapitalClaimManager {
             if (uuid != null) {
                 claimOwner.addCoOwner(uuid);
             } else {
-                if (Minecraft.getInstance().player != null) {
-                    Minecraft.getInstance().player.displayClientMessage(Component.translatable("capitalclaim.add.warn", "Co-owner not found: " + name), true);
-                }
+                serverPlayer.displayClientMessage(Component.translatable("capitalclaim.add.warn", "Co-owner not found: " + name), true);
             }
         }
 
@@ -123,9 +117,7 @@ public class CapitalClaimManager {
             intWidth = Integer.parseInt(width);
             intHeight = Integer.parseInt(height);
         } catch (NumberFormatException e) {
-            if (Minecraft.getInstance().player != null) {
-                Minecraft.getInstance().player.displayClientMessage(Component.translatable("capitalclaim.add.fail", "Invalid width/height format."), true);
-            }
+            serverPlayer.displayClientMessage(Component.translatable("capitalclaim.add.fail", "Invalid width/height format."), true);
             return false;
         }
 
@@ -133,9 +125,7 @@ public class CapitalClaimManager {
         try {
             claim = new TerritoryClaim(localCenterX, intCenterY, localCenterZ, intWidth, intHeight);
         } catch (IllegalArgumentException ex) {
-            if (Minecraft.getInstance().player != null) {
-                Minecraft.getInstance().player.displayClientMessage(Component.translatable("capitalclaim.add.fail", ex.getMessage()), true);
-            }
+            serverPlayer.displayClientMessage(Component.translatable("capitalclaim.add.fail", ex.getMessage()), true);
             return false;
         }
 
@@ -146,15 +136,12 @@ public class CapitalClaimManager {
             for (int i = 1; i < ownerNames.size(); i++) {
                 ownersList.append(", ").append(ownerNames.get(i));
             }
-            if (Minecraft.getInstance().player != null) {
-                Minecraft.getInstance().player.displayClientMessage(Component.translatable("capitalclaim.add.success",
-                        (int) centerX, intCenterY, (int) centerZ, ownersList.toString()), true);
-            }
+            serverPlayer.displayClientMessage(Component.translatable("capitalclaim.add.success",
+                    (int) centerX, intCenterY, (int) centerZ, ownersList.toString()), true);
+            ReignNetworking.resetLastKnownBlockForAllPlayers();
             return true;
         } else {
-            if (Minecraft.getInstance().player != null) {
-                Minecraft.getInstance().player.displayClientMessage(Component.translatable("capitalclaim.add.fail", "Area is occupied or invalid."), true);
-            }
+            serverPlayer.displayClientMessage(Component.translatable("capitalclaim.add.fail", "Area is occupied or invalid."), true);
             return false;
         }
     }
@@ -169,20 +156,17 @@ public class CapitalClaimManager {
     public static boolean removeClaim(Player player, double centerX, double centerZ) {
         if (player instanceof ServerPlayer serverPlayer) {
             if (!CapitalClaimSavedData.getInstance().isCapitalClaimsEnabled()) {
-                serverPlayer.sendSystemMessage(Component.translatable("capitalclaim.system.disabled"));
+                serverPlayer.displayClientMessage(Component.translatable("capitalclaim.system.disabled"), true);
                 return false;
             }
             int localCenterX = toLocalX((int) centerX);
             int localCenterZ = toLocalZ((int) centerZ);
             if (CapitalClaimSavedData.getInstance().removeClaim(localCenterX, localCenterZ)) {
-                if (Minecraft.getInstance().player != null) {
-                    Minecraft.getInstance().player.displayClientMessage(Component.translatable("capitalclaim.remove.success"), true);
-                }
+                serverPlayer.displayClientMessage(Component.translatable("capitalclaim.remove.success"), true);
+                ReignNetworking.resetLastKnownBlockForAllPlayers();
                 return true;
             } else {
-                if (Minecraft.getInstance().player != null) {
-                    Minecraft.getInstance().player.displayClientMessage(Component.translatable("capitalclaim.remove.fail"), true);
-                }
+                serverPlayer.displayClientMessage(Component.translatable("capitalclaim.remove.fail"), true);
             }
         }
         return false;

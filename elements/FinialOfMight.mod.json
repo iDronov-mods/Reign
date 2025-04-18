@@ -81,7 +81,7 @@
       "fixedValue": []
     },
     "hardness": 1.0,
-    "resistance": 10.0,
+    "resistance": 10000.0,
     "hasGravity": false,
     "isWaterloggable": false,
     "creativeTabs": [
@@ -164,6 +164,9 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
+    "onBlockPlayedBy": {
+      "name": "CreateKnightDomain"
+    },
     "generateFeature": false,
     "restrictionBiomes": [],
     "blocksToReplace": [

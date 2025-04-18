@@ -1,22 +1,24 @@
 package net.mcreator.reignmod.procedures;
 
-import net.mcreator.reignmod.basics.EnderChestHandler;
-import net.mcreator.reignmod.network.ReignModModVariables;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.util.Mth;
-import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.ClipContext;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.registries.ForgeRegistries;
+
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ClipContext;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.util.RandomSource;
+import net.minecraft.util.Mth;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.BlockPos;
+
+import net.mcreator.reignmod.network.ReignModModVariables;
+import net.mcreator.reignmod.basics.EnderChestHandler;
 
 public class EnderLockpickingProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, ItemStack itemstack) {
@@ -25,6 +27,7 @@ public class EnderLockpickingProcedure {
 		double block_z = 0;
 		double block_x = 0;
 		double block_y = 0;
+		double dmg_chance = 0;
 		if (world instanceof ServerLevel _origLevel) {
 			LevelAccessor _worldorig = world;
 			world = _origLevel.getServer().getLevel(Level.OVERWORLD);
@@ -74,11 +77,30 @@ public class EnderLockpickingProcedure {
 						if (world instanceof ServerLevel _level)
 							_level.sendParticles(ParticleTypes.SMOKE, x, y, z, 3, 0.5, 0.5, 0.5, 0.1);
 					}
-					{
-						ItemStack _ist = itemstack;
-						if (_ist.hurt(1, RandomSource.create(), null)) {
-							_ist.shrink(1);
-							_ist.setDamageValue(0);
+					dmg_chance = Mth.nextInt(RandomSource.create(), 1, 100);
+					if (dmg_chance == 1) {
+						{
+							ItemStack _ist = itemstack;
+							if (_ist.hurt(12, RandomSource.create(), null)) {
+								_ist.shrink(1);
+								_ist.setDamageValue(0);
+							}
+						}
+					} else if (dmg_chance <= 5) {
+						{
+							ItemStack _ist = itemstack;
+							if (_ist.hurt(2, RandomSource.create(), null)) {
+								_ist.shrink(1);
+								_ist.setDamageValue(0);
+							}
+						}
+					} else {
+						{
+							ItemStack _ist = itemstack;
+							if (_ist.hurt(1, RandomSource.create(), null)) {
+								_ist.shrink(1);
+								_ist.setDamageValue(0);
+							}
 						}
 					}
 				}

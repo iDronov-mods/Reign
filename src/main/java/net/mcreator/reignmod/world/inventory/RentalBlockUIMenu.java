@@ -19,6 +19,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
+import net.mcreator.reignmod.procedures.RentalIsLockedProcedure;
 import net.mcreator.reignmod.procedures.RentalAgreementSetProcedure;
 import net.mcreator.reignmod.init.ReignModModMenus;
 
@@ -80,6 +81,11 @@ public class RentalBlockUIMenu extends AbstractContainerMenu implements Supplier
 		}
 		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 105, 37) {
 			private final int slot = 0;
+
+			@Override
+			public boolean mayPickup(Player entity) {
+				return !RentalIsLockedProcedure.execute(world, x, y, z);
+			}
 
 			@Override
 			public boolean mayPlace(ItemStack itemstack) {

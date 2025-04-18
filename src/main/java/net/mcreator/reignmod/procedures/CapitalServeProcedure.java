@@ -5,19 +5,38 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.BlockPos;
 
-import net.mcreator.reignmod.network.ReignModModVariables;
 import net.mcreator.reignmod.kingdom.KingdomData;
 import net.mcreator.reignmod.init.ReignModModBlocks;
 
 public class CapitalServeProcedure {
 	public static boolean execute(LevelAccessor world) {
-		double coins = 0;
 		BlockState coffers = Blocks.AIR.defaultBlockState();
-		if ((world.getBlockState(BlockPos.containing(ReignModModVariables.MapVariables.get(world).VC_X, ReignModModVariables.MapVariables.get(world).VC_Y, ReignModModVariables.MapVariables.get(world).VC_Z))).getBlock() == ReignModModBlocks.COFFERS
-				.get()) {
-			coins = KingdomData.getCapitalMaintenance();;
+		double coins = 0;
+		double x = 0;
+		double y = 0;
+		double z = 0;
+		if (world instanceof ServerLevel _origLevel) {
+			LevelAccessor _worldorig = world;
+			world = _origLevel.getServer().getLevel(Level.OVERWORLD);
+			if (world != null) {
+				x = KingdomData.getCoffersCoordinates()[0];
+				y = KingdomData.getCoffersCoordinates()[1];
+				z = KingdomData.getCoffersCoordinates()[2];
+			}
+			world = _worldorig;
+		}
+		if ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == ReignModModBlocks.COFFERS.get()) {
+			if (world instanceof ServerLevel _origLevel) {
+				LevelAccessor _worldorig = world;
+				world = _origLevel.getServer().getLevel(Level.OVERWORLD);
+				if (world != null) {
+					coins = KingdomData.getCapitalMaintenance();;
+				}
+				world = _worldorig;
+			}
 			if (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -25,20 +44,20 @@ public class CapitalServeProcedure {
 						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, BlockPos.containing(ReignModModVariables.MapVariables.get(world).VC_X, ReignModModVariables.MapVariables.get(world).VC_Y, ReignModModVariables.MapVariables.get(world).VC_Z), "value") >= coins) {
+			}.getValue(world, BlockPos.containing(x, y, z), "amount") >= coins) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = BlockPos.containing(ReignModModVariables.MapVariables.get(world).VC_X, ReignModModVariables.MapVariables.get(world).VC_Y, ReignModModVariables.MapVariables.get(world).VC_Z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getPersistentData().putDouble("value", ((new Object() {
+						_blockEntity.getPersistentData().putDouble("amount", ((new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
 									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, BlockPos.containing(ReignModModVariables.MapVariables.get(world).VC_X, ReignModModVariables.MapVariables.get(world).VC_Y, ReignModModVariables.MapVariables.get(world).VC_Z), "value")) - coins));
+						}.getValue(world, BlockPos.containing(x, y, z), "amount")) - coins));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}

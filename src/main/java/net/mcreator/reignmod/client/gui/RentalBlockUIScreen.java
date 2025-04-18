@@ -62,6 +62,9 @@ public class RentalBlockUIScreen extends AbstractContainerScreen<RentalBlockUIMe
 
 		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/rental_block_ui.png"), this.leftPos + 1, this.topPos + 0, 0, 0, 222, 166, 222, 166);
 
+		if (RentalIsLockedProcedure.execute(world, x, y, z)) {
+			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/iron_lock.png"), this.leftPos + 114, this.topPos + 45, 0, 0, 16, 16, 16, 16);
+		}
 		RenderSystem.disableBlend();
 	}
 
@@ -121,23 +124,35 @@ public class RentalBlockUIScreen extends AbstractContainerScreen<RentalBlockUIMe
 		guistate.put("text:z_value", z_value);
 		this.addWidget(this.z_value);
 		button_delete = Button.builder(Component.translatable("gui.reign_mod.rental_block_ui.button_delete"), e -> {
-			if (true) {
+			if (RentalIsLockedProcedure.execute(world, x, y, z)) {
 				textstate.put("textin:x_value", x_value.getValue());
 				textstate.put("textin:z_value", z_value.getValue());
 				ReignModMod.PACKET_HANDLER.sendToServer(new RentalBlockUIButtonMessage(0, x, y, z, textstate));
 				RentalBlockUIButtonMessage.handleButtonAction(entity, 0, x, y, z, textstate);
 			}
-		}).bounds(this.leftPos + 152, this.topPos + 46, 52, 20).build();
+		}).bounds(this.leftPos + 152, this.topPos + 46, 52, 20).build(builder -> new Button(builder) {
+			@Override
+			public void render(GuiGraphics guiGraphics, int gx, int gy, float ticks) {
+				if (RentalIsLockedProcedure.execute(world, x, y, z))
+					super.render(guiGraphics, gx, gy, ticks);
+			}
+		});
 		guistate.put("button:button_delete", button_delete);
 		this.addRenderableWidget(button_delete);
 		button_set = Button.builder(Component.translatable("gui.reign_mod.rental_block_ui.button_set"), e -> {
-			if (true) {
+			if (RentalNotLockedProcedure.execute(world, x, y, z)) {
 				textstate.put("textin:x_value", x_value.getValue());
 				textstate.put("textin:z_value", z_value.getValue());
 				ReignModMod.PACKET_HANDLER.sendToServer(new RentalBlockUIButtonMessage(1, x, y, z, textstate));
 				RentalBlockUIButtonMessage.handleButtonAction(entity, 1, x, y, z, textstate);
 			}
-		}).bounds(this.leftPos + 152, this.topPos + 24, 52, 20).build();
+		}).bounds(this.leftPos + 152, this.topPos + 24, 52, 20).build(builder -> new Button(builder) {
+			@Override
+			public void render(GuiGraphics guiGraphics, int gx, int gy, float ticks) {
+				if (RentalNotLockedProcedure.execute(world, x, y, z))
+					super.render(guiGraphics, gx, gy, ticks);
+			}
+		});
 		guistate.put("button:button_set", button_set);
 		this.addRenderableWidget(button_set);
 	}

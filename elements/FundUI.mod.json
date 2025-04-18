@@ -355,6 +355,22 @@
           "x": 271,
           "y": 30
         }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_discontent",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnDiscontent"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 104,
+          "y": 206
+        }
       }
     ],
     "onTick": {

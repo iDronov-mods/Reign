@@ -1,0 +1,460 @@
+{
+  "_fv": 69,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 300,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": false,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_incubator",
+          "text": {
+            "fixedValue": "Incubator"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 105,
+          "y": 30
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "ui_incubator_suspects.png",
+          "use1Xscale": false,
+          "x": 64,
+          "y": 20
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "crown.png",
+          "use1Xscale": false,
+          "x": 241,
+          "y": 48
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_incubator_label_help",
+          "text": {
+            "fixedValue": "incubator_label_help"
+          },
+          "width": 16,
+          "height": 11,
+          "x": 241,
+          "y": 50
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "house_hp_point.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "HouseHP1"
+          },
+          "x": 109,
+          "y": 43
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "house_hp_point.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "HouseHP2"
+          },
+          "x": 130,
+          "y": 43
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "house_hp_point.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "HouseHP3"
+          },
+          "x": 151,
+          "y": 43
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "house_hp_point.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "HouseHP4"
+          },
+          "x": 172,
+          "y": 43
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "house_hp_point.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "HouseHP5"
+          },
+          "x": 193,
+          "y": 43
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "house_hp_point.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "HouseHP6"
+          },
+          "x": 214,
+          "y": 43
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "house_hp_point.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "HouseHP7"
+          },
+          "x": 235,
+          "y": 43
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "house_hp_point.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "HouseHP8"
+          },
+          "x": 256,
+          "y": 43
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "house_hp_point.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "HouseHP9"
+          },
+          "x": 277,
+          "y": 43
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "house_hp_point.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "HouseHP10"
+          },
+          "x": 298,
+          "y": 43
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_house_hp_value",
+          "text": {
+            "fixedValue": "",
+            "name": "HouseHPValue"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 324,
+          "y": 40
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_players",
+          "text": {
+            "fixedValue": "players",
+            "name": "IncubatorReturnDomainPlayers"
+          },
+          "color": {
+            "value": -13421773,
+            "falpha": 0.0
+          },
+          "x": 137,
+          "y": 69
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_domains",
+          "text": {
+            "fixedValue": "domains",
+            "name": "IncubatorReturnDomains"
+          },
+          "color": {
+            "value": -13421773,
+            "falpha": 0.0
+          },
+          "x": 194,
+          "y": 69
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_all_players",
+          "text": {
+            "fixedValue": "all_players",
+            "name": "IncubatorReturnAllPlayers"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 262,
+          "y": 69
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_tab_button",
+          "image": "tab_button.png",
+          "hoveredImage": "tab_hover_button.png",
+          "onClick": {
+            "name": "IncubatorHeartHit"
+          },
+          "x": 97,
+          "y": 125
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_remove_suspect_button",
+          "image": "remove_suspect_button.png",
+          "hoveredImage": "remove_suspect_button_hover.png",
+          "x": 273,
+          "y": 109
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_remove_suspect_button1",
+          "image": "remove_suspect_button.png",
+          "hoveredImage": "remove_suspect_button_hover.png",
+          "x": 273,
+          "y": 121
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_remove_suspect_button2",
+          "image": "remove_suspect_button.png",
+          "hoveredImage": "remove_suspect_button_hover.png",
+          "x": 273,
+          "y": 133
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_remove_suspect_button3",
+          "image": "remove_suspect_button.png",
+          "hoveredImage": "remove_suspect_button_hover.png",
+          "x": 273,
+          "y": 145
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_remove_suspect_button4",
+          "image": "remove_suspect_button.png",
+          "hoveredImage": "remove_suspect_button_hover.png",
+          "x": 273,
+          "y": 157
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_remove_suspect_button5",
+          "image": "remove_suspect_button.png",
+          "hoveredImage": "remove_suspect_button_hover.png",
+          "x": 273,
+          "y": 169
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_remove_suspect_button6",
+          "image": "remove_suspect_button.png",
+          "hoveredImage": "remove_suspect_button_hover.png",
+          "x": 273,
+          "y": 181
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_jail_button",
+          "image": "jail_button.png",
+          "hoveredImage": "jail_button_hover.png",
+          "x": 261,
+          "y": 109
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_jail_button1",
+          "image": "jail_button.png",
+          "hoveredImage": "jail_button_hover.png",
+          "x": 261,
+          "y": 121
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_jail_button2",
+          "image": "jail_button.png",
+          "hoveredImage": "jail_button_hover.png",
+          "x": 261,
+          "y": 133
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_jail_button3",
+          "image": "jail_button.png",
+          "hoveredImage": "jail_button_hover.png",
+          "x": 261,
+          "y": 145
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_jail_button4",
+          "image": "jail_button.png",
+          "hoveredImage": "jail_button_hover.png",
+          "x": 261,
+          "y": 157
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_jail_button5",
+          "image": "jail_button.png",
+          "hoveredImage": "jail_button_hover.png",
+          "x": 261,
+          "y": 169
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_jail_button6",
+          "image": "jail_button.png",
+          "hoveredImage": "jail_button_hover.png",
+          "x": 261,
+          "y": 181
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_incubator_house_level",
+          "text": {
+            "fixedValue": "LevelHouse",
+            "name": "IncubatorHouseLevel"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 242,
+          "y": 30
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_domain_players_help",
+          "text": {
+            "fixedValue": "domain_players_help"
+          },
+          "width": 8,
+          "height": 12,
+          "x": 127,
+          "y": 67
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_domains_help",
+          "text": {
+            "fixedValue": "domains_help"
+          },
+          "width": 8,
+          "height": 11,
+          "x": 183,
+          "y": 67
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_all_players_help",
+          "text": {
+            "fixedValue": "all_players_help"
+          },
+          "width": 17,
+          "height": 11,
+          "x": 241,
+          "y": 67
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

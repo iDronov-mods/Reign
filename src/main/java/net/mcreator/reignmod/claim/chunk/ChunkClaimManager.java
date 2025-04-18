@@ -35,10 +35,7 @@ public class ChunkClaimManager {
                 long chunkId = ChunkPos.asLong(ch.x + dx, ch.z + dz);
                 var existing = ChunkClaimSavedData.getInstance().getClaimByChunk(chunkId);
                 if (existing.isPresent()) {
-                    if (Minecraft.getInstance().player != null) {
-                        Minecraft.getInstance().player.displayClientMessage(Component.translatable("chunkclaim.add.fail.occupied"), true);
-                    }
-                    return false; // Уже занято
+                    return false;
                 }
             }
         }
@@ -49,27 +46,31 @@ public class ChunkClaimManager {
      * Создаём новый приват (ClaimData) размером 21×21,
      * если вся территория свободна (никаких пересечений).
      */
-    public static boolean createClaim(String ownerId, ClaimType claimType, int centerX, int centerY, int centerZ) {
+    public static boolean createClaim(ServerPlayer sv, ClaimType claimType, int centerX, int centerY, int centerZ) {
         if (!isAreaCompletelyFree(centerX, centerY, centerZ)) {
+            sv.displayClientMessage(Component.translatable("chunkclaim.add.fail.occupied"), true);
             return false;
         }
 
-        String claimId;
+        String claimId, ownerName;
         if (claimType == ClaimType.DOMAIN) {
-            claimId = HouseManager.getDomainByKnightUUID(ownerId).getClaimId();
+            var found = HouseManager.getDomainByKnightUUID(sv.getStringUUID());
+            claimId = found.getClaimId();
+            ownerName = found.getDomainTitle().getString();
         } else {
-            claimId = HouseManager.getHouseByLordUUID(ownerId).getClaimId();
+            var found = HouseManager.getHouseByLordUUID(sv.getStringUUID());
+            claimId = found.getClaimId();
+            ownerName = found.getHouseTitle();
         }
+
         if (claimId != null) {
-            if (Minecraft.getInstance().player != null) {
-                Minecraft.getInstance().player.displayClientMessage(Component.translatable("chunkclaim.add.fail.already_own"), true);
-            }
+            sv.displayClientMessage(Component.translatable("chunkclaim.add.fail.already_own"), true);
             return false;
         }
 
         // Формируем ClaimData
         claimId = UUID.randomUUID().toString();
-        ClaimData claimData = new ClaimData(claimId, ownerId, claimType, centerX, centerZ);
+        ClaimData claimData = new ClaimData(claimId, sv.getStringUUID(), ownerName, claimType, centerX, centerZ);
 
         // Заполняем все чанки
         int radius = ChunkClaimConstants.CLAIM_RADIUS;
@@ -84,18 +85,34 @@ public class ChunkClaimManager {
         // Добавляем в хранилище
         ChunkClaimSavedData.getInstance().addClaim(claimData);
         if (claimType == ClaimType.DOMAIN) {
-            HouseManager.getDomainByKnightUUID(ownerId).setClaimId(claimId);
+            HouseManager.getDomainByKnightUUID(sv.getStringUUID()).setClaimId(claimId);
         } else {
-            HouseManager.getHouseByLordUUID(ownerId).setClaimId(claimId);
+            HouseManager.getHouseByLordUUID(sv.getStringUUID()).setClaimId(claimId);
         }
-        if (Minecraft.getInstance().player != null) {
-            Minecraft.getInstance().player.displayClientMessage(Component.translatable("chunkclaim.add.success"), true);
-        }
+        sv.displayClientMessage(Component.translatable("chunkclaim.add.success"), true);
         return true;
     }
 
     /**
-     * Удаляем приват по claimId (расприват).
+     * Удаляем приват по claimId и логируем игроку.
+     */
+    public static void removeClaim(ServerPlayer sv, String claimId) {
+        if (ChunkClaimSavedData.getInstance().getClaim(claimId).isPresent()) {
+            String ownerId = ChunkClaimSavedData.getInstance().getClaim(claimId).get().getOwnerId();
+            ClaimType type = ChunkClaimSavedData.getInstance().getClaim(claimId).get().getClaimType();
+            if (type == ClaimType.DOMAIN) {
+                HouseManager.getDomainByKnightUUID(ownerId).setClaimId(null);
+            } else {
+                HouseManager.getHouseByLordUUID(ownerId).setClaimId(null);
+            }
+            ChunkClaimSavedData.getInstance().removeClaim(claimId);
+            sv.displayClientMessage(Component.translatable("chunkclaim.remove.success"), true);
+        }
+        sv.displayClientMessage(Component.translatable("chunkclaim.remove.not_found"), true);
+    }
+
+    /**
+     * Удаляем приват по claimId.
      */
     public static void removeClaim(String claimId) {
         if (ChunkClaimSavedData.getInstance().getClaim(claimId).isPresent()) {
@@ -107,12 +124,6 @@ public class ChunkClaimManager {
                 HouseManager.getHouseByLordUUID(ownerId).setClaimId(null);
             }
             ChunkClaimSavedData.getInstance().removeClaim(claimId);
-            if (Minecraft.getInstance().player != null) {
-                Minecraft.getInstance().player.displayClientMessage(Component.translatable("chunkclaim.remove.success"), true);
-            }
-        }
-        if (Minecraft.getInstance().player != null) {
-            Minecraft.getInstance().player.displayClientMessage(Component.translatable("chunkclaim.remove.not_found"), true);
         }
     }
 
@@ -123,6 +134,14 @@ public class ChunkClaimManager {
         return ChunkClaimSavedData.getInstance()
                 .getClaimByChunk(chunkX, chunkZ)
                 .map(ClaimData::getOwnerId);
+    }
+
+    /**
+     * Возвращает имя владельца чанка (x, z) если есть, иначе пусто.
+     */
+    public static Optional<String> getChunkOwnerName(ChunkPos chunkPos) {
+        return ChunkClaimSavedData.getInstance()
+                .getClaimByChunk(chunkPos.x, chunkPos.z).map(ClaimData::getOwnerName);
     }
 
     /**
