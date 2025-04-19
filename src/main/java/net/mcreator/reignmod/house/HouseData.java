@@ -1,5 +1,8 @@
 package net.mcreator.reignmod.house;
 
+import net.mcreator.reignmod.claim.chunk.ChunkClaimConstants;
+import net.mcreator.reignmod.claim.chunk.ChunkClaimManager;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 
 import java.util.HashMap;
@@ -105,6 +108,14 @@ public class HouseData{
         houseCopy.getDomains().forEach((s, domain) -> this.removeDomain(house, domain));
         this.houses.remove(house.getLordUUID());
         this.houseAvailableColors.replace(house.getHouseColor(), true);
+
+        if (houseCopy.getClaimId() != null) {
+            var c = houseCopy.getHouseIncubatorCoordinates();
+            HouseSavedData.getServerInstance().destroyBlock(new BlockPos(c[0], c[1] + ChunkClaimConstants.HOUSE_SHAFT_LENGTH, c[2]), false);
+            HouseSavedData.getServerInstance().destroyBlock(new BlockPos(c[0], c[1] + ChunkClaimConstants.HOUSE_SHAFT_LENGTH - 1, c[2]), false);
+            ChunkClaimManager.removeClaim(houseCopy.getClaimId());
+        }
+
         return houseCopy.getHousePlusCoordinates();
     }
 
@@ -121,6 +132,12 @@ public class HouseData{
 
     public void removeDomain(House house, Domain domain) {
         if (this.houses.containsKey(house.getLordUUID())) {
+            if (domain.getClaimId() != null) {
+                var c = domain.getDomainFoundationCoordinates();
+                HouseSavedData.getServerInstance().destroyBlock(new BlockPos(c[0], c[1] + ChunkClaimConstants.DOMAIN_SHAFT_LENGTH, c[2]), false);
+                HouseSavedData.getServerInstance().destroyBlock(new BlockPos(c[0], c[1] + ChunkClaimConstants.DOMAIN_SHAFT_LENGTH - 1, c[2]), false);
+                ChunkClaimManager.removeClaim(domain.getClaimId());
+            }
             this.houses.get(house.getLordUUID()).removeDomain(domain.getKnightUUID());
             this.domains.remove(domain.getKnightUUID());
         }

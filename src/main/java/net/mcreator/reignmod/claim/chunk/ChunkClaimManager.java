@@ -1,5 +1,7 @@
 package net.mcreator.reignmod.claim.chunk;
 
+import net.mcreator.reignmod.claim.capital.CapitalClaimManager;
+import net.mcreator.reignmod.claim.capital.CapitalClaimSavedData;
 import net.mcreator.reignmod.house.Domain;
 import net.mcreator.reignmod.house.House;
 import net.mcreator.reignmod.house.HouseManager;
@@ -27,8 +29,8 @@ public class ChunkClaimManager {
      * Проверяет, свободна ли вся квадратная область 21×21 чанков
      * (радиус 10 от центра (centerX, centerZ)).
      */
-    private static boolean isAreaCompletelyFree(int centerX, int centerY, int centerZ) {
-        int radius = ChunkClaimConstants.CLAIM_RADIUS; // 10
+    private static boolean isAreaCompletelyFree(int centerX, int centerY, int centerZ, ClaimType claimType) {
+        int radius = (claimType == ClaimType.CAPITAL ? ChunkClaimConstants.CAPITAL_CLAIM_RADIUS : ChunkClaimConstants.CLAIM_RADIUS);
         var ch = new ChunkPos(new BlockPos(centerX, centerY, centerZ));
         for (int dx = -radius; dx <= radius; dx++) {
             for (int dz = -radius; dz <= radius; dz++) {
@@ -43,24 +45,32 @@ public class ChunkClaimManager {
     }
 
     /**
-     * Создаём новый приват (ClaimData) размером 21×21,
+     * Создаём новый приват (ClaimData),
      * если вся территория свободна (никаких пересечений).
      */
     public static boolean createClaim(ServerPlayer sv, ClaimType claimType, int centerX, int centerY, int centerZ) {
-        if (!isAreaCompletelyFree(centerX, centerY, centerZ)) {
+        if (claimType == ClaimType.CAPITAL) {
+            return false;
+        }
+
+        if (!isAreaCompletelyFree(centerX, centerY, centerZ, claimType)) {
             sv.displayClientMessage(Component.translatable("chunkclaim.add.fail.occupied"), true);
             return false;
         }
 
         String claimId, ownerName;
         if (claimType == ClaimType.DOMAIN) {
-            var found = HouseManager.getDomainByKnightUUID(sv.getStringUUID());
-            claimId = found.getClaimId();
-            ownerName = found.getDomainTitle().getString();
+            var foundDomain = HouseManager.getDomainByKnightUUID(sv.getStringUUID());
+            var foundHouse = HouseManager.getHouseByLordUUID(foundDomain.getLordUUID());
+
+            claimId = foundDomain.getClaimId();
+            ownerName = foundHouse.getHouseTitleWithColor() + ": " + foundDomain.getDomainTitle();
         } else {
-            var found = HouseManager.getHouseByLordUUID(sv.getStringUUID());
-            claimId = found.getClaimId();
-            ownerName = found.getHouseTitle();
+            var foundHouse = HouseManager.getHouseByLordUUID(sv.getStringUUID());
+            var foundDomain = foundHouse.getDomains().get(sv.getStringUUID());
+
+            claimId = foundHouse.getClaimId();
+            ownerName = foundHouse.getHouseTitleWithColor() + ": " + foundDomain.getDomainTitle();
         }
 
         if (claimId != null) {
@@ -85,11 +95,46 @@ public class ChunkClaimManager {
         // Добавляем в хранилище
         ChunkClaimSavedData.getInstance().addClaim(claimData);
         if (claimType == ClaimType.DOMAIN) {
-            HouseManager.getDomainByKnightUUID(sv.getStringUUID()).setClaimId(claimId);
+            Domain domain = HouseManager.getDomainByKnightUUID(sv.getStringUUID());
+            domain.setClaimId(claimId);
+            domain.setDomainFoundationCoordinates(new int[]{centerX, centerY, centerZ});
         } else {
             HouseManager.getHouseByLordUUID(sv.getStringUUID()).setClaimId(claimId);
         }
+
         sv.displayClientMessage(Component.translatable("chunkclaim.add.success"), true);
+        return true;
+    }
+
+    public static boolean createCapitalClaim(int centerX, int centerY, int centerZ) {
+        if (!isAreaCompletelyFree(centerX, centerY, centerZ, ClaimType.CAPITAL)) {
+            return false;
+        }
+
+        String claimId = CapitalClaimSavedData.getChunkClaimId(),
+                ownerName = Component.translatable("chunkclaim.capital.name").getString();
+
+        if (claimId != null) {
+            return false;
+        }
+
+        // Формируем ClaimData
+        claimId = UUID.randomUUID().toString();
+        ClaimData claimData = new ClaimData(claimId, claimId, ownerName, ClaimType.CAPITAL, centerX, centerZ);
+
+        // Заполняем все чанки
+        int radius = ChunkClaimConstants.CAPITAL_CLAIM_RADIUS;
+        var ch = new ChunkPos(new BlockPos(centerX, centerY, centerZ));
+        for (int dx = -radius; dx <= radius; dx++) {
+            for (int dz = -radius; dz <= radius; dz++) {
+                long chunkId = ChunkPos.asLong(ch.x + dx, ch.z + dz);
+                claimData.getClaimedChunks().add(chunkId);
+            }
+        }
+
+        // Добавляем в хранилище
+        ChunkClaimSavedData.getInstance().addClaim(claimData);
+        CapitalClaimSavedData.setChunkClaimId(claimId);
         return true;
     }
 
@@ -102,8 +147,10 @@ public class ChunkClaimManager {
             ClaimType type = ChunkClaimSavedData.getInstance().getClaim(claimId).get().getClaimType();
             if (type == ClaimType.DOMAIN) {
                 HouseManager.getDomainByKnightUUID(ownerId).setClaimId(null);
-            } else {
+            } else if (type == ClaimType.HOUSE) {
                 HouseManager.getHouseByLordUUID(ownerId).setClaimId(null);
+            } else {
+                CapitalClaimSavedData.setChunkClaimId(null);
             }
             ChunkClaimSavedData.getInstance().removeClaim(claimId);
             sv.displayClientMessage(Component.translatable("chunkclaim.remove.success"), true);
@@ -120,8 +167,10 @@ public class ChunkClaimManager {
             ClaimType type = ChunkClaimSavedData.getInstance().getClaim(claimId).get().getClaimType();
             if (type == ClaimType.DOMAIN) {
                 HouseManager.getDomainByKnightUUID(ownerId).setClaimId(null);
-            } else {
+            } else if (type == ClaimType.HOUSE) {
                 HouseManager.getHouseByLordUUID(ownerId).setClaimId(null);
+            } else {
+                CapitalClaimSavedData.setChunkClaimId(null);
             }
             ChunkClaimSavedData.getInstance().removeClaim(claimId);
         }
@@ -184,14 +233,16 @@ public class ChunkClaimManager {
             // HOUSE
             House chunkHouse = HouseManager.getHouseByLordUUID(claimData.getOwnerId());
             if (!chunkHouse.isNull()) {
-                return chunkHouse.getPlayers().contains(player.getStringUUID());
+                return chunkHouse.getDomains().containsKey(player.getStringUUID()) || chunkHouse.getDomains().get(chunkHouse.getLordUUID()).getPlayers().contains(player.getStringUUID());
             }
-        } else {
+        } else if (claimData.getClaimType() == ClaimType.DOMAIN){
             // DOMAIN
             Domain domain = HouseManager.getDomainByKnightUUID(claimData.getOwnerId());
             if (!domain.isNull()) {
-                return domain.getPlayers().contains(player.getStringUUID());
+                return domain.getPlayers().contains(player.getStringUUID()) || domain.getLordUUID().equals(player.getStringUUID());
             }
+        } else {
+            return true;
         }
 
         return false;

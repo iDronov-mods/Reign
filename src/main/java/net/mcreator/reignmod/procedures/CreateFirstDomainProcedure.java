@@ -32,11 +32,12 @@ public class CreateFirstDomainProcedure {
 							&& (world.getBlockState(BlockPos.containing(x, y - 3, z))).getBlock() == ReignModModBlocks.SHAFT.get()) {
 						if ((world.getBlockState(BlockPos.containing(x, y - 4, z))).getBlock() == ReignModModBlocks.INCUBATOR.get()) {
 							UUID = entity.getStringUUID();
-							flag = ChunkClaimManager.createClaim((ServerPlayer) entity, ClaimType.HOUSE, (int) x, (int) y, (int) z);;
+							flag = ChunkClaimManager.createClaim((ServerPlayer) entity, ClaimType.HOUSE, (int) x, (int) y - 4, (int) z);;
 							if (flag) {
+								IncubatorSetProcedure.execute(world, x, y - 4, z, entity);
 								if (!world.isClientSide() && world.getServer() != null)
-									world.getServer().getPlayerList().broadcastSystemMessage(Component.literal((HouseManager.getHouseByLordUUID(UUID).getHouseTitle() + " " + Component.translatable("translation.key.set_first_domain").getString())),
-											false);
+									world.getServer().getPlayerList()
+											.broadcastSystemMessage(Component.literal((HouseManager.getHouseByLordUUID(UUID).getHouseTitleWithColor() + " " + Component.translatable("translation.key.set_first_domain").getString())), false);
 								{
 									BlockPos _pos = BlockPos.containing(x, y, z);
 									BlockState _bs = world.getBlockState(_pos);

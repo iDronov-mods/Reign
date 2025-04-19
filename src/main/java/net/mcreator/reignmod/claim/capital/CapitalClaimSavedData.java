@@ -18,6 +18,7 @@ public class CapitalClaimSavedData extends ReignSavedData {
     public static final int CAPITAL_SIZE = 511;
     private static final int PRIME = 31;
     private static CapitalClaimSavedData instance;
+    private static String chunkClaimId = null;
     // Карта заявок по владельцам
     private final HashMap<ClaimOwner, HashMap<Long, TerritoryClaim>> claimsMap = new HashMap<>();
     // ownerGrid: для каждого блока столицы хранится владелец привата (или null)
@@ -40,6 +41,10 @@ public class CapitalClaimSavedData extends ReignSavedData {
         }
         // При загрузке система остаётся отключенной
         capitalClaimsEnabled = compoundTag.getBoolean("capitalClaimsEnabled");
+
+        // Claim ID
+        String loadedClaim = compoundTag.getString("chunk_claim_id");
+        chunkClaimId = loadedClaim.isEmpty() ? null : loadedClaim;
     }
 
     public static void initialize(ServerLevel serverLevel) {
@@ -79,6 +84,14 @@ public class CapitalClaimSavedData extends ReignSavedData {
 
     public boolean isCapitalClaimsEnabled() {
         return capitalClaimsEnabled;
+    }
+
+    public static String getChunkClaimId() {
+        return chunkClaimId;
+    }
+
+    public static void setChunkClaimId(String chunkClaimId) {
+        CapitalClaimSavedData.chunkClaimId = chunkClaimId;
     }
 
     /**
@@ -174,6 +187,10 @@ public class CapitalClaimSavedData extends ReignSavedData {
         }
         compoundTag.put("claims", claimList);
         compoundTag.putBoolean("capitalClaimsEnabled", capitalClaimsEnabled);
+
+        // Claim ID
+        compoundTag.putString("chunk_claim_id", (chunkClaimId == null) ? "" : chunkClaimId);
+
         return compoundTag;
     }
 }

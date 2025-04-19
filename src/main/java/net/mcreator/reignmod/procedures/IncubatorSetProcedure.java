@@ -20,31 +20,31 @@ public class IncubatorSetProcedure {
 		double x_coord = 0;
 		double y_coord = 0;
 		double z_coord = 0;
-		if (IsLordProcedure.execute(world, entity)) {
-			lordUUID = entity.getStringUUID();
-			if (!world.isClientSide()) {
-				BlockPos _bp = BlockPos.containing(x, y, z);
-				BlockEntity _blockEntity = world.getBlockEntity(_bp);
-				BlockState _bs = world.getBlockState(_bp);
-				if (_blockEntity != null)
-					_blockEntity.getPersistentData().putString("UUID", (entity.getStringUUID()));
-				if (world instanceof Level _level)
-					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
-			}
-			if (world instanceof ServerLevel _origLevel) {
-				LevelAccessor _worldorig = world;
-				world = _origLevel.getServer().getLevel(Level.OVERWORLD);
-				if (world != null) {
+		if (world instanceof ServerLevel _origLevel) {
+			LevelAccessor _worldorig = world;
+			world = _origLevel.getServer().getLevel(Level.OVERWORLD);
+			if (world != null) {
+				if (IsLordProcedure.execute(world, entity)) {
+					lordUUID = entity.getStringUUID();
+					if (!world.isClientSide()) {
+						BlockPos _bp = BlockPos.containing(x, y, z);
+						BlockEntity _blockEntity = world.getBlockEntity(_bp);
+						BlockState _bs = world.getBlockState(_bp);
+						if (_blockEntity != null)
+							_blockEntity.getPersistentData().putString("UUID", lordUUID);
+						if (world instanceof Level _level)
+							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+					}
 					x_coord = x;
 					y_coord = y;
 					z_coord = z;
 					HouseManager.setHouseIncubatorCoordinates(lordUUID, (int) x_coord, (int) y_coord, (int) z_coord);
 					HouseManager.getHouseByLordUUID(lordUUID).updateIncubatorInfo();
+					if (entity instanceof Player _player && !_player.level().isClientSide())
+						_player.displayClientMessage(Component.literal((Component.translatable("translation.key.incubator_set").getString())), false);
 				}
-				world = _worldorig;
 			}
-			if (entity instanceof Player _player && !_player.level().isClientSide())
-				_player.displayClientMessage(Component.literal((Component.translatable("translation.key.incubator_set").getString())), false);
+			world = _worldorig;
 		}
 	}
 }

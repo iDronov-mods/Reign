@@ -10,6 +10,8 @@ import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.reignmod.world.inventory.HouseSuspectsUIMenu;
+import net.mcreator.reignmod.procedures.ReturnSuspect1ValueProcedure;
+import net.mcreator.reignmod.procedures.ReturnSuspect1Procedure;
 import net.mcreator.reignmod.procedures.IncubatorReturnDomainsProcedure;
 import net.mcreator.reignmod.procedures.IncubatorReturnDomainPlayersProcedure;
 import net.mcreator.reignmod.procedures.IncubatorReturnAllPlayersProcedure;
@@ -150,6 +152,13 @@ public class HouseSuspectsUIScreen extends AbstractContainerScreen<HouseSuspects
 		guiGraphics.drawString(this.font,
 
 				IncubatorHouseLevelProcedure.execute(world, x, y, z), 178, -7, -1, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.house_suspects_ui.label_suspects_label"), 81, 55, -16777216, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnSuspect1Procedure.execute(world, x, y, z), 81, 70, -12829636, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnSuspect1ValueProcedure.execute(world, x, y, z), 163, 70, -16777216, false);
 	}
 
 	@Override

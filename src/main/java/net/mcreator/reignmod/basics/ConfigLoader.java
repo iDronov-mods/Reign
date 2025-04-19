@@ -23,6 +23,8 @@ public class ConfigLoader {
     private static boolean DISABLE_MARKET_TAX;
     private static boolean DISABLE_HOUSE_FEEDING;
     private static boolean DISABLE_DAILY_PAYOUTS;
+    private static boolean DISABLE_CAPITAL_FEEDING;
+    private static double HOURLY_MEAL_PERIOD;
 
     // ---------- Методы файла конфигурации "Общие настройки" ----------
 
@@ -52,6 +54,14 @@ public class ConfigLoader {
      */
     public static boolean areDailyPayoutsDisabled() {
         return DISABLE_DAILY_PAYOUTS;
+    }
+
+    public static boolean isCapitalFeedingDisabled() {
+        return DISABLE_CAPITAL_FEEDING;
+    }
+
+    public static double getHourlyMealPeriod() {
+        return HOURLY_MEAL_PERIOD;
     }
 
     // -------------------- Приватные методы класса --------------------
@@ -286,7 +296,7 @@ public class ConfigLoader {
                 computePrice(ReignMarketConfiguration.ARROW.get(), ReignMarketConfiguration.OTHER_MULTIPLIER.get()),
                 goodsMaxAmount, 4.0));
         marketItems.put("minecraft:experience_bottle", new MarketItem(
-                computePrice(ReignMarketConfiguration.EXPERIENCE_BOTTLE.get(), ReignMarketConfiguration.OTHER_MULTIPLIER.get()),
+                computePrice(ReignMarketConfiguration.EXPERIENCE_BOTTLE.get(), 1.0),
                 goodsMaxAmount, 1.0));
         marketItems.put("minecraft:gunpowder", new MarketItem(
                 computePrice(ReignMarketConfiguration.GUNPOWDER.get(), ReignMarketConfiguration.OTHER_MULTIPLIER.get()),
@@ -331,5 +341,7 @@ public class ConfigLoader {
         DISABLE_MARKET_TAX = ReignCommonConfiguration.DISABLE_MARKET_TAX.get();
         DISABLE_HOUSE_FEEDING = ReignCommonConfiguration.DISABLE_HOUSE_FEEDING.get();
         DISABLE_DAILY_PAYOUTS = ReignCommonConfiguration.DISABLE_DAILY_PAYOUTS.get();
+        DISABLE_CAPITAL_FEEDING = ReignCommonConfiguration.DISABLE_CAPITAL_FEEDING.get();
+        HOURLY_MEAL_PERIOD = ReignCommonConfiguration.HOURLY_MEAL_PERIOD.get();
     }
 }

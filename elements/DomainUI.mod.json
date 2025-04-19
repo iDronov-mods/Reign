@@ -120,6 +120,71 @@
           "x": 178,
           "y": 62
         }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "robbers_logo.png",
+          "use1Xscale": false,
+          "x": 159,
+          "y": 26
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "disease_logo.png",
+          "use1Xscale": false,
+          "x": 149,
+          "y": 26
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_suspect_1",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnSuspect1"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 131,
+          "y": 103
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_suspect_1_value",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnSuspect1Value"
+          },
+          "color": {
+            "value": -39322,
+            "falpha": 0.0
+          },
+          "x": 235,
+          "y": 103
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_suspects_list_label",
+          "text": {
+            "fixedValue": "suspects_list_label"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 141,
+          "y": 84
+        }
       }
     ],
     "gridSettings": {

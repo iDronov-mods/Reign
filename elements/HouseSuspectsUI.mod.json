@@ -447,6 +447,53 @@
           "x": 241,
           "y": 67
         }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_suspects_label",
+          "text": {
+            "fixedValue": "suspects_label"
+          },
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "x": 145,
+          "y": 92
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_suspect_1",
+          "text": {
+            "fixedValue": "suspect",
+            "name": "ReturnSuspect1"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 145,
+          "y": 107
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_suspect_1_value",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnSuspect1Value"
+          },
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "x": 227,
+          "y": 107
+        }
       }
     ],
     "gridSettings": {

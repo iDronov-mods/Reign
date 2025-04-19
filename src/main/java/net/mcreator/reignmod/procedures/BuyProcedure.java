@@ -10,7 +10,6 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.network.chat.Component;
 
 import net.mcreator.reignmod.network.ReignModModVariables;
 import net.mcreator.reignmod.market.MarketManager;
@@ -82,31 +81,19 @@ public class BuyProcedure {
 						}
 					}.getAmount(72) * 4096;
 					if (WalletPayProcedure.execute(entity, cost)) {
-						if (entity instanceof Player _player && !_player.level().isClientSide())
-							_player.displayClientMessage(Component.literal("Begin"), false);
 						if (entity instanceof Player _player) {
 							ItemStack _setstack = (entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(68)).getItem() : ItemStack.EMPTY).copy();
 							_setstack.setCount((int) inPack);
 							ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
 						}
-						if (entity instanceof Player _player && !_player.level().isClientSide())
-							_player.displayClientMessage(Component.literal("1"), false);
 						MarketManager.decreaseItemAmount(stringName, inPack);
-						if (entity instanceof Player _player && !_player.level().isClientSide())
-							_player.displayClientMessage(Component.literal("2"), false);
 						tax = Math.floor(cost - GetPriceWithFillFactorProcedure.execute(world, ForgeRegistries.ITEMS
 								.getKey((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(68)).getItem() : ItemStack.EMPTY).getItem()).toString()));
-						if (entity instanceof Player _player && !_player.level().isClientSide())
-							_player.displayClientMessage(Component.literal("3"), false);
 						ReignModModVariables.MapVariables.get(world).market_copper = ReignModModVariables.MapVariables.get(world).market_copper + cost;
 						ReignModModVariables.MapVariables.get(world).syncData(world);
-						if (entity instanceof Player _player && !_player.level().isClientSide())
-							_player.displayClientMessage(Component.literal(("" + tax)), false);
 						if (tax > 0) {
 							AddToCoffersProcedure.execute(world, tax);
 						}
-						if (entity instanceof Player _player && !_player.level().isClientSide())
-							_player.displayClientMessage(Component.literal("End."), false);
 					}
 				}
 			}

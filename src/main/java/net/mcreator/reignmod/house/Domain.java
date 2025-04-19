@@ -1,6 +1,7 @@
 package net.mcreator.reignmod.house;
 
 import net.mcreator.reignmod.kingdom.KingdomData;
+import net.mcreator.reignmod.procedures.FoundationUpdateInfoProcedure;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
@@ -23,6 +24,7 @@ public class Domain implements INBTSerializable<CompoundTag> {
     private Component domainTitle;
     private String claimId;
     private HashSet<String> players = new HashSet<>();
+    private int[] domainFoundationCoordinates = new int[3];
     private final EnumMap<DomainDebuffs, Boolean> domainDebuffs = new EnumMap<>(DomainDebuffs.class);
     private final HashMap<String, Integer> suspectPlayers = new HashMap<>();
 
@@ -44,7 +46,7 @@ public class Domain implements INBTSerializable<CompoundTag> {
     public Domain(String lordUUID, String knightUUID, Component knightDisplayName) {
         this.lordUUID = lordUUID;
         this.knightUUID = knightUUID;
-        this.domainTitle = Component.translatable("translation.key.domain").append(" ").append(knightDisplayName);
+        this.domainTitle = knightDisplayName;
         this.players.add(knightUUID);
         this.claimId = null;
         this.domainHP = 300; // Стандартное значение 300
@@ -73,6 +75,15 @@ public class Domain implements INBTSerializable<CompoundTag> {
         return this.players;
     }
 
+    public int[] getDomainFoundationCoordinates() {
+        return domainFoundationCoordinates;
+    }
+
+    public void setDomainFoundationCoordinates(int[] coordinates) {
+        this.domainFoundationCoordinates = coordinates;
+        HouseSavedData.getInstance().setDirty();
+    }
+
     /**
      * Возвращает текущее здоровье (HP) домена.
      */
@@ -85,6 +96,7 @@ public class Domain implements INBTSerializable<CompoundTag> {
      */
     public void setDomainHP(int domainHP) {
         this.domainHP = Math.min(300, Math.max(0, domainHP));
+
     }
 
     /**
@@ -211,6 +223,8 @@ public class Domain implements INBTSerializable<CompoundTag> {
         // Сохраняем domainHP
         tag.putInt("domain_hp", this.domainHP);
 
+        tag.putIntArray("domain_foundation_coordinates", domainFoundationCoordinates);
+
         ListTag playersTag = new ListTag();
         this.players.forEach(player -> playersTag.add(StringTag.valueOf(player)));
         tag.put("players", playersTag);
@@ -246,6 +260,8 @@ public class Domain implements INBTSerializable<CompoundTag> {
         // Загружаем domainHP
         this.domainHP = nbt.getInt("domain_hp");
 
+        domainFoundationCoordinates = nbt.getIntArray("domain_foundation_coordinates");
+
         this.players.clear();
         ListTag playersTag = nbt.getList("players", 8);
         playersTag.forEach(tag -> this.players.add(tag.getAsString()));
@@ -271,4 +287,5 @@ public class Domain implements INBTSerializable<CompoundTag> {
             }
         }
     }
+
 }

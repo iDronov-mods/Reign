@@ -27,7 +27,6 @@ public class House implements INBTSerializable<CompoundTag> {
     private String houseTitle;
     private String houseColor;
     private String claimId = null;
-    private int houseLevel = 1;
     private int houseHP;
     private HashSet<String> players;
     private int[] housePlusCoordinates = new int[3];
@@ -164,7 +163,7 @@ public class House implements INBTSerializable<CompoundTag> {
     }
 
     public void emplaceDomain(String knightUUID, Component knightDisplayName) {
-        if (domains.size() >= houseLevel) {
+        if (domains.size() >= getHouseLevel()) {
             return;
         }
         domains.putIfAbsent(knightUUID, new Domain(lordUUID, knightUUID, knightDisplayName));
@@ -172,7 +171,7 @@ public class House implements INBTSerializable<CompoundTag> {
     }
 
     public void pushDomain(Domain domain) {
-        if (domains.size() >= houseLevel) {
+        if (domains.size() >= getHouseLevel()) {
             return;
         }
         domains.putIfAbsent(domain.getKnightUUID(), domain);
@@ -292,39 +291,7 @@ public class House implements INBTSerializable<CompoundTag> {
     //--------------------------------------------------------------------------------
 
     public int getHouseLevel() {
-        return houseLevel;
-    }
-
-    public void setHouseLevel(int newLevel) {
-        this.houseLevel = Math.max(1, Math.min(10, newLevel));
-    }
-
-    public boolean canLevelUp() {
-        if (houseLevel >= 10) return false;
-        return (players.size() >= (houseLevel * 3));
-    }
-
-    public void levelUp() {
-        if (canLevelUp()) {
-            houseLevel++;
-            if (houseLevel > 10) {
-                houseLevel = 10;
-            }
-        }
-    }
-
-    public boolean canLevelDown() {
-        if (houseLevel <= 1) return false;
-        return (domains.size() <= (houseLevel - 1));
-    }
-
-    public void levelDown() {
-        if (canLevelDown()) {
-            houseLevel--;
-            if (houseLevel < 1) {
-                houseLevel = 1;
-            }
-        }
+        return Math.min(10, 1 + players.size() / 3) ;
     }
 
     //--------------------------------------------------------------------------------
@@ -400,10 +367,7 @@ public class House implements INBTSerializable<CompoundTag> {
         tag.put("house_needs", needsTag);
 
         // Claim ID
-        tag.putString("house_claimId", (claimId == null) ? "" : claimId);
-
-        // House level
-        tag.putInt("house_level", houseLevel);
+        tag.putString("house_claim_id", (claimId == null) ? "" : claimId);
 
         return tag;
     }
@@ -452,10 +416,7 @@ public class House implements INBTSerializable<CompoundTag> {
         }
 
         // Claim ID
-        String loadedClaim = nbt.getString("house_claimId");
+        String loadedClaim = nbt.getString("house_claim_id");
         claimId = loadedClaim.isEmpty() ? null : loadedClaim;
-
-        // House level
-        houseLevel = nbt.getInt("house_level");
     }
 }

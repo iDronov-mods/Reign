@@ -33,11 +33,11 @@ public class CreateKnightDomainProcedure {
 					if ((world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == ReignModModBlocks.SHAFT.get() && (world.getBlockState(BlockPos.containing(x, y - 2, z))).getBlock() == ReignModModBlocks.SHAFT.get()) {
 						if ((world.getBlockState(BlockPos.containing(x, y - 3, z))).getBlock() == ReignModModBlocks.OBELISK_FOUNDATION.get()) {
 							UUID = entity.getStringUUID();
-							flag = ChunkClaimManager.createClaim((ServerPlayer) entity, ClaimType.DOMAIN, (int) x, (int) y, (int) z);;
+							flag = ChunkClaimManager.createClaim((ServerPlayer) entity, ClaimType.DOMAIN, (int) x, (int) y - 3, (int) z);;
 							if (flag) {
 								if (!world.isClientSide() && world.getServer() != null)
 									world.getServer().getPlayerList()
-											.broadcastSystemMessage(Component.literal((HouseManager.getDomainByKnightUUID(UUID).getDomainTitle() + " " + Component.translatable("translation.key.set_knight_domain").getString())), false);
+											.broadcastSystemMessage(Component.literal((HouseManager.getDomainByKnightUUID(UUID).getDomainTitle().getString() + " " + Component.translatable("translation.key.set_knight_domain").getString())), false);
 								{
 									BlockPos _pos = BlockPos.containing(x, y, z);
 									BlockState _bs = world.getBlockState(_pos);
@@ -67,7 +67,7 @@ public class CreateKnightDomainProcedure {
 									BlockEntity _blockEntity = world.getBlockEntity(_bp);
 									BlockState _bs = world.getBlockState(_bp);
 									if (_blockEntity != null)
-										_blockEntity.getPersistentData().putString("knightUUID", (entity.getStringUUID()));
+										_blockEntity.getPersistentData().putString("UUID", (entity.getStringUUID()));
 									if (world instanceof Level _level)
 										_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 								}

@@ -134,9 +134,6 @@
     "onRightClicked": {
       "name": "IncubatorHeartHit"
     },
-    "onBlockPlayedBy": {
-      "name": "IncubatorSet"
-    },
     "generateFeature": false,
     "restrictionBiomes": [],
     "blocksToReplace": [

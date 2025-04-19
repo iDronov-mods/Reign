@@ -21,13 +21,11 @@
     "BeehiveBlockMixin",
     "NoCropDropMixin",
     "BrewingStandMixin",
-    "DoorBlockMixin",
-    "FenceGateBlockMixin",
-    "TrapDoorBlockMixin",
     "NoMilkingCowMixin",
     "NoMilkingGoatMixin",
     "NoMilkingMushroomMixin",
-    "CapitalExplosionCancelMixin"
+    "CapitalExplosionCancelMixin",
+    "ChestScreenMixin"
   ],
   "client": [],
   "minVersion": "0.8"

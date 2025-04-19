@@ -19,7 +19,7 @@ import net.minecraft.advancements.Advancement;
 import net.mcreator.reignmod.network.ReignModModVariables;
 import net.mcreator.reignmod.kingdom.KingdomData;
 import net.mcreator.reignmod.init.ReignModModMobEffects;
-import net.mcreator.reignmod.house.HouseSavedData;
+import net.mcreator.reignmod.house.HouseManager;
 import net.mcreator.reignmod.house.House;
 
 import javax.annotation.Nullable;
@@ -47,8 +47,8 @@ public class PrisonSpawnProcedure {
 				_entity.addEffect(new MobEffectInstance(ReignModModMobEffects.CRIMINAL.get(), -1, 0));
 		}
 		if (!((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).prison_house).isEmpty()) {
-			SuzerainUUID = (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).house;
-			House house = HouseSavedData.getInstance().getHouseData().findHouseByPlayerSuzerain(SuzerainUUID);
+			SuzerainUUID = (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).prison_house;
+			House house = HouseManager.getHouseBySuzerainUUID(SuzerainUUID);
 			x_house_prison = house.getHousePrisonCoordinates()[0];
 			y_house_prison = house.getHousePrisonCoordinates()[1];
 			z_house_prison = house.getHousePrisonCoordinates()[2];
@@ -58,6 +58,10 @@ public class PrisonSpawnProcedure {
 				if (_ent instanceof ServerPlayer _serverPlayer)
 					_serverPlayer.connection.teleport(x_house_prison, y_house_prison, z_house_prison, _ent.getYRot(), _ent.getXRot());
 			}
+			if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
+				_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, -1, 2));
+			if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
+				_entity.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, -1, 5));
 			if (!world.isClientSide() && world.getServer() != null)
 				world.getServer().getPlayerList()
 						.broadcastSystemMessage(Component.literal((entity.getDisplayName().getString() + " \u00A78" + Component.translatable("translation.key.house_imprisoned").getString() + " " + house.getHouseTitleWithColor())), false);
@@ -68,7 +72,7 @@ public class PrisonSpawnProcedure {
 					capability.syncPlayerVariables(entity);
 				});
 			}
-		} else if (entity instanceof LivingEntity _livEnt5 && _livEnt5.hasEffect(ReignModModMobEffects.CRIMINAL.get())) {
+		} else if (entity instanceof LivingEntity _livEnt7 && _livEnt7.hasEffect(ReignModModMobEffects.CRIMINAL.get())) {
 			{
 				Entity _ent = entity;
 				_ent.teleportTo(KingdomData.getPrisonCoordinates()[0], KingdomData.getPrisonCoordinates()[1], KingdomData.getPrisonCoordinates()[2]);

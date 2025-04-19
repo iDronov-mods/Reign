@@ -16,6 +16,7 @@ import net.minecraft.commands.CommandSource;
 import net.mcreator.reignmod.network.ReignModModVariables;
 import net.mcreator.reignmod.kingdom.KingdomData;
 import net.mcreator.reignmod.init.ReignModModBlocks;
+import net.mcreator.reignmod.claim.chunk.ChunkClaimManager;
 import net.mcreator.reignmod.claim.capital.CapitalClaimManager;
 import net.mcreator.reignmod.ReignModMod;
 
@@ -69,11 +70,12 @@ public class CapitalCreateProcedure {
 			if (world instanceof ServerLevel _level)
 				_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(), "setworldspawn");
 			CapitalClaimManager.setCapitalCenter((int) Math.floor(x), (int) Math.floor(z));
+			ChunkClaimManager.createCapitalClaim((int) x, (int) y, (int) z);
 			CreateCrownProcedure.execute(world);
 		} else {
 			if (entity instanceof Player _player && !_player.level().isClientSide())
-				_player.displayClientMessage(Component.literal((Component.translatable("translation.key.capital_exists").getString() + " x: " + ReignModModVariables.MapVariables.get(world).CAPITAL_X + " y: "
-						+ ReignModModVariables.MapVariables.get(world).CAPITAL_Y + " z: " + ReignModModVariables.MapVariables.get(world).CAPITAL_Z)), false);
+				_player.displayClientMessage(Component.literal((Component.translatable("translation.key.capital_exists").getString() + " x: " + new java.text.DecimalFormat("##").format(ReignModModVariables.MapVariables.get(world).CAPITAL_X) + " y: "
+						+ new java.text.DecimalFormat("##").format(ReignModModVariables.MapVariables.get(world).CAPITAL_Y) + " z: " + new java.text.DecimalFormat("##").format(ReignModModVariables.MapVariables.get(world).CAPITAL_Z))), false);
 		}
 	}
 }

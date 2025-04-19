@@ -64,9 +64,9 @@ public class ArrestProcedure {
 								_level.sendParticles(ParticleTypes.CRIT, x, y, z, 3, 0.1, 0.1, 0.1, 1);
 							(sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).shrink(1);
 							if (sourceentity instanceof Player _player && !_player.level().isClientSide())
-								_player.displayClientMessage(Component.literal((Component.translatable(("translation.key.player_arrested" + " " + entity.getDisplayName().getString())).getString())), true);
+								_player.displayClientMessage(Component.literal((Component.translatable((Component.translatable("translation.key.player_arrested").getString() + " " + entity.getDisplayName().getString())).getString())), true);
 							if (entity instanceof Player _player && !_player.level().isClientSide())
-								_player.displayClientMessage(Component.literal("translation.key.under_arest"), true);
+								_player.displayClientMessage(Component.literal((Component.translatable("translation.key.under_arest").getString())), true);
 						}
 					}
 				}

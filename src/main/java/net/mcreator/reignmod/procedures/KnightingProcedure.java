@@ -9,11 +9,11 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraft.world.scores.PlayerTeam;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.ServerLevel;
@@ -45,13 +45,14 @@ public class KnightingProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, Entity entity, Entity sourceentity) {
 		if (entity == null || sourceentity == null)
 			return;
+		ItemStack itemInHand = ItemStack.EMPTY;
 		if (world instanceof ServerLevel _origLevel) {
 			LevelAccessor _worldorig = world;
 			world = _origLevel.getServer().getLevel(Level.OVERWORLD);
 			if (world != null) {
 				if (IsLordProcedure.execute(world, sourceentity) && ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).house).isEmpty()) {
-					if ((sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).is(ItemTags.create(new ResourceLocation("minecraft:swords")))
-							&& (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == ItemStack.EMPTY.getItem()) {
+					itemInHand = (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY);
+					if (itemInHand.getItem() instanceof SwordItem && (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == ItemStack.EMPTY.getItem()) {
 						if (entity.getXRot() >= 70 && entity.isShiftKeyDown() && HouseManager.getHouseDomainCount((Player) entity) < 3) {
 							if (HouseManager.createDomain((Player) sourceentity, (Player) entity)) {
 								{

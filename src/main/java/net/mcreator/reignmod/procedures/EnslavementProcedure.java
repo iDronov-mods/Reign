@@ -1,26 +1,28 @@
 package net.mcreator.reignmod.procedures;
 
-import net.mcreator.reignmod.house.HouseManager;
-import net.mcreator.reignmod.network.ReignModModVariables;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ShovelItem;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.scores.PlayerTeam;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.eventbus.api.Event;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+
+import net.minecraft.world.scores.PlayerTeam;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.item.ShovelItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.network.chat.Component;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.BlockPos;
+
+import net.mcreator.reignmod.network.ReignModModVariables;
+import net.mcreator.reignmod.house.HouseManager;
 
 import javax.annotation.Nullable;
 
@@ -40,13 +42,14 @@ public class EnslavementProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, Entity entity, Entity sourceentity) {
 		if (entity == null || sourceentity == null)
 			return;
+		ItemStack itemInHand = ItemStack.EMPTY;
 		if (world instanceof ServerLevel _origLevel) {
 			LevelAccessor _worldorig = world;
 			world = _origLevel.getServer().getLevel(Level.OVERWORLD);
 			if (world != null) {
 				if (IsKnightProcedure.execute(world, sourceentity) && ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).house).isEmpty()) {
-					if ((sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() instanceof ShovelItem
-							&& (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == ItemStack.EMPTY.getItem()) {
+					itemInHand = (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY);
+					if (itemInHand.getItem() instanceof ShovelItem && (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == ItemStack.EMPTY.getItem()) {
 						if (entity.getXRot() >= 70 && entity.isShiftKeyDown() && HouseManager.getDomainPlayerCount((Player) sourceentity) < 5) {
 							if (HouseManager.pushPlayerToDomain((Player) sourceentity, (Player) entity)) {
 								{

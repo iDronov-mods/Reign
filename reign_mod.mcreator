@@ -7604,7 +7604,8 @@
           "src/main/resources/assets/reign_mod/blockstates/obelisk_foundation.json",
           "src/main/resources/data/reign_mod/loot_tables/blocks/obelisk_foundation.json",
           "src/main/resources/assets/reign_mod/models/item/obelisk_foundation.json",
-          "src/main/resources/assets/reign_mod/models/block/obelisk_foundation.json"
+          "src/main/resources/assets/reign_mod/models/block/obelisk_foundation.json",
+          "src/main/java/net/mcreator/reignmod/block/entity/ObeliskFoundationBlockEntity.java"
         ]
       },
       "path": "~/Blocks/Obelisk"
@@ -10802,80 +10803,6 @@
         ]
       },
       "path": "~/Scripts/CapitalSystem/CoffersSystem"
-    },
-    {
-      "name": "DoorBlock",
-      "type": "mixin",
-      "compiles": true,
-      "locked_code": true,
-      "registry_name": "door_block",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/reignmod/mixins/DoorBlockMixin.java"
-        ]
-      },
-      "path": "~/Mixins"
-    },
-    {
-      "name": "FenceGateBlock",
-      "type": "mixin",
-      "compiles": true,
-      "locked_code": true,
-      "registry_name": "fence_gate_block",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/reignmod/mixins/FenceGateBlockMixin.java"
-        ]
-      },
-      "path": "~/Mixins"
-    },
-    {
-      "name": "TrapDoorBlock",
-      "type": "mixin",
-      "compiles": true,
-      "locked_code": true,
-      "registry_name": "trap_door_block",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/reignmod/mixins/TrapDoorBlockMixin.java"
-        ]
-      },
-      "path": "~/Mixins"
-    },
-    {
-      "name": "LockDoor",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "lock_door",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/reignmod/procedures/LockDoorProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Scripts/OtherSystems/LockSystem"
     },
     {
       "name": "ReturnCapitalService",
@@ -14091,6 +14018,598 @@
         ]
       },
       "path": "~/Mixins"
+    },
+    {
+      "name": "ReturnSuspect1",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_suspect_1",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnSuspect1Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/DomainScript/SuspectsTable"
+    },
+    {
+      "name": "ReturnSuspect2",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_suspect_2",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnSuspect2Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/DomainScript/SuspectsTable"
+    },
+    {
+      "name": "ReturnSuspect3",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_suspect_3",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnSuspect3Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/DomainScript/SuspectsTable"
+    },
+    {
+      "name": "ReturnSuspect4",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_suspect_4",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnSuspect4Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/DomainScript/SuspectsTable"
+    },
+    {
+      "name": "ReturnSuspect5",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_suspect_5",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnSuspect5Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/DomainScript/SuspectsTable"
+    },
+    {
+      "name": "ReturnSuspect6",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_suspect_6",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnSuspect6Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/DomainScript/SuspectsTable"
+    },
+    {
+      "name": "ReturnSuspect7",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_suspect_7",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnSuspect7Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/DomainScript/SuspectsTable"
+    },
+    {
+      "name": "ReturnSuspect1Value",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_suspect_1_value",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnSuspect1ValueProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/DomainScript/SuspectsTable"
+    },
+    {
+      "name": "ReturnSuspect2Value",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_suspect_2_value",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnSuspect2ValueProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/DomainScript/SuspectsTable"
+    },
+    {
+      "name": "ReturnSuspect3Value",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_suspect_3_value",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnSuspect3ValueProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/DomainScript/SuspectsTable"
+    },
+    {
+      "name": "ReturnSuspect4Value",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_suspect_4_value",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnSuspect4ValueProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/DomainScript/SuspectsTable"
+    },
+    {
+      "name": "ReturnSuspect5Value",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_suspect_5_value",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnSuspect5ValueProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/DomainScript/SuspectsTable"
+    },
+    {
+      "name": "ReturnSuspect6Value",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_suspect_6_value",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnSuspect6ValueProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/DomainScript/SuspectsTable"
+    },
+    {
+      "name": "ReturnSuspect7Value",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_suspect_7_value",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnSuspect7ValueProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/DomainScript/SuspectsTable"
+    },
+    {
+      "name": "FoundationUpdateInfo",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "foundation_update_info",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/FoundationUpdateInfoProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "knightUUID",
+            "type": "string"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/DomainScript"
+    },
+    {
+      "name": "WinDomainOpen",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "win_domain_open",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/WinDomainOpenProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/UI/OpenScripts"
+    },
+    {
+      "name": "CancelDomainFoundation",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cancel_domain_foundation",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/CancelDomainFoundationProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript"
+    },
+    {
+      "name": "DeathArrest",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "death_arrest",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/DeathArrestProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems"
+    },
+    {
+      "name": "ChestScreen",
+      "type": "mixin",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "chest_screen",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/mixins/ChestScreenMixin.java"
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -14586,9 +15105,7 @@
       "CUSTOM:PrivateRental1",
       "CUSTOM:PrivateRental2",
       "CUSTOM:PrivateRental3",
-      "CUSTOM:StateRental1",
-      "CUSTOM:StateRental2",
-      "CUSTOM:StateRental3"
+      "CUSTOM:StateRental"
     ],
     "ITEMS:minecraft:music_discs": [
       "~CUSTOM:RuinLord3",
@@ -14623,11 +15140,9 @@
       "CUSTOM:PrivateRental1",
       "CUSTOM:PrivateRental2",
       "CUSTOM:PrivateRental3",
-      "CUSTOM:StateRental1",
-      "CUSTOM:StateRental2",
-      "CUSTOM:StateRental3",
       "CUSTOM:ContractKill",
-      "CUSTOM:TradeLicense"
+      "CUSTOM:TradeLicense",
+      "CUSTOM:StateRental"
     ],
     "ITEMS:minecraft:cattle_feed": [
       "Items.WHEAT_SEEDS",
@@ -14846,6 +15361,7 @@
       "item.reign_mod.farmer_coin": "Монета фермера",
       "gui.reign_mod.cowboy_window.button_refuse": "Отказаться",
       "gui.reign_mod.domain_ui.label_hp": "hp",
+      "translation.key.cant_tame_wolf": "А вдруг укусит?",
       "translation.key.tooltip.royale_table": "Может пользоваться только король. На столе можно издать указ, подписать договор или выдать лицензию на торговлю.",
       "block.reign_mod.incubator": "Инкубатор",
       "translation.key.kick_insufficient_authority": "не ваш прямой вассал.",
@@ -14859,6 +15375,7 @@
       "gui.reign_mod.enchanter_window.tooltip_lvl5_description": "Создание дубликатов зачарованных книг.",
       "gui.reign_mod.smith_window.tooltip_lvl5_description": "Доступ к кузнечному столу.",
       "gui.reign_mod.private_shop_buyer_ui.label_count_left": "count_left",
+      "translation.key.choose_farmer": "Теперь ты фермер.",
       "gui.reign_mod.smith_window.tooltip_lvl2_description": "Использование точила.",
       "pay_slave": "Нашёл на земле:",
       "gui.reign_mod.kingtable_ui.tooltip_kingtable_help": "Пишите Королевские указы",
@@ -14898,6 +15415,7 @@
       "gui.reign_mod.enchanter_window.tooltip_lvl3_description_l": "lvl3",
       "advancements.days_online_30.descr": "Месяц онлайн!",
       "gui.reign_mod.trader_point.sale_off": "OFF",
+      "translation.key.choose_soldier": "Теперь ты солдат! - Сэр, есть, сэр!",
       "gui.reign_mod.house_incubator_ui.label_meat": "мясо",
       "subtitles.minting": "",
       "gui.reign_mod.market.label_tax_count": "tax_count",
@@ -14919,6 +15437,7 @@
       "translation.key.capital_service": "Содержание столицы:",
       "gui.reign_mod.miner_window.button_empty": "\u003c\u003c",
       "gui.reign_mod.enchanter_window.label_add_license": "Дополнительная лицензия",
+      "gui.reign_mod.domain_ui.label_suspects_list_label": "Подозрительные лица:",
       "gui.reign_mod.hoarder.label_hoarder": "Барахольщик",
       "gui.reign_mod.house_incubator_ui.label_lvl_house": "Lvl_House",
       "gui.reign_mod.rental_block_ui.y_value": "",
@@ -14943,6 +15462,7 @@
       "gui.reign_mod.farmer_window.label_r": "Пчеловод",
       "gui.reign_mod.cowboy_window.label_r": "Конюх",
       "gui.reign_mod.enchanter_window.tooltip_lvl1_description": "Использование стола зачарования.",
+      "translation.key.choose_hunter": "Теперь ты охотник.",
       "block.reign_mod.obelisk_foundation": "Основа обелиска",
       "gui.reign_mod.license_is_selected.button_refuse": "Отказаться",
       "gui.reign_mod.hunter_window.tooltip_lvl3_description_l": "Приручение волков.",
@@ -14951,8 +15471,8 @@
       "advancements.days_online_14.title": "Местный знаток",
       "capitalclaim.system.enabled ": "Система столичной аренды включена.",
       "gui.reign_mod.smith_window.label_string_5": "",
-      "gui.reign_mod.smith_window.label_string_4": "",
       "chunkclaim.remove.success": "Земля теперь ничья.",
+      "gui.reign_mod.smith_window.label_string_4": "",
       "gui.reign_mod.smith_window.label_string_3": "чинит предметы на точиле (ПКМ)",
       "gui.reign_mod.hunter_window.button_select": "Выбрать",
       "gui.reign_mod.smith_window.label_string_2": "Создаёт броню и оружие,",
@@ -14987,11 +15507,12 @@
       "gui.reign_mod.licenses_window.tooltip_win_soldier_help": "Солдат",
       "translation.key.get_dailypay_exp": "Получено опыта:",
       "translation.key.tooltip.royale_table_short": "Издавайте указы",
-      "translation.key.tooltip.heart_of_house": "Поместите сердце в инкубатор, чтобы поддерживать жизнь Дома.",
+      "translation.key.tooltip.heart_of_house": "Сделайте для сердца инкубатор, чтобы поддерживать жизнь Дома.",
       "gui.reign_mod.coffers_tax_ui.label_other_tax_label": "Другое",
       "gui.reign_mod.cowboy_window.tooltip_lvl1_description": "+20% к эффективности сбора.",
       "gui.reign_mod.cowboy_window.button_select": "Выбрать",
       "translation.key.discontent_4": "Мы на грани революции.",
+      "translation.key.choose_woodcutter": "Теперь ты дровосек.",
       "gui.reign_mod.woodcutterwindow.label_coal_burner": "Coal burner",
       "translation.key.discontent_3": "Столица бунтует.",
       "gui.reign_mod.soldier_window.button_refuse": "Отказаться",
@@ -15017,7 +15538,7 @@
       "translation.key.already_house_locked": "Закрыто Домом: ",
       "gui.reign_mod.woodcutterwindow.label_string_6": "§oЛес рубят - щепки летят.",
       "gui.reign_mod.hunter_window.tooltip_lvl1_description": "+100% опыта от враждебных мобов.",
-      "translation.key.ironlock_tooltip": "§o§7Замок Домена",
+      "translation.key.ironlock_tooltip": "§o§7Замок домена",
       "translation.key.player_occupied_position": "Этот игрок уже занимает должность при дворе.",
       "gui.reign_mod.new_house.label_found_a_house": "Основать Дом",
       "gui.reign_mod.miner_window.tooltip_lvl3_description_l": "+33% к добыче обычных руд, добыча изумрудов.",
@@ -15051,6 +15572,7 @@
       "gui.reign_mod.soldier_window.label_string_4": "",
       "item.reign_mod.private_rental_3": "Роскошная частная аренда",
       "gui.reign_mod.soldier_window.label_string_5": "",
+      "translation.key.choose_miner": "Теперь ты шахтёр.",
       "item.reign_mod.private_rental_2": "Обычная частная аренда",
       "gui.reign_mod.soldier_window.label_string_6": "Сильнее тот, за кем правда.",
       "translation.key.tooltip.trade_license": "Продавайте свои товары, разместив документ в частной лавке.",
@@ -15068,7 +15590,7 @@
       "gui.reign_mod.farmer_window.tooltip_lvl3_description_l": "Выращивание блочных культур.",
       "translation.key.capital_exists": "Столица уже существует:",
       "item.reign_mod.gold_lock": "Золотой замок",
-      "pay_lord": "Прибыль Лорда:",
+      "pay_lord": "Прибыль лорда:",
       "gui.reign_mod.new_kingdom_ui.label_color": "Цвет:",
       "translation.key.kick_player_not_found": "нет в Доме.",
       "item.reign_mod.right_hand": "Брошь  Десницы",
@@ -15080,7 +15602,7 @@
       "gui.reign_mod.fisher_window.tooltip_lvl3_description_l": "10% шанс получить удачу при подсечке.",
       "translation.key.tooltip.private_rent2_short": "Для аренды столичной земли до 512 м²",
       "gui.reign_mod.coffers_tax_ui.label_armor_tax_label": "Броня",
-      "translation.key.tooltip.ironlock_short": "Доступ Домена",
+      "translation.key.tooltip.ironlock_short": "Доступ домена",
       "gui.reign_mod.fund_ui.tooltip_processing_of_precious_ores": "Обработка драгоценных руд",
       "translation.key.cooperlock_tooltip": "§o§7Личный замок",
       "key.reign_mod.open_licenses": "Окно лицензий",
@@ -15096,6 +15618,7 @@
       "gui.reign_mod.rental_block_ui.label_z": "z",
       "advancements.days_online_30.title": "Собственник",
       "gui.reign_mod.licenses_window.tooltip_win_miner_help": "Шахтёр",
+      "translation.key.choose_alchemist": "Теперь ты алхимик.",
       "translation.key.tooltip.trade_license_short": "Позволяет продавать в частной лавке",
       "translation.key.royale_imprisoned": "заключён в королевской темнице.",
       "gui.reign_mod.farmer_window.button_select": "Выбрать",
@@ -15107,6 +15630,7 @@
       "gui.reign_mod.miner_window.button_refuse": "Отказаться",
       "item.reign_mod.silver_coin": "Серебряная монета",
       "translation.key.incubator_help_fuel": "Топливо:",
+      "translation.key.choose_enchanter": "Теперь ты чародей.",
       "gui.reign_mod.new_house.label_name": "Выберите цвет",
       "translation.key.set_knight_domain": "образовал владения домена.",
       "item.reign_mod.pen_with_ink": "Письменный набор",
@@ -15129,8 +15653,8 @@
       "translation.key.tooltip.incubator_short": "Поддерживает жизнь Дома",
       "effect.reign_mod.suspect": "Подозрительный",
       "gui.reign_mod.coffers_tax_ui.label_exp_tax_label": "Опыт",
-      "translation.key.removePlayerFromDomain": "больше не собственность Домена ",
-      "translation.key.player_not_knight": "Вы не рыцарь.",
+      "translation.key.removePlayerFromDomain": "больше не собственность домена ",
+      "translation.key.choose_smith": "Теперь ты кузнец.",
       "gui.reign_mod.fisher_window.label_add_license": "Дополнительная лицензия",
       "gui.reign_mod.alchemist_window.button_empty": "\u003c\u003c",
       "gui.reign_mod.license_is_selected.label_the_main_license_has_been_select": "Основная лицензия уже выбрана.",
@@ -15203,7 +15727,7 @@
       "gui.reign_mod.market.label_market_wallet": "market_wallet",
       "translation.key.old_crown": "Корона рассыпается в прах на твоих глазах. В ней больше нет былой силы.",
       "NotLord": " больше не лорд.",
-      "translation.key.enslavement": "вступает в Домен: ",
+      "translation.key.enslavement": "вступает в домен: ",
       "item.reign_mod.accursed_black_mark": "Проклятая чёрная метка",
       "gui.reign_mod.farmer_window.label_string_3": "Снабжает алхимиков.",
       "gui.reign_mod.farmer_window.label_string_2": "Питает столицу и Дома.",
@@ -15214,7 +15738,7 @@
       "gui.reign_mod.market.label_cost": "цена",
       "gui.reign_mod.smith_window.button_empty": "\u003c\u003c",
       "translation.key.tooltip.private_door": "Повесьте на дверь замок, чтобы ограничить доступ к двери.",
-      "translation.key.already_domain_locked": "Закрыто Доменом:",
+      "translation.key.already_domain_locked": "Закрыто доменом:",
       "translation.key.tooltip.rentalblock": "Арендует столичную землю согласно вложенному договору с королевской печатью.",
       "item.reign_mod.ruin_lord_3": "Пыльная пластинка",
       "translation.key.tooltip.hoarder_short": "Обменивайте стаки на медные монеты",
@@ -15229,6 +15753,7 @@
       "translation.key.tooltip.finial_of_might_short": "Вершина рыцарского обелиска",
       "gui.reign_mod.license_is_selected.label_do_you_want_to_give_it_up": "Хотите отказаться от неё?",
       "gui.reign_mod.cowboy_window.tooltip_lvl3_description_r": "Разведение и обкатка коней.",
+      "translation.key.choose_cowboy": "Теперь ты пастух.",
       "translation.key.LossLvl": "Кажется, вы забыли что-то важное...",
       "translation.key.incubator_help_jewelry": "Драгоценности:",
       "effect.reign_mod.bee_effect": "Светоч мёда",
@@ -15241,6 +15766,7 @@
       "gui.reign_mod.fund_ui.tooltip_donate_coins_to_advance_to_a_new": "Жертвуйте монеты для продвижения к новому времени.",
       "gui.reign_mod.private_shop_ui.label_tax": "Налог:",
       "translation.key.ender_lock_pick_chest_open_player_name": "Эндер-сундук ",
+      "chunkclaim.capital.name": "Столица",
       "translation.key.player_arrested": "Ты арестовал",
       "gui.reign_mod.smith_window.label_l": "Бронник",
       "gui.reign_mod.smith_window.label_r": "Оружейник",
@@ -15257,13 +15783,14 @@
       "capitalclaim.remove.fail": "Аренда не найдена.",
       "translation.key.incubator_help_wool": "Шерсть:",
       "gui.reign_mod.miner_window.tooltip_lvl4_description": "+5% к эффективности.",
-      "gui.reign_mod.house_incubator_ui.tooltip_incubator_label_help": "Питайте Сердце, чтобы Дом существовал",
+      "gui.reign_mod.house_incubator_ui.tooltip_incubator_label_help": "Питайте сердце, чтобы Дом существовал",
       "translation.key.tooltip.shaft_short": "Основная часть обелиска",
       "gui.reign_mod.private_shop_buyer_ui.label_available": "доступно:",
       "gui.reign_mod.miner_window.tooltip_lvl2_description": "+15% к эффективности добычи.",
       "gui.reign_mod.miner_window.label_main_label": "Шахтёр",
       "gui.reign_mod.house_incubator_ui.label_proc_incubator_get_fuel_per_hour": "4 / hour",
       "chunkclaim.remove.not_found": "Территория домена не найдена!",
+      "translation.key.is_not_knight": "Вы не рыцарь.",
       "gui.reign_mod.coffers_tax_ui.label_coinage_block_label": "Запретить чеканку.",
       "KingOnline": "§6Король в сети!",
       "gui.reign_mod.market.label_price": "Price",
@@ -15275,7 +15802,7 @@
       "gui.reign_mod.smith_window.button_select": "Выбрать",
       "gui.reign_mod.licenses_window.tooltip_win_smith_help": "Кузнец",
       "translation.key.under_arest": "Ты арестован.",
-      "translation.key.tooltip.incubator": "Установите Первый домен и питайте Сердце Дома, чтобы поддерживать жизнь Дома.",
+      "translation.key.tooltip.incubator": "Установите Первый домен и питайте сердце, чтобы поддерживать жизнь Дома.",
       "KingdomDelete": "Королевство распалось: ",
       "translation.key.tooltip.private_rent": "Арендуйте столичную землю, разместив документ в блоке аренды.",
       "NotKing": "Недостаточно полномочий.",
@@ -15288,7 +15815,7 @@
       "gui.reign_mod.rental_block_ui.x_value": "",
       "gui.reign_mod.fisher_window.label_string_3": "Смотрит на воду.",
       "translation.key.set_first_domain": "обозначил свои владения.",
-      "translation.key.is_not_lord": "Вы не Лорд.",
+      "translation.key.is_not_lord": "Вы не лорд.",
       "gui.reign_mod.fisher_window.label_string_2": "Хорошо задерживает дыхание.",
       "translation.royale_prison_set": "Королевская тюрьма установлена.",
       "gui.reign_mod.fisher_window.label_string_5": "",
@@ -15323,6 +15850,7 @@
       "gui.reign_mod.private_shop_ui.label_owner_name": "owner_name",
       "gui.reign_mod.hunter_window.label_string_4": "",
       "gui.reign_mod.licenses_window.tooltip_win_hunter_help": "Охотник",
+      "gui.reign_mod.house_suspects_ui.label_suspects_label": "Подозрительные лица:",
       "gui.reign_mod.hunter_window.label_string_3": "Хорошо стреляет из лука.",
       "gui.reign_mod.hunter_window.label_string_6": "Тетива лжёт, если рука дрожит.",
       "gui.reign_mod.woodcutterwindow.label_main_label": "ДРОВОСЕК",
@@ -15336,13 +15864,12 @@
       "gui.reign_mod.house_suspects_ui.tooltip_domain_players_help": "Игроков в вашем домене",
       "translation.key.tooltip.safe_short": "Храните деньги в безопасности",
       "item.reign_mod.wallet": "Кошель",
-      "gui.reign_mod.alchemist_window.tooltip_lvl3_description_l": "Лечение Доменов",
+      "gui.reign_mod.alchemist_window.tooltip_lvl3_description_l": "Лечение доменов",
       "translation.key.farmer.cant_wart": "Я не умею собирать этот странный нарост",
       "gui.reign_mod.cowboy_window.label_main_label": "ПАСТУХ",
       "gui.reign_mod.hunter_window.label_string_2": "Получает больше опыта за мобов.",
       "translation.key.oath_broken": "Клятва нарушена...",
       "gui.reign_mod.hunter_window.label_string_1": "Охотится на враждебных существ.",
-      "translation.key.player_not_lord": "Вы не Лорд.",
       "translation.key.remove_position": "Должность освобождена.",
       "gui.reign_mod.farmer_window.tooltip_lvl2_description": "Выращивание корнеплодов.",
       "translation.key.rental_area_blocks": "блоков",
@@ -15378,6 +15905,7 @@
       "gui.reign_mod.licenses_window.tooltip_win_alchemist_help": "Алхимик",
       "gui.reign_mod.private_shop_buyer_ui.button_buy": "КУПИТЬ",
       "gui.reign_mod.coffers_ui.tooltip_capital_service_help": "Почасовое содержание защищает столицу от разрушения.",
+      "translation.key.choose_fisher": "Теперь ты рыбак.",
       "translation.key.farmer.cant_block_crops": "Я не знаю как собирать блочные культуры.",
       "gui.reign_mod.farmer_window.label_main_label": "ФЕРМЕР",
       "advancements.true_to_the_oath.descr": "Стань рыцарем.",
@@ -15395,7 +15923,7 @@
       "gui.reign_mod.new_house.button_create": "Create",
       "gui.reign_mod.rental_block_ui.button_set": "Создать",
       "gui.reign_mod.licenses_window.tooltip_win_fisher_help": "Рыбак",
-      "translation.key.player_not_king": "Вы не Король.",
+      "translation.key.player_not_king": "Вы не король.",
       "gui.reign_mod.alchemist_window.tooltip_lvl4_description": "",
       "gui.reign_mod.soldier_window.tooltip_lvl3_description_l": "+1 ед. урона мечом.",
       "gui.reign_mod.fund_ui.tooltip_netherite_processing": "Обработка незерита",
@@ -15416,7 +15944,7 @@
       "gui.reign_mod.private_shop_buyer_ui.label_wallet_value": "wallet_value",
       "gui.reign_mod.alchemist_window.label_string_4": "Лечит хвори и болезни.",
       "gui.reign_mod.market.button_buy": "КУПИТЬ",
-      "gui.reign_mod.alchemist_window.label_string_3": "Спасает территории Доменов",
+      "gui.reign_mod.alchemist_window.label_string_3": "Спасает территории доменов",
       "advancements.sleight_of_hand_and_no_bugs.descr": "Взломайте замок.",
       "gui.reign_mod.licenses_window.label_drovosiek": "Дровосек",
       "capitalclaim.add.fail": "Не удалось создать аренду: {0}.",
@@ -15453,33 +15981,35 @@
       "translation.key.tooltip.marshal_insignia_short": "",
       "translation.key.players": "players",
       "translation.key.sticky_piston_lock": "",
-      "house.get_domain_suspect": "",
-      "gui.reign_mod.house_incubator_ui.label_proc_incubator_get_food_per_hour": "2 / hour",
-      "item.reign_mod.ender_picklock": "Отмычка Края",
       "gui.reign_mod.coffers_tax_ui.label_food_tax_label": "food_tax_label",
+      "item.reign_mod.ender_picklock": "Отмычка Края",
+      "gui.reign_mod.house_incubator_ui.label_proc_incubator_get_food_per_hour": "2 / hour",
+      "house.get_domain_suspect": "",
       "gui.reign_mod.farmer_window.button_empty": "\u003c\u003c",
       "block.reign_mod.privatedoor": "Private door",
       "translation.key.tooltip.found": "",
       "translation.key.house_rename": "Your house has been renamed.",
-      "item.reign_mod.farmer_coin": "Farmer coin",
       "block.reign_mod.finial_of_reign": "Finial of reign",
+      "item.reign_mod.farmer_coin": "Farmer coin",
       "gui.reign_mod.cowboy_window.button_refuse": "refuse",
       "gui.reign_mod.domain_ui.label_hp": "hp",
+      "translation.key.cant_tame_wolf": "",
       "block.reign_mod.incubator": "Incubator",
       "translation.key.tooltip.royale_table": "",
       "translation.key.kick_insufficient_authority": "",
       "translation.key.tooltip.obelisk_foundation_short": "",
       "gui.reign_mod.licenses_window.tooltip_win_enchanter_help": "win_enchanter_help",
       "gui.reign_mod.smith_window.tooltip_lvl1_description": "lvl1_description",
-      "gui.reign_mod.rental_block_ui.button_delete": "Delete",
       "gui.reign_mod.enchanter_window.tooltip_lvl4_description": "lvl4_description",
+      "gui.reign_mod.rental_block_ui.button_delete": "Delete",
       "translation.key.houses_list": "\u003d\u003d\u003d Houses in the Kingdom: \u003d\u003d\u003d",
       "gui.reign_mod.smith_window.tooltip_lvl4_description": "lvl4_description",
       "gui.reign_mod.enchanter_window.tooltip_lvl5_description": "lvl5_description",
       "gui.reign_mod.smith_window.tooltip_lvl5_description": "lvl5_description",
+      "translation.key.choose_farmer": "",
       "gui.reign_mod.private_shop_buyer_ui.label_count_left": "count_left",
-      "pay_slave": "Found on the ground:",
       "gui.reign_mod.smith_window.tooltip_lvl2_description": "lvl2_description",
+      "pay_slave": "Found on the ground:",
       "gui.reign_mod.kingtable_ui.tooltip_kingtable_help": "kingtable_help",
       "translation.key.title_dont_match": "",
       "gui.reign_mod.fisher_window.tooltip_lvl4_description": "lvl4_description",
@@ -15491,13 +16021,13 @@
       "gui.reign_mod.fisher_window.tooltip_lvl1_description": "lvl1_description",
       "gui.reign_mod.farmer_window.label_main_license": "Main license",
       "translation.key.tooltip.honey_concentrate": "",
-      "gui.reign_mod.enchanter_window.button_select": "Select",
-      "translation.key.houseNameTaken": "A House with this name already exists!",
       "gui.reign_mod.coffers_ui.button_pay_off": "Pay off",
+      "translation.key.houseNameTaken": "A House with this name already exists!",
+      "gui.reign_mod.enchanter_window.button_select": "Select",
       "item.reign_mod.trade_license": "Trade license",
       "gui.reign_mod.coffers_tax_ui.label_coal_tax_label": "coal_tax_label",
-      "block.reign_mod.kingtable": "Royale table",
       "gui.reign_mod.house_incubator_ui.tooltip_domain_players": "domain_players",
+      "block.reign_mod.kingtable": "Royale table",
       "translation.key.tooltip.shackles_short": "",
       "advancements.sleight_of_hand_and_no_bugs.title": "Sleight Of Hand And No Bugs",
       "gui.reign_mod.fund_ui.tooltip_1_kingdom": "+1 kingdom",
@@ -15517,6 +16047,7 @@
       "gui.reign_mod.enchanter_window.tooltip_lvl3_description_l": "lvl3_description_L",
       "gui.reign_mod.trader_point.sale_off": "OFF",
       "advancements.days_online_30.descr": "A month online!",
+      "translation.key.choose_soldier": "",
       "gui.reign_mod.house_incubator_ui.label_meat": "meat",
       "subtitles.minting": "",
       "gui.reign_mod.market.label_tax_count": "tax_count",
@@ -15539,6 +16070,7 @@
       "translation.key.capital_service": "",
       "gui.reign_mod.miner_window.button_empty": "\u003c\u003c",
       "gui.reign_mod.enchanter_window.label_add_license": "Add_license",
+      "gui.reign_mod.domain_ui.label_suspects_list_label": "suspects_list_label",
       "gui.reign_mod.hoarder.label_hoarder": "Hoarder",
       "gui.reign_mod.house_incubator_ui.label_lvl_house": "Lvl_House",
       "gui.reign_mod.rental_block_ui.y_value": "",
@@ -15563,6 +16095,7 @@
       "gui.reign_mod.farmer_window.label_r": "R",
       "gui.reign_mod.cowboy_window.label_r": "R",
       "gui.reign_mod.enchanter_window.tooltip_lvl1_description": "lvl1_description",
+      "translation.key.choose_hunter": "",
       "block.reign_mod.obelisk_foundation": "Obelisk foundation",
       "gui.reign_mod.license_is_selected.button_refuse": "Refuse   ",
       "gui.reign_mod.hunter_window.tooltip_lvl3_description_l": "lvl3_description_L",
@@ -15612,6 +16145,7 @@
       "gui.reign_mod.cowboy_window.tooltip_lvl1_description": "lvl1_description",
       "gui.reign_mod.cowboy_window.button_select": "select",
       "translation.key.discontent_4": "",
+      "translation.key.choose_woodcutter": "",
       "gui.reign_mod.woodcutterwindow.label_coal_burner": "Coal burner",
       "translation.key.discontent_3": "",
       "gui.reign_mod.soldier_window.button_refuse": "Refuse",
@@ -15673,6 +16207,7 @@
       "gui.reign_mod.soldier_window.label_string_4": "String_4",
       "item.reign_mod.private_rental_3": "Big private rent",
       "gui.reign_mod.soldier_window.label_string_5": "String_5",
+      "translation.key.choose_miner": "",
       "item.reign_mod.private_rental_2": "Average private rent",
       "gui.reign_mod.soldier_window.label_string_6": "String_6",
       "translation.key.tooltip.trade_license": "",
@@ -15717,6 +16252,7 @@
       "advancements.days_online_30.title": "Owner",
       "gui.reign_mod.rental_block_ui.label_z": "z",
       "gui.reign_mod.licenses_window.tooltip_win_miner_help": "win_miner_help",
+      "translation.key.choose_alchemist": "",
       "translation.key.tooltip.trade_license_short": "",
       "translation.key.royale_imprisoned": "",
       "gui.reign_mod.farmer_window.button_select": "select",
@@ -15727,6 +16263,7 @@
       "item.reign_mod.silver_coin": "Silver coin",
       "gui.reign_mod.miner_window.button_refuse": "refuse",
       "translation.key.incubator_help_fuel": "",
+      "translation.key.choose_enchanter": "",
       "gui.reign_mod.new_house.label_name": "Choose name and color",
       "translation.key.set_knight_domain": "",
       "item.reign_mod.pen_with_ink": "Writing set",
@@ -15751,6 +16288,7 @@
       "gui.reign_mod.coffers_tax_ui.label_exp_tax_label": "exp_tax_label",
       "translation.key.removePlayerFromDomain": "is no longer belongs to the Domain",
       "translation.key.player_not_knight": "",
+      "translation.key.choose_smith": "",
       "gui.reign_mod.fisher_window.label_add_license": "Add_license",
       "gui.reign_mod.alchemist_window.button_empty": "\u003c\u003c",
       "gui.reign_mod.license_is_selected.label_the_main_license_has_been_select": "The main license has been selected.",
@@ -15849,6 +16387,7 @@
       "translation.key.tooltip.finial_of_might_short": "",
       "gui.reign_mod.license_is_selected.label_do_you_want_to_give_it_up": "Do you want to give it up?",
       "gui.reign_mod.cowboy_window.tooltip_lvl3_description_r": "lvl3_description_R",
+      "translation.key.choose_cowboy": "",
       "translation.key.LossLvl": "It seems you forgot something important...",
       "effect.reign_mod.bee_effect": "Honey of Light",
       "translation.key.tooltip.trader_short": "",
@@ -15860,6 +16399,7 @@
       "gui.reign_mod.fund_ui.tooltip_donate_coins_to_advance_to_a_new": "Donate coins to advance to a new time.",
       "gui.reign_mod.private_shop_ui.label_tax": "Tax:",
       "translation.key.ender_lock_pick_chest_open_player_name": "",
+      "chunkclaim.capital.name": "",
       "translation.key.player_arrested": "",
       "gui.reign_mod.smith_window.label_l": "L",
       "gui.reign_mod.smith_window.label_r": "R",
@@ -15938,6 +16478,7 @@
       "gui.reign_mod.private_shop_ui.label_owner_name": "owner_name",
       "gui.reign_mod.hunter_window.label_string_4": "String_4",
       "gui.reign_mod.licenses_window.tooltip_win_hunter_help": "win_hunter_help",
+      "gui.reign_mod.house_suspects_ui.label_suspects_label": "suspects_label",
       "gui.reign_mod.hunter_window.label_string_3": "String_3",
       "gui.reign_mod.hunter_window.label_string_6": "String_6",
       "gui.reign_mod.woodcutterwindow.label_main_label": "main_label",
@@ -15958,7 +16499,6 @@
       "gui.reign_mod.hunter_window.label_string_2": "String_2",
       "translation.key.oath_broken": "Oath broken...",
       "gui.reign_mod.hunter_window.label_string_1": "String_1",
-      "translation.key.player_not_lord": "",
       "translation.key.remove_position": "",
       "gui.reign_mod.farmer_window.tooltip_lvl2_description": "lvl2_description",
       "translation.key.rental_area_blocks": "blocks",
@@ -15995,6 +16535,7 @@
       "gui.reign_mod.licenses_window.tooltip_win_alchemist_help": "win_alchemist_help",
       "gui.reign_mod.private_shop_buyer_ui.button_buy": "Buy",
       "gui.reign_mod.coffers_ui.tooltip_capital_service_help": "capital_service_help",
+      "translation.key.choose_fisher": "",
       "translation.key.farmer.cant_block_crops": "I don\u0027t know how to collect block cultures.",
       "key.catigories.reign": "Setup ReignMod",
       "gui.reign_mod.farmer_window.label_main_label": "main_label",
@@ -16330,6 +16871,10 @@
                 "children": [
                   {
                     "name": "Domain_HP_bar",
+                    "children": []
+                  },
+                  {
+                    "name": "SuspectsTable",
                     "children": []
                   }
                 ]

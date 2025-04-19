@@ -146,7 +146,7 @@ public class HouseManager {
             if (!foundHouse.isNull()) {
                 Domain playerDomain = houseSavedData.getHouseData().findDomainByKnight(foundPlayerUUID.toString());
                 if (!playerDomain.isNull() && playerDomain.getLordUUID().equals(suzerainUUID)) {
-                    if (playerDomain.getClaimId() == null) {
+                    if (playerDomain.getClaimId() != null) {
                         return removeDirectVassalResult.DOMAIN_IS_PROTECTED;
                     }
 
@@ -292,6 +292,15 @@ public class HouseManager {
         return new House();
     }
 
+    public static House getHouseBySuzerainUUID(String suzerainUUID) {
+        HouseSavedData houseSavedData = HouseSavedData.getInstance();
+
+        if (houseSavedData != null) {
+            return HouseSavedData.getInstance().getHouseData().findHouseByPlayerSuzerain(suzerainUUID);
+        }
+        return new House();
+    }
+
     public static String getPlayerHouseTitle(Player player) {
         return getPlayerHouse(player).getHouseTitle();
     }
@@ -379,6 +388,20 @@ public class HouseManager {
         ArrayList<String> domainSuspectPlayers = new ArrayList<>(found.size());
         found.forEach( (sus) -> domainSuspectPlayers.add(HouseSavedData.getInstance().getHouseData().getPlayerCodes().getOrDefault(sus.getKey(), "") +
                 getOfflinePlayerName(sus.getKey()) + "§r: " + sus.getValue()));
+        return domainSuspectPlayers;
+    }
+
+    public static ArrayList<String> getIlyaDomainSuspectPlayers(String knightUUID, int count) {
+        var found = getDomainByKnightUUID(knightUUID).getSortedSuspects(count);
+        ArrayList<String> domainSuspectPlayers = new ArrayList<>(found.size());
+        found.forEach( (sus) -> {
+            domainSuspectPlayers.add(HouseSavedData.getInstance().getHouseData().getPlayerCodes().getOrDefault(sus.getKey(), "") +
+                    getOfflinePlayerName(sus.getKey()));
+            domainSuspectPlayers.add(String.valueOf(sus.getValue()));
+        });
+        while (domainSuspectPlayers.size() < count * 2) {
+            domainSuspectPlayers.add("");
+        }
         return domainSuspectPlayers;
     }
 
@@ -540,6 +563,7 @@ public class HouseManager {
 
             int add_from_domains = 0;
             for (Domain domain : domains) {
+                domain.adjustSuspicionForAll(-1);
                 add_from_domains += 3 * (domain.getDomainHP()/300);
             }
 

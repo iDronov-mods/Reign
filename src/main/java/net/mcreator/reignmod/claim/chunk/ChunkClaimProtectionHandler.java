@@ -127,6 +127,7 @@ public class ChunkClaimProtectionHandler {
         if (oldOwnerData.isPresent() && newOwnerData.isPresent()) {
             String oldOwner = oldOwnerData.get();
             String newOwner = newOwnerData.get();
+
             if (!Objects.equals(oldOwner, newOwner)) {
                 sp.displayClientMessage(Component.nullToEmpty(ChatFormatting.RED + newOwner), true);
             }

@@ -50,12 +50,12 @@ public class SetPositionsProcedure {
 								KingdomData.assignCourtier(KingdomData.CourtPosition.HAND_OF_THE_KING, UUID);
 								(sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).shrink(1);
 							} else {
-								if (entity instanceof Player _player && !_player.level().isClientSide())
-									_player.displayClientMessage(Component.literal(("\u00A7c" + Component.translatable("translation.key.title_dont_match").getString())), false);
+								if (sourceentity instanceof Player _player && !_player.level().isClientSide())
+									_player.displayClientMessage(Component.literal(("\u00A7c" + Component.translatable((Component.translatable("translation.key.title_dont_match").getString())).getString())), false);
 							}
 						} else {
 							if (sourceentity instanceof Player _player && !_player.level().isClientSide())
-								_player.displayClientMessage(Component.literal((Component.translatable(("\u00A7c" + "translation.key.player_occupied_position")).getString())), false);
+								_player.displayClientMessage(Component.literal((Component.translatable(("\u00A7c" + Component.translatable("translation.key.player_occupied_position").getString())).getString())), false);
 						}
 					} else if ((sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == ReignModModItems.MARSHAL_INSIGNIA.get()) {
 						if (!KingdomData.isPlayerInCourt(UUID)) {
@@ -63,12 +63,12 @@ public class SetPositionsProcedure {
 								KingdomData.assignCourtier(KingdomData.CourtPosition.MARSHAL, UUID);
 								(sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).shrink(1);
 							} else {
-								if (entity instanceof Player _player && !_player.level().isClientSide())
-									_player.displayClientMessage(Component.literal(("\u00A7c" + Component.translatable("translation.key.title_dont_match").getString())), false);
+								if (sourceentity instanceof Player _player && !_player.level().isClientSide())
+									_player.displayClientMessage(Component.literal(("\u00A7c" + Component.translatable((Component.translatable("translation.key.title_dont_match").getString())).getString())), false);
 							}
 						} else {
 							if (sourceentity instanceof Player _player && !_player.level().isClientSide())
-								_player.displayClientMessage(Component.literal((Component.translatable(("\u00A7c" + "translation.key.player_occupied_position")).getString())), false);
+								_player.displayClientMessage(Component.literal((Component.translatable(("\u00A7c" + Component.translatable("translation.key.player_occupied_position").getString())).getString())), false);
 						}
 					} else if ((sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == ReignModModItems.TREASURER_KEY.get()) {
 						if (!KingdomData.isPlayerInCourt(UUID)) {
@@ -76,7 +76,7 @@ public class SetPositionsProcedure {
 							(sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).shrink(1);
 						} else {
 							if (sourceentity instanceof Player _player && !_player.level().isClientSide())
-								_player.displayClientMessage(Component.literal(("\u00A7c" + "translation.key.player_occupied_position")), false);
+								_player.displayClientMessage(Component.literal(("\u00A7c" + Component.translatable("translation.key.player_occupied_position").getString())), false);
 						}
 					} else if ((sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == ReignModModItems.ARCHITECT_COMPASS.get()) {
 						if (!KingdomData.isPlayerInCourt(UUID)) {
@@ -84,7 +84,7 @@ public class SetPositionsProcedure {
 							(sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).shrink(1);
 						} else {
 							if (sourceentity instanceof Player _player && !_player.level().isClientSide())
-								_player.displayClientMessage(Component.literal((Component.translatable(("\u00A7c" + "translation.key.player_occupied_position")).getString())), false);
+								_player.displayClientMessage(Component.literal((Component.translatable(("\u00A7c" + Component.translatable("translation.key.player_occupied_position").getString())).getString())), false);
 						}
 					}
 				}

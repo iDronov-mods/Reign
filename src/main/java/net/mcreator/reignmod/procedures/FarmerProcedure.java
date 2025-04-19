@@ -7,6 +7,8 @@ import net.minecraftforge.event.level.BlockEvent;
 
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.StemGrownBlock;
+import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.player.Player;
@@ -37,8 +39,7 @@ public class FarmerProcedure {
 		if (entity == null)
 			return;
 		double yShift = 0;
-		if (blockstate.is(BlockTags.create(new ResourceLocation("minecraft:crops"))) || blockstate.getBlock() == Blocks.SUGAR_CANE || blockstate.getBlock() == Blocks.PUMPKIN || blockstate.getBlock() == Blocks.MELON
-				|| blockstate.getBlock() == Blocks.NETHER_WART) {
+		if (blockstate.getBlock() instanceof CropBlock || blockstate.getBlock() instanceof StemGrownBlock || blockstate.getBlock() == Blocks.SUGAR_CANE || blockstate.getBlock() == Blocks.NETHER_WART) {
 			if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).license_farmer) {
 				if (Mth.nextInt(RandomSource.create(), 1, 100) <= (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).efficiency) {
 					if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).MAIN_LVL < 2) {
@@ -49,7 +50,7 @@ public class FarmerProcedure {
 						}
 					}
 					if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).MAIN_LVL < 3) {
-						if (blockstate.getBlock() == Blocks.PUMPKIN || blockstate.getBlock() == Blocks.MELON) {
+						if (blockstate.getBlock() instanceof StemGrownBlock) {
 							world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
 							if (entity instanceof Player _player && !_player.level().isClientSide())
 								_player.displayClientMessage(Component.literal((Component.translatable("translation.key.farmer.cant_block_crops").getString())), true);
@@ -69,7 +70,7 @@ public class FarmerProcedure {
 						}
 					}
 					if (Mth.nextInt(RandomSource.create(), 1, 4) == 1 && blockstate.is(BlockTags.create(new ResourceLocation("minecraft:crops")))
-							&& (blockstate.getBlock().getStateDefinition().getProperty("age") instanceof IntegerProperty _getip42 ? blockstate.getValue(_getip42) : -1) == 7) {
+							&& (blockstate.getBlock().getStateDefinition().getProperty("age") instanceof IntegerProperty _getip32 ? blockstate.getValue(_getip32) : -1) == 7) {
 						if (entity instanceof Player _player)
 							_player.giveExperiencePoints(1);
 					}
@@ -83,7 +84,7 @@ public class FarmerProcedure {
 						world.setBlock(BlockPos.containing(x, y + yShift, z), Blocks.AIR.defaultBlockState(), 3);
 						yShift = yShift + 1;
 					}
-				} else if (blockstate.getBlock() == Blocks.PUMPKIN || blockstate.getBlock() == Blocks.MELON) {
+				} else if (blockstate.getBlock() instanceof StemGrownBlock) {
 					world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
 				}
 			}

@@ -9,6 +9,8 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.reignmod.world.inventory.DomainUIMenu;
+import net.mcreator.reignmod.procedures.ReturnSuspect1ValueProcedure;
+import net.mcreator.reignmod.procedures.ReturnSuspect1Procedure;
 import net.mcreator.reignmod.procedures.DomainHP66Procedure;
 import net.mcreator.reignmod.procedures.DomainHP56Procedure;
 import net.mcreator.reignmod.procedures.DomainHP46Procedure;
@@ -71,6 +73,11 @@ public class DomainUIScreen extends AbstractContainerScreen<DomainUIMenu> {
 		if (DomainHP66Procedure.execute(world, x, y, z)) {
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/house_hp_point.png"), this.leftPos + 132, this.topPos + 1, 0, 0, 20, 4, 20, 4);
 		}
+
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/robbers_logo.png"), this.leftPos + 35, this.topPos + -11, 0, 0, 8, 8, 8, 8);
+
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/disease_logo.png"), this.leftPos + 25, this.topPos + -11, 0, 0, 8, 8, 8, 8);
+
 		RenderSystem.disableBlend();
 	}
 
@@ -87,6 +94,13 @@ public class DomainUIScreen extends AbstractContainerScreen<DomainUIMenu> {
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.domain_ui.label_hp"), 158, -3, -1, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.domain_ui.label_players"), 54, 25, -12829636, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnSuspect1Procedure.execute(world, x, y, z), 7, 66, -1, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnSuspect1ValueProcedure.execute(world, x, y, z), 111, 66, -39322, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.domain_ui.label_suspects_list_label"), 17, 47, -1, false);
 	}
 
 	@Override

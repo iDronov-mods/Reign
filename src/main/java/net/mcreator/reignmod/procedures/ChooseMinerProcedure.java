@@ -1,9 +1,10 @@
 package net.mcreator.reignmod.procedures;
 
-import net.mcreator.reignmod.network.ReignModModVariables;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.network.chat.Component;
+
+import net.mcreator.reignmod.network.ReignModModVariables;
 
 public class ChooseMinerProcedure {
 	public static void execute(Entity entity) {
@@ -24,7 +25,7 @@ public class ChooseMinerProcedure {
 			});
 		}
 		if (entity instanceof Player _player && !_player.level().isClientSide())
-			_player.displayClientMessage(Component.literal("You are a Miner!"), true);
+			_player.displayClientMessage(Component.literal((Component.translatable("translation.key.choose_miner").getString())), true);
 		if (entity instanceof Player _player)
 			_player.closeContainer();
 	}

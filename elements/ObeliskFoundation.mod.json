@@ -120,10 +120,10 @@
     "unbreakable": false,
     "vanillaToolTier": "NONE",
     "isBonemealable": false,
-    "hasInventory": false,
-    "guiBoundTo": "<NONE>",
+    "hasInventory": true,
+    "guiBoundTo": "DomainUI",
     "openGUIOnRightClick": false,
-    "inventorySize": 9,
+    "inventorySize": 1,
     "inventoryStackSize": 64,
     "inventoryDropWhenDestroyed": true,
     "inventoryComparatorPower": true,
@@ -137,6 +137,9 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
+    "onRightClicked": {
+      "name": "WinDomainOpen"
+    },
     "generateFeature": false,
     "restrictionBiomes": [],
     "blocksToReplace": [

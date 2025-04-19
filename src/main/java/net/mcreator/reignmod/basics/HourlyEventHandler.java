@@ -28,7 +28,7 @@ public class HourlyEventHandler {
             long currentTime = System.currentTimeMillis();
             
             // Проверяем, прошёл ли час (3600000 мс = 1 час)
-            if (currentTime - lastExecutionTime >= 360L) { //каждые 1 ч
+            if (currentTime - lastExecutionTime >= 36000L) { //каждые 1 ч
                 lastExecutionTime = currentTime; // Обновляем время последнего срабатывания
                 triggerHourlyEvent();           // Вызываем ваше событие
             }
