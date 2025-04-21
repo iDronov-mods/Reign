@@ -35,7 +35,7 @@ public class HousePrisonSetProcedure {
 							x_block = x;
 							y_block = y;
 							z_block = z;
-							HouseManager.getHouseByLordUUID(UUID).setHousePrisonCoordinates(new int[]{(int) x_block, (int) y_block, (int) z_block});
+							HouseManager.getHouseByLordUUID(UUID).setHousePrisonCoordinates(new int[]{(int) x_block, (int) y_block + 1, (int) z_block});
 							if (entity instanceof Player _player && !_player.level().isClientSide())
 								_player.displayClientMessage(Component.literal((Component.translatable("translation.key.house_prison_set").getString())), false);
 							if (world instanceof Level _level) {

@@ -42,7 +42,7 @@ public class ChunkClaimSavedData extends SavedData {
 
     public static ChunkClaimSavedData getInstance() {
         if (instance == null) {
-            instance = new ChunkClaimSavedData();
+            throw new IllegalStateException("ChunkClaimsData is not initialized. Call initialize(ServerLevel) first.");
         }
         return instance;
     }

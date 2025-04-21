@@ -42,12 +42,18 @@
         "subtract": false
       }
     ],
-    "customProperties": [],
+    "customProperties": [
+      {
+        "name": "CUSTOM:protected",
+        "type": "logic",
+        "value": false
+      }
+    ],
     "name": "Incubator",
     "specialInformation": {
       "fixedValue": []
     },
-    "hardness": 5.0,
+    "hardness": 10.0,
     "resistance": 10000.0,
     "hasGravity": false,
     "isWaterloggable": false,
@@ -89,7 +95,7 @@
     "slipperiness": 0.6,
     "speedFactor": 1.0,
     "jumpFactor": 1.0,
-    "reactionToPushing": "NORMAL",
+    "reactionToPushing": "BLOCK",
     "isNotColidable": false,
     "isCustomSoundType": false,
     "soundOnStep": {

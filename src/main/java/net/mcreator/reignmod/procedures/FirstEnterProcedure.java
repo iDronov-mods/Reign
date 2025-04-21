@@ -1,19 +1,16 @@
 package net.mcreator.reignmod.procedures;
 
-import net.mcreator.reignmod.init.ReignModModItems;
-import net.minecraft.advancements.Advancement;
-import net.minecraft.advancements.AdvancementProgress;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.eventbus.api.Event;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.items.ItemHandlerHelper;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.event.entity.player.PlayerEvent;
+
+import net.minecraft.world.entity.Entity;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.advancements.AdvancementProgress;
+import net.minecraft.advancements.Advancement;
 
 import javax.annotation.Nullable;
 
@@ -39,11 +36,6 @@ public class FirstEnterProcedure {
 					for (String criteria : _ap.getRemainingCriteria())
 						_player.getAdvancements().award(_adv, criteria);
 				}
-			}
-			if (entity instanceof Player _player) {
-				ItemStack _setstack = new ItemStack(ReignModModItems.TEXTBOOK.get()).copy();
-				_setstack.setCount(1);
-				ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
 			}
 		}
 	}

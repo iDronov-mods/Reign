@@ -11,14 +11,13 @@ import net.minecraft.world.level.GameType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.network.chat.Component;
 import net.minecraft.client.Minecraft;
-
-import net.mcreator.reignmod.init.ReignModModBlocks;
 
 import javax.annotation.Nullable;
 
 @Mod.EventBusSubscriber
-public class RentalBlockBreakProcedure {
+public class BlockProtectedProcedure {
 	@SubscribeEvent
 	public static void onLeftClickBlock(PlayerInteractEvent.LeftClickBlock event) {
 		execute(event, event.getLevel().getBlockState(event.getPos()), event.getEntity());
@@ -41,13 +40,13 @@ public class RentalBlockBreakProcedure {
 				return false;
 			}
 		}.checkGamemode(entity))) {
-			if (blockstate.getBlock() == ReignModModBlocks.RENTAL_BLOCK.get()) {
-				if (blockstate.getBlock().getStateDefinition().getProperty("locked") instanceof BooleanProperty _getbp4 && blockstate.getValue(_getbp4)) {
-					if (event != null && event.isCancelable()) {
-						event.setCanceled(true);
-					} else if (event != null && event.hasResult()) {
-						event.setResult(Event.Result.DENY);
-					}
+			if (blockstate.getBlock().getStateDefinition().getProperty("protected") instanceof BooleanProperty _getbp2 && blockstate.getValue(_getbp2)) {
+				if (entity instanceof Player _player && !_player.level().isClientSide())
+					_player.displayClientMessage(Component.literal((Component.translatable("translation.key.block_protected").getString())), true);
+				if (event != null && event.isCancelable()) {
+					event.setCanceled(true);
+				} else if (event != null && event.hasResult()) {
+					event.setResult(Event.Result.DENY);
 				}
 			}
 		}

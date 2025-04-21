@@ -5,7 +5,9 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -31,10 +33,11 @@ import net.mcreator.reignmod.block.entity.IncubatorBlockEntity;
 
 public class IncubatorBlock extends Block implements EntityBlock {
 	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+	public static final BooleanProperty PROTECTED = BooleanProperty.create("protected");
 
 	public IncubatorBlock() {
-		super(BlockBehaviour.Properties.of().sound(SoundType.METAL).strength(5f, 10000f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false));
-		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
+		super(BlockBehaviour.Properties.of().sound(SoundType.METAL).strength(10f, 10000f).noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((bs, br, bp) -> false));
+		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(PROTECTED, false));
 	}
 
 	@Override
@@ -65,12 +68,12 @@ public class IncubatorBlock extends Block implements EntityBlock {
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		super.createBlockStateDefinition(builder);
-		builder.add(FACING);
+		builder.add(FACING, PROTECTED);
 	}
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
-		return super.getStateForPlacement(context).setValue(FACING, context.getHorizontalDirection().getOpposite());
+		return super.getStateForPlacement(context).setValue(FACING, context.getHorizontalDirection().getOpposite()).setValue(PROTECTED, false);
 	}
 
 	public BlockState rotate(BlockState state, Rotation rot) {

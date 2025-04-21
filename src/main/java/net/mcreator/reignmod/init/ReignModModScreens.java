@@ -35,7 +35,6 @@ import net.mcreator.reignmod.client.gui.FundUIScreen;
 import net.mcreator.reignmod.client.gui.FisherWindowScreen;
 import net.mcreator.reignmod.client.gui.FarmerWindowScreen;
 import net.mcreator.reignmod.client.gui.EnchanterWindowScreen;
-import net.mcreator.reignmod.client.gui.DsfScreen;
 import net.mcreator.reignmod.client.gui.DomainUIScreen;
 import net.mcreator.reignmod.client.gui.CowboyWindowScreen;
 import net.mcreator.reignmod.client.gui.CoffersUIScreen;
@@ -49,7 +48,6 @@ public class ReignModModScreens {
 	@SubscribeEvent
 	public static void clientLoad(FMLClientSetupEvent event) {
 		event.enqueueWork(() -> {
-			MenuScreens.register(ReignModModMenus.DSF.get(), DsfScreen::new);
 			MenuScreens.register(ReignModModMenus.LICENSE_IS_SELECTED.get(), LicenseIsSelectedScreen::new);
 			MenuScreens.register(ReignModModMenus.TRADER_POINT.get(), TraderPointScreen::new);
 			MenuScreens.register(ReignModModMenus.MARKET.get(), MarketScreen::new);

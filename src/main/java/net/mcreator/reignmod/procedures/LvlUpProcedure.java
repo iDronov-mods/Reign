@@ -8,6 +8,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.BlockPos;
@@ -23,7 +24,7 @@ public class LvlUpProcedure {
 		if (IsHaveMainLicensesProcedure.execute(entity)) {
 			if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).MAIN_LVL == 0) {
 				if (entity instanceof Player _player)
-					_player.giveExperiencePoints(-(160));
+					_player.giveExperiencePoints(-(550));
 				if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).license_smith) {
 					{
 						double _setval = (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).efficiency + 10;
@@ -51,7 +52,7 @@ public class LvlUpProcedure {
 				}
 			} else if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).MAIN_LVL == 1) {
 				if (entity instanceof Player _player)
-					_player.giveExperiencePoints(-(550));
+					_player.giveExperiencePoints(-(910));
 				if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).license_smith) {
 					{
 						double _setval = (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).efficiency + 5;
@@ -91,7 +92,7 @@ public class LvlUpProcedure {
 				}
 			} else if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).MAIN_LVL == 3) {
 				if (entity instanceof Player _player)
-					_player.giveExperiencePoints(-(2920));
+					_player.giveExperiencePoints(-(2045));
 				if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).license_smith) {
 					{
 						double _setval = (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).efficiency + 2;
@@ -111,7 +112,7 @@ public class LvlUpProcedure {
 				}
 			} else if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).MAIN_LVL == 4) {
 				if (entity instanceof Player _player)
-					_player.giveExperiencePoints(-(4900));
+					_player.giveExperiencePoints(-(2920));
 				if (entity instanceof ServerPlayer _player) {
 					Advancement _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation("reign_mod:full_lvl"));
 					AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
@@ -131,12 +132,13 @@ public class LvlUpProcedure {
 			LicensesAttributesProcedure.execute(entity);
 			if (world instanceof Level _level) {
 				if (!_level.isClientSide()) {
-					_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.experience_orb.pickup")), SoundSource.NEUTRAL, 1, (float) 0.5);
+					_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.experience_orb.pickup")), SoundSource.NEUTRAL, (float) 0.5, (float) 0.5);
 				} else {
-					_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.experience_orb.pickup")), SoundSource.NEUTRAL, 1, (float) 0.5, false);
+					_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.experience_orb.pickup")), SoundSource.NEUTRAL, (float) 0.5, (float) 0.5, false);
 				}
 			}
-			world.addParticle(ParticleTypes.ENCHANT, x, y, z, 0, 1, 0);
+			if (world instanceof ServerLevel _level)
+				_level.sendParticles(ParticleTypes.ENCHANT, x, y, z, 5, 1, 1, 1, 1);
 		}
 	}
 }

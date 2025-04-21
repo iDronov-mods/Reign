@@ -2,8 +2,10 @@ package net.mcreator.reignmod.procedures;
 
 import net.minecraftforge.registries.ForgeRegistries;
 
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
@@ -45,32 +47,73 @@ public class PersonalLockChestProcedure {
 								_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:locked_chest")), SoundSource.BLOCKS, (float) 0.5, 1, false);
 							}
 						}
-						if (!world.isClientSide()) {
-							BlockPos _bp = BlockPos.containing(x, y, z);
-							BlockEntity _blockEntity = world.getBlockEntity(_bp);
-							BlockState _bs = world.getBlockState(_bp);
-							if (_blockEntity != null)
-								_blockEntity.getPersistentData().putString("owner", ("" + entity.getStringUUID()));
-							if (world instanceof Level _level)
-								_level.sendBlockUpdated(_bp, _bs, _bs, 3);
-						}
-						if (!world.isClientSide()) {
-							BlockPos _bp = BlockPos.containing(x, y, z);
-							BlockEntity _blockEntity = world.getBlockEntity(_bp);
-							BlockState _bs = world.getBlockState(_bp);
-							if (_blockEntity != null)
-								_blockEntity.getPersistentData().putString("owner_name", ("" + entity.getDisplayName().getString()));
-							if (world instanceof Level _level)
-								_level.sendBlockUpdated(_bp, _bs, _bs, 3);
-						}
-						if (!world.isClientSide()) {
-							BlockPos _bp = BlockPos.containing(x, y, z);
-							BlockEntity _blockEntity = world.getBlockEntity(_bp);
-							BlockState _bs = world.getBlockState(_bp);
-							if (_blockEntity != null)
-								_blockEntity.getPersistentData().putString("lock_type", "personal");
-							if (world instanceof Level _level)
-								_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+						if (blockstate.getBlock() == ReignModModBlocks.PRIVATEDOOR.get()) {
+							var temp = new BlockPos((int) x, (int) y, (int) z);
+							BlockPos pos = blockstate.getValue(DoorBlock.HALF) == DoubleBlockHalf.LOWER ? temp : temp.below();
+							if (!world.isClientSide()) {
+								BlockPos _bp = BlockPos.containing(pos.getX(), pos.getY(), pos.getZ());
+								BlockEntity _blockEntity = world.getBlockEntity(_bp);
+								BlockState _bs = world.getBlockState(_bp);
+								if (_blockEntity != null)
+									_blockEntity.getPersistentData().putString("owner", ("" + entity.getStringUUID()));
+								if (world instanceof Level _level)
+									_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+							}
+							if (!world.isClientSide()) {
+								BlockPos _bp = BlockPos.containing(pos.getX(), pos.getY(), pos.getZ());
+								BlockEntity _blockEntity = world.getBlockEntity(_bp);
+								BlockState _bs = world.getBlockState(_bp);
+								if (_blockEntity != null)
+									_blockEntity.getPersistentData().putString("owner_name", ("" + entity.getDisplayName().getString()));
+								if (world instanceof Level _level)
+									_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+							}
+							if (!world.isClientSide()) {
+								BlockPos _bp = BlockPos.containing(pos.getX(), pos.getY(), pos.getZ());
+								BlockEntity _blockEntity = world.getBlockEntity(_bp);
+								BlockState _bs = world.getBlockState(_bp);
+								if (_blockEntity != null)
+									_blockEntity.getPersistentData().putString("lock_type", "personal");
+								if (world instanceof Level _level)
+									_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+							}
+							if (!world.isClientSide()) {
+								BlockPos _bp = BlockPos.containing(pos.getX(), pos.getY() + 1, pos.getZ());
+								BlockEntity _blockEntity = world.getBlockEntity(_bp);
+								BlockState _bs = world.getBlockState(_bp);
+								if (_blockEntity != null)
+									_blockEntity.getPersistentData().putString("owner_name", ("" + entity.getDisplayName().getString()));
+								if (world instanceof Level _level)
+									_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+							}
+						} else {
+							if (!world.isClientSide()) {
+								BlockPos _bp = BlockPos.containing(x, y, z);
+								BlockEntity _blockEntity = world.getBlockEntity(_bp);
+								BlockState _bs = world.getBlockState(_bp);
+								if (_blockEntity != null)
+									_blockEntity.getPersistentData().putString("owner", ("" + entity.getStringUUID()));
+								if (world instanceof Level _level)
+									_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+							}
+							if (!world.isClientSide()) {
+								BlockPos _bp = BlockPos.containing(x, y, z);
+								BlockEntity _blockEntity = world.getBlockEntity(_bp);
+								BlockState _bs = world.getBlockState(_bp);
+								if (_blockEntity != null)
+									_blockEntity.getPersistentData().putString("owner_name", ("" + entity.getDisplayName().getString()));
+								if (world instanceof Level _level)
+									_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+							}
+							if (!world.isClientSide()) {
+								BlockPos _bp = BlockPos.containing(x, y, z);
+								BlockEntity _blockEntity = world.getBlockEntity(_bp);
+								BlockState _bs = world.getBlockState(_bp);
+								if (_blockEntity != null)
+									_blockEntity.getPersistentData().putString("lock_type", "personal");
+								if (world instanceof Level _level)
+									_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+							}
 						}
 					} else {
 						if (entity instanceof Player _player && !_player.level().isClientSide())

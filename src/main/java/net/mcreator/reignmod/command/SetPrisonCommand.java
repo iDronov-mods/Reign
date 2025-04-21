@@ -32,7 +32,7 @@ public class SetPrisonCommand {
 			if (entity != null)
 				direction = entity.getDirection();
 
-			PrisonCreateProcedure.execute(entity);
+			PrisonCreateProcedure.execute(world, entity);
 			return 0;
 		})));
 	}

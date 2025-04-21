@@ -15,34 +15,34 @@
         "value": ""
       },
       {
-        "value": "CUSTOM:CopperCoin"
-      },
-      {
         "value": ""
       },
       {
         "value": ""
       },
       {
-        "value": "Items.BOOK"
+        "value": "Blocks.COBBLED_DEEPSLATE"
       },
       {
-        "value": ""
+        "value": "Blocks.HOPPER"
       },
       {
-        "value": ""
+        "value": "Blocks.COBBLED_DEEPSLATE"
       },
       {
-        "value": ""
+        "value": "Blocks.COBBLED_DEEPSLATE"
       },
       {
-        "value": ""
+        "value": "Blocks.COBBLED_DEEPSLATE"
+      },
+      {
+        "value": "Blocks.COBBLED_DEEPSLATE"
       }
     ],
     "recipeReturnStack": {
-      "value": "CUSTOM:Textbook"
+      "value": "CUSTOM:ObeliskFoundation"
     },
-    "name": "r_textbook",
+    "name": "r_obelisk_foundation",
     "namespace": "mod"
   }
 }

@@ -6,6 +6,6 @@ import net.minecraft.core.BlockPos;
 
 public class RentalNotLockedProcedure {
 	public static boolean execute(LevelAccessor world, double x, double y, double z) {
-		return !((world.getBlockState(BlockPos.containing(x, y, z))).getBlock().getStateDefinition().getProperty("locked") instanceof BooleanProperty _getbp1 && (world.getBlockState(BlockPos.containing(x, y, z))).getValue(_getbp1));
+		return !((world.getBlockState(BlockPos.containing(x, y, z))).getBlock().getStateDefinition().getProperty("protected") instanceof BooleanProperty _getbp1 && (world.getBlockState(BlockPos.containing(x, y, z))).getValue(_getbp1));
 	}
 }

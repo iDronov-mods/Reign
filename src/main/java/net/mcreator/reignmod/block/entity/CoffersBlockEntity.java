@@ -84,7 +84,7 @@ public class CoffersBlockEntity extends RandomizableContainerBlockEntity impleme
 
 	@Override
 	public int getMaxStackSize() {
-		return 1024;
+		return 127;
 	}
 
 	@Override

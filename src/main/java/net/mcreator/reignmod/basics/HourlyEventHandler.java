@@ -2,17 +2,12 @@ package net.mcreator.reignmod.basics;
 
 import net.mcreator.reignmod.configuration.ReignCommonConfiguration;
 import net.mcreator.reignmod.kingdom.KingdomData;
-import net.mcreator.reignmod.procedures.CapitalServeProcedure;
+import net.mcreator.reignmod.kingdom.KingdomManager;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.mcreator.reignmod.house.HouseManager;
-import net.mcreator.reignmod.house.HouseSavedData;
-import net.mcreator.reignmod.house.House;
-import net.mcreator.reignmod.procedures.FeedHeartProcedure;
-import net.mcreator.reignmod.procedures.CapitalServeProcedure;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.level.LevelAccessor;
+
 
 
 
@@ -28,7 +23,7 @@ public class HourlyEventHandler {
             long currentTime = System.currentTimeMillis();
             
             // Проверяем, прошёл ли час (3600000 мс = 1 час)
-            if (currentTime - lastExecutionTime >= 36000L) { //каждые 1 ч
+            if (currentTime - lastExecutionTime >= ConfigLoader.getHourlyMealPeriod() * 3600000L) { //каждые 1 ч
                 lastExecutionTime = currentTime; // Обновляем время последнего срабатывания
                 triggerHourlyEvent();           // Вызываем ваше событие
             }
@@ -40,7 +35,7 @@ public class HourlyEventHandler {
         System.out.println("Another real hour has passed!");
 
         if (!ReignCommonConfiguration.DISABLE_HOUSE_FEEDING.get()) HouseManager.feedHouses();
-        if (!ReignCommonConfiguration.DISABLE_CAPITAL_FEEDING.get())KingdomData.feedCapital();
+        if (!ReignCommonConfiguration.DISABLE_CAPITAL_FEEDING.get()) KingdomManager.feedCapital();
 
     }
 

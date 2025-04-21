@@ -74,15 +74,6 @@ public class IncubatorTickProcedure {
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
-				if (!world.isClientSide()) {
-					BlockPos _bp = BlockPos.containing(x, y, z);
-					BlockEntity _blockEntity = world.getBlockEntity(_bp);
-					BlockState _bs = world.getBlockState(_bp);
-					if (_blockEntity != null)
-						_blockEntity.getPersistentData().putDouble("lvl", 10);
-					if (world instanceof Level _level)
-						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
-				}
 				if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 					((Slot) _slots.get(0)).remove((int) possible_value);
 					_player.containerMenu.broadcastChanges();

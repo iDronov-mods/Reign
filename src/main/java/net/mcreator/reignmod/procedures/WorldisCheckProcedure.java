@@ -1,18 +1,20 @@
 package net.mcreator.reignmod.procedures;
 
-import net.mcreator.reignmod.network.ReignModModVariables;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraftforge.event.entity.EntityTravelToDimensionEvent;
-import net.minecraftforge.eventbus.api.Event;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.event.entity.EntityTravelToDimensionEvent;
+
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.resources.ResourceKey;
+
+import net.mcreator.reignmod.network.ReignModModVariables;
 
 import javax.annotation.Nullable;
 
@@ -52,7 +54,7 @@ public class WorldisCheckProcedure {
 				}
 			}
 			if (ReignModModVariables.MapVariables.get(world).ERA >= 7) {
-				CheckBeeResistProcedure.execute(entity);
+				CheckBeeResistProcedure.execute(world, entity);
 			}
 		} else if (dimension == Level.END) {
 			if (ReignModModVariables.MapVariables.get(world).ERA < 10) {

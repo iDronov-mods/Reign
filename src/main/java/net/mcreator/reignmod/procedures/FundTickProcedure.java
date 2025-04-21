@@ -22,7 +22,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.client.Minecraft;
 
 import net.mcreator.reignmod.network.ReignModModVariables;
-import net.mcreator.reignmod.kingdom.KingdomData;
+import net.mcreator.reignmod.kingdom.KingdomManager;
 import net.mcreator.reignmod.init.ReignModModItems;
 import net.mcreator.reignmod.ReignModMod;
 
@@ -49,19 +49,18 @@ public class FundTickProcedure {
 			if ((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY).getItem() == ItemStack.EMPTY.getItem()) {
 				if (world instanceof ServerLevel _level) {
 					LightningBolt entityToSpawn = EntityType.LIGHTNING_BOLT.create(_level);
-					entityToSpawn
-							.moveTo(Vec3.atBottomCenterOf(BlockPos.containing(ReignModModVariables.MapVariables.get(world).CAPITAL_X, ReignModModVariables.MapVariables.get(world).CAPITAL_Y, ReignModModVariables.MapVariables.get(world).CAPITAL_Z)));
+					entityToSpawn.moveTo(Vec3.atBottomCenterOf(BlockPos.containing(x, y, z)));
 					entityToSpawn.setVisualOnly(true);
 					_level.addFreshEntity(entityToSpawn);
 				}
 				ReignModModVariables.MapVariables.get(world).ERA = ReignModModVariables.MapVariables.get(world).ERA + 1;
 				ReignModModVariables.MapVariables.get(world).syncData(world);
-				KingdomData.upgradeCapitalEra();
+				KingdomManager.upgradeCapitalEra();
 				if (world.isClientSide())
 					Minecraft.getInstance().gameRenderer.displayItemActivation(new ItemStack(ReignModModItems.PLATINUM_COIN.get()));
 				ReignModMod.queueServerWork(40, () -> {
 					world.getLevelData().setRaining(true);
-					EraCostCreateProcedure.execute(world, ReignModModVariables.MapVariables.get(world).CAPITAL_X, ReignModModVariables.MapVariables.get(world).CAPITAL_Y, ReignModModVariables.MapVariables.get(world).CAPITAL_Z);
+					EraCostCreateProcedure.execute(world, x, y, z);
 				});
 				ReignModMod.queueServerWork(80, () -> {
 					for (int index0 = 0; index0 < (int) (20 * ReignModModVariables.MapVariables.get(world).ERA); index0++) {
@@ -70,8 +69,9 @@ public class FundTickProcedure {
 					}
 				});
 				if (!world.isClientSide() && world.getServer() != null)
-					world.getServer().getPlayerList()
-							.broadcastSystemMessage(Component.literal((Component.translatable((Component.translatable("translation.key.new_era").getString())).getString() + "" + ReignModModVariables.MapVariables.get(world).ERA)), false);
+					world.getServer().getPlayerList().broadcastSystemMessage(
+							Component.literal((Component.translatable((Component.translatable("translation.key.new_era").getString())).getString() + "" + new java.text.DecimalFormat("##.##").format(ReignModModVariables.MapVariables.get(world).ERA))),
+							false);
 				if (world instanceof Level _level) {
 					if (!_level.isClientSide()) {
 						_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.lightning_bolt.thunder")), SoundSource.MASTER, 1, 1);

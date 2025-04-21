@@ -13,6 +13,20 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.reignmod.world.inventory.HouseSuspectsUIMenu;
+import net.mcreator.reignmod.procedures.WantedSuspect7Procedure;
+import net.mcreator.reignmod.procedures.WantedSuspect6Procedure;
+import net.mcreator.reignmod.procedures.WantedSuspect5Procedure;
+import net.mcreator.reignmod.procedures.WantedSuspect4Procedure;
+import net.mcreator.reignmod.procedures.WantedSuspect3Procedure;
+import net.mcreator.reignmod.procedures.WantedSuspect2Procedure;
+import net.mcreator.reignmod.procedures.WantedSuspect1Procedure;
+import net.mcreator.reignmod.procedures.PardonSuspect7Procedure;
+import net.mcreator.reignmod.procedures.PardonSuspect6Procedure;
+import net.mcreator.reignmod.procedures.PardonSuspect5Procedure;
+import net.mcreator.reignmod.procedures.PardonSuspect4Procedure;
+import net.mcreator.reignmod.procedures.PardonSuspect3Procedure;
+import net.mcreator.reignmod.procedures.PardonSuspect2Procedure;
+import net.mcreator.reignmod.procedures.PardonSuspect1Procedure;
 import net.mcreator.reignmod.procedures.IncubatorHeartHitProcedure;
 import net.mcreator.reignmod.ReignModMod;
 
@@ -78,6 +92,62 @@ public class HouseSuspectsUIButtonMessage {
 		if (buttonID == 0) {
 
 			IncubatorHeartHitProcedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 1) {
+
+			PardonSuspect1Procedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 2) {
+
+			PardonSuspect2Procedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 3) {
+
+			PardonSuspect3Procedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 4) {
+
+			PardonSuspect4Procedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 5) {
+
+			PardonSuspect5Procedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 6) {
+
+			PardonSuspect6Procedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 7) {
+
+			PardonSuspect7Procedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 8) {
+
+			WantedSuspect1Procedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 9) {
+
+			WantedSuspect2Procedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 10) {
+
+			WantedSuspect3Procedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 11) {
+
+			WantedSuspect4Procedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 12) {
+
+			WantedSuspect5Procedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 13) {
+
+			WantedSuspect6Procedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 14) {
+
+			WantedSuspect7Procedure.execute(world, x, y, z, entity);
 		}
 	}
 

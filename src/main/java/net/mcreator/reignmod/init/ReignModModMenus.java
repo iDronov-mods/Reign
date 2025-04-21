@@ -35,7 +35,6 @@ import net.mcreator.reignmod.world.inventory.FundUIMenu;
 import net.mcreator.reignmod.world.inventory.FisherWindowMenu;
 import net.mcreator.reignmod.world.inventory.FarmerWindowMenu;
 import net.mcreator.reignmod.world.inventory.EnchanterWindowMenu;
-import net.mcreator.reignmod.world.inventory.DsfMenu;
 import net.mcreator.reignmod.world.inventory.DomainUIMenu;
 import net.mcreator.reignmod.world.inventory.CowboyWindowMenu;
 import net.mcreator.reignmod.world.inventory.CoffersUIMenu;
@@ -47,7 +46,6 @@ import net.mcreator.reignmod.ReignModMod;
 
 public class ReignModModMenus {
 	public static final DeferredRegister<MenuType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.MENU_TYPES, ReignModMod.MODID);
-	public static final RegistryObject<MenuType<DsfMenu>> DSF = REGISTRY.register("dsf", () -> IForgeMenuType.create(DsfMenu::new));
 	public static final RegistryObject<MenuType<LicenseIsSelectedMenu>> LICENSE_IS_SELECTED = REGISTRY.register("license_is_selected", () -> IForgeMenuType.create(LicenseIsSelectedMenu::new));
 	public static final RegistryObject<MenuType<TraderPointMenu>> TRADER_POINT = REGISTRY.register("trader_point", () -> IForgeMenuType.create(TraderPointMenu::new));
 	public static final RegistryObject<MenuType<MarketMenu>> MARKET = REGISTRY.register("market", () -> IForgeMenuType.create(MarketMenu::new));

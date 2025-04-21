@@ -41,6 +41,10 @@ public class Domain implements INBTSerializable<CompoundTag> {
         this.knightUUID = null;
         this.claimId = null;
         this.domainHP = -1;  // По умолчанию -1
+
+        for (DomainDebuffs debuff : DomainDebuffs.values()) {
+            this.domainDebuffs.put(debuff, false);
+        }
     }
 
     public Domain(String lordUUID, String knightUUID, Component knightDisplayName) {
@@ -50,6 +54,10 @@ public class Domain implements INBTSerializable<CompoundTag> {
         this.players.add(knightUUID);
         this.claimId = null;
         this.domainHP = 300; // Стандартное значение 300
+
+        for (DomainDebuffs debuff : DomainDebuffs.values()) {
+            this.domainDebuffs.put(debuff, false);
+        }
     }
 
     public Domain(CompoundTag nbt) {

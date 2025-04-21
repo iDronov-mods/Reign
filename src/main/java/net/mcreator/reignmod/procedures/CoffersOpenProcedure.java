@@ -25,7 +25,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.reignmod.world.inventory.CoffersUIMenu;
-import net.mcreator.reignmod.kingdom.KingdomData;
+import net.mcreator.reignmod.kingdom.KingdomManager;
 import net.mcreator.reignmod.init.ReignModModItems;
 
 import java.util.function.Supplier;
@@ -42,7 +42,7 @@ public class CoffersOpenProcedure {
 		if ((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).is(ItemTags.create(new ResourceLocation("reign:coins")))) {
 			CoffersDonateProcedure.execute(world, x, y, z, entity);
 		} else {
-			if (IsKingProcedure.execute(world, entity) || IsRightHandProcedure.execute(entity) || IsTreasurerProcedure.execute(entity)) {
+			if (IsKingProcedure.execute(world, entity) || IsRightHandProcedure.execute(world, entity) || IsTreasurerProcedure.execute(world, entity)) {
 				if (world instanceof ServerLevel _origLevel) {
 					LevelAccessor _worldorig = world;
 					world = _origLevel.getServer().getLevel(Level.OVERWORLD);
@@ -54,9 +54,20 @@ public class CoffersOpenProcedure {
 								_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:safe_open")), SoundSource.BLOCKS, 1, 1, false);
 							}
 						}
+						if (!world.isClientSide()) {
+							BlockPos _bp = BlockPos.containing(x, y, z);
+							BlockEntity _blockEntity = world.getBlockEntity(_bp);
+							BlockState _bs = world.getBlockState(_bp);
+							if (_blockEntity != null)
+								_blockEntity.getPersistentData().putDouble("service", KingdomManager.getCapitalMaintenance());
+							if (world instanceof Level _level)
+								_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+						}
 					}
 					world = _worldorig;
 				}
+				if (entity instanceof Player _player)
+					_player.closeContainer();
 				if (entity instanceof ServerPlayer _ent) {
 					BlockPos _bpos = BlockPos.containing(x, y, z);
 					NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
@@ -70,15 +81,6 @@ public class CoffersOpenProcedure {
 							return new CoffersUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
 						}
 					}, _bpos);
-				}
-				if (!world.isClientSide()) {
-					BlockPos _bp = BlockPos.containing(x, y, z);
-					BlockEntity _blockEntity = world.getBlockEntity(_bp);
-					BlockState _bs = world.getBlockState(_bp);
-					if (_blockEntity != null)
-						_blockEntity.getPersistentData().putDouble("service", KingdomData.getCapitalMaintenance());
-					if (world instanceof Level _level)
-						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 					((Slot) _slots.get(0)).set(ItemStack.EMPTY);

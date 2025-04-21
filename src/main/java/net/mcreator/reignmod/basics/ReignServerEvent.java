@@ -5,6 +5,7 @@ import net.mcreator.reignmod.claim.capital.CapitalClaimSavedData;
 import net.mcreator.reignmod.claim.chunk.ChunkClaimSavedData;
 
 
+import net.mcreator.reignmod.kingdom.KingdomSavedData;
 import net.mcreator.reignmod.market.MarketSavedData;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
@@ -30,6 +31,10 @@ public class ReignServerEvent {
         ConfigLoader.initialize();
         LogManager.getLogger("ReignMod").info("Mod configs are successfully loaded!");
 
+        LogManager.getLogger("ReignMod").info("Kingdom data is loading...");
+        KingdomSavedData.initialize(overworld);
+        LogManager.getLogger("ReignMod").info("Kingdom data is successfully loaded!");
+
         LogManager.getLogger("ReignMod").info("Market data is loading...");
         MarketSavedData.initialize(overworld);
         LogManager.getLogger("ReignMod").info("Market data is successfully loaded!");
@@ -50,6 +55,7 @@ public class ReignServerEvent {
 
     @SubscribeEvent
     public static void onServerStopping(ServerStoppingEvent event) {
+        KingdomSavedData.resetInstance();
         MarketSavedData.resetInstance();
         HouseSavedData.resetInstance();
         ChunkClaimSavedData.resetInstance();

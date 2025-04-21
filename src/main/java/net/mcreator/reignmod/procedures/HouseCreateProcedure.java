@@ -122,7 +122,7 @@ public class HouseCreateProcedure {
 										world.setBlock(_pos, _bs.setValue(_integerProp, _value), 3);
 								}
 								if (!world.isClientSide() && world.getServer() != null)
-									world.getServer().getPlayerList().broadcastSystemMessage(Component.literal((Component.translatable("newhouse").getString() + " " + house_name)), false);
+									world.getServer().getPlayerList().broadcastSystemMessage(Component.literal((Component.translatable("newhouse").getString() + " " + HouseManager.getHouseByLordUUID(UUID_Player).getHouseTitleWithColor())), false);
 								if (!world.isClientSide() && world.getServer() != null)
 									world.getServer().getPlayerList().broadcastSystemMessage(Component.literal((Component.translatable("newlord").getString() + "" + entity.getDisplayName().getString())), false);
 							}

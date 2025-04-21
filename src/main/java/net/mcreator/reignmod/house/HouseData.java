@@ -2,6 +2,7 @@ package net.mcreator.reignmod.house;
 
 import net.mcreator.reignmod.claim.chunk.ChunkClaimConstants;
 import net.mcreator.reignmod.claim.chunk.ChunkClaimManager;
+import net.mcreator.reignmod.procedures.DestroyObeliskProcedure;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 
@@ -113,6 +114,8 @@ public class HouseData{
             var c = houseCopy.getHouseIncubatorCoordinates();
             HouseSavedData.getServerInstance().destroyBlock(new BlockPos(c[0], c[1] + ChunkClaimConstants.HOUSE_SHAFT_LENGTH, c[2]), false);
             HouseSavedData.getServerInstance().destroyBlock(new BlockPos(c[0], c[1] + ChunkClaimConstants.HOUSE_SHAFT_LENGTH - 1, c[2]), false);
+            HouseSavedData.getServerInstance().destroyBlock(new BlockPos(c[0], c[1] + ChunkClaimConstants.HOUSE_SHAFT_LENGTH - 2, c[2]), false);
+            DestroyObeliskProcedure.execute(HouseSavedData.getServerInstance(), c[0], c[1], c[2]);
             ChunkClaimManager.removeClaim(houseCopy.getClaimId());
         }
 
@@ -136,6 +139,7 @@ public class HouseData{
                 var c = domain.getDomainFoundationCoordinates();
                 HouseSavedData.getServerInstance().destroyBlock(new BlockPos(c[0], c[1] + ChunkClaimConstants.DOMAIN_SHAFT_LENGTH, c[2]), false);
                 HouseSavedData.getServerInstance().destroyBlock(new BlockPos(c[0], c[1] + ChunkClaimConstants.DOMAIN_SHAFT_LENGTH - 1, c[2]), false);
+                DestroyObeliskProcedure.execute(HouseSavedData.getServerInstance(), c[0], c[1], c[2]);
                 ChunkClaimManager.removeClaim(domain.getClaimId());
             }
             this.houses.get(house.getLordUUID()).removeDomain(domain.getKnightUUID());

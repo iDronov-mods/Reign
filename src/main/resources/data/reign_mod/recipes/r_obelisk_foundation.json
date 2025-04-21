@@ -2,19 +2,19 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-    "a",
-    "b"
+    "aba",
+    "aaa"
   ],
   "key": {
     "a": {
-      "item": "reign_mod:copper_coin"
+      "item": "minecraft:cobbled_deepslate"
     },
     "b": {
-      "item": "minecraft:book"
+      "item": "minecraft:hopper"
     }
   },
   "result": {
-    "item": "reign_mod:textbook",
+    "item": "reign_mod:obelisk_foundation",
     "count": 1
   }
 }

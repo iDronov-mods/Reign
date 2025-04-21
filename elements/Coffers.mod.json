@@ -190,7 +190,7 @@
     "guiBoundTo": "CoffersUI",
     "openGUIOnRightClick": false,
     "inventorySize": 5,
-    "inventoryStackSize": 1024,
+    "inventoryStackSize": 127,
     "inventoryDropWhenDestroyed": false,
     "inventoryComparatorPower": false,
     "inventoryOutSlotIDs": [

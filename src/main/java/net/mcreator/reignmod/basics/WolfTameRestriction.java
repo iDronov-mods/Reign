@@ -25,7 +25,7 @@ public class WolfTameRestriction {
         ItemStack heldItem = event.getItemStack();
         if (heldItem.getItem() == Items.BONE) {
             var cap = sp.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables());
-            if (cap.license_hunter && cap.MAIN_LVL >= 3) {
+            if (!(cap.license_hunter && cap.MAIN_LVL >= 3)) {
                 sp.displayClientMessage(Component.translatable("translation.key.cant_tame_wolf"), true);
                 event.setCanceled(true);
             }

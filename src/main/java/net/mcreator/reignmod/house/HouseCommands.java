@@ -10,7 +10,7 @@ public class HouseCommands {
         var wantedList = HouseManager.getHouseWantedPlayers(player);
         StringBuilder wantedListMerged = new StringBuilder(Component.translatable("house.get_house_wanted").getString()).append('\n');
         for (var wanted : wantedList) {
-            wantedListMerged.append(wanted).append('\n');
+            wantedListMerged.append("§r").append(wanted).append('\n');
         }
         return wantedListMerged.toString();
     }
@@ -19,7 +19,7 @@ public class HouseCommands {
         var domainPlayers = HouseManager.getDomainPlayers(knightUUID);
         StringBuilder domainPlayersMerged = new StringBuilder(Component.translatable("house.get_domain_players").getString()).append('\n');
         for (var wanted : domainPlayers) {
-            domainPlayersMerged.append(wanted).append('\n');
+            domainPlayersMerged.append("§r").append(wanted).append('\n');
         }
         return domainPlayersMerged.toString();
     }
@@ -28,7 +28,7 @@ public class HouseCommands {
         var suspectList = HouseManager.getDomainSuspectPlayers(knightUUID, count);
         StringBuilder suspectListMerged = new StringBuilder(Component.translatable("house.get_domain_suspect").getString()).append('\n');
         for (var wanted : suspectList) {
-            suspectListMerged.append(wanted).append('\n');
+            suspectListMerged.append("§r").append(wanted).append('\n');
         }
         return suspectListMerged.toString();
     }

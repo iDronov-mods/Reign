@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import net.mcreator.reignmod.kingdom.KingdomData;
+import net.mcreator.reignmod.kingdom.KingdomManager;
 import net.mcreator.reignmod.claim.chunk.ChunkClaimManager;
 
 import java.util.Optional;
@@ -21,8 +21,8 @@ public class CapitalExplosionCancelMixin {
         Vec3 pos = explosion.getPosition();
 
         // Получаем координаты столицы
-        double capitalX = KingdomData.getFundCoordinates()[0];
-        double capitalZ = KingdomData.getFundCoordinates()[2];
+        double capitalX = KingdomManager.getFundCoordinates()[0];
+        double capitalZ = KingdomManager.getFundCoordinates()[2];
 
         double dx = pos.x - capitalX;
         double dz = pos.z - capitalZ;

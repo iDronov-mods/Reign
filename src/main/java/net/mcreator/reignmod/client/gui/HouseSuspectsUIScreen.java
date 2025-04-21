@@ -10,6 +10,18 @@ import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.reignmod.world.inventory.HouseSuspectsUIMenu;
+import net.mcreator.reignmod.procedures.ReturnSuspect7ValueProcedure;
+import net.mcreator.reignmod.procedures.ReturnSuspect7Procedure;
+import net.mcreator.reignmod.procedures.ReturnSuspect6ValueProcedure;
+import net.mcreator.reignmod.procedures.ReturnSuspect6Procedure;
+import net.mcreator.reignmod.procedures.ReturnSuspect5ValueProcedure;
+import net.mcreator.reignmod.procedures.ReturnSuspect5Procedure;
+import net.mcreator.reignmod.procedures.ReturnSuspect4ValueProcedure;
+import net.mcreator.reignmod.procedures.ReturnSuspect4Procedure;
+import net.mcreator.reignmod.procedures.ReturnSuspect3ValueProcedure;
+import net.mcreator.reignmod.procedures.ReturnSuspect3Procedure;
+import net.mcreator.reignmod.procedures.ReturnSuspect2ValueProcedure;
+import net.mcreator.reignmod.procedures.ReturnSuspect2Procedure;
 import net.mcreator.reignmod.procedures.ReturnSuspect1ValueProcedure;
 import net.mcreator.reignmod.procedures.ReturnSuspect1Procedure;
 import net.mcreator.reignmod.procedures.IncubatorReturnDomainsProcedure;
@@ -159,6 +171,42 @@ public class HouseSuspectsUIScreen extends AbstractContainerScreen<HouseSuspects
 		guiGraphics.drawString(this.font,
 
 				ReturnSuspect1ValueProcedure.execute(world, x, y, z), 163, 70, -16777216, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnSuspect2Procedure.execute(world, x, y, z), 81, 82, -12829636, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnSuspect2ValueProcedure.execute(world, x, y, z), 163, 82, -16777216, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnSuspect3Procedure.execute(world, x, y, z), 81, 94, -12829636, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnSuspect3ValueProcedure.execute(world, x, y, z), 163, 94, -16777216, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnSuspect4Procedure.execute(world, x, y, z), 81, 106, -12829636, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnSuspect5Procedure.execute(world, x, y, z), 81, 118, -12829636, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnSuspect6Procedure.execute(world, x, y, z), 81, 130, -12829636, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnSuspect7Procedure.execute(world, x, y, z), 81, 142, -12829636, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnSuspect4ValueProcedure.execute(world, x, y, z), 163, 106, -16777216, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnSuspect5ValueProcedure.execute(world, x, y, z), 163, 118, -16777216, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnSuspect6ValueProcedure.execute(world, x, y, z), 163, 130, -16777216, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnSuspect7ValueProcedure.execute(world, x, y, z), 163, 142, -16777216, false);
 	}
 
 	@Override
@@ -173,58 +221,114 @@ public class HouseSuspectsUIScreen extends AbstractContainerScreen<HouseSuspects
 		guistate.put("button:imagebutton_tab_button", imagebutton_tab_button);
 		this.addRenderableWidget(imagebutton_tab_button);
 		imagebutton_remove_suspect_button = new ImageButton(this.leftPos + 209, this.topPos + 72, 9, 7, 0, 0, 7, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_remove_suspect_button.png"), 9, 14, e -> {
+			if (true) {
+				ReignModMod.PACKET_HANDLER.sendToServer(new HouseSuspectsUIButtonMessage(1, x, y, z, textstate));
+				HouseSuspectsUIButtonMessage.handleButtonAction(entity, 1, x, y, z, textstate);
+			}
 		});
 		guistate.put("button:imagebutton_remove_suspect_button", imagebutton_remove_suspect_button);
 		this.addRenderableWidget(imagebutton_remove_suspect_button);
 		imagebutton_remove_suspect_button1 = new ImageButton(this.leftPos + 209, this.topPos + 84, 9, 7, 0, 0, 7, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_remove_suspect_button1.png"), 9, 14, e -> {
+			if (true) {
+				ReignModMod.PACKET_HANDLER.sendToServer(new HouseSuspectsUIButtonMessage(2, x, y, z, textstate));
+				HouseSuspectsUIButtonMessage.handleButtonAction(entity, 2, x, y, z, textstate);
+			}
 		});
 		guistate.put("button:imagebutton_remove_suspect_button1", imagebutton_remove_suspect_button1);
 		this.addRenderableWidget(imagebutton_remove_suspect_button1);
 		imagebutton_remove_suspect_button2 = new ImageButton(this.leftPos + 209, this.topPos + 96, 9, 7, 0, 0, 7, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_remove_suspect_button2.png"), 9, 14, e -> {
+			if (true) {
+				ReignModMod.PACKET_HANDLER.sendToServer(new HouseSuspectsUIButtonMessage(3, x, y, z, textstate));
+				HouseSuspectsUIButtonMessage.handleButtonAction(entity, 3, x, y, z, textstate);
+			}
 		});
 		guistate.put("button:imagebutton_remove_suspect_button2", imagebutton_remove_suspect_button2);
 		this.addRenderableWidget(imagebutton_remove_suspect_button2);
 		imagebutton_remove_suspect_button3 = new ImageButton(this.leftPos + 209, this.topPos + 108, 9, 7, 0, 0, 7, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_remove_suspect_button3.png"), 9, 14, e -> {
+			if (true) {
+				ReignModMod.PACKET_HANDLER.sendToServer(new HouseSuspectsUIButtonMessage(4, x, y, z, textstate));
+				HouseSuspectsUIButtonMessage.handleButtonAction(entity, 4, x, y, z, textstate);
+			}
 		});
 		guistate.put("button:imagebutton_remove_suspect_button3", imagebutton_remove_suspect_button3);
 		this.addRenderableWidget(imagebutton_remove_suspect_button3);
 		imagebutton_remove_suspect_button4 = new ImageButton(this.leftPos + 209, this.topPos + 120, 9, 7, 0, 0, 7, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_remove_suspect_button4.png"), 9, 14, e -> {
+			if (true) {
+				ReignModMod.PACKET_HANDLER.sendToServer(new HouseSuspectsUIButtonMessage(5, x, y, z, textstate));
+				HouseSuspectsUIButtonMessage.handleButtonAction(entity, 5, x, y, z, textstate);
+			}
 		});
 		guistate.put("button:imagebutton_remove_suspect_button4", imagebutton_remove_suspect_button4);
 		this.addRenderableWidget(imagebutton_remove_suspect_button4);
 		imagebutton_remove_suspect_button5 = new ImageButton(this.leftPos + 209, this.topPos + 132, 9, 7, 0, 0, 7, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_remove_suspect_button5.png"), 9, 14, e -> {
+			if (true) {
+				ReignModMod.PACKET_HANDLER.sendToServer(new HouseSuspectsUIButtonMessage(6, x, y, z, textstate));
+				HouseSuspectsUIButtonMessage.handleButtonAction(entity, 6, x, y, z, textstate);
+			}
 		});
 		guistate.put("button:imagebutton_remove_suspect_button5", imagebutton_remove_suspect_button5);
 		this.addRenderableWidget(imagebutton_remove_suspect_button5);
 		imagebutton_remove_suspect_button6 = new ImageButton(this.leftPos + 209, this.topPos + 144, 9, 7, 0, 0, 7, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_remove_suspect_button6.png"), 9, 14, e -> {
+			if (true) {
+				ReignModMod.PACKET_HANDLER.sendToServer(new HouseSuspectsUIButtonMessage(7, x, y, z, textstate));
+				HouseSuspectsUIButtonMessage.handleButtonAction(entity, 7, x, y, z, textstate);
+			}
 		});
 		guistate.put("button:imagebutton_remove_suspect_button6", imagebutton_remove_suspect_button6);
 		this.addRenderableWidget(imagebutton_remove_suspect_button6);
 		imagebutton_jail_button = new ImageButton(this.leftPos + 197, this.topPos + 72, 9, 7, 0, 0, 7, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_jail_button.png"), 9, 14, e -> {
+			if (true) {
+				ReignModMod.PACKET_HANDLER.sendToServer(new HouseSuspectsUIButtonMessage(8, x, y, z, textstate));
+				HouseSuspectsUIButtonMessage.handleButtonAction(entity, 8, x, y, z, textstate);
+			}
 		});
 		guistate.put("button:imagebutton_jail_button", imagebutton_jail_button);
 		this.addRenderableWidget(imagebutton_jail_button);
 		imagebutton_jail_button1 = new ImageButton(this.leftPos + 197, this.topPos + 84, 9, 7, 0, 0, 7, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_jail_button1.png"), 9, 14, e -> {
+			if (true) {
+				ReignModMod.PACKET_HANDLER.sendToServer(new HouseSuspectsUIButtonMessage(9, x, y, z, textstate));
+				HouseSuspectsUIButtonMessage.handleButtonAction(entity, 9, x, y, z, textstate);
+			}
 		});
 		guistate.put("button:imagebutton_jail_button1", imagebutton_jail_button1);
 		this.addRenderableWidget(imagebutton_jail_button1);
 		imagebutton_jail_button2 = new ImageButton(this.leftPos + 197, this.topPos + 96, 9, 7, 0, 0, 7, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_jail_button2.png"), 9, 14, e -> {
+			if (true) {
+				ReignModMod.PACKET_HANDLER.sendToServer(new HouseSuspectsUIButtonMessage(10, x, y, z, textstate));
+				HouseSuspectsUIButtonMessage.handleButtonAction(entity, 10, x, y, z, textstate);
+			}
 		});
 		guistate.put("button:imagebutton_jail_button2", imagebutton_jail_button2);
 		this.addRenderableWidget(imagebutton_jail_button2);
 		imagebutton_jail_button3 = new ImageButton(this.leftPos + 197, this.topPos + 108, 9, 7, 0, 0, 7, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_jail_button3.png"), 9, 14, e -> {
+			if (true) {
+				ReignModMod.PACKET_HANDLER.sendToServer(new HouseSuspectsUIButtonMessage(11, x, y, z, textstate));
+				HouseSuspectsUIButtonMessage.handleButtonAction(entity, 11, x, y, z, textstate);
+			}
 		});
 		guistate.put("button:imagebutton_jail_button3", imagebutton_jail_button3);
 		this.addRenderableWidget(imagebutton_jail_button3);
 		imagebutton_jail_button4 = new ImageButton(this.leftPos + 197, this.topPos + 120, 9, 7, 0, 0, 7, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_jail_button4.png"), 9, 14, e -> {
+			if (true) {
+				ReignModMod.PACKET_HANDLER.sendToServer(new HouseSuspectsUIButtonMessage(12, x, y, z, textstate));
+				HouseSuspectsUIButtonMessage.handleButtonAction(entity, 12, x, y, z, textstate);
+			}
 		});
 		guistate.put("button:imagebutton_jail_button4", imagebutton_jail_button4);
 		this.addRenderableWidget(imagebutton_jail_button4);
 		imagebutton_jail_button5 = new ImageButton(this.leftPos + 197, this.topPos + 132, 9, 7, 0, 0, 7, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_jail_button5.png"), 9, 14, e -> {
+			if (true) {
+				ReignModMod.PACKET_HANDLER.sendToServer(new HouseSuspectsUIButtonMessage(13, x, y, z, textstate));
+				HouseSuspectsUIButtonMessage.handleButtonAction(entity, 13, x, y, z, textstate);
+			}
 		});
 		guistate.put("button:imagebutton_jail_button5", imagebutton_jail_button5);
 		this.addRenderableWidget(imagebutton_jail_button5);
 		imagebutton_jail_button6 = new ImageButton(this.leftPos + 197, this.topPos + 144, 9, 7, 0, 0, 7, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_jail_button6.png"), 9, 14, e -> {
+			if (true) {
+				ReignModMod.PACKET_HANDLER.sendToServer(new HouseSuspectsUIButtonMessage(14, x, y, z, textstate));
+				HouseSuspectsUIButtonMessage.handleButtonAction(entity, 14, x, y, z, textstate);
+			}
 		});
 		guistate.put("button:imagebutton_jail_button6", imagebutton_jail_button6);
 		this.addRenderableWidget(imagebutton_jail_button6);

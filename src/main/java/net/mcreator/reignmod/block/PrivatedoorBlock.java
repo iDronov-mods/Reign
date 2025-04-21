@@ -28,7 +28,7 @@ public class PrivatedoorBlock extends DoorBlock implements EntityBlock {
 	public static final EnumProperty<LockTypeProperty> LOCK_TYPE = EnumProperty.create("lock_type", LockTypeProperty.class);
 
 	public PrivatedoorBlock() {
-		super(BlockBehaviour.Properties.of().sound(SoundType.METAL).strength(3f, 10f).noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((bs, br, bp) -> false).dynamicShape(), BlockSetType.STONE);
+		super(BlockBehaviour.Properties.of().sound(SoundType.METAL).strength(20f, 10f).noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((bs, br, bp) -> false).dynamicShape(), BlockSetType.STONE);
 		this.registerDefaultState(this.stateDefinition.any().setValue(LOCK_TYPE, LockTypeProperty.NONE));
 	}
 

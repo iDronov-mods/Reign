@@ -35,7 +35,7 @@
     ],
     "customProperties": [
       {
-        "name": "CUSTOM:locked",
+        "name": "CUSTOM:protected",
         "type": "logic",
         "value": false
       }
@@ -130,15 +130,6 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
-    "onDestroyedByPlayer": {
-      "name": "RentalBlockDestroy"
-    },
-    "onDestroyedByExplosion": {
-      "name": "RentalBlockDestroy"
-    },
-    "onStartToDestroy": {
-      "name": "RentalBlockBreak"
-    },
     "generateFeature": false,
     "restrictionBiomes": [],
     "blocksToReplace": [

@@ -6,7 +6,7 @@ import net.mcreator.reignmod.network.ReignModModVariables;
 
 public class PrivateupProcedure {
 	public static void execute(LevelAccessor world) {
-		if (ReignModModVariables.MapVariables.get(world).private_price < 1) {
+		if (ReignModModVariables.MapVariables.get(world).private_price < 0.5) {
 			ReignModModVariables.MapVariables.get(world).private_price = ReignModModVariables.MapVariables.get(world).private_price + 0.05;
 			ReignModModVariables.MapVariables.get(world).syncData(world);
 		}

@@ -564,10 +564,13 @@ public class HouseManager {
             int add_from_domains = 0;
             for (Domain domain : domains) {
                 domain.adjustSuspicionForAll(-1);
+
+                damageDomain(domain);
+                chanceDomainEvents(domain);
+
                 add_from_domains += 3 * (domain.getDomainHP()/300);
             }
 
-            System.out.println("ADD: " + add_hp);
             add_hp += add_from_domains;
 
             if(house.addHouseHP(Math.max(-40, Math.min(add_hp, 40))) == 0) {
@@ -579,6 +582,20 @@ public class HouseManager {
         }
 
         houses_to_delete.forEach(HouseManager::deleteHouse);
+    }
+
+    private static void damageDomain(Domain domain) {
+        int add = 2;
+        if(domain.getDebuff(Domain.DomainDebuffs.disease)) add -= 4;
+        if(domain.getDebuff(Domain.DomainDebuffs.robbers)) add -= 7;
+        domain.addDomainHP(add);
+    }
+
+    private static void chanceDomainEvents(Domain domain) {
+        int x = (int) (Math.random() * 1000) + 1;
+        if(x == 1) domain.toggleOnDebuff(Domain.DomainDebuffs.robbers);
+        x = (int) (Math.random() * 100) + 1;
+        if(x == 1) domain.toggleOffDebuff(Domain.DomainDebuffs.disease);
     }
 
     public static String getOfflinePlayerName(String playerUUID) {

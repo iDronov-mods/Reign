@@ -54,49 +54,54 @@ public class KnightingProcedure {
 					itemInHand = (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY);
 					if (itemInHand.getItem() instanceof SwordItem && (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == ItemStack.EMPTY.getItem()) {
 						if (entity.getXRot() >= 70 && entity.isShiftKeyDown() && HouseManager.getHouseDomainCount((Player) entity) < 3) {
-							if (HouseManager.createDomain((Player) sourceentity, (Player) entity)) {
-								{
-									String _setval = sourceentity.getStringUUID();
-									entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.house = _setval;
-										capability.syncPlayerVariables(entity);
-									});
-								}
-								HouseManager.playerPrefixSynchronize((Player) entity);
-								HouseManager.allPlayersPrefixPacketSend();
-								if (!world.isClientSide() && world.getServer() != null)
-									world.getServer().getPlayerList()
-											.broadcastSystemMessage(Component.literal((entity.getDisplayName().getString() + "" + Component.translatable("knighting").getString() + HouseManager.getPlayerHouseTitle((Player) sourceentity))), false);
-								if (world instanceof Level _level) {
-									if (!_level.isClientSide()) {
-										_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.armor.equip_iron")), SoundSource.NEUTRAL, 1, 1);
-									} else {
-										_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.armor.equip_iron")), SoundSource.NEUTRAL, 1, 1, false);
+							if (HouseManager.getPlayerHouse((Player) sourceentity).canCreateDomain()) {
+								if (HouseManager.createDomain((Player) sourceentity, (Player) entity)) {
+									{
+										String _setval = sourceentity.getStringUUID();
+										entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+											capability.house = _setval;
+											capability.syncPlayerVariables(entity);
+										});
 									}
-								}
-								{
-									Entity _entityTeam = entity;
-									PlayerTeam _pt = _entityTeam.level().getScoreboard().getPlayerTeam(
-											(sourceentity instanceof LivingEntity _teamEnt && _teamEnt.level().getScoreboard().getPlayersTeam(_teamEnt instanceof Player _pl ? _pl.getGameProfile().getName() : _teamEnt.getStringUUID()) != null
-													? _teamEnt.level().getScoreboard().getPlayersTeam(_teamEnt instanceof Player _pl ? _pl.getGameProfile().getName() : _teamEnt.getStringUUID()).getName()
-													: ""));
-									if (_pt != null) {
-										if (_entityTeam instanceof Player _player)
-											_entityTeam.level().getScoreboard().addPlayerToTeam(_player.getGameProfile().getName(), _pt);
-										else
-											_entityTeam.level().getScoreboard().addPlayerToTeam(_entityTeam.getStringUUID(), _pt);
+									HouseManager.playerPrefixSynchronize((Player) entity);
+									HouseManager.allPlayersPrefixPacketSend();
+									if (!world.isClientSide() && world.getServer() != null)
+										world.getServer().getPlayerList().broadcastSystemMessage(
+												Component.literal((entity.getDisplayName().getString() + "" + Component.translatable("knighting").getString() + HouseManager.getPlayerHouse((Player) sourceentity).getHouseTitleWithColor())), false);
+									if (world instanceof Level _level) {
+										if (!_level.isClientSide()) {
+											_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.armor.equip_iron")), SoundSource.NEUTRAL, 1, 1);
+										} else {
+											_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.armor.equip_iron")), SoundSource.NEUTRAL, 1, 1, false);
+										}
 									}
-								}
-								if (entity instanceof ServerPlayer _player) {
-									Advancement _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation("reign_mod:true_to_the_oath"));
-									AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
-									if (!_ap.isDone()) {
-										for (String criteria : _ap.getRemainingCriteria())
-											_player.getAdvancements().award(_adv, criteria);
+									{
+										Entity _entityTeam = entity;
+										PlayerTeam _pt = _entityTeam.level().getScoreboard().getPlayerTeam(
+												(sourceentity instanceof LivingEntity _teamEnt && _teamEnt.level().getScoreboard().getPlayersTeam(_teamEnt instanceof Player _pl ? _pl.getGameProfile().getName() : _teamEnt.getStringUUID()) != null
+														? _teamEnt.level().getScoreboard().getPlayersTeam(_teamEnt instanceof Player _pl ? _pl.getGameProfile().getName() : _teamEnt.getStringUUID()).getName()
+														: ""));
+										if (_pt != null) {
+											if (_entityTeam instanceof Player _player)
+												_entityTeam.level().getScoreboard().addPlayerToTeam(_player.getGameProfile().getName(), _pt);
+											else
+												_entityTeam.level().getScoreboard().addPlayerToTeam(_entityTeam.getStringUUID(), _pt);
+										}
 									}
+									if (entity instanceof ServerPlayer _player) {
+										Advancement _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation("reign_mod:true_to_the_oath"));
+										AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
+										if (!_ap.isDone()) {
+											for (String criteria : _ap.getRemainingCriteria())
+												_player.getAdvancements().award(_adv, criteria);
+										}
+									}
+									if (world instanceof ServerLevel _level)
+										_level.sendParticles(ParticleTypes.CRIT, x, y, z, 3, 0, 0, 0, 1);
 								}
-								if (world instanceof ServerLevel _level)
-									_level.sendParticles(ParticleTypes.CRIT, x, y, z, 3, 0, 0, 0, 1);
+							} else {
+								if (sourceentity instanceof Player _player && !_player.level().isClientSide())
+									_player.displayClientMessage(Component.literal(("\u00A7c" + Component.translatable("translation.key.cant_knighting").getString())), true);
 							}
 						}
 					}

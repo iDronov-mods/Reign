@@ -9,8 +9,24 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.reignmod.world.inventory.DomainUIMenu;
+import net.mcreator.reignmod.procedures.ReturnSuspect7ValueProcedure;
+import net.mcreator.reignmod.procedures.ReturnSuspect7Procedure;
+import net.mcreator.reignmod.procedures.ReturnSuspect6ValueProcedure;
+import net.mcreator.reignmod.procedures.ReturnSuspect6Procedure;
+import net.mcreator.reignmod.procedures.ReturnSuspect5ValueProcedure;
+import net.mcreator.reignmod.procedures.ReturnSuspect5Procedure;
+import net.mcreator.reignmod.procedures.ReturnSuspect4ValueProcedure;
+import net.mcreator.reignmod.procedures.ReturnSuspect4Procedure;
+import net.mcreator.reignmod.procedures.ReturnSuspect3ValueProcedure;
+import net.mcreator.reignmod.procedures.ReturnSuspect3Procedure;
+import net.mcreator.reignmod.procedures.ReturnSuspect2ValueProcedure;
+import net.mcreator.reignmod.procedures.ReturnSuspect2Procedure;
 import net.mcreator.reignmod.procedures.ReturnSuspect1ValueProcedure;
 import net.mcreator.reignmod.procedures.ReturnSuspect1Procedure;
+import net.mcreator.reignmod.procedures.ReturnRobbersProcedure;
+import net.mcreator.reignmod.procedures.ReturnDomainHpProcedure;
+import net.mcreator.reignmod.procedures.ReturnDiseaseProcedure;
+import net.mcreator.reignmod.procedures.IncubatorReturnDomainPlayersProcedure;
 import net.mcreator.reignmod.procedures.DomainHP66Procedure;
 import net.mcreator.reignmod.procedures.DomainHP56Procedure;
 import net.mcreator.reignmod.procedures.DomainHP46Procedure;
@@ -73,11 +89,12 @@ public class DomainUIScreen extends AbstractContainerScreen<DomainUIMenu> {
 		if (DomainHP66Procedure.execute(world, x, y, z)) {
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/house_hp_point.png"), this.leftPos + 132, this.topPos + 1, 0, 0, 20, 4, 20, 4);
 		}
-
-		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/robbers_logo.png"), this.leftPos + 35, this.topPos + -11, 0, 0, 8, 8, 8, 8);
-
-		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/disease_logo.png"), this.leftPos + 25, this.topPos + -11, 0, 0, 8, 8, 8, 8);
-
+		if (ReturnRobbersProcedure.execute(world, x, y, z)) {
+			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/robbers_logo.png"), this.leftPos + 35, this.topPos + -11, 0, 0, 8, 8, 8, 8);
+		}
+		if (ReturnDiseaseProcedure.execute(world, x, y, z)) {
+			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/disease_logo.png"), this.leftPos + 25, this.topPos + -11, 0, 0, 8, 8, 8, 8);
+		}
 		RenderSystem.disableBlend();
 	}
 
@@ -92,15 +109,55 @@ public class DomainUIScreen extends AbstractContainerScreen<DomainUIMenu> {
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.domain_ui.label_hp"), 158, -3, -1, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.domain_ui.label_players"), 54, 25, -12829636, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnDomainHpProcedure.execute(world, x, y, z), 158, -3, -1, false);
+		guiGraphics.drawString(this.font,
+
+				IncubatorReturnDomainPlayersProcedure.execute(world, x, y, z), 54, 25, -12829636, false);
 		guiGraphics.drawString(this.font,
 
 				ReturnSuspect1Procedure.execute(world, x, y, z), 7, 66, -1, false);
 		guiGraphics.drawString(this.font,
 
-				ReturnSuspect1ValueProcedure.execute(world, x, y, z), 111, 66, -39322, false);
+				ReturnSuspect1ValueProcedure.execute(world, x, y, z), 111, 66, -52378, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.domain_ui.label_suspects_list_label"), 17, 47, -1, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnSuspect2Procedure.execute(world, x, y, z), 7, 79, -1, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnSuspect3Procedure.execute(world, x, y, z), 7, 92, -1, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnSuspect4Procedure.execute(world, x, y, z), 7, 106, -1, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnSuspect5Procedure.execute(world, x, y, z), 7, 119, -1, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnSuspect6Procedure.execute(world, x, y, z), 7, 132, -1, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnSuspect7Procedure.execute(world, x, y, z), 7, 145, -1, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnSuspect2ValueProcedure.execute(world, x, y, z), 111, 79, -52378, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnSuspect3ValueProcedure.execute(world, x, y, z), 111, 92, -52378, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnSuspect4ValueProcedure.execute(world, x, y, z), 111, 107, -52378, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnSuspect5ValueProcedure.execute(world, x, y, z), 111, 119, -52378, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnSuspect6ValueProcedure.execute(world, x, y, z), 111, 133, -52378, false);
+		guiGraphics.drawString(this.font,
+
+				ReturnSuspect7ValueProcedure.execute(world, x, y, z), 111, 145, -52378, false);
 	}
 
 	@Override

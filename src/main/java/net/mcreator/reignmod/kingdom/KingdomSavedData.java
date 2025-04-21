@@ -8,6 +8,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Map;
 
 public class KingdomSavedData extends ReignSavedData {
+    private final KingdomData kingdomData = new KingdomData();
 
     private static KingdomSavedData instance;
 
@@ -40,22 +41,26 @@ public class KingdomSavedData extends ReignSavedData {
         return instance;
     }
 
+    public KingdomData getKingdomData() {
+        return this.kingdomData;
+    }
+
     public static ServerLevel getServerInstance() {
         return getInstance().getServerLevelInstance();
     }
 
     @Override
     public @NotNull CompoundTag save(@NotNull CompoundTag tag) {
-        tag.putInt("capital_era", KingdomData.getCapitalEra());
-        tag.putInt("capital_discontent", KingdomData.getCapitalDiscontent());
-        tag.putInt("source_disturbance", KingdomData.getSourceDisturbance());
+        tag.putInt("capital_era", getKingdomData().getCapitalEra());
+        tag.putInt("capital_discontent", getKingdomData().getCapitalDiscontent());
+        tag.putInt("source_disturbance", getKingdomData().getSourceDisturbance());
 
-        tag.putIntArray("fund_coordinates", KingdomData.getFundCoordinates());
-        tag.putIntArray("coffers_coordinates", KingdomData.getCoffersCoordinates());
-        tag.putIntArray("prison_coordinates", KingdomData.getPrisonCoordinates());
+        tag.putIntArray("fund_coordinates", getKingdomData().getFundCoordinates());
+        tag.putIntArray("coffers_coordinates", getKingdomData().getCoffersCoordinates());
+        tag.putIntArray("prison_coordinates", getKingdomData().getPrisonCoordinates());
 
         CompoundTag courtTag = new CompoundTag();
-        for (Map.Entry<KingdomData.CourtPosition, String> entry : KingdomData.getAllCourtiers().entrySet()) {
+        for (Map.Entry<KingdomData.CourtPosition, String> entry : getKingdomData().getAllCourtiers().entrySet()) {
             if (entry.getValue() != null) {
                 courtTag.putString(entry.getKey().name(), entry.getValue());
             }
@@ -66,23 +71,23 @@ public class KingdomSavedData extends ReignSavedData {
     }
 
     private void loadFromNBT(CompoundTag tag) {
-        KingdomData.setCapitalEra(tag.getInt("capital_era"));
-        KingdomData.setCapitalDiscontent(tag.getInt("capital_discontent"));
-        KingdomData.setSourceDisturbance(tag.getInt("source_disturbance"));
+        getKingdomData().setCapitalEra(tag.getInt("capital_era"));
+        getKingdomData().setCapitalDiscontent(tag.getInt("capital_discontent"));
+        getKingdomData().setSourceDisturbance(tag.getInt("source_disturbance"));
 
         int[] fundCoordinates = tag.getIntArray("fund_coordinates");
         int[] coffersCoordinates = tag.getIntArray("coffers_coordinates");
         int[] prisonCoordinates = tag.getIntArray("prison_coordinates");
 
-        KingdomData.setFundCoordinates(fundCoordinates[0], fundCoordinates[1], fundCoordinates[2]);
-        KingdomData.setCoffersCoordinates(coffersCoordinates[0], coffersCoordinates[1], coffersCoordinates[2]);
-        KingdomData.setPrisonCoordinates(prisonCoordinates[0], prisonCoordinates[1], prisonCoordinates[2]);
+        getKingdomData().setFundCoordinates(fundCoordinates[0], fundCoordinates[1], fundCoordinates[2]);
+        getKingdomData().setCoffersCoordinates(coffersCoordinates[0], coffersCoordinates[1], coffersCoordinates[2]);
+        getKingdomData().setPrisonCoordinates(prisonCoordinates[0], prisonCoordinates[1], prisonCoordinates[2]);
 
         if (tag.contains("court_positions")) {
             CompoundTag courtTag = tag.getCompound("court_positions");
             for (String key : courtTag.getAllKeys()) {
                 KingdomData.CourtPosition pos = KingdomData.CourtPosition.valueOf(key);
-                KingdomData.assignCourtier(pos, courtTag.getString(key));
+                getKingdomData().assignCourtier(pos, courtTag.getString(key));
             }
         }
     }

@@ -259,6 +259,9 @@
           "name": "imagebutton_remove_suspect_button",
           "image": "remove_suspect_button.png",
           "hoveredImage": "remove_suspect_button_hover.png",
+          "onClick": {
+            "name": "PardonSuspect1"
+          },
           "x": 273,
           "y": 109
         }
@@ -269,6 +272,9 @@
           "name": "imagebutton_remove_suspect_button1",
           "image": "remove_suspect_button.png",
           "hoveredImage": "remove_suspect_button_hover.png",
+          "onClick": {
+            "name": "PardonSuspect2"
+          },
           "x": 273,
           "y": 121
         }
@@ -279,6 +285,9 @@
           "name": "imagebutton_remove_suspect_button2",
           "image": "remove_suspect_button.png",
           "hoveredImage": "remove_suspect_button_hover.png",
+          "onClick": {
+            "name": "PardonSuspect3"
+          },
           "x": 273,
           "y": 133
         }
@@ -289,6 +298,9 @@
           "name": "imagebutton_remove_suspect_button3",
           "image": "remove_suspect_button.png",
           "hoveredImage": "remove_suspect_button_hover.png",
+          "onClick": {
+            "name": "PardonSuspect4"
+          },
           "x": 273,
           "y": 145
         }
@@ -299,6 +311,9 @@
           "name": "imagebutton_remove_suspect_button4",
           "image": "remove_suspect_button.png",
           "hoveredImage": "remove_suspect_button_hover.png",
+          "onClick": {
+            "name": "PardonSuspect5"
+          },
           "x": 273,
           "y": 157
         }
@@ -309,6 +324,9 @@
           "name": "imagebutton_remove_suspect_button5",
           "image": "remove_suspect_button.png",
           "hoveredImage": "remove_suspect_button_hover.png",
+          "onClick": {
+            "name": "PardonSuspect6"
+          },
           "x": 273,
           "y": 169
         }
@@ -319,6 +337,9 @@
           "name": "imagebutton_remove_suspect_button6",
           "image": "remove_suspect_button.png",
           "hoveredImage": "remove_suspect_button_hover.png",
+          "onClick": {
+            "name": "PardonSuspect7"
+          },
           "x": 273,
           "y": 181
         }
@@ -329,6 +350,9 @@
           "name": "imagebutton_jail_button",
           "image": "jail_button.png",
           "hoveredImage": "jail_button_hover.png",
+          "onClick": {
+            "name": "WantedSuspect1"
+          },
           "x": 261,
           "y": 109
         }
@@ -339,6 +363,9 @@
           "name": "imagebutton_jail_button1",
           "image": "jail_button.png",
           "hoveredImage": "jail_button_hover.png",
+          "onClick": {
+            "name": "WantedSuspect2"
+          },
           "x": 261,
           "y": 121
         }
@@ -349,6 +376,9 @@
           "name": "imagebutton_jail_button2",
           "image": "jail_button.png",
           "hoveredImage": "jail_button_hover.png",
+          "onClick": {
+            "name": "WantedSuspect3"
+          },
           "x": 261,
           "y": 133
         }
@@ -359,6 +389,9 @@
           "name": "imagebutton_jail_button3",
           "image": "jail_button.png",
           "hoveredImage": "jail_button_hover.png",
+          "onClick": {
+            "name": "WantedSuspect4"
+          },
           "x": 261,
           "y": 145
         }
@@ -369,6 +402,9 @@
           "name": "imagebutton_jail_button4",
           "image": "jail_button.png",
           "hoveredImage": "jail_button_hover.png",
+          "onClick": {
+            "name": "WantedSuspect5"
+          },
           "x": 261,
           "y": 157
         }
@@ -379,6 +415,9 @@
           "name": "imagebutton_jail_button5",
           "image": "jail_button.png",
           "hoveredImage": "jail_button_hover.png",
+          "onClick": {
+            "name": "WantedSuspect6"
+          },
           "x": 261,
           "y": 169
         }
@@ -389,6 +428,9 @@
           "name": "imagebutton_jail_button6",
           "image": "jail_button.png",
           "hoveredImage": "jail_button_hover.png",
+          "onClick": {
+            "name": "WantedSuspect7"
+          },
           "x": 261,
           "y": 181
         }
@@ -493,6 +535,198 @@
           },
           "x": 227,
           "y": 107
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_suspect_2",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnSuspect2"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 145,
+          "y": 119
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_suspect_2_value",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnSuspect2Value"
+          },
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "x": 227,
+          "y": 119
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_suspect_3",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnSuspect3"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 145,
+          "y": 131
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_suspect_3_value",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnSuspect3Value"
+          },
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "x": 227,
+          "y": 131
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_suspect_4",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnSuspect4"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 145,
+          "y": 143
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_suspect_5",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnSuspect5"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 145,
+          "y": 155
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_suspect_6",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnSuspect6"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 145,
+          "y": 167
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_suspect_7",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnSuspect7"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 145,
+          "y": 179
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_suspect_4_value",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnSuspect4Value"
+          },
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "x": 227,
+          "y": 143
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_suspect_5_value",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnSuspect5Value"
+          },
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "x": 227,
+          "y": 155
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_suspect_6_value",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnSuspect6Value"
+          },
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "x": 227,
+          "y": 167
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_suspect_7_value",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnSuspect7Value"
+          },
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "x": 227,
+          "y": 179
         }
       }
     ],

@@ -24,7 +24,8 @@
         "data": {
           "name": "label_hp",
           "text": {
-            "fixedValue": "hp"
+            "fixedValue": "hp",
+            "name": "ReturnDomainHp"
           },
           "color": {
             "value": -1,
@@ -111,7 +112,8 @@
         "data": {
           "name": "label_players",
           "text": {
-            "fixedValue": "players"
+            "fixedValue": "players",
+            "name": "IncubatorReturnDomainPlayers"
           },
           "color": {
             "value": -12829636,
@@ -126,6 +128,9 @@
         "data": {
           "image": "robbers_logo.png",
           "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnRobbers"
+          },
           "x": 159,
           "y": 26
         }
@@ -135,6 +140,9 @@
         "data": {
           "image": "disease_logo.png",
           "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnDisease"
+          },
           "x": 149,
           "y": 26
         }
@@ -164,7 +172,7 @@
             "name": "ReturnSuspect1Value"
           },
           "color": {
-            "value": -39322,
+            "value": -52378,
             "falpha": 0.0
           },
           "x": 235,
@@ -184,6 +192,198 @@
           },
           "x": 141,
           "y": 84
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_suspect_2",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnSuspect2"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 131,
+          "y": 116
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_suspect_3",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnSuspect3"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 131,
+          "y": 129
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_suspect_4",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnSuspect4"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 131,
+          "y": 143
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_suspect_5",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnSuspect5"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 131,
+          "y": 156
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_suspect_6",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnSuspect6"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 131,
+          "y": 169
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_suspect_7",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnSuspect7"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 131,
+          "y": 182
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_suspect_2_value",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnSuspect2Value"
+          },
+          "color": {
+            "value": -52378,
+            "falpha": 0.0
+          },
+          "x": 235,
+          "y": 116
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_suspect_3_value",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnSuspect3Value"
+          },
+          "color": {
+            "value": -52378,
+            "falpha": 0.0
+          },
+          "x": 235,
+          "y": 129
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_suspect_4_value",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnSuspect4Value"
+          },
+          "color": {
+            "value": -52378,
+            "falpha": 0.0
+          },
+          "x": 235,
+          "y": 144
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_suspect_5_value",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnSuspect5Value"
+          },
+          "color": {
+            "value": -52378,
+            "falpha": 0.0
+          },
+          "x": 235,
+          "y": 156
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_suspect_6_value",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnSuspect6Value"
+          },
+          "color": {
+            "value": -52378,
+            "falpha": 0.0
+          },
+          "x": 235,
+          "y": 170
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_suspect_7_value",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnSuspect7Value"
+          },
+          "color": {
+            "value": -52378,
+            "falpha": 0.0
+          },
+          "x": 235,
+          "y": 182
         }
       }
     ],

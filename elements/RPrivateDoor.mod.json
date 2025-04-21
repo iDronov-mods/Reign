@@ -1,0 +1,48 @@
+{
+  "_fv": 69,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "Blocks.POLISHED_DEEPSLATE"
+      },
+      {
+        "value": "Blocks.IRON_BLOCK"
+      },
+      {
+        "value": "Blocks.POLISHED_DEEPSLATE"
+      },
+      {
+        "value": "Blocks.POLISHED_DEEPSLATE"
+      },
+      {
+        "value": "Items.IRON_DOOR"
+      },
+      {
+        "value": "Blocks.POLISHED_DEEPSLATE"
+      },
+      {
+        "value": "Blocks.POLISHED_DEEPSLATE"
+      },
+      {
+        "value": "Blocks.IRON_BLOCK"
+      },
+      {
+        "value": "Blocks.POLISHED_DEEPSLATE"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:Privatedoor"
+    },
+    "name": "r_private_door",
+    "namespace": "mod"
+  }
+}

@@ -237,6 +237,7 @@ public class House implements INBTSerializable<CompoundTag> {
 
     public void addWantedPlayer(String playerId) {
         wantedPlayers.add(playerId);
+        getDomains().forEach((k, v) -> v.adjustSuspicionForPlayer(playerId, -100));
     }
 
     public void removeWantedPlayer(String playerId) {
@@ -294,6 +295,9 @@ public class House implements INBTSerializable<CompoundTag> {
         return Math.min(10, 1 + players.size() / 3) ;
     }
 
+    public boolean canCreateDomain() {
+        return domains.size() < getHouseLevel();
+    }
     //--------------------------------------------------------------------------------
     //                                 ДЕБАФФЫ ДОМЕНОВ
     //--------------------------------------------------------------------------------

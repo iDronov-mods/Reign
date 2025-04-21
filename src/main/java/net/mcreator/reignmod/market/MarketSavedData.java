@@ -1,11 +1,18 @@
 package net.mcreator.reignmod.market;
 
 import net.mcreator.reignmod.basics.ReignSavedData;
+import net.mcreator.reignmod.kingdom.KingdomManager;
+import net.mcreator.reignmod.kingdom.KingdomSavedData;
+import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.mcreator.reignmod.basics.ConfigLoader;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import org.apache.logging.log4j.LogManager;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,10 +28,6 @@ public class MarketSavedData extends ReignSavedData {
 
     private static MarketSavedData instance;
 
-    // Поле, показывающее необходимость обновления экрана рынка
-    private boolean requireRefresh = true;
-
-    // Конструктор по умолчанию – загрузка дефолтных значений из конфигурационного файла
     public MarketSavedData() {
         loadDefaults();
     }
@@ -41,9 +44,9 @@ public class MarketSavedData extends ReignSavedData {
                 }
             }
         }
+        updateAllFundItems();
     }
 
-    // ---------- Загрузка дефолтных значений из конфигурационного файла ----------
     private void loadDefaults() {
         // Создаем глубокую копию карты, чтобы динамические данные не зависели от конфигурации
         marketItems = new HashMap<>();
@@ -88,30 +91,7 @@ public class MarketSavedData extends ReignSavedData {
         return getInstance().getServerLevelInstance();
     }
 
-    // ---------- Методы управления флагом обновления экрана ----------
-    /**
-     * Помечает, что экран рынка требует обновления.
-     */
-    public void markRefreshNeeded() {
-        this.requireRefresh = true;
-    }
-
-    /**
-     * Сбрасывает флаг обновления экрана (т.е. обновление не требуется).
-     */
-    public void clearRefreshFlag() {
-        this.requireRefresh = false;
-    }
-
-    /**
-     * Возвращает состояние флага обновления.
-     * @return true, если требуется обновление экрана, иначе false.
-     */
-    public boolean isRefreshRequired() {
-        return requireRefresh;
-    }
-
-    // ---------- Сериализация: сохраняем только currentAmount для каждого товара ----------
+    // ---------- Сериализация ----------
     @Override
     public @NotNull CompoundTag save(@NotNull CompoundTag compoundTag) {
         CompoundTag dataTag = new CompoundTag();
@@ -124,5 +104,25 @@ public class MarketSavedData extends ReignSavedData {
 
     public HashMap<String, MarketItem> getMarketItems() {
         return marketItems;
+    }
+
+    public void updateFundItemNBT(String itemName) {
+        int[] coordinates = KingdomManager.getFundCoordinates();
+
+        BlockPos pos = new BlockPos(coordinates[0], coordinates[1], coordinates[2]);
+
+        BlockEntity fundEntity = KingdomSavedData.getServerInstance().getBlockEntity(pos);
+        BlockState fundState = KingdomSavedData.getServerInstance().getBlockState(pos);
+        if (fundEntity == null) {
+            return;
+        }
+        fundEntity.getPersistentData().putDouble(itemName, this.marketItems.get(itemName).getCurrentAmount());
+        KingdomSavedData.getServerInstance().sendBlockUpdated(pos, fundState, fundState, 3);
+    }
+
+    public void updateAllFundItems() {
+        for (String itemName : marketItems.keySet()) {
+            updateFundItemNBT(itemName);
+        }
     }
 }

@@ -19,7 +19,7 @@ public class RentalDeleteProcedure {
 		double center_x = 0;
 		double center_z = 0;
 		boolean flag = false;
-		if (IsKingProcedure.execute(world, entity) || IsRightHandProcedure.execute(entity)) {
+		if (IsKingProcedure.execute(world, entity) || IsRightHandProcedure.execute(world, entity)) {
 			center_x = new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -48,7 +48,7 @@ public class RentalDeleteProcedure {
 				{
 					BlockPos _pos = BlockPos.containing(x, y, z);
 					BlockState _bs = world.getBlockState(_pos);
-					if (_bs.getBlock().getStateDefinition().getProperty("locked") instanceof BooleanProperty _booleanProp)
+					if (_bs.getBlock().getStateDefinition().getProperty("protected") instanceof BooleanProperty _booleanProp)
 						world.setBlock(_pos, _bs.setValue(_booleanProp, false), 3);
 				}
 				return false;

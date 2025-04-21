@@ -2,6 +2,7 @@ package net.mcreator.reignmod.procedures;
 
 import net.minecraftforge.network.NetworkHooks;
 
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -31,19 +32,21 @@ public class WinDomainOpenProcedure {
 			}
 		}.getValue(world, BlockPos.containing(x, y, z), "UUID")).equals(entity.getStringUUID())) {
 			FoundationUpdateInfoProcedure.execute(world, x, y, z, entity.getStringUUID());
-			if (entity instanceof ServerPlayer _ent) {
-				BlockPos _bpos = BlockPos.containing(x, y, z);
-				NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
-					@Override
-					public Component getDisplayName() {
-						return Component.literal("DomainUI");
-					}
+			if ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock().getStateDefinition().getProperty("protected") instanceof BooleanProperty _getbp4 && (world.getBlockState(BlockPos.containing(x, y, z))).getValue(_getbp4)) {
+				if (entity instanceof ServerPlayer _ent) {
+					BlockPos _bpos = BlockPos.containing(x, y, z);
+					NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
+						@Override
+						public Component getDisplayName() {
+							return Component.literal("DomainUI");
+						}
 
-					@Override
-					public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
-						return new DomainUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
-					}
-				}, _bpos);
+						@Override
+						public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
+							return new DomainUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
+						}
+					}, _bpos);
+				}
 			}
 		}
 	}

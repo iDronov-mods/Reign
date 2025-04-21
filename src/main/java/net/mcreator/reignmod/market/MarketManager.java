@@ -1,5 +1,7 @@
 package net.mcreator.reignmod.market;
 
+import net.mcreator.reignmod.network.ReignModModVariables;
+
 import java.util.Collection;
 import java.util.HashMap;
 
@@ -86,10 +88,13 @@ public class MarketManager {
      */
     public static void increaseItemAmount(String itemName, double amountToIncrease) {
         MarketSavedData data = MarketSavedData.getInstance();
+        var world = MarketSavedData.getServerInstance();
         MarketItem item = data.getMarketItems().get(itemName);
         if (item != null) {
             item.increaseCurrentAmount(amountToIncrease);
-            data.markRefreshNeeded();
+            ReignModModVariables.MapVariables.get(world).NeedRefresh = true;
+            ReignModModVariables.MapVariables.get(world).syncData(world);
+            data.updateFundItemNBT(itemName);
             data.setDirty();
         }
     }
@@ -101,33 +106,18 @@ public class MarketManager {
      */
     public static void decreaseItemAmount(String itemName, double amountToDecrease) {
         MarketSavedData data = MarketSavedData.getInstance();
+        var world = MarketSavedData.getServerInstance();
         MarketItem item = data.getMarketItems().get(itemName);
         if (item != null) {
             item.decreaseCurrentAmount(amountToDecrease);
-            data.markRefreshNeeded();
+            ReignModModVariables.MapVariables.get(world).NeedRefresh = true;
+            ReignModModVariables.MapVariables.get(world).syncData(world);
+            data.updateFundItemNBT(itemName);
             data.setDirty();
         }
     }
 
-    /**
-     * Помечает, что экран рынка требует обновления.
-     */
-    public static void markRefresh() {
-        MarketSavedData.getInstance().markRefreshNeeded();
-    }
-
-    /**
-     * Сбрасывает флаг обновления экрана (обновление не требуется).
-     */
-    public static void clearRefresh() {
-        MarketSavedData.getInstance().clearRefreshFlag();
-    }
-
-    /**
-     * Возвращает состояние флага обновления экрана.
-     * @return true, если обновление требуется, иначе false
-     */
-    public static boolean isRefreshNeeded() {
-        return MarketSavedData.getInstance().isRefreshRequired();
+    public static void updateAllFundItems() {
+        MarketSavedData.getInstance().updateAllFundItems();
     }
 }

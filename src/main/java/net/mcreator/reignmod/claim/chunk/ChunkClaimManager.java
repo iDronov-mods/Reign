@@ -52,7 +52,6 @@ public class ChunkClaimManager {
         if (claimType == ClaimType.CAPITAL) {
             return false;
         }
-
         if (!isAreaCompletelyFree(centerX, centerY, centerZ, claimType)) {
             sv.displayClientMessage(Component.translatable("chunkclaim.add.fail.occupied"), true);
             return false;
@@ -64,13 +63,13 @@ public class ChunkClaimManager {
             var foundHouse = HouseManager.getHouseByLordUUID(foundDomain.getLordUUID());
 
             claimId = foundDomain.getClaimId();
-            ownerName = foundHouse.getHouseTitleWithColor() + ": " + foundDomain.getDomainTitle();
+            ownerName = foundHouse.getHouseTitleWithColor() + ": " + foundDomain.getDomainTitle().getString();
         } else {
             var foundHouse = HouseManager.getHouseByLordUUID(sv.getStringUUID());
             var foundDomain = foundHouse.getDomains().get(sv.getStringUUID());
 
             claimId = foundHouse.getClaimId();
-            ownerName = foundHouse.getHouseTitleWithColor() + ": " + foundDomain.getDomainTitle();
+            ownerName = foundHouse.getHouseTitleWithColor() + ": " + foundDomain.getDomainTitle().getString();
         }
 
         if (claimId != null) {
@@ -111,8 +110,8 @@ public class ChunkClaimManager {
             return false;
         }
 
-        String claimId = CapitalClaimSavedData.getChunkClaimId(),
-                ownerName = Component.translatable("chunkclaim.capital.name").getString();
+        String claimId = CapitalClaimSavedData.getChunkClaimId();
+        String ownerName = Component.translatable("chunkclaim.capital.name").getString();
 
         if (claimId != null) {
             return false;

@@ -8,7 +8,6 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.level.material.PushReaction;
-import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.BlockState;
@@ -18,7 +17,6 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -34,18 +32,16 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.reignmod.world.inventory.RentalBlockUIMenu;
-import net.mcreator.reignmod.procedures.RentalBlockDestroyProcedure;
-import net.mcreator.reignmod.procedures.RentalBlockBreakProcedure;
 import net.mcreator.reignmod.block.entity.RentalBlockBlockEntity;
 
 import io.netty.buffer.Unpooled;
 
 public class RentalBlockBlock extends Block implements EntityBlock {
-	public static final BooleanProperty LOCKED = BooleanProperty.create("locked");
+	public static final BooleanProperty PROTECTED = BooleanProperty.create("protected");
 
 	public RentalBlockBlock() {
 		super(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(5f, 10f).noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((bs, br, bp) -> false));
-		this.registerDefaultState(this.stateDefinition.any().setValue(LOCKED, false));
+		this.registerDefaultState(this.stateDefinition.any().setValue(PROTECTED, false));
 	}
 
 	@Override
@@ -66,31 +62,12 @@ public class RentalBlockBlock extends Block implements EntityBlock {
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		super.createBlockStateDefinition(builder);
-		builder.add(LOCKED);
+		builder.add(PROTECTED);
 	}
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
-		return super.getStateForPlacement(context).setValue(LOCKED, false);
-	}
-
-	@Override
-	public boolean onDestroyedByPlayer(BlockState blockstate, Level world, BlockPos pos, Player entity, boolean willHarvest, FluidState fluid) {
-		boolean retval = super.onDestroyedByPlayer(blockstate, world, pos, entity, willHarvest, fluid);
-		RentalBlockDestroyProcedure.execute(world, pos.getX(), pos.getZ());
-		return retval;
-	}
-
-	@Override
-	public void wasExploded(Level world, BlockPos pos, Explosion e) {
-		super.wasExploded(world, pos, e);
-		RentalBlockDestroyProcedure.execute(world, pos.getX(), pos.getZ());
-	}
-
-	@Override
-	public void attack(BlockState blockstate, Level world, BlockPos pos, Player entity) {
-		super.attack(blockstate, world, pos, entity);
-		RentalBlockBreakProcedure.execute(blockstate, entity);
+		return super.getStateForPlacement(context).setValue(PROTECTED, false);
 	}
 
 	@Override

@@ -43,7 +43,7 @@ public class CapitalBlockSetCancelProcedure {
 		}
 		if (blockstate.getBlock() == ReignModModBlocks.COFFERS.get()) {
 			if (IsKingProcedure.execute(world, entity)) {
-				CoffersPlacedProcedure.execute(x, y, z);
+				CoffersPlacedProcedure.execute(world, x, y, z);
 			} else {
 				if (entity instanceof Player _player && !_player.level().isClientSide())
 					_player.displayClientMessage(Component.literal(("\u00A7c" + Component.translatable("translation.key.coffers_set_only_king").getString())), true);

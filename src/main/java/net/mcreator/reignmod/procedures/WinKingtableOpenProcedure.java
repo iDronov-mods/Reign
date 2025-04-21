@@ -21,7 +21,7 @@ public class WinKingtableOpenProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
-		if (IsKingProcedure.execute(world, entity) || IsRightHandProcedure.execute(entity)) {
+		if (IsKingProcedure.execute(world, entity) || IsRightHandProcedure.execute(world, entity)) {
 			if (entity instanceof ServerPlayer _ent) {
 				BlockPos _bpos = BlockPos.containing(x, y, z);
 				NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {

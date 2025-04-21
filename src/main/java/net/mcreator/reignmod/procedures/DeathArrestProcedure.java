@@ -11,6 +11,7 @@ import net.minecraft.server.level.ServerPlayer;
 
 import net.mcreator.reignmod.network.ReignModModVariables;
 import net.mcreator.reignmod.house.HouseManager;
+import net.mcreator.reignmod.house.House;
 
 import javax.annotation.Nullable;
 
@@ -33,9 +34,10 @@ public class DeathArrestProcedure {
 		String sourceplayerUUID = "";
 		String playerUUID = "";
 		String sourceplayer_suzirainUUID = "";
-		if (entity instanceof ServerPlayer && sourceentity instanceof ServerPlayer) {
+		if (!(entity == sourceentity) && entity instanceof ServerPlayer && sourceentity instanceof ServerPlayer) {
 			playerUUID = entity.getStringUUID();
-			if (HouseManager.getPlayerHouse((Player) sourceentity).isWanted(playerUUID)) {
+			House house = HouseManager.getPlayerHouse((Player) sourceentity);
+			if (!house.isNull() && house.isWanted(playerUUID)) {
 				{
 					String _setval = (sourceentity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).house;
 					entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {

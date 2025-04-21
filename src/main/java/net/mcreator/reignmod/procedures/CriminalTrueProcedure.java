@@ -19,7 +19,7 @@ public class CriminalTrueProcedure {
 	public static void execute(LevelAccessor world, CommandContext<CommandSourceStack> arguments, Entity entity) {
 		if (entity == null)
 			return;
-		if (IsKingProcedure.execute(world, entity) || IsRightHandProcedure.execute(entity) || IsMarshalProcedure.execute(entity)) {
+		if (IsKingProcedure.execute(world, entity) || IsRightHandProcedure.execute(world, entity) || IsMarshalProcedure.execute(world, entity)) {
 			{
 				boolean _setval = true;
 				(new Object() {

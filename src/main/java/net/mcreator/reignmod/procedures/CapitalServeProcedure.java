@@ -8,7 +8,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.BlockPos;
 
-import net.mcreator.reignmod.kingdom.KingdomData;
+import net.mcreator.reignmod.kingdom.KingdomManager;
 import net.mcreator.reignmod.init.ReignModModBlocks;
 
 public class CapitalServeProcedure {
@@ -22,9 +22,9 @@ public class CapitalServeProcedure {
 			LevelAccessor _worldorig = world;
 			world = _origLevel.getServer().getLevel(Level.OVERWORLD);
 			if (world != null) {
-				x = KingdomData.getCoffersCoordinates()[0];
-				y = KingdomData.getCoffersCoordinates()[1];
-				z = KingdomData.getCoffersCoordinates()[2];
+				x = KingdomManager.getCoffersCoordinates()[0];
+				y = KingdomManager.getCoffersCoordinates()[1];
+				z = KingdomManager.getCoffersCoordinates()[2];
 			}
 			world = _worldorig;
 		}
@@ -33,7 +33,7 @@ public class CapitalServeProcedure {
 				LevelAccessor _worldorig = world;
 				world = _origLevel.getServer().getLevel(Level.OVERWORLD);
 				if (world != null) {
-					coins = KingdomData.getCapitalMaintenance();;
+					coins = KingdomManager.getCapitalMaintenance();;
 				}
 				world = _worldorig;
 			}

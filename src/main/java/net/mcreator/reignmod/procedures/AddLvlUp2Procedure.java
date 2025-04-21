@@ -10,7 +10,7 @@ public class AddLvlUp2Procedure {
 		if (entity == null)
 			return false;
 		if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).ADD_LVL == 1) {
-			if ((entity instanceof Player _plr ? _plr.experienceLevel : 0) >= 20) {
+			if ((entity instanceof Player _plr ? _plr.experienceLevel : 0) >= 25) {
 				return true;
 			}
 		}

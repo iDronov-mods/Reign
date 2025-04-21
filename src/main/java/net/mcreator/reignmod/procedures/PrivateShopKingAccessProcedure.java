@@ -7,6 +7,6 @@ public class PrivateShopKingAccessProcedure {
 	public static boolean execute(LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return false;
-		return !(IsKingProcedure.execute(world, entity) || IsRightHandProcedure.execute(entity));
+		return !(IsKingProcedure.execute(world, entity) || IsRightHandProcedure.execute(world, entity));
 	}
 }

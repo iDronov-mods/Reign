@@ -1,6 +1,10 @@
 package net.mcreator.reignmod.claim.capital;
 
+import net.mcreator.reignmod.claim.chunk.ChunkClaimManager;
+import net.mcreator.reignmod.claim.chunk.ChunkClaimProtectionHandler;
+import net.mcreator.reignmod.init.ReignModModMobEffects;
 import net.mcreator.reignmod.kingdom.KingdomData;
+import net.mcreator.reignmod.kingdom.KingdomManager;
 import net.mcreator.reignmod.networking.ClientPlayerData;
 import net.mcreator.reignmod.networking.ReignNetworking;
 import net.mcreator.reignmod.networking.packet.C2S.BlockBreakPermissionQueryC2SPacket;
@@ -9,37 +13,44 @@ import net.mcreator.reignmod.procedures.IsKingProcedure;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.decoration.ArmorStand;
+import net.minecraft.world.entity.decoration.HangingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ArmorStandItem;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.HangingEntityItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.level.BlockEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.apache.logging.log4j.LogManager;
 
+import java.util.Objects;
+
 import static net.mcreator.reignmod.ReignModMod.MODID;
 
-/**
- * Обработчик защиты территорий столицы.
- * Если система привата включена и игрок не имеет доступа к блоку, взаимодействие с блоком ограничивается.
- */
 @Mod.EventBusSubscriber(modid = MODID)
 public class CapitalClaimProtectionHandler {
 
-    /**
-     * Проверяет, находится ли блок в пределах столицы (локальные координаты от 0 до 257).
-     */
     private static boolean isWithinCapital(int localX, int localZ) {
         return localX >= 0 && localX < CapitalClaimSavedData.CAPITAL_SIZE &&
                 localZ >= 0 && localZ < CapitalClaimSavedData.CAPITAL_SIZE;
     }
 
-    /**
-     * Проверяет, имеет ли игрок доступ к блоку по мировым координатам.
-     * Преобразует мировые координаты в локальные и проверяет, что блок находится в пределах столицы.
-     */
     public static boolean hasPermission(ServerPlayer player, BlockPos pos) {
         if (!CapitalClaimSavedData.getInstance().isCapitalClaimsEnabled() || player.gameMode.isCreative()) {
             return true;
@@ -51,70 +62,82 @@ public class CapitalClaimProtectionHandler {
             return true;
         }
 
-        if (player.getStringUUID().equals(KingdomData.getCourtier(KingdomData.CourtPosition.HAND_OF_THE_KING)) || IsKingProcedure.execute(CapitalClaimSavedData.getInstance().getServerLevelInstance(), player)) {
+        if (player.getStringUUID().equals(KingdomManager.getCourtier(KingdomData.CourtPosition.HAND_OF_THE_KING)) || IsKingProcedure.execute(CapitalClaimSavedData.getInstance().getServerLevelInstance(), player)) {
             return true;
         }
 
         ClaimOwner owner = CapitalClaimSavedData.getInstance().getOwnerAt(localX, localZ);
 
-        if (owner == null && player.getStringUUID().equals(KingdomData.getCourtier(KingdomData.CourtPosition.ARCHITECT))) {
+        if (owner == null && player.getStringUUID().equals(KingdomManager.getCourtier(KingdomData.CourtPosition.ARCHITECT))) {
             return true;
         }
 
         return owner != null && owner.hasAccess(player.getUUID());
     }
 
-    /**
-     * SERVER-ONLY
-     */
+    private static boolean isOverworld(Level level) {
+        return level.dimension().equals(Level.OVERWORLD);
+    }
+
+    private static boolean isPlacementItem(Item item) {
+        return item instanceof BlockItem || item instanceof HangingEntityItem || item instanceof ArmorStandItem;
+    }
+
+    private static void cancel(Event event) {
+        if (event.isCancelable()) event.setCanceled(true);
+        if (event instanceof PlayerInteractEvent.RightClickBlock rc) {
+            rc.setUseItem(PlayerInteractEvent.Result.DENY);
+            rc.setUseBlock(PlayerInteractEvent.Result.DENY);
+            rc.setCancellationResult(InteractionResult.FAIL);
+        }
+    }
+
+    // --- SERVER EVENTS ---
+
     @SubscribeEvent
-    public static void onServerBreakSpeed(PlayerEvent.BreakSpeed event) {
-        if (!(event.getEntity() instanceof ServerPlayer player) || !player.level().dimension().equals(Level.OVERWORLD))
-            return;
+    public static void onBreakSpeed(PlayerEvent.BreakSpeed event) {
+        if (!(event.getEntity() instanceof ServerPlayer player) || !isOverworld(player.level())) return;
         BlockPos pos = event.getPosition().orElse(null);
-        if (pos == null) return;
-
-        if (!hasPermission(player, pos)) {
-            event.setCanceled(true);
-        }
+        if (pos != null && !hasPermission(player, pos)) cancel(event);
     }
 
-    /**
-     * SERVER-ONLY
-     */
     @SubscribeEvent
-    public static void onServerBlockBreak(BlockEvent.BreakEvent event) {
-        if (!(event.getPlayer() instanceof ServerPlayer player) || !player.level().dimension().equals(Level.OVERWORLD))
-            return;
-        BlockPos pos = event.getPos();
-        if (!hasPermission(player, pos)) {
-            event.setCanceled(true);
-        }
+    public static void onBlockBreak(BlockEvent.BreakEvent event) {
+        if (event.getPlayer() instanceof ServerPlayer player && isOverworld(player.level()) &&
+                !hasPermission(player, event.getPos())) cancel(event);
     }
 
-    /**
-     * SERVER-ONLY
-     */
     @SubscribeEvent
-    public static void onServerBlockPlace(BlockEvent.EntityPlaceEvent event) {
-        if (!(event.getEntity() instanceof ServerPlayer player) || !player.level().dimension().equals(Level.OVERWORLD))
-            return;
-        BlockPos pos = event.getPos();
-        if (!hasPermission(player, pos)) {
-            event.setCanceled(true);
+    public static void onBlockPlace(BlockEvent.EntityPlaceEvent event) {
+        if (event.getEntity() instanceof ServerPlayer player && isOverworld(player.level()) &&
+                !hasPermission(player, event.getPos())) cancel(event);
+    }
+
+    @SubscribeEvent
+    public static void onAttackEntity(AttackEntityEvent event) {
+        if (event.getEntity() instanceof ServerPlayer player) {
+            Entity target = event.getTarget();
+            if ((target instanceof HangingEntity || target instanceof ArmorStand) &&
+                    !hasPermission(player, target.blockPosition())) cancel(event);
         }
     }
 
-    /**
-     * CLIENT-ONLY
-     */
+    @SubscribeEvent
+    public static void onRightClick(PlayerInteractEvent.RightClickBlock event) {
+        if (event.getEntity() instanceof ServerPlayer player && isOverworld(player.level()) &&
+                isPlacementItem(event.getItemStack().getItem())) {
+            BlockPos pos = event.getPos().relative(Objects.requireNonNull(event.getFace()));
+            if (!hasPermission(player, pos)) cancel(event);
+        }
+    }
+
+    // --- CLIENT EVENTS ---
+
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void onClientBreakSpeed(PlayerEvent.BreakSpeed event) {
-        if (!(event.getEntity() instanceof LocalPlayer player) || !player.level().dimension().equals(Level.OVERWORLD)) return;
-
+        if (!(event.getEntity() instanceof LocalPlayer player) || !isOverworld(player.level())) return;
         BlockPos pos = event.getPosition().orElse(null);
-        if (pos == null) return;
 
         if (!ClientPlayerData.isLastKnownBlock(pos)) {
             ReignNetworking.sendToServer(new BlockBreakPermissionQueryC2SPacket(pos));
@@ -125,13 +148,11 @@ public class CapitalClaimProtectionHandler {
         }
     }
 
-    /**
-     * CLIENT-ONLY
-     */
+
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void onClientBlockBreak(BlockEvent.BreakEvent event) {
-        if (!(event.getPlayer() instanceof LocalPlayer player) || !player.level().dimension().equals(Level.OVERWORLD))
+        if (!(event.getPlayer() instanceof LocalPlayer player) || !isOverworld(player.level()))
             return;
         BlockPos pos = event.getPos();
 
@@ -144,15 +165,12 @@ public class CapitalClaimProtectionHandler {
         }
     }
 
-    /**
-     * CLIENT-ONLY
-     */
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
-    public static void onClientBlockPlace(BlockEvent.EntityPlaceEvent event) {
-        if (!(event.getEntity() instanceof LocalPlayer player) || !player.level().dimension().equals(Level.OVERWORLD))
-            return;
-        BlockPos pos = event.getPos();
+    public static void onClientRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
+        if (!(event.getEntity() instanceof LocalPlayer lp) || !isOverworld(lp.level()) || !isPlacementItem(event.getItemStack().getItem())) return;
+
+        BlockPos pos = event.getPos().relative(Objects.requireNonNull(event.getFace()));
 
         if (!ClientPlayerData.isLastKnownBlock(pos)) {
             ReignNetworking.sendToServer(new BlockBreakPermissionQueryC2SPacket(pos));

@@ -51,7 +51,7 @@ public class AnimalLootProcedure {
 			}
 		} else if (entity.getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("reign:farmer_cattle")))
 				&& (sourceentity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).license_cowboy) {
-			if (Mth.nextInt(RandomSource.create(), 1, 100) > (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).efficiency) {
+			if (Mth.nextInt(RandomSource.create(), 1, 100) > (sourceentity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).efficiency) {
 				if (event != null && event.isCancelable()) {
 					event.setCanceled(true);
 				} else if (event != null && event.hasResult()) {
