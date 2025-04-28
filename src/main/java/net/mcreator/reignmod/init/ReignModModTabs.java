@@ -18,7 +18,6 @@ public class ReignModModTabs {
 	public static final DeferredRegister<CreativeModeTab> REGISTRY = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ReignModMod.MODID);
 	public static final RegistryObject<CreativeModeTab> CREATIVE_TAB = REGISTRY.register("creative_tab",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.reign_mod.creative_tab")).icon(() -> new ItemStack(ReignModModItems.GOLD_COIN.get())).displayItems((parameters, tabData) -> {
-				tabData.accept(ReignModModItems.TEXTBOOK.get());
 				tabData.accept(ReignModModItems.CROWN_HELMET.get());
 				tabData.accept(ReignModModItems.RIGHT_HAND.get());
 				tabData.accept(ReignModModItems.MARSHAL_INSIGNIA.get());

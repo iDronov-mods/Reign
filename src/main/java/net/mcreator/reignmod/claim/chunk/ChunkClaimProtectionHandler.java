@@ -22,10 +22,7 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.decoration.HangingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ArmorStandItem;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.HangingEntityItem;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
@@ -140,18 +137,24 @@ public class ChunkClaimProtectionHandler {
         }
 
         Item targetItem = event.getItemStack().getItem();
-        BlockPos pos = event.getPos().relative(event.getFace());
+        BlockPos pos = event.getPos().relative(Objects.requireNonNull(event.getFace()));
 
-        if (targetItem instanceof BlockItem blockItem) {
-            if (!ChunkClaimManager.hasPermission(sp, pos)) {
-                increaseSuspicion(sp, SuspiciousAction.BLOCK_PLACE, blockItem.getBlock(), pos);
-                sp.addEffect(new MobEffectInstance(ReignModModMobEffects.SUSPECT.get(), 200, 0, false, false, true));
-            }
+        Block blockToReport;
+        if (targetItem instanceof BlockItem blockItem && sp.serverLevel().getBlockState(pos).getBlock() != Blocks.AIR) {
+            blockToReport = blockItem.getBlock();
         } else if (targetItem instanceof HangingEntityItem || targetItem instanceof ArmorStandItem) {
-            if (!ChunkClaimManager.hasPermission(sp, pos)) {
-                increaseSuspicion(sp, SuspiciousAction.BLOCK_PLACE, Blocks.AIR, pos);
-                sp.addEffect(new MobEffectInstance(ReignModModMobEffects.SUSPECT.get(), 200, 0, false, false, true));
-            }
+            blockToReport = Blocks.AIR;
+        } else if (targetItem instanceof BucketItem) {
+            blockToReport = Blocks.WATER;
+        } else if (targetItem instanceof ShovelItem) {
+            blockToReport = Blocks.DIRT_PATH;
+        } else{
+            return;
+        }
+
+        if (!ChunkClaimManager.hasPermission(sp, pos)) {
+            increaseSuspicion(sp, SuspiciousAction.BLOCK_PLACE, blockToReport, pos);
+            sp.addEffect(new MobEffectInstance(ReignModModMobEffects.SUSPECT.get(),200, 0,false, false, true));
         }
     }
 
@@ -274,10 +277,10 @@ public class ChunkClaimProtectionHandler {
         int placeSuspicion = 5;
         int breakSuspicion = 10;
 
-        if (block instanceof CropBlock) {
+        if (block instanceof BushBlock || block instanceof DirtPathBlock) {
             placeSuspicion = 1;
             breakSuspicion = 1;
-        } else if (block instanceof ChestBlock || block instanceof BarrelBlock) {
+        } else if (block instanceof ChestBlock || block instanceof BarrelBlock || block instanceof DoorBlock) {
             placeSuspicion = 10;
             breakSuspicion = 50;
         } else if (block == Blocks.TNT) {

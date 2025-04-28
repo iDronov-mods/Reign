@@ -558,29 +558,6 @@
       "path": "~/Scripts/MarketSystem"
     },
     {
-      "name": "RoyaleSettingsTik",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "royale_settings_tik",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/reignmod/procedures/RoyaleSettingsTikProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "guistate",
-            "type": "map"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Scripts/KingSystem"
-    },
-    {
       "name": "Logsup",
       "type": "procedure",
       "compiles": true,
@@ -872,7 +849,8 @@
           "src/main/java/net/mcreator/reignmod/block/MarketBlockBlock.java",
           "src/main/resources/assets/reign_mod/models/item/market_block.json",
           "src/main/resources/assets/reign_mod/models/block/market_block.json",
-          "src/main/resources/assets/reign_mod/blockstates/market_block.json"
+          "src/main/resources/assets/reign_mod/blockstates/market_block.json",
+          "src/main/java/net/mcreator/reignmod/block/entity/MarketBlockBlockEntity.java"
         ]
       },
       "path": "~/Blocks"
@@ -933,8 +911,8 @@
         ],
         "dependencies": [
           {
-            "name": "world",
-            "type": "world"
+            "name": "entity",
+            "type": "entity"
           }
         ]
       },
@@ -3080,20 +3058,6 @@
       "path": "~/Achievements"
     },
     {
-      "name": "Textbook",
-      "type": "item",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "textbook",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/reignmod/item/TextbookItem.java",
-          "src/main/resources/assets/reign_mod/models/item/textbook.json"
-        ]
-      },
-      "path": "~/Items"
-    },
-    {
       "name": "SmithAvilExp",
       "type": "procedure",
       "compiles": true,
@@ -4069,30 +4033,6 @@
         ]
       },
       "path": "~/Scripts/MarketSystem"
-    },
-    {
-      "name": "TextMarketTax",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "text_market_tax",
-      "metadata": {
-        "return_type": "string",
-        "files": [
-          "src/main/java/net/mcreator/reignmod/procedures/TextMarketTaxProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Scripts/MarketSystem/MarketBar"
     },
     {
       "name": "LossLvlDeath",
@@ -15416,6 +15356,196 @@
         "dependencies": []
       },
       "path": "~/Scripts/HousesScript"
+    },
+    {
+      "name": "IncubatorUpdateSuspects",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "incubator_update_suspects",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/IncubatorUpdateSuspectsProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/IncubatorSystem"
+    },
+    {
+      "name": "GetGoodsTax",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_goods_tax",
+      "metadata": {
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/GetGoodsTaxProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem"
+    },
+    {
+      "name": "GetTextMarketTax",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_text_market_tax",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/GetTextMarketTaxProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem"
+    },
+    {
+      "name": "IsIndirectVassalsBeTrusted",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "is_indirect_vassals_be_trusted",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/IsIndirectVassalsBeTrustedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript"
+    },
+    {
+      "name": "SetTrustIndirectVassalsTick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "set_trust_indirect_vassals_tick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/SetTrustIndirectVassalsTickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "guistate",
+            "type": "map"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/IncubatorSystem"
+    },
+    {
+      "name": "ReturnDomainPlayers",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_domain_players",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/ReturnDomainPlayersProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/DomainScript"
     }
   ],
   "variable_elements": [
@@ -15714,7 +15844,7 @@
       "value": "\"\""
     },
     {
-      "name": "NeedRefresh",
+      "name": "needRefresh",
       "type": "logic",
       "scope": "map",
       "value": "false"
@@ -16103,7 +16233,6 @@
   },
   "tab_element_order": {
     "CUSTOM:CreativeTab": [
-      "Textbook",
       "Crown",
       "RightHand",
       "MarshalInsignia",
@@ -16160,17 +16289,17 @@
   "language_map": {
     "ru_ru": {
       "item_group.reign_mod.creative_tab": "Reign",
-      "translation.key.players": "игроки",
       "translation.key.tooltip.marshal_insignia_short": "Предмет королевского Маршала",
-      "gui.reign_mod.coffers_tax_ui.label_food_tax_label": "Еда",
-      "gui.reign_mod.house_incubator_ui.label_proc_incubator_get_food_per_hour": "2 / hour",
-      "item.reign_mod.ender_picklock": "Отмычка Края",
+      "translation.key.players": "игроки",
       "house.get_domain_suspect": "Подозрительные лица: ",
+      "item.reign_mod.ender_picklock": "Отмычка Края",
+      "gui.reign_mod.house_incubator_ui.label_proc_incubator_get_food_per_hour": "2 / hour",
+      "gui.reign_mod.coffers_tax_ui.label_food_tax_label": "Еда",
       "gui.reign_mod.farmer_window.button_empty": "\u003c\u003c",
       "block.reign_mod.privatedoor": "Защищенная дверь",
       "translation.key.house_rename": "Ваш Дом переименован.",
-      "item.reign_mod.farmer_coin": "Монета фермера",
       "block.reign_mod.finial_of_reign": "Властное навершие",
+      "item.reign_mod.farmer_coin": "Монета фермера",
       "gui.reign_mod.cowboy_window.button_refuse": "Отказаться",
       "gui.reign_mod.domain_ui.label_hp": "hp",
       "translation.key.cant_tame_wolf": "А вдруг укусит?",
@@ -16180,16 +16309,16 @@
       "translation.key.tooltip.obelisk_foundation_short": "Основа для рыцарского обелиска",
       "gui.reign_mod.licenses_window.tooltip_win_enchanter_help": "Чародей",
       "gui.reign_mod.smith_window.tooltip_lvl1_description": "-10% брака.",
-      "gui.reign_mod.rental_block_ui.button_delete": "Удалить",
       "gui.reign_mod.enchanter_window.tooltip_lvl4_description": "Улучшенный взлом эндер-сундуков.",
+      "gui.reign_mod.rental_block_ui.button_delete": "Удалить",
       "translation.key.houses_list": "\u003d\u003d\u003d Дома Королевства: \u003d\u003d\u003d",
       "gui.reign_mod.smith_window.tooltip_lvl4_description": "Создание предметов без брака.",
       "gui.reign_mod.enchanter_window.tooltip_lvl5_description": "Создание дубликатов зачарованных книг.",
       "gui.reign_mod.smith_window.tooltip_lvl5_description": "Доступ к кузнечному столу.",
-      "translation.key.choose_farmer": "Теперь ты фермер.",
       "gui.reign_mod.private_shop_buyer_ui.label_count_left": "count_left",
-      "pay_slave": "Нашёл на земле:",
+      "translation.key.choose_farmer": "Теперь ты фермер.",
       "gui.reign_mod.smith_window.tooltip_lvl2_description": "Использование точила.",
+      "pay_slave": "Нашёл на земле:",
       "gui.reign_mod.kingtable_ui.tooltip_kingtable_help": "Пишите Королевские указы",
       "translation.key.title_dont_match": "Титул не соответствует требованиям.",
       "gui.reign_mod.fisher_window.tooltip_lvl4_description": "Гарантированная подсечка.",
@@ -16200,14 +16329,14 @@
       "gui.reign_mod.fisher_window.tooltip_lvl1_description": "Хороший шанс подсечь поклёвку.",
       "gui.reign_mod.farmer_window.label_main_license": "Основная лицензия",
       "translation.key.tooltip.honey_concentrate": "Пусть он светит тебе во мраке, когда весь прочий свет угаснет.",
-      "gui.reign_mod.coffers_ui.button_pay_off": "Оплатить",
-      "translation.key.houseNameTaken": "Дом с таким именем уже существует!",
       "gui.reign_mod.enchanter_window.button_select": "Выбрать",
+      "translation.key.houseNameTaken": "Дом с таким именем уже существует!",
+      "gui.reign_mod.coffers_ui.button_pay_off": "Оплатить",
       "translation.key.domain_is_full": "Ваш домен переполнен!",
       "item.reign_mod.trade_license": "Лицензия на торговлю",
       "gui.reign_mod.coffers_tax_ui.label_coal_tax_label": "Уголь",
-      "gui.reign_mod.house_incubator_ui.tooltip_domain_players": "Игроков в вашем домене",
       "block.reign_mod.kingtable": "Королевский стол",
+      "gui.reign_mod.house_incubator_ui.tooltip_domain_players": "Игроков в вашем домене",
       "translation.key.tooltip.shackles_short": "Арестовывайте преступников",
       "advancements.sleight_of_hand_and_no_bugs.title": "Ловкость рук и никаких багов",
       "gui.reign_mod.fund_ui.tooltip_1_kingdom": "+1 Дом",
@@ -16221,7 +16350,6 @@
       "gui.reign_mod.private_shop_ui.button_x4": "X4",
       "item.reign_mod.crown_helmet": "Корона",
       "gui.reign_mod.domain_ui.label_players": "players",
-      "item.reign_mod.textbook": "Учебник ReignMod",
       "gui.reign_mod.private_shop_ui.button_gcf": "снять",
       "gui.reign_mod.private_shop_ui.tooltip_private_shop_help": "Продавайте товар на частном рынке",
       "gui.reign_mod.enchanter_window.tooltip_lvl3_description_l": "lvl3",
@@ -16230,6 +16358,7 @@
       "translation.key.choose_soldier": "Теперь ты солдат! - Сэр, есть, сэр!",
       "gui.reign_mod.house_incubator_ui.label_meat": "мясо",
       "subtitles.minting": "",
+      "gui.reign_mod.house_suspects_ui.trusting_indirect_vassals": "Доверять непрямым вассалам",
       "gui.reign_mod.market.label_tax_count": "tax_count",
       "NotCowboy": "Я не разводить животных.",
       "gui.reign_mod.miner_window.label_r": "Глубинный шахтёр",
@@ -16460,7 +16589,7 @@
       "gui.reign_mod.trader_point.auto_sale": "авто. продажа",
       "block.reign_mod.safe": "Сейф",
       "advancements.welcome_to_reign.title": "Добро пожаловать в Reign",
-      "gui.reign_mod.market.button_x16": "X16",
+      "gui.reign_mod.market.button_x16": "8x",
       "item.reign_mod.ruin_lord_2.desc": "Ruin Lord - Light after darkness",
       "translation.key.tooltip.incubator_short": "Поддерживает жизнь Дома",
       "effect.reign_mod.suspect": "Подозрительный",
@@ -16795,16 +16924,16 @@
       "translation.key.tooltip.marshal_insignia_short": "",
       "translation.key.players": "players",
       "translation.key.sticky_piston_lock": "",
-      "house.get_domain_suspect": "",
-      "gui.reign_mod.house_incubator_ui.label_proc_incubator_get_food_per_hour": "2 / hour",
-      "item.reign_mod.ender_picklock": "Отмычка Края",
       "gui.reign_mod.coffers_tax_ui.label_food_tax_label": "food_tax_label",
+      "item.reign_mod.ender_picklock": "Отмычка Края",
+      "gui.reign_mod.house_incubator_ui.label_proc_incubator_get_food_per_hour": "2 / hour",
+      "house.get_domain_suspect": "",
       "gui.reign_mod.farmer_window.button_empty": "\u003c\u003c",
       "block.reign_mod.privatedoor": "Private door",
       "translation.key.tooltip.found": "",
       "translation.key.house_rename": "Your house has been renamed.",
-      "item.reign_mod.farmer_coin": "Farmer coin",
       "block.reign_mod.finial_of_reign": "Finial of reign",
+      "item.reign_mod.farmer_coin": "Farmer coin",
       "gui.reign_mod.cowboy_window.button_refuse": "refuse",
       "gui.reign_mod.domain_ui.label_hp": "hp",
       "translation.key.cant_tame_wolf": "",
@@ -16814,16 +16943,16 @@
       "translation.key.tooltip.obelisk_foundation_short": "",
       "gui.reign_mod.licenses_window.tooltip_win_enchanter_help": "win_enchanter_help",
       "gui.reign_mod.smith_window.tooltip_lvl1_description": "lvl1_description",
-      "gui.reign_mod.rental_block_ui.button_delete": "Delete",
       "gui.reign_mod.enchanter_window.tooltip_lvl4_description": "lvl4_description",
+      "gui.reign_mod.rental_block_ui.button_delete": "Delete",
       "translation.key.houses_list": "\u003d\u003d\u003d Houses in the Kingdom: \u003d\u003d\u003d",
       "gui.reign_mod.smith_window.tooltip_lvl4_description": "lvl4_description",
       "gui.reign_mod.enchanter_window.tooltip_lvl5_description": "lvl5_description",
       "gui.reign_mod.smith_window.tooltip_lvl5_description": "lvl5_description",
-      "gui.reign_mod.private_shop_buyer_ui.label_count_left": "count_left",
       "translation.key.choose_farmer": "",
-      "pay_slave": "Found on the ground:",
+      "gui.reign_mod.private_shop_buyer_ui.label_count_left": "count_left",
       "gui.reign_mod.smith_window.tooltip_lvl2_description": "lvl2_description",
+      "pay_slave": "Found on the ground:",
       "gui.reign_mod.kingtable_ui.tooltip_kingtable_help": "kingtable_help",
       "translation.key.title_dont_match": "",
       "gui.reign_mod.fisher_window.tooltip_lvl4_description": "lvl4_description",
@@ -16835,13 +16964,13 @@
       "gui.reign_mod.fisher_window.tooltip_lvl1_description": "lvl1_description",
       "gui.reign_mod.farmer_window.label_main_license": "Main license",
       "translation.key.tooltip.honey_concentrate": "",
-      "gui.reign_mod.enchanter_window.button_select": "Select",
-      "translation.key.houseNameTaken": "A House with this name already exists!",
       "gui.reign_mod.coffers_ui.button_pay_off": "Pay off",
+      "translation.key.houseNameTaken": "A House with this name already exists!",
+      "gui.reign_mod.enchanter_window.button_select": "Select",
       "item.reign_mod.trade_license": "Trade license",
       "gui.reign_mod.coffers_tax_ui.label_coal_tax_label": "coal_tax_label",
-      "block.reign_mod.kingtable": "Royale table",
       "gui.reign_mod.house_incubator_ui.tooltip_domain_players": "domain_players",
+      "block.reign_mod.kingtable": "Royale table",
       "translation.key.tooltip.shackles_short": "",
       "advancements.sleight_of_hand_and_no_bugs.title": "Sleight Of Hand And No Bugs",
       "gui.reign_mod.fund_ui.tooltip_1_kingdom": "+1 kingdom",
@@ -16855,7 +16984,6 @@
       "gui.reign_mod.fund_ui.tooltip_opening_sticky_pistons": "Opening Sticky pistons",
       "item.reign_mod.crown_helmet": "Crown",
       "gui.reign_mod.domain_ui.label_players": "players",
-      "item.reign_mod.textbook": "Textbook ReignMod",
       "gui.reign_mod.private_shop_ui.button_gcf": "cash",
       "gui.reign_mod.private_shop_ui.tooltip_private_shop_help": "private_shop_help",
       "gui.reign_mod.enchanter_window.tooltip_lvl3_description_l": "lvl3_description_L",
@@ -16864,6 +16992,7 @@
       "translation.key.choose_soldier": "",
       "gui.reign_mod.house_incubator_ui.label_meat": "meat",
       "subtitles.minting": "",
+      "gui.reign_mod.house_suspects_ui.trusting_indirect_vassals": "Trusting indirect vassals",
       "gui.reign_mod.market.label_tax_count": "tax_count",
       "NotCowboy": "I\u0027m not a cowboy.",
       "gui.reign_mod.miner_window.label_r": "R",
@@ -17095,7 +17224,7 @@
       "gui.reign_mod.trader_point.auto_sale": "авто. продажа",
       "block.reign_mod.safe": "Safe",
       "advancements.welcome_to_reign.title": "Welcome To Reign",
-      "gui.reign_mod.market.button_x16": "16x",
+      "gui.reign_mod.market.button_x16": "8x",
       "item.reign_mod.ruin_lord_2.desc": "Ruin Lord - Light after darkness",
       "translation.key.tooltip.incubator_short": "",
       "effect.reign_mod.suspect": "Suspect",
@@ -17746,7 +17875,7 @@
   "workspaceSettings": {
     "modid": "reign_mod",
     "modName": "Reign",
-    "version": "0.7.2",
+    "version": "0.7.3",
     "description": "Professions, trade and power",
     "author": "iDronov",
     "websiteURL": "https://t.me/reignmod",

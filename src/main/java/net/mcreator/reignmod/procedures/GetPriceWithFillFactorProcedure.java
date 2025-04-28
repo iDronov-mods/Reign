@@ -42,6 +42,6 @@ public class GetPriceWithFillFactorProcedure {
 			}
 			world = _worldorig;
 		}
-		return totalPrice;
+		return Math.round(totalPrice);
 	}
 }

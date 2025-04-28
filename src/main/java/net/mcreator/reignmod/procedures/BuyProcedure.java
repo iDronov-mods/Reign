@@ -87,7 +87,7 @@ public class BuyProcedure {
 							ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
 						}
 						MarketManager.decreaseItemAmount(stringName, inPack);
-						tax = Math.floor(cost - GetPriceWithFillFactorProcedure.execute(world, ForgeRegistries.ITEMS
+						tax = Math.ceil(cost - GetPriceWithFillFactorProcedure.execute(world, ForgeRegistries.ITEMS
 								.getKey((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(68)).getItem() : ItemStack.EMPTY).getItem()).toString()));
 						ReignModModVariables.MapVariables.get(world).market_copper = ReignModModVariables.MapVariables.get(world).market_copper + cost;
 						ReignModModVariables.MapVariables.get(world).syncData(world);
@@ -96,6 +96,9 @@ public class BuyProcedure {
 						}
 					}
 				}
+				MarketPriceSetProcedure.execute(world, entity, GetGoodsTaxProcedure.execute(world, entity),
+						(ForgeRegistries.ITEMS.getKey((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(68)).getItem() : ItemStack.EMPTY).getItem())
+								.toString()).substring(10));
 			}
 			world = _worldorig;
 		}

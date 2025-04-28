@@ -232,7 +232,9 @@ public class ChunkClaimManager {
             // HOUSE
             House chunkHouse = HouseManager.getHouseByLordUUID(claimData.getOwnerId());
             if (!chunkHouse.isNull()) {
-                return chunkHouse.getDomains().containsKey(player.getStringUUID()) || chunkHouse.getDomains().get(chunkHouse.getLordUUID()).getPlayers().contains(player.getStringUUID());
+                return chunkHouse.getDomains().containsKey(player.getStringUUID()) ||
+                        chunkHouse.getDomains().get(chunkHouse.getLordUUID()).getPlayers().contains(player.getStringUUID()) ||
+                        chunkHouse.isIndirectVassalsBeTrusted() && chunkHouse.getPlayers().contains(player.getStringUUID());
             }
         } else if (claimData.getClaimType() == ClaimType.DOMAIN){
             // DOMAIN

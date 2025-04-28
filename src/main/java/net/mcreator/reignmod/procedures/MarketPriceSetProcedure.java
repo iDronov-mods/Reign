@@ -18,7 +18,6 @@ public class MarketPriceSetProcedure {
 		String goods = "";
 		double totalPrice = 0;
 		double addTax = 0;
-		TextMarketTaxProcedure.execute(world, entity);
 		if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 			((Slot) _slots.get(69)).set(ItemStack.EMPTY);
 			_player.containerMenu.broadcastChanges();
@@ -36,7 +35,7 @@ public class MarketPriceSetProcedure {
 			_player.containerMenu.broadcastChanges();
 		}
 		totalPrice = GetPriceWithFillFactorProcedure.execute(world, goodsName);
-		addTax = tax * totalPrice;
+		addTax = Math.ceil(tax * totalPrice);
 		totalPrice = totalPrice + addTax;
 		if (totalPrice >= 4096) {
 			if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {

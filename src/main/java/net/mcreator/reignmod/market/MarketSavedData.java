@@ -83,7 +83,7 @@ public class MarketSavedData extends ReignSavedData {
         return instance;
     }
 
-	public static void resetInstance() {
+    public static void resetInstance() {
         instance = null;
     }
 

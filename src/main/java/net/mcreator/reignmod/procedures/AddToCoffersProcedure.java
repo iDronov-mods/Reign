@@ -30,7 +30,7 @@ public class AddToCoffersProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getPersistentData().putDouble("amount", Math.floor(new Object() {
+							_blockEntity.getPersistentData().putDouble("amount", Math.round(new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)

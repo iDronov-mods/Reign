@@ -5,7 +5,7 @@
     "type": 1,
     "width": 323,
     "height": 166,
-    "inventoryOffsetX": 70,
+    "inventoryOffsetX": 69,
     "inventoryOffsetY": 0,
     "renderBgLayer": false,
     "doesPauseGame": false,
@@ -1257,57 +1257,12 @@
         }
       },
       {
-        "type": "image",
-        "data": {
-          "image": "count_bar0-3.png",
-          "use1Xscale": false,
-          "x": 158,
-          "y": 127
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "count_bar1-3.png",
-          "use1Xscale": false,
-          "displayCondition": {
-            "name": "ReturnMarketBar13"
-          },
-          "x": 158,
-          "y": 127
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "count_bar2-3.png",
-          "use1Xscale": false,
-          "displayCondition": {
-            "name": "ReturnMarketBar23"
-          },
-          "x": 158,
-          "y": 127
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "count_bar3-3.png",
-          "use1Xscale": false,
-          "displayCondition": {
-            "name": "ReturnMarketBar33"
-          },
-          "x": 158,
-          "y": 127
-        }
-      },
-      {
         "type": "label",
         "data": {
           "name": "label_tax_count",
           "text": {
             "fixedValue": "tax_count",
-            "name": "TextMarketTax"
+            "name": "GetTextMarketTax"
           },
           "color": {
             "value": -3355444,
@@ -1411,7 +1366,7 @@
             "name": "CopperCostText"
           },
           "color": {
-            "value": -3355444,
+            "value": -26368,
             "falpha": 0.0
           },
           "x": 67,
@@ -1438,7 +1393,7 @@
         "type": "button",
         "data": {
           "name": "button_x16",
-          "text": "16x",
+          "text": "8x",
           "isUndecorated": false,
           "onClick": {
             "name": "Buy16"

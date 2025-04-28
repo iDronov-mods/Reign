@@ -77,14 +77,14 @@ public class PrivateShopBuyProcedure {
 						}.getAmount(world, BlockPos.containing(x, y, z), 2));
 						ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
 					}
-					tax = (new Object() {
+					tax = Math.ceil((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
 								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, BlockPos.containing(x, y, z), "price")) * ReignModModVariables.MapVariables.get(world).private_price;
+					}.getValue(world, BlockPos.containing(x, y, z), "price")) * ReignModModVariables.MapVariables.get(world).private_price);
 					if (!world.isClientSide()) {
 						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);

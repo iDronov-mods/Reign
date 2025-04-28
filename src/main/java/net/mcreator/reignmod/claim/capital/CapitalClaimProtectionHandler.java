@@ -20,10 +20,7 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.decoration.HangingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ArmorStandItem;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.HangingEntityItem;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
@@ -80,7 +77,12 @@ public class CapitalClaimProtectionHandler {
     }
 
     private static boolean isPlacementItem(Item item) {
-        return item instanceof BlockItem || item instanceof HangingEntityItem || item instanceof ArmorStandItem;
+        return item instanceof BlockItem || item instanceof HangingEntityItem || item instanceof ArmorStandItem || item instanceof BucketItem;
+    }
+
+    private static boolean isUsableItem(Item item) {
+//        return item instanceof EnderpearlItem || item instanceof ChorusFruitItem;
+        return false;
     }
 
     private static void cancel(Event event) {
@@ -88,6 +90,9 @@ public class CapitalClaimProtectionHandler {
         if (event instanceof PlayerInteractEvent.RightClickBlock rc) {
             rc.setUseItem(PlayerInteractEvent.Result.DENY);
             rc.setUseBlock(PlayerInteractEvent.Result.DENY);
+            rc.setCancellationResult(InteractionResult.FAIL);
+        }
+        if (event instanceof PlayerInteractEvent.RightClickItem rc) {
             rc.setCancellationResult(InteractionResult.FAIL);
         }
     }
@@ -123,9 +128,17 @@ public class CapitalClaimProtectionHandler {
     }
 
     @SubscribeEvent
-    public static void onRightClick(PlayerInteractEvent.RightClickBlock event) {
+    public static void onRightClick(PlayerInteractEvent.RightClickItem event) {
+        if (event.getEntity() instanceof ServerPlayer player && isOverworld(player.level()) && isUsableItem(event.getItemStack().getItem())) {
+            BlockPos pos = event.getPos();
+            if (!hasPermission(player, pos)) cancel(event);
+        }
+    }
+
+    @SubscribeEvent
+    public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
         if (event.getEntity() instanceof ServerPlayer player && isOverworld(player.level()) &&
-                isPlacementItem(event.getItemStack().getItem())) {
+                (isPlacementItem(event.getItemStack().getItem()) || isUsableItem(event.getItemStack().getItem()))) {
             BlockPos pos = event.getPos().relative(Objects.requireNonNull(event.getFace()));
             if (!hasPermission(player, pos)) cancel(event);
         }
@@ -167,8 +180,24 @@ public class CapitalClaimProtectionHandler {
 
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
+    public static void onClientRightClick(PlayerInteractEvent.RightClickItem event) {
+        if (!(event.getEntity() instanceof LocalPlayer lp) || !isOverworld(lp.level()) || !isUsableItem(event.getItemStack().getItem())) return;
+
+        BlockPos pos = event.getPos().relative(Objects.requireNonNull(event.getFace()));
+
+        if (!ClientPlayerData.isLastKnownBlock(pos)) {
+            ReignNetworking.sendToServer(new BlockBreakPermissionQueryC2SPacket(pos));
+        }
+
+        if (!ClientPlayerData.isLastKnownBlockAvailable()) {
+            event.setCanceled(true);
+        }
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    @SubscribeEvent
     public static void onClientRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
-        if (!(event.getEntity() instanceof LocalPlayer lp) || !isOverworld(lp.level()) || !isPlacementItem(event.getItemStack().getItem())) return;
+        if (!(event.getEntity() instanceof LocalPlayer lp) || !isOverworld(lp.level()) || (!isPlacementItem(event.getItemStack().getItem()) && !isUsableItem(event.getItemStack().getItem()))) return;
 
         BlockPos pos = event.getPos().relative(Objects.requireNonNull(event.getFace()));
 

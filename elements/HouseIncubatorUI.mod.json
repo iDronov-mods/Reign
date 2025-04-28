@@ -245,8 +245,7 @@
             "value": ""
           },
           "disablePlacement": {
-            "fixedValue": false,
-            "name": "IncubatorSetSlot"
+            "fixedValue": false
           },
           "id": 0,
           "disablePickup": {

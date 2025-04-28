@@ -25,7 +25,6 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.reignmod.procedures.IncubatorTickProcedure;
-import net.mcreator.reignmod.procedures.IncubatorSetSlotProcedure;
 import net.mcreator.reignmod.init.ReignModModMenus;
 import net.mcreator.reignmod.ReignModMod;
 
@@ -87,11 +86,6 @@ public class HouseIncubatorUIMenu extends AbstractContainerMenu implements Suppl
 		}
 		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 37, 62) {
 			private final int slot = 0;
-
-			@Override
-			public boolean mayPlace(ItemStack itemstack) {
-				return !IncubatorSetSlotProcedure.execute(world, x, y, z, itemstack);
-			}
 		}));
 		for (int si = 0; si < 3; ++si)
 			for (int sj = 0; sj < 9; ++sj)

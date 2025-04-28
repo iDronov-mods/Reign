@@ -1045,10 +1045,10 @@ public class MarketMenu extends AbstractContainerMenu implements Supplier<Map<In
 		}));
 		for (int si = 0; si < 3; ++si)
 			for (int sj = 0; sj < 9; ++sj)
-				this.addSlot(new Slot(inv, sj + (si + 1) * 9, 144 + 8 + sj * 18, 0 + 84 + si * 18));
+				this.addSlot(new Slot(inv, sj + (si + 1) * 9, 143 + 8 + sj * 18, 0 + 84 + si * 18));
 		for (int si = 0; si < 9; ++si)
-			this.addSlot(new Slot(inv, si, 144 + 8 + si * 18, 0 + 142));
-		ClearMarketSlotsProcedure.execute(world);
+			this.addSlot(new Slot(inv, si, 143 + 8 + si * 18, 0 + 142));
+		ClearMarketSlotsProcedure.execute(entity);
 	}
 
 	@Override

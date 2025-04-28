@@ -13,7 +13,7 @@ public class Buy16Procedure {
 		ItemStack Type_coin = ItemStack.EMPTY;
 		double shopIndex = 0;
 		double slotIndex = 0;
-		for (int index0 = 0; index0 < 16; index0++) {
+		for (int index0 = 0; index0 < 8; index0++) {
 			BuyProcedure.execute(world, entity);
 		}
 	}

@@ -44,7 +44,7 @@ public class MarketManager {
         return (item != null) ? item.getInPack() : null;
     }
 
-	/**
+    /**
      * Возвращает текущее количество товара по его названию.
      * @param itemName имя товара (например, "minecraft:iron_sword")
      * @return текущее количество или null, если товар не найден
@@ -54,7 +54,7 @@ public class MarketManager {
         MarketItem item = data.getMarketItems().get(itemName);
         return (item != null) ? item.getCurrentAmount() : null;
     }
-    
+
     /**
      * Проверяет, присутствует ли товар в рынке.
      * @param itemName имя товара (например, "minecraft:iron_sword")
@@ -92,10 +92,10 @@ public class MarketManager {
         MarketItem item = data.getMarketItems().get(itemName);
         if (item != null) {
             item.increaseCurrentAmount(amountToIncrease);
-            ReignModModVariables.MapVariables.get(world).NeedRefresh = true;
-            ReignModModVariables.MapVariables.get(world).syncData(world);
             data.updateFundItemNBT(itemName);
             data.setDirty();
+            ReignModModVariables.MapVariables.get(world).needRefresh = true;
+            ReignModModVariables.MapVariables.get(world).syncData(world);
         }
     }
 
@@ -110,10 +110,10 @@ public class MarketManager {
         MarketItem item = data.getMarketItems().get(itemName);
         if (item != null) {
             item.decreaseCurrentAmount(amountToDecrease);
-            ReignModModVariables.MapVariables.get(world).NeedRefresh = true;
-            ReignModModVariables.MapVariables.get(world).syncData(world);
             data.updateFundItemNBT(itemName);
             data.setDirty();
+            ReignModModVariables.MapVariables.get(world).needRefresh = true;
+            ReignModModVariables.MapVariables.get(world).syncData(world);
         }
     }
 

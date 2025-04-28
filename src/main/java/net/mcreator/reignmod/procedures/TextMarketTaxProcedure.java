@@ -2,6 +2,7 @@ package net.mcreator.reignmod.procedures;
 
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.inventory.Slot;
@@ -50,6 +51,8 @@ public class TextMarketTaxProcedure {
 		} else if ((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(68)).getItem() : ItemStack.EMPTY)
 				.is(ItemTags.create(new ResourceLocation("reign:miner_market")))) {
 			tax_count = new java.text.DecimalFormat("##").format(Math.round(ReignModModVariables.MapVariables.get(world).ores_price * 100)) + "%";
+		} else if ((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(68)).getItem() : ItemStack.EMPTY).getItem() == Items.EXPERIENCE_BOTTLE) {
+			tax_count = new java.text.DecimalFormat("##").format(Math.round(ReignModModVariables.MapVariables.get(world).exp_price * 100)) + "%";
 		} else {
 			tax_count = new java.text.DecimalFormat("##").format(Math.round(ReignModModVariables.MapVariables.get(world).other_price * 100)) + "%";
 		}

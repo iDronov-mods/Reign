@@ -18,7 +18,6 @@ import net.mcreator.reignmod.item.WoodcutterCoinItem;
 import net.mcreator.reignmod.item.WalletItem;
 import net.mcreator.reignmod.item.TreasurerKeyItem;
 import net.mcreator.reignmod.item.TradeLicenseItem;
-import net.mcreator.reignmod.item.TextbookItem;
 import net.mcreator.reignmod.item.StateRentalItem;
 import net.mcreator.reignmod.item.SmithCoinItem;
 import net.mcreator.reignmod.item.SilverCoinItem;
@@ -73,7 +72,6 @@ public class ReignModModItems {
 	public static final RegistryObject<Item> SMITH_COIN = REGISTRY.register("smith_coin", () -> new SmithCoinItem());
 	public static final RegistryObject<Item> MINER_COIN = REGISTRY.register("miner_coin", () -> new MinerCoinItem());
 	public static final RegistryObject<Item> FARMER_COIN = REGISTRY.register("farmer_coin", () -> new FarmerCoinItem());
-	public static final RegistryObject<Item> TEXTBOOK = REGISTRY.register("textbook", () -> new TextbookItem());
 	public static final RegistryObject<Item> HOARDER_BLOCK = block(ReignModModBlocks.HOARDER_BLOCK);
 	public static final RegistryObject<Item> BLACKMARK = REGISTRY.register("blackmark", () -> new BlackmarkItem());
 	public static final RegistryObject<Item> WALLET = REGISTRY.register("wallet", () -> new WalletItem());

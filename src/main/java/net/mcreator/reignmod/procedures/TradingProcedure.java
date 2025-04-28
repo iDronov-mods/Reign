@@ -54,7 +54,7 @@ public class TradingProcedure {
 						}
 					}.getAmount(0) >= inPack) {
 						if (MarketManager.getItemCount(stringName) + inPack <= maxAmount) {
-							pay = MarketManager.getPrice(stringName);
+							pay = GetPriceWithFillFactorProcedure.execute(world, stringName);
 							if (MarketPayProcedure.execute(world, pay)) {
 								MarketManager.increaseItemAmount(stringName, inPack);
 								if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {

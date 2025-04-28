@@ -23,6 +23,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.util.Objects;
+
 @Mixin(DoorBlock.class)
 public class DoorLockMixin {
 
@@ -32,7 +34,7 @@ public class DoorLockMixin {
             BlockPos lowerPos = state.getValue(DoorBlock.HALF) == DoubleBlockHalf.LOWER ? pos : pos.below();
             BlockEntity entity = level.getBlockEntity(lowerPos);
             if (entity instanceof PrivatedoorBlockEntity door && reignMod$isDoorLocked(door, player, level, lowerPos)) {
-                cir.setReturnValue(InteractionResult.FAIL);
+                cir.setReturnValue(InteractionResult.PASS);
             }
         }
     }
@@ -46,7 +48,7 @@ public class DoorLockMixin {
             String ownerName = tag.getString("owner_name");
             String lockType = tag.getString("lock_type");
 
-            if (!owner.isEmpty() && !canOpen(player, owner, lockType)) {
+            if (!owner.isEmpty() && !reign$canOpen(player, owner, lockType)) {
                 level.playSound(null, pos, SoundEvents.IRON_DOOR_CLOSE, SoundSource.BLOCKS, 0.5f, 1.0f);
                 player.displayClientMessage(Component.translatable("translation.key.locked").append(" " + ownerName), true);
                 return true;
@@ -56,13 +58,13 @@ public class DoorLockMixin {
     }
 
     @Unique
-    private boolean canOpen(Player player, String owner, String lockType) {
+    private boolean reign$canOpen(Player player, String owner, String lockType) {
         return switch (lockType) {
             case "personal" -> player.getStringUUID().equals(owner);
             case "domain" -> player.getStringUUID().equals(owner)
-                    || HouseManager.getDomainLordByKnight(owner).equals(player.getStringUUID())
-                    || HouseManager.getPlayerDomainKnight(player).equals(owner);
-            case "house" -> HouseManager.getPlayerHouseLord(player).equals(owner);
+                    || Objects.equals(HouseManager.getDomainLordByKnight(owner), player.getStringUUID())
+                    || Objects.equals(HouseManager.getPlayerDomainKnight(player), owner);
+            case "house" -> Objects.equals(HouseManager.getPlayerHouseLord(player), owner);
             default -> false;
         };
     }

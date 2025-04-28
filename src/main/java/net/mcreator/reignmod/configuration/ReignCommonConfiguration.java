@@ -11,6 +11,7 @@ public class ReignCommonConfiguration {
 	public static final ForgeConfigSpec.ConfigValue<Boolean> DISABLE_DAILY_PAYOUTS;
 	public static final ForgeConfigSpec.ConfigValue<Boolean> DISABLE_CAPITAL_FEEDING;
 	public static final ForgeConfigSpec.ConfigValue<Double> HOURLY_MEAL_PERIOD;
+	public static final ForgeConfigSpec.ConfigValue<Boolean> DISABLE_LICENSE_LVL_LOSS;
 	static {
 		BUILDER.push("World");
 		DISABLE_VANILLA_VILLAGERS = BUILDER.define("disable_vanilla_villagers", true);
@@ -19,6 +20,7 @@ public class ReignCommonConfiguration {
 		DISABLE_DAILY_PAYOUTS = BUILDER.define("disable_daily_payouts", false);
 		DISABLE_CAPITAL_FEEDING = BUILDER.define("disable_capital_feeding", false);
 		HOURLY_MEAL_PERIOD = BUILDER.comment("Frequency of feeding Houses and capital, in hours. (Default: 1)").define("hourly_meal_period", (double) 1);
+		DISABLE_LICENSE_LVL_LOSS = BUILDER.define("disable_license_lvl_loss", false);
 		BUILDER.pop();
 
 		SPEC = BUILDER.build();

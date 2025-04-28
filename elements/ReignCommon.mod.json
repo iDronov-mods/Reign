@@ -107,6 +107,23 @@
             "varname": "hourly_meal_period",
             "enablecomment": true,
             "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 0,
+            "block": {
+              "value": ""
+            },
+            "logicField": 1,
+            "numberField": 0.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "disable_license_lvl_loss",
+            "varname": "disable_license_lvl_loss",
+            "enablecomment": false,
+            "stringlist": []
           }
         ]
       }

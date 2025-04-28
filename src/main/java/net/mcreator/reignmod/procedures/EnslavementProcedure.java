@@ -51,7 +51,7 @@ public class EnslavementProcedure {
 					itemInHand = (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY);
 					if (itemInHand.getItem() instanceof ShovelItem && (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == ItemStack.EMPTY.getItem()) {
 						if (entity.getXRot() >= 70 && entity.isShiftKeyDown()) {
-							if (HouseManager.getDomainPlayerCount((Player) sourceentity) < 5) {
+							if (HouseManager.getDomainPlayerCount((Player) sourceentity) < 5 || IsLordProcedure.execute(world, sourceentity) && HouseManager.getDomainPlayerCount((Player) sourceentity) < 8) {
 								if (HouseManager.pushPlayerToDomain((Player) sourceentity, (Player) entity)) {
 									{
 										String _setval = sourceentity.getStringUUID();

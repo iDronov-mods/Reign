@@ -35,6 +35,7 @@ public class House implements INBTSerializable<CompoundTag> {
     private final EnumMap<HouseNeedType, Integer> needs = new EnumMap<>(HouseNeedType.class);
     private final HashMap<String, Domain> domains = new HashMap<>();
     private final HashSet<String> wantedPlayers = new HashSet<>();
+    private Boolean trustInIndirectVassals = false;
 
     public final static int MAX_NEED_AMOUNT = 4096;
 
@@ -204,9 +205,10 @@ public class House implements INBTSerializable<CompoundTag> {
     public void pushPlayerToDomain(String knightUUID, String playerUUID) {
         if (domains.containsKey(knightUUID)) {
             Domain dom = domains.get(knightUUID);
-            if (dom.getPlayers().size() >= 5) {
+            if (Objects.equals(knightUUID, lordUUID) ? dom.getPlayers().size() >= 8 : dom.getPlayers().size() >= 5) {
                 return;
             }
+
             dom.pushPlayer(playerUUID);
             players.add(playerUUID);
         }
@@ -326,6 +328,24 @@ public class House implements INBTSerializable<CompoundTag> {
     }
 
     //--------------------------------------------------------------------------------
+    //                                 ВЕРА В ВАССАЛОВ
+    //--------------------------------------------------------------------------------
+
+    public boolean isIndirectVassalsBeTrusted() {
+        return this.trustInIndirectVassals;
+    }
+
+    public void toggleOnIndirectVassalsTrust() {
+       this.trustInIndirectVassals = true;
+        HouseSavedData.getInstance().setDirty();
+    }
+
+    public void toggleOffIndirectVassalsTrust() {
+        this.trustInIndirectVassals = false;
+        HouseSavedData.getInstance().setDirty();
+    }
+
+    //--------------------------------------------------------------------------------
     //                        СЕРИАЛИЗАЦИЯ / ДЕСЕРИАЛИЗАЦИЯ
     //--------------------------------------------------------------------------------
 
@@ -372,6 +392,9 @@ public class House implements INBTSerializable<CompoundTag> {
 
         // Claim ID
         tag.putString("house_claim_id", (claimId == null) ? "" : claimId);
+
+        // Trust in indirect vassals
+        tag.putBoolean("trust_in_indirect_vassals", trustInIndirectVassals);
 
         return tag;
     }
@@ -422,5 +445,8 @@ public class House implements INBTSerializable<CompoundTag> {
         // Claim ID
         String loadedClaim = nbt.getString("house_claim_id");
         claimId = loadedClaim.isEmpty() ? null : loadedClaim;
+
+        // Trust in indirect vassals
+        trustInIndirectVassals = nbt.getBoolean("trust_in_indirect_vassals");
     }
 }

@@ -20,7 +20,7 @@ public class CreateCrownProcedure {
 		if (world instanceof ServerLevel _level) {
 			ItemEntity entityToSpawn = new ItemEntity(_level, (ReignModModVariables.MapVariables.get(world).CAPITAL_X + 0.5), (ReignModModVariables.MapVariables.get(world).CAPITAL_Y + 1),
 					(ReignModModVariables.MapVariables.get(world).CAPITAL_Z + 0.5), Crown);
-			entityToSpawn.setPickUpDelay(60);
+			entityToSpawn.setPickUpDelay(20);
 			entityToSpawn.setUnlimitedLifetime();
 			_level.addFreshEntity(entityToSpawn);
 		}

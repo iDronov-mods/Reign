@@ -728,8 +728,26 @@
           "x": 227,
           "y": 179
         }
+      },
+      {
+        "type": "checkbox",
+        "data": {
+          "name": "trusting_indirect_vassals",
+          "text": "Trusting indirect vassals",
+          "isCheckedProcedure": {
+            "name": "IsIndirectVassalsBeTrusted"
+          },
+          "x": 121,
+          "y": 205
+        }
       }
     ],
+    "onOpen": {
+      "name": "IncubatorUpdateSuspects"
+    },
+    "onTick": {
+      "name": "SetTrustIndirectVassalsTick"
+    },
     "gridSettings": {
       "sx": 18,
       "sy": 18,

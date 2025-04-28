@@ -183,7 +183,7 @@ public class ReignModModVariables {
 		public double exp_price = 0;
 		public double private_price = 0;
 		public boolean coinage_block = false;
-		public boolean NeedRefresh = false;
+		public boolean needRefresh = false;
 
 		public static MapVariables load(CompoundTag tag) {
 			MapVariables data = new MapVariables();
@@ -216,7 +216,7 @@ public class ReignModModVariables {
 			exp_price = nbt.getDouble("exp_price");
 			private_price = nbt.getDouble("private_price");
 			coinage_block = nbt.getBoolean("coinage_block");
-			NeedRefresh = nbt.getBoolean("NeedRefresh");
+			needRefresh = nbt.getBoolean("needRefresh");
 		}
 
 		@Override
@@ -245,7 +245,7 @@ public class ReignModModVariables {
 			nbt.putDouble("exp_price", exp_price);
 			nbt.putDouble("private_price", private_price);
 			nbt.putBoolean("coinage_block", coinage_block);
-			nbt.putBoolean("NeedRefresh", NeedRefresh);
+			nbt.putBoolean("needRefresh", needRefresh);
 			return nbt;
 		}
 

@@ -203,7 +203,7 @@ public class MarketUpdateProcedure {
 						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, BlockPos.containing(capital_x, capital_y, capital_z), "minecraft:coal")));
+			}.getValue(world, BlockPos.containing(capital_x, capital_y, capital_z), "minecraft:netherite_scrap")));
 			((Slot) _slots.get(54)).set(_setstack);
 			_player.containerMenu.broadcastChanges();
 		}
@@ -853,7 +853,7 @@ public class MarketUpdateProcedure {
 						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, BlockPos.containing(capital_x, capital_y, capital_z), "\"minecraft:leather")));
+			}.getValue(world, BlockPos.containing(capital_x, capital_y, capital_z), "minecraft:leather")));
 			((Slot) _slots.get(16)).set(_setstack);
 			_player.containerMenu.broadcastChanges();
 		}

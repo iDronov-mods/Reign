@@ -13,6 +13,6 @@ public class IncubatorReturnDomainPlayersProcedure {
 					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, BlockPos.containing(x, y, z), "domain_players")) + "/5";
+		}.getValue(world, BlockPos.containing(x, y, z), "domain_players")) + "/8";
 	}
 }
