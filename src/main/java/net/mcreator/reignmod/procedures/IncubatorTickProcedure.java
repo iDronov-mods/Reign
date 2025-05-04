@@ -138,7 +138,8 @@ public class IncubatorTickProcedure {
 					}
 				}
 			}
-		} else if (new Object() {
+		}
+		if (new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
@@ -201,7 +202,8 @@ public class IncubatorTickProcedure {
 					}
 				}
 			}
-		} else if (new Object() {
+		}
+		if (new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
@@ -268,7 +270,8 @@ public class IncubatorTickProcedure {
 					}
 				}
 			}
-		} else if (new Object() {
+		}
+		if (new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
@@ -330,7 +333,8 @@ public class IncubatorTickProcedure {
 					}
 				}
 			}
-		} else if (new Object() {
+		}
+		if (new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
@@ -399,7 +403,8 @@ public class IncubatorTickProcedure {
 					k = 1;
 				}
 			}
-		} else if (new Object() {
+		}
+		if (new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)

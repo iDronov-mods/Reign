@@ -26,6 +26,7 @@ public class ReignModModTabs {
 				tabData.accept(ReignModModItems.WALLET.get());
 				tabData.accept(ReignModModItems.SHACKLES.get());
 				tabData.accept(ReignModModItems.PEN_WITH_INK.get());
+				tabData.accept(ReignModModItems.HONEY_CONCENTRATE.get());
 				tabData.accept(ReignModModItems.COPPER_COIN.get());
 				tabData.accept(ReignModModItems.SILVER_COIN.get());
 				tabData.accept(ReignModModItems.GOLD_COIN.get());
@@ -65,7 +66,6 @@ public class ReignModModTabs {
 				tabData.accept(ReignModModItems.RUIN_LORD_2.get());
 				tabData.accept(ReignModModItems.RUIN_LORD_1.get());
 				tabData.accept(ReignModModBlocks.PRIVATEDOOR.get().asItem());
-				tabData.accept(ReignModModItems.HONEY_CONCENTRATE.get());
 				tabData.accept(ReignModModItems.COPPER_LOCK.get());
 				tabData.accept(ReignModModItems.IRON_LOCK.get());
 				tabData.accept(ReignModModItems.GOLD_LOCK.get());

@@ -539,8 +539,8 @@ public class HouseManager {
             int need_roots = lvl >= 3 ? house.getPlayers().size() : 0;
             int need_meat = lvl >= 4 ? domains.size() : 0;
             int need_wool = lvl >= 5 ? domains.size() : 0;
-            int need_sweets = lvl >= 6 ? 1 : 0;
-            int need_jewelry = lvl >= 7 ? 1 : 0;
+            int need_sweets = lvl >= 6 ? 2 : 0;
+            int need_jewelry = lvl >= 7 ? 2 : 0;
 
             if (house.getNeed(HouseNeedType.FUEL) >= need_fuel) add_hp += 50;
             house.adjustNeed(HouseNeedType.FUEL, -need_fuel);

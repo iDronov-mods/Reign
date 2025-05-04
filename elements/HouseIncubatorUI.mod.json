@@ -1011,6 +1011,32 @@
           "x": 241,
           "y": 68
         }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_remove_suspect_button",
+          "image": "remove_suspect_button.png",
+          "hoveredImage": "remove_suspect_button_hover.png",
+          "onClick": {
+            "name": "DeleteFirstClaim"
+          },
+          "x": 313,
+          "y": 68
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_delete_claim_help",
+          "text": {
+            "fixedValue": "delete_claim_help"
+          },
+          "width": 11,
+          "height": 11,
+          "x": 312,
+          "y": 66
+        }
       }
     ],
     "onTick": {

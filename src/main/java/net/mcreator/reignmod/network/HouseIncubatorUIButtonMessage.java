@@ -14,6 +14,7 @@ import net.minecraft.core.BlockPos;
 
 import net.mcreator.reignmod.world.inventory.HouseIncubatorUIMenu;
 import net.mcreator.reignmod.procedures.ToHouseSuspectsTABProcedure;
+import net.mcreator.reignmod.procedures.DeleteFirstClaimProcedure;
 import net.mcreator.reignmod.ReignModMod;
 
 import java.util.function.Supplier;
@@ -78,6 +79,10 @@ public class HouseIncubatorUIButtonMessage {
 		if (buttonID == 0) {
 
 			ToHouseSuspectsTABProcedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 1) {
+
+			DeleteFirstClaimProcedure.execute(world, x, y, z, entity);
 		}
 	}
 

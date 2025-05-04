@@ -48,6 +48,10 @@ public class CapitalClaimProtectionHandler {
                 localZ >= 0 && localZ < CapitalClaimSavedData.CAPITAL_SIZE;
     }
 
+    public static boolean isWithinCapitalGlobal(int globalX, int globalZ) {
+        return isWithinCapital(CapitalClaimManager.toLocalX(globalX), CapitalClaimManager.toLocalZ(globalZ));
+    }
+
     public static boolean hasPermission(ServerPlayer player, BlockPos pos) {
         if (!CapitalClaimSavedData.getInstance().isCapitalClaimsEnabled() || player.gameMode.isCreative()) {
             return true;
@@ -81,8 +85,7 @@ public class CapitalClaimProtectionHandler {
     }
 
     private static boolean isUsableItem(Item item) {
-//        return item instanceof EnderpearlItem || item instanceof ChorusFruitItem;
-        return false;
+        return item instanceof EnderpearlItem || item instanceof ChorusFruitItem;
     }
 
     private static void cancel(Event event) {
@@ -131,16 +134,20 @@ public class CapitalClaimProtectionHandler {
     public static void onRightClick(PlayerInteractEvent.RightClickItem event) {
         if (event.getEntity() instanceof ServerPlayer player && isOverworld(player.level()) && isUsableItem(event.getItemStack().getItem())) {
             BlockPos pos = event.getPos();
-            if (!hasPermission(player, pos)) cancel(event);
+            if (isWithinCapitalGlobal(pos.getX(), pos.getZ()))  {
+                cancel(event);
+            }
         }
     }
 
     @SubscribeEvent
     public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
-        if (event.getEntity() instanceof ServerPlayer player && isOverworld(player.level()) &&
-                (isPlacementItem(event.getItemStack().getItem()) || isUsableItem(event.getItemStack().getItem()))) {
+        if (event.getEntity() instanceof ServerPlayer player && isOverworld(player.level()) && (isPlacementItem(event.getItemStack().getItem()) || isUsableItem(event.getItemStack().getItem()))) {
             BlockPos pos = event.getPos().relative(Objects.requireNonNull(event.getFace()));
-            if (!hasPermission(player, pos)) cancel(event);
+
+            if (isUsableItem(event.getItemStack().getItem()) && isWithinCapitalGlobal(pos.getX(), pos.getZ()) || !hasPermission(player, pos)) {
+                cancel(event);
+            }
         }
     }
 
@@ -157,7 +164,7 @@ public class CapitalClaimProtectionHandler {
         }
 
         if (!ClientPlayerData.isLastKnownBlockAvailable()) {
-            event.setCanceled(true);
+            cancel(event);
         }
     }
 
@@ -174,7 +181,7 @@ public class CapitalClaimProtectionHandler {
         }
 
         if (!ClientPlayerData.isLastKnownBlockAvailable()) {
-            event.setCanceled(true);
+            cancel(event);
         }
     }
 
@@ -183,14 +190,10 @@ public class CapitalClaimProtectionHandler {
     public static void onClientRightClick(PlayerInteractEvent.RightClickItem event) {
         if (!(event.getEntity() instanceof LocalPlayer lp) || !isOverworld(lp.level()) || !isUsableItem(event.getItemStack().getItem())) return;
 
-        BlockPos pos = event.getPos().relative(Objects.requireNonNull(event.getFace()));
+        BlockPos pos = event.getPos();
 
-        if (!ClientPlayerData.isLastKnownBlock(pos)) {
-            ReignNetworking.sendToServer(new BlockBreakPermissionQueryC2SPacket(pos));
-        }
-
-        if (!ClientPlayerData.isLastKnownBlockAvailable()) {
-            event.setCanceled(true);
+        if (isWithinCapitalGlobal(pos.getX(), pos.getZ())) {
+            cancel(event);
         }
     }
 
@@ -201,12 +204,16 @@ public class CapitalClaimProtectionHandler {
 
         BlockPos pos = event.getPos().relative(Objects.requireNonNull(event.getFace()));
 
+        if (isUsableItem(event.getItemStack().getItem()) && isWithinCapitalGlobal(pos.getX(), pos.getZ())) {
+            cancel(event);
+        }
+
         if (!ClientPlayerData.isLastKnownBlock(pos)) {
             ReignNetworking.sendToServer(new BlockBreakPermissionQueryC2SPacket(pos));
         }
 
         if (!ClientPlayerData.isLastKnownBlockAvailable()) {
-            event.setCanceled(true);
+            cancel(event);
         }
     }
 

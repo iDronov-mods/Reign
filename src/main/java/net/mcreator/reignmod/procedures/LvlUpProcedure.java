@@ -129,7 +129,7 @@ public class LvlUpProcedure {
 					capability.syncPlayerVariables(entity);
 				});
 			}
-			LicensesAttributesProcedure.execute(entity);
+			LicensesAttributesProcedure.execute(world, entity);
 			if (world instanceof Level _level) {
 				if (!_level.isClientSide()) {
 					_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.experience_orb.pickup")), SoundSource.NEUTRAL, (float) 0.5, (float) 0.5);

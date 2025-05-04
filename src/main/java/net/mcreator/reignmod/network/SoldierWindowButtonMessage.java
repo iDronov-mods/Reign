@@ -88,7 +88,7 @@ public class SoldierWindowButtonMessage {
 		}
 		if (buttonID == 2) {
 
-			RefuseAddLicenseProcedure.execute(entity);
+			RefuseAddLicenseProcedure.execute(world, entity);
 		}
 		if (buttonID == 3) {
 

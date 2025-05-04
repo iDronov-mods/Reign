@@ -77,7 +77,7 @@ public class AddLicenseIsSelectedButtonMessage {
 			return;
 		if (buttonID == 0) {
 
-			RefuseAddLicenseProcedure.execute(entity);
+			RefuseAddLicenseProcedure.execute(world, entity);
 		}
 	}
 

@@ -8,7 +8,6 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.ShieldItem;
@@ -24,9 +23,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.Mth;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.client.gui.screens.Screen;
 
 import net.mcreator.reignmod.network.ReignModModVariables;
 
@@ -53,94 +50,94 @@ public class RecipeBlockedProcedure {
 		ItemStack ShiftItem = ItemStack.EMPTY;
 		if (itemstack.is(ItemTags.create(new ResourceLocation("reign:smith_items")))) {
 			if (!(entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).license_smith) {
-				if (!Screen.hasShiftDown()) {
-					if (world instanceof ServerLevel _origLevel) {
-						LevelAccessor _worldorig = world;
-						world = _origLevel.getServer().getLevel(Level.OVERWORLD);
-						if (world != null) {
-							if (itemstack.isDamaged()) {
-								itemstack.shrink(1);
-							} else {
-								{
-									ItemStack _ist = itemstack;
-									if (_ist.hurt((int) (itemstack.getMaxDamage() * Mth.nextDouble(RandomSource.create(), 0.9, 0.98)), RandomSource.create(), null)) {
-										_ist.shrink(1);
-										_ist.setDamageValue(0);
-									}
-								}
-								itemstack.getOrCreateTag().putBoolean("crafted", true);
-							}
-						}
-						world = _worldorig;
-					}
+				if (itemstack.isDamaged()) {
+					itemstack.shrink(1);
 				} else {
-					if (world instanceof ServerLevel _origLevel) {
-						LevelAccessor _worldorig = world;
-						world = _origLevel.getServer().getLevel(Level.OVERWORLD);
-						if (world != null) {
-							slotIndex = 0;
-							while (slotIndex <= 35) {
-								if ((new Object() {
-									public ItemStack getItemStack(int sltid, Entity entity) {
-										AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
-										entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
-											_retval.set(capability.getStackInSlot(sltid).copy());
-										});
-										return _retval.get();
-									}
-								}.getItemStack((int) slotIndex, entity)).getItem() == (itemstack.copy()).getItem()) {
-									ShiftItem = (new Object() {
-										public ItemStack getItemStack(int sltid, Entity entity) {
-											AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
-											entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
-												_retval.set(capability.getStackInSlot(sltid).copy());
-											});
-											return _retval.get();
-										}
-									}.getItemStack((int) slotIndex, entity));
-									if (!ShiftItem.isDamaged() && ShiftItem.getOrCreateTag().getBoolean("crafted") == false) {
-										{
-											ItemStack _ist = ShiftItem;
-											if (_ist.hurt((int) (ShiftItem.getMaxDamage() * Mth.nextDouble(RandomSource.create(), 0.9, 0.98)), RandomSource.create(), null)) {
-												_ist.shrink(1);
-												_ist.setDamageValue(0);
-											}
-										}
-										ShiftItem.getOrCreateTag().putBoolean("crafted", true);
-										{
-											final int _slotid = (int) slotIndex;
-											final ItemStack _setstack = ShiftItem.copy();
-											_setstack.setCount(1);
-											entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
-												if (capability instanceof IItemHandlerModifiable _modHandlerEntSetSlot)
-													_modHandlerEntSetSlot.setStackInSlot(_slotid, _setstack);
-											});
-										}
-									}
+					{
+						ItemStack _ist = itemstack;
+						if (_ist.hurt((int) (itemstack.getMaxDamage() * Mth.nextDouble(RandomSource.create(), 0.9, 0.98)), RandomSource.create(), null)) {
+							_ist.shrink(1);
+							_ist.setDamageValue(0);
+						}
+					}
+					itemstack.getOrCreateTag().putBoolean("crafted", true);
+				}
+				slotIndex = 0;
+				while (slotIndex <= 35) {
+					if ((new Object() {
+						public ItemStack getItemStack(int sltid, Entity entity) {
+							AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
+							entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
+								_retval.set(capability.getStackInSlot(sltid).copy());
+							});
+							return _retval.get();
+						}
+					}.getItemStack((int) slotIndex, entity)).getItem() == (itemstack.copy()).getItem()) {
+						ShiftItem = (new Object() {
+							public ItemStack getItemStack(int sltid, Entity entity) {
+								AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
+								entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
+									_retval.set(capability.getStackInSlot(sltid).copy());
+								});
+								return _retval.get();
+							}
+						}.getItemStack((int) slotIndex, entity));
+						if (!ShiftItem.isDamaged() && ShiftItem.getOrCreateTag().getBoolean("crafted") == false) {
+							{
+								ItemStack _ist = ShiftItem;
+								if (_ist.hurt((int) (ShiftItem.getMaxDamage() * Mth.nextDouble(RandomSource.create(), 0.9, 0.98)), RandomSource.create(), null)) {
+									_ist.shrink(1);
+									_ist.setDamageValue(0);
 								}
-								slotIndex = slotIndex + 1;
+							}
+							ShiftItem.getOrCreateTag().putBoolean("crafted", true);
+							{
+								final int _slotid = (int) slotIndex;
+								final ItemStack _setstack = ShiftItem.copy();
+								_setstack.setCount(1);
+								entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
+									if (capability instanceof IItemHandlerModifiable _modHandlerEntSetSlot)
+										_modHandlerEntSetSlot.setStackInSlot(_slotid, _setstack);
+								});
+							}
+						} else if (ShiftItem.isDamaged() && ShiftItem.getOrCreateTag().getBoolean("crafted") == false) {
+							{
+								final int _slotid = (int) slotIndex;
+								final ItemStack _setstack = ShiftItem.copy();
+								_setstack.setCount(0);
+								entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
+									if (capability instanceof IItemHandlerModifiable _modHandlerEntSetSlot)
+										_modHandlerEntSetSlot.setStackInSlot(_slotid, _setstack);
+								});
 							}
 						}
-						world = _worldorig;
 					}
+					slotIndex = slotIndex + 1;
 				}
 			} else {
-				if (world instanceof ServerLevel _origLevel) {
-					LevelAccessor _worldorig = world;
-					world = _origLevel.getServer().getLevel(Level.OVERWORLD);
-					if (world != null) {
-						itemstack.getOrCreateTag().putBoolean("crafted", true);
-					}
-					world = _worldorig;
-				}
+				itemstack.getOrCreateTag().putBoolean("crafted", true);
 				SmithProcedure.execute(world, entity, itemstack, false, 0);
-				if (world instanceof ServerLevel _origLevel) {
-					LevelAccessor _worldorig = world;
-					world = _origLevel.getServer().getLevel(Level.OVERWORLD);
-					if (world != null) {
-						slotIndex = 0;
-						while (slotIndex <= 35) {
-							if ((new Object() {
+				slotIndex = 0;
+				while (slotIndex <= 35) {
+					if ((new Object() {
+						public ItemStack getItemStack(int sltid, Entity entity) {
+							AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
+							entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
+								_retval.set(capability.getStackInSlot(sltid).copy());
+							});
+							return _retval.get();
+						}
+					}.getItemStack((int) slotIndex, entity)).getItem() == (itemstack.copy()).getItem()) {
+						if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).license_smith && (new Object() {
+							public ItemStack getItemStack(int sltid, Entity entity) {
+								AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
+								entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
+									_retval.set(capability.getStackInSlot(sltid).copy());
+								});
+								return _retval.get();
+							}
+						}.getItemStack((int) slotIndex, entity)).getOrCreateTag().getBoolean("crafted") == false) {
+							SmithProcedure.execute(world, entity, new Object() {
 								public ItemStack getItemStack(int sltid, Entity entity) {
 									AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 									entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
@@ -148,79 +145,58 @@ public class RecipeBlockedProcedure {
 									});
 									return _retval.get();
 								}
-							}.getItemStack((int) slotIndex, entity)).getItem() == (itemstack.copy()).getItem()) {
-								if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).license_smith && (new Object() {
-									public ItemStack getItemStack(int sltid, Entity entity) {
-										AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
-										entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
-											_retval.set(capability.getStackInSlot(sltid).copy());
-										});
-										return _retval.get();
-									}
-								}.getItemStack((int) slotIndex, entity)).getOrCreateTag().getBoolean("crafted") == false) {
-									SmithProcedure.execute(world, entity, new Object() {
-										public ItemStack getItemStack(int sltid, Entity entity) {
-											AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
-											entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
-												_retval.set(capability.getStackInSlot(sltid).copy());
-											});
-											return _retval.get();
-										}
-									}.getItemStack((int) slotIndex, entity), true, slotIndex);
-								} else {
-									ShiftItem = (new Object() {
-										public ItemStack getItemStack(int sltid, Entity entity) {
-											AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
-											entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
-												_retval.set(capability.getStackInSlot(sltid).copy());
-											});
-											return _retval.get();
-										}
-									}.getItemStack((int) slotIndex, entity));
-									ShiftItem.getOrCreateTag().putBoolean("crafted", true);
-									{
-										final int _slotid = (int) slotIndex;
-										final ItemStack _setstack = ShiftItem.copy();
-										_setstack.setCount(1);
-										entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
-											if (capability instanceof IItemHandlerModifiable _modHandlerEntSetSlot)
-												_modHandlerEntSetSlot.setStackInSlot(_slotid, _setstack);
-										});
-									}
+							}.getItemStack((int) slotIndex, entity), true, slotIndex);
+						} else {
+							ShiftItem = (new Object() {
+								public ItemStack getItemStack(int sltid, Entity entity) {
+									AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
+									entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
+										_retval.set(capability.getStackInSlot(sltid).copy());
+									});
+									return _retval.get();
 								}
+							}.getItemStack((int) slotIndex, entity));
+							ShiftItem.getOrCreateTag().putBoolean("crafted", true);
+							{
+								final int _slotid = (int) slotIndex;
+								final ItemStack _setstack = ShiftItem.copy();
+								_setstack.setCount(1);
+								entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
+									if (capability instanceof IItemHandlerModifiable _modHandlerEntSetSlot)
+										_modHandlerEntSetSlot.setStackInSlot(_slotid, _setstack);
+								});
 							}
-							slotIndex = slotIndex + 1;
-						}
-						if (itemstack.getItem() instanceof AxeItem) {
-							if (entity instanceof Player _player)
-								_player.giveExperiencePoints(6);
-						} else if (itemstack.getItem() instanceof PickaxeItem) {
-							if (entity instanceof Player _player)
-								_player.giveExperiencePoints(6);
-						} else if (itemstack.getItem() instanceof SwordItem) {
-							if (entity instanceof Player _player)
-								_player.giveExperiencePoints(4);
-						} else if (itemstack.getItem() instanceof HoeItem) {
-							if (entity instanceof Player _player)
-								_player.giveExperiencePoints(4);
-						} else if (itemstack.getItem() instanceof ShovelItem) {
-							if (entity instanceof Player _player)
-								_player.giveExperiencePoints(2);
-						} else if (itemstack.getItem() instanceof ShieldItem) {
-							if (entity instanceof Player _player)
-								_player.giveExperiencePoints(3);
-						} else if (itemstack.getItem() instanceof ArmorItem) {
-							if (entity instanceof Player _player)
-								_player.giveExperiencePoints(7);
-						} else if (itemstack.getItem() instanceof BowItem) {
-							if (entity instanceof Player _player)
-								_player.giveExperiencePoints(6);
-						} else if (itemstack.getItem() instanceof CrossbowItem) {
-							if (entity instanceof Player _player)
-								_player.giveExperiencePoints(6);
 						}
 					}
-					world = _worldorig;
+					slotIndex = slotIndex + 1;
+				}
+				if (itemstack.getItem() instanceof AxeItem) {
+					if (entity instanceof Player _player)
+						_player.giveExperiencePoints(6);
+				} else if (itemstack.getItem() instanceof PickaxeItem) {
+					if (entity instanceof Player _player)
+						_player.giveExperiencePoints(6);
+				} else if (itemstack.getItem() instanceof SwordItem) {
+					if (entity instanceof Player _player)
+						_player.giveExperiencePoints(4);
+				} else if (itemstack.getItem() instanceof HoeItem) {
+					if (entity instanceof Player _player)
+						_player.giveExperiencePoints(4);
+				} else if (itemstack.getItem() instanceof ShovelItem) {
+					if (entity instanceof Player _player)
+						_player.giveExperiencePoints(2);
+				} else if (itemstack.getItem() instanceof ShieldItem) {
+					if (entity instanceof Player _player)
+						_player.giveExperiencePoints(3);
+				} else if (itemstack.getItem() instanceof ArmorItem) {
+					if (entity instanceof Player _player)
+						_player.giveExperiencePoints(7);
+				} else if (itemstack.getItem() instanceof BowItem) {
+					if (entity instanceof Player _player)
+						_player.giveExperiencePoints(6);
+				} else if (itemstack.getItem() instanceof CrossbowItem) {
+					if (entity instanceof Player _player)
+						_player.giveExperiencePoints(6);
 				}
 			}
 		}

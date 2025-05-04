@@ -65,7 +65,7 @@ public class ChestLockMixin {
             String lock_type = tag.getString("lock_type");
 
             // Проверяем, совпадает ли имя игрока с именем владельца
-            if (owner != "" && !canOpen(player, owner, lock_type)) {
+            if (!owner.isEmpty() && !canOpen(player, owner, lock_type)) {
                 // Воспроизведение звука
                 level.playSound(null, pos, SoundEvents.WOODEN_DOOR_CLOSE, SoundSource.BLOCKS, 0.5f, 1.0f);
 

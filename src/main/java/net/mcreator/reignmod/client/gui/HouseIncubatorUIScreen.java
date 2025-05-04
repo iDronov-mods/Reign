@@ -95,6 +95,7 @@ public class HouseIncubatorUIScreen extends AbstractContainerScreen<HouseIncubat
 	private final Player entity;
 	private final static HashMap<String, String> textstate = new HashMap<>();
 	ImageButton imagebutton_tab_button;
+	ImageButton imagebutton_remove_suspect_button;
 
 	public HouseIncubatorUIScreen(HouseIncubatorUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -134,6 +135,8 @@ public class HouseIncubatorUIScreen extends AbstractContainerScreen<HouseIncubat
 			guiGraphics.renderTooltip(font, Component.translatable("gui.reign_mod.house_incubator_ui.tooltip_domains_help"), mouseX, mouseY);
 		if (mouseX > leftPos + 177 && mouseX < leftPos + 193 && mouseY > topPos + 31 && mouseY < topPos + 40)
 			guiGraphics.renderTooltip(font, Component.translatable("gui.reign_mod.house_incubator_ui.tooltip_all_players_help"), mouseX, mouseY);
+		if (mouseX > leftPos + 248 && mouseX < leftPos + 259 && mouseY > topPos + 29 && mouseY < topPos + 40)
+			guiGraphics.renderTooltip(font, Component.translatable("gui.reign_mod.house_incubator_ui.tooltip_delete_claim_help"), mouseX, mouseY);
 	}
 
 	@Override
@@ -373,5 +376,13 @@ public class HouseIncubatorUIScreen extends AbstractContainerScreen<HouseIncubat
 		});
 		guistate.put("button:imagebutton_tab_button", imagebutton_tab_button);
 		this.addRenderableWidget(imagebutton_tab_button);
+		imagebutton_remove_suspect_button = new ImageButton(this.leftPos + 249, this.topPos + 31, 9, 7, 0, 0, 7, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_remove_suspect_button.png"), 9, 14, e -> {
+			if (true) {
+				ReignModMod.PACKET_HANDLER.sendToServer(new HouseIncubatorUIButtonMessage(1, x, y, z, textstate));
+				HouseIncubatorUIButtonMessage.handleButtonAction(entity, 1, x, y, z, textstate);
+			}
+		});
+		guistate.put("button:imagebutton_remove_suspect_button", imagebutton_remove_suspect_button);
+		this.addRenderableWidget(imagebutton_remove_suspect_button);
 	}
 }

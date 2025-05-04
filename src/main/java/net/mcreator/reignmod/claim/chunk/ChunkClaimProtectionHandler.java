@@ -131,11 +131,6 @@ public class ChunkClaimProtectionHandler {
     public static void onServerRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
         if (!(event.getEntity() instanceof ServerPlayer sp) || !sp.level().dimension().equals(Level.OVERWORLD)) return;
 
-        if (sp.hasEffect(ReignModModMobEffects.SUSPECT.get())) {
-            cancelEvent(event);
-            return;
-        }
-
         Item targetItem = event.getItemStack().getItem();
         BlockPos pos = event.getPos().relative(Objects.requireNonNull(event.getFace()));
 
@@ -149,6 +144,11 @@ public class ChunkClaimProtectionHandler {
         } else if (targetItem instanceof ShovelItem) {
             blockToReport = Blocks.DIRT_PATH;
         } else{
+            return;
+        }
+
+        if (sp.hasEffect(ReignModModMobEffects.SUSPECT.get())) {
+            cancelEvent(event);
             return;
         }
 
@@ -215,16 +215,13 @@ public class ChunkClaimProtectionHandler {
     @SubscribeEvent
     public static void onClientRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
         if (!(event.getEntity() instanceof LocalPlayer lp) || !lp.level().dimension().equals(Level.OVERWORLD)) return;
-        if (lp.hasEffect(ReignModModMobEffects.SUSPECT.get())) {
-            cancelEvent(event);
-            event.setUseItem(PlayerInteractEvent.Result.DENY);
-            event.setUseBlock(PlayerInteractEvent.Result.DENY);
-            event.setCancellationResult(InteractionResult.FAIL);
-        }
 
         Item targetItem = event.getItemStack().getItem();
 
         if (targetItem instanceof BlockItem || targetItem instanceof HangingEntityItem || targetItem instanceof ArmorStandItem) {
+            if (lp.hasEffect(ReignModModMobEffects.SUSPECT.get())) {
+                cancelEvent(event);
+            }
             ChunkPos cp = new ChunkPos(event.getPos().relative(Objects.requireNonNull(event.getFace())));
             if (ClientPlayerData.isLastKnownChunkEmpty()) {
                 ReignNetworking.sendToServer(new ChunkBreakPermissionQueryC2SPacket(cp.x, cp.z));
@@ -263,10 +260,14 @@ public class ChunkClaimProtectionHandler {
      * COMMON
      */
     private static void cancelEvent(Event event) {
-        if (event != null && event.isCancelable()) {
-            event.setCanceled(true);
-        } else if (event != null && event.hasResult()) {
-            event.setResult(Event.Result.DENY);
+        if (event.isCancelable()) event.setCanceled(true);
+        if (event instanceof PlayerInteractEvent.RightClickBlock rc) {
+            rc.setUseItem(PlayerInteractEvent.Result.DENY);
+            rc.setUseBlock(PlayerInteractEvent.Result.DENY);
+            rc.setCancellationResult(InteractionResult.FAIL);
+        }
+        if (event instanceof PlayerInteractEvent.RightClickItem rc) {
+            rc.setCancellationResult(InteractionResult.FAIL);
         }
     }
 
@@ -277,7 +278,7 @@ public class ChunkClaimProtectionHandler {
         int placeSuspicion = 5;
         int breakSuspicion = 10;
 
-        if (block instanceof BushBlock || block instanceof DirtPathBlock) {
+        if (block instanceof BushBlock || block instanceof DirtPathBlock || block instanceof SnowLayerBlock) {
             placeSuspicion = 1;
             breakSuspicion = 1;
         } else if (block instanceof ChestBlock || block instanceof BarrelBlock || block instanceof DoorBlock) {

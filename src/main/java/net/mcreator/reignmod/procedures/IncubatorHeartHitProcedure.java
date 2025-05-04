@@ -37,6 +37,7 @@ public class IncubatorHeartHitProcedure {
 				}
 			}.getValue(world, BlockPos.containing(x, y, z), "UUID"))) {
 				if ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock().getStateDefinition().getProperty("protected") instanceof BooleanProperty _getbp3 && (world.getBlockState(BlockPos.containing(x, y, z))).getValue(_getbp3)) {
+					IncubatorUpdateInfoProcedure.execute(world, x, y, z, entity.getStringUUID());
 					if (entity instanceof ServerPlayer _ent) {
 						BlockPos _bpos = BlockPos.containing(x, y, z);
 						NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
@@ -51,17 +52,17 @@ public class IncubatorHeartHitProcedure {
 							}
 						}, _bpos);
 					}
+					if (world instanceof Level _level) {
+						if (!_level.isClientSide()) {
+							_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:heart_hit")), SoundSource.BLOCKS, (float) 0.3, 1);
+						} else {
+							_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:heart_hit")), SoundSource.BLOCKS, (float) 0.3, 1, false);
+						}
+					}
 				} else {
 					if (entity instanceof Player _player && !_player.level().isClientSide())
 						_player.displayClientMessage(Component.literal(("\u00A7c" + Component.translatable("translation.key.foundation_not_protected").getString())), true);
 				}
-			}
-		}
-		if (world instanceof Level _level) {
-			if (!_level.isClientSide()) {
-				_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:heart_hit")), SoundSource.BLOCKS, (float) 0.3, 1);
-			} else {
-				_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:heart_hit")), SoundSource.BLOCKS, (float) 0.3, 1, false);
 			}
 		}
 	}

@@ -12,7 +12,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.network.chat.Component;
 
 import net.mcreator.reignmod.network.ReignModModVariables;
-import net.mcreator.reignmod.configuration.ReignCommonConfiguration;
+import net.mcreator.reignmod.basics.ConfigLoader;
 
 import javax.annotation.Nullable;
 
@@ -30,7 +30,7 @@ public class LossLvlDeathProcedure {
 	private static void execute(@Nullable Event event, Entity entity) {
 		if (entity == null)
 			return;
-		if (!ReignCommonConfiguration.DISABLE_LICENSE_LVL_LOSS.get()) {
+		if (!ConfigLoader.isLicenseLvlLossDisable()) {
 			if (Mth.nextInt(RandomSource.create(), 1, 10) <= (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).MAIN_LVL
 					+ (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).ADD_LVL) {
 				if (Mth.nextInt(RandomSource.create(), 1,

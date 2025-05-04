@@ -331,6 +331,10 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -1658,6 +1662,10 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -1676,10 +1684,6 @@
         "dependencies": [
           {
             "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "immediatesourceentity",
             "type": "entity"
           },
           {
@@ -3056,29 +3060,6 @@
         ]
       },
       "path": "~/Achievements"
-    },
-    {
-      "name": "SmithAvilExp",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "smith_avil_exp",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/reignmod/procedures/SmithAvilExpProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "amount",
-            "type": "number"
-          }
-        ]
-      },
-      "path": "~/Scripts/LicensesSystem/ExpSkills/Smith"
     },
     {
       "name": "DeleteLeaves",
@@ -8915,6 +8896,10 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -8934,6 +8919,10 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -9200,6 +9189,10 @@
           },
           {
             "name": "immediatesourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
             "type": "entity"
           },
           {
@@ -9585,7 +9578,7 @@
           }
         ]
       },
-      "path": "~/Scripts/ChunkClaimSystem"
+      "path": "~/Scripts/HousesScript/ChunkClaimSystem"
     },
     {
       "name": "Shackles",
@@ -9911,7 +9904,8 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/reignmod/client/gui/DomainUIScreen.java",
-          "src/main/java/net/mcreator/reignmod/world/inventory/DomainUIMenu.java"
+          "src/main/java/net/mcreator/reignmod/world/inventory/DomainUIMenu.java",
+          "src/main/java/net/mcreator/reignmod/network/DomainUIButtonMessage.java"
         ]
       },
       "path": "~/UI"
@@ -13314,7 +13308,7 @@
           }
         ]
       },
-      "path": "~/Scripts/ChunkClaimSystem"
+      "path": "~/Scripts/HousesScript/ChunkClaimSystem"
     },
     {
       "name": "OpenMarket",
@@ -13554,7 +13548,7 @@
           }
         ]
       },
-      "path": "~/Scripts/ChunkClaimSystem"
+      "path": "~/Scripts/HousesScript/ChunkClaimSystem"
     },
     {
       "name": "HouseDelete",
@@ -14865,7 +14859,7 @@
           }
         ]
       },
-      "path": "~/Scripts/ChunkClaimSystem"
+      "path": "~/Scripts/HousesScript/ChunkClaimSystem"
     },
     {
       "name": "SetDays",
@@ -15546,6 +15540,131 @@
         ]
       },
       "path": "~/Scripts/HousesScript/DomainScript"
+    },
+    {
+      "name": "SpawnTeleport",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "spawn_teleport",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/SpawnTeleportProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/CapitalSystem"
+    },
+    {
+      "name": "Stuck",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stuck",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/command/StuckCommand.java"
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "DeleteClaim",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "delete_claim",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/DeleteClaimProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/ChunkClaimSystem"
+    },
+    {
+      "name": "DeleteFirstClaim",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "delete_first_claim",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/DeleteFirstClaimProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/ChunkClaimSystem"
+    },
+    {
+      "name": "CapitalEraUpgrade",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "capital_era_upgrade",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/CapitalEraUpgradeProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/CapitalSystem"
     }
   ],
   "variable_elements": [
@@ -16241,6 +16360,7 @@
       "Wallet",
       "Shackles",
       "PenWithInk",
+      "HoneyConcentrate",
       "CopperCoin",
       "SilverCoin",
       "GoldCoin",
@@ -16280,7 +16400,6 @@
       "RuinLord2",
       "RuinLord1",
       "Privatedoor",
-      "HoneyConcentrate",
       "CopperLock",
       "IronLock",
       "GoldLock"
@@ -16516,6 +16635,7 @@
       "translation.key.choose_miner": "Теперь ты шахтёр.",
       "item.reign_mod.private_rental_2": "Обычная частная аренда",
       "gui.reign_mod.soldier_window.label_string_6": "Сильнее тот, за кем правда.",
+      "translation.key.capital_stuck": "Вы телепортируетесь к фонду через 30 секунд, ожидайте.",
       "translation.key.tooltip.trade_license": "Продавайте свои товары, разместив документ в частной лавке.",
       "gui.reign_mod.soldier_window.label_string_1": "Служит своему сюзерену.",
       "gui.reign_mod.soldier_window.label_string_2": "Отлично сражается на мечах.",
@@ -16641,6 +16761,7 @@
       "advancements.welcome_to_reign.descr": "Один, что правит всеми.",
       "advancements.full_lvl.descr": "Полностью улучшите лицензию.",
       "gui.reign_mod.woodcutterwindow.tooltip_lvl1_description": "+20% к эффективности добычи.",
+      "gui.reign_mod.domain_ui.tooltip_delete_claim_help": "Удалить владения домена.",
       "translation.key.tooltip.right_hand_short": "Предмет королевского Десницы.",
       "gui.reign_mod.woodcutterwindow.tooltip_lvl2_description": "25% шанс не повердить топор при рубке.",
       "gui.reign_mod.soldier_window.label_add_license": "Дополнительная лицензия",
@@ -16879,6 +17000,7 @@
       "gui.reign_mod.rental_block_ui.label_rental_block": "Блок аренды",
       "item.reign_mod.fragment_of_record": "Осколок пластинки #1",
       "gui.reign_mod.enchanter_window.tooltip_lvl2_description": "Снятие чар с книг.",
+      "gui.reign_mod.house_incubator_ui.tooltip_delete_claim_help": "Удалить владения домена.",
       "gui.reign_mod.alchemist_window.label_string_6": "Искал золото — нашёл порох.",
       "gui.reign_mod.miner_window.tooltip_lvl1_description": "+20% к эффективности добычи.",
       "gui.reign_mod.miner_window.tooltip_lvl5_description": "Добыча незерита.",
@@ -17040,7 +17162,7 @@
       "gui.reign_mod.enchanter_window.tooltip_lvl1_description": "lvl1_description",
       "translation.key.choose_hunter": "",
       "block.reign_mod.obelisk_foundation": "Obelisk foundation",
-      "gui.reign_mod.license_is_selected.button_refuse": "Refuse   ",
+      "gui.reign_mod.license_is_selected.button_refuse": "   Refuse   ",
       "gui.reign_mod.hunter_window.tooltip_lvl3_description_l": "lvl3_description_L",
       "gui.reign_mod.woodcutterwindow.label_main_licenses": "Main Licenses",
       "translation.key.already_locked": "Already locked",
@@ -17153,6 +17275,7 @@
       "translation.key.choose_miner": "",
       "item.reign_mod.private_rental_2": "Average private rent",
       "gui.reign_mod.soldier_window.label_string_6": "String_6",
+      "translation.key.capital_stuck": "",
       "translation.key.tooltip.trade_license": "",
       "gui.reign_mod.soldier_window.label_string_1": "String_1",
       "gui.reign_mod.soldier_window.label_string_2": "String_2",
@@ -17277,6 +17400,7 @@
       "advancements.full_lvl.descr": "Upgrade your license completely.",
       "advancements.welcome_to_reign.descr": "One who rules them all.",
       "gui.reign_mod.woodcutterwindow.tooltip_lvl1_description": "lvl1_description",
+      "gui.reign_mod.domain_ui.tooltip_delete_claim_help": "delete_claim_help",
       "translation.key.tooltip.right_hand_short": "",
       "gui.reign_mod.woodcutterwindow.tooltip_lvl2_description": "lvl2_description",
       "gui.reign_mod.soldier_window.label_add_license": "Add_license",
@@ -17414,7 +17538,7 @@
       "advancements.so_slippery.descr": "Break the line.",
       "gui.reign_mod.hunter_window.tooltip_lvl2_description": "lvl2_description",
       "translation.key.tooltip.coffers": "",
-      "gui.reign_mod.add_license_is_selected.button_refuse": "Refuse   ",
+      "gui.reign_mod.add_license_is_selected.button_refuse": "   Refuse   ",
       "gui.reign_mod.test_market.tooltip_buy_goods_for_money": "Buy goods for money",
       "NotFarmer": "I don\u0027t know how to breed animals.",
       "gui.reign_mod.cowboy_window.label_main_license": "Main license",
@@ -17512,6 +17636,7 @@
       "gui.reign_mod.rental_block_ui.label_rental_block": "Rental block",
       "item.reign_mod.fragment_of_record": "Fragment of record #1",
       "gui.reign_mod.enchanter_window.tooltip_lvl2_description": "lvl2_description",
+      "gui.reign_mod.house_incubator_ui.tooltip_delete_claim_help": "delete_claim_help",
       "gui.reign_mod.alchemist_window.label_string_6": "String_6",
       "gui.reign_mod.miner_window.tooltip_lvl1_description": "lvl1_description",
       "gui.reign_mod.miner_window.tooltip_lvl5_description": "lvl5_description",
@@ -17827,12 +17952,12 @@
                     "children": []
                   }
                 ]
+              },
+              {
+                "name": "ChunkClaimSystem",
+                "children": []
               }
             ]
-          },
-          {
-            "name": "ChunkClaimSystem",
-            "children": []
           }
         ]
       },
@@ -17875,7 +18000,7 @@
   "workspaceSettings": {
     "modid": "reign_mod",
     "modName": "Reign",
-    "version": "0.7.3",
+    "version": "0.7.4",
     "description": "Professions, trade and power",
     "author": "iDronov",
     "websiteURL": "https://t.me/reignmod",

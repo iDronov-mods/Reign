@@ -12,11 +12,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
-import net.mcreator.reignmod.world.inventory.FisherWindowMenu;
-import net.mcreator.reignmod.procedures.WinViewOpenProcedure;
-import net.mcreator.reignmod.procedures.RefuseAddLicenseProcedure;
-import net.mcreator.reignmod.procedures.ChooseFisherProcedure;
-import net.mcreator.reignmod.procedures.ALvlUpProcedure;
+import net.mcreator.reignmod.world.inventory.DomainUIMenu;
+import net.mcreator.reignmod.procedures.DeleteClaimProcedure;
 import net.mcreator.reignmod.ReignModMod;
 
 import java.util.function.Supplier;
@@ -24,11 +21,11 @@ import java.util.Map;
 import java.util.HashMap;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class FisherWindowButtonMessage {
+public class DomainUIButtonMessage {
 	private final int buttonID, x, y, z;
 	private HashMap<String, String> textstate;
 
-	public FisherWindowButtonMessage(FriendlyByteBuf buffer) {
+	public DomainUIButtonMessage(FriendlyByteBuf buffer) {
 		this.buttonID = buffer.readInt();
 		this.x = buffer.readInt();
 		this.y = buffer.readInt();
@@ -36,7 +33,7 @@ public class FisherWindowButtonMessage {
 		this.textstate = readTextState(buffer);
 	}
 
-	public FisherWindowButtonMessage(int buttonID, int x, int y, int z, HashMap<String, String> textstate) {
+	public DomainUIButtonMessage(int buttonID, int x, int y, int z, HashMap<String, String> textstate) {
 		this.buttonID = buttonID;
 		this.x = x;
 		this.y = y;
@@ -45,7 +42,7 @@ public class FisherWindowButtonMessage {
 
 	}
 
-	public static void buffer(FisherWindowButtonMessage message, FriendlyByteBuf buffer) {
+	public static void buffer(DomainUIButtonMessage message, FriendlyByteBuf buffer) {
 		buffer.writeInt(message.buttonID);
 		buffer.writeInt(message.x);
 		buffer.writeInt(message.y);
@@ -53,7 +50,7 @@ public class FisherWindowButtonMessage {
 		writeTextState(message.textstate, buffer);
 	}
 
-	public static void handler(FisherWindowButtonMessage message, Supplier<NetworkEvent.Context> contextSupplier) {
+	public static void handler(DomainUIButtonMessage message, Supplier<NetworkEvent.Context> contextSupplier) {
 		NetworkEvent.Context context = contextSupplier.get();
 		context.enqueueWork(() -> {
 			Player entity = context.getSender();
@@ -69,7 +66,7 @@ public class FisherWindowButtonMessage {
 
 	public static void handleButtonAction(Player entity, int buttonID, int x, int y, int z, HashMap<String, String> textstate) {
 		Level world = entity.level();
-		HashMap guistate = FisherWindowMenu.guistate;
+		HashMap guistate = DomainUIMenu.guistate;
 		for (Map.Entry<String, String> entry : textstate.entrySet()) {
 			String key = entry.getKey();
 			String value = entry.getValue();
@@ -80,41 +77,13 @@ public class FisherWindowButtonMessage {
 			return;
 		if (buttonID == 0) {
 
-			ChooseFisherProcedure.execute(entity);
-		}
-		if (buttonID == 1) {
-
-			WinViewOpenProcedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 2) {
-
-			RefuseAddLicenseProcedure.execute(world, entity);
-		}
-		if (buttonID == 3) {
-
-			ALvlUpProcedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 4) {
-
-			ALvlUpProcedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 5) {
-
-			ALvlUpProcedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 6) {
-
-			ALvlUpProcedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 7) {
-
-			ALvlUpProcedure.execute(world, x, y, z, entity);
+			DeleteClaimProcedure.execute(world, x, y, z, entity);
 		}
 	}
 
 	@SubscribeEvent
 	public static void registerMessage(FMLCommonSetupEvent event) {
-		ReignModMod.addNetworkMessage(FisherWindowButtonMessage.class, FisherWindowButtonMessage::buffer, FisherWindowButtonMessage::new, FisherWindowButtonMessage::handler);
+		ReignModMod.addNetworkMessage(DomainUIButtonMessage.class, DomainUIButtonMessage::buffer, DomainUIButtonMessage::new, DomainUIButtonMessage::handler);
 	}
 
 	public static void writeTextState(HashMap<String, String> map, FriendlyByteBuf buffer) {

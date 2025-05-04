@@ -1,14 +1,16 @@
 package net.mcreator.reignmod.procedures;
 
-import net.mcreator.reignmod.network.ReignModModVariables;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.network.chat.Component;
+
+import net.mcreator.reignmod.network.ReignModModVariables;
 
 import java.util.Calendar;
 
 public class RefuseAddLicenseProcedure {
-	public static void execute(Entity entity) {
+	public static void execute(LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return;
 		{
@@ -67,7 +69,7 @@ public class RefuseAddLicenseProcedure {
 				capability.syncPlayerVariables(entity);
 			});
 		}
-		LicensesAttributesProcedure.execute(entity);
+		LicensesAttributesProcedure.execute(world, entity);
 		if (entity instanceof Player _player && !_player.level().isClientSide())
 			_player.displayClientMessage(Component.literal((Component.translatable("license_refuse").getString())), true);
 		if (entity instanceof Player _player)

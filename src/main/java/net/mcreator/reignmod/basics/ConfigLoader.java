@@ -24,6 +24,7 @@ public class ConfigLoader {
     private static boolean DISABLE_HOUSE_FEEDING;
     private static boolean DISABLE_DAILY_PAYOUTS;
     private static boolean DISABLE_CAPITAL_FEEDING;
+    private static boolean DISABLE_LICENSE_LVL_LOSS;
     private static double HOURLY_MEAL_PERIOD;
 
     // ---------- Методы файла конфигурации "Общие настройки" ----------
@@ -58,6 +59,10 @@ public class ConfigLoader {
 
     public static boolean isCapitalFeedingDisabled() {
         return DISABLE_CAPITAL_FEEDING;
+    }
+
+    public static boolean isLicenseLvlLossDisable() {
+        return DISABLE_LICENSE_LVL_LOSS;
     }
 
     public static double getHourlyMealPeriod() {

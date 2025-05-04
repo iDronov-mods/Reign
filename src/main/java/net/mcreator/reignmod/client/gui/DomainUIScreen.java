@@ -6,6 +6,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.reignmod.world.inventory.DomainUIMenu;
@@ -33,6 +34,8 @@ import net.mcreator.reignmod.procedures.DomainHP46Procedure;
 import net.mcreator.reignmod.procedures.DomainHP36Procedure;
 import net.mcreator.reignmod.procedures.DomainHP26Procedure;
 import net.mcreator.reignmod.procedures.DomainHP16Procedure;
+import net.mcreator.reignmod.network.DomainUIButtonMessage;
+import net.mcreator.reignmod.ReignModMod;
 
 import java.util.HashMap;
 
@@ -44,6 +47,7 @@ public class DomainUIScreen extends AbstractContainerScreen<DomainUIMenu> {
 	private final int x, y, z;
 	private final Player entity;
 	private final static HashMap<String, String> textstate = new HashMap<>();
+	ImageButton imagebutton_remove_suspect_button;
 
 	public DomainUIScreen(DomainUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -61,6 +65,8 @@ public class DomainUIScreen extends AbstractContainerScreen<DomainUIMenu> {
 		this.renderBackground(guiGraphics);
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
+		if (mouseX > leftPos + 146 && mouseX < leftPos + 157 && mouseY > topPos + 24 && mouseY < topPos + 35)
+			guiGraphics.renderTooltip(font, Component.translatable("gui.reign_mod.domain_ui.tooltip_delete_claim_help"), mouseX, mouseY);
 	}
 
 	@Override
@@ -163,5 +169,13 @@ public class DomainUIScreen extends AbstractContainerScreen<DomainUIMenu> {
 	@Override
 	public void init() {
 		super.init();
+		imagebutton_remove_suspect_button = new ImageButton(this.leftPos + 147, this.topPos + 26, 9, 7, 0, 0, 7, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_remove_suspect_button.png"), 9, 14, e -> {
+			if (true) {
+				ReignModMod.PACKET_HANDLER.sendToServer(new DomainUIButtonMessage(0, x, y, z, textstate));
+				DomainUIButtonMessage.handleButtonAction(entity, 0, x, y, z, textstate);
+			}
+		});
+		guistate.put("button:imagebutton_remove_suspect_button", imagebutton_remove_suspect_button);
+		this.addRenderableWidget(imagebutton_remove_suspect_button);
 	}
 }
