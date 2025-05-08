@@ -1,5 +1,6 @@
 package net.mcreator.reignmod.procedures;
 
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.entity.player.Player;
@@ -11,7 +12,7 @@ import java.util.function.Supplier;
 import java.util.Map;
 
 public class PrivateShopSetPriceProcedure {
-	public static boolean execute(Entity entity, ItemStack itemstack) {
+	public static boolean execute(LevelAccessor world, double x, double y, double z, Entity entity, ItemStack itemstack) {
 		if (entity == null)
 			return false;
 		if (itemstack.is(ItemTags.create(new ResourceLocation("reign:coins")))) {
@@ -21,6 +22,7 @@ public class PrivateShopSetPriceProcedure {
 				((Slot) _slots.get(1)).set(_setstack);
 				_player.containerMenu.broadcastChanges();
 			}
+			SoundGiveCoinProcedure.execute(world, x, y, z);
 		}
 		return true;
 	}

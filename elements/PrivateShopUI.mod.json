@@ -114,8 +114,7 @@
             "value": ""
           },
           "disablePlacement": {
-            "fixedValue": false,
-            "name": "PrivateShopSetGoods"
+            "fixedValue": false
           },
           "id": 2,
           "disablePickup": {
@@ -123,6 +122,9 @@
             "name": "PrivateShopClearGoods"
           },
           "dropItemsWhenNotBound": false,
+          "onSlotChanged": {
+            "name": "PrivateShopGoodsEntitySpawn"
+          },
           "x": 241,
           "y": 62
         }

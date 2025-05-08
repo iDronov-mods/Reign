@@ -212,10 +212,12 @@ public class Domain implements INBTSerializable<CompoundTag> {
 
     public void toggleOnDebuff(DomainDebuffs debuff) {
         domainDebuffs.put(debuff, true);
+        HouseSavedData.getInstance().setDirty();
     }
 
     public void toggleOffDebuff(DomainDebuffs debuff) {
         domainDebuffs.put(debuff, false);
+        HouseSavedData.getInstance().setDirty();
     }
 
     // -------------------------------------------------

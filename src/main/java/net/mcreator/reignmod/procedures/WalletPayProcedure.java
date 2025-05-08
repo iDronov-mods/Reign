@@ -11,7 +11,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.mcreator.reignmod.init.ReignModModItems;
 
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.List;
 import java.util.ArrayList;
 
 public class WalletPayProcedure {
@@ -20,7 +19,6 @@ public class WalletPayProcedure {
 			return false;
 		ItemStack wallet = ItemStack.EMPTY;
 		ItemStack item = ItemStack.EMPTY;
-		List<Object> coinsArray = new ArrayList<>();
 		double slotIndex = 0;
 		double coinsCount = 0;
 		double refund = 0;
@@ -61,19 +59,17 @@ public class WalletPayProcedure {
 				} else {
 					coinsCount = coinsCount + item.getCount() * 4096;
 				}
-				coinsArray.add(slotIndex);
+				ArrayList<Integer> coinsArray = new ArrayList<Integer>();
+				coinsArray.add((int) slotIndex);
 				if (coinsCount >= cost) {
-					for (int index1 = 0; index1 < (int) coinsArray.size(); index1++) {
-						{
-							final int _slotid = (int) (coinsArray.get((int) arrayIndex) instanceof Double _d ? _d : 0);
-							final ItemStack _setstack = ItemStack.EMPTY.copy();
-							_setstack.setCount(0);
-							entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
-								if (capability instanceof IItemHandlerModifiable _modHandlerEntSetSlot)
-									_modHandlerEntSetSlot.setStackInSlot(_slotid, _setstack);
-							});
-						}
-						arrayIndex = arrayIndex + 1;
+					for (int index1 = 0; index1 < coinsArray.size(); index1++) {
+						final int _slotid = coinsArray.get(index1);
+						final ItemStack _setstack = ItemStack.EMPTY.copy();
+						_setstack.setCount(0);
+						entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
+							if (capability instanceof IItemHandlerModifiable _modHandlerEntSetSlot)
+								_modHandlerEntSetSlot.setStackInSlot(_slotid, _setstack);
+						});
 					}
 					WalletGiveProcedure.execute(entity, coinsCount - cost);
 					return true;

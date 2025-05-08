@@ -17,6 +17,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.decoration.ArmorStand;
@@ -102,8 +103,15 @@ public class ChunkClaimProtectionHandler {
         var pos = event.getPos();
         if (pos == null) return;
 
+        if (sp.hasEffect(ReignModModMobEffects.SUSPECT.get())) {
+            cancelEvent(event);
+            return;
+        }
+
         if (!ChunkClaimManager.hasPermission(sp, pos)) {
             increaseSuspicion(sp, SuspiciousAction.BLOCK_BREAK, event.getState().getBlock(), event.getPos());
+            sp.addEffect(new MobEffectInstance(ReignModModMobEffects.SUSPECT.get(),100, 0,false, false, true));
+            sp.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,100, 0,false, false, true));
         }
     }
 
@@ -213,26 +221,35 @@ public class ChunkClaimProtectionHandler {
      */
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
+    public static void onClientBreakBlock(BlockEvent.BreakEvent event) {
+        if (!(event.getPlayer() instanceof LocalPlayer lp)) return;
+        if (!lp.level().dimension().equals(Level.OVERWORLD)) return;
+
+        if (lp.hasEffect(ReignModModMobEffects.SUSPECT.get())) {
+            cancelEvent(event);
+        }
+    }
+
+    /**
+     * CLIENT-ONLY
+     */
+    @OnlyIn(Dist.CLIENT)
+    @SubscribeEvent
     public static void onClientRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
-        if (!(event.getEntity() instanceof LocalPlayer lp) || !lp.level().dimension().equals(Level.OVERWORLD)) return;
+        if (!(event.getEntity() instanceof LocalPlayer lp)) return;
+        if (!lp.level().dimension().equals(Level.OVERWORLD)) return;
 
-        Item targetItem = event.getItemStack().getItem();
+        Item item = event.getItemStack().getItem();
+        if (!(item instanceof BlockItem
+                || item instanceof HangingEntityItem
+                || item instanceof ArmorStandItem
+                || item instanceof BucketItem
+                || item instanceof ShovelItem)) {
+            return;
+        }
 
-        if (targetItem instanceof BlockItem || targetItem instanceof HangingEntityItem || targetItem instanceof ArmorStandItem) {
-            if (lp.hasEffect(ReignModModMobEffects.SUSPECT.get())) {
-                cancelEvent(event);
-            }
-            ChunkPos cp = new ChunkPos(event.getPos().relative(Objects.requireNonNull(event.getFace())));
-            if (ClientPlayerData.isLastKnownChunkEmpty()) {
-                ReignNetworking.sendToServer(new ChunkBreakPermissionQueryC2SPacket(cp.x, cp.z));
-            }
-
-            if (ClientPlayerData.isLastKnownChunk(cp.x, cp.z)) {
-                if (!ClientPlayerData.isLastKnownChunkAvailable()) {
-                    lp.addEffect(new MobEffectInstance(ReignModModMobEffects.SUSPECT.get(), 200, 0, false, false, true));
-                }
-            }
-
+        if (lp.hasEffect(ReignModModMobEffects.SUSPECT.get())) {
+            cancelEvent(event);
         }
     }
 

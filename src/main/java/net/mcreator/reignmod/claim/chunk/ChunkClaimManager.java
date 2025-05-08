@@ -239,7 +239,11 @@ public class ChunkClaimManager {
         } else if (claimData.getClaimType() == ClaimType.DOMAIN){
             // DOMAIN
             Domain domain = HouseManager.getDomainByKnightUUID(claimData.getOwnerId());
+            House chunkHouse = HouseManager.getHouseByLordUUID(domain.getLordUUID());
             if (!domain.isNull()) {
+                if (!chunkHouse.isNull() && chunkHouse.isIndirectVassalsBeTrusted() && chunkHouse.getPlayers().contains(player.getStringUUID())) {
+                    return true;
+                }
                 return domain.getPlayers().contains(player.getStringUUID()) || domain.getLordUUID().equals(player.getStringUUID());
             }
         } else {

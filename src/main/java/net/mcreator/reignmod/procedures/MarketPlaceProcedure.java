@@ -56,7 +56,7 @@ public class MarketPlaceProcedure {
 				((Slot) _slots.get(68)).set(_setstack);
 				_player.containerMenu.broadcastChanges();
 			}
-			MarketPriceSetProcedure.execute(world, entity, ReignModModVariables.MapVariables.get(world).coal_price, "coal");
+			MarketPriceSetProcedure.execute(world, entity, ReignModModVariables.MapVariables.get(world).coal_price, "charcoal");
 		} else if (slot == 19) {
 			if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 				ItemStack _setstack = new ItemStack(Items.COAL).copy();
@@ -64,7 +64,7 @@ public class MarketPlaceProcedure {
 				((Slot) _slots.get(68)).set(_setstack);
 				_player.containerMenu.broadcastChanges();
 			}
-			MarketPriceSetProcedure.execute(world, entity, ReignModModVariables.MapVariables.get(world).coal_price, "charcoal");
+			MarketPriceSetProcedure.execute(world, entity, ReignModModVariables.MapVariables.get(world).coal_price, "coal");
 		} else if (slot == 9) {
 			if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 				ItemStack _setstack = new ItemStack(Items.IRON_PICKAXE).copy();

@@ -25,7 +25,8 @@
     "NoMilkingGoatMixin",
     "NoMilkingMushroomMixin",
     "CapitalExplosionCancelMixin",
-    "DoorLockMixin"
+    "DoorLockMixin",
+    "LicensesDamageMixin"
   ],
   "client": [],
   "minVersion": "0.8"

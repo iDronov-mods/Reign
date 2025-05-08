@@ -1,11 +1,12 @@
 package net.mcreator.reignmod.procedures;
 
-import net.mcreator.reignmod.network.ReignModModVariables;
-import net.minecraft.client.Minecraft;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.GameType;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.client.Minecraft;
+
+import net.mcreator.reignmod.network.ReignModModVariables;
 
 import java.util.Calendar;
 

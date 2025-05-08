@@ -1,17 +1,20 @@
 package net.mcreator.reignmod.procedures;
 
-import net.mcreator.reignmod.house.HouseManager;
-import net.mcreator.reignmod.network.ReignModModVariables;
-import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.eventbus.api.Event;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.event.entity.player.PlayerEvent;
+
+import net.minecraft.world.scores.PlayerTeam;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.server.level.ServerLevel;
+
+import net.mcreator.reignmod.network.ReignModModVariables;
+import net.mcreator.reignmod.house.HouseManager;
 
 import javax.annotation.Nullable;
 
@@ -37,14 +40,21 @@ public class HouseSynchronizeProcedure {
 			if (world != null) {
 				pUUID = entity.getStringUUID();
 				if (!((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).house).isEmpty() && HouseManager.getPlayerHouse((Player) entity).isNull()) {
-					if (entity instanceof Player _player && !_player.level().isClientSide())
-						_player.displayClientMessage(Component.literal("\u0423\u0434\u0430\u043B\u0451\u043D!"), false);
 					{
 						String _setval = "";
 						entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 							capability.house = _setval;
 							capability.syncPlayerVariables(entity);
 						});
+					}
+					{
+						Entity _entityTeam = entity;
+						PlayerTeam _pt = _entityTeam.level().getScoreboard()
+								.getPlayerTeam((entity instanceof LivingEntity _teamEnt && _teamEnt.level().getScoreboard().getPlayersTeam(_teamEnt instanceof Player _pl ? _pl.getGameProfile().getName() : _teamEnt.getStringUUID()) != null
+										? _teamEnt.level().getScoreboard().getPlayersTeam(_teamEnt instanceof Player _pl ? _pl.getGameProfile().getName() : _teamEnt.getStringUUID()).getName()
+										: ""));
+						if (_pt != null)
+							_entityTeam.level().getScoreboard().removePlayerFromTeam(_entityTeam.getStringUUID(), _pt);
 					}
 					changed = true;
 				}
@@ -56,6 +66,15 @@ public class HouseSynchronizeProcedure {
 								capability.house = _setval;
 								capability.syncPlayerVariables(entity);
 							});
+						}
+						{
+							Entity _entityTeam = entity;
+							PlayerTeam _pt = _entityTeam.level().getScoreboard()
+									.getPlayerTeam((entity instanceof LivingEntity _teamEnt && _teamEnt.level().getScoreboard().getPlayersTeam(_teamEnt instanceof Player _pl ? _pl.getGameProfile().getName() : _teamEnt.getStringUUID()) != null
+											? _teamEnt.level().getScoreboard().getPlayersTeam(_teamEnt instanceof Player _pl ? _pl.getGameProfile().getName() : _teamEnt.getStringUUID()).getName()
+											: ""));
+							if (_pt != null)
+								_entityTeam.level().getScoreboard().removePlayerFromTeam(_entityTeam.getStringUUID(), _pt);
 						}
 						changed = true;
 					}

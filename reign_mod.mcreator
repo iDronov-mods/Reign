@@ -4029,6 +4029,10 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -6280,6 +6284,22 @@
           {
             "name": "itemstack",
             "type": "itemstack"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -7297,22 +7317,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       },
@@ -9169,41 +9173,6 @@
       "path": "~/UI/LicensesUI/Licenses_windows"
     },
     {
-      "name": "WoodcutterAxeDamage",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "woodcutter_axe_damage",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/reignmod/procedures/WoodcutterAxeDamageProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "damagesource",
-            "type": "damagesource"
-          },
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "immediatesourceentity",
-            "type": "entity"
-          },
-          {
-            "name": "sourceentity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Scripts/LicensesSystem/ExpSkills/Woodcutter"
-    },
-    {
       "name": "FisherWindow",
       "type": "gui",
       "compiles": true,
@@ -9217,20 +9186,6 @@
         ]
       },
       "path": "~/UI/LicensesUI/Licenses_windows"
-    },
-    {
-      "name": "TestProcedure",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "test_procedure",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/reignmod/procedures/TestProcedureProcedure.java"
-        ],
-        "dependencies": []
-      },
-      "path": "~/Scripts"
     },
     {
       "name": "BeehiveBlock",
@@ -10252,41 +10207,6 @@
         ]
       },
       "path": "~/Scripts/OtherSystems"
-    },
-    {
-      "name": "HunterArrowDmg",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "hunter_arrow_dmg",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/reignmod/procedures/HunterArrowDmgProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "damagesource",
-            "type": "damagesource"
-          },
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "sourceentity",
-            "type": "entity"
-          },
-          {
-            "name": "amount",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Scripts/LicensesSystem/ExpSkills/Hunter"
     },
     {
       "name": "HousePrisonSet",
@@ -15665,6 +15585,53 @@
         ]
       },
       "path": "~/Scripts/CapitalSystem"
+    },
+    {
+      "name": "LicensesDamage",
+      "type": "mixin",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "licenses_damage",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/mixins/LicensesDamageMixin.java"
+        ]
+      },
+      "path": "~/Mixins"
+    },
+    {
+      "name": "PrivateShopGoodsEntitySpawn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "private_shop_goods_entity_spawn",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/PrivateShopGoodsEntitySpawnProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [

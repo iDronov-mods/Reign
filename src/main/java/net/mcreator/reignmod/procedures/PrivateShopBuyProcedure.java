@@ -29,7 +29,17 @@ public class PrivateShopBuyProcedure {
 		double index = 0;
 		double stack = 0;
 		double tax = 0;
-		if ((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY).getItem() == ReignModModItems.TRADE_LICENSE.get()) {
+		if ((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY).getItem() == ReignModModItems.TRADE_LICENSE.get()
+				&& new Object() {
+					public int getAmount(int sltid) {
+						if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+							ItemStack stack = ((Slot) _slots.get(sltid)).getItem();
+							if (stack != null)
+								return stack.getCount();
+						}
+						return 0;
+					}
+				}.getAmount(1) != 0) {
 			stack = new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);

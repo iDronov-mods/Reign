@@ -25,9 +25,9 @@ import net.mcreator.reignmod.procedures.ReturnSuspect2Procedure;
 import net.mcreator.reignmod.procedures.ReturnSuspect1ValueProcedure;
 import net.mcreator.reignmod.procedures.ReturnSuspect1Procedure;
 import net.mcreator.reignmod.procedures.ReturnRobbersProcedure;
+import net.mcreator.reignmod.procedures.ReturnDomainPlayersProcedure;
 import net.mcreator.reignmod.procedures.ReturnDomainHpProcedure;
 import net.mcreator.reignmod.procedures.ReturnDiseaseProcedure;
-import net.mcreator.reignmod.procedures.IncubatorReturnDomainPlayersProcedure;
 import net.mcreator.reignmod.procedures.DomainHP66Procedure;
 import net.mcreator.reignmod.procedures.DomainHP56Procedure;
 import net.mcreator.reignmod.procedures.DomainHP46Procedure;
@@ -120,7 +120,7 @@ public class DomainUIScreen extends AbstractContainerScreen<DomainUIMenu> {
 				ReturnDomainHpProcedure.execute(world, x, y, z), 158, -3, -1, false);
 		guiGraphics.drawString(this.font,
 
-				IncubatorReturnDomainPlayersProcedure.execute(world, x, y, z), 54, 25, -12829636, false);
+				ReturnDomainPlayersProcedure.execute(world, x, y, z), 54, 25, -12829636, false);
 		guiGraphics.drawString(this.font,
 
 				ReturnSuspect1Procedure.execute(world, x, y, z), 7, 66, -1, false);

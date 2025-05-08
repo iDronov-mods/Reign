@@ -28,7 +28,7 @@ public class GetPriceWithFillFactorProcedure {
 				}
 				price = MarketManager.getPrice(goods);
 				max_amount = MarketManager.getMaxAmount(goods);
-				min_price = price / 4;
+				min_price = price / 2;
 				amount = MarketManager.getItemCount(goods);
 				trashhold = max_amount / 4;
 				if (amount <= trashhold) {

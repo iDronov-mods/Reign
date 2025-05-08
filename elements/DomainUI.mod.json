@@ -113,7 +113,7 @@
           "name": "label_players",
           "text": {
             "fixedValue": "players",
-            "name": "IncubatorReturnDomainPlayers"
+            "name": "ReturnDomainPlayers"
           },
           "color": {
             "value": -12829636,
