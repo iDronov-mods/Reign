@@ -10,13 +10,14 @@ import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.reignmod.world.inventory.WalletwinMenu;
 import net.mcreator.reignmod.procedures.WalletGeneralCostProcedure;
+import net.mcreator.reignmod.init.ReignModModScreens.WidgetScreen;
 import net.mcreator.reignmod.ReignModMod;
 
 import java.util.HashMap;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
-public class WalletwinScreen extends AbstractContainerScreen<WalletwinMenu> {
+public class WalletwinScreen extends AbstractContainerScreen<WalletwinMenu> implements WidgetScreen {
 	private final static HashMap<String, Object> guistate = WalletwinMenu.guistate;
 	private final Level world;
 	private final int x, y, z;
@@ -61,6 +62,10 @@ public class WalletwinScreen extends AbstractContainerScreen<WalletwinMenu> {
 
 	public static HashMap<String, String> getTextboxValues() {
 		return textstate;
+	}
+
+	public HashMap<String, Object> getWidgets() {
+		return guistate;
 	}
 
 	@Override

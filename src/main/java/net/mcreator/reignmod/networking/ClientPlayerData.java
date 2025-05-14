@@ -98,4 +98,36 @@ public class ClientPlayerData {
         return lastKnownBlockAccess;
     }
 
+
+    // ---------- КЛИЕНТСКАЯ ДАТА ДЛЯ СТОЛИЧНЫХ ПРИВАТОВ ----------
+    private static BlockPos lastKnownDoorPos = BlockPos.ZERO;
+    private static boolean lastKnownDoorAccess = true;
+
+    /** Синхронизирует на клиенте результат проверки двери */
+    public static void setLastKnownDoor(BlockPos pos, boolean canOpen) {
+        lastKnownDoorPos = pos;
+        lastKnownDoorAccess = canOpen;
+    }
+
+    /** Сбрасывает данные (пока нет информации) */
+    public static void setLastKnownDoor() {
+        lastKnownDoorPos = BlockPos.ZERO;
+        lastKnownDoorAccess = true;
+    }
+
+    /** Совпадает ли запрошенная позиция с последней сохранённой */
+    public static boolean isLastKnownDoor(BlockPos pos) {
+        return lastKnownDoorPos.equals(pos);
+    }
+
+    /** Есть ли у нас вообще данные по двери */
+    public static boolean isLastKnownDoorEmpty() {
+        return lastKnownDoorPos.equals(BlockPos.ZERO);
+    }
+
+    /** Можно ли открыть дверь (последний синхронизированный результат) */
+    public static boolean isLastKnownDoorAvailable() {
+        return lastKnownDoorAccess;
+    }
+
 }

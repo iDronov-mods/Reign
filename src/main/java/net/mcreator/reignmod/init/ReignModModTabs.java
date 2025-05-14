@@ -69,7 +69,5 @@ public class ReignModModTabs {
 				tabData.accept(ReignModModItems.COPPER_LOCK.get());
 				tabData.accept(ReignModModItems.IRON_LOCK.get());
 				tabData.accept(ReignModModItems.GOLD_LOCK.get());
-			})
-
-					.build());
+			}).build());
 }

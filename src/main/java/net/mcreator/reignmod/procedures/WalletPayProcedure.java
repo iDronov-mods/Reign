@@ -32,9 +32,9 @@ public class WalletPayProcedure {
 					});
 					return _retval.get();
 				}
-			}.getItemStack((int) slotIndex, entity));
+			}.getItemStack((int) slotIndex, entity)).copy();
 			if (item.getItem() == ReignModModItems.WALLET.get()) {
-				wallet = item;
+				wallet = item.copy();
 				if (wallet.getOrCreateTag().getDouble("amount") >= cost) {
 					wallet.getOrCreateTag().putDouble("amount", (wallet.getOrCreateTag().getDouble("amount") - cost));
 					{

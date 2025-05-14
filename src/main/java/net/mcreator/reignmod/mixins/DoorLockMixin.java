@@ -2,6 +2,9 @@ package net.mcreator.reignmod.mixins;
 
 import net.mcreator.reignmod.block.PrivatedoorBlock;
 import net.mcreator.reignmod.block.entity.PrivatedoorBlockEntity;
+import net.mcreator.reignmod.networking.ClientPlayerData;
+import net.mcreator.reignmod.networking.ReignNetworking;
+import net.mcreator.reignmod.networking.packet.C2S.DoorOpenPermissionQueryC2SPacket;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -34,6 +37,22 @@ public class DoorLockMixin {
             BlockPos lowerPos = state.getValue(DoorBlock.HALF) == DoubleBlockHalf.LOWER ? pos : pos.below();
             BlockEntity entity = level.getBlockEntity(lowerPos);
             if (entity instanceof PrivatedoorBlockEntity door && reignMod$isDoorLocked(door, player, level, lowerPos)) {
+                cir.setReturnValue(InteractionResult.PASS);
+            }
+        }
+        if (level.isClientSide && state.getBlock() instanceof PrivatedoorBlock) {
+            BlockPos lowerPos = state.getValue(DoorBlock.HALF) == DoubleBlockHalf.LOWER ? pos : pos.below();
+
+            // Если нет данных по этой двери или они устарели — запросить у сервера
+            if (ClientPlayerData.isLastKnownDoorEmpty() || !ClientPlayerData.isLastKnownDoor(lowerPos)) {
+                ReignNetworking.sendToServer(new DoorOpenPermissionQueryC2SPacket(lowerPos));
+            }
+
+            // Если известно, что нельзя открыть — блокируем анимацию и показываем сообщение
+            if (!ClientPlayerData.isLastKnownDoorAvailable()) {
+                level.playSound(null, lowerPos, SoundEvents.IRON_DOOR_CLOSE,
+                        SoundSource.BLOCKS, 0.5f, 1.0f);
+                player.displayClientMessage(Component.translatable("translation.key.locked"), true);
                 cir.setReturnValue(InteractionResult.PASS);
             }
         }

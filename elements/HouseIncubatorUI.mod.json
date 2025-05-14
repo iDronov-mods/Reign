@@ -1,5 +1,5 @@
 {
-  "_fv": 69,
+  "_fv": 73,
   "_type": "gui",
   "definition": {
     "type": 1,
@@ -22,7 +22,8 @@
             "falpha": 0.0
           },
           "x": 105,
-          "y": 30
+          "y": 30,
+          "locked": false
         }
       },
       {
@@ -31,7 +32,8 @@
           "image": "incubatorui.png",
           "use1Xscale": false,
           "x": 64,
-          "y": 20
+          "y": 20,
+          "locked": false
         }
       },
       {
@@ -40,7 +42,8 @@
           "image": "crown.png",
           "use1Xscale": false,
           "x": 241,
-          "y": 48
+          "y": 48,
+          "locked": false
         }
       },
       {
@@ -53,7 +56,8 @@
           "width": 17,
           "height": 11,
           "x": 241,
-          "y": 49
+          "y": 49,
+          "locked": false
         }
       },
       {
@@ -65,7 +69,8 @@
             "name": "HouseHP1"
           },
           "x": 109,
-          "y": 43
+          "y": 43,
+          "locked": false
         }
       },
       {
@@ -77,7 +82,8 @@
             "name": "HouseHP2"
           },
           "x": 130,
-          "y": 43
+          "y": 43,
+          "locked": false
         }
       },
       {
@@ -89,7 +95,8 @@
             "name": "HouseHP3"
           },
           "x": 151,
-          "y": 43
+          "y": 43,
+          "locked": false
         }
       },
       {
@@ -101,7 +108,8 @@
             "name": "HouseHP4"
           },
           "x": 172,
-          "y": 43
+          "y": 43,
+          "locked": false
         }
       },
       {
@@ -113,7 +121,8 @@
             "name": "HouseHP5"
           },
           "x": 193,
-          "y": 43
+          "y": 43,
+          "locked": false
         }
       },
       {
@@ -125,7 +134,8 @@
             "name": "HouseHP6"
           },
           "x": 214,
-          "y": 43
+          "y": 43,
+          "locked": false
         }
       },
       {
@@ -137,7 +147,8 @@
             "name": "HouseHP7"
           },
           "x": 235,
-          "y": 43
+          "y": 43,
+          "locked": false
         }
       },
       {
@@ -149,7 +160,8 @@
             "name": "HouseHP8"
           },
           "x": 256,
-          "y": 43
+          "y": 43,
+          "locked": false
         }
       },
       {
@@ -161,7 +173,8 @@
             "name": "HouseHP9"
           },
           "x": 277,
-          "y": 43
+          "y": 43,
+          "locked": false
         }
       },
       {
@@ -173,7 +186,8 @@
             "name": "HouseHP10"
           },
           "x": 298,
-          "y": 43
+          "y": 43,
+          "locked": false
         }
       },
       {
@@ -189,7 +203,8 @@
             "falpha": 0.0
           },
           "x": 324,
-          "y": 40
+          "y": 40,
+          "locked": false
         }
       },
       {
@@ -203,7 +218,8 @@
           "width": 16,
           "height": 16,
           "x": 134,
-          "y": 99
+          "y": 99,
+          "locked": false
         }
       },
       {
@@ -219,7 +235,8 @@
             "falpha": 0.0
           },
           "x": 137,
-          "y": 69
+          "y": 69,
+          "locked": false
         }
       },
       {
@@ -235,7 +252,8 @@
             "falpha": 0.0
           },
           "x": 194,
-          "y": 69
+          "y": 69,
+          "locked": false
         }
       },
       {
@@ -253,7 +271,8 @@
           },
           "dropItemsWhenNotBound": true,
           "x": 100,
-          "y": 98
+          "y": 98,
+          "locked": false
         }
       },
       {
@@ -269,7 +288,8 @@
             "falpha": 0.0
           },
           "x": 262,
-          "y": 69
+          "y": 69,
+          "locked": false
         }
       },
       {
@@ -282,7 +302,8 @@
             "name": "ToHouseSuspectsTAB"
           },
           "x": 97,
-          "y": 149
+          "y": 149,
+          "locked": false
         }
       },
       {
@@ -294,7 +315,8 @@
             "name": "Needfuel15"
           },
           "x": 132,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -306,7 +328,8 @@
             "name": "Needfuel25"
           },
           "x": 132,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -318,7 +341,8 @@
             "name": "Needfuel35"
           },
           "x": 132,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -330,7 +354,8 @@
             "name": "Needfuel45"
           },
           "x": 132,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -342,7 +367,8 @@
             "name": "Needfuel55"
           },
           "x": 132,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -354,7 +380,8 @@
             "name": "NotHaveFuel"
           },
           "x": 141,
-          "y": 116
+          "y": 116,
+          "locked": false
         }
       },
       {
@@ -366,7 +393,8 @@
             "name": "HaveFuel"
           },
           "x": 141,
-          "y": 116
+          "y": 116,
+          "locked": false
         }
       },
       {
@@ -378,7 +406,8 @@
             "name": "Needbread15"
           },
           "x": 156,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -390,7 +419,8 @@
             "name": "Needbread25"
           },
           "x": 156,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -402,7 +432,8 @@
             "name": "Needbread35"
           },
           "x": 156,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -414,7 +445,8 @@
             "name": "Needbread45"
           },
           "x": 156,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -426,7 +458,8 @@
             "name": "Needbread55"
           },
           "x": 156,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -438,7 +471,8 @@
             "name": "NotHaveBread"
           },
           "x": 165,
-          "y": 116
+          "y": 116,
+          "locked": false
         }
       },
       {
@@ -450,7 +484,8 @@
             "name": "HaveBread"
           },
           "x": 165,
-          "y": 116
+          "y": 116,
+          "locked": false
         }
       },
       {
@@ -462,7 +497,8 @@
             "name": "Needroots15"
           },
           "x": 180,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -474,7 +510,8 @@
             "name": "Needroots25"
           },
           "x": 180,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -486,7 +523,8 @@
             "name": "Needroots35"
           },
           "x": 180,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -498,7 +536,8 @@
             "name": "Needroots45"
           },
           "x": 180,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -510,7 +549,8 @@
             "name": "Needroots55"
           },
           "x": 180,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -522,7 +562,8 @@
             "name": "NotHaveRoots"
           },
           "x": 189,
-          "y": 116
+          "y": 116,
+          "locked": false
         }
       },
       {
@@ -534,7 +575,8 @@
             "name": "HaveRoots"
           },
           "x": 189,
-          "y": 116
+          "y": 116,
+          "locked": false
         }
       },
       {
@@ -546,7 +588,8 @@
             "name": "Needmeat15"
           },
           "x": 204,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -558,7 +601,8 @@
             "name": "Needmeat25"
           },
           "x": 204,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -570,7 +614,8 @@
             "name": "Needmeat35"
           },
           "x": 204,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -582,7 +627,8 @@
             "name": "Needmeat45"
           },
           "x": 204,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -594,7 +640,8 @@
             "name": "Needmeat55"
           },
           "x": 204,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -606,7 +653,8 @@
             "name": "NotHaveMeat"
           },
           "x": 213,
-          "y": 116
+          "y": 116,
+          "locked": false
         }
       },
       {
@@ -618,7 +666,8 @@
             "name": "HaveMeat"
           },
           "x": 213,
-          "y": 116
+          "y": 116,
+          "locked": false
         }
       },
       {
@@ -630,7 +679,8 @@
             "name": "Needwool15"
           },
           "x": 228,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -642,7 +692,8 @@
             "name": "Needwool25"
           },
           "x": 228,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -654,7 +705,8 @@
             "name": "Needwool35"
           },
           "x": 228,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -666,7 +718,8 @@
             "name": "Needwool45"
           },
           "x": 228,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -678,7 +731,8 @@
             "name": "Needwool55"
           },
           "x": 228,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -690,7 +744,8 @@
             "name": "NotHaveWool"
           },
           "x": 237,
-          "y": 116
+          "y": 116,
+          "locked": false
         }
       },
       {
@@ -702,7 +757,8 @@
             "name": "HaveWool"
           },
           "x": 237,
-          "y": 116
+          "y": 116,
+          "locked": false
         }
       },
       {
@@ -714,7 +770,8 @@
             "name": "Needsweets15"
           },
           "x": 252,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -726,7 +783,8 @@
             "name": "Needsweets25"
           },
           "x": 252,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -738,7 +796,8 @@
             "name": "Needsweets35"
           },
           "x": 252,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -750,7 +809,8 @@
             "name": "Needsweets45"
           },
           "x": 252,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -762,7 +822,8 @@
             "name": "Needsweets55"
           },
           "x": 252,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -774,7 +835,8 @@
             "name": "NotHaveSweets"
           },
           "x": 261,
-          "y": 116
+          "y": 116,
+          "locked": false
         }
       },
       {
@@ -786,7 +848,8 @@
             "name": "HaveSweets"
           },
           "x": 261,
-          "y": 116
+          "y": 116,
+          "locked": false
         }
       },
       {
@@ -798,7 +861,8 @@
             "name": "Needjewelry15"
           },
           "x": 276,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -810,7 +874,8 @@
             "name": "Needjewelry25"
           },
           "x": 276,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -822,7 +887,8 @@
             "name": "Needjewelry35"
           },
           "x": 276,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -834,7 +900,8 @@
             "name": "Needjewelry45"
           },
           "x": 276,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -846,7 +913,8 @@
             "name": "Needjewelry55"
           },
           "x": 276,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -858,7 +926,8 @@
             "name": "NotHaveJewelry"
           },
           "x": 285,
-          "y": 116
+          "y": 116,
+          "locked": false
         }
       },
       {
@@ -870,7 +939,8 @@
             "name": "HaveJewelry"
           },
           "x": 285,
-          "y": 116
+          "y": 116,
+          "locked": false
         }
       },
       {
@@ -884,7 +954,8 @@
           "width": 16,
           "height": 16,
           "x": 158,
-          "y": 99
+          "y": 99,
+          "locked": false
         }
       },
       {
@@ -898,7 +969,8 @@
           "width": 16,
           "height": 16,
           "x": 182,
-          "y": 99
+          "y": 99,
+          "locked": false
         }
       },
       {
@@ -912,7 +984,8 @@
           "width": 16,
           "height": 16,
           "x": 206,
-          "y": 99
+          "y": 99,
+          "locked": false
         }
       },
       {
@@ -926,7 +999,8 @@
           "width": 16,
           "height": 16,
           "x": 230,
-          "y": 99
+          "y": 99,
+          "locked": false
         }
       },
       {
@@ -940,7 +1014,8 @@
           "width": 16,
           "height": 16,
           "x": 254,
-          "y": 99
+          "y": 99,
+          "locked": false
         }
       },
       {
@@ -954,7 +1029,8 @@
           "width": 16,
           "height": 16,
           "x": 278,
-          "y": 99
+          "y": 99,
+          "locked": false
         }
       },
       {
@@ -970,7 +1046,8 @@
             "falpha": 0.0
           },
           "x": 242,
-          "y": 30
+          "y": 30,
+          "locked": false
         }
       },
       {
@@ -983,7 +1060,8 @@
           "width": 8,
           "height": 11,
           "x": 127,
-          "y": 67
+          "y": 67,
+          "locked": false
         }
       },
       {
@@ -996,7 +1074,8 @@
           "width": 9,
           "height": 10,
           "x": 182,
-          "y": 67
+          "y": 67,
+          "locked": false
         }
       },
       {
@@ -1009,7 +1088,8 @@
           "width": 16,
           "height": 9,
           "x": 241,
-          "y": 68
+          "y": 68,
+          "locked": false
         }
       },
       {
@@ -1022,7 +1102,8 @@
             "name": "DeleteFirstClaim"
           },
           "x": 313,
-          "y": 68
+          "y": 68,
+          "locked": false
         }
       },
       {
@@ -1035,7 +1116,8 @@
           "width": 11,
           "height": 11,
           "x": 312,
-          "y": 66
+          "y": 66,
+          "locked": false
         }
       }
     ],

@@ -1,5 +1,5 @@
 {
-  "_fv": 69,
+  "_fv": 73,
   "_type": "gui",
   "definition": {
     "type": 1,
@@ -22,7 +22,8 @@
             "falpha": 0.0
           },
           "x": 126,
-          "y": 29
+          "y": 29,
+          "locked": false
         }
       },
       {
@@ -43,7 +44,8 @@
             "name": "PrivateShopSetLicense"
           },
           "x": 108,
-          "y": 37
+          "y": 37,
+          "locked": false
         }
       },
       {
@@ -66,7 +68,8 @@
             "name": "PrivateShopChoosePrice"
           },
           "x": 169,
-          "y": 62
+          "y": 62,
+          "locked": false
         }
       },
       {
@@ -75,7 +78,8 @@
           "image": "crown.png",
           "use1Xscale": false,
           "x": 226,
-          "y": 25
+          "y": 25,
+          "locked": false
         }
       },
       {
@@ -88,7 +92,8 @@
           "width": 24,
           "height": 24,
           "x": 222,
-          "y": 16
+          "y": 16,
+          "locked": false
         }
       },
       {
@@ -104,7 +109,8 @@
             "falpha": 0.0
           },
           "x": 249,
-          "y": 29
+          "y": 29,
+          "locked": false
         }
       },
       {
@@ -126,7 +132,8 @@
             "name": "PrivateShopGoodsEntitySpawn"
           },
           "x": 241,
-          "y": 62
+          "y": 62,
+          "locked": false
         }
       },
       {
@@ -142,7 +149,8 @@
             "falpha": 0.0
           },
           "x": 265,
-          "y": 68
+          "y": 68,
+          "locked": false
         }
       },
       {
@@ -157,7 +165,8 @@
           "width": 54,
           "height": 20,
           "x": 133,
-          "y": 197
+          "y": 197,
+          "locked": false
         }
       },
       {
@@ -173,7 +182,8 @@
             "falpha": 0.0
           },
           "x": 151,
-          "y": 108
+          "y": 108,
+          "locked": false
         }
       },
       {
@@ -188,7 +198,8 @@
           "width": 53,
           "height": 20,
           "x": 242,
-          "y": 197
+          "y": 197,
+          "locked": false
         }
       },
       {
@@ -209,7 +220,8 @@
             "name": "PrivateShopAddGoods"
           },
           "x": 241,
-          "y": 84
+          "y": 84,
+          "locked": false
         }
       },
       {
@@ -218,7 +230,8 @@
           "image": "privateshopownerui.png",
           "use1Xscale": false,
           "x": 104,
-          "y": 20
+          "y": 20,
+          "locked": false
         }
       },
       {
@@ -227,7 +240,8 @@
           "image": "copper_coin.png",
           "use1Xscale": false,
           "x": 135,
-          "y": 104
+          "y": 104,
+          "locked": false
         }
       },
       {
@@ -243,7 +257,8 @@
             "falpha": 0.0
           },
           "x": 175,
-          "y": 94
+          "y": 94,
+          "locked": false
         }
       },
       {
@@ -258,7 +273,8 @@
             "falpha": 0.0
           },
           "x": 133,
-          "y": 94
+          "y": 94,
+          "locked": false
         }
       }
     ],

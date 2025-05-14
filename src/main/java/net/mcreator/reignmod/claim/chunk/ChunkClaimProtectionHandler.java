@@ -103,7 +103,7 @@ public class ChunkClaimProtectionHandler {
         var pos = event.getPos();
         if (pos == null) return;
 
-        if (sp.hasEffect(ReignModModMobEffects.SUSPECT.get())) {
+        if (!sp.isCreative() && sp.hasEffect(ReignModModMobEffects.SUSPECT.get())) {
             cancelEvent(event);
             return;
         }
@@ -143,7 +143,7 @@ public class ChunkClaimProtectionHandler {
         BlockPos pos = event.getPos().relative(Objects.requireNonNull(event.getFace()));
 
         Block blockToReport;
-        if (targetItem instanceof BlockItem blockItem && sp.serverLevel().getBlockState(pos).getBlock() != Blocks.AIR) {
+        if (targetItem instanceof BlockItem blockItem) {
             blockToReport = blockItem.getBlock();
         } else if (targetItem instanceof HangingEntityItem || targetItem instanceof ArmorStandItem) {
             blockToReport = Blocks.AIR;
@@ -155,7 +155,7 @@ public class ChunkClaimProtectionHandler {
             return;
         }
 
-        if (sp.hasEffect(ReignModModMobEffects.SUSPECT.get())) {
+        if (!sp.isCreative() && sp.hasEffect(ReignModModMobEffects.SUSPECT.get())) {
             cancelEvent(event);
             return;
         }
@@ -200,6 +200,10 @@ public class ChunkClaimProtectionHandler {
     public static void onClientBreakSpeed(PlayerEvent.BreakSpeed event) {
         if (!(event.getEntity() instanceof LocalPlayer lp) || !lp.level().dimension().equals(Level.OVERWORLD)) return;
 
+        if (!lp.isCreative() && lp.hasEffect(ReignModModMobEffects.SUSPECT.get())) {
+            cancelEvent(event);
+        }
+
         BlockPos pos = event.getPosition().orElse(null);
         if (pos == null) return;
 
@@ -225,7 +229,7 @@ public class ChunkClaimProtectionHandler {
         if (!(event.getPlayer() instanceof LocalPlayer lp)) return;
         if (!lp.level().dimension().equals(Level.OVERWORLD)) return;
 
-        if (lp.hasEffect(ReignModModMobEffects.SUSPECT.get())) {
+        if (!lp.isCreative() && lp.hasEffect(ReignModModMobEffects.SUSPECT.get())) {
             cancelEvent(event);
         }
     }
@@ -248,7 +252,7 @@ public class ChunkClaimProtectionHandler {
             return;
         }
 
-        if (lp.hasEffect(ReignModModMobEffects.SUSPECT.get())) {
+        if (!lp.isCreative() && lp.hasEffect(ReignModModMobEffects.SUSPECT.get())) {
             cancelEvent(event);
         }
     }
@@ -261,6 +265,8 @@ public class ChunkClaimProtectionHandler {
     public static void onClientEnteringSection(EntityEvent.EnteringSection event) {
         if (event.getEntity() instanceof LocalPlayer) {
             ClientPlayerData.setLastKnownChunk();
+            ClientPlayerData.setLastKnownBlock();
+            ClientPlayerData.setLastKnownDoor();
         }
     }
 
@@ -271,6 +277,8 @@ public class ChunkClaimProtectionHandler {
     @SubscribeEvent
     public static void onClientPlayerLogout(ClientPlayerNetworkEvent.LoggingIn event) {
         ClientPlayerData.setLastKnownChunk();
+        ClientPlayerData.setLastKnownBlock();
+        ClientPlayerData.setLastKnownDoor();
     }
 
     /**

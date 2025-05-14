@@ -1,9 +1,10 @@
 package net.mcreator.reignmod.procedures;
 
-import net.mcreator.reignmod.init.ReignModModItems;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.resources.ResourceLocation;
+
+import net.mcreator.reignmod.init.ReignModModItems;
 
 public class WalletCheckFullProcedure {
 	public static boolean execute(ItemStack itemstack) {

@@ -1,5 +1,5 @@
 {
-  "_fv": 69,
+  "_fv": 73,
   "_type": "gui",
   "definition": {
     "type": 1,
@@ -16,7 +16,8 @@
           "image": "wallet_ui.png",
           "use1Xscale": false,
           "x": 166,
-          "y": 77
+          "y": 77,
+          "locked": false
         }
       },
       {
@@ -37,7 +38,8 @@
             "name": "Change0Slot"
           },
           "x": 173,
-          "y": 84
+          "y": 84,
+          "locked": false
         }
       },
       {
@@ -58,7 +60,8 @@
             "name": "Change1Slot"
           },
           "x": 194,
-          "y": 84
+          "y": 84,
+          "locked": false
         }
       },
       {
@@ -79,7 +82,8 @@
             "name": "Change2Slot"
           },
           "x": 215,
-          "y": 84
+          "y": 84,
+          "locked": false
         }
       },
       {
@@ -97,7 +101,8 @@
           },
           "dropItemsWhenNotBound": false,
           "x": 236,
-          "y": 84
+          "y": 84,
+          "locked": false
         }
       },
       {
@@ -106,7 +111,8 @@
           "image": "copper_coin.png",
           "use1Xscale": false,
           "x": 158,
-          "y": 101
+          "y": 101,
+          "locked": false
         }
       },
       {
@@ -121,7 +127,8 @@
             "falpha": 0.0
           },
           "x": 166,
-          "y": 65
+          "y": 65,
+          "locked": false
         }
       },
       {
@@ -137,7 +144,8 @@
             "falpha": 0.0
           },
           "x": 173,
-          "y": 106
+          "y": 106,
+          "locked": false
         }
       },
       {
@@ -146,7 +154,8 @@
           "image": "leather_ui.png",
           "use1Xscale": false,
           "x": 131,
-          "y": 118
+          "y": 118,
+          "locked": false
         }
       }
     ],

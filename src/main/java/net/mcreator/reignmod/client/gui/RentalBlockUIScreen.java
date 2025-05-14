@@ -17,13 +17,14 @@ import net.mcreator.reignmod.procedures.RentalIsLockedProcedure;
 import net.mcreator.reignmod.procedures.RentalAreaProcedure;
 import net.mcreator.reignmod.procedures.RentalAreaLockedProcedure;
 import net.mcreator.reignmod.network.RentalBlockUIButtonMessage;
+import net.mcreator.reignmod.init.ReignModModScreens.WidgetScreen;
 import net.mcreator.reignmod.ReignModMod;
 
 import java.util.HashMap;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
-public class RentalBlockUIScreen extends AbstractContainerScreen<RentalBlockUIMenu> {
+public class RentalBlockUIScreen extends AbstractContainerScreen<RentalBlockUIMenu> implements WidgetScreen {
 	private final static HashMap<String, Object> guistate = RentalBlockUIMenu.guistate;
 	private final Level world;
 	private final int x, y, z;
@@ -66,6 +67,10 @@ public class RentalBlockUIScreen extends AbstractContainerScreen<RentalBlockUIMe
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/iron_lock.png"), this.leftPos + 114, this.topPos + 45, 0, 0, 16, 16, 16, 16);
 		}
 		RenderSystem.disableBlend();
+	}
+
+	public HashMap<String, Object> getWidgets() {
+		return guistate;
 	}
 
 	@Override

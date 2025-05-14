@@ -10,13 +10,14 @@ import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.reignmod.world.inventory.TraderPointMenu;
 import net.mcreator.reignmod.procedures.ReturnMarketCopperProcedure;
+import net.mcreator.reignmod.init.ReignModModScreens.WidgetScreen;
 import net.mcreator.reignmod.ReignModMod;
 
 import java.util.HashMap;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
-public class TraderPointScreen extends AbstractContainerScreen<TraderPointMenu> {
+public class TraderPointScreen extends AbstractContainerScreen<TraderPointMenu> implements WidgetScreen {
 	private final static HashMap<String, Object> guistate = TraderPointMenu.guistate;
 	private final Level world;
 	private final int x, y, z;
@@ -68,6 +69,10 @@ public class TraderPointScreen extends AbstractContainerScreen<TraderPointMenu> 
 
 	public static HashMap<String, String> getTextboxValues() {
 		return textstate;
+	}
+
+	public HashMap<String, Object> getWidgets() {
+		return guistate;
 	}
 
 	@Override

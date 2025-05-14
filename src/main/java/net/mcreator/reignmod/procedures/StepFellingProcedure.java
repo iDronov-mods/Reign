@@ -38,17 +38,17 @@ public class StepFellingProcedure {
 				if (Mth.nextInt(RandomSource.create(), 1, 2) != 1) {
 					{
 						ItemStack _ist = (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY);
-						if (_ist.hurt(1, RandomSource.create(), null)) {
+						if (_ist.hurt(-1, RandomSource.create(), null)) {
 							_ist.shrink(1);
 							_ist.setDamageValue(0);
 						}
 					}
 				}
-			} else if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).MAIN_LVL >= 1) {
+			} else if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).MAIN_LVL >= 2) {
 				if (Mth.nextInt(RandomSource.create(), 1, 4) != 1) {
 					{
 						ItemStack _ist = (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY);
-						if (_ist.hurt(1, RandomSource.create(), null)) {
+						if (_ist.hurt(-1, RandomSource.create(), null)) {
 							_ist.shrink(1);
 							_ist.setDamageValue(0);
 						}
@@ -61,18 +61,9 @@ public class StepFellingProcedure {
 					Block.dropResources(world.getBlockState(_pos), world, BlockPos.containing(x, y, z), null);
 					world.destroyBlock(_pos, false);
 				}
-				if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).MAIN_LVL >= 2) {
-					if (Mth.nextInt(RandomSource.create(), 1, 4) == 1) {
-						if (world instanceof ServerLevel _level) {
-							ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, (new ItemStack(type.getBlock())));
-							entityToSpawn.setPickUpDelay(5);
-							_level.addFreshEntity(entityToSpawn);
-						}
-					}
-				}
 				if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).MAIN_LVL >= 3
 						&& !(entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).R_LVL) {
-					if (Mth.nextInt(RandomSource.create(), 1, 4) == 1) {
+					if (Mth.nextInt(RandomSource.create(), 1, 10) == 1) {
 						if (world instanceof ServerLevel _level) {
 							ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(Items.CHARCOAL));
 							entityToSpawn.setPickUpDelay(5);

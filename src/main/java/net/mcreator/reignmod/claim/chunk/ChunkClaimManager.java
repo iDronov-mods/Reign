@@ -142,16 +142,7 @@ public class ChunkClaimManager {
      */
     public static void removeClaim(ServerPlayer sv, String claimId) {
         if (ChunkClaimSavedData.getInstance().getClaim(claimId).isPresent()) {
-            String ownerId = ChunkClaimSavedData.getInstance().getClaim(claimId).get().getOwnerId();
-            ClaimType type = ChunkClaimSavedData.getInstance().getClaim(claimId).get().getClaimType();
-            if (type == ClaimType.DOMAIN) {
-                HouseManager.getDomainByKnightUUID(ownerId).setClaimId(null);
-            } else if (type == ClaimType.HOUSE) {
-                HouseManager.getHouseByLordUUID(ownerId).setClaimId(null);
-            } else {
-                CapitalClaimSavedData.setChunkClaimId(null);
-            }
-            ChunkClaimSavedData.getInstance().removeClaim(claimId);
+            removeClaim(claimId);
             sv.displayClientMessage(Component.translatable("chunkclaim.remove.success"), true);
         }
         sv.displayClientMessage(Component.translatable("chunkclaim.remove.not_found"), true);
@@ -173,6 +164,18 @@ public class ChunkClaimManager {
             }
             ChunkClaimSavedData.getInstance().removeClaim(claimId);
         }
+    }
+
+    /**
+     * Удаляем приват по координатам.
+     */
+    public static void removeClaim(ServerPlayer sp) {
+        var claim = getClaimIdByChunk(new ChunkPos(sp.getOnPos()));
+        if (claim.isPresent()) {
+            removeClaim(claim.get());
+            sp.displayClientMessage(Component.translatable("chunkclaim.remove.success"), false);
+        }
+        sp.displayClientMessage(Component.translatable("chunkclaim.remove.not_found"), false);
     }
 
     /**
@@ -208,6 +211,10 @@ public class ChunkClaimManager {
         return ChunkClaimSavedData.getInstance()
                 .getClaimByChunk(chunkX, chunkZ)
                 .map(ClaimData::getClaimId);
+    }
+
+    public static Optional<String> getClaimIdByChunk(ChunkPos cp) {
+        return getClaimIdByChunk(cp.x, cp.z);
     }
 
     public static boolean hasPermission(ServerPlayer player, BlockPos pos) {

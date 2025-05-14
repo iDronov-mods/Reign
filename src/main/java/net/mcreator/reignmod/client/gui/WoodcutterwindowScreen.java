@@ -27,13 +27,14 @@ import net.mcreator.reignmod.procedures.IsNotRLvlFor4Procedure;
 import net.mcreator.reignmod.procedures.IsNotHaveMainLicensesProcedure;
 import net.mcreator.reignmod.procedures.IsHaveMainLicensesProcedure;
 import net.mcreator.reignmod.network.WoodcutterwindowButtonMessage;
+import net.mcreator.reignmod.init.ReignModModScreens.WidgetScreen;
 import net.mcreator.reignmod.ReignModMod;
 
 import java.util.HashMap;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
-public class WoodcutterwindowScreen extends AbstractContainerScreen<WoodcutterwindowMenu> {
+public class WoodcutterwindowScreen extends AbstractContainerScreen<WoodcutterwindowMenu> implements WidgetScreen {
 	private final static HashMap<String, Object> guistate = WoodcutterwindowMenu.guistate;
 	private final Level world;
 	private final int x, y, z;
@@ -116,6 +117,10 @@ public class WoodcutterwindowScreen extends AbstractContainerScreen<Woodcutterwi
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/lvl_point_next.png"), this.leftPos + 141, this.topPos + 37, 0, 0, 24, 6, 24, 6);
 		}
 		RenderSystem.disableBlend();
+	}
+
+	public HashMap<String, Object> getWidgets() {
+		return guistate;
 	}
 
 	@Override

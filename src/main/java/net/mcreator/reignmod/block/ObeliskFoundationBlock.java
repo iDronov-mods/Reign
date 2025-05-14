@@ -33,7 +33,7 @@ public class ObeliskFoundationBlock extends Block implements EntityBlock {
 	public static final BooleanProperty PROTECTED = BooleanProperty.create("protected");
 
 	public ObeliskFoundationBlock() {
-		super(BlockBehaviour.Properties.of().sound(SoundType.BASALT).strength(7f, 10000f).noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((bs, br, bp) -> false));
+		super(BlockBehaviour.Properties.of().sound(SoundType.BASALT).strength(5f, 10000f).noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((bs, br, bp) -> false));
 		this.registerDefaultState(this.stateDefinition.any().setValue(PROTECTED, false));
 	}
 

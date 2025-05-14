@@ -7,17 +7,19 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.BlockPos;
 
 public class ThatTreeProcedure {
-	public static boolean execute(LevelAccessor world, double x, double y, double z, BlockState blockstate) {
+	public static double execute(LevelAccessor world, double x, double y, double z, BlockState blockstate) {
 		double shift = 0;
 		shift = 0;
 		while ((world.getBlockState(BlockPos.containing(x, y + shift, z))).getBlock() == blockstate.getBlock()) {
 			shift = shift + 1;
 		}
 		if ((world.getBlockState(BlockPos.containing(x, y + shift, z))).is(BlockTags.create(new ResourceLocation("minecraft:leaves")))) {
-			return true;
+			return shift;
+		} else if ((world.getBlockState(BlockPos.containing(x, y + shift + 2, z))).is(BlockTags.create(new ResourceLocation("minecraft:leaves")))) {
+			return shift;
 		} else if ((world.getBlockState(BlockPos.containing(x, y + shift + 3, z))).is(BlockTags.create(new ResourceLocation("minecraft:leaves")))) {
-			return true;
+			return shift;
 		}
-		return false;
+		return 0;
 	}
 }

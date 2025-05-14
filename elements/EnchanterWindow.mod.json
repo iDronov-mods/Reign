@@ -1,5 +1,5 @@
 {
-  "_fv": 69,
+  "_fv": 73,
   "_type": "gui",
   "definition": {
     "type": 0,
@@ -16,7 +16,8 @@
           "image": "license_window_background.png",
           "use1Xscale": false,
           "x": 103,
-          "y": 37
+          "y": 37,
+          "locked": false
         }
       },
       {
@@ -25,7 +26,8 @@
           "image": "add_licenses_expbar.png",
           "use1Xscale": false,
           "x": 166,
-          "y": 61
+          "y": 61,
+          "locked": false
         }
       },
       {
@@ -34,7 +36,8 @@
           "image": "big_enchanter_logo.png",
           "use1Xscale": false,
           "x": 112,
-          "y": 46
+          "y": 46,
+          "locked": false
         }
       },
       {
@@ -46,7 +49,8 @@
             "name": "Alvl1"
           },
           "x": 166,
-          "y": 74
+          "y": 74,
+          "locked": false
         }
       },
       {
@@ -58,7 +62,8 @@
             "name": "Alvl2"
           },
           "x": 172,
-          "y": 74
+          "y": 74,
+          "locked": false
         }
       },
       {
@@ -70,7 +75,8 @@
             "name": "Alvl4"
           },
           "x": 220,
-          "y": 74
+          "y": 74,
+          "locked": false
         }
       },
       {
@@ -82,7 +88,8 @@
             "name": "Alvl5"
           },
           "x": 244,
-          "y": 74
+          "y": 74,
+          "locked": false
         }
       },
       {
@@ -100,7 +107,8 @@
           "width": 56,
           "height": 20,
           "x": 252,
-          "y": 189
+          "y": 189,
+          "locked": false
         }
       },
       {
@@ -115,7 +123,8 @@
           "width": 19,
           "height": 20,
           "x": 82,
-          "y": 38
+          "y": 38,
+          "locked": false
         }
       },
       {
@@ -130,7 +139,8 @@
             "falpha": 0.0
           },
           "x": 118,
-          "y": 106
+          "y": 106,
+          "locked": false
         }
       },
       {
@@ -145,7 +155,8 @@
             "falpha": 0.0
           },
           "x": 118,
-          "y": 124
+          "y": 124,
+          "locked": false
         }
       },
       {
@@ -160,7 +171,8 @@
             "falpha": 0.0
           },
           "x": 118,
-          "y": 135
+          "y": 135,
+          "locked": false
         }
       },
       {
@@ -175,7 +187,8 @@
             "falpha": 0.0
           },
           "x": 118,
-          "y": 146
+          "y": 146,
+          "locked": false
         }
       },
       {
@@ -191,7 +204,8 @@
             "name": "AddLvlUp1"
           },
           "x": 161,
-          "y": 69
+          "y": 69,
+          "locked": false
         }
       },
       {
@@ -207,7 +221,8 @@
             "name": "AddLvlUp2"
           },
           "x": 185,
-          "y": 69
+          "y": 69,
+          "locked": false
         }
       },
       {
@@ -223,7 +238,8 @@
             "name": "AddLvlUp3"
           },
           "x": 209,
-          "y": 69
+          "y": 69,
+          "locked": false
         }
       },
       {
@@ -239,7 +255,8 @@
             "name": "AddLvlUp4"
           },
           "x": 233,
-          "y": 69
+          "y": 69,
+          "locked": false
         }
       },
       {
@@ -255,7 +272,8 @@
             "name": "AddLvlUp5"
           },
           "x": 257,
-          "y": 69
+          "y": 69,
+          "locked": false
         }
       },
       {
@@ -265,7 +283,7 @@
           "text": "Refuse",
           "isUndecorated": false,
           "onClick": {
-            "name": "RefuseAddLicense"
+            "name": "RefuseAddLicensesWin"
           },
           "displayCondition": {
             "name": "IsHaveAddLicenses"
@@ -273,7 +291,8 @@
           "width": 67,
           "height": 20,
           "x": 121,
-          "y": 189
+          "y": 189,
+          "locked": false
         }
       },
       {
@@ -288,7 +307,8 @@
             "falpha": 0.0
           },
           "x": 118,
-          "y": 157
+          "y": 157,
+          "locked": false
         }
       },
       {
@@ -303,7 +323,8 @@
             "falpha": 0.0
           },
           "x": 118,
-          "y": 175
+          "y": 175,
+          "locked": false
         }
       },
       {
@@ -316,7 +337,8 @@
           "width": 8,
           "height": 8,
           "x": 165,
-          "y": 73
+          "y": 73,
+          "locked": false
         }
       },
       {
@@ -329,7 +351,8 @@
           "width": 8,
           "height": 8,
           "x": 189,
-          "y": 73
+          "y": 73,
+          "locked": false
         }
       },
       {
@@ -342,7 +365,8 @@
           "width": 8,
           "height": 8,
           "x": 213,
-          "y": 73
+          "y": 73,
+          "locked": false
         }
       },
       {
@@ -355,7 +379,8 @@
           "width": 8,
           "height": 8,
           "x": 237,
-          "y": 73
+          "y": 73,
+          "locked": false
         }
       },
       {
@@ -368,7 +393,8 @@
           "width": 8,
           "height": 8,
           "x": 261,
-          "y": 73
+          "y": 73,
+          "locked": false
         }
       },
       {
@@ -383,7 +409,8 @@
             "falpha": 0.0
           },
           "x": 166,
-          "y": 46
+          "y": 46,
+          "locked": false
         }
       },
       {
@@ -395,7 +422,8 @@
             "name": "Alvl3"
           },
           "x": 196,
-          "y": 74
+          "y": 74,
+          "locked": false
         }
       },
       {
@@ -410,7 +438,8 @@
             "falpha": 0.0
           },
           "x": 104,
-          "y": 25
+          "y": 25,
+          "locked": false
         }
       }
     ],

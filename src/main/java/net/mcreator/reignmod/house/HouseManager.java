@@ -534,7 +534,7 @@ public class HouseManager {
 
             if (house.getPlayers().size() < 3) add_hp -= 100;
 
-            int need_fuel = domains.size() * 2 + 2;
+            int need_fuel = domains.size() * 2 + 4;
             int need_bread = house.getPlayers().size() + 1;
             int need_roots = lvl >= 3 ? house.getPlayers().size() : 0;
             int need_meat = lvl >= 4 ? domains.size() : 0;

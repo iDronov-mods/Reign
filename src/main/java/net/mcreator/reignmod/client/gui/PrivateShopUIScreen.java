@@ -15,13 +15,14 @@ import net.mcreator.reignmod.procedures.PrivateShopProfitProcedure;
 import net.mcreator.reignmod.procedures.PrivateShopGetOwnerProcedure;
 import net.mcreator.reignmod.procedures.PrivateShopCountGoodsProcedure;
 import net.mcreator.reignmod.network.PrivateShopUIButtonMessage;
+import net.mcreator.reignmod.init.ReignModModScreens.WidgetScreen;
 import net.mcreator.reignmod.ReignModMod;
 
 import java.util.HashMap;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
-public class PrivateShopUIScreen extends AbstractContainerScreen<PrivateShopUIMenu> {
+public class PrivateShopUIScreen extends AbstractContainerScreen<PrivateShopUIMenu> implements WidgetScreen {
 	private final static HashMap<String, Object> guistate = PrivateShopUIMenu.guistate;
 	private final Level world;
 	private final int x, y, z;
@@ -67,6 +68,10 @@ public class PrivateShopUIScreen extends AbstractContainerScreen<PrivateShopUIMe
 
 	public static HashMap<String, String> getTextboxValues() {
 		return textstate;
+	}
+
+	public HashMap<String, Object> getWidgets() {
+		return guistate;
 	}
 
 	@Override

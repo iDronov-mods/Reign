@@ -1,9 +1,9 @@
 {
-  "_fv": 69,
+  "_fv": 73,
   "_type": "mixin",
   "definition": {
-    "mixins": [
-      "BrewingStandMixin"
-    ]
+    "mixins": "BrewingStandMixin",
+    "isClient": false,
+    "mixinClass": "BrewingStand"
   }
 }

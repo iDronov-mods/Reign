@@ -1,8 +1,9 @@
 package net.mcreator.reignmod.procedures;
 
-import net.mcreator.reignmod.world.inventory.WalletwinMenu;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.Entity;
+
+import net.mcreator.reignmod.world.inventory.WalletwinMenu;
 
 public class WalletDropProcedure {
 	public static void execute(Entity entity) {

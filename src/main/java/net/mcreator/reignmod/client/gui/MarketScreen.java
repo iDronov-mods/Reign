@@ -15,13 +15,14 @@ import net.mcreator.reignmod.procedures.ReturnMarketCopperProcedure;
 import net.mcreator.reignmod.procedures.GetTextMarketTaxProcedure;
 import net.mcreator.reignmod.procedures.CopperCostTextProcedure;
 import net.mcreator.reignmod.network.MarketButtonMessage;
+import net.mcreator.reignmod.init.ReignModModScreens.WidgetScreen;
 import net.mcreator.reignmod.ReignModMod;
 
 import java.util.HashMap;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
-public class MarketScreen extends AbstractContainerScreen<MarketMenu> {
+public class MarketScreen extends AbstractContainerScreen<MarketMenu> implements WidgetScreen {
 	private final static HashMap<String, Object> guistate = MarketMenu.guistate;
 	private final Level world;
 	private final int x, y, z;
@@ -74,6 +75,10 @@ public class MarketScreen extends AbstractContainerScreen<MarketMenu> {
 
 	public static HashMap<String, String> getTextboxValues() {
 		return textstate;
+	}
+
+	public HashMap<String, Object> getWidgets() {
+		return guistate;
 	}
 
 	@Override

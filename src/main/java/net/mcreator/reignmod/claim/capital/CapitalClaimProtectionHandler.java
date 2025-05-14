@@ -20,6 +20,7 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.decoration.HangingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.Level;
@@ -125,7 +126,7 @@ public class CapitalClaimProtectionHandler {
     public static void onAttackEntity(AttackEntityEvent event) {
         if (event.getEntity() instanceof ServerPlayer player) {
             Entity target = event.getTarget();
-            if ((target instanceof HangingEntity || target instanceof ArmorStand) &&
+            if ((target instanceof HangingEntity || target instanceof ArmorStand || target instanceof Boat) &&
                     !hasPermission(player, target.blockPosition())) cancel(event);
         }
     }

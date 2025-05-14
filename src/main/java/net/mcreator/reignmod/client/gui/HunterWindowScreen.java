@@ -24,13 +24,14 @@ import net.mcreator.reignmod.procedures.AddLvlUp3Procedure;
 import net.mcreator.reignmod.procedures.AddLvlUp2Procedure;
 import net.mcreator.reignmod.procedures.AddLvlUp1Procedure;
 import net.mcreator.reignmod.network.HunterWindowButtonMessage;
+import net.mcreator.reignmod.init.ReignModModScreens.WidgetScreen;
 import net.mcreator.reignmod.ReignModMod;
 
 import java.util.HashMap;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
-public class HunterWindowScreen extends AbstractContainerScreen<HunterWindowMenu> {
+public class HunterWindowScreen extends AbstractContainerScreen<HunterWindowMenu> implements WidgetScreen {
 	private final static HashMap<String, Object> guistate = HunterWindowMenu.guistate;
 	private final Level world;
 	private final int x, y, z;
@@ -101,6 +102,10 @@ public class HunterWindowScreen extends AbstractContainerScreen<HunterWindowMenu
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/lvl_point_next.png"), this.leftPos + 93, this.topPos + 37, 0, 0, 24, 6, 24, 6);
 		}
 		RenderSystem.disableBlend();
+	}
+
+	public HashMap<String, Object> getWidgets() {
+		return guistate;
 	}
 
 	@Override

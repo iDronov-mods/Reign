@@ -31,7 +31,7 @@ public class FinialOfReignBlock extends FallingBlock {
 	public static final BooleanProperty PROTECTED = BooleanProperty.create("protected");
 
 	public FinialOfReignBlock() {
-		super(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(7f, 10000f).noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((bs, br, bp) -> false));
+		super(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(5f, 10000f).noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((bs, br, bp) -> false));
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(PROTECTED, false));
 	}
 

@@ -1,5 +1,5 @@
 {
-  "_fv": 69,
+  "_fv": 73,
   "_type": "gui",
   "definition": {
     "type": 0,
@@ -16,7 +16,8 @@
           "image": "crown.png",
           "use1Xscale": false,
           "x": 150,
-          "y": 26
+          "y": 26,
+          "locked": false
         }
       },
       {
@@ -29,7 +30,8 @@
           "width": 24,
           "height": 24,
           "x": 145,
-          "y": 23
+          "y": 23,
+          "locked": false
         }
       },
       {
@@ -44,7 +46,8 @@
           "width": 77,
           "height": 20,
           "x": 195,
-          "y": 60
+          "y": 60,
+          "locked": false
         }
       },
       {
@@ -59,7 +62,8 @@
           "width": 77,
           "height": 20,
           "x": 195,
-          "y": 87
+          "y": 87,
+          "locked": false
         }
       },
       {
@@ -74,7 +78,8 @@
           "width": 77,
           "height": 20,
           "x": 195,
-          "y": 114
+          "y": 114,
+          "locked": false
         }
       },
       {
@@ -89,7 +94,8 @@
           "width": 77,
           "height": 20,
           "x": 195,
-          "y": 141
+          "y": 141,
+          "locked": false
         }
       },
       {
@@ -98,7 +104,8 @@
           "image": "enchanter_logo.png",
           "use1Xscale": false,
           "x": 159,
-          "y": 89
+          "y": 89,
+          "locked": false
         }
       },
       {
@@ -107,7 +114,8 @@
           "image": "alchemist_logo.png",
           "use1Xscale": false,
           "x": 159,
-          "y": 116
+          "y": 116,
+          "locked": false
         }
       },
       {
@@ -116,7 +124,8 @@
           "image": "fisher_logo.png",
           "use1Xscale": false,
           "x": 159,
-          "y": 62
+          "y": 62,
+          "locked": false
         }
       },
       {
@@ -125,7 +134,8 @@
           "image": "soldier_logo.png",
           "use1Xscale": false,
           "x": 159,
-          "y": 143
+          "y": 143,
+          "locked": false
         }
       },
       {
@@ -140,7 +150,8 @@
             "falpha": 0.0
           },
           "x": 180,
-          "y": 41
+          "y": 41,
+          "locked": false
         }
       },
       {
@@ -149,7 +160,8 @@
           "image": "hunter_logo.png",
           "use1Xscale": false,
           "x": 159,
-          "y": 170
+          "y": 170,
+          "locked": false
         }
       },
       {
@@ -164,7 +176,8 @@
           "width": 77,
           "height": 20,
           "x": 195,
-          "y": 168
+          "y": 168,
+          "locked": false
         }
       }
     ],

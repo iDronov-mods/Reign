@@ -34,13 +34,13 @@ public class RentalAreaProcedure {
 		}.getAmount(0) != 0) {
 			if ((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY).getItem() == ReignModModItems.PRIVATE_RENTAL_1
 					.get()) {
-				max = 256;
+				max = 128;
 			} else if ((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY)
 					.getItem() == ReignModModItems.PRIVATE_RENTAL_2.get()) {
-				max = 512;
+				max = 256;
 			} else if ((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY)
 					.getItem() == ReignModModItems.PRIVATE_RENTAL_3.get()) {
-				max = 1024;
+				max = 512;
 			} else if ((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY).getItem() == ReignModModItems.STATE_RENTAL
 					.get()) {
 				max = 4096;

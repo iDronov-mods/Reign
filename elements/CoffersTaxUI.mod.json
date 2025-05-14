@@ -1,5 +1,5 @@
 {
-  "_fv": 69,
+  "_fv": 73,
   "_type": "gui",
   "definition": {
     "type": 0,
@@ -16,7 +16,8 @@
           "image": "coffers_tax_ui.png",
           "use1Xscale": false,
           "x": 74,
-          "y": -20
+          "y": -20,
+          "locked": false
         }
       },
       {
@@ -29,7 +30,8 @@
             "name": "CoffersOpen"
           },
           "x": 103,
-          "y": 42
+          "y": 42,
+          "locked": false
         }
       },
       {
@@ -44,7 +46,8 @@
             "falpha": 0.0
           },
           "x": 126,
-          "y": 27
+          "y": 27,
+          "locked": false
         }
       },
       {
@@ -53,7 +56,8 @@
           "image": "crown.png",
           "use1Xscale": false,
           "x": 270,
-          "y": 24
+          "y": 24,
+          "locked": false
         }
       },
       {
@@ -66,7 +70,8 @@
           "width": 16,
           "height": 12,
           "x": 270,
-          "y": 26
+          "y": 26,
+          "locked": false
         }
       },
       {
@@ -81,7 +86,8 @@
             "falpha": 0.0
           },
           "x": 140,
-          "y": 50
+          "y": 50,
+          "locked": false
         }
       },
       {
@@ -94,7 +100,8 @@
             "name": "Logsup"
           },
           "x": 266,
-          "y": 50
+          "y": 50,
+          "locked": false
         }
       },
       {
@@ -107,7 +114,8 @@
             "name": "Logsdown"
           },
           "x": 280,
-          "y": 50
+          "y": 50,
+          "locked": false
         }
       },
       {
@@ -123,7 +131,8 @@
             "falpha": 0.0
           },
           "x": 225,
-          "y": 50
+          "y": 50,
+          "locked": false
         }
       },
       {
@@ -138,7 +147,8 @@
             "falpha": 0.0
           },
           "x": 140,
-          "y": 64
+          "y": 64,
+          "locked": false
         }
       },
       {
@@ -154,7 +164,8 @@
             "falpha": 0.0
           },
           "x": 225,
-          "y": 64
+          "y": 64,
+          "locked": false
         }
       },
       {
@@ -167,7 +178,8 @@
             "name": "Coalup"
           },
           "x": 266,
-          "y": 64
+          "y": 64,
+          "locked": false
         }
       },
       {
@@ -180,7 +192,8 @@
             "name": "Coaldown"
           },
           "x": 280,
-          "y": 64
+          "y": 64,
+          "locked": false
         }
       },
       {
@@ -193,7 +206,8 @@
             "name": "Oresup"
           },
           "x": 266,
-          "y": 78
+          "y": 78,
+          "locked": false
         }
       },
       {
@@ -206,7 +220,8 @@
             "name": "Oresdown"
           },
           "x": 280,
-          "y": 78
+          "y": 78,
+          "locked": false
         }
       },
       {
@@ -219,7 +234,8 @@
             "name": "Toolsup"
           },
           "x": 266,
-          "y": 92
+          "y": 92,
+          "locked": false
         }
       },
       {
@@ -232,7 +248,8 @@
             "name": "Toolsdown"
           },
           "x": 280,
-          "y": 92
+          "y": 92,
+          "locked": false
         }
       },
       {
@@ -247,7 +264,8 @@
             "falpha": 0.0
           },
           "x": 140,
-          "y": 78
+          "y": 78,
+          "locked": false
         }
       },
       {
@@ -262,7 +280,8 @@
             "falpha": 0.0
           },
           "x": 140,
-          "y": 92
+          "y": 92,
+          "locked": false
         }
       },
       {
@@ -277,7 +296,8 @@
             "falpha": 0.0
           },
           "x": 140,
-          "y": 106
+          "y": 106,
+          "locked": false
         }
       },
       {
@@ -292,7 +312,8 @@
             "falpha": 0.0
           },
           "x": 140,
-          "y": 120
+          "y": 120,
+          "locked": false
         }
       },
       {
@@ -307,7 +328,8 @@
             "falpha": 0.0
           },
           "x": 140,
-          "y": 134
+          "y": 134,
+          "locked": false
         }
       },
       {
@@ -322,7 +344,8 @@
             "falpha": 0.0
           },
           "x": 140,
-          "y": 162
+          "y": 162,
+          "locked": false
         }
       },
       {
@@ -337,7 +360,8 @@
             "falpha": 0.0
           },
           "x": 140,
-          "y": 148
+          "y": 148,
+          "locked": false
         }
       },
       {
@@ -353,7 +377,8 @@
             "falpha": 0.0
           },
           "x": 225,
-          "y": 78
+          "y": 78,
+          "locked": false
         }
       },
       {
@@ -369,7 +394,8 @@
             "falpha": 0.0
           },
           "x": 225,
-          "y": 92
+          "y": 92,
+          "locked": false
         }
       },
       {
@@ -385,7 +411,8 @@
             "falpha": 0.0
           },
           "x": 225,
-          "y": 106
+          "y": 106,
+          "locked": false
         }
       },
       {
@@ -401,7 +428,8 @@
             "falpha": 0.0
           },
           "x": 225,
-          "y": 120
+          "y": 120,
+          "locked": false
         }
       },
       {
@@ -414,7 +442,8 @@
             "name": "Armorup"
           },
           "x": 266,
-          "y": 106
+          "y": 106,
+          "locked": false
         }
       },
       {
@@ -427,7 +456,8 @@
             "name": "Armordown"
           },
           "x": 280,
-          "y": 106
+          "y": 106,
+          "locked": false
         }
       },
       {
@@ -440,7 +470,8 @@
             "name": "Foodup"
           },
           "x": 266,
-          "y": 120
+          "y": 120,
+          "locked": false
         }
       },
       {
@@ -453,7 +484,8 @@
             "name": "Fooddown"
           },
           "x": 280,
-          "y": 120
+          "y": 120,
+          "locked": false
         }
       },
       {
@@ -466,7 +498,8 @@
             "name": "Expup"
           },
           "x": 266,
-          "y": 134
+          "y": 134,
+          "locked": false
         }
       },
       {
@@ -479,7 +512,8 @@
             "name": "Expdown"
           },
           "x": 279,
-          "y": 134
+          "y": 134,
+          "locked": false
         }
       },
       {
@@ -492,7 +526,8 @@
             "name": "Otherup"
           },
           "x": 266,
-          "y": 148
+          "y": 148,
+          "locked": false
         }
       },
       {
@@ -505,7 +540,8 @@
             "name": "Otherdown"
           },
           "x": 279,
-          "y": 148
+          "y": 148,
+          "locked": false
         }
       },
       {
@@ -518,7 +554,8 @@
             "name": "Privateup"
           },
           "x": 266,
-          "y": 162
+          "y": 162,
+          "locked": false
         }
       },
       {
@@ -531,7 +568,8 @@
             "name": "Privatedown"
           },
           "x": 279,
-          "y": 162
+          "y": 162,
+          "locked": false
         }
       },
       {
@@ -547,7 +585,8 @@
             "falpha": 0.0
           },
           "x": 225,
-          "y": 134
+          "y": 134,
+          "locked": false
         }
       },
       {
@@ -563,7 +602,8 @@
             "falpha": 0.0
           },
           "x": 225,
-          "y": 148
+          "y": 148,
+          "locked": false
         }
       },
       {
@@ -579,7 +619,8 @@
             "falpha": 0.0
           },
           "x": 225,
-          "y": 162
+          "y": 162,
+          "locked": false
         }
       },
       {
@@ -591,7 +632,8 @@
             "name": "IsCoinageBlock"
           },
           "x": 137,
-          "y": 176
+          "y": 176,
+          "locked": false
         }
       },
       {
@@ -606,7 +648,8 @@
             "falpha": 0.0
           },
           "x": 159,
-          "y": 178
+          "y": 178,
+          "locked": false
         }
       }
     ],

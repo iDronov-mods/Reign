@@ -24,6 +24,8 @@ import net.mcreator.reignmod.procedures.FeedHousesCommandProcedure;
 import net.mcreator.reignmod.procedures.FeedCapitalCommandProcedure;
 import net.mcreator.reignmod.procedures.EraSetProcedure;
 import net.mcreator.reignmod.procedures.EraResetProcedure;
+import net.mcreator.reignmod.procedures.ClaimDeleteCommandProcedure;
+import net.mcreator.reignmod.procedures.ClaimCenterSetCommandProcedure;
 import net.mcreator.reignmod.procedures.CapitalSurgingSetProcedure;
 import net.mcreator.reignmod.procedures.CapitalSurgingGetProcedure;
 import net.mcreator.reignmod.procedures.CapitalCreateProcedure;
@@ -134,6 +136,20 @@ public class ReignEventsCommand {
 
 					CapitalSurgingSetProcedure.execute(world, arguments);
 					return 0;
+				})))).then(Commands.literal("claim").then(Commands.literal("center").then(Commands.literal("set").executes(arguments -> {
+					Level world = arguments.getSource().getUnsidedLevel();
+					double x = arguments.getSource().getPosition().x();
+					double y = arguments.getSource().getPosition().y();
+					double z = arguments.getSource().getPosition().z();
+					Entity entity = arguments.getSource().getEntity();
+					if (entity == null && world instanceof ServerLevel _servLevel)
+						entity = FakePlayerFactory.getMinecraft(_servLevel);
+					Direction direction = Direction.DOWN;
+					if (entity != null)
+						direction = entity.getDirection();
+
+					ClaimCenterSetCommandProcedure.execute(entity);
+					return 0;
 				}))))).then(Commands.literal("days").then(Commands.argument("Player", EntityArgument.player()).then(Commands.literal("get").executes(arguments -> {
 					Level world = arguments.getSource().getUnsidedLevel();
 					double x = arguments.getSource().getPosition().x();
@@ -189,6 +205,20 @@ public class ReignEventsCommand {
 						direction = entity.getDirection();
 
 					FeedHousesCommandProcedure.execute();
+					return 0;
+				}))).then(Commands.literal("claim").then(Commands.literal("delete").executes(arguments -> {
+					Level world = arguments.getSource().getUnsidedLevel();
+					double x = arguments.getSource().getPosition().x();
+					double y = arguments.getSource().getPosition().y();
+					double z = arguments.getSource().getPosition().z();
+					Entity entity = arguments.getSource().getEntity();
+					if (entity == null && world instanceof ServerLevel _servLevel)
+						entity = FakePlayerFactory.getMinecraft(_servLevel);
+					Direction direction = Direction.DOWN;
+					if (entity != null)
+						direction = entity.getDirection();
+
+					ClaimDeleteCommandProcedure.execute(entity);
 					return 0;
 				}))));
 	}

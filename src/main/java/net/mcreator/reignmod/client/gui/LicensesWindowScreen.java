@@ -56,13 +56,14 @@ import net.mcreator.reignmod.procedures.Alvl2Procedure;
 import net.mcreator.reignmod.procedures.Alvl1Procedure;
 import net.mcreator.reignmod.procedures.AddButtonUpProcedure;
 import net.mcreator.reignmod.network.LicensesWindowButtonMessage;
+import net.mcreator.reignmod.init.ReignModModScreens.WidgetScreen;
 import net.mcreator.reignmod.ReignModMod;
 
 import java.util.HashMap;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
-public class LicensesWindowScreen extends AbstractContainerScreen<LicensesWindowMenu> {
+public class LicensesWindowScreen extends AbstractContainerScreen<LicensesWindowMenu> implements WidgetScreen {
 	private final static HashMap<String, Object> guistate = LicensesWindowMenu.guistate;
 	private final Level world;
 	private final int x, y, z;
@@ -225,19 +226,19 @@ public class LicensesWindowScreen extends AbstractContainerScreen<LicensesWindow
 		if (ReturnNotCowboyProcedure.execute(entity)) {
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/icon_license_closed.png"), this.leftPos + 16, this.topPos + 155, 0, 0, 16, 16, 16, 16);
 		}
-		if (ReturnNotFisherProcedure.execute(entity)) {
+		if (ReturnNotFisherProcedure.execute(world, entity)) {
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/icon_license_closed.png"), this.leftPos + 142, this.topPos + -5, 0, 0, 16, 16, 16, 16);
 		}
-		if (ReturnNotAlchemistProcedure.execute(entity)) {
+		if (ReturnNotAlchemistProcedure.execute(world, entity)) {
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/icon_license_closed.png"), this.leftPos + 184, this.topPos + 33, 0, 0, 16, 16, 16, 16);
 		}
-		if (ReturnNotEnchanterProcedure.execute(entity)) {
+		if (ReturnNotEnchanterProcedure.execute(world, entity)) {
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/icon_license_closed.png"), this.leftPos + 198, this.topPos + 75, 0, 0, 16, 16, 16, 16);
 		}
-		if (ReturnNotSoldierProcedure.execute(entity)) {
+		if (ReturnNotSoldierProcedure.execute(world, entity)) {
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/icon_license_closed.png"), this.leftPos + 184, this.topPos + 118, 0, 0, 16, 16, 16, 16);
 		}
-		if (ReturnNotHunterProcedure.execute(entity)) {
+		if (ReturnNotHunterProcedure.execute(world, entity)) {
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/icon_license_closed.png"), this.leftPos + 142, this.topPos + 155, 0, 0, 16, 16, 16, 16);
 		}
 		if (MainButtonUpProcedure.execute(entity)) {
@@ -247,6 +248,10 @@ public class LicensesWindowScreen extends AbstractContainerScreen<LicensesWindow
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/lvl_up_button.png"), this.leftPos + 47, this.topPos + 5, 0, 0, 8, 8, 8, 8);
 		}
 		RenderSystem.disableBlend();
+	}
+
+	public HashMap<String, Object> getWidgets() {
+		return guistate;
 	}
 
 	@Override
@@ -336,70 +341,70 @@ public class LicensesWindowScreen extends AbstractContainerScreen<LicensesWindow
 		guistate.put("button:imagebutton_icon_license_slot4", imagebutton_icon_license_slot4);
 		this.addRenderableWidget(imagebutton_icon_license_slot4);
 		imagebutton_icon_license_slot5 = new ImageButton(this.leftPos + 182, this.topPos + 31, 20, 20, 0, 0, 20, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_icon_license_slot5.png"), 20, 40, e -> {
-			if (ReturnReverseNotAlchemistProcedure.execute(entity)) {
+			if (ReturnReverseNotAlchemistProcedure.execute(world, entity)) {
 				ReignModMod.PACKET_HANDLER.sendToServer(new LicensesWindowButtonMessage(5, x, y, z, textstate));
 				LicensesWindowButtonMessage.handleButtonAction(entity, 5, x, y, z, textstate);
 			}
 		}) {
 			@Override
 			public void render(GuiGraphics guiGraphics, int gx, int gy, float ticks) {
-				if (ReturnReverseNotAlchemistProcedure.execute(entity))
+				if (ReturnReverseNotAlchemistProcedure.execute(world, entity))
 					super.render(guiGraphics, gx, gy, ticks);
 			}
 		};
 		guistate.put("button:imagebutton_icon_license_slot5", imagebutton_icon_license_slot5);
 		this.addRenderableWidget(imagebutton_icon_license_slot5);
 		imagebutton_icon_license_slot6 = new ImageButton(this.leftPos + 196, this.topPos + 73, 20, 20, 0, 0, 20, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_icon_license_slot6.png"), 20, 40, e -> {
-			if (ReturnReverseNotEnchanterProcedure.execute(entity)) {
+			if (ReturnReverseNotEnchanterProcedure.execute(world, entity)) {
 				ReignModMod.PACKET_HANDLER.sendToServer(new LicensesWindowButtonMessage(6, x, y, z, textstate));
 				LicensesWindowButtonMessage.handleButtonAction(entity, 6, x, y, z, textstate);
 			}
 		}) {
 			@Override
 			public void render(GuiGraphics guiGraphics, int gx, int gy, float ticks) {
-				if (ReturnReverseNotEnchanterProcedure.execute(entity))
+				if (ReturnReverseNotEnchanterProcedure.execute(world, entity))
 					super.render(guiGraphics, gx, gy, ticks);
 			}
 		};
 		guistate.put("button:imagebutton_icon_license_slot6", imagebutton_icon_license_slot6);
 		this.addRenderableWidget(imagebutton_icon_license_slot6);
 		imagebutton_icon_license_slot7 = new ImageButton(this.leftPos + 182, this.topPos + 115, 20, 20, 0, 0, 20, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_icon_license_slot7.png"), 20, 40, e -> {
-			if (ReturnReverseNotSoldierProcedure.execute(entity)) {
+			if (ReturnReverseNotSoldierProcedure.execute(world, entity)) {
 				ReignModMod.PACKET_HANDLER.sendToServer(new LicensesWindowButtonMessage(7, x, y, z, textstate));
 				LicensesWindowButtonMessage.handleButtonAction(entity, 7, x, y, z, textstate);
 			}
 		}) {
 			@Override
 			public void render(GuiGraphics guiGraphics, int gx, int gy, float ticks) {
-				if (ReturnReverseNotSoldierProcedure.execute(entity))
+				if (ReturnReverseNotSoldierProcedure.execute(world, entity))
 					super.render(guiGraphics, gx, gy, ticks);
 			}
 		};
 		guistate.put("button:imagebutton_icon_license_slot7", imagebutton_icon_license_slot7);
 		this.addRenderableWidget(imagebutton_icon_license_slot7);
 		imagebutton_icon_license_slot8 = new ImageButton(this.leftPos + 140, this.topPos + 153, 20, 20, 0, 0, 20, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_icon_license_slot8.png"), 20, 40, e -> {
-			if (ReturnReverseNotHunterProcedure.execute(entity)) {
+			if (ReturnReverseNotHunterProcedure.execute(world, entity)) {
 				ReignModMod.PACKET_HANDLER.sendToServer(new LicensesWindowButtonMessage(8, x, y, z, textstate));
 				LicensesWindowButtonMessage.handleButtonAction(entity, 8, x, y, z, textstate);
 			}
 		}) {
 			@Override
 			public void render(GuiGraphics guiGraphics, int gx, int gy, float ticks) {
-				if (ReturnReverseNotHunterProcedure.execute(entity))
+				if (ReturnReverseNotHunterProcedure.execute(world, entity))
 					super.render(guiGraphics, gx, gy, ticks);
 			}
 		};
 		guistate.put("button:imagebutton_icon_license_slot8", imagebutton_icon_license_slot8);
 		this.addRenderableWidget(imagebutton_icon_license_slot8);
 		imagebutton_icon_license_slot9 = new ImageButton(this.leftPos + 140, this.topPos + -7, 20, 20, 0, 0, 20, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_icon_license_slot9.png"), 20, 40, e -> {
-			if (ReturnReverseNotFisherProcedure.execute(entity)) {
+			if (ReturnReverseNotFisherProcedure.execute(world, entity)) {
 				ReignModMod.PACKET_HANDLER.sendToServer(new LicensesWindowButtonMessage(9, x, y, z, textstate));
 				LicensesWindowButtonMessage.handleButtonAction(entity, 9, x, y, z, textstate);
 			}
 		}) {
 			@Override
 			public void render(GuiGraphics guiGraphics, int gx, int gy, float ticks) {
-				if (ReturnReverseNotFisherProcedure.execute(entity))
+				if (ReturnReverseNotFisherProcedure.execute(world, entity))
 					super.render(guiGraphics, gx, gy, ticks);
 			}
 		};

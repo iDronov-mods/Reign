@@ -1,5 +1,5 @@
 {
-  "_fv": 69,
+  "_fv": 73,
   "_type": "gui",
   "definition": {
     "type": 1,
@@ -16,7 +16,8 @@
           "image": "coffers_ui_new.png",
           "use1Xscale": false,
           "x": 74,
-          "y": -20
+          "y": -20,
+          "locked": false
         }
       },
       {
@@ -25,7 +26,8 @@
           "image": "crown.png",
           "use1Xscale": false,
           "x": 257,
-          "y": 23
+          "y": 23,
+          "locked": false
         }
       },
       {
@@ -38,7 +40,8 @@
           "width": 16,
           "height": 13,
           "x": 256,
-          "y": 24
+          "y": 24,
+          "locked": false
         }
       },
       {
@@ -53,7 +56,8 @@
             "falpha": 0.0
           },
           "x": 194,
-          "y": 48
+          "y": 48,
+          "locked": false
         }
       },
       {
@@ -75,7 +79,8 @@
           },
           "dropItemsWhenNotBound": false,
           "x": 151,
-          "y": 72
+          "y": 72,
+          "locked": false
         }
       },
       {
@@ -97,7 +102,8 @@
           },
           "dropItemsWhenNotBound": false,
           "x": 187,
-          "y": 72
+          "y": 72,
+          "locked": false
         }
       },
       {
@@ -119,7 +125,8 @@
           },
           "dropItemsWhenNotBound": false,
           "x": 223,
-          "y": 72
+          "y": 72,
+          "locked": false
         }
       },
       {
@@ -141,7 +148,8 @@
           },
           "dropItemsWhenNotBound": false,
           "x": 259,
-          "y": 72
+          "y": 72,
+          "locked": false
         }
       },
       {
@@ -156,7 +164,8 @@
             "falpha": 0.0
           },
           "x": 126,
-          "y": 27
+          "y": 27,
+          "locked": false
         }
       },
       {
@@ -171,7 +180,8 @@
           "width": 54,
           "height": 20,
           "x": 187,
-          "y": 97
+          "y": 97,
+          "locked": false
         }
       },
       {
@@ -180,7 +190,8 @@
           "image": "platinum_coin.png",
           "use1Xscale": false,
           "x": 205,
-          "y": 89
+          "y": 89,
+          "locked": false
         }
       },
       {
@@ -196,7 +207,8 @@
             "falpha": 0.0
           },
           "x": 133,
-          "y": 41
+          "y": 41,
+          "locked": false
         }
       },
       {
@@ -209,7 +221,8 @@
           "width": 52,
           "height": 18,
           "x": 188,
-          "y": 98
+          "y": 98,
+          "locked": false
         }
       },
       {
@@ -222,7 +235,8 @@
           "width": 113,
           "height": 14,
           "x": 127,
-          "y": 38
+          "y": 38,
+          "locked": false
         }
       },
       {
@@ -238,7 +252,8 @@
             "falpha": 0.0
           },
           "x": 145,
-          "y": 52
+          "y": 52,
+          "locked": false
         }
       },
       {
@@ -247,7 +262,8 @@
           "image": "copper_coin.png",
           "use1Xscale": false,
           "x": 129,
-          "y": 48
+          "y": 48,
+          "locked": false
         }
       },
       {
@@ -260,7 +276,8 @@
             "name": "ToCoffersTaxTAB"
           },
           "x": 103,
-          "y": 66
+          "y": 66,
+          "locked": false
         }
       },
       {
@@ -278,7 +295,8 @@
           "width": 58,
           "height": 20,
           "x": 125,
-          "y": 206
+          "y": 206,
+          "locked": false
         }
       },
       {
@@ -296,7 +314,8 @@
             "name": "CapitalClaimDIsabled"
           },
           "x": 186,
-          "y": 210
+          "y": 210,
+          "locked": false
         }
       }
     ],

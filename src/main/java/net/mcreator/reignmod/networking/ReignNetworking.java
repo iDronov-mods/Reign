@@ -2,8 +2,10 @@ package net.mcreator.reignmod.networking;
 
 import net.mcreator.reignmod.networking.packet.C2S.BlockBreakPermissionQueryC2SPacket;
 import net.mcreator.reignmod.networking.packet.C2S.ChunkBreakPermissionQueryC2SPacket;
+import net.mcreator.reignmod.networking.packet.C2S.DoorOpenPermissionQueryC2SPacket;
 import net.mcreator.reignmod.networking.packet.S2C.BlockBreakPermissionSyncS2CPacket;
 import net.mcreator.reignmod.networking.packet.S2C.ChunkBreakPermissionSyncS2CPacket;
+import net.mcreator.reignmod.networking.packet.S2C.DoorOpenPermissionSyncS2CPacket;
 import net.mcreator.reignmod.networking.packet.S2C.PlayerPrefixSyncS2CPacket;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
@@ -62,6 +64,16 @@ public class ReignNetworking {
                 .encoder(BlockBreakPermissionSyncS2CPacket::toBytes)
                 .consumerMainThread(BlockBreakPermissionSyncS2CPacket::handle)
                 .add();
+        net.messageBuilder(DoorOpenPermissionQueryC2SPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(DoorOpenPermissionQueryC2SPacket::new)
+                .encoder(DoorOpenPermissionQueryC2SPacket::toBytes)
+                .consumerMainThread(DoorOpenPermissionQueryC2SPacket::handle)
+                .add();
+        net.messageBuilder(DoorOpenPermissionSyncS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(DoorOpenPermissionSyncS2CPacket::new)
+                .encoder(DoorOpenPermissionSyncS2CPacket::toBytes)
+                .consumerMainThread(DoorOpenPermissionSyncS2CPacket::handle)
+                .add();
     }
 
     public static <MSG> void sendToServer(MSG message) {
@@ -70,6 +82,10 @@ public class ReignNetworking {
 
     public static <MSG> void sendToPlayer(MSG message, ServerPlayer player) {
         INSTANCE.send(PacketDistributor.PLAYER.with(() -> player), message);
+    }
+
+    public static void sendDoorOpenPermissionSync(ServerPlayer player, BlockPos pos, boolean canOpen) {
+        INSTANCE.send(PacketDistributor.PLAYER.with(() -> player), new DoorOpenPermissionSyncS2CPacket(pos, canOpen));
     }
 
     public static void sendChunkBreakPermissionSync(ServerPlayer player, int chunkX, int chunkZ, boolean canBreak) {

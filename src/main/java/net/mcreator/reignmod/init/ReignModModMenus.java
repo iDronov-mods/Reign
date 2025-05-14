@@ -7,9 +7,17 @@ package net.mcreator.reignmod.init;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.network.PacketDistributor;
+import net.minecraftforge.network.NetworkEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.common.extensions.IForgeMenuType;
 
 import net.minecraft.world.inventory.MenuType;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.FriendlyByteBuf;
 
 import net.mcreator.reignmod.world.inventory.WoodcutterwindowMenu;
 import net.mcreator.reignmod.world.inventory.WalletwinMenu;
@@ -44,6 +52,11 @@ import net.mcreator.reignmod.world.inventory.AddLicenseListMenu;
 import net.mcreator.reignmod.world.inventory.AddLicenseIsSelectedMenu;
 import net.mcreator.reignmod.ReignModMod;
 
+import javax.annotation.Nullable;
+
+import java.util.function.Supplier;
+
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ReignModModMenus {
 	public static final DeferredRegister<MenuType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.MENU_TYPES, ReignModMod.MODID);
 	public static final RegistryObject<MenuType<LicenseIsSelectedMenu>> LICENSE_IS_SELECTED = REGISTRY.register("license_is_selected", () -> IForgeMenuType.create(LicenseIsSelectedMenu::new));
@@ -77,4 +90,55 @@ public class ReignModModMenus {
 	public static final RegistryObject<MenuType<DomainUIMenu>> DOMAIN_UI = REGISTRY.register("domain_ui", () -> IForgeMenuType.create(DomainUIMenu::new));
 	public static final RegistryObject<MenuType<CoffersTaxUIMenu>> COFFERS_TAX_UI = REGISTRY.register("coffers_tax_ui", () -> IForgeMenuType.create(CoffersTaxUIMenu::new));
 	public static final RegistryObject<MenuType<HouseSuspectsUIMenu>> HOUSE_SUSPECTS_UI = REGISTRY.register("house_suspects_ui", () -> IForgeMenuType.create(HouseSuspectsUIMenu::new));
+
+	public static void setText(String boxname, String value, @Nullable ServerPlayer player) {
+		if (player != null) {
+			ReignModMod.PACKET_HANDLER.send(PacketDistributor.PLAYER.with(() -> player), new GuiSyncMessage(boxname, value));
+		} else {
+			ReignModMod.PACKET_HANDLER.send(PacketDistributor.ALL.noArg(), new GuiSyncMessage(boxname, value));
+		}
+	}
+
+	public static class GuiSyncMessage {
+		private final String textboxid;
+		private final String data;
+
+		public GuiSyncMessage(FriendlyByteBuf buffer) {
+			this.textboxid = buffer.readComponent().getString();
+			this.data = buffer.readComponent().getString();
+		}
+
+		public GuiSyncMessage(String textboxid, String data) {
+			this.textboxid = textboxid;
+			this.data = data;
+		}
+
+		public static void buffer(GuiSyncMessage message, FriendlyByteBuf buffer) {
+			buffer.writeComponent(Component.literal(message.textboxid));
+			buffer.writeComponent(Component.literal(message.data));
+		}
+
+		public static void handleData(GuiSyncMessage message, Supplier<NetworkEvent.Context> contextSupplier) {
+			NetworkEvent.Context context = contextSupplier.get();
+			context.enqueueWork(() -> {
+				if (!context.getDirection().getReceptionSide().isServer()) {
+					ReignModModScreens.handleTextBoxMessage(message);
+				}
+			});
+			context.setPacketHandled(true);
+		}
+
+		String editbox() {
+			return this.textboxid;
+		}
+
+		String value() {
+			return this.data;
+		}
+	}
+
+	@SubscribeEvent
+	public static void init(FMLCommonSetupEvent event) {
+		ReignModMod.addNetworkMessage(GuiSyncMessage.class, GuiSyncMessage::buffer, GuiSyncMessage::new, GuiSyncMessage::handleData);
+	}
 }

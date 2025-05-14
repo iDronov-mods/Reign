@@ -22,18 +22,14 @@ import java.util.UUID;
  */
 public class CapitalClaimManager {
 
-    // Координаты сердца столицы (фонд) в мировых координатах
-    private static int capitalHeartX = 0;
-    private static int capitalHeartZ = 0;
-
     // Для приведения мировых координат к локальным: локальный центр = ( (CAPITAL_SIZE+1)/2, (CAPITAL_SIZE+1)/2 )
     // offset = (capitalHeart - (CAPITAL_SIZE+1)/2)
     private static int offsetX() {
-        return capitalHeartX - ((CapitalClaimSavedData.CAPITAL_SIZE + 1) / 2);
+        return CapitalClaimSavedData.getInstance().getCapitalCenterX() - ((CapitalClaimSavedData.CAPITAL_SIZE + 1) / 2);
     }
 
     private static int offsetZ() {
-        return capitalHeartZ - ((CapitalClaimSavedData.CAPITAL_SIZE + 1) / 2);
+        return CapitalClaimSavedData.getInstance().getCapitalCenterZ() - ((CapitalClaimSavedData.CAPITAL_SIZE + 1) / 2);
     }
 
     /**
@@ -41,8 +37,11 @@ public class CapitalClaimManager {
      * Эти координаты будут использоваться для преобразования мировых координат в локальные.
      */
     public static void setCapitalCenter(int x, int z) {
-        capitalHeartX = x;
-        capitalHeartZ = z;
+        CapitalClaimSavedData.getInstance().setCapitalCenter(x, z);
+    }
+
+    public static void setCapitalCenter(ServerPlayer sp) {
+        setCapitalCenter(sp.getBlockX(), sp.getBlockZ());
     }
 
     /**

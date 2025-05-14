@@ -1,12 +1,14 @@
 package net.mcreator.reignmod.procedures;
 
-import net.mcreator.reignmod.init.ReignModModItems;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.ItemHandlerHelper;
+import net.minecraftforge.items.IItemHandlerModifiable;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
+
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.Entity;
+
+import net.mcreator.reignmod.init.ReignModModItems;
 
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -27,9 +29,9 @@ public class WalletGiveProcedure {
 					});
 					return _retval.get();
 				}
-			}.getItemStack((int) slotIndex, entity));
+			}.getItemStack((int) slotIndex, entity)).copy();
 			if (item.getItem() == ReignModModItems.WALLET.get()) {
-				wallet = item;
+				wallet = item.copy();
 				if (wallet.getOrCreateTag().getDouble("amount") + value <= 279616) {
 					wallet.getOrCreateTag().putDouble("amount", (wallet.getOrCreateTag().getDouble("amount") + value));
 					{

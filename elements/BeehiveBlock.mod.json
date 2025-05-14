@@ -1,9 +1,9 @@
 {
-  "_fv": 69,
+  "_fv": 73,
   "_type": "mixin",
   "definition": {
-    "mixins": [
-      "BeehiveBlockMixin"
-    ]
+    "mixins": "BeehiveBlockMixin",
+    "isClient": false,
+    "mixinClass": "BeehiveBlock"
   }
 }

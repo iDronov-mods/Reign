@@ -8,6 +8,6 @@ public class ReturnReverseNotSmithProcedure {
 	public static boolean execute(Entity entity) {
 		if (entity == null)
 			return false;
-		return !(!(entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).license_smith && IsHaveMainLicensesProcedure.execute(entity));
+		return (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).license_smith || !IsHaveMainLicensesProcedure.execute(entity);
 	}
 }

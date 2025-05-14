@@ -1,5 +1,5 @@
 {
-  "_fv": 69,
+  "_fv": 73,
   "_type": "block",
   "definition": {
     "texture": "minecraft:black_concrete_powder",
@@ -44,7 +44,7 @@
     "specialInformation": {
       "fixedValue": []
     },
-    "hardness": 7.0,
+    "hardness": 5.0,
     "resistance": 10000.0,
     "hasGravity": false,
     "isWaterloggable": false,
@@ -53,7 +53,7 @@
         "value": "CUSTOM:CreativeTab"
       }
     ],
-    "destroyTool": "Not specified",
+    "destroyTool": "pickaxe",
     "customDrop": {
       "value": ""
     },
@@ -112,7 +112,6 @@
     "vanillaToolTier": "NONE",
     "isBonemealable": false,
     "hasInventory": false,
-    "guiBoundTo": "<NONE>",
     "openGUIOnRightClick": false,
     "inventorySize": 9,
     "inventoryStackSize": 64,

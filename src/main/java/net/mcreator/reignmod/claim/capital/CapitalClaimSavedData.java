@@ -19,6 +19,8 @@ public class CapitalClaimSavedData extends ReignSavedData {
     private static final int PRIME = 31;
     private static CapitalClaimSavedData instance;
     private static String chunkClaimId = null;
+    private int capitalHeartX = 0;
+    private int capitalHeartZ = 0;
     // Карта заявок по владельцам
     private final HashMap<ClaimOwner, HashMap<Long, TerritoryClaim>> claimsMap = new HashMap<>();
     // ownerGrid: для каждого блока столицы хранится владелец привата (или null)
@@ -30,6 +32,9 @@ public class CapitalClaimSavedData extends ReignSavedData {
     }
 
     public CapitalClaimSavedData(CompoundTag compoundTag) {
+        capitalHeartX = compoundTag.getInt("capital_center_x");
+        capitalHeartZ = compoundTag.getInt("capital_center_z");
+
         ListTag claimList = compoundTag.getList("claims", 10); // 10 = CompoundTag
         for (int i = 0; i < claimList.size(); i++) {
             CompoundTag entryTag = claimList.getCompound(i);
@@ -40,7 +45,7 @@ public class CapitalClaimSavedData extends ReignSavedData {
             fillOwnerGrid(owner, claim);
         }
         // При загрузке система остаётся отключенной
-        capitalClaimsEnabled = compoundTag.getBoolean("capitalClaimsEnabled");
+        capitalClaimsEnabled = compoundTag.getBoolean("capital_claims_enabled");
 
         // Claim ID
         String loadedClaim = compoundTag.getString("chunk_claim_id");
@@ -169,6 +174,20 @@ public class CapitalClaimSavedData extends ReignSavedData {
         }
     }
 
+    public int getCapitalCenterX() {
+        return capitalHeartX;
+    }
+
+    public int getCapitalCenterZ() {
+        return capitalHeartZ;
+    }
+
+    public void setCapitalCenter(int x, int z) {
+        capitalHeartX = x;
+        capitalHeartZ = z;
+        setDirty();
+    }
+
     @Override
     protected String getDataKey() {
         return "capital_claims_data";
@@ -176,6 +195,9 @@ public class CapitalClaimSavedData extends ReignSavedData {
 
     @Override
     public @NotNull CompoundTag save(@NotNull CompoundTag compoundTag) {
+        compoundTag.putInt("capital_center_x", capitalHeartX);
+        compoundTag.putInt("capital_center_z", capitalHeartZ);
+
         ListTag claimList = new ListTag();
         for (Map.Entry<ClaimOwner, HashMap<Long, TerritoryClaim>> ownerEntry : claimsMap.entrySet()) {
             for (Map.Entry<Long, TerritoryClaim> claimEntry : ownerEntry.getValue().entrySet()) {
@@ -186,7 +208,7 @@ public class CapitalClaimSavedData extends ReignSavedData {
             }
         }
         compoundTag.put("claims", claimList);
-        compoundTag.putBoolean("capitalClaimsEnabled", capitalClaimsEnabled);
+        compoundTag.putBoolean("capital_claims_enabled", capitalClaimsEnabled);
 
         // Claim ID
         compoundTag.putString("chunk_claim_id", (chunkClaimId == null) ? "" : chunkClaimId);

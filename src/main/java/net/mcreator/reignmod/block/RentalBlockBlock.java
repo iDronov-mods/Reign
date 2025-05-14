@@ -40,7 +40,7 @@ public class RentalBlockBlock extends Block implements EntityBlock {
 	public static final BooleanProperty PROTECTED = BooleanProperty.create("protected");
 
 	public RentalBlockBlock() {
-		super(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(5f, 10f).noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((bs, br, bp) -> false));
+		super(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(4f, 10f).noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((bs, br, bp) -> false));
 		this.registerDefaultState(this.stateDefinition.any().setValue(PROTECTED, false));
 	}
 

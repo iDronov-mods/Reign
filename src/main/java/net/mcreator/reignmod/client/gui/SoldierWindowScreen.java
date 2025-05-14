@@ -24,13 +24,14 @@ import net.mcreator.reignmod.procedures.AddLvlUp3Procedure;
 import net.mcreator.reignmod.procedures.AddLvlUp2Procedure;
 import net.mcreator.reignmod.procedures.AddLvlUp1Procedure;
 import net.mcreator.reignmod.network.SoldierWindowButtonMessage;
+import net.mcreator.reignmod.init.ReignModModScreens.WidgetScreen;
 import net.mcreator.reignmod.ReignModMod;
 
 import java.util.HashMap;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
-public class SoldierWindowScreen extends AbstractContainerScreen<SoldierWindowMenu> {
+public class SoldierWindowScreen extends AbstractContainerScreen<SoldierWindowMenu> implements WidgetScreen {
 	private final static HashMap<String, Object> guistate = SoldierWindowMenu.guistate;
 	private final Level world;
 	private final int x, y, z;
@@ -101,6 +102,10 @@ public class SoldierWindowScreen extends AbstractContainerScreen<SoldierWindowMe
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/lvl_point_next.png"), this.leftPos + 93, this.topPos + 37, 0, 0, 24, 6, 24, 6);
 		}
 		RenderSystem.disableBlend();
+	}
+
+	public HashMap<String, Object> getWidgets() {
+		return guistate;
 	}
 
 	@Override

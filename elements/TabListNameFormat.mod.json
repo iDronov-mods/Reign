@@ -1,9 +1,9 @@
 {
-  "_fv": 69,
+  "_fv": 73,
   "_type": "mixin",
   "definition": {
-    "mixins": [
-      "TabListNameFormatMixin"
-    ]
+    "mixins": "TabListNameFormatMixin",
+    "isClient": false,
+    "mixinClass": "TabListNameFormat"
   }
 }

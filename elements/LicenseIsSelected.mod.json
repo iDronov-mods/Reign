@@ -1,5 +1,5 @@
 {
-  "_fv": 69,
+  "_fv": 73,
   "_type": "gui",
   "definition": {
     "type": 0,
@@ -22,7 +22,8 @@
             "falpha": 0.0
           },
           "x": 123,
-          "y": 49
+          "y": 49,
+          "locked": false
         }
       },
       {
@@ -37,7 +38,8 @@
             "falpha": 0.0
           },
           "x": 124,
-          "y": 65
+          "y": 65,
+          "locked": false
         }
       },
       {
@@ -52,7 +54,8 @@
             "falpha": 0.0
           },
           "x": 145,
-          "y": 179
+          "y": 179,
+          "locked": false
         }
       },
       {
@@ -61,7 +64,8 @@
           "image": "crown.png",
           "use1Xscale": false,
           "x": 287,
-          "y": 24
+          "y": 24,
+          "locked": false
         }
       },
       {
@@ -79,7 +83,8 @@
           "width": 86,
           "height": 20,
           "x": 170,
-          "y": 145
+          "y": 145,
+          "locked": false
         }
       },
       {
@@ -91,7 +96,8 @@
             "name": "Returnfarmer"
           },
           "x": 204,
-          "y": 98
+          "y": 98,
+          "locked": false
         }
       },
       {
@@ -103,7 +109,8 @@
             "name": "Returnminer"
           },
           "x": 204,
-          "y": 98
+          "y": 98,
+          "locked": false
         }
       },
       {
@@ -115,7 +122,8 @@
             "name": "Returnsmith"
           },
           "x": 204,
-          "y": 98
+          "y": 98,
+          "locked": false
         }
       },
       {
@@ -127,7 +135,8 @@
             "name": "Returnwoodcutter"
           },
           "x": 204,
-          "y": 98
+          "y": 98,
+          "locked": false
         }
       },
       {
@@ -139,7 +148,8 @@
             "name": "Returncowboy"
           },
           "x": 204,
-          "y": 98
+          "y": 98,
+          "locked": false
         }
       }
     ],

@@ -1,5 +1,5 @@
 {
-  "_fv": 69,
+  "_fv": 73,
   "_type": "procedure",
   "definition": {
     "procedurexml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable type=\"Boolean\" id=\"isHave\">isHave</variable><variable type=\"MCItem\" id=\"item\">item</variable><variable type=\"MCItem\" id=\"Type_coin\">Type_coin</variable><variable type=\"Number\" id=\"shopIndex\">shopIndex</variable><variable type=\"Number\" id=\"slotIndex\">slotIndex</variable></variables><block type=\"event_trigger\" deletable=\"false\" x=\"40\" y=\"40\"><field name=\"trigger\">no_ext_trigger</field><next><block type=\"controls_repeat_ext\"><value name=\"TIMES\"><block type=\"math_number\"><field name=\"NUM\">4</field></block></value><statement name=\"DO\"><block type=\"call_procedure\"><mutation xmlns=\"http://www.w3.org/1999/xhtml\" inputs=\"0\"></mutation><field name=\"procedure\">Buy</field></block></statement></block></next></block></xml>"

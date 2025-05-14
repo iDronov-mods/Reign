@@ -1,5 +1,5 @@
 {
-  "_fv": 69,
+  "_fv": 73,
   "_type": "gui",
   "definition": {
     "type": 1,
@@ -23,7 +23,8 @@
           },
           "dropItemsWhenNotBound": true,
           "x": 241,
-          "y": 62
+          "y": 62,
+          "locked": false
         }
       },
       {
@@ -48,7 +49,8 @@
             "name": "SoundSale"
           },
           "x": 169,
-          "y": 62
+          "y": 62,
+          "locked": false
         }
       },
       {
@@ -57,7 +59,8 @@
           "image": "found.png",
           "use1Xscale": false,
           "x": 103,
-          "y": 37
+          "y": 37,
+          "locked": false
         }
       },
       {
@@ -66,7 +69,8 @@
           "image": "eras_bar.png",
           "use1Xscale": false,
           "x": 98,
-          "y": 9
+          "y": 9,
+          "locked": false
         }
       },
       {
@@ -75,7 +79,8 @@
           "image": "crown.png",
           "use1Xscale": false,
           "x": 270,
-          "y": 107
+          "y": 107,
+          "locked": false
         }
       },
       {
@@ -90,7 +95,8 @@
             "falpha": 0.0
           },
           "x": 133,
-          "y": 107
+          "y": 107,
+          "locked": false
         }
       },
       {
@@ -102,7 +108,8 @@
             "name": "ReturnEra4"
           },
           "x": 157,
-          "y": 30
+          "y": 30,
+          "locked": false
         }
       },
       {
@@ -114,7 +121,8 @@
             "name": "ReturnEra5"
           },
           "x": 181,
-          "y": 30
+          "y": 30,
+          "locked": false
         }
       },
       {
@@ -126,7 +134,8 @@
             "name": "ReturnEra6"
           },
           "x": 205,
-          "y": 30
+          "y": 30,
+          "locked": false
         }
       },
       {
@@ -138,7 +147,8 @@
             "name": "ReturnEra7"
           },
           "x": 229,
-          "y": 30
+          "y": 30,
+          "locked": false
         }
       },
       {
@@ -150,7 +160,8 @@
             "name": "ReturnEra8"
           },
           "x": 253,
-          "y": 30
+          "y": 30,
+          "locked": false
         }
       },
       {
@@ -162,7 +173,8 @@
             "name": "ReturnEra9"
           },
           "x": 277,
-          "y": 30
+          "y": 30,
+          "locked": false
         }
       },
       {
@@ -174,7 +186,8 @@
             "name": "ReturnEra10"
           },
           "x": 301,
-          "y": 30
+          "y": 30,
+          "locked": false
         }
       },
       {
@@ -187,7 +200,8 @@
           "width": 19,
           "height": 15,
           "x": 268,
-          "y": 104
+          "y": 104,
+          "locked": false
         }
       },
       {
@@ -200,7 +214,8 @@
           "width": 6,
           "height": 6,
           "x": 127,
-          "y": 30
+          "y": 30,
+          "locked": false
         }
       },
       {
@@ -213,7 +228,8 @@
           "width": 6,
           "height": 6,
           "x": 319,
-          "y": 30
+          "y": 30,
+          "locked": false
         }
       },
       {
@@ -225,7 +241,8 @@
             "name": "ReturnEra1"
           },
           "x": 103,
-          "y": 30
+          "y": 30,
+          "locked": false
         }
       },
       {
@@ -237,7 +254,8 @@
             "name": "ReturnEra2"
           },
           "x": 109,
-          "y": 30
+          "y": 30,
+          "locked": false
         }
       },
       {
@@ -249,7 +267,8 @@
             "name": "ReturnEra3"
           },
           "x": 133,
-          "y": 30
+          "y": 30,
+          "locked": false
         }
       },
       {
@@ -262,7 +281,8 @@
           "width": 6,
           "height": 6,
           "x": 103,
-          "y": 30
+          "y": 30,
+          "locked": false
         }
       },
       {
@@ -275,7 +295,8 @@
           "width": 6,
           "height": 6,
           "x": 151,
-          "y": 30
+          "y": 30,
+          "locked": false
         }
       },
       {
@@ -288,7 +309,8 @@
           "width": 6,
           "height": 6,
           "x": 175,
-          "y": 30
+          "y": 30,
+          "locked": false
         }
       },
       {
@@ -301,7 +323,8 @@
           "width": 6,
           "height": 6,
           "x": 199,
-          "y": 30
+          "y": 30,
+          "locked": false
         }
       },
       {
@@ -314,7 +337,8 @@
           "width": 6,
           "height": 6,
           "x": 223,
-          "y": 30
+          "y": 30,
+          "locked": false
         }
       },
       {
@@ -327,7 +351,8 @@
           "width": 6,
           "height": 6,
           "x": 247,
-          "y": 30
+          "y": 30,
+          "locked": false
         }
       },
       {
@@ -340,7 +365,8 @@
           "width": 6,
           "height": 6,
           "x": 295,
-          "y": 30
+          "y": 30,
+          "locked": false
         }
       },
       {
@@ -353,7 +379,8 @@
           "width": 6,
           "height": 6,
           "x": 271,
-          "y": 30
+          "y": 30,
+          "locked": false
         }
       },
       {
@@ -369,7 +396,8 @@
             "falpha": 0.0
           },
           "x": 104,
-          "y": 206
+          "y": 206,
+          "locked": false
         }
       }
     ],

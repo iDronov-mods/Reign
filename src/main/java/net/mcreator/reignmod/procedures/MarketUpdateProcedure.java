@@ -359,7 +359,7 @@ public class MarketUpdateProcedure {
 						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, BlockPos.containing(capital_x, capital_y, capital_z), "minecraft:shiled")));
+			}.getValue(world, BlockPos.containing(capital_x, capital_y, capital_z), "minecraft:shield")));
 			((Slot) _slots.get(57)).set(_setstack);
 			_player.containerMenu.broadcastChanges();
 		}

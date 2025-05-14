@@ -14,7 +14,7 @@ import net.minecraft.core.BlockPos;
 
 import net.mcreator.reignmod.world.inventory.SoldierWindowMenu;
 import net.mcreator.reignmod.procedures.WinViewOpenProcedure;
-import net.mcreator.reignmod.procedures.RefuseAddLicenseProcedure;
+import net.mcreator.reignmod.procedures.RefuseAddLicensesWinProcedure;
 import net.mcreator.reignmod.procedures.ChooseSoldierProcedure;
 import net.mcreator.reignmod.procedures.ALvlUpProcedure;
 import net.mcreator.reignmod.ReignModMod;
@@ -88,7 +88,7 @@ public class SoldierWindowButtonMessage {
 		}
 		if (buttonID == 2) {
 
-			RefuseAddLicenseProcedure.execute(world, entity);
+			RefuseAddLicensesWinProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 3) {
 

@@ -1,5 +1,5 @@
 {
-  "_fv": 69,
+  "_fv": 73,
   "_type": "config",
   "definition": {
     "pools": [
@@ -1376,6 +1376,7 @@
       }
     ],
     "file": "reign_market",
-    "configType": 0
+    "configType": 0,
+    "defining": false
   }
 }
