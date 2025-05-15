@@ -362,7 +362,7 @@ public class ReignModModVariables {
 		public double LastEnter_Week = 0;
 		public double efficiency = 0.0;
 		public double last_refuse_week = 0;
-		public String prison_house = "\"\"";
+		public String prison_house = "";
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayer serverPlayer)

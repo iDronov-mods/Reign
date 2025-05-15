@@ -24,6 +24,8 @@ import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.material.LavaFluid;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
@@ -53,6 +55,14 @@ public class CapitalClaimProtectionHandler {
         return isWithinCapital(CapitalClaimManager.toLocalX(globalX), CapitalClaimManager.toLocalZ(globalZ));
     }
 
+    public static boolean isKingOrHand(ServerPlayer sp) {
+        return sp.getStringUUID().equals(KingdomManager.getCourtier(KingdomData.CourtPosition.HAND_OF_THE_KING)) || IsKingProcedure.execute(CapitalClaimSavedData.getInstance().getServerLevelInstance(), sp);
+    }
+
+    public static boolean isArchitect(ServerPlayer sp) {
+        return sp.getStringUUID().equals(KingdomManager.getCourtier(KingdomData.CourtPosition.ARCHITECT));
+    }
+
     public static boolean hasPermission(ServerPlayer player, BlockPos pos) {
         if (!CapitalClaimSavedData.getInstance().isCapitalClaimsEnabled() || player.gameMode.isCreative()) {
             return true;
@@ -64,13 +74,13 @@ public class CapitalClaimProtectionHandler {
             return true;
         }
 
-        if (player.getStringUUID().equals(KingdomManager.getCourtier(KingdomData.CourtPosition.HAND_OF_THE_KING)) || IsKingProcedure.execute(CapitalClaimSavedData.getInstance().getServerLevelInstance(), player)) {
+        if (isKingOrHand(player)) {
             return true;
         }
 
         ClaimOwner owner = CapitalClaimSavedData.getInstance().getOwnerAt(localX, localZ);
 
-        if (owner == null && player.getStringUUID().equals(KingdomManager.getCourtier(KingdomData.CourtPosition.ARCHITECT))) {
+        if (owner == null && isArchitect(player)) {
             return true;
         }
 
@@ -132,11 +142,14 @@ public class CapitalClaimProtectionHandler {
     }
 
     @SubscribeEvent
-    public static void onRightClick(PlayerInteractEvent.RightClickItem event) {
-        if (event.getEntity() instanceof ServerPlayer player && isOverworld(player.level()) && isUsableItem(event.getItemStack().getItem())) {
+    public static void onRightClickItem(PlayerInteractEvent.RightClickItem event) {
+        if (event.getEntity() instanceof ServerPlayer player && isOverworld(player.level()) && (isPlacementItem(event.getItemStack().getItem()) || isUsableItem(event.getItemStack().getItem()))) {
             BlockPos pos = event.getPos();
-            if (isWithinCapitalGlobal(pos.getX(), pos.getZ()))  {
-                cancel(event);
+
+            if (isWithinCapitalGlobal(pos.getX(), pos.getZ())) {
+                if (isUsableItem(event.getItemStack().getItem()) || isPlacementItem(event.getItemStack().getItem()) && !hasPermission(player, pos))  {
+                    cancel(event);
+                }
             }
         }
     }
@@ -146,8 +159,23 @@ public class CapitalClaimProtectionHandler {
         if (event.getEntity() instanceof ServerPlayer player && isOverworld(player.level()) && (isPlacementItem(event.getItemStack().getItem()) || isUsableItem(event.getItemStack().getItem()))) {
             BlockPos pos = event.getPos().relative(Objects.requireNonNull(event.getFace()));
 
-            if (isUsableItem(event.getItemStack().getItem()) && isWithinCapitalGlobal(pos.getX(), pos.getZ()) || !hasPermission(player, pos)) {
-                cancel(event);
+            if (isWithinCapitalGlobal(pos.getX(), pos.getZ())) {
+                if (isUsableItem(event.getItemStack().getItem()) || isPlacementItem(event.getItemStack().getItem()) && !hasPermission(player, pos))  {
+                    cancel(event);
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onRightClickEntity(PlayerInteractEvent.EntityInteract event) {
+        if (event.getEntity() instanceof ServerPlayer player && isOverworld(player.level()) && (isPlacementItem(event.getItemStack().getItem()) || isUsableItem(event.getItemStack().getItem()))) {
+            BlockPos pos = event.getPos();
+
+            if (isWithinCapitalGlobal(pos.getX(), pos.getZ())) {
+                if (isUsableItem(event.getItemStack().getItem()) || isPlacementItem(event.getItemStack().getItem()) && !hasPermission(player, pos))  {
+                    cancel(event);
+                }
             }
         }
     }
@@ -189,32 +217,64 @@ public class CapitalClaimProtectionHandler {
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void onClientRightClick(PlayerInteractEvent.RightClickItem event) {
-        if (!(event.getEntity() instanceof LocalPlayer lp) || !isOverworld(lp.level()) || !isUsableItem(event.getItemStack().getItem())) return;
+        if ((event.getEntity() instanceof LocalPlayer lp) && isOverworld(lp.level()) && (isPlacementItem(event.getItemStack().getItem()) || isUsableItem(event.getItemStack().getItem()))) {
+            BlockPos pos = event.getPos();
 
-        BlockPos pos = event.getPos();
+            if (isUsableItem(event.getItemStack().getItem()) && isWithinCapitalGlobal(pos.getX(), pos.getZ())) {
+                cancel(event);
+            }
 
-        if (isWithinCapitalGlobal(pos.getX(), pos.getZ())) {
-            cancel(event);
+            if (!ClientPlayerData.isLastKnownBlock(pos)) {
+                ReignNetworking.sendToServer(new BlockBreakPermissionQueryC2SPacket(pos));
+            }
+
+            if (!ClientPlayerData.isLastKnownBlockAvailable()) {
+                cancel(event);
+            }
         }
     }
 
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void onClientRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
-        if (!(event.getEntity() instanceof LocalPlayer lp) || !isOverworld(lp.level()) || (!isPlacementItem(event.getItemStack().getItem()) && !isUsableItem(event.getItemStack().getItem()))) return;
+        if ((event.getEntity() instanceof LocalPlayer lp) && isOverworld(lp.level()) && (isPlacementItem(event.getItemStack().getItem()) || isUsableItem(event.getItemStack().getItem()))) {
+            BlockPos pos = event.getPos().relative(Objects.requireNonNull(event.getFace()));
 
-        BlockPos pos = event.getPos().relative(Objects.requireNonNull(event.getFace()));
+            if (isWithinCapitalGlobal(pos.getX(), pos.getZ())) {
+                if (isUsableItem(event.getItemStack().getItem())) {
+                    cancel(event);
+                }
 
-        if (isUsableItem(event.getItemStack().getItem()) && isWithinCapitalGlobal(pos.getX(), pos.getZ())) {
-            cancel(event);
+                if (!ClientPlayerData.isLastKnownBlock(pos)) {
+                    ReignNetworking.sendToServer(new BlockBreakPermissionQueryC2SPacket(pos));
+                }
+
+                if (!ClientPlayerData.isLastKnownBlockAvailable()) {
+                    cancel(event);
+                }
+            }
         }
+    }
 
-        if (!ClientPlayerData.isLastKnownBlock(pos)) {
-            ReignNetworking.sendToServer(new BlockBreakPermissionQueryC2SPacket(pos));
-        }
+    @OnlyIn(Dist.CLIENT)
+    @SubscribeEvent
+    public static void onClientRightClickEntity(PlayerInteractEvent.EntityInteract event) {
+        if ((event.getEntity() instanceof LocalPlayer lp) && isOverworld(lp.level()) && (isPlacementItem(event.getItemStack().getItem()) || isUsableItem(event.getItemStack().getItem()))) {
+            BlockPos pos = event.getPos();
 
-        if (!ClientPlayerData.isLastKnownBlockAvailable()) {
-            cancel(event);
+            if (isWithinCapitalGlobal(pos.getX(), pos.getZ())) {
+                if (isUsableItem(event.getItemStack().getItem())) {
+                    cancel(event);
+                }
+
+                if (!ClientPlayerData.isLastKnownBlock(pos)) {
+                    ReignNetworking.sendToServer(new BlockBreakPermissionQueryC2SPacket(pos));
+                }
+
+                if (!ClientPlayerData.isLastKnownBlockAvailable()) {
+                    cancel(event);
+                }
+            }
         }
     }
 

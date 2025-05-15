@@ -88,14 +88,11 @@ public class MarketManager {
      */
     public static void increaseItemAmount(String itemName, double amountToIncrease) {
         MarketSavedData data = MarketSavedData.getInstance();
-        var world = MarketSavedData.getServerInstance();
         MarketItem item = data.getMarketItems().get(itemName);
         if (item != null) {
             item.increaseCurrentAmount(amountToIncrease);
-            data.updateFundItemNBT(itemName);
+            data.markRefreshNeeded();
             data.setDirty();
-            ReignModModVariables.MapVariables.get(world).needRefresh = true;
-            ReignModModVariables.MapVariables.get(world).syncData(world);
         }
     }
 
@@ -106,18 +103,23 @@ public class MarketManager {
      */
     public static void decreaseItemAmount(String itemName, double amountToDecrease) {
         MarketSavedData data = MarketSavedData.getInstance();
-        var world = MarketSavedData.getServerInstance();
         MarketItem item = data.getMarketItems().get(itemName);
         if (item != null) {
             item.decreaseCurrentAmount(amountToDecrease);
-            data.updateFundItemNBT(itemName);
+            data.markRefreshNeeded();
             data.setDirty();
-            ReignModModVariables.MapVariables.get(world).needRefresh = true;
-            ReignModModVariables.MapVariables.get(world).syncData(world);
         }
     }
 
-    public static void updateAllFundItems() {
-        MarketSavedData.getInstance().updateAllFundItems();
+    public static void markRefresh() {
+        MarketSavedData.getInstance().markRefreshNeeded();
+    }
+
+    public static void clearRefresh() {
+        MarketSavedData.getInstance().clearRefreshFlag();
+    }
+
+    public static boolean isRefreshNeeded() {
+        return MarketSavedData.getInstance().isRefreshRequired();
     }
 }

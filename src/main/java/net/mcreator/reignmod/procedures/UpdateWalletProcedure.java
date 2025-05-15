@@ -1,12 +1,10 @@
 package net.mcreator.reignmod.procedures;
 
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.network.chat.Component;
 
 import net.mcreator.reignmod.init.ReignModModItems;
 
@@ -14,7 +12,7 @@ import java.util.function.Supplier;
 import java.util.Map;
 
 public class UpdateWalletProcedure {
-	public static void execute(LevelAccessor world, Entity entity) {
+	public static void execute(Entity entity) {
 		if (entity == null)
 			return;
 		double new_amount = 0;
@@ -65,7 +63,5 @@ public class UpdateWalletProcedure {
 				return 0;
 			}
 		}.getAmount(3) * 4096));
-		if (!world.isClientSide() && world.getServer() != null)
-			world.getServer().getPlayerList().broadcastSystemMessage(Component.literal(("" + wallet.getOrCreateTag().getDouble("amount"))), false);
 	}
 }

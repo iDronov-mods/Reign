@@ -1,13 +1,13 @@
 package net.mcreator.reignmod.procedures;
 
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.items.IItemHandlerModifiable;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.server.level.ServerLevel;
@@ -16,13 +16,8 @@ import net.minecraft.core.BlockPos;
 
 import net.mcreator.reignmod.init.ReignModModItems;
 
-import java.util.function.Supplier;
-import java.util.Map;
-
 public class PrivateShopSetGoodsProcedure {
-	public static boolean execute(LevelAccessor world, double x, double y, double z, Entity entity, ItemStack itemstack) {
-		if (entity == null)
-			return false;
+	public static boolean execute(LevelAccessor world, double x, double y, double z, ItemStack itemstack) {
 		double x_block = 0;
 		double y_block = 0;
 		double z_block = 0;
@@ -31,11 +26,17 @@ public class PrivateShopSetGoodsProcedure {
 			world = _origLevel.getServer().getLevel(Level.OVERWORLD);
 			if (world != null) {
 				if (!itemstack.is(ItemTags.create(new ResourceLocation("reign:coins"))) && !itemstack.isDamaged() && !(itemstack.getItem() == ReignModModItems.WALLET.get())) {
-					if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
-						ItemStack _setstack = itemstack.copy();
-						_setstack.setCount(itemstack.getCount());
-						((Slot) _slots.get(2)).set(_setstack);
-						_player.containerMenu.broadcastChanges();
+					{
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
+						if (_ent != null) {
+							final int _slotid = 2;
+							final ItemStack _setstack = itemstack.copy();
+							_setstack.setCount(itemstack.getCount());
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
+								if (capability instanceof IItemHandlerModifiable)
+									((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
+							});
+						}
 					}
 					if (world instanceof Level _level) {
 						if (!_level.isClientSide()) {

@@ -1,0 +1,7 @@
+{
+  "_fv": 73,
+  "_type": "procedure",
+  "definition": {
+    "procedurexml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable type=\"Entity\" id=\"player\">player</variable><variable type=\"Entity\" id=\"hit_player\">hit_player</variable></variables><block type=\"event_trigger\" deletable=\"false\" x=\"40\" y=\"40\"><field name=\"trigger\">no_ext_trigger</field><next><block type=\"variables_set_entity\"><mutation xmlns=\"http://www.w3.org/1999/xhtml\" is_player_var=\"false\" has_entity=\"false\"></mutation><field name=\"VAR\">local:player</field><value name=\"VAL\"><block type=\"entity_from_deps\"></block></value><next><block type=\"java_code\"><field name=\"CODE\">HitResult result = player.pick(5.0D, 1.0F, false);&amp;#10;&amp;#10;if (result.getType() == HitResult.Type.ENTITY) {&amp;#10;    EntityHitResult entityHit = (EntityHitResult) result;&amp;#10;    Entity target = entityHit.getEntity();&amp;#10;&amp;#10;    if (target instanceof Player targetPlayer) {&amp;#10;        hit_player = targetPlayer;&amp;#10;    }&amp;#10;}</field><next><block type=\"return_entity\"><value name=\"return\"><block type=\"variables_get_entity\"><mutation xmlns=\"http://www.w3.org/1999/xhtml\" is_player_var=\"false\" has_entity=\"false\"></mutation><field name=\"VAR\">local:hit_player</field></block></value></block></next></block></next></block></next></block></xml>"
+  }
+}

@@ -12,6 +12,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.mcreator.reignmod.world.inventory.MarketMenu;
 import net.mcreator.reignmod.procedures.WalletOutsideCostProcedure;
 import net.mcreator.reignmod.procedures.ReturnMarketCopperProcedure;
+import net.mcreator.reignmod.procedures.GoodsCountTextProcedure;
 import net.mcreator.reignmod.procedures.GetTextMarketTaxProcedure;
 import net.mcreator.reignmod.procedures.CopperCostTextProcedure;
 import net.mcreator.reignmod.network.MarketButtonMessage;
@@ -112,6 +113,9 @@ public class MarketScreen extends AbstractContainerScreen<MarketMenu> implements
 		guiGraphics.drawString(this.font,
 
 				ReturnMarketCopperProcedure.execute(world), 76, -10, -3355444, false);
+		guiGraphics.drawString(this.font,
+
+				GoodsCountTextProcedure.execute(world, entity), 89, 90, -6710887, false);
 	}
 
 	@Override

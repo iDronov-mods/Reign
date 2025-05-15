@@ -29,6 +29,7 @@ import net.mcreator.reignmod.world.inventory.RentalBlockUIMenu;
 import net.mcreator.reignmod.world.inventory.RefuseLicensesWindowMenu;
 import net.mcreator.reignmod.world.inventory.PrivateShopUIMenu;
 import net.mcreator.reignmod.world.inventory.PrivateShopBuyerUIMenu;
+import net.mcreator.reignmod.world.inventory.PlayerSearchUIMenu;
 import net.mcreator.reignmod.world.inventory.NewHouseMenu;
 import net.mcreator.reignmod.world.inventory.MinerWindowMenu;
 import net.mcreator.reignmod.world.inventory.MarketMenu;
@@ -90,6 +91,7 @@ public class ReignModModMenus {
 	public static final RegistryObject<MenuType<DomainUIMenu>> DOMAIN_UI = REGISTRY.register("domain_ui", () -> IForgeMenuType.create(DomainUIMenu::new));
 	public static final RegistryObject<MenuType<CoffersTaxUIMenu>> COFFERS_TAX_UI = REGISTRY.register("coffers_tax_ui", () -> IForgeMenuType.create(CoffersTaxUIMenu::new));
 	public static final RegistryObject<MenuType<HouseSuspectsUIMenu>> HOUSE_SUSPECTS_UI = REGISTRY.register("house_suspects_ui", () -> IForgeMenuType.create(HouseSuspectsUIMenu::new));
+	public static final RegistryObject<MenuType<PlayerSearchUIMenu>> PLAYER_SEARCH_UI = REGISTRY.register("player_search_ui", () -> IForgeMenuType.create(PlayerSearchUIMenu::new));
 
 	public static void setText(String boxname, String value, @Nullable ServerPlayer player) {
 		if (player != null) {

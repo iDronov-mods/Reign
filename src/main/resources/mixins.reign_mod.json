@@ -25,7 +25,9 @@
             "NoMilkingMushroomMixin",
             "SmithingTableBlockMixin",
             "SmokerBlockMixin",
-            "TabListNameFormatMixin"
+            "TabListNameFormatMixin",
+            "ChunkExplosionCancelMixin",
+
   ],
   "client": [
 

@@ -14,7 +14,6 @@ import net.minecraft.core.BlockPos;
 
 import net.mcreator.reignmod.world.inventory.PrivateShopUIMenu;
 import net.mcreator.reignmod.procedures.PrivateShopSetLicenseProcedure;
-import net.mcreator.reignmod.procedures.PrivateShopGoodsEntitySpawnProcedure;
 import net.mcreator.reignmod.procedures.PrivateShopChoosePriceProcedure;
 import net.mcreator.reignmod.procedures.PrivateShopAddGoodsProcedure;
 import net.mcreator.reignmod.ReignModMod;
@@ -92,10 +91,6 @@ public class PrivateShopUISlotMessage {
 		if (slot == 1 && changeType == 0) {
 
 			PrivateShopChoosePriceProcedure.execute(world, x, y, z);
-		}
-		if (slot == 2 && changeType == 0) {
-
-			PrivateShopGoodsEntitySpawnProcedure.execute(world, x, y, z, entity);
 		}
 		if (slot == 3 && changeType == 0) {
 

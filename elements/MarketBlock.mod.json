@@ -186,7 +186,7 @@
     "unbreakable": false,
     "vanillaToolTier": "NONE",
     "isBonemealable": false,
-    "hasInventory": true,
+    "hasInventory": false,
     "guiBoundTo": "Market",
     "openGUIOnRightClick": true,
     "inventorySize": 74,

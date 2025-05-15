@@ -27,6 +27,7 @@ public class MarketSavedData extends ReignSavedData {
     private HashMap<String, MarketItem> marketItems;
 
     private static MarketSavedData instance;
+    private boolean requireRefresh = true;
 
     public MarketSavedData() {
         loadDefaults();
@@ -44,7 +45,6 @@ public class MarketSavedData extends ReignSavedData {
                 }
             }
         }
-        updateAllFundItems();
     }
 
     private void loadDefaults() {
@@ -91,6 +91,17 @@ public class MarketSavedData extends ReignSavedData {
         return getInstance().getServerLevelInstance();
     }
 
+    // ---------- Методы управления флагом обновления экрана ----------
+    public void markRefreshNeeded() {
+        this.requireRefresh = true;
+    }
+    public void clearRefreshFlag() {
+        this.requireRefresh = false;
+    }
+    public boolean isRefreshRequired() {
+        return requireRefresh;
+    }
+
     // ---------- Сериализация ----------
     @Override
     public @NotNull CompoundTag save(@NotNull CompoundTag compoundTag) {
@@ -104,25 +115,5 @@ public class MarketSavedData extends ReignSavedData {
 
     public HashMap<String, MarketItem> getMarketItems() {
         return marketItems;
-    }
-
-    public void updateFundItemNBT(String itemName) {
-        int[] coordinates = KingdomManager.getFundCoordinates();
-
-        BlockPos pos = new BlockPos(coordinates[0], coordinates[1], coordinates[2]);
-
-        BlockEntity fundEntity = KingdomSavedData.getServerInstance().getBlockEntity(pos);
-        BlockState fundState = KingdomSavedData.getServerInstance().getBlockState(pos);
-        if (fundEntity == null) {
-            return;
-        }
-        fundEntity.getPersistentData().putDouble(itemName, this.marketItems.get(itemName).getCurrentAmount());
-        KingdomSavedData.getServerInstance().sendBlockUpdated(pos, fundState, fundState, 3);
-    }
-
-    public void updateAllFundItems() {
-        for (String itemName : marketItems.keySet()) {
-            updateFundItemNBT(itemName);
-        }
     }
 }

@@ -14,7 +14,6 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.CommandSource;
 
 import net.mcreator.reignmod.network.ReignModModVariables;
-import net.mcreator.reignmod.market.MarketManager;
 import net.mcreator.reignmod.kingdom.KingdomManager;
 import net.mcreator.reignmod.init.ReignModModBlocks;
 import net.mcreator.reignmod.claim.chunk.ChunkClaimManager;
@@ -36,7 +35,6 @@ public class CapitalCreateProcedure {
 			world.setBlock(BlockPos.containing(ReignModModVariables.MapVariables.get(world).CAPITAL_X, ReignModModVariables.MapVariables.get(world).CAPITAL_Y, ReignModModVariables.MapVariables.get(world).CAPITAL_Z),
 					ReignModModBlocks.FUND.get().defaultBlockState(), 3);
 			KingdomManager.setFundCoordinates(entity.getBlockX(), entity.getBlockY(), entity.getBlockZ());
-			MarketManager.updateAllFundItems();
 			world.setBlock(BlockPos.containing(ReignModModVariables.MapVariables.get(world).CAPITAL_X + 4, ReignModModVariables.MapVariables.get(world).CAPITAL_Y - 1, ReignModModVariables.MapVariables.get(world).CAPITAL_Z + 4),
 					Blocks.STRIPPED_OAK_LOG.defaultBlockState(), 3);
 			world.setBlock(BlockPos.containing(ReignModModVariables.MapVariables.get(world).CAPITAL_X + 4, ReignModModVariables.MapVariables.get(world).CAPITAL_Y - 1, ReignModModVariables.MapVariables.get(world).CAPITAL_Z - 4),
