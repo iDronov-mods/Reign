@@ -69,5 +69,7 @@ public class ReignModModTabs {
 				tabData.accept(ReignModModItems.COPPER_LOCK.get());
 				tabData.accept(ReignModModItems.IRON_LOCK.get());
 				tabData.accept(ReignModModItems.GOLD_LOCK.get());
+				tabData.accept(ReignModModBlocks.STORAGE_BARREL.get().asItem());
+				tabData.accept(ReignModModItems.REIGN_COIN.get());
 			}).build());
 }

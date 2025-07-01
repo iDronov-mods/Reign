@@ -17,13 +17,14 @@ import net.mcreator.reignmod.procedures.ReturnfisherProcedure;
 import net.mcreator.reignmod.procedures.ReturnalchemistProcedure;
 import net.mcreator.reignmod.procedures.RefuseLockProcedure;
 import net.mcreator.reignmod.network.AddLicenseIsSelectedButtonMessage;
+import net.mcreator.reignmod.init.ReignModModScreens.WidgetScreen;
 import net.mcreator.reignmod.ReignModMod;
 
 import java.util.HashMap;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
-public class AddLicenseIsSelectedScreen extends AbstractContainerScreen<AddLicenseIsSelectedMenu> {
+public class AddLicenseIsSelectedScreen extends AbstractContainerScreen<AddLicenseIsSelectedMenu> implements WidgetScreen {
 	private final static HashMap<String, Object> guistate = AddLicenseIsSelectedMenu.guistate;
 	private final Level world;
 	private final int x, y, z;
@@ -76,6 +77,10 @@ public class AddLicenseIsSelectedScreen extends AbstractContainerScreen<AddLicen
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/hunter_logo.png"), this.leftPos + 90, this.topPos + 61, 0, 0, 16, 16, 16, 16);
 		}
 		RenderSystem.disableBlend();
+	}
+
+	public HashMap<String, Object> getWidgets() {
+		return guistate;
 	}
 
 	@Override

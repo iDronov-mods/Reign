@@ -27,6 +27,7 @@
             "SmokerBlockMixin",
             "TabListNameFormatMixin",
             "ChunkExplosionCancelMixin",
+            "LicensesDamageMixin",
 
   ],
   "client": [

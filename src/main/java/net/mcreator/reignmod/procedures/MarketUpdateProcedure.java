@@ -9,7 +9,6 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.network.chat.Component;
 
 import net.mcreator.reignmod.market.MarketManager;
 
@@ -435,8 +434,7 @@ public class MarketUpdateProcedure {
 					((Slot) _slots.get(31)).set(_setstack);
 					_player.containerMenu.broadcastChanges();
 				}
-				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal("Update!"), false);
+				MarketCountSetProcedure.execute(world, entity);
 			}
 			world = _worldorig;
 		}

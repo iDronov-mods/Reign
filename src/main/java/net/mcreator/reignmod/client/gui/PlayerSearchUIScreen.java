@@ -66,7 +66,7 @@ public class PlayerSearchUIScreen extends AbstractContainerScreen<PlayerSearchUI
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.player_search_ui.label_label"), 1, -11, -1, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.player_search_ui.label_search"), 0, -10, -1, false);
 	}
 
 	@Override

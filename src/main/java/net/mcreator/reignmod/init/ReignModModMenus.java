@@ -22,6 +22,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.mcreator.reignmod.world.inventory.WoodcutterwindowMenu;
 import net.mcreator.reignmod.world.inventory.WalletwinMenu;
 import net.mcreator.reignmod.world.inventory.TraderPointMenu;
+import net.mcreator.reignmod.world.inventory.StorageBarrelUIMenu;
 import net.mcreator.reignmod.world.inventory.SoldierWindowMenu;
 import net.mcreator.reignmod.world.inventory.SmithWindowMenu;
 import net.mcreator.reignmod.world.inventory.SafeUIMenu;
@@ -92,6 +93,7 @@ public class ReignModModMenus {
 	public static final RegistryObject<MenuType<CoffersTaxUIMenu>> COFFERS_TAX_UI = REGISTRY.register("coffers_tax_ui", () -> IForgeMenuType.create(CoffersTaxUIMenu::new));
 	public static final RegistryObject<MenuType<HouseSuspectsUIMenu>> HOUSE_SUSPECTS_UI = REGISTRY.register("house_suspects_ui", () -> IForgeMenuType.create(HouseSuspectsUIMenu::new));
 	public static final RegistryObject<MenuType<PlayerSearchUIMenu>> PLAYER_SEARCH_UI = REGISTRY.register("player_search_ui", () -> IForgeMenuType.create(PlayerSearchUIMenu::new));
+	public static final RegistryObject<MenuType<StorageBarrelUIMenu>> STORAGE_BARREL_UI = REGISTRY.register("storage_barrel_ui", () -> IForgeMenuType.create(StorageBarrelUIMenu::new));
 
 	public static void setText(String boxname, String value, @Nullable ServerPlayer player) {
 		if (player != null) {

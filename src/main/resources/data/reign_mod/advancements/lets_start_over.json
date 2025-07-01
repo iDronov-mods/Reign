@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:enchanted_book"
+    },
+    "title": {
+      "translate": "advancements.lets_start_over.title"
+    },
+    "description": {
+      "translate": "advancements.lets_start_over.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "lets_start_over_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "reign_mod:welcome_to_reign"
+}

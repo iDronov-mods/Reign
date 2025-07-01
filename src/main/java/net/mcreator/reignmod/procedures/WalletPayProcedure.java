@@ -11,7 +11,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.mcreator.reignmod.init.ReignModModItems;
 
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.ArrayList;
 
 public class WalletPayProcedure {
 	public static boolean execute(Entity entity, double cost) {
@@ -49,6 +48,19 @@ public class WalletPayProcedure {
 					return true;
 				}
 			}
+			slotIndex = slotIndex + 1;
+		}
+		slotIndex = 0;
+		while (slotIndex <= 35) {
+			item = (new Object() {
+				public ItemStack getItemStack(int sltid, Entity entity) {
+					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
+					entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
+						_retval.set(capability.getStackInSlot(sltid).copy());
+					});
+					return _retval.get();
+				}
+			}.getItemStack((int) slotIndex, entity)).copy();
 			if (item.is(ItemTags.create(new ResourceLocation("reign:coins")))) {
 				if (item.getItem() == ReignModModItems.COPPER_COIN.get()) {
 					coinsCount = coinsCount + item.getCount();
@@ -59,23 +71,21 @@ public class WalletPayProcedure {
 				} else {
 					coinsCount = coinsCount + item.getCount() * 4096;
 				}
-				ArrayList<Integer> coinsArray = new ArrayList<Integer>();
-				coinsArray.add((int) slotIndex);
-				if (coinsCount >= cost) {
-					for (int index1 = 0; index1 < coinsArray.size(); index1++) {
-						final int _slotid = coinsArray.get(index1);
-						final ItemStack _setstack = ItemStack.EMPTY.copy();
-						_setstack.setCount(0);
-						entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
-							if (capability instanceof IItemHandlerModifiable _modHandlerEntSetSlot)
-								_modHandlerEntSetSlot.setStackInSlot(_slotid, _setstack);
-						});
-					}
-					WalletGiveProcedure.execute(entity, coinsCount - cost);
-					return true;
+				{
+					final int _slotid = (int) slotIndex;
+					final ItemStack _setstack = ItemStack.EMPTY.copy();
+					_setstack.setCount(1);
+					entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
+						if (capability instanceof IItemHandlerModifiable _modHandlerEntSetSlot)
+							_modHandlerEntSetSlot.setStackInSlot(_slotid, _setstack);
+					});
 				}
 			}
 			slotIndex = slotIndex + 1;
+		}
+		if (coinsCount >= cost) {
+			WalletGiveProcedure.execute(entity, coinsCount - cost);
+			return true;
 		}
 		return false;
 	}

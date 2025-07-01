@@ -481,16 +481,16 @@
       {
         "type": "label",
         "data": {
-          "name": "label_label",
+          "name": "label_search",
           "text": {
-            "fixedValue": "Label"
+            "fixedValue": "Search "
           },
           "color": {
             "value": -1,
             "falpha": 0.0
           },
-          "x": 127,
-          "y": 26,
+          "x": 126,
+          "y": 27,
           "locked": false
         }
       }

@@ -37,6 +37,9 @@
           "onSlotChanged": {
             "name": "Change0Slot"
           },
+          "onTakenFromSlot": {
+            "name": "UpdateWallet"
+          },
           "x": 173,
           "y": 84,
           "locked": false
@@ -58,6 +61,9 @@
           "dropItemsWhenNotBound": false,
           "onSlotChanged": {
             "name": "Change1Slot"
+          },
+          "onTakenFromSlot": {
+            "name": "UpdateWallet"
           },
           "x": 194,
           "y": 84,
@@ -81,6 +87,9 @@
           "onSlotChanged": {
             "name": "Change2Slot"
           },
+          "onTakenFromSlot": {
+            "name": "UpdateWallet"
+          },
           "x": 215,
           "y": 84,
           "locked": false
@@ -100,6 +109,12 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": false,
+          "onSlotChanged": {
+            "name": "UpdateWallet"
+          },
+          "onTakenFromSlot": {
+            "name": "UpdateWallet"
+          },
           "x": 236,
           "y": 84,
           "locked": false

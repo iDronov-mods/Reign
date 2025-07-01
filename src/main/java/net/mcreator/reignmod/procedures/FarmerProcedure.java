@@ -15,8 +15,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.Mth;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
 
@@ -69,8 +67,8 @@ public class FarmerProcedure {
 								_player.displayClientMessage(Component.literal((Component.translatable("translation.key.farmer.cant_wart").getString())), true);
 						}
 					}
-					if (Mth.nextInt(RandomSource.create(), 1, 4) == 1 && blockstate.is(BlockTags.create(new ResourceLocation("minecraft:crops")))
-							&& (blockstate.getBlock().getStateDefinition().getProperty("age") instanceof IntegerProperty _getip32 ? blockstate.getValue(_getip32) : -1) == 7) {
+					if (Mth.nextInt(RandomSource.create(), 1, 4) == 1 && blockstate.getBlock() instanceof CropBlock
+							&& (blockstate.getBlock().getStateDefinition().getProperty("age") instanceof IntegerProperty _getip30 ? blockstate.getValue(_getip30) : -1) >= 7) {
 						if (entity instanceof Player _player)
 							_player.giveExperiencePoints(1);
 					}

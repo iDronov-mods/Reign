@@ -1,18 +1,13 @@
 package net.mcreator.reignmod.market;
 
 import net.mcreator.reignmod.basics.ReignSavedData;
-import net.mcreator.reignmod.kingdom.KingdomManager;
-import net.mcreator.reignmod.kingdom.KingdomSavedData;
-import net.minecraft.core.BlockPos;
+import net.mcreator.reignmod.kingdom.KingdomData;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.mcreator.reignmod.basics.ConfigLoader;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.state.BlockState;
-import org.apache.logging.log4j.LogManager;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Arrays;
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,6 +20,7 @@ public class MarketSavedData extends ReignSavedData {
 
     // ---------- Карта товаров ----------
     private HashMap<String, MarketItem> marketItems;
+    private EnumMap<MarketItem.MarketItemType, Double> storageBarrels;
 
     private static MarketSavedData instance;
     private boolean requireRefresh = true;
@@ -45,18 +41,30 @@ public class MarketSavedData extends ReignSavedData {
                 }
             }
         }
+
+        if (compoundTag.contains("barrelsData")) {
+            CompoundTag dataTag = compoundTag.getCompound("barrelsData");
+            for (String key : dataTag.getAllKeys()) {
+                storageBarrels.put(MarketItem.MarketItemType.valueOf(key), dataTag.getDouble(key));
+            }
+        }
     }
 
     private void loadDefaults() {
-        // Создаем глубокую копию карты, чтобы динамические данные не зависели от конфигурации
         marketItems = new HashMap<>();
         for (Map.Entry<String, MarketItem> entry : ConfigLoader.getMarketItems().entrySet()) {
             MarketItem defaultItem = entry.getValue();
             marketItems.put(entry.getKey(), new MarketItem(
                     defaultItem.getPrice(),
-                    defaultItem.getMaxAmount(),
-                    defaultItem.getInPack()
+                    defaultItem.getBaseAmount(),
+                    defaultItem.getInPack(),
+                    defaultItem.getItemType()
             ));
+        }
+
+        storageBarrels = new EnumMap<>(MarketItem.MarketItemType.class);
+        for (MarketItem.MarketItemType itemType : MarketItem.MarketItemType.values()) {
+            storageBarrels.put(itemType, 0.0);
         }
     }
 
@@ -110,10 +118,22 @@ public class MarketSavedData extends ReignSavedData {
             dataTag.putDouble(entry.getKey(), entry.getValue().getCurrentAmount());
         }
         compoundTag.put("marketData", dataTag);
+
+        CompoundTag barrelsTag = new CompoundTag();
+        for (Map.Entry<MarketItem.MarketItemType, Double> entry : storageBarrels.entrySet()) {
+            if (entry.getValue() != null) {
+                barrelsTag.putDouble(entry.getKey().name(), entry.getValue());
+            }
+        }
+        compoundTag.put("barrelsData", dataTag);
         return compoundTag;
     }
 
     public HashMap<String, MarketItem> getMarketItems() {
         return marketItems;
+    }
+
+    public EnumMap<MarketItem.MarketItemType, Double> getStorageBarrels() {
+        return storageBarrels;
     }
 }

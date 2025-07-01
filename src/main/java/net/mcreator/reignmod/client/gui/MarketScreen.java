@@ -115,7 +115,7 @@ public class MarketScreen extends AbstractContainerScreen<MarketMenu> implements
 				ReturnMarketCopperProcedure.execute(world), 76, -10, -3355444, false);
 		guiGraphics.drawString(this.font,
 
-				GoodsCountTextProcedure.execute(world, entity), 89, 90, -6710887, false);
+				GoodsCountTextProcedure.execute(entity), 84, 90, -6710887, false);
 	}
 
 	@Override

@@ -97,6 +97,7 @@ public class ReignModModVariables {
 			clone.efficiency = original.efficiency;
 			clone.last_refuse_week = original.last_refuse_week;
 			clone.prison_house = original.prison_house;
+			clone.market_goods_count = original.market_goods_count;
 			if (!event.isWasDeath()) {
 			}
 		}
@@ -363,6 +364,7 @@ public class ReignModModVariables {
 		public double efficiency = 0.0;
 		public double last_refuse_week = 0;
 		public String prison_house = "";
+		public String market_goods_count = "\"\"";
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayer serverPlayer)
@@ -396,6 +398,7 @@ public class ReignModModVariables {
 			nbt.putDouble("efficiency", efficiency);
 			nbt.putDouble("last_refuse_week", last_refuse_week);
 			nbt.putString("prison_house", prison_house);
+			nbt.putString("market_goods_count", market_goods_count);
 			return nbt;
 		}
 
@@ -426,6 +429,7 @@ public class ReignModModVariables {
 			efficiency = nbt.getDouble("efficiency");
 			last_refuse_week = nbt.getDouble("last_refuse_week");
 			prison_house = nbt.getString("prison_house");
+			market_goods_count = nbt.getString("market_goods_count");
 		}
 	}
 
@@ -475,6 +479,7 @@ public class ReignModModVariables {
 					variables.efficiency = message.data.efficiency;
 					variables.last_refuse_week = message.data.last_refuse_week;
 					variables.prison_house = message.data.prison_house;
+					variables.market_goods_count = message.data.market_goods_count;
 				}
 			});
 			context.setPacketHandled(true);

@@ -5,7 +5,9 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerPlayer;
@@ -46,7 +48,7 @@ public class EnterPayProcedure {
 			if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).LastEnter_Day == Calendar.getInstance().get(Calendar.DAY_OF_WEEK) - 1
 					&& (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).LastEnter_Week == Calendar.getInstance().get(Calendar.WEEK_OF_YEAR)
 					|| (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).LastEnter_Week == Calendar.getInstance().get(Calendar.WEEK_OF_YEAR) - 1
-							&& (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).LastEnter_Day == 7
+							&& (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).LastEnter_Day == 7 && Calendar.getInstance().get(Calendar.DAY_OF_WEEK) == 1
 					|| (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).LastEnter_Week == 52 && Calendar.getInstance().get(Calendar.WEEK_OF_YEAR) == 1) {
 				{
 					double _setval = (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).DaysOnline + 1;
@@ -128,6 +130,9 @@ public class EnterPayProcedure {
 				capability.LastEnter_Week = _setval;
 				capability.syncPlayerVariables(entity);
 			});
+		}
+		if ((world instanceof Level _lvl ? _lvl.dimension() : (world instanceof WorldGenLevel _wgl ? _wgl.getLevel().dimension() : Level.OVERWORLD)) == Level.NETHER) {
+			CheckBeeResistProcedure.execute(entity);
 		}
 	}
 }

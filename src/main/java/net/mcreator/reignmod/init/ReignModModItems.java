@@ -26,6 +26,7 @@ import net.mcreator.reignmod.item.RuinLord3Item;
 import net.mcreator.reignmod.item.RuinLord2Item;
 import net.mcreator.reignmod.item.RuinLord1Item;
 import net.mcreator.reignmod.item.RightHandItem;
+import net.mcreator.reignmod.item.ReignCoinItem;
 import net.mcreator.reignmod.item.PrivateRental3Item;
 import net.mcreator.reignmod.item.PrivateRental2Item;
 import net.mcreator.reignmod.item.PrivateRental1Item;
@@ -112,6 +113,8 @@ public class ReignModModItems {
 	public static final RegistryObject<Item> RUIN_LORD_1 = REGISTRY.register("ruin_lord_1", () -> new RuinLord1Item());
 	public static final RegistryObject<Item> RUIN_LORD_2 = REGISTRY.register("ruin_lord_2", () -> new RuinLord2Item());
 	public static final RegistryObject<Item> RUIN_LORD_3 = REGISTRY.register("ruin_lord_3", () -> new RuinLord3Item());
+	public static final RegistryObject<Item> STORAGE_BARREL = block(ReignModModBlocks.STORAGE_BARREL);
+	public static final RegistryObject<Item> REIGN_COIN = REGISTRY.register("reign_coin", () -> new ReignCoinItem());
 
 	// Start of user code block custom items
 	// End of user code block custom items

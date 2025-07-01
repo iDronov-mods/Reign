@@ -1,0 +1,238 @@
+{
+  "_fv": 73,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 180,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": false,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 0,
+          "disablePickup": {
+            "fixedValue": true
+          },
+          "dropItemsWhenNotBound": false,
+          "x": 169,
+          "y": 73,
+          "locked": false
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 1,
+          "disablePickup": {
+            "fixedValue": false,
+            "name": "StorageBarrelCategorySet"
+          },
+          "dropItemsWhenNotBound": false,
+          "x": 223,
+          "y": 55,
+          "locked": false
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 2,
+          "disablePickup": {
+            "fixedValue": false,
+            "name": "StorageBarrelCategorySet"
+          },
+          "dropItemsWhenNotBound": false,
+          "x": 241,
+          "y": 55,
+          "locked": false
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 3,
+          "disablePickup": {
+            "fixedValue": false,
+            "name": "StorageBarrelCategorySet"
+          },
+          "dropItemsWhenNotBound": false,
+          "x": 259,
+          "y": 55,
+          "locked": false
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 4,
+          "disablePickup": {
+            "fixedValue": false,
+            "name": "StorageBarrelCategorySet"
+          },
+          "dropItemsWhenNotBound": false,
+          "x": 223,
+          "y": 73,
+          "locked": false
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 5,
+          "disablePickup": {
+            "fixedValue": false,
+            "name": "StorageBarrelCategorySet"
+          },
+          "dropItemsWhenNotBound": false,
+          "x": 241,
+          "y": 73,
+          "locked": false
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 6,
+          "disablePickup": {
+            "fixedValue": false,
+            "name": "StorageBarrelCategorySet"
+          },
+          "dropItemsWhenNotBound": false,
+          "x": 259,
+          "y": 73,
+          "locked": false
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 7,
+          "disablePickup": {
+            "fixedValue": false,
+            "name": "StorageBarrelCategorySet"
+          },
+          "dropItemsWhenNotBound": false,
+          "x": 223,
+          "y": 91,
+          "locked": false
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 8,
+          "disablePickup": {
+            "fixedValue": false,
+            "name": "StorageBarrelCategorySet"
+          },
+          "dropItemsWhenNotBound": false,
+          "x": 241,
+          "y": 91,
+          "locked": false
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 9,
+          "disablePickup": {
+            "fixedValue": false,
+            "name": "StorageBarrelCategorySet"
+          },
+          "dropItemsWhenNotBound": false,
+          "x": 259,
+          "y": 91,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_storage_barrel",
+          "text": {
+            "fixedValue": "Storage barrel"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 125,
+          "y": 27,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "storagebarrel_ui.png",
+          "use1Xscale": false,
+          "x": 168,
+          "y": 53,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "plusui.png",
+          "use1Xscale": false,
+          "x": 151,
+          "y": 74,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "crown.png",
+          "use1Xscale": false,
+          "x": 258,
+          "y": 40,
+          "locked": false
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_storage_barrel_help",
+          "text": {
+            "fixedValue": "storage_barrel_help"
+          },
+          "width": 18,
+          "height": 13,
+          "x": 257,
+          "y": 40,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_storage_barrel_category_tex",
+          "text": {
+            "fixedValue": "",
+            "name": "StorageBarrelCategoryTextGet"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 154,
+          "y": 58,
+          "locked": false
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

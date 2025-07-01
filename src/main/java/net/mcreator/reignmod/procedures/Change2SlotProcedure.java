@@ -57,5 +57,6 @@ public class Change2SlotProcedure {
 				SoundGiveCoinProcedure.execute(world, x, y, z);
 			}
 		}
+		UpdateWalletProcedure.execute(entity);
 	}
 }

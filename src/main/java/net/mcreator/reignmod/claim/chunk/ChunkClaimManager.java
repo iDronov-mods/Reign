@@ -141,11 +141,14 @@ public class ChunkClaimManager {
      * Удаляем приват по claimId и логируем игроку.
      */
     public static void removeClaim(ServerPlayer sv, String claimId) {
+        sv.displayClientMessage(Component.literal("Мы внутри до IF"), false);
         if (ChunkClaimSavedData.getInstance().getClaim(claimId).isPresent()) {
             removeClaim(claimId);
-            sv.displayClientMessage(Component.translatable("chunkclaim.remove.success"), true);
+            sv.displayClientMessage(Component.translatable("chunkclaim.remove.success"), false);
         }
-        sv.displayClientMessage(Component.translatable("chunkclaim.remove.not_found"), true);
+        else {
+            sv.displayClientMessage(Component.translatable("chunkclaim.remove.not_found"), false);
+        }
     }
 
     /**

@@ -6,6 +6,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
 
+import net.mcreator.reignmod.world.inventory.WalletwinMenu;
 import net.mcreator.reignmod.init.ReignModModItems;
 
 import java.util.function.Supplier;
@@ -26,42 +27,44 @@ public class UpdateWalletProcedure {
 			if (entity instanceof Player _player)
 				_player.closeContainer();
 		}
-		(entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrCreateTag().putDouble("amount", (new Object() {
-			public int getAmount(int sltid) {
-				if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
-					ItemStack stack = ((Slot) _slots.get(sltid)).getItem();
-					if (stack != null)
-						return stack.getCount();
+		if (entity instanceof Player _plr4 && _plr4.containerMenu instanceof WalletwinMenu) {
+			(entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrCreateTag().putDouble("amount", (new Object() {
+				public int getAmount(int sltid) {
+					if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+						ItemStack stack = ((Slot) _slots.get(sltid)).getItem();
+						if (stack != null)
+							return stack.getCount();
+					}
+					return 0;
 				}
-				return 0;
-			}
-		}.getAmount(0) + new Object() {
-			public int getAmount(int sltid) {
-				if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
-					ItemStack stack = ((Slot) _slots.get(sltid)).getItem();
-					if (stack != null)
-						return stack.getCount();
+			}.getAmount(0) + new Object() {
+				public int getAmount(int sltid) {
+					if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+						ItemStack stack = ((Slot) _slots.get(sltid)).getItem();
+						if (stack != null)
+							return stack.getCount();
+					}
+					return 0;
 				}
-				return 0;
-			}
-		}.getAmount(1) * 16 + new Object() {
-			public int getAmount(int sltid) {
-				if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
-					ItemStack stack = ((Slot) _slots.get(sltid)).getItem();
-					if (stack != null)
-						return stack.getCount();
+			}.getAmount(1) * 16 + new Object() {
+				public int getAmount(int sltid) {
+					if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+						ItemStack stack = ((Slot) _slots.get(sltid)).getItem();
+						if (stack != null)
+							return stack.getCount();
+					}
+					return 0;
 				}
-				return 0;
-			}
-		}.getAmount(2) * 256 + new Object() {
-			public int getAmount(int sltid) {
-				if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
-					ItemStack stack = ((Slot) _slots.get(sltid)).getItem();
-					if (stack != null)
-						return stack.getCount();
+			}.getAmount(2) * 256 + new Object() {
+				public int getAmount(int sltid) {
+					if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+						ItemStack stack = ((Slot) _slots.get(sltid)).getItem();
+						if (stack != null)
+							return stack.getCount();
+					}
+					return 0;
 				}
-				return 0;
-			}
-		}.getAmount(3) * 4096));
+			}.getAmount(3) * 4096));
+		}
 	}
 }

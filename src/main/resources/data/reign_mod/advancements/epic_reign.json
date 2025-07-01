@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:netherite_sword"
+    },
+    "title": {
+      "translate": "advancements.epic_reign.title"
+    },
+    "description": {
+      "translate": "advancements.epic_reign.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "epic_reign_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "reign_mod:welcome_to_reign"
+}

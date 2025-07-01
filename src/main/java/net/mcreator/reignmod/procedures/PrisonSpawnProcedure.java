@@ -53,8 +53,6 @@ public class PrisonSpawnProcedure {
 						_entity.addEffect(new MobEffectInstance(ReignModModMobEffects.CRIMINAL.get(), -1, 0));
 				}
 				if (!((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).prison_house).isEmpty()) {
-					if (!world.isClientSide() && world.getServer() != null)
-						world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("!~!"), false);
 					SuzerainUUID = (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).prison_house;
 					House house = HouseManager.getHouseBySuzerainUUID(SuzerainUUID);
 					x_house_prison = house.getHousePrisonCoordinates()[0];
@@ -83,11 +81,7 @@ public class PrisonSpawnProcedure {
 						}
 					}
 				} else if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).isCriminal) {
-					if (!world.isClientSide() && world.getServer() != null)
-						world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("1"), false);
 					if (!(KingdomManager.getPrisonCoordinates()[0] == 0 && KingdomManager.getPrisonCoordinates()[1] == 0 && KingdomManager.getPrisonCoordinates()[2] == 0)) {
-						if (!world.isClientSide() && world.getServer() != null)
-							world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("2"), false);
 						{
 							Entity _ent = entity;
 							_ent.teleportTo(KingdomManager.getPrisonCoordinates()[0], KingdomManager.getPrisonCoordinates()[1], KingdomManager.getPrisonCoordinates()[2]);

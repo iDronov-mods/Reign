@@ -1,7 +1,5 @@
 package net.mcreator.reignmod.market;
 
-import net.mcreator.reignmod.network.ReignModModVariables;
-
 import java.util.Collection;
 import java.util.HashMap;
 
@@ -30,7 +28,7 @@ public class MarketManager {
     public static Double getMaxAmount(String itemName) {
         MarketSavedData data = MarketSavedData.getInstance();
         MarketItem item = data.getMarketItems().get(itemName);
-        return (item != null) ? item.getMaxAmount() : null;
+        return (item != null) ? item.getBaseAmount() + data.getStorageBarrels().get(item.getItemType()) * item.getInPack() : null;
     }
 
     /**
@@ -90,7 +88,7 @@ public class MarketManager {
         MarketSavedData data = MarketSavedData.getInstance();
         MarketItem item = data.getMarketItems().get(itemName);
         if (item != null) {
-            item.increaseCurrentAmount(amountToIncrease);
+            item.adjustCurrentAmount(amountToIncrease);
             data.markRefreshNeeded();
             data.setDirty();
         }
@@ -105,7 +103,22 @@ public class MarketManager {
         MarketSavedData data = MarketSavedData.getInstance();
         MarketItem item = data.getMarketItems().get(itemName);
         if (item != null) {
-            item.decreaseCurrentAmount(amountToDecrease);
+            item.adjustCurrentAmount(-amountToDecrease);
+            data.markRefreshNeeded();
+            data.setDirty();
+        }
+    }
+
+    /**
+     * Меняет вместимость складных бочек указанного типа товара на значение, переданное вторым параметром.
+     * @param itemType тип товара
+     * @param delta значение, на которое нужно увеличить
+     */
+    public static void adjustBarrelCapacity(MarketItem.MarketItemType itemType, double delta) {
+        MarketSavedData data = MarketSavedData.getInstance();
+        Double capacity = data.getStorageBarrels().get(itemType);
+        if (capacity != null) {
+            data.getStorageBarrels().put(itemType, capacity + delta);
             data.markRefreshNeeded();
             data.setDirty();
         }

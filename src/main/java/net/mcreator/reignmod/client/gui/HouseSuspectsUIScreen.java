@@ -42,13 +42,14 @@ import net.mcreator.reignmod.procedures.HouseHP2Procedure;
 import net.mcreator.reignmod.procedures.HouseHP1Procedure;
 import net.mcreator.reignmod.procedures.HouseHP10Procedure;
 import net.mcreator.reignmod.network.HouseSuspectsUIButtonMessage;
+import net.mcreator.reignmod.init.ReignModModScreens.WidgetScreen;
 import net.mcreator.reignmod.ReignModMod;
 
 import java.util.HashMap;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
-public class HouseSuspectsUIScreen extends AbstractContainerScreen<HouseSuspectsUIMenu> {
+public class HouseSuspectsUIScreen extends AbstractContainerScreen<HouseSuspectsUIMenu> implements WidgetScreen {
 	private final static HashMap<String, Object> guistate = HouseSuspectsUIMenu.guistate;
 	private final Level world;
 	private final int x, y, z;
@@ -138,6 +139,10 @@ public class HouseSuspectsUIScreen extends AbstractContainerScreen<HouseSuspects
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/house_hp_point.png"), this.leftPos + 234, this.topPos + 6, 0, 0, 20, 4, 20, 4);
 		}
 		RenderSystem.disableBlend();
+	}
+
+	public HashMap<String, Object> getWidgets() {
+		return guistate;
 	}
 
 	@Override

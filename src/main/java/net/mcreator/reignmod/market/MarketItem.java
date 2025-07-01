@@ -1,30 +1,54 @@
 package net.mcreator.reignmod.market;
 
 public class MarketItem {
-    private double price;         // Цена товара
-    private double maxAmount;     // Максимальное доступное количество на рынке
+
+    public static double MAX_AMOUNT = 6400.0;
+    public enum MarketItemType {
+        LOGS,
+        FUEL,
+        FOOD,
+        ARMOR,
+        TOOLS,
+        ORES,
+        BLOCKS,
+        OTHER,
+        EXPERIENCE
+    }
+
+    private MarketItemType itemType; // Тип товара
+    private double baseAmount;     // Максимальное стандартно доступное количество на рынке
     private double inPack;        // Количество предметов в одной пачке
+    private double price;         // Цена товара
     private double currentAmount; // Текущее доступное количество (по умолчанию 0)
 
     // ---------- Конструктор MarketItem ----------
-    public MarketItem(double price, double maxAmount, double inPack) {
+    public MarketItem(double price, double baseAmount, double inPack, MarketItemType itemType) {
+        this.itemType = itemType;
         this.price = price;
-        this.maxAmount = maxAmount;
+        this.baseAmount = baseAmount;
         this.inPack = inPack;
         this.currentAmount = 0.0;
     }
 
     // ---------- Геттеры и сеттеры MarketItem ----------
+
+    public MarketItemType getItemType() {
+        return itemType;
+    }
+    public void setItemType(MarketItemType itemType) {
+        this.itemType = itemType;
+    }
+
     public double getPrice() {
         return price;
     }
     public void setPrice(double price) { this.price = price; }
 
-    public double getMaxAmount() {
-        return maxAmount;
+    public double getBaseAmount() {
+        return baseAmount;
     }
-    public void setMaxAmount(double maxAmount) {
-        this.maxAmount = maxAmount;
+    public void setBaseAmount(double baseAmount) {
+        this.baseAmount = baseAmount;
     }
 
     public double getInPack() {
@@ -43,12 +67,7 @@ public class MarketItem {
 
     // ---------- Модификаторы MarketItem ----------
     // Уменьшает текущее количество на amountToDecrease (но не ниже 0)
-    public void decreaseCurrentAmount(double amountToDecrease) {
-        this.currentAmount = Math.max(0, this.currentAmount - amountToDecrease);
-    }
-
-    // Увеличивает текущее количество на amountToIncrease (но не выше maxAmount)
-    public void increaseCurrentAmount(double amountToIncrease) {
-        this.currentAmount = Math.min(this.maxAmount, this.currentAmount + amountToIncrease);
+    public void adjustCurrentAmount(double delta) {
+        this.currentAmount = Math.max(0, Math.min(MAX_AMOUNT, this.currentAmount + delta));
     }
 }

@@ -5,6 +5,7 @@ import net.minecraftforge.common.ForgeConfigSpec;
 public class ReignMarketConfiguration {
 	public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
 	public static final ForgeConfigSpec SPEC;
+
 	public static final ForgeConfigSpec.ConfigValue<Double> LOGS_MULTIPLIER;
 	public static final ForgeConfigSpec.ConfigValue<Double> OAK_LOG;
 	public static final ForgeConfigSpec.ConfigValue<Double> SPRUCE_LOG;
@@ -96,12 +97,12 @@ public class ReignMarketConfiguration {
 		CHERRY_LOG = BUILDER.define("cherry_log", (double) 4);
 		BUILDER.pop();
 		BUILDER.push("Fuel");
-		FUEL_MULTIPLIER = BUILDER.define("fuel_multiplier", (double) 1);
+		FUEL_MULTIPLIER = BUILDER.comment("price coefficient for coal [0.5 - 2.0]").define("fuel_multiplier", (double) 1);
 		COAL = BUILDER.define("coal", (double) 4);
 		CHARCOAL = BUILDER.define("charcoal", (double) 4);
 		BUILDER.pop();
 		BUILDER.push("Ores");
-		ORES_MULTIPLIER = BUILDER.define("ores_multiplier", (double) 1);
+		ORES_MULTIPLIER = BUILDER.comment("price coefficient for ores [0.5 - 2.0]").define("ores_multiplier", (double) 1);
 		RAW_COPPER = BUILDER.define("raw_copper", (double) 4);
 		RAW_IRON = BUILDER.define("raw_iron", (double) 4);
 		RAW_GOLD = BUILDER.define("raw_gold", (double) 4);
@@ -112,14 +113,14 @@ public class ReignMarketConfiguration {
 		NETHERITE_SCRAP = BUILDER.define("netherite_scrap", (double) 240);
 		BUILDER.pop();
 		BUILDER.push("Ingots");
-		INGOTS_MULTIPLIER = BUILDER.define("ingots_multiplier", (double) 1);
+		INGOTS_MULTIPLIER = BUILDER.comment("price coefficient for ingots [0.5 - 2.0]").define("ingots_multiplier", (double) 1);
 		COPPER_INGOT = BUILDER.define("copper_ingot", (double) 4);
 		IRON_INGOT = BUILDER.define("iron_ingot", (double) 6);
 		GOLD_INGOT = BUILDER.define("gold_ingot", (double) 6);
 		NETHERITE_INGOT = BUILDER.define("netherite_ingot", (double) 1024);
 		BUILDER.pop();
 		BUILDER.push("Tools");
-		TOOLS_MULTIPLIER = BUILDER.define("tools_multiplier", (double) 1);
+		TOOLS_MULTIPLIER = BUILDER.comment("price coefficient for tools [0.5 - 2.0]").define("tools_multiplier", (double) 1);
 		IRON_SWORD = BUILDER.define("iron_sword", (double) 10);
 		IRON_PICKAXE = BUILDER.define("iron_pickaxe", (double) 14);
 		IRON_AXE = BUILDER.define("iron_axe", (double) 14);
@@ -141,7 +142,7 @@ public class ReignMarketConfiguration {
 		BOW = BUILDER.define("bow", (double) 16);
 		BUILDER.pop();
 		BUILDER.push("Food");
-		FOOD_MULTIPLIER = BUILDER.define("food_multiplier", (double) 1);
+		FOOD_MULTIPLIER = BUILDER.comment("price coefficient for foods [0.5 - 2.0]").define("food_multiplier", (double) 1);
 		BREAD = BUILDER.define("bread", (double) 4);
 		BAKED_POTATO = BUILDER.define("baked_potato", (double) 4);
 		PUMPKIN_PIE = BUILDER.define("pumpkin_pie", (double) 4);
@@ -154,7 +155,7 @@ public class ReignMarketConfiguration {
 		HONEY_BOTTLE = BUILDER.define("honey_bottle", (double) 8);
 		BUILDER.pop();
 		BUILDER.push("Blocks");
-		BLOCKS_MULTIPLIER = BUILDER.define("blocks_multiplier", (double) 1);
+		BLOCKS_MULTIPLIER = BUILDER.comment("price coefficient for blocks [0.5 - 2.0]").define("blocks_multiplier", (double) 1);
 		COBBLESTONE = BUILDER.define("cobblestone", (double) 4);
 		SAND = BUILDER.define("sand", (double) 4);
 		WHITE_WOOL = BUILDER.define("wool", (double) 4);
@@ -174,11 +175,11 @@ public class ReignMarketConfiguration {
 		ENDER_PEARL = BUILDER.define("ender_pearl", (double) 20);
 		LEATHER = BUILDER.define("leather", (double) 4);
 		BLAZE_ROD = BUILDER.define("blaze_rod", (double) 16);
-		OTHER_MULTIPLIER = BUILDER.define("other_multiplier", (double) 0);
+		OTHER_MULTIPLIER = BUILDER.comment("price coefficient for other [0.5 - 2.0]").define("other_multiplier", (double) 0);
 		BUILDER.pop();
-		BUILDER.push("Max amount");
-		TOOLS_MAX_AMOUNT = BUILDER.define("tools_max_amount", (double) 16);
-		GOODS_MAX_AMOUNT = BUILDER.define("goods_max_amount", (double) 960);
+		BUILDER.push("Base amount");
+		TOOLS_MAX_AMOUNT = BUILDER.comment("The base number of instruments on the market").define("tools_base_amount", (double) 8);
+		GOODS_MAX_AMOUNT = BUILDER.comment("The base number of goods on the market").define("goods_base_amount", (double) 640);
 		BUILDER.pop();
 
 		SPEC = BUILDER.build();

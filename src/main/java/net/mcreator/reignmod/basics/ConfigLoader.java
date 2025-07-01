@@ -115,224 +115,224 @@ public class ConfigLoader {
         // Logs
         marketItems.put("minecraft:oak_log", new MarketItem(
                 computePrice(ReignMarketConfiguration.OAK_LOG.get(), ReignMarketConfiguration.LOGS_MULTIPLIER.get()),
-                goodsMaxAmount, 8.0));
+                goodsMaxAmount, 8.0, MarketItem.MarketItemType.LOGS));
         marketItems.put("minecraft:spruce_log", new MarketItem(
                 computePrice(ReignMarketConfiguration.SPRUCE_LOG.get(), ReignMarketConfiguration.LOGS_MULTIPLIER.get()),
-                goodsMaxAmount, 8.0));
+                goodsMaxAmount, 8.0, MarketItem.MarketItemType.LOGS));
         marketItems.put("minecraft:birch_log", new MarketItem(
                 computePrice(ReignMarketConfiguration.BIRCH_LOG.get(), ReignMarketConfiguration.LOGS_MULTIPLIER.get()),
-                goodsMaxAmount, 8.0));
+                goodsMaxAmount, 8.0, MarketItem.MarketItemType.LOGS));
         marketItems.put("minecraft:acacia_log", new MarketItem(
                 computePrice(ReignMarketConfiguration.ACACIA_LOG.get(), ReignMarketConfiguration.LOGS_MULTIPLIER.get()),
-                goodsMaxAmount, 8.0));
+                goodsMaxAmount, 8.0, MarketItem.MarketItemType.LOGS));
         marketItems.put("minecraft:dark_oak_log", new MarketItem(
                 computePrice(ReignMarketConfiguration.DARK_OAK_LOG.get(), ReignMarketConfiguration.LOGS_MULTIPLIER.get()),
-                goodsMaxAmount, 8.0));
+                goodsMaxAmount, 8.0, MarketItem.MarketItemType.LOGS));
         marketItems.put("minecraft:jungle_log", new MarketItem(
                 computePrice(ReignMarketConfiguration.JUNGLE_LOG.get(), ReignMarketConfiguration.LOGS_MULTIPLIER.get()),
-                goodsMaxAmount, 8.0));
+                goodsMaxAmount, 8.0, MarketItem.MarketItemType.LOGS));
         marketItems.put("minecraft:mangrove_log", new MarketItem(
                 computePrice(ReignMarketConfiguration.MANGROVE_LOG.get(), ReignMarketConfiguration.LOGS_MULTIPLIER.get()),
-                goodsMaxAmount, 8.0));
+                goodsMaxAmount, 8.0, MarketItem.MarketItemType.LOGS));
         marketItems.put("minecraft:cherry_log", new MarketItem(
                 computePrice(ReignMarketConfiguration.CHERRY_LOG.get(), ReignMarketConfiguration.LOGS_MULTIPLIER.get()),
-                goodsMaxAmount, 8.0));
+                goodsMaxAmount, 8.0, MarketItem.MarketItemType.LOGS));
 
 
         // Fuel
         marketItems.put("minecraft:coal", new MarketItem(
                 computePrice(ReignMarketConfiguration.COAL.get(), ReignMarketConfiguration.FUEL_MULTIPLIER.get()),
-                goodsMaxAmount, 4.0));
+                goodsMaxAmount, 4.0, MarketItem.MarketItemType.FUEL));
         marketItems.put("minecraft:charcoal", new MarketItem(
                 computePrice(ReignMarketConfiguration.CHARCOAL.get(), ReignMarketConfiguration.FUEL_MULTIPLIER.get()),
-                goodsMaxAmount, 4.0));
+                goodsMaxAmount, 4.0, MarketItem.MarketItemType.FUEL));
 
 
         // Ores
         marketItems.put("minecraft:raw_copper", new MarketItem(
                 computePrice(ReignMarketConfiguration.RAW_COPPER.get(), ReignMarketConfiguration.ORES_MULTIPLIER.get()),
-                goodsMaxAmount, 4.0));
+                goodsMaxAmount, 4.0, MarketItem.MarketItemType.ORES));
         marketItems.put("minecraft:raw_iron", new MarketItem(
                 computePrice(ReignMarketConfiguration.RAW_IRON.get(), ReignMarketConfiguration.ORES_MULTIPLIER.get()),
-                goodsMaxAmount, 2.0));
+                goodsMaxAmount, 2.0, MarketItem.MarketItemType.ORES));
         marketItems.put("minecraft:raw_gold", new MarketItem(
                 computePrice(ReignMarketConfiguration.RAW_GOLD.get(), ReignMarketConfiguration.ORES_MULTIPLIER.get()),
-                goodsMaxAmount, 1.0));
+                goodsMaxAmount, 1.0, MarketItem.MarketItemType.ORES));
         marketItems.put("minecraft:diamond", new MarketItem(
                 computePrice(ReignMarketConfiguration.DIAMOND.get(), ReignMarketConfiguration.ORES_MULTIPLIER.get()),
-                goodsMaxAmount, 1.0));
+                goodsMaxAmount, 1.0, MarketItem.MarketItemType.ORES));
         marketItems.put("minecraft:lapis_lazuli", new MarketItem(
                 computePrice(ReignMarketConfiguration.LAPIS_LAZULI.get(), ReignMarketConfiguration.ORES_MULTIPLIER.get()),
-                goodsMaxAmount, 4.0));
+                goodsMaxAmount, 4.0, MarketItem.MarketItemType.ORES));
         marketItems.put("minecraft:redstone", new MarketItem(
                 computePrice(ReignMarketConfiguration.REDSTONE.get(), ReignMarketConfiguration.ORES_MULTIPLIER.get()),
-                goodsMaxAmount, 8.0));
+                goodsMaxAmount, 8.0, MarketItem.MarketItemType.ORES));
         marketItems.put("minecraft:emerald", new MarketItem(
                 computePrice(ReignMarketConfiguration.EMERALD.get(), ReignMarketConfiguration.ORES_MULTIPLIER.get()),
-                goodsMaxAmount, 1.0));
+                goodsMaxAmount, 1.0, MarketItem.MarketItemType.ORES));
         marketItems.put("minecraft:netherite_scrap", new MarketItem(
                 computePrice(ReignMarketConfiguration.NETHERITE_SCRAP.get(), ReignMarketConfiguration.ORES_MULTIPLIER.get()),
-                goodsMaxAmount, 1.0));
+                goodsMaxAmount, 1.0, MarketItem.MarketItemType.ORES));
 
         // Ingots
         marketItems.put("minecraft:copper_ingot", new MarketItem(
                 computePrice(ReignMarketConfiguration.COPPER_INGOT.get(), ReignMarketConfiguration.INGOTS_MULTIPLIER.get()),
-                goodsMaxAmount, 2.0));
+                goodsMaxAmount, 2.0, MarketItem.MarketItemType.ORES));
         marketItems.put("minecraft:iron_ingot", new MarketItem(
                 computePrice(ReignMarketConfiguration.IRON_INGOT.get(), ReignMarketConfiguration.INGOTS_MULTIPLIER.get()),
-                goodsMaxAmount, 2.0));
+                goodsMaxAmount, 2.0, MarketItem.MarketItemType.ORES));
         marketItems.put("minecraft:gold_ingot", new MarketItem(
                 computePrice(ReignMarketConfiguration.GOLD_INGOT.get(), ReignMarketConfiguration.INGOTS_MULTIPLIER.get()),
-                goodsMaxAmount, 1.0));
+                goodsMaxAmount, 1.0, MarketItem.MarketItemType.ORES));
         marketItems.put("minecraft:netherite_ingot", new MarketItem(
                 computePrice(ReignMarketConfiguration.NETHERITE_INGOT.get(), ReignMarketConfiguration.INGOTS_MULTIPLIER.get()),
-                goodsMaxAmount, 1.0));
+                goodsMaxAmount, 1.0, MarketItem.MarketItemType.ORES));
 
         // Tools
         marketItems.put("minecraft:iron_sword", new MarketItem(
                 computePrice(ReignMarketConfiguration.IRON_SWORD.get(), ReignMarketConfiguration.TOOLS_MULTIPLIER.get()),
-                toolsMaxAmount, 1.0));
+                toolsMaxAmount, 1.0, MarketItem.MarketItemType.TOOLS));
         marketItems.put("minecraft:iron_pickaxe", new MarketItem(
                 computePrice(ReignMarketConfiguration.IRON_PICKAXE.get(), ReignMarketConfiguration.TOOLS_MULTIPLIER.get()),
-                toolsMaxAmount, 1.0));
+                toolsMaxAmount, 1.0, MarketItem.MarketItemType.TOOLS));
         marketItems.put("minecraft:iron_axe", new MarketItem(
                 computePrice(ReignMarketConfiguration.IRON_AXE.get(), ReignMarketConfiguration.TOOLS_MULTIPLIER.get()),
-                toolsMaxAmount, 1.0));
+                toolsMaxAmount, 1.0, MarketItem.MarketItemType.TOOLS));
         marketItems.put("minecraft:iron_shovel", new MarketItem(
                 computePrice(ReignMarketConfiguration.IRON_SHOVEL.get(), ReignMarketConfiguration.TOOLS_MULTIPLIER.get()),
-                toolsMaxAmount, 1.0));
+                toolsMaxAmount, 1.0, MarketItem.MarketItemType.TOOLS));
         marketItems.put("minecraft:iron_helmet", new MarketItem(
                 computePrice(ReignMarketConfiguration.IRON_HELMET.get(), ReignMarketConfiguration.TOOLS_MULTIPLIER.get()),
-                toolsMaxAmount, 1.0));
+                toolsMaxAmount, 1.0, MarketItem.MarketItemType.ARMOR));
         marketItems.put("minecraft:iron_chestplate", new MarketItem(
                 computePrice(ReignMarketConfiguration.IRON_CHESTPLATE.get(), ReignMarketConfiguration.TOOLS_MULTIPLIER.get()),
-                toolsMaxAmount, 1.0));
+                toolsMaxAmount, 1.0, MarketItem.MarketItemType.ARMOR));
         marketItems.put("minecraft:iron_leggings", new MarketItem(
                 computePrice(ReignMarketConfiguration.IRON_LEGGINGS.get(), ReignMarketConfiguration.TOOLS_MULTIPLIER.get()),
-                toolsMaxAmount, 1.0));
+                toolsMaxAmount, 1.0, MarketItem.MarketItemType.ARMOR));
         marketItems.put("minecraft:iron_boots", new MarketItem(
                 computePrice(ReignMarketConfiguration.IRON_BOOTS.get(), ReignMarketConfiguration.TOOLS_MULTIPLIER.get()),
-                toolsMaxAmount, 1.0));
+                toolsMaxAmount, 1.0, MarketItem.MarketItemType.ARMOR));
         marketItems.put("minecraft:diamond_sword", new MarketItem(
                 computePrice(ReignMarketConfiguration.DIAMOND_SWORD.get(), ReignMarketConfiguration.TOOLS_MULTIPLIER.get()),
-                toolsMaxAmount, 1.0));
+                toolsMaxAmount, 1.0, MarketItem.MarketItemType.TOOLS));
         marketItems.put("minecraft:diamond_pickaxe", new MarketItem(
                 computePrice(ReignMarketConfiguration.DIAMOND_PICKAXE.get(), ReignMarketConfiguration.TOOLS_MULTIPLIER.get()),
-                toolsMaxAmount, 1.0));
+                toolsMaxAmount, 1.0, MarketItem.MarketItemType.TOOLS));
         marketItems.put("minecraft:diamond_axe", new MarketItem(
                 computePrice(ReignMarketConfiguration.DIAMOND_AXE.get(), ReignMarketConfiguration.TOOLS_MULTIPLIER.get()),
-                toolsMaxAmount, 1.0));
+                toolsMaxAmount, 1.0, MarketItem.MarketItemType.TOOLS));
         marketItems.put("minecraft:diamond_shovel", new MarketItem(
                 computePrice(ReignMarketConfiguration.DIAMOND_SHOVEL.get(), ReignMarketConfiguration.TOOLS_MULTIPLIER.get()),
-                toolsMaxAmount, 1.0));
+                toolsMaxAmount, 1.0, MarketItem.MarketItemType.TOOLS));
         marketItems.put("minecraft:diamond_helmet", new MarketItem(
                 computePrice(ReignMarketConfiguration.DIAMOND_HELMET.get(), ReignMarketConfiguration.TOOLS_MULTIPLIER.get()),
-                toolsMaxAmount, 1.0));
+                toolsMaxAmount, 1.0, MarketItem.MarketItemType.ARMOR));
         marketItems.put("minecraft:diamond_chestplate", new MarketItem(
                 computePrice(ReignMarketConfiguration.DIAMOND_CHESTPLATE.get(), ReignMarketConfiguration.TOOLS_MULTIPLIER.get()),
-                toolsMaxAmount, 1.0));
+                toolsMaxAmount, 1.0, MarketItem.MarketItemType.ARMOR));
         marketItems.put("minecraft:diamond_leggings", new MarketItem(
                 computePrice(ReignMarketConfiguration.DIAMOND_LEGGINGS.get(), ReignMarketConfiguration.TOOLS_MULTIPLIER.get()),
-                toolsMaxAmount, 1.0));
+                toolsMaxAmount, 1.0, MarketItem.MarketItemType.ARMOR));
         marketItems.put("minecraft:diamond_boots", new MarketItem(
                 computePrice(ReignMarketConfiguration.DIAMOND_BOOTS.get(), ReignMarketConfiguration.TOOLS_MULTIPLIER.get()),
-                toolsMaxAmount, 1.0));
+                toolsMaxAmount, 1.0, MarketItem.MarketItemType.ARMOR));
         marketItems.put("minecraft:shield", new MarketItem(
                 computePrice(ReignMarketConfiguration.SHIELD.get(), ReignMarketConfiguration.TOOLS_MULTIPLIER.get()),
-                toolsMaxAmount, 1.0));
+                toolsMaxAmount, 1.0, MarketItem.MarketItemType.TOOLS));
         marketItems.put("minecraft:shears", new MarketItem(
                 computePrice(ReignMarketConfiguration.SHEARS.get(), ReignMarketConfiguration.TOOLS_MULTIPLIER.get()),
-                toolsMaxAmount, 1.0));
+                toolsMaxAmount, 1.0, MarketItem.MarketItemType.TOOLS));
         marketItems.put("minecraft:bow", new MarketItem(
                 computePrice(ReignMarketConfiguration.BOW.get(), ReignMarketConfiguration.TOOLS_MULTIPLIER.get()),
-                toolsMaxAmount, 1.0));
+                toolsMaxAmount, 1.0, MarketItem.MarketItemType.TOOLS));
 
         // Food
         marketItems.put("minecraft:bread", new MarketItem(
                 computePrice(ReignMarketConfiguration.BREAD.get(), ReignMarketConfiguration.FOOD_MULTIPLIER.get()),
-                goodsMaxAmount, 4.0));
+                goodsMaxAmount, 4.0, MarketItem.MarketItemType.FOOD));
         marketItems.put("minecraft:baked_potato", new MarketItem(
                 computePrice(ReignMarketConfiguration.BAKED_POTATO.get(), ReignMarketConfiguration.FOOD_MULTIPLIER.get()),
-                goodsMaxAmount, 4.0));
+                goodsMaxAmount, 4.0, MarketItem.MarketItemType.FOOD));
         marketItems.put("minecraft:pumpkin_pie", new MarketItem(
                 computePrice(ReignMarketConfiguration.PUMPKIN_PIE.get(), ReignMarketConfiguration.FOOD_MULTIPLIER.get()),
-                goodsMaxAmount, 2.0));
+                goodsMaxAmount, 2.0, MarketItem.MarketItemType.FOOD));
         marketItems.put("minecraft:carrot", new MarketItem(
                 computePrice(ReignMarketConfiguration.CARROT.get(), ReignMarketConfiguration.FOOD_MULTIPLIER.get()),
-                goodsMaxAmount, 6.0));
+                goodsMaxAmount, 6.0, MarketItem.MarketItemType.FOOD));
         marketItems.put("minecraft:cooked_beef", new MarketItem(
                 computePrice(ReignMarketConfiguration.COOKED_BEEF.get(), ReignMarketConfiguration.FOOD_MULTIPLIER.get()),
-                goodsMaxAmount, 2.0));
+                goodsMaxAmount, 2.0, MarketItem.MarketItemType.FOOD));
         marketItems.put("minecraft:cooked_porkchop", new MarketItem(
                 computePrice(ReignMarketConfiguration.COOKED_PORKCHOP.get(), ReignMarketConfiguration.FOOD_MULTIPLIER.get()),
-                goodsMaxAmount, 2.0));
+                goodsMaxAmount, 2.0, MarketItem.MarketItemType.FOOD));
         marketItems.put("minecraft:cooked_chicken", new MarketItem(
                 computePrice(ReignMarketConfiguration.COOKED_CHICKEN.get(), ReignMarketConfiguration.FOOD_MULTIPLIER.get()),
-                goodsMaxAmount, 3.0));
+                goodsMaxAmount, 3.0, MarketItem.MarketItemType.FOOD));
         marketItems.put("minecraft:cooked_cod", new MarketItem(
                 computePrice(ReignMarketConfiguration.COOKED_COD.get(), ReignMarketConfiguration.FOOD_MULTIPLIER.get()),
-                goodsMaxAmount, 4.0));
+                goodsMaxAmount, 4.0, MarketItem.MarketItemType.FOOD));
         marketItems.put("minecraft:hay_block", new MarketItem(
                 computePrice(ReignMarketConfiguration.HAY_BLOCK.get(), ReignMarketConfiguration.FOOD_MULTIPLIER.get()),
-                goodsMaxAmount, 1.0));
+                goodsMaxAmount, 1.0, MarketItem.MarketItemType.FOOD));
         marketItems.put("minecraft:honey_bottle", new MarketItem(
                 computePrice(ReignMarketConfiguration.HONEY_BOTTLE.get(), ReignMarketConfiguration.FOOD_MULTIPLIER.get()),
-                goodsMaxAmount, 1.0));
+                goodsMaxAmount, 1.0, MarketItem.MarketItemType.FOOD));
 
         // Blocks
         marketItems.put("minecraft:cobblestone", new MarketItem(
                 computePrice(ReignMarketConfiguration.COBBLESTONE.get(), ReignMarketConfiguration.BLOCKS_MULTIPLIER.get()),
-                goodsMaxAmount, 16.0));
+                goodsMaxAmount, 16.0, MarketItem.MarketItemType.BLOCKS));
         marketItems.put("minecraft:sand", new MarketItem(
                 computePrice(ReignMarketConfiguration.SAND.get(), ReignMarketConfiguration.BLOCKS_MULTIPLIER.get()),
-                goodsMaxAmount, 16.0));
+                goodsMaxAmount, 16.0, MarketItem.MarketItemType.BLOCKS));
         marketItems.put("minecraft:white_wool", new MarketItem(
                 computePrice(ReignMarketConfiguration.WHITE_WOOL.get(), ReignMarketConfiguration.BLOCKS_MULTIPLIER.get()),
-                goodsMaxAmount, 8.0));
+                goodsMaxAmount, 8.0, MarketItem.MarketItemType.BLOCKS));
         marketItems.put("minecraft:clay", new MarketItem(
                 computePrice(ReignMarketConfiguration.CLAY.get(), ReignMarketConfiguration.BLOCKS_MULTIPLIER.get()),
-                goodsMaxAmount, 2.0));
+                goodsMaxAmount, 2.0, MarketItem.MarketItemType.BLOCKS));
 
         // Other
         marketItems.put("minecraft:glass_bottle", new MarketItem(
                 computePrice(ReignMarketConfiguration.GLASS_BOTTLE.get(), ReignMarketConfiguration.OTHER_MULTIPLIER.get()),
-                goodsMaxAmount, 8.0));
+                goodsMaxAmount, 8.0, MarketItem.MarketItemType.OTHER));
         marketItems.put("minecraft:arrow", new MarketItem(
                 computePrice(ReignMarketConfiguration.ARROW.get(), ReignMarketConfiguration.OTHER_MULTIPLIER.get()),
-                goodsMaxAmount, 4.0));
+                goodsMaxAmount, 4.0, MarketItem.MarketItemType.OTHER));
         marketItems.put("minecraft:experience_bottle", new MarketItem(
                 computePrice(ReignMarketConfiguration.EXPERIENCE_BOTTLE.get(), 1.0),
-                goodsMaxAmount, 1.0));
+                goodsMaxAmount, 1.0, MarketItem.MarketItemType.OTHER));
         marketItems.put("minecraft:gunpowder", new MarketItem(
                 computePrice(ReignMarketConfiguration.GUNPOWDER.get(), ReignMarketConfiguration.OTHER_MULTIPLIER.get()),
-                goodsMaxAmount, 1.0));
+                goodsMaxAmount, 1.0, MarketItem.MarketItemType.OTHER));
         marketItems.put("minecraft:bone", new MarketItem(
                 computePrice(ReignMarketConfiguration.BONE.get(), ReignMarketConfiguration.OTHER_MULTIPLIER.get()),
-                goodsMaxAmount, 1.0));
+                goodsMaxAmount, 1.0, MarketItem.MarketItemType.OTHER));
         marketItems.put("minecraft:string", new MarketItem(
                 computePrice(ReignMarketConfiguration.STRING.get(), ReignMarketConfiguration.OTHER_MULTIPLIER.get()),
-                goodsMaxAmount, 1.0));
+                goodsMaxAmount, 1.0, MarketItem.MarketItemType.OTHER));
         marketItems.put("minecraft:slime_ball", new MarketItem(
                 computePrice(ReignMarketConfiguration.SLIME_BALL.get(), ReignMarketConfiguration.OTHER_MULTIPLIER.get()),
-                goodsMaxAmount, 1.0));
+                goodsMaxAmount, 1.0, MarketItem.MarketItemType.OTHER));
         marketItems.put("minecraft:paper", new MarketItem(
                 computePrice(ReignMarketConfiguration.PAPER.get(), ReignMarketConfiguration.OTHER_MULTIPLIER.get()),
-                goodsMaxAmount, 3.0));
+                goodsMaxAmount, 3.0, MarketItem.MarketItemType.OTHER));
         marketItems.put("minecraft:feather", new MarketItem(
                 computePrice(ReignMarketConfiguration.FEATHER.get(), ReignMarketConfiguration.OTHER_MULTIPLIER.get()),
-                goodsMaxAmount, 1.0));
+                goodsMaxAmount, 1.0, MarketItem.MarketItemType.OTHER));
         marketItems.put("minecraft:glowstone_dust", new MarketItem(
                 computePrice(ReignMarketConfiguration.GLOWSTONE_DUST.get(), ReignMarketConfiguration.OTHER_MULTIPLIER.get()),
-                goodsMaxAmount, 1.0));
+                goodsMaxAmount, 1.0, MarketItem.MarketItemType.OTHER));
         marketItems.put("minecraft:ender_pearl", new MarketItem(
                 computePrice(ReignMarketConfiguration.ENDER_PEARL.get(), ReignMarketConfiguration.OTHER_MULTIPLIER.get()),
-                goodsMaxAmount, 1.0));
+                goodsMaxAmount, 1.0, MarketItem.MarketItemType.OTHER));
         marketItems.put("minecraft:leather", new MarketItem(
                 computePrice(ReignMarketConfiguration.ENDER_PEARL.get(), ReignMarketConfiguration.OTHER_MULTIPLIER.get()),
-                goodsMaxAmount, 1.0));
+                goodsMaxAmount, 1.0, MarketItem.MarketItemType.OTHER));
         marketItems.put("minecraft:blaze_rod", new MarketItem(
                 computePrice(ReignMarketConfiguration.BLAZE_ROD.get(), ReignMarketConfiguration.OTHER_MULTIPLIER.get()),
-                goodsMaxAmount, 1.0));
+                goodsMaxAmount, 1.0, MarketItem.MarketItemType.OTHER));
 
 
     }

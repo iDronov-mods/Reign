@@ -18,6 +18,7 @@ import net.mcreator.reignmod.init.ReignModModMenus.GuiSyncMessage;
 import net.mcreator.reignmod.client.gui.WoodcutterwindowScreen;
 import net.mcreator.reignmod.client.gui.WalletwinScreen;
 import net.mcreator.reignmod.client.gui.TraderPointScreen;
+import net.mcreator.reignmod.client.gui.StorageBarrelUIScreen;
 import net.mcreator.reignmod.client.gui.SoldierWindowScreen;
 import net.mcreator.reignmod.client.gui.SmithWindowScreen;
 import net.mcreator.reignmod.client.gui.SafeUIScreen;
@@ -87,6 +88,7 @@ public class ReignModModScreens {
 			MenuScreens.register(ReignModModMenus.COFFERS_TAX_UI.get(), CoffersTaxUIScreen::new);
 			MenuScreens.register(ReignModModMenus.HOUSE_SUSPECTS_UI.get(), HouseSuspectsUIScreen::new);
 			MenuScreens.register(ReignModModMenus.PLAYER_SEARCH_UI.get(), PlayerSearchUIScreen::new);
+			MenuScreens.register(ReignModModMenus.STORAGE_BARREL_UI.get(), StorageBarrelUIScreen::new);
 		});
 	}
 

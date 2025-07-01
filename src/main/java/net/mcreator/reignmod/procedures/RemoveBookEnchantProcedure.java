@@ -18,11 +18,14 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.Mth;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.core.BlockPos;
+import net.minecraft.advancements.AdvancementProgress;
+import net.minecraft.advancements.Advancement;
 
 import net.mcreator.reignmod.network.ReignModModVariables;
 
@@ -50,15 +53,13 @@ public class RemoveBookEnchantProcedure {
 		if ((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() instanceof EnchantedBookItem) {
 			if ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).license_librarian
 					&& (entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).ADD_LVL >= 2) {
-				book = (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY);
+				book = (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).copy();
 				ListTag enchants = book.getTag().getList("StoredEnchantments", 10);
 				for (int i = 0; i < enchants.size(); i++) {
 					CompoundTag enchantment = enchants.getCompound(i);
 					exp += enchantment.getInt("lvl");
 				}
-				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal(("" + exp)), false);
-				value = Mth.nextInt(RandomSource.create(), 8, 32) * exp;
+				value = Mth.nextInt(RandomSource.create(), 4, 24) * exp;
 				if (entity instanceof Player _player)
 					_player.giveExperiencePoints((int) value);
 				if (world instanceof Level _level) {
@@ -70,6 +71,14 @@ public class RemoveBookEnchantProcedure {
 				}
 				if (entity instanceof Player _player && !_player.level().isClientSide())
 					_player.displayClientMessage(Component.literal((Component.translatable("translation.key.remove_book_enchant").getString() + " " + new java.text.DecimalFormat("##").format(value))), false);
+				if (entity instanceof ServerPlayer _player) {
+					Advancement _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation("reign_mod:lets_start_over"));
+					AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
+					if (!_ap.isDone()) {
+						for (String criteria : _ap.getRemainingCriteria())
+							_player.getAdvancements().award(_adv, criteria);
+					}
+				}
 				if (entity instanceof LivingEntity _entity) {
 					ItemStack _setstack = new ItemStack(Items.BOOK).copy();
 					_setstack.setCount(1);

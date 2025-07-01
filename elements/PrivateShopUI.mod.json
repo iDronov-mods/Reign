@@ -120,15 +120,16 @@
             "value": ""
           },
           "disablePlacement": {
-            "fixedValue": false,
-            "name": "PrivateShopSetGoods"
+            "fixedValue": false
           },
           "id": 2,
           "disablePickup": {
-            "fixedValue": false,
-            "name": "PrivateShopClearGoods"
+            "fixedValue": true
           },
           "dropItemsWhenNotBound": false,
+          "onSlotChanged": {
+            "name": "PrivateShopSetGoods"
+          },
           "x": 241,
           "y": 62,
           "locked": false

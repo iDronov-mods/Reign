@@ -13,6 +13,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.reignmod.world.inventory.WalletwinMenu;
+import net.mcreator.reignmod.procedures.UpdateWalletProcedure;
 import net.mcreator.reignmod.procedures.Change2SlotProcedure;
 import net.mcreator.reignmod.procedures.Change1SlotProcedure;
 import net.mcreator.reignmod.procedures.Change0SlotProcedure;
@@ -88,13 +89,33 @@ public class WalletwinSlotMessage {
 
 			Change0SlotProcedure.execute(world, x, y, z, entity);
 		}
+		if (slot == 0 && changeType == 1) {
+
+			UpdateWalletProcedure.execute(entity);
+		}
 		if (slot == 1 && changeType == 0) {
 
 			Change1SlotProcedure.execute(world, x, y, z, entity);
 		}
+		if (slot == 1 && changeType == 1) {
+
+			UpdateWalletProcedure.execute(entity);
+		}
 		if (slot == 2 && changeType == 0) {
 
 			Change2SlotProcedure.execute(world, x, y, z, entity);
+		}
+		if (slot == 2 && changeType == 1) {
+
+			UpdateWalletProcedure.execute(entity);
+		}
+		if (slot == 3 && changeType == 0) {
+
+			UpdateWalletProcedure.execute(entity);
+		}
+		if (slot == 3 && changeType == 1) {
+
+			UpdateWalletProcedure.execute(entity);
 		}
 	}
 

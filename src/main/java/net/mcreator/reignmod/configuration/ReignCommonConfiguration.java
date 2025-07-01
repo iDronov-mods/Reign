@@ -5,6 +5,7 @@ import net.minecraftforge.common.ForgeConfigSpec;
 public class ReignCommonConfiguration {
 	public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
 	public static final ForgeConfigSpec SPEC;
+
 	public static final ForgeConfigSpec.ConfigValue<Boolean> DISABLE_VANILLA_VILLAGERS;
 	public static final ForgeConfigSpec.ConfigValue<Boolean> DISABLE_MARKET_TAX;
 	public static final ForgeConfigSpec.ConfigValue<Boolean> DISABLE_HOUSE_FEEDING;

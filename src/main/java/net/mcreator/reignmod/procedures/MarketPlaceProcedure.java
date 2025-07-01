@@ -17,6 +17,7 @@ public class MarketPlaceProcedure {
 	public static boolean execute(LevelAccessor world, Entity entity, double slot) {
 		if (entity == null)
 			return false;
+		String goods_name = "";
 		if (slot == 0) {
 			if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 				ItemStack _setstack = new ItemStack(Blocks.OAK_LOG).copy();
@@ -567,6 +568,7 @@ public class MarketPlaceProcedure {
 			}
 			MarketPriceSetProcedure.execute(world, entity, ReignModModVariables.MapVariables.get(world).food_price, "hay_block");
 		}
+		MarketCountSetProcedure.execute(world, entity);
 		return true;
 	}
 }

@@ -48,7 +48,7 @@ public class SerfBuyoutProcedure {
 						_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(0, 0, 0), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
 								("team leave " + GetTrueNameProcedure.execute(entity)));
 				} else if (IsKnightProcedure.execute(world, entity) && !IsLordProcedure.execute(world, entity)) {
-					HouseManager.deleteDomain((Player) entity, (Player) entity);
+					HouseManager.deleteDomain((Player) entity);
 					{
 						String _setval = "";
 						entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {

@@ -6,6 +6,8 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 
+import net.mcreator.reignmod.ReignModMod;
+
 import java.util.function.Supplier;
 import java.util.Map;
 
@@ -33,6 +35,8 @@ public class ClearMarketSlotsProcedure {
 			((Slot) _slots.get(72)).set(ItemStack.EMPTY);
 			_player.containerMenu.broadcastChanges();
 		}
-		MarketUpdateProcedure.execute(world, entity);
+		ReignModMod.queueServerWork(1, () -> {
+			MarketUpdateProcedure.execute(world, entity);
+		});
 	}
 }

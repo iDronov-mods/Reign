@@ -5,6 +5,7 @@ import net.mcreator.reignmod.network.ReignModModVariables;
 import net.mcreator.reignmod.networking.ReignNetworking;
 import net.mcreator.reignmod.networking.packet.S2C.PlayerPrefixSyncS2CPacket;
 import net.mcreator.reignmod.procedures.HouseDeleteProcedure;
+import net.mcreator.reignmod.procedures.IncubatorExistProcedure;
 import net.mcreator.reignmod.procedures.IsKingProcedure;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
@@ -90,6 +91,14 @@ public class HouseManager {
 
         if (houseSavedData != null) {
             houseSavedData.removeDomain(lordPlayer.getStringUUID(), knightPlayer.getStringUUID());
+        }
+    }
+
+    public static void deleteDomain(Player knightPlayer) {
+        HouseSavedData houseSavedData = HouseSavedData.getInstance();
+
+        if (houseSavedData != null) {
+            houseSavedData.removeDomain(getDomainLordByKnight(knightPlayer.getStringUUID()), knightPlayer.getStringUUID());
         }
     }
 
@@ -534,46 +543,51 @@ public class HouseManager {
 
             if (house.getPlayers().size() < 3) add_hp -= 100;
 
-            int need_fuel = domains.size() * 2 + 4;
-            int need_bread = house.getPlayers().size() + 1;
-            int need_roots = lvl >= 3 ? house.getPlayers().size() : 0;
-            int need_meat = lvl >= 4 ? domains.size() : 0;
-            int need_wool = lvl >= 5 ? domains.size() : 0;
-            int need_sweets = lvl >= 6 ? 2 : 0;
-            int need_jewelry = lvl >= 7 ? 2 : 0;
+            if(IncubatorExistProcedure.execute(HouseSavedData.getServerInstance(),house.getHouseIncubatorCoordinates()[0],
+                    house.getHouseIncubatorCoordinates()[1], house.getHouseIncubatorCoordinates()[2], house.getLordUUID())) {
 
-            if (house.getNeed(HouseNeedType.FUEL) >= need_fuel) add_hp += 50;
-            house.adjustNeed(HouseNeedType.FUEL, -need_fuel);
+                int need_fuel = domains.size() * 2 + 4;
+                int need_bread = house.getPlayers().size() + 1;
+                int need_roots = lvl >= 3 ? house.getPlayers().size() : 0;
+                int need_meat = lvl >= 4 ? domains.size() : 0;
+                int need_wool = lvl >= 5 ? domains.size() : 0;
+                int need_sweets = lvl >= 6 ? 2 : 0;
+                int need_jewelry = lvl >= 7 ? 2 : 0;
 
-            if (house.getNeed(HouseNeedType.BREAD) >= need_bread)  add_hp += 50;
-            house.adjustNeed(HouseNeedType.BREAD, -need_bread);
+                if (house.getNeed(HouseNeedType.FUEL) >= need_fuel) add_hp += 50;
+                house.adjustNeed(HouseNeedType.FUEL, -need_fuel);
 
-            if (house.getNeed(HouseNeedType.ROOTS) >= need_roots && lvl >= 3) add_hp += 20;
-            house.adjustNeed(HouseNeedType.ROOTS, -need_roots);
+                if (house.getNeed(HouseNeedType.BREAD) >= need_bread) add_hp += 50;
+                house.adjustNeed(HouseNeedType.BREAD, -need_bread);
 
-            if (house.getNeed(HouseNeedType.MEAT) >= need_meat && lvl >= 4) add_hp += 20;
-            house.adjustNeed(HouseNeedType.MEAT, -need_meat);
+                if (house.getNeed(HouseNeedType.ROOTS) >= need_roots && lvl >= 3) add_hp += 20;
+                house.adjustNeed(HouseNeedType.ROOTS, -need_roots);
 
-            if (house.getNeed(HouseNeedType.WOOL) >= need_wool && lvl >= 5) add_hp += 10;
-            house.adjustNeed(HouseNeedType.WOOL, -need_wool);
+                if (house.getNeed(HouseNeedType.MEAT) >= need_meat && lvl >= 4) add_hp += 20;
+                house.adjustNeed(HouseNeedType.MEAT, -need_meat);
 
-            if (house.getNeed(HouseNeedType.SWEETS) >= need_sweets && lvl >= 6) add_hp += 10;
-            house.adjustNeed(HouseNeedType.SWEETS, -need_sweets);
+                if (house.getNeed(HouseNeedType.WOOL) >= need_wool && lvl >= 5) add_hp += 10;
+                house.adjustNeed(HouseNeedType.WOOL, -need_wool);
 
-            if (house.getNeed(HouseNeedType.JEWELRY) >= need_jewelry && lvl >= 7) add_hp += 10;
-            house.adjustNeed(HouseNeedType.JEWELRY, -need_jewelry);
+                if (house.getNeed(HouseNeedType.SWEETS) >= need_sweets && lvl >= 6) add_hp += 10;
+                house.adjustNeed(HouseNeedType.SWEETS, -need_sweets);
 
-            int add_from_domains = 0;
-            for (Domain domain : domains) {
-                domain.adjustSuspicionForAll(-1);
+                if (house.getNeed(HouseNeedType.JEWELRY) >= need_jewelry && lvl >= 7) add_hp += 10;
+                house.adjustNeed(HouseNeedType.JEWELRY, -need_jewelry);
 
-                damageDomain(domain);
-                chanceDomainEvents(domain);
+                int add_from_domains = 0;
+                for (Domain domain : domains) {
+                    domain.adjustSuspicionForAll(-1);
 
-                add_from_domains += 3 * (domain.getDomainHP()/300);
+                    damageDomain(domain);
+                    chanceDomainEvents(domain);
+
+                    add_from_domains += 3 * (domain.getDomainHP() / 300);
+                }
+
+                add_hp += add_from_domains;
+
             }
-
-            add_hp += add_from_domains;
 
             if(house.addHouseHP(Math.max(-40, Math.min(add_hp, 40))) == 0) {
                 houses_to_delete.add(house.getLordUUID());

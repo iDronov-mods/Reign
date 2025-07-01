@@ -54,7 +54,7 @@ public class WorldisCheckProcedure {
 				}
 			}
 			if (ReignModModVariables.MapVariables.get(world).ERA >= 7) {
-				CheckBeeResistProcedure.execute(world, entity);
+				CheckBeeResistProcedure.execute(entity);
 			}
 		} else if (dimension == Level.END) {
 			if (ReignModModVariables.MapVariables.get(world).ERA < 10) {

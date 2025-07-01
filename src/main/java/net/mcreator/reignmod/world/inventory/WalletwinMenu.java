@@ -97,6 +97,12 @@ public class WalletwinMenu extends AbstractContainerMenu implements Supplier<Map
 			}
 
 			@Override
+			public void onTake(Player entity, ItemStack stack) {
+				super.onTake(entity, stack);
+				slotChanged(0, 1, 0);
+			}
+
+			@Override
 			public boolean mayPlace(ItemStack stack) {
 				return ReignModModItems.COPPER_COIN.get() == stack.getItem();
 			}
@@ -108,6 +114,12 @@ public class WalletwinMenu extends AbstractContainerMenu implements Supplier<Map
 			public void setChanged() {
 				super.setChanged();
 				slotChanged(1, 0, 0);
+			}
+
+			@Override
+			public void onTake(Player entity, ItemStack stack) {
+				super.onTake(entity, stack);
+				slotChanged(1, 1, 0);
 			}
 
 			@Override
@@ -125,12 +137,30 @@ public class WalletwinMenu extends AbstractContainerMenu implements Supplier<Map
 			}
 
 			@Override
+			public void onTake(Player entity, ItemStack stack) {
+				super.onTake(entity, stack);
+				slotChanged(2, 1, 0);
+			}
+
+			@Override
 			public boolean mayPlace(ItemStack stack) {
 				return ReignModModItems.GOLD_COIN.get() == stack.getItem();
 			}
 		}));
 		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 23, 48) {
 			private final int slot = 3;
+
+			@Override
+			public void setChanged() {
+				super.setChanged();
+				slotChanged(3, 0, 0);
+			}
+
+			@Override
+			public void onTake(Player entity, ItemStack stack) {
+				super.onTake(entity, stack);
+				slotChanged(3, 1, 0);
+			}
 
 			@Override
 			public boolean mayPlace(ItemStack stack) {

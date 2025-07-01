@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "reign_mod:block/storage_barrel_bottom",
+    "up": "reign_mod:block/storage_barrel_top",
+    "north": "reign_mod:block/storage_barrel_side",
+    "east": "reign_mod:block/storage_barrel_side",
+    "south": "reign_mod:block/storage_barrel_side",
+    "west": "reign_mod:block/storage_barrel_side",
+    "particle": "reign_mod:block/storage_barrel_bottom"
+  },
+  "render_type": "solid"
+}

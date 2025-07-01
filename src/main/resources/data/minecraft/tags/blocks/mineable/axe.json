@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "reign_mod:storage_barrel",
     "reign_mod:rental_block",
     "reign_mod:private_shop",
     "reign_mod:kingtable",
