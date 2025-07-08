@@ -28,7 +28,7 @@ public class MarketManager {
     public static Double getMaxAmount(String itemName) {
         MarketSavedData data = MarketSavedData.getInstance();
         MarketItem item = data.getMarketItems().get(itemName);
-        return (item != null) ? item.getBaseAmount() + data.getStorageBarrels().get(item.getItemType()) * item.getInPack() : null;
+        return (item != null) ? item.getBaseAmount() + data.getStorageBarrels().get(item.getItemType()) : null;
     }
 
     /**

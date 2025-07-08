@@ -1,10 +1,10 @@
 
 package net.mcreator.reignmod.item;
 
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Item;
 
 public class GoldCoinItem extends Item {
 	public GoldCoinItem() {

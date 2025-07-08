@@ -14,13 +14,14 @@ import net.minecraft.client.Minecraft;
 import net.mcreator.reignmod.world.inventory.KingtableUIMenu;
 import net.mcreator.reignmod.procedures.RentalSealDoneProcedure;
 import net.mcreator.reignmod.network.KingtableUIButtonMessage;
+import net.mcreator.reignmod.init.ReignModModScreens.WidgetScreen;
 import net.mcreator.reignmod.ReignModMod;
 
 import java.util.HashMap;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
-public class KingtableUIScreen extends AbstractContainerScreen<KingtableUIMenu> {
+public class KingtableUIScreen extends AbstractContainerScreen<KingtableUIMenu> implements WidgetScreen {
 	private final static HashMap<String, Object> guistate = KingtableUIMenu.guistate;
 	private final Level world;
 	private final int x, y, z;
@@ -69,6 +70,10 @@ public class KingtableUIScreen extends AbstractContainerScreen<KingtableUIMenu> 
 	public static HashMap<String, String> getTextboxValues() {
 		textstate.put("textin:owners", owners.getValue());
 		return textstate;
+	}
+
+	public HashMap<String, Object> getWidgets() {
+		return guistate;
 	}
 
 	@Override

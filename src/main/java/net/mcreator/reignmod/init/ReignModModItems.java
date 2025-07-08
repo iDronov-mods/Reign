@@ -115,6 +115,7 @@ public class ReignModModItems {
 	public static final RegistryObject<Item> RUIN_LORD_3 = REGISTRY.register("ruin_lord_3", () -> new RuinLord3Item());
 	public static final RegistryObject<Item> STORAGE_BARREL = block(ReignModModBlocks.STORAGE_BARREL);
 	public static final RegistryObject<Item> REIGN_COIN = REGISTRY.register("reign_coin", () -> new ReignCoinItem());
+	public static final RegistryObject<Item> STRATEGY_BLOCK = block(ReignModModBlocks.STRATEGY_BLOCK);
 
 	// Start of user code block custom items
 	// End of user code block custom items

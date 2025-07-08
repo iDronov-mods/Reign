@@ -25,6 +25,7 @@ public class Domain implements INBTSerializable<CompoundTag> {
     private String claimId;
     private HashSet<String> players = new HashSet<>();
     private int[] domainFoundationCoordinates = new int[3];
+    private int[] domainStrategyBlockCoordinates = new int[3];
     private final EnumMap<DomainDebuffs, Boolean> domainDebuffs = new EnumMap<>(DomainDebuffs.class);
     private final HashMap<String, Integer> suspectPlayers = new HashMap<>();
 
@@ -89,6 +90,13 @@ public class Domain implements INBTSerializable<CompoundTag> {
 
     public void setDomainFoundationCoordinates(int[] coordinates) {
         this.domainFoundationCoordinates = coordinates;
+        HouseSavedData.getInstance().setDirty();
+    }
+
+    public int[] getDomainStrategyBlockCoordinates() { return domainStrategyBlockCoordinates;}
+
+    public void setDomainStrategyBlockCoordinates(int[] domainStrategyBlockCoordinates) {
+        this.domainStrategyBlockCoordinates = domainStrategyBlockCoordinates;
         HouseSavedData.getInstance().setDirty();
     }
 
@@ -234,6 +242,7 @@ public class Domain implements INBTSerializable<CompoundTag> {
         tag.putInt("domain_hp", this.domainHP);
 
         tag.putIntArray("domain_foundation_coordinates", domainFoundationCoordinates);
+        tag.putIntArray("domain_strategy_block_coordinates", domainFoundationCoordinates);
 
         ListTag playersTag = new ListTag();
         this.players.forEach(player -> playersTag.add(StringTag.valueOf(player)));
@@ -271,6 +280,7 @@ public class Domain implements INBTSerializable<CompoundTag> {
         this.domainHP = nbt.getInt("domain_hp");
 
         domainFoundationCoordinates = nbt.getIntArray("domain_foundation_coordinates");
+        domainStrategyBlockCoordinates = nbt.getIntArray("domain_strategy_block_coordinates");
 
         this.players.clear();
         ListTag playersTag = nbt.getList("players", 8);

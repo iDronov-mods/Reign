@@ -67,7 +67,7 @@ public class FarmerProcedure {
 								_player.displayClientMessage(Component.literal((Component.translatable("translation.key.farmer.cant_wart").getString())), true);
 						}
 					}
-					if (Mth.nextInt(RandomSource.create(), 1, 4) == 1 && blockstate.getBlock() instanceof CropBlock
+					if (Mth.nextInt(RandomSource.create(), 1, 6) == 1 && blockstate.getBlock() instanceof CropBlock
 							&& (blockstate.getBlock().getStateDefinition().getProperty("age") instanceof IntegerProperty _getip30 ? blockstate.getValue(_getip30) : -1) >= 7) {
 						if (entity instanceof Player _player)
 							_player.giveExperiencePoints(1);

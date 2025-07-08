@@ -1,0 +1,12 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "main": "strategy_block_texture",
+        "reign_coin": "reign_coin",
+        "map": "map_strategy_block_texture"
+      },
+      "name": "default"
+    }
+  }
+}

@@ -141,14 +141,12 @@ public class KingdomData {
         ServerLevel level = HouseSavedData.getServerInstance();
         if (level == null) return;
 
-        BlockEntity blockEntity = getCoffersEntity(level);
-        if (blockEntity == null) return;
+        BlockEntity be = getCoffersEntity(level);
+        if (be == null) return;
 
-        CompoundTag tag = blockEntity.saveWithFullMetadata();
-        int current = tag.getInt("amount");
-        tag.putInt("amount", current + amount);
-        blockEntity.load(tag);
-        blockEntity.setChanged();
+        int current = be.getPersistentData().getInt("amount");
+        be.getPersistentData().putInt("amount", current + amount);
+        be.setChanged();
     }
 
     public boolean decreaseCoffersAmount(int amount) {

@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "reign_mod:strategy_block",
     "reign_mod:shaft",
     "reign_mod:finial_of_might",
     "reign_mod:finial_of_reign",

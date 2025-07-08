@@ -12,6 +12,7 @@ import net.minecraft.server.level.ServerLevel;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Iterator;
+import java.util.Map;
 import java.util.UUID;
 
 public class HouseSavedData extends ReignSavedData {
@@ -26,8 +27,10 @@ public class HouseSavedData extends ReignSavedData {
         ListTag housesTag = compoundTag.getList("houses", 10);
         housesTag.forEach(houseTag -> this.houseData.pushHouse(new House((CompoundTag) houseTag)));
 
-        ListTag domainsTag = compoundTag.getList("domains", 10);
-        domainsTag.forEach(domainTag -> this.houseData.addDomain(new Domain((CompoundTag) domainTag)));
+        this.houseData.getDomains().clear();
+        this.houseData.getHouses().values().forEach((House house) -> {
+            house.getDomains().values().forEach(houseData::addDomain);
+        });
 
         ListTag playersListTag = compoundTag.getList("players", 8);
         ListTag playersCodesListTag = compoundTag.getList("player_codes", 8);
@@ -70,10 +73,6 @@ public class HouseSavedData extends ReignSavedData {
         ListTag housesListTag = new ListTag();
         this.houseData.getHouses().forEach((lordUUID, house) -> housesListTag.add(house.serializeNBT()));
         compoundTag.put("houses", housesListTag);
-
-        ListTag domainsListTag = new ListTag();
-        this.houseData.getDomains().forEach((knightUUID, domain) -> domainsListTag.add(domain.serializeNBT()));
-        compoundTag.put("domains", domainsListTag);
 
         ListTag playersListTag = new ListTag();
         ListTag playersCodesListTag = new ListTag();
@@ -169,16 +168,17 @@ public class HouseSavedData extends ReignSavedData {
     public void setHouseNeed(String lordUUID, HouseNeedType type, int value) {
         House found = this.houseData.findHouseByLord(lordUUID);
         if (!found.isNull()) {
-            setDirty();
             found.setNeed(type, value);
+            setDirty();
         }
     }
 
     public int adjustHouseNeed(String lordUUID, HouseNeedType type, int delta) {
         House found = this.houseData.findHouseByLord(lordUUID);
         if (!found.isNull()) {
+            var adjusting = found.adjustNeed(type, delta);
             setDirty();
-            return found.adjustNeed(type, delta);
+            return adjusting;
         }
         return -1;
     }

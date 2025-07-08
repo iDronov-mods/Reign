@@ -9,7 +9,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.reignmod.house.HouseManager;
@@ -28,11 +27,7 @@ public class DeleteClaimProcedure {
 			world = _origLevel.getServer().getLevel(Level.OVERWORLD);
 			if (world != null) {
 				UUID = entity.getStringUUID();
-				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal("\u0414\u043E \u0440\u044B\u0446\u0430\u0440\u0441\u043A\u0438\u0445 \u0434\u0435\u043B"), false);
 				ChunkClaimManager.removeClaim((ServerPlayer) entity, HouseManager.getDomainByKnightUUID(UUID).getClaimId());
-				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal("\u041F\u043E\u0441\u043B\u0435 \u0440\u044B\u0446\u0430\u0440\u0441\u043A\u0438\u0445 \u0422\u0430\u043B\u0437\u0438\u044F\u0440\u0441\u043A\u0438\u0445 \u0434\u0435\u043B"), false);
 				world.setBlock(BlockPos.containing(x, y + ChunkClaimConstants.DOMAIN_SHAFT_LENGTH, z), Blocks.AIR.defaultBlockState(), 3);
 				world.setBlock(BlockPos.containing(x, y + ChunkClaimConstants.DOMAIN_SHAFT_LENGTH - 1, z), Blocks.AIR.defaultBlockState(), 3);
 				{

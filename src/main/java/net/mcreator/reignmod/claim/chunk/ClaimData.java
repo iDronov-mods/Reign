@@ -4,23 +4,24 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
 import net.minecraftforge.common.util.INBTSerializable;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Хранит данные об одном «приватном регионе»:
- * claimId, ownerId, claimType, координаты центра, и набор занятых чанков.
- */
 public class ClaimData implements INBTSerializable<CompoundTag> {
 
-    private final Set<Long> claimedChunks = new HashSet<>();
     private String claimId;
     private String ownerId;
     private String ownerName;
     private ClaimType claimType;
     private int centerChunkX;
     private int centerChunkZ;
+
+    private final Set<Long> claimedChunks = new HashSet<>();
+    private final Set<Long> outerChunks = new HashSet<>();
 
     public ClaimData() {
     }
@@ -82,9 +83,35 @@ public class ClaimData implements INBTSerializable<CompoundTag> {
         this.centerChunkZ = centerChunkZ;
     }
 
-    public Set<Long> getClaimedChunks() {
-        return claimedChunks;
+    public boolean addChunk(long chunkId) {
+        return claimedChunks.add(chunkId);
     }
+
+    public boolean removeChunk(long chunkId) {
+        return claimedChunks.remove(chunkId);
+    }
+
+    public boolean containsChunk(long chunkId) {
+        return claimedChunks.contains(chunkId);
+    }
+
+    public boolean addOuterChunk(long chunkId) {
+        return outerChunks.add(chunkId);
+    }
+
+    public boolean removeOuterChunk(long chunkId) {
+        return outerChunks.remove(chunkId);
+    }
+
+    public boolean containsOuterChunk(long chunkId) {
+        return outerChunks.contains(chunkId);
+    }
+
+    public Set<Long> getClaimedChunks() {
+        return Collections.unmodifiableSet(claimedChunks);
+    }
+
+    public Set<Long> getOuterChunks() { return Collections.unmodifiableSet(outerChunks); }
 
     // --- Сериализация ---
 
@@ -103,6 +130,11 @@ public class ClaimData implements INBTSerializable<CompoundTag> {
             list.add(StringTag.valueOf(chunkId.toString()));
         }
         tag.put("claimed_chunks", list);
+        list = new ListTag();
+        for (Long chunkId : outerChunks) {
+            list.add(StringTag.valueOf(chunkId.toString()));
+        }
+        tag.put("outer_chunks", list);
 
         return tag;
     }
@@ -121,6 +153,13 @@ public class ClaimData implements INBTSerializable<CompoundTag> {
         list.forEach(nbt -> {
             long cid = Long.parseLong(nbt.getAsString());
             this.claimedChunks.add(cid);
+        });
+
+        this.outerChunks.clear();
+        list = tag.getList("outer_chunks", 8);
+        list.forEach(nbt -> {
+            long cid = Long.parseLong(nbt.getAsString());
+            this.outerChunks.add(cid);
         });
     }
 }

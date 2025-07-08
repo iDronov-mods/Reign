@@ -57,7 +57,6 @@ public class CapitalClaimSavedData extends ReignSavedData {
             instance = serverLevel.getDataStorage().computeIfAbsent(
                     CapitalClaimSavedData::new, CapitalClaimSavedData::new, "capital_claims_data"
             );
-            CapitalClaimManager.setCapitalCenter(instance.capitalHeartX, instance.capitalHeartZ);
             instance.serverLevelInstance = serverLevel;
         }
     }

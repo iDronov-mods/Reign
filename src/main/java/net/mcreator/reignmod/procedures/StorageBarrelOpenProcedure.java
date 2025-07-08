@@ -98,6 +98,24 @@ public class StorageBarrelOpenProcedure {
 				((Slot) _slots.get(9)).set(_setstack);
 				_player.containerMenu.broadcastChanges();
 			}
+			(entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(1)).getItem() : ItemStack.EMPTY)
+					.setHoverName(Component.literal((Component.translatable("translation.storage_barrel.logs").getString())));
+			(entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(2)).getItem() : ItemStack.EMPTY)
+					.setHoverName(Component.literal((Component.translatable("translation.storage_barrel.fuel").getString())));
+			(entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(3)).getItem() : ItemStack.EMPTY)
+					.setHoverName(Component.literal((Component.translatable("translation.storage_barrel.ores").getString())));
+			(entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(4)).getItem() : ItemStack.EMPTY)
+					.setHoverName(Component.literal((Component.translatable("translation.storage_barrel.tools").getString())));
+			(entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(5)).getItem() : ItemStack.EMPTY)
+					.setHoverName(Component.literal((Component.translatable("translation.storage_barrel.armors").getString())));
+			(entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(6)).getItem() : ItemStack.EMPTY)
+					.setHoverName(Component.literal((Component.translatable("translation.storage_barrel.blocks").getString())));
+			(entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(7)).getItem() : ItemStack.EMPTY)
+					.setHoverName(Component.literal((Component.translatable("translation.storage_barrel.foods").getString())));
+			(entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(8)).getItem() : ItemStack.EMPTY)
+					.setHoverName(Component.literal((Component.translatable("translation.storage_barrel.other").getString())));
+			(entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(9)).getItem() : ItemStack.EMPTY)
+					.setHoverName(Component.literal((Component.translatable("translation.storage_barrel.exp").getString())));
 			if ((new Object() {
 				public String getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -112,6 +130,8 @@ public class StorageBarrelOpenProcedure {
 					((Slot) _slots.get(0)).set(_setstack);
 					_player.containerMenu.broadcastChanges();
 				}
+				(entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY)
+						.setHoverName(Component.literal((Component.translatable("translation.storage_barrel.logs").getString())));
 			} else if ((new Object() {
 				public String getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -126,6 +146,8 @@ public class StorageBarrelOpenProcedure {
 					((Slot) _slots.get(2)).set(_setstack);
 					_player.containerMenu.broadcastChanges();
 				}
+				(entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY)
+						.setHoverName(Component.literal((Component.translatable("translation.storage_barrel.fuel").getString())));
 			} else if ((new Object() {
 				public String getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -140,6 +162,8 @@ public class StorageBarrelOpenProcedure {
 					((Slot) _slots.get(0)).set(_setstack);
 					_player.containerMenu.broadcastChanges();
 				}
+				(entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY)
+						.setHoverName(Component.literal((Component.translatable("translation.storage_barrel.ores").getString())));
 			} else if ((new Object() {
 				public String getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -154,6 +178,8 @@ public class StorageBarrelOpenProcedure {
 					((Slot) _slots.get(0)).set(_setstack);
 					_player.containerMenu.broadcastChanges();
 				}
+				(entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY)
+						.setHoverName(Component.literal((Component.translatable("translation.storage_barrel.tools").getString())));
 			} else if ((new Object() {
 				public String getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -168,6 +194,8 @@ public class StorageBarrelOpenProcedure {
 					((Slot) _slots.get(0)).set(_setstack);
 					_player.containerMenu.broadcastChanges();
 				}
+				(entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY)
+						.setHoverName(Component.literal((Component.translatable("translation.storage_barrel.armors").getString())));
 			} else if ((new Object() {
 				public String getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -182,6 +210,8 @@ public class StorageBarrelOpenProcedure {
 					((Slot) _slots.get(0)).set(_setstack);
 					_player.containerMenu.broadcastChanges();
 				}
+				(entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY)
+						.setHoverName(Component.literal((Component.translatable("translation.storage_barrel.blocks").getString())));
 			} else if ((new Object() {
 				public String getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -196,6 +226,8 @@ public class StorageBarrelOpenProcedure {
 					((Slot) _slots.get(0)).set(_setstack);
 					_player.containerMenu.broadcastChanges();
 				}
+				(entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY)
+						.setHoverName(Component.literal((Component.translatable("translation.storage_barrel.foods").getString())));
 			} else if ((new Object() {
 				public String getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -210,6 +242,8 @@ public class StorageBarrelOpenProcedure {
 					((Slot) _slots.get(0)).set(_setstack);
 					_player.containerMenu.broadcastChanges();
 				}
+				(entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY)
+						.setHoverName(Component.literal((Component.translatable("translation.storage_barrel.other").getString())));
 			} else if ((new Object() {
 				public String getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -224,6 +258,8 @@ public class StorageBarrelOpenProcedure {
 					((Slot) _slots.get(0)).set(_setstack);
 					_player.containerMenu.broadcastChanges();
 				}
+				(entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY)
+						.setHoverName(Component.literal((Component.translatable("translation.storage_barrel.exp").getString())));
 			} else {
 				if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 					ItemStack _setstack = ItemStack.EMPTY.copy();

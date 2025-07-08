@@ -147,6 +147,12 @@
     "onRightClicked": {
       "name": "StorageBarrelOpen"
     },
+    "onDestroyedByPlayer": {
+      "name": "StorageBarrelCategoryDelete"
+    },
+    "onDestroyedByExplosion": {
+      "name": "StorageBarrelCategoryDelete"
+    },
     "generateFeature": false,
     "restrictionBiomes": [],
     "blocksToReplace": [

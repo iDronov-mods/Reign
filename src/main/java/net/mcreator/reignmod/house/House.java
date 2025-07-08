@@ -32,6 +32,7 @@ public class House implements INBTSerializable<CompoundTag> {
     private int[] housePlusCoordinates = new int[3];
     private int[] houseIncubatorCoordinates = new int[3];
     private int[] housePrisonCoordinates = new int[3];
+    private int[] houseStrategyBlockCoordinates = new int[3];
     private final EnumMap<HouseNeedType, Integer> needs = new EnumMap<>(HouseNeedType.class);
     private final HashMap<String, Domain> domains = new HashMap<>();
     private final HashSet<String> wantedPlayers = new HashSet<>();
@@ -40,7 +41,7 @@ public class House implements INBTSerializable<CompoundTag> {
     public final static int MAX_NEED_AMOUNT = 4096;
 
     //--------------------------------------------------------------------------------
-    //                                 КОНСТРУКТОРЫ
+    //                                 КОНСТРУКТОРЫ И ОПЕРАТОРЫ
     //--------------------------------------------------------------------------------
 
     public House() {
@@ -63,6 +64,18 @@ public class House implements INBTSerializable<CompoundTag> {
     public House(CompoundTag nbt) {
         this();
         deserializeNBT(nbt);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof House other)) return false;
+        return Objects.equals(this.lordUUID, other.lordUUID);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(lordUUID);
     }
 
     //--------------------------------------------------------------------------------
@@ -130,6 +143,7 @@ public class House implements INBTSerializable<CompoundTag> {
 
     public void setHousePlusCoordinates(int[] coordinates) {
         this.housePlusCoordinates = coordinates;
+        HouseSavedData.getInstance().setDirty();
     }
 
 
@@ -139,6 +153,7 @@ public class House implements INBTSerializable<CompoundTag> {
 
     public void setHouseIncubatorCoordinates(int[] coordinates) {
         this.houseIncubatorCoordinates = coordinates;
+        HouseSavedData.getInstance().setDirty();
     }
 
 
@@ -148,8 +163,17 @@ public class House implements INBTSerializable<CompoundTag> {
 
     public void setHousePrisonCoordinates(int[] coordinates) {
         this.housePrisonCoordinates = coordinates;
+        HouseSavedData.getInstance().setDirty();
     }
 
+    public int[] getHouseStrategyBlockCoordinates() {
+        return houseStrategyBlockCoordinates;
+    }
+
+    public void setHouseStrategyBlockCoordinates(int[] coordinates) {
+        this.houseStrategyBlockCoordinates = coordinates;
+        HouseSavedData.getInstance().setDirty();
+    }
 
     public boolean isNull() {
         return Objects.equals(lordUUID, null);
@@ -361,6 +385,7 @@ public class House implements INBTSerializable<CompoundTag> {
         tag.putIntArray("house_plus_coordinates", housePlusCoordinates);
         tag.putIntArray("house_incubator_coordinates", houseIncubatorCoordinates);
         tag.putIntArray("house_prison_coordinates", housePrisonCoordinates);
+        tag.putIntArray("house_strategy_block_coordinates", houseStrategyBlockCoordinates);
 
         // Players
         ListTag playersTag = new ListTag();
@@ -409,6 +434,7 @@ public class House implements INBTSerializable<CompoundTag> {
         housePlusCoordinates = nbt.getIntArray("house_plus_coordinates");
         houseIncubatorCoordinates = nbt.getIntArray("house_incubator_coordinates");
         housePrisonCoordinates = nbt.getIntArray("house_prison_coordinates");
+        houseStrategyBlockCoordinates = nbt.getIntArray("house_strategy_block_coordinates");
 
         // Players
         players.clear();
@@ -422,7 +448,8 @@ public class House implements INBTSerializable<CompoundTag> {
         ListTag domainsTag = nbt.getList("domains", 10);
         for (int i = 0; i < domainsTag.size(); i++) {
             CompoundTag domainNBT = domainsTag.getCompound(i);
-            pushDomain(new Domain(domainNBT));
+            var domain = new Domain(domainNBT);
+            pushDomain(domain);
         }
 
         // Wanted

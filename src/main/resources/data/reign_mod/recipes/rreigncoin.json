@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "abc",
+    "ded",
+    "cba"
+  ],
+  "key": {
+    "a": {
+      "item": "reign_mod:woodcutter_coin"
+    },
+    "b": {
+      "item": "reign_mod:cowboy_coin"
+    },
+    "c": {
+      "item": "reign_mod:farmer_coin"
+    },
+    "d": {
+      "item": "reign_mod:miner_coin"
+    },
+    "e": {
+      "item": "reign_mod:smith_coin"
+    }
+  },
+  "result": {
+    "item": "reign_mod:reign_coin",
+    "count": 9
+  }
+}

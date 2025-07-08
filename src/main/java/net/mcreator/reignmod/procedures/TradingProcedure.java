@@ -9,6 +9,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.resources.ResourceLocation;
@@ -307,6 +308,136 @@ public class TradingProcedure {
 							} else {
 								_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("reign_mod:minting")), SoundSource.BLOCKS, 1, 1, false);
 							}
+						}
+					}
+					if (item.is(ItemTags.create(new ResourceLocation("reign:work_coins")))) {
+						if (item.getItem() == ReignModModItems.WOODCUTTER_COIN.get()) {
+							pay = 4;
+						} else if (item.getItem() == ReignModModItems.MINER_COIN.get()) {
+							pay = 48;
+						} else if (item.getItem() == ReignModModItems.SMITH_COIN.get()) {
+							pay = 176;
+						} else if (item.getItem() == ReignModModItems.FARMER_COIN.get()) {
+							pay = 21;
+						} else if (item.getItem() == ReignModModItems.COWBOY_COIN.get()) {
+							pay = 16;
+						}
+						if (ReignModModVariables.MapVariables.get(world).market_copper >= pay) {
+							if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+								((Slot) _slots.get(0)).remove(1);
+								_player.containerMenu.broadcastChanges();
+							}
+							if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+								ItemStack _setstack = new ItemStack(ReignModModItems.COPPER_COIN.get()).copy();
+								_setstack.setCount((int) (pay + new Object() {
+									public int getAmount(int sltid) {
+										if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+											ItemStack stack = ((Slot) _slots.get(sltid)).getItem();
+											if (stack != null)
+												return stack.getCount();
+										}
+										return 0;
+									}
+								}.getAmount(1)));
+								((Slot) _slots.get(1)).set(_setstack);
+								_player.containerMenu.broadcastChanges();
+							}
+							ReignModModVariables.MapVariables.get(world).market_copper = ReignModModVariables.MapVariables.get(world).market_copper - pay;
+							ReignModModVariables.MapVariables.get(world).syncData(world);
+							while (new Object() {
+								public int getAmount(int sltid) {
+									if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+										ItemStack stack = ((Slot) _slots.get(sltid)).getItem();
+										if (stack != null)
+											return stack.getCount();
+									}
+									return 0;
+								}
+							}.getAmount(1) >= 16) {
+								if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+									((Slot) _slots.get(1)).remove(16);
+									_player.containerMenu.broadcastChanges();
+								}
+								if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+									ItemStack _setstack = new ItemStack(ReignModModItems.SILVER_COIN.get()).copy();
+									_setstack.setCount((int) (new Object() {
+										public int getAmount(int sltid) {
+											if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+												ItemStack stack = ((Slot) _slots.get(sltid)).getItem();
+												if (stack != null)
+													return stack.getCount();
+											}
+											return 0;
+										}
+									}.getAmount(2) + 1));
+									((Slot) _slots.get(2)).set(_setstack);
+									_player.containerMenu.broadcastChanges();
+								}
+							}
+							while (new Object() {
+								public int getAmount(int sltid) {
+									if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+										ItemStack stack = ((Slot) _slots.get(sltid)).getItem();
+										if (stack != null)
+											return stack.getCount();
+									}
+									return 0;
+								}
+							}.getAmount(2) >= 16) {
+								if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+									((Slot) _slots.get(2)).remove(16);
+									_player.containerMenu.broadcastChanges();
+								}
+								if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+									ItemStack _setstack = new ItemStack(ReignModModItems.GOLD_COIN.get()).copy();
+									_setstack.setCount((int) (new Object() {
+										public int getAmount(int sltid) {
+											if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+												ItemStack stack = ((Slot) _slots.get(sltid)).getItem();
+												if (stack != null)
+													return stack.getCount();
+											}
+											return 0;
+										}
+									}.getAmount(3) + 1));
+									((Slot) _slots.get(3)).set(_setstack);
+									_player.containerMenu.broadcastChanges();
+								}
+							}
+							while (new Object() {
+								public int getAmount(int sltid) {
+									if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+										ItemStack stack = ((Slot) _slots.get(sltid)).getItem();
+										if (stack != null)
+											return stack.getCount();
+									}
+									return 0;
+								}
+							}.getAmount(3) >= 16) {
+								if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+									((Slot) _slots.get(3)).remove(16);
+									_player.containerMenu.broadcastChanges();
+								}
+								if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+									ItemStack _setstack = new ItemStack(ReignModModItems.PLATINUM_COIN.get()).copy();
+									_setstack.setCount((int) (new Object() {
+										public int getAmount(int sltid) {
+											if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+												ItemStack stack = ((Slot) _slots.get(sltid)).getItem();
+												if (stack != null)
+													return stack.getCount();
+											}
+											return 0;
+										}
+									}.getAmount(4) + 1));
+									((Slot) _slots.get(4)).set(_setstack);
+									_player.containerMenu.broadcastChanges();
+								}
+							}
+							SoundGiveCoinProcedure.execute(world, x, y, z);
+						} else {
+							if (entity instanceof Player _player && !_player.level().isClientSide())
+								_player.displayClientMessage(Component.literal((Component.translatable("translation.key.market_cant_pay").getString())), true);
 						}
 					}
 				}

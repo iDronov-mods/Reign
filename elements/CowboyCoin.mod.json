@@ -16,7 +16,7 @@
     ],
     "stackSize": 64,
     "enchantability": 0,
-    "useDuration": 0,
+    "useDuration": 20,
     "toolType": 1.0,
     "damageCount": 0,
     "recipeRemainder": {
@@ -36,6 +36,9 @@
     },
     "inventorySize": 9,
     "inventoryStackSize": 64,
+    "onFinishUsingItem": {
+      "name": "CowboyCoinUse"
+    },
     "enableRanged": false,
     "shootConstantly": false,
     "rangedItemChargesPower": false,
@@ -43,16 +46,20 @@
       "value": "Arrow"
     },
     "projectileDisableAmmoCheck": false,
-    "isFood": false,
-    "nutritionalValue": 4,
+    "isFood": true,
+    "nutritionalValue": 1,
     "saturation": 0.3,
     "eatResultItem": {
-      "value": ""
+      "value": "Items.WHEAT_SEEDS"
     },
     "isMeat": false,
-    "isAlwaysEdible": false,
-    "animation": "none",
+    "isAlwaysEdible": true,
+    "animation": "eat",
     "isMusicDisc": false,
+    "musicDiscMusic": {
+      "value": ""
+    },
+    "musicDiscDescription": "",
     "musicDiscLengthInTicks": 0,
     "musicDiscAnalogOutput": 0
   }

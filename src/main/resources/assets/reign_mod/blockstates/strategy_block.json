@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "reign_mod:block/strategy_block"
+    },
+    "facing=east": {
+      "model": "reign_mod:block/strategy_block",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "reign_mod:block/strategy_block",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "reign_mod:block/strategy_block",
+      "y": 270
+    }
+  }
+}

@@ -8,6 +8,7 @@ import net.mcreator.reignmod.house.HouseManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.Level;
@@ -15,28 +16,17 @@ import net.minecraft.world.level.Level;
 import java.util.Optional;
 import java.util.UUID;
 
-/**
- * Утилитный класс, упрощающий работу с ChunkClaimData.
- * - Проверяет свободность области (21×21),
- * — Создаёт/удаляет приваты,
- * — Возвращает владельца чанка.
- */
 public class ChunkClaimManager {
 
-
-
-    /**
-     * Проверяет, свободна ли вся квадратная область 21×21 чанков
-     * (радиус 10 от центра (centerX, centerZ)).
-     */
-    private static boolean isAreaCompletelyFree(int centerX, int centerY, int centerZ, ClaimType claimType) {
-        int radius = (claimType == ClaimType.CAPITAL ? ChunkClaimConstants.CAPITAL_CLAIM_RADIUS : ChunkClaimConstants.CLAIM_RADIUS);
-        var ch = new ChunkPos(new BlockPos(centerX, centerY, centerZ));
+    public static boolean isAreaFree(ChunkPos center, ClaimType type) {
+        int radius = (type == ClaimType.CAPITAL)
+                ? ChunkClaimConstants.CAPITAL_CLAIM_RADIUS
+                : ChunkClaimConstants.CLAIM_RADIUS;
+        var storage = ChunkClaimSavedData.getInstance();
         for (int dx = -radius; dx <= radius; dx++) {
             for (int dz = -radius; dz <= radius; dz++) {
-                long chunkId = ChunkPos.asLong(ch.x + dx, ch.z + dz);
-                var existing = ChunkClaimSavedData.getInstance().getClaimByChunk(chunkId);
-                if (existing.isPresent()) {
+                ChunkPos cp = new ChunkPos(center.x + dx, center.z + dz);
+                if (storage.isClaimed(cp)) {
                     return false;
                 }
             }
@@ -44,15 +34,13 @@ public class ChunkClaimManager {
         return true;
     }
 
-    /**
-     * Создаём новый приват (ClaimData),
-     * если вся территория свободна (никаких пересечений).
-     */
+
     public static boolean createClaim(ServerPlayer sv, ClaimType claimType, int centerX, int centerY, int centerZ) {
         if (claimType == ClaimType.CAPITAL) {
             return false;
         }
-        if (!isAreaCompletelyFree(centerX, centerY, centerZ, claimType)) {
+        ChunkPos center = new ChunkPos(new BlockPos(centerX, centerY, centerZ));
+        if (!isAreaFree(center, claimType)) {
             sv.displayClientMessage(Component.translatable("chunkclaim.add.fail.occupied"), true);
             return false;
         }
@@ -77,22 +65,21 @@ public class ChunkClaimManager {
             return false;
         }
 
-        // Формируем ClaimData
         claimId = UUID.randomUUID().toString();
-        ClaimData claimData = new ClaimData(claimId, sv.getStringUUID(), ownerName, claimType, centerX, centerZ);
+        ClaimData data = new ClaimData(claimId, sv.getStringUUID(), ownerName, claimType, centerX, centerZ);
 
-        // Заполняем все чанки
         int radius = ChunkClaimConstants.CLAIM_RADIUS;
-        var ch = new ChunkPos(new BlockPos(centerX, centerY, centerZ));
         for (int dx = -radius; dx <= radius; dx++) {
             for (int dz = -radius; dz <= radius; dz++) {
-                long chunkId = ChunkPos.asLong(ch.x + dx, ch.z + dz);
-                claimData.getClaimedChunks().add(chunkId);
+                var chunkId = ChunkPos.asLong(center.x + dx, center.z + dz);
+                data.addChunk(chunkId);
+                if (dx == -radius || dx == radius || dz == -radius || dz == radius) {
+                    data.addOuterChunk(chunkId);
+                }
             }
         }
 
-        // Добавляем в хранилище
-        ChunkClaimSavedData.getInstance().addClaim(claimData);
+        ChunkClaimSavedData.getInstance().addClaim(data);
         if (claimType == ClaimType.DOMAIN) {
             Domain domain = HouseManager.getDomainByKnightUUID(sv.getStringUUID());
             domain.setClaimId(claimId);
@@ -106,7 +93,8 @@ public class ChunkClaimManager {
     }
 
     public static boolean createCapitalClaim(int centerX, int centerY, int centerZ) {
-        if (!isAreaCompletelyFree(centerX, centerY, centerZ, ClaimType.CAPITAL)) {
+        var center = new ChunkPos(new BlockPos(centerX, centerY, centerZ));
+        if (!isAreaFree(center, ClaimType.CAPITAL)) {
             return false;
         }
 
@@ -117,43 +105,39 @@ public class ChunkClaimManager {
             return false;
         }
 
-        // Формируем ClaimData
         claimId = UUID.randomUUID().toString();
-        ClaimData claimData = new ClaimData(claimId, claimId, ownerName, ClaimType.CAPITAL, centerX, centerZ);
+        ClaimData data = new ClaimData(claimId, claimId, ownerName, ClaimType.CAPITAL, centerX, centerZ);
 
-        // Заполняем все чанки
         int radius = ChunkClaimConstants.CAPITAL_CLAIM_RADIUS;
-        var ch = new ChunkPos(new BlockPos(centerX, centerY, centerZ));
+
         for (int dx = -radius; dx <= radius; dx++) {
             for (int dz = -radius; dz <= radius; dz++) {
-                long chunkId = ChunkPos.asLong(ch.x + dx, ch.z + dz);
-                claimData.getClaimedChunks().add(chunkId);
+                data.addChunk(ChunkPos.asLong(center.x + dx, center.z + dz));
             }
         }
 
-        // Добавляем в хранилище
-        ChunkClaimSavedData.getInstance().addClaim(claimData);
+        ChunkClaimSavedData.getInstance().addClaim(data);
         CapitalClaimSavedData.setChunkClaimId(claimId);
         return true;
     }
 
-    /**
-     * Удаляем приват по claimId и логируем игроку.
-     */
     public static void removeClaim(ServerPlayer sv, String claimId) {
-        sv.displayClientMessage(Component.literal("Мы внутри до IF"), false);
         if (ChunkClaimSavedData.getInstance().getClaim(claimId).isPresent()) {
             removeClaim(claimId);
-            sv.displayClientMessage(Component.translatable("chunkclaim.remove.success"), false);
+            sv.displayClientMessage(Component.translatable("chunkclaim.remove.success"), true);
         }
-        else {
-            sv.displayClientMessage(Component.translatable("chunkclaim.remove.not_found"), false);
-        }
+        sv.displayClientMessage(Component.translatable("chunkclaim.remove.not_found"), true);
     }
 
-    /**
-     * Удаляем приват по claimId.
-     */
+    public static void removeClaim(ServerPlayer sp) {
+        var claim = getClaimIdByChunk(new ChunkPos(sp.getOnPos()));
+        if (claim.isPresent()) {
+            removeClaim(claim.get());
+            sp.displayClientMessage(Component.translatable("chunkclaim.remove.success"), false);
+        }
+        sp.displayClientMessage(Component.translatable("chunkclaim.remove.not_found"), false);
+    }
+
     public static void removeClaim(String claimId) {
         if (ChunkClaimSavedData.getInstance().getClaim(claimId).isPresent()) {
             String ownerId = ChunkClaimSavedData.getInstance().getClaim(claimId).get().getOwnerId();
@@ -169,47 +153,23 @@ public class ChunkClaimManager {
         }
     }
 
-    /**
-     * Удаляем приват по координатам.
-     */
-    public static void removeClaim(ServerPlayer sp) {
-        var claim = getClaimIdByChunk(new ChunkPos(sp.getOnPos()));
-        if (claim.isPresent()) {
-            removeClaim(claim.get());
-            sp.displayClientMessage(Component.translatable("chunkclaim.remove.success"), false);
-        }
-        sp.displayClientMessage(Component.translatable("chunkclaim.remove.not_found"), false);
-    }
-
-    /**
-     * Возвращает владельца чанка (x, z) если есть, иначе пусто.
-     */
     public static Optional<String> getChunkOwner(int chunkX, int chunkZ) {
         return ChunkClaimSavedData.getInstance()
                 .getClaimByChunk(chunkX, chunkZ)
                 .map(ClaimData::getOwnerId);
     }
 
-    /**
-     * Возвращает имя владельца чанка (x, z) если есть, иначе пусто.
-     */
     public static Optional<String> getChunkOwnerName(ChunkPos chunkPos) {
         return ChunkClaimSavedData.getInstance()
                 .getClaimByChunk(chunkPos.x, chunkPos.z).map(ClaimData::getOwnerName);
     }
 
-    /**
-     * Проверяем, владеет ли ownerId этим чанком.
-     */
     public static boolean isOwnerOfChunk(String ownerId, int chunkX, int chunkZ) {
         return getChunkOwner(chunkX, chunkZ)
                 .filter(o -> o.equals(ownerId))
                 .isPresent();
     }
 
-    /**
-     * Получаем claimId для чанка (если приватен).
-     */
     public static Optional<String> getClaimIdByChunk(int chunkX, int chunkZ) {
         return ChunkClaimSavedData.getInstance()
                 .getClaimByChunk(chunkX, chunkZ)

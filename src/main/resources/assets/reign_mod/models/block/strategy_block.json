@@ -1,0 +1,11 @@
+{
+  "parent": "reign_mod:custom/strategy_block",
+  "textures": {
+    "all": "minecraft:block/cartography_table_side3",
+    "particle": "minecraft:block/cartography_table_side3",
+    "main": "reign_mod:block/strategy_block_texture",
+    "reign_coin": "reign_mod:block/reign_coin",
+    "map": "reign_mod:block/map_strategy_block_texture"
+  },
+  "render_type": "solid"
+}

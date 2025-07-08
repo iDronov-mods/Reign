@@ -55,6 +55,10 @@ public class ChunkClaimSavedData extends SavedData {
         return serverLevelInstance;
     }
 
+    public Map<String, ClaimData> getClaims() {
+        return claims;
+    }
+
     public Optional<ClaimData> getClaim(String claimId) {
         return Optional.ofNullable(claims.get(claimId));
     }
@@ -68,6 +72,10 @@ public class ChunkClaimSavedData extends SavedData {
         String claimId = chunkToClaimId.get(chunkId);
         if (claimId == null) return Optional.empty();
         return Optional.ofNullable(claims.get(claimId));
+    }
+
+    public boolean isClaimed(@NotNull ChunkPos pos) {
+        return chunkToClaimId.containsKey(pos.toLong());
     }
 
     public void addClaim(ClaimData claimData) {
@@ -89,6 +97,32 @@ public class ChunkClaimSavedData extends SavedData {
             }
             setDirty();
         }
+    }
+
+    public boolean addChunk(String claimId, long chunkId) {
+        Optional<ClaimData> territory = getClaim(claimId);
+        if (territory.isEmpty() || chunkToClaimId.containsKey(chunkId)) {
+            return false;
+        }
+        territory.get().addChunk(chunkId);
+        territory.get().addOuterChunk(chunkId);
+
+        chunkToClaimId.put(chunkId, claimId);
+        setDirty();
+        return true;
+    }
+
+    public boolean removeChunk(String claimId, long chunkId) {
+        Optional<ClaimData> territory = getClaim(claimId);
+        if (territory.isEmpty() || chunkToClaimId.containsKey(chunkId)) {
+            return false;
+        }
+        territory.get().removeChunk(chunkId);
+        territory.get().removeOuterChunk(chunkId);
+
+        chunkToClaimId.remove(chunkId);
+        setDirty();
+        return true;
     }
 
     @Override

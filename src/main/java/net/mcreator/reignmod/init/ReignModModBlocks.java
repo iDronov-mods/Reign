@@ -15,6 +15,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraft.world.level.block.Block;
 
 import net.mcreator.reignmod.block.TradeBlockBlock;
+import net.mcreator.reignmod.block.StrategyBlockBlock;
 import net.mcreator.reignmod.block.StorageBarrelBlock;
 import net.mcreator.reignmod.block.ShaftBlock;
 import net.mcreator.reignmod.block.SafeBlock;
@@ -54,6 +55,7 @@ public class ReignModModBlocks {
 	public static final RegistryObject<Block> FINIAL_OF_MIGHT = REGISTRY.register("finial_of_might", () -> new FinialOfMightBlock());
 	public static final RegistryObject<Block> SHAFT = REGISTRY.register("shaft", () -> new ShaftBlock());
 	public static final RegistryObject<Block> STORAGE_BARREL = REGISTRY.register("storage_barrel", () -> new StorageBarrelBlock());
+	public static final RegistryObject<Block> STRATEGY_BLOCK = REGISTRY.register("strategy_block", () -> new StrategyBlockBlock());
 
 	// Start of user code block custom blocks
 	// End of user code block custom blocks

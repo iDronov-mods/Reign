@@ -9,4 +9,10 @@ public class ChunkClaimConstants {
 
     public static final int DOMAIN_SHAFT_LENGTH = 3;
     public static final int HOUSE_SHAFT_LENGTH = 4;
+
+    private ChunkClaimConstants() {
+        throw new UnsupportedOperationException(
+                "ChunkClaimConstants — утилитарный класс, не должен инстанцироваться"
+        );
+    }
 }

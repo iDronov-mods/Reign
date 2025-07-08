@@ -8,8 +8,8 @@
       "registry_name": "gold_coin",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/item/GoldCoinItem.java",
-          "src/main/resources/assets/reign_mod/models/item/gold_coin.json"
+          "src/main/resources/assets/reign_mod/models/item/gold_coin.json",
+          "src/main/java/net/mcreator/reignmod/item/GoldCoinItem.java"
         ]
       },
       "path": "~/Items/Coins"
@@ -22,8 +22,8 @@
       "registry_name": "silver_coin",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/item/SilverCoinItem.java",
-          "src/main/resources/assets/reign_mod/models/item/silver_coin.json"
+          "src/main/resources/assets/reign_mod/models/item/silver_coin.json",
+          "src/main/java/net/mcreator/reignmod/item/SilverCoinItem.java"
         ]
       },
       "path": "~/Items/Coins"
@@ -36,8 +36,8 @@
       "registry_name": "copper_coin",
       "metadata": {
         "files": [
-          "src/main/resources/assets/reign_mod/models/item/copper_coin.json",
-          "src/main/java/net/mcreator/reignmod/item/CopperCoinItem.java"
+          "src/main/java/net/mcreator/reignmod/item/CopperCoinItem.java",
+          "src/main/resources/assets/reign_mod/models/item/copper_coin.json"
         ]
       },
       "path": "~/Items/Coins"
@@ -517,11 +517,11 @@
       "registry_name": "trade_block",
       "metadata": {
         "files": [
-          "src/main/resources/assets/reign_mod/models/block/trade_block.json",
-          "src/main/resources/data/reign_mod/loot_tables/blocks/trade_block.json",
           "src/main/resources/assets/reign_mod/models/item/trade_block.json",
           "src/main/java/net/mcreator/reignmod/block/TradeBlockBlock.java",
-          "src/main/resources/assets/reign_mod/blockstates/trade_block.json"
+          "src/main/resources/assets/reign_mod/blockstates/trade_block.json",
+          "src/main/resources/assets/reign_mod/models/block/trade_block.json",
+          "src/main/resources/data/reign_mod/loot_tables/blocks/trade_block.json"
         ]
       },
       "path": "~/Blocks"
@@ -850,9 +850,9 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/reignmod/block/MarketBlockBlock.java",
+          "src/main/resources/data/reign_mod/loot_tables/blocks/market_block.json",
           "src/main/resources/assets/reign_mod/models/item/market_block.json",
           "src/main/resources/assets/reign_mod/models/block/market_block.json",
-          "src/main/resources/data/reign_mod/loot_tables/blocks/market_block.json",
           "src/main/resources/assets/reign_mod/blockstates/market_block.json"
         ]
       },
@@ -1073,11 +1073,11 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/reignmod/block/entity/CoffersBlockEntity.java",
+          "src/main/java/net/mcreator/reignmod/block/CoffersBlock.java",
+          "src/main/resources/data/reign_mod/loot_tables/blocks/coffers.json",
           "src/main/resources/assets/reign_mod/models/item/coffers.json",
           "src/main/resources/assets/reign_mod/blockstates/coffers.json",
-          "src/main/resources/data/reign_mod/loot_tables/blocks/coffers.json",
-          "src/main/resources/assets/reign_mod/models/block/coffers.json",
-          "src/main/java/net/mcreator/reignmod/block/CoffersBlock.java"
+          "src/main/resources/assets/reign_mod/models/block/coffers.json"
         ]
       },
       "path": "~/Blocks"
@@ -1726,12 +1726,12 @@
       "registry_name": "fund",
       "metadata": {
         "files": [
+          "src/main/resources/data/reign_mod/loot_tables/blocks/fund.json",
+          "src/main/resources/assets/reign_mod/models/item/fund.json",
           "src/main/java/net/mcreator/reignmod/block/FundBlock.java",
           "src/main/java/net/mcreator/reignmod/block/entity/FundBlockEntity.java",
-          "src/main/resources/assets/reign_mod/models/item/fund.json",
-          "src/main/resources/assets/reign_mod/blockstates/fund.json",
           "src/main/resources/assets/reign_mod/models/block/fund.json",
-          "src/main/resources/data/reign_mod/loot_tables/blocks/fund.json"
+          "src/main/resources/assets/reign_mod/blockstates/fund.json"
         ]
       },
       "path": "~/Blocks"
@@ -2232,12 +2232,12 @@
       "registry_name": "plus",
       "metadata": {
         "files": [
-          "src/main/resources/assets/reign_mod/blockstates/plus.json",
-          "src/main/resources/assets/reign_mod/models/block/plus.json",
-          "src/main/resources/assets/reign_mod/models/item/plus.json",
-          "src/main/resources/data/reign_mod/loot_tables/blocks/plus.json",
           "src/main/java/net/mcreator/reignmod/block/PlusBlock.java",
-          "src/main/java/net/mcreator/reignmod/block/entity/PlusBlockEntity.java"
+          "src/main/resources/assets/reign_mod/blockstates/plus.json",
+          "src/main/java/net/mcreator/reignmod/block/entity/PlusBlockEntity.java",
+          "src/main/resources/assets/reign_mod/models/block/plus.json",
+          "src/main/resources/data/reign_mod/loot_tables/blocks/plus.json",
+          "src/main/resources/assets/reign_mod/models/item/plus.json"
         ]
       },
       "path": "~/Blocks"
@@ -2820,8 +2820,8 @@
       "registry_name": "woodcutter_coin",
       "metadata": {
         "files": [
-          "src/main/resources/assets/reign_mod/models/item/woodcutter_coin.json",
-          "src/main/java/net/mcreator/reignmod/item/WoodcutterCoinItem.java"
+          "src/main/java/net/mcreator/reignmod/item/WoodcutterCoinItem.java",
+          "src/main/resources/assets/reign_mod/models/item/woodcutter_coin.json"
         ]
       },
       "path": "~/Items/Coins"
@@ -2848,8 +2848,8 @@
       "registry_name": "miner_coin",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/item/MinerCoinItem.java",
-          "src/main/resources/assets/reign_mod/models/item/miner_coin.json"
+          "src/main/resources/assets/reign_mod/models/item/miner_coin.json",
+          "src/main/java/net/mcreator/reignmod/item/MinerCoinItem.java"
         ]
       },
       "path": "~/Items/Coins"
@@ -2862,8 +2862,8 @@
       "registry_name": "farmer_coin",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/item/FarmerCoinItem.java",
-          "src/main/resources/assets/reign_mod/models/item/farmer_coin.json"
+          "src/main/resources/assets/reign_mod/models/item/farmer_coin.json",
+          "src/main/java/net/mcreator/reignmod/item/FarmerCoinItem.java"
         ]
       },
       "path": "~/Items/Coins"
@@ -3283,11 +3283,11 @@
       "registry_name": "hoarder_block",
       "metadata": {
         "files": [
-          "src/main/resources/data/reign_mod/loot_tables/blocks/hoarder_block.json",
-          "src/main/resources/assets/reign_mod/blockstates/hoarder_block.json",
-          "src/main/resources/assets/reign_mod/models/block/hoarder_block.json",
           "src/main/java/net/mcreator/reignmod/block/HoarderBlockBlock.java",
-          "src/main/resources/assets/reign_mod/models/item/hoarder_block.json"
+          "src/main/resources/assets/reign_mod/blockstates/hoarder_block.json",
+          "src/main/resources/assets/reign_mod/models/item/hoarder_block.json",
+          "src/main/resources/data/reign_mod/loot_tables/blocks/hoarder_block.json",
+          "src/main/resources/assets/reign_mod/models/block/hoarder_block.json"
         ]
       },
       "path": "~/Blocks"
@@ -4134,11 +4134,11 @@
       "registry_name": "rock",
       "metadata": {
         "files": [
+          "src/main/resources/data/reign_mod/loot_tables/blocks/rock.json",
           "src/main/resources/assets/reign_mod/models/item/rock.json",
-          "src/main/resources/assets/reign_mod/blockstates/rock.json",
           "src/main/resources/assets/reign_mod/models/block/rock.json",
           "src/main/java/net/mcreator/reignmod/block/RockBlock.java",
-          "src/main/resources/data/reign_mod/loot_tables/blocks/rock.json"
+          "src/main/resources/assets/reign_mod/blockstates/rock.json"
         ]
       },
       "path": "~/Blocks"
@@ -4269,12 +4269,12 @@
       "registry_name": "kingtable",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/block/KingtableBlock.java",
-          "src/main/java/net/mcreator/reignmod/block/entity/KingtableBlockEntity.java",
-          "src/main/resources/assets/reign_mod/models/item/kingtable.json",
           "src/main/resources/data/reign_mod/loot_tables/blocks/kingtable.json",
           "src/main/resources/assets/reign_mod/blockstates/kingtable.json",
-          "src/main/resources/assets/reign_mod/models/block/kingtable.json"
+          "src/main/resources/assets/reign_mod/models/item/kingtable.json",
+          "src/main/java/net/mcreator/reignmod/block/entity/KingtableBlockEntity.java",
+          "src/main/resources/assets/reign_mod/models/block/kingtable.json",
+          "src/main/java/net/mcreator/reignmod/block/KingtableBlock.java"
         ]
       },
       "path": "~/Blocks"
@@ -4574,12 +4574,12 @@
       "registry_name": "safe",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/block/entity/SafeBlockEntity.java",
-          "src/main/resources/assets/reign_mod/models/item/safe.json",
+          "src/main/resources/data/reign_mod/loot_tables/blocks/safe.json",
           "src/main/java/net/mcreator/reignmod/block/SafeBlock.java",
+          "src/main/resources/assets/reign_mod/models/item/safe.json",
+          "src/main/java/net/mcreator/reignmod/block/entity/SafeBlockEntity.java",
           "src/main/resources/assets/reign_mod/blockstates/safe.json",
-          "src/main/resources/assets/reign_mod/models/block/safe.json",
-          "src/main/resources/data/reign_mod/loot_tables/blocks/safe.json"
+          "src/main/resources/assets/reign_mod/models/block/safe.json"
         ]
       },
       "path": "~/Blocks"
@@ -4894,8 +4894,8 @@
       "registry_name": "pen_with_ink",
       "metadata": {
         "files": [
-          "src/main/resources/assets/reign_mod/models/item/pen_with_ink.json",
-          "src/main/java/net/mcreator/reignmod/item/PenWithInkItem.java"
+          "src/main/java/net/mcreator/reignmod/item/PenWithInkItem.java",
+          "src/main/resources/assets/reign_mod/models/item/pen_with_ink.json"
         ]
       },
       "path": "~/Items"
@@ -5104,12 +5104,12 @@
       "registry_name": "private_shop",
       "metadata": {
         "files": [
+          "src/main/resources/assets/reign_mod/models/item/private_shop.json",
           "src/main/java/net/mcreator/reignmod/block/entity/PrivateShopBlockEntity.java",
           "src/main/resources/assets/reign_mod/models/block/private_shop.json",
-          "src/main/resources/assets/reign_mod/blockstates/private_shop.json",
+          "src/main/resources/data/reign_mod/loot_tables/blocks/private_shop.json",
           "src/main/java/net/mcreator/reignmod/block/PrivateShopBlock.java",
-          "src/main/resources/assets/reign_mod/models/item/private_shop.json",
-          "src/main/resources/data/reign_mod/loot_tables/blocks/private_shop.json"
+          "src/main/resources/assets/reign_mod/blockstates/private_shop.json"
         ]
       },
       "path": "~/Blocks"
@@ -5155,7 +5155,7 @@
           "src/main/resources/data/reign_mod/recipes/r_cowboy_coin.json"
         ]
       },
-      "path": "~/Recipes"
+      "path": "~/Recipes/Coins"
     },
     {
       "name": "Picklock",
@@ -5715,12 +5715,12 @@
       "registry_name": "incubator",
       "metadata": {
         "files": [
-          "src/main/resources/assets/reign_mod/models/item/incubator.json",
-          "src/main/resources/assets/reign_mod/blockstates/incubator.json",
-          "src/main/java/net/mcreator/reignmod/block/entity/IncubatorBlockEntity.java",
           "src/main/resources/assets/reign_mod/models/block/incubator.json",
+          "src/main/java/net/mcreator/reignmod/block/entity/IncubatorBlockEntity.java",
           "src/main/java/net/mcreator/reignmod/block/IncubatorBlock.java",
-          "src/main/resources/data/reign_mod/loot_tables/blocks/incubator.json"
+          "src/main/resources/assets/reign_mod/models/item/incubator.json",
+          "src/main/resources/data/reign_mod/loot_tables/blocks/incubator.json",
+          "src/main/resources/assets/reign_mod/blockstates/incubator.json"
         ]
       },
       "path": "~/Blocks"
@@ -6985,18 +6985,18 @@
       "registry_name": "privatedoor",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/block/PrivatedoorBlock.java",
-          "src/main/resources/assets/reign_mod/models/block/privatedoor_bottom_right.json",
-          "src/main/resources/data/reign_mod/loot_tables/blocks/privatedoor.json",
-          "src/main/java/net/mcreator/reignmod/block/entity/PrivatedoorBlockEntity.java",
-          "src/main/resources/assets/reign_mod/models/block/privatedoor_bottom_right_open.json",
-          "src/main/resources/assets/reign_mod/blockstates/privatedoor.json",
-          "src/main/resources/assets/reign_mod/models/block/privatedoor_top_right_open.json",
-          "src/main/resources/assets/reign_mod/models/block/privatedoor_top_left.json",
           "src/main/resources/assets/reign_mod/models/item/privatedoor.json",
           "src/main/resources/assets/reign_mod/models/block/privatedoor_bottom_left.json",
+          "src/main/resources/assets/reign_mod/blockstates/privatedoor.json",
           "src/main/resources/assets/reign_mod/models/block/privatedoor_bottom_left_open.json",
+          "src/main/resources/assets/reign_mod/models/block/privatedoor_top_left.json",
+          "src/main/resources/assets/reign_mod/models/block/privatedoor_top_right_open.json",
+          "src/main/resources/assets/reign_mod/models/block/privatedoor_bottom_right.json",
+          "src/main/java/net/mcreator/reignmod/block/PrivatedoorBlock.java",
+          "src/main/resources/assets/reign_mod/models/block/privatedoor_bottom_right_open.json",
           "src/main/resources/assets/reign_mod/models/block/privatedoor_top_left_open.json",
+          "src/main/java/net/mcreator/reignmod/block/entity/PrivatedoorBlockEntity.java",
+          "src/main/resources/data/reign_mod/loot_tables/blocks/privatedoor.json",
           "src/main/resources/assets/reign_mod/models/block/privatedoor_top_right.json"
         ]
       },
@@ -7025,12 +7025,12 @@
       "registry_name": "rental_block",
       "metadata": {
         "files": [
-          "src/main/resources/assets/reign_mod/models/block/rental_block.json",
           "src/main/java/net/mcreator/reignmod/block/entity/RentalBlockBlockEntity.java",
-          "src/main/resources/assets/reign_mod/blockstates/rental_block.json",
           "src/main/java/net/mcreator/reignmod/block/RentalBlockBlock.java",
+          "src/main/resources/assets/reign_mod/blockstates/rental_block.json",
           "src/main/resources/data/reign_mod/loot_tables/blocks/rental_block.json",
-          "src/main/resources/assets/reign_mod/models/item/rental_block.json"
+          "src/main/resources/assets/reign_mod/models/item/rental_block.json",
+          "src/main/resources/assets/reign_mod/models/block/rental_block.json"
         ]
       },
       "path": "~/Blocks"
@@ -10349,8 +10349,8 @@
       "registry_name": "architect_compass",
       "metadata": {
         "files": [
-          "src/main/resources/assets/reign_mod/models/item/architect_compass.json",
-          "src/main/java/net/mcreator/reignmod/item/ArchitectCompassItem.java"
+          "src/main/java/net/mcreator/reignmod/item/ArchitectCompassItem.java",
+          "src/main/resources/assets/reign_mod/models/item/architect_compass.json"
         ]
       },
       "path": "~/Items"
@@ -10377,8 +10377,8 @@
       "registry_name": "marshal_insignia",
       "metadata": {
         "files": [
-          "src/main/resources/assets/reign_mod/models/item/marshal_insignia.json",
-          "src/main/java/net/mcreator/reignmod/item/MarshalInsigniaItem.java"
+          "src/main/java/net/mcreator/reignmod/item/MarshalInsigniaItem.java",
+          "src/main/resources/assets/reign_mod/models/item/marshal_insignia.json"
         ]
       },
       "path": "~/Items"
@@ -15931,11 +15931,11 @@
       "registry_name": "storage_barrel",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/reignmod/block/entity/StorageBarrelBlockEntity.java",
-          "src/main/resources/assets/reign_mod/blockstates/storage_barrel.json",
-          "src/main/resources/assets/reign_mod/models/block/storage_barrel.json",
           "src/main/resources/data/reign_mod/loot_tables/blocks/storage_barrel.json",
           "src/main/resources/assets/reign_mod/models/item/storage_barrel.json",
+          "src/main/java/net/mcreator/reignmod/block/entity/StorageBarrelBlockEntity.java",
+          "src/main/resources/assets/reign_mod/models/block/storage_barrel.json",
+          "src/main/resources/assets/reign_mod/blockstates/storage_barrel.json",
           "src/main/java/net/mcreator/reignmod/block/StorageBarrelBlock.java"
         ]
       },
@@ -15949,8 +15949,8 @@
       "registry_name": "reign_coin",
       "metadata": {
         "files": [
-          "src/main/resources/assets/reign_mod/models/item/reign_coin.json",
-          "src/main/java/net/mcreator/reignmod/item/ReignCoinItem.java"
+          "src/main/java/net/mcreator/reignmod/item/ReignCoinItem.java",
+          "src/main/resources/assets/reign_mod/models/item/reign_coin.json"
         ]
       },
       "path": "~/Items/Coins"
@@ -16000,7 +16000,8 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/reignmod/client/gui/StorageBarrelUIScreen.java",
-          "src/main/java/net/mcreator/reignmod/world/inventory/StorageBarrelUIMenu.java"
+          "src/main/java/net/mcreator/reignmod/world/inventory/StorageBarrelUIMenu.java",
+          "src/main/java/net/mcreator/reignmod/network/StorageBarrelUIButtonMessage.java"
         ]
       },
       "path": "~/UI"
@@ -16024,22 +16025,6 @@
           {
             "name": "slot",
             "type": "number"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       },
@@ -16090,6 +16075,610 @@
         "return_type": "string",
         "files": [
           "src/main/java/net/mcreator/reignmod/procedures/StorageBarrelCategoryTextGetProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/StorageBarrelSystem"
+    },
+    {
+      "name": "StrategyBlock",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "strategy_block",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/loot_tables/blocks/strategy_block.json",
+          "src/main/resources/assets/reign_mod/models/item/strategy_block.json",
+          "src/main/resources/assets/reign_mod/blockstates/strategy_block.json",
+          "src/main/resources/assets/reign_mod/models/block/strategy_block.json",
+          "src/main/java/net/mcreator/reignmod/block/entity/StrategyBlockBlockEntity.java",
+          "src/main/java/net/mcreator/reignmod/block/StrategyBlockBlock.java"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "StrategyBlockUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "strategy_block_ui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/world/inventory/StrategyBlockUIMenu.java",
+          "src/main/java/net/mcreator/reignmod/client/gui/StrategyBlockUIScreen.java"
+        ]
+      },
+      "path": "~/UI"
+    },
+    {
+      "name": "StorageBarrelSelectLogs",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "storage_barrel_select_logs",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/StorageBarrelSelectLogsProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/StorageBarrelSystem"
+    },
+    {
+      "name": "StorageBarrelSelectFuel",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "storage_barrel_select_fuel",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/StorageBarrelSelectFuelProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/StorageBarrelSystem"
+    },
+    {
+      "name": "StorageBarrelSelectOres",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "storage_barrel_select_ores",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/StorageBarrelSelectOresProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/StorageBarrelSystem"
+    },
+    {
+      "name": "StorageBarrelSelectTools",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "storage_barrel_select_tools",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/StorageBarrelSelectToolsProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/StorageBarrelSystem"
+    },
+    {
+      "name": "StorageBarrelSelectArmors",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "storage_barrel_select_armors",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/StorageBarrelSelectArmorsProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/StorageBarrelSystem"
+    },
+    {
+      "name": "StorageBarrelSelectFoods",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "storage_barrel_select_foods",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/StorageBarrelSelectFoodsProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/StorageBarrelSystem"
+    },
+    {
+      "name": "StorageBarrelSelectBlocks",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "storage_barrel_select_blocks",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/StorageBarrelSelectBlocksProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/StorageBarrelSystem"
+    },
+    {
+      "name": "StorageBarrelSelectOther",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "storage_barrel_select_other",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/StorageBarrelSelectOtherProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/StorageBarrelSystem"
+    },
+    {
+      "name": "StorageBarrelSelectExp",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "storage_barrel_select_exp",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/StorageBarrelSelectExpProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/MarketSystem/StorageBarrelSystem"
+    },
+    {
+      "name": "Rreigncoin",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rreigncoin",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/reign_mod/recipes/rreigncoin.json"
+        ]
+      },
+      "path": "~/Recipes/Coins"
+    },
+    {
+      "name": "WoodcutterCoinUse",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "woodcutter_coin_use",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/WoodcutterCoinUseProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/WorkCoinsEat"
+    },
+    {
+      "name": "MinerCoinUse",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "miner_coin_use",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/MinerCoinUseProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/WorkCoinsEat"
+    },
+    {
+      "name": "SmithCoinUse",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "smith_coin_use",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/SmithCoinUseProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/WorkCoinsEat"
+    },
+    {
+      "name": "FarmerCoinUse",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "farmer_coin_use",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/FarmerCoinUseProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/WorkCoinsEat"
+    },
+    {
+      "name": "CowboyCoinUse",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cowboy_coin_use",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/CowboyCoinUseProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          }
+        ]
+      },
+      "path": "~/Scripts/OtherSystems/WorkCoinsEat"
+    },
+    {
+      "name": "StrategyBlockSet",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "strategy_block_set",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/StrategyBlockSetProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/StrategyBlockSystem"
+    },
+    {
+      "name": "StrategyBlockAttackGet",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "strategy_block_attack_get",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/StrategyBlockAttackGetProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/StrategyBlockSystem"
+    },
+    {
+      "name": "StrategyBlockDefenceGet",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "strategy_block_defence_get",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/StrategyBlockDefenceGetProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/StrategyBlockSystem"
+    },
+    {
+      "name": "StrategyBlockTick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "strategy_block_tick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/StrategyBlockTickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Scripts/HousesScript/StrategyBlockSystem"
+    },
+    {
+      "name": "StorageBarrelCategoryDelete",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "storage_barrel_category_delete",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/reignmod/procedures/StorageBarrelCategoryDeleteProcedure.java"
         ],
         "dependencies": [
           {
@@ -16601,6 +17190,7 @@
       "Items.LEATHER_BOOTS"
     ],
     "BLOCKS:minecraft:mineable/pickaxe": [
+      "~CUSTOM:StrategyBlock",
       "~CUSTOM:Shaft",
       "~CUSTOM:FinialOfMight",
       "~CUSTOM:FinialOfReign",
@@ -16696,6 +17286,13 @@
       "CUSTOM:GoldLock",
       "CUSTOM:CopperLock",
       "CUSTOM:IronLock"
+    ],
+    "ITEMS:reign:work_coins": [
+      "CUSTOM:WoodcutterCoin",
+      "CUSTOM:SmithCoin",
+      "CUSTOM:MinerCoin",
+      "CUSTOM:FarmerCoin",
+      "CUSTOM:CowboyCoin"
     ],
     "ITEMS:reign:coins": [
       "CUSTOM:GoldCoin",
@@ -16878,7 +17475,8 @@
       "IronLock",
       "GoldLock",
       "StorageBarrel",
-      "ReignCoin"
+      "ReignCoin",
+      "StrategyBlock"
     ]
   },
   "language_map": {
@@ -16916,6 +17514,7 @@
       "pay_slave": "Нашёл на земле:",
       "gui.reign_mod.kingtable_ui.tooltip_kingtable_help": "Пишите Королевские указы",
       "translation.key.title_dont_match": "Титул не соответствует требованиям.",
+      "gui.reign_mod.strategy_block_ui.label_strategy_block": "Блок стратега",
       "gui.reign_mod.fisher_window.tooltip_lvl4_description": "Гарантированная подсечка.",
       "gui.reign_mod.fisher_window.tooltip_lvl5_description": "Эффект силы моря при подсечке.",
       "gui.reign_mod.fisher_window.tooltip_lvl2_description": "Отличный шанс подсечь поклёвку.",
@@ -16993,10 +17592,13 @@
       "license_refuse": "Лицензия отозвана.",
       "gui.reign_mod.kingtable_ui.button_asd": "asd",
       "gui.reign_mod.cowboy_window.label_l": "Мясник",
+      "gui.reign_mod.storage_barrel_ui.button_fuel": "Топливо",
+      "gui.reign_mod.storage_barrel_ui.button_armors": "Броня",
       "gui.reign_mod.trader_point.label_market_copper": "market_copper",
       "advancements.days_online_7.title": "Постоялец",
       "gui.reign_mod.farmer_window.label_r": "Пчеловод",
       "gui.reign_mod.cowboy_window.label_r": "Конюх",
+      "gui.reign_mod.storage_barrel_ui.button_logs": "Бревна",
       "translation.storage_barrel.exp": "Бутылки с опытом",
       "advancements.epic_reign.title": "Эпический Reign",
       "gui.reign_mod.enchanter_window.tooltip_lvl1_description": "Использование стола зачарования.",
@@ -17011,6 +17613,7 @@
       "gui.reign_mod.smith_window.label_string_5": "",
       "chunkclaim.remove.success": "Земля теперь ничья.",
       "gui.reign_mod.smith_window.label_string_4": "",
+      "gui.reign_mod.storage_barrel_ui.button_ores": "Руды",
       "gui.reign_mod.smith_window.label_string_3": "чинит предметы на точиле (ПКМ)",
       "gui.reign_mod.hunter_window.button_select": "Выбрать",
       "gui.reign_mod.smith_window.label_string_2": "Создаёт броню и оружие,",
@@ -17027,9 +17630,12 @@
       "gui.reign_mod.smith_window.label_main_label": "КУЗНЕЦ",
       "gui.reign_mod.farmer_window.label_l": "Садовод",
       "translation.key.incubator_help_bread": "Хлеб:",
+      "gui.reign_mod.storage_barrel_ui.button_tools": "Инструм.",
       "gui.reign_mod.smith_window.label_string_1": "Изготавливает инструменты",
       "block.reign_mod.finial_of_might": "Могучее навершие",
       "gui.reign_mod.add_license_list.button_alchemist": "Алхимик",
+      "gui.reign_mod.storage_barrel_ui.button_blocks": "Блоки",
+      "block.reign_mod.strategy_block": "Блок стратега",
       "gui.reign_mod.woodcutterwindow.label_main_license": "Основная лицензия",
       "block.reign_mod.trade_block": "Скупщик",
       "gui.reign_mod.market.label_321": "321",
@@ -17041,6 +17647,7 @@
       "gui.reign_mod.market_2.button_buy": "КУПИТЬ",
       "item.reign_mod.state_rental": "Разрешение на застройку",
       "gui.reign_mod.house_incubator_ui.label_wool": "шерсть",
+      "gui.reign_mod.storage_barrel_ui.button_foods": "Еда",
       "item.reign_mod.ruin_lord_3.desc": "Ruin Lord - Lasto Beth Lammen",
       "gui.reign_mod.licenses_window.tooltip_win_soldier_help": "Солдат",
       "translation.key.get_dailypay_exp": "Получено опыта:",
@@ -17074,6 +17681,7 @@
       "translation.key.choose_good": "выберите товар",
       "gui.reign_mod.hunter_window.button_empty": "\u003c\u003c",
       "translation.key.already_house_locked": "Закрыто Домом: ",
+      "gui.reign_mod.strategy_block_ui.label_attack_coins": "attack_coins",
       "gui.reign_mod.woodcutterwindow.label_string_6": "§oЛес рубят - щепки летят.",
       "gui.reign_mod.hunter_window.tooltip_lvl1_description": "+100% опыта от враждебных мобов.",
       "translation.key.ironlock_tooltip": "§o§7Замок домена",
@@ -17101,6 +17709,7 @@
       "gui.reign_mod.farmer_window.tooltip_lvl4_description": "Грядки невозможно затоптать.",
       "translation.key.tooltip.fund_short": "Исток и будущее мира.",
       "gui.reign_mod.storage_barrel_ui.label_storage_barrel": "Складская бочка",
+      "gui.reign_mod.strategy_block_ui.label_defence": "Оборона",
       "gui.reign_mod.inventory_add.label_chunk_owner": "Chunk_owner",
       "block.reign_mod.coffers": "Казна",
       "item.reign_mod.private_rental_1": "Скромная частная аренда",
@@ -17179,6 +17788,7 @@
       "translation.key.set_knight_domain": "образовал владения домена.",
       "item.reign_mod.pen_with_ink": "Письменный набор",
       "gui.reign_mod.house_suspects_ui.label_incubator": "Инкубатор",
+      "gui.reign_mod.storage_barrel_ui.button_other": "Другое",
       "gui.reign_mod.private_shop_buyer_ui.button_x4": "X4",
       "block.reign_mod.rock": "Добрый камень",
       "item.reign_mod.shackles": "Кандалы",
@@ -17271,6 +17881,7 @@
       "gui.reign_mod.farmer_window.label_string_5": "",
       "gui.reign_mod.farmer_window.label_string_4": "",
       "translation.key.domain": "Домен",
+      "gui.reign_mod.strategy_block_ui.tooltip_strategy_block_help": "Расширяйте и обороняйте свои владения с помощью монет власти.",
       "gui.reign_mod.farmer_window.label_string_6": "§oЧто посеешь, то и пожнёшь.",
       "gui.reign_mod.farmer_window.label_string_1": "Взращивает культуры.",
       "gui.reign_mod.house_incubator_ui.tooltip_all_players_help": "Игроков в Доме",
@@ -17354,6 +17965,7 @@
       "NotSmithSay": "Я не умею работать с этим.",
       "translation.key.house_pardon_success": " помилован в Доме",
       "gui.reign_mod.smith_window.button_select": "Выбрать",
+      "gui.reign_mod.strategy_block_ui.label_expansion": "Атака",
       "gui.reign_mod.licenses_window.tooltip_win_smith_help": "Кузнец",
       "translation.key.under_arest": "Ты арестован.",
       "translation.key.tooltip.incubator": "Установите Первый домен и питайте сердце, чтобы поддерживать жизнь Дома.",
@@ -17458,6 +18070,7 @@
       "capitalclaim.add.warn": "Совладелец не найден: {0}",
       "gui.reign_mod.private_shop_buyer_ui.label_not_licensed": "Лицензия отсутствует",
       "advancements.one_lvl.title": "Любитель",
+      "gui.reign_mod.strategy_block_ui.label_defence_attack": "defence_attack",
       "gui.reign_mod.licenses_window.tooltip_win_alchemist_help": "Алхимик",
       "gui.reign_mod.private_shop_buyer_ui.button_buy": "КУПИТЬ",
       "gui.reign_mod.coffers_ui.tooltip_capital_service_help": "Почасовое содержание защищает столицу от разрушения.",
@@ -17497,6 +18110,7 @@
       "gui.reign_mod.enchanter_window.tooltip_lvl2_description": "Снятие чар с книг.",
       "gui.reign_mod.house_incubator_ui.tooltip_delete_claim_help": "Удалить владения",
       "gui.reign_mod.alchemist_window.label_string_6": "Искал золото — нашёл порох.",
+      "gui.reign_mod.storage_barrel_ui.button_experience": "Опыт",
       "gui.reign_mod.miner_window.tooltip_lvl1_description": "+20% к эффективности добычи.",
       "gui.reign_mod.miner_window.tooltip_lvl5_description": "Добыча незерита.",
       "gui.reign_mod.alchemist_window.label_string_5": "",
@@ -17542,16 +18156,16 @@
       "item_group.reign_mod.creative_tab": "Reign",
       "translation.key.tooltip.marshal_insignia_short": "King\u0027s Marshal\u0027s insignia",
       "translation.key.players": "players",
-      "house.get_domain_suspect": "Suspicious faces: ",
-      "item.reign_mod.ender_picklock": "The Ender lockpick",
-      "gui.reign_mod.house_incubator_ui.label_proc_incubator_get_food_per_hour": "2 / hour",
       "gui.reign_mod.coffers_tax_ui.label_food_tax_label": "Food",
+      "gui.reign_mod.house_incubator_ui.label_proc_incubator_get_food_per_hour": "2 / hour",
+      "item.reign_mod.ender_picklock": "Отмычка Края",
+      "house.get_domain_suspect": "Suspicious faces: ",
       "gui.reign_mod.farmer_window.button_empty": "\u003c\u003c",
-      "block.reign_mod.privatedoor": "Secure door",
+      "block.reign_mod.privatedoor": "Private door",
       "translation.key.house_rename": "Your House has been renamed.",
       "translation.storage_barrel.none": "choose category",
+      "item.reign_mod.farmer_coin": "Farmer coin",
       "block.reign_mod.finial_of_reign": "The finial of reign",
-      "item.reign_mod.farmer_coin": "A farmer\u0027s coin",
       "gui.reign_mod.cowboy_window.button_refuse": "Refuse",
       "gui.reign_mod.domain_ui.label_hp": "hp",
       "translation.key.cant_tame_wolf": "What if he bites?",
@@ -17561,18 +18175,19 @@
       "translation.key.tooltip.obelisk_foundation_short": "The foundation for the knight\u0027s obelisk",
       "gui.reign_mod.licenses_window.tooltip_win_enchanter_help": "Enchanter",
       "gui.reign_mod.smith_window.tooltip_lvl1_description": "-10% rejection rate.",
-      "gui.reign_mod.enchanter_window.tooltip_lvl4_description": "Improved hacking of ender chests.",
       "gui.reign_mod.rental_block_ui.button_delete": "Delete",
+      "gui.reign_mod.enchanter_window.tooltip_lvl4_description": "Improved hacking of ender chests.",
       "translation.key.houses_list": "\u003d\u003d\u003d Kingdom Houses: \u003d\u003d\u003d",
       "gui.reign_mod.smith_window.tooltip_lvl4_description": "Creating items without scrap.",
       "gui.reign_mod.enchanter_window.tooltip_lvl5_description": "Creating duplicates of enchanted books.",
       "gui.reign_mod.smith_window.tooltip_lvl5_description": "Access to the blacksmith\u0027s table.",
-      "gui.reign_mod.private_shop_buyer_ui.label_count_left": "count_left",
       "translation.key.choose_farmer": "You\u0027re a farmer now.",
-      "gui.reign_mod.smith_window.tooltip_lvl2_description": "Use of a grindstone.",
+      "gui.reign_mod.private_shop_buyer_ui.label_count_left": "count_left",
       "pay_slave": "Found it on the ground:",
-      "gui.reign_mod.kingtable_ui.tooltip_kingtable_help": "Write royal decrees",
+      "gui.reign_mod.smith_window.tooltip_lvl2_description": "Use of a grindstone.",
+      "gui.reign_mod.kingtable_ui.tooltip_kingtable_help": "kingtable_help",
       "translation.key.title_dont_match": "The title is inadequate.",
+      "gui.reign_mod.strategy_block_ui.label_strategy_block": "Strategy block",
       "gui.reign_mod.fisher_window.tooltip_lvl4_description": "Guaranteed hookup.",
       "gui.reign_mod.fisher_window.tooltip_lvl5_description": "The effect of sea force on hooking.",
       "gui.reign_mod.fisher_window.tooltip_lvl2_description": "It\u0027s a great chance to hook a nibble.",
@@ -17581,13 +18196,13 @@
       "gui.reign_mod.fisher_window.tooltip_lvl1_description": "A good chance to hook a nibble.",
       "gui.reign_mod.farmer_window.label_main_license": "Main license",
       "translation.key.tooltip.honey_concentrate": "Let it shine for you in the darkness when all other light is gone.",
-      "gui.reign_mod.enchanter_window.button_select": "Select",
-      "translation.key.houseNameTaken": "A house by that name already exists!",
       "gui.reign_mod.coffers_ui.button_pay_off": "Pay",
+      "translation.key.houseNameTaken": "A house by that name already exists!",
+      "gui.reign_mod.enchanter_window.button_select": "Select",
       "translation.key.domain_is_full": "Your domain is full!",
       "item.reign_mod.trade_license": "Trading license",
       "gui.reign_mod.coffers_tax_ui.label_coal_tax_label": "Coal",
-      "block.reign_mod.kingtable": "King\u0027s table",
+      "block.reign_mod.kingtable": "Royale table",
       "gui.reign_mod.house_incubator_ui.tooltip_domain_players": "Players in your domain",
       "translation.key.tooltip.shackles_short": "Arrest criminals",
       "advancements.sleight_of_hand_and_no_bugs.title": "Manual dexterity and no bugs",
@@ -17641,10 +18256,10 @@
       "translation.key.tooltip.right_hand": "Allows you to appoint a lord to the position of Hand.",
       "translation.key.farmer.cant_roots": "I don\u0027t know how to grow root vegetables.",
       "gui.reign_mod.market.label_market": "Market",
-      "item.reign_mod.woodcutter_coin": "Woodcutter\u0027s coin",
+      "item.reign_mod.woodcutter_coin": "Woodcutter coin",
       "gui.reign_mod.cowboy_window.button_empty": "\u003c\u003c",
       "advancements.master_lock_picker.descr": "Break into the safe.",
-      "item.reign_mod.cowboy_coin": "A cowboy\u0027s coin",
+      "item.reign_mod.cowboy_coin": "Cowboy coin",
       "translation.key.incubator_set": "The incubator is set up.",
       "gui.reign_mod.house_incubator_ui.label_food": "food",
       "advancements.strained_experience.descr": "Force yourself to put the experience out of your mind.",
@@ -17652,10 +18267,13 @@
       "license_refuse": "License revoked.",
       "gui.reign_mod.kingtable_ui.button_asd": "asd",
       "gui.reign_mod.cowboy_window.label_l": "Butcher",
+      "gui.reign_mod.storage_barrel_ui.button_fuel": "Fuel",
+      "gui.reign_mod.storage_barrel_ui.button_armors": "Armors",
       "gui.reign_mod.trader_point.label_market_copper": "market_copper",
       "advancements.days_online_7.title": "Lodger",
       "gui.reign_mod.farmer_window.label_r": "Beekeeper",
       "gui.reign_mod.cowboy_window.label_r": "Groom",
+      "gui.reign_mod.storage_barrel_ui.button_logs": "Logs",
       "translation.storage_barrel.exp": "Bottles o’ Enchanting",
       "advancements.epic_reign.title": "Epic Reign",
       "gui.reign_mod.enchanter_window.tooltip_lvl1_description": "Using the enchantment table.",
@@ -17670,6 +18288,7 @@
       "gui.reign_mod.smith_window.label_string_5": "",
       "chunkclaim.remove.success": "The land is now a draw.",
       "gui.reign_mod.smith_window.label_string_4": "",
+      "gui.reign_mod.storage_barrel_ui.button_ores": "Ores",
       "gui.reign_mod.smith_window.label_string_3": "repairs items on the sharpening machine (PCM)",
       "gui.reign_mod.hunter_window.button_select": "Select",
       "gui.reign_mod.smith_window.label_string_2": "Creates armor and weapons,",
@@ -17687,11 +18306,14 @@
       "gui.reign_mod.farmer_window.label_l": "Gardener",
       "translation.key.incubator_help_bread": "Bread:",
       "gui.reign_mod.chunk_owner.label_solniechnyi_oplot": "A stronghold of sunshine",
+      "gui.reign_mod.storage_barrel_ui.button_tools": "Tools",
       "gui.reign_mod.smith_window.label_string_1": "Manufactures tools",
       "block.reign_mod.finial_of_might": "The mighty top",
       "gui.reign_mod.add_license_list.button_alchemist": "Alchemist",
+      "gui.reign_mod.storage_barrel_ui.button_blocks": "Blocks",
+      "block.reign_mod.strategy_block": "Strategy block",
       "gui.reign_mod.woodcutterwindow.label_main_license": "Main license",
-      "block.reign_mod.trade_block": "Trader",
+      "block.reign_mod.trade_block": "Trade Block",
       "gui.reign_mod.market.label_321": "321",
       "gui.reign_mod.private_shop_ui.label_private_shop": "private_shop",
       "gui.reign_mod.enchanter_window.button_refuse": "Refuse",
@@ -17701,6 +18323,7 @@
       "gui.reign_mod.market_2.button_buy": "BUY",
       "item.reign_mod.state_rental": "Building permit",
       "gui.reign_mod.house_incubator_ui.label_wool": "wool",
+      "gui.reign_mod.storage_barrel_ui.button_foods": "Foods",
       "item.reign_mod.ruin_lord_3.desc": "Ruin Lord - Lasto Beth Lammen",
       "gui.reign_mod.licenses_window.tooltip_win_soldier_help": "Soldier",
       "translation.key.get_dailypay_exp": "Experience gained:",
@@ -17734,6 +18357,7 @@
       "translation.key.choose_good": "select product",
       "gui.reign_mod.hunter_window.button_empty": "\u003c\u003c",
       "translation.key.already_house_locked": "Closed by the House: ",
+      "gui.reign_mod.strategy_block_ui.label_attack_coins": "attack_coins",
       "gui.reign_mod.woodcutterwindow.label_string_6": "§Of a forest, the chips fly. §Of a forest, the chips fly §Of a forest, the chips fly.",
       "gui.reign_mod.hunter_window.tooltip_lvl1_description": "+100% experience from hostile mobs.",
       "translation.key.ironlock_tooltip": "§o§7Domain lock",
@@ -17761,8 +18385,9 @@
       "gui.reign_mod.farmer_window.tooltip_lvl4_description": "The beds are impossible to trample.",
       "translation.key.tooltip.fund_short": "The origins and future of the world.",
       "gui.reign_mod.storage_barrel_ui.label_storage_barrel": "Storage barrel",
+      "gui.reign_mod.strategy_block_ui.label_defence": "Defence",
       "gui.reign_mod.inventory_add.label_chunk_owner": "Chunk_owner",
-      "block.reign_mod.coffers": "Treasury",
+      "block.reign_mod.coffers": "Coffers",
       "item.reign_mod.private_rental_1": "Modest private rentals",
       "pay_king": "Royalty income:",
       "gui.reign_mod.house_incubator_ui.tooltip_domains_help": "Number of domains",
@@ -17816,7 +18441,7 @@
       "gui.reign_mod.farmer_window.tooltip_lvl3_description_r": "Possibility of harvesting honey.",
       "translation.key.tooltip.state_rent": "Build on capital land by placing a deed on the lease block.",
       "gui.reign_mod.house_suspects_ui.tooltip_incubator_label_help": "incubator_label_help",
-      "item.reign_mod.smith_coin": "A smith\u0027s coin",
+      "item.reign_mod.smith_coin": "Smith coin",
       "item.reign_mod.heart_of_house": "The Heart of the House",
       "gui.reign_mod.rental_block_ui.label_z": "z",
       "advancements.days_online_30.title": "Owner",
@@ -17839,8 +18464,9 @@
       "translation.key.set_knight_domain": "formed the domain\u0027s holdings.",
       "item.reign_mod.pen_with_ink": "Writing set",
       "gui.reign_mod.house_suspects_ui.label_incubator": "Incubator",
+      "gui.reign_mod.storage_barrel_ui.button_other": "Other",
       "gui.reign_mod.private_shop_buyer_ui.button_x4": "X4",
-      "block.reign_mod.rock": "Good stone",
+      "block.reign_mod.rock": "Rock",
       "item.reign_mod.shackles": "Shackles",
       "gui.reign_mod.coffers_tax_ui.label_logs": "logs",
       "gui.reign_mod.woodcutterwindow.button_refuse": "Refuse",
@@ -17879,7 +18505,7 @@
       "translation.key.cant_use_lock_freeman": "Free men are not allowed to use it.",
       "translation.key.house_pardon_fail": "There was no pardon.",
       "translation.key.good_tax": "tax:",
-      "item.reign_mod.architect_compass": "Architect\u0027s compass",
+      "item.reign_mod.architect_compass": "Architect\u0027s Compass",
       "item.reign_mod.iron_lock": "Iron lock",
       "advancements.horder_use.descr": "Gain the coin from the hoarder.",
       "subtitles.fall_source": "",
@@ -17902,7 +18528,7 @@
       "advancements.gotcha.descr": "Go to jail.",
       "gui.reign_mod.woodcutterwindow.tooltip_lvl4_description": "+25% chance not to twist the axe when chopping.",
       "translation.key.incubator_house_lvl_6": "Glorious House",
-      "gui.reign_mod.kingtable_ui.label_kingtable_lable": "King\u0027s table",
+      "gui.reign_mod.kingtable_ui.label_kingtable_lable": "kingtable_lable",
       "translation.key.donate_to_coffers": "You donated to the treasury.",
       "gui.reign_mod.kingtable_ui.owners": "",
       "advancements.welcome_to_reign.descr": "One that rules over all.",
@@ -17931,6 +18557,7 @@
       "gui.reign_mod.farmer_window.label_string_5": "",
       "gui.reign_mod.farmer_window.label_string_4": "",
       "translation.key.domain": "Domain",
+      "gui.reign_mod.strategy_block_ui.tooltip_strategy_block_help": "strategy_block_help",
       "gui.reign_mod.farmer_window.label_string_6": "§What you sow is what you reap.",
       "gui.reign_mod.farmer_window.label_string_1": "Growing Cultures.",
       "gui.reign_mod.house_incubator_ui.tooltip_all_players_help": "Players in the House",
@@ -17971,7 +18598,7 @@
       "effect.reign_mod.bee_effect": "Bee Power",
       "translation.key.tooltip.trader_short": "Sell goods to the market",
       "newlord": "The first of his name: ",
-      "item.reign_mod.miner_coin": "Miner\u0027s coin",
+      "item.reign_mod.miner_coin": "Miner coin",
       "gui.reign_mod.add_license_list.button_hunter_button": "Hunter",
       "translation.key.incubator_house_lvl_10": "Great House",
       "gui.reign_mod.house_suspects_ui.tooltip_domains_help": "domains_help",
@@ -18014,6 +18641,7 @@
       "NotSmithSay": "I don\u0027t know how to work with it.",
       "translation.key.house_pardon_success": " pardoned in the House",
       "gui.reign_mod.smith_window.button_select": "Select",
+      "gui.reign_mod.strategy_block_ui.label_expansion": "Expansion",
       "gui.reign_mod.licenses_window.tooltip_win_smith_help": "Smith",
       "translation.key.under_arest": "You\u0027re under arrest.",
       "translation.key.tooltip.incubator": "Establish the First Domain and nourish the heart to keep the House alive.",
@@ -18040,7 +18668,7 @@
       "newhouse": "House Founded:",
       "gui.reign_mod.coffers_tax_ui.label_logs_tax_label": "Wood",
       "gui.reign_mod.alchemist_window.label_main_label": "ALCHEMIC",
-      "block.reign_mod.rental_block": "Rental unit",
+      "block.reign_mod.rental_block": "Rental Block",
       "translation.key.tooltip.lockpick_short": "Picking locks",
       "gui.reign_mod.hoarder.tooltip_sell_64_units_of_any_product_f": "Sell 64 units of any item for 1 copper coin.",
       "gui.reign_mod.private_shop_ui.button_clear": "clear",
@@ -18112,12 +18740,13 @@
       "gui.reign_mod.woodcutterwindow.tooltip_lvl3_description_l": "+25% of charcoal extraction during logging.",
       "gui.reign_mod.woodcutterwindow.button_empty": "\u003c\u003c",
       "translation.key.tooltip.treasurer_key": "Allows you to appoint an applicant for the position of the capital treasurer.",
-      "item.reign_mod.treasurer_key": "Treasurer\u0027s key",
+      "item.reign_mod.treasurer_key": "Treasurer\u0027s Key",
       "gui.reign_mod.woodcutterwindow.tooltip_lvl3_description_r": "+2 health.",
       "gui.reign_mod.add_license_is_selected.label_all_experience_will_be_lost": "All experience will be lost",
       "capitalclaim.add.warn": "Co-owner not found: {0}",
       "gui.reign_mod.private_shop_buyer_ui.label_not_licensed": "There is no license",
       "advancements.one_lvl.title": "Amateur",
+      "gui.reign_mod.strategy_block_ui.label_defence_attack": "defence_attack",
       "gui.reign_mod.licenses_window.tooltip_win_alchemist_help": "Alchemist",
       "gui.reign_mod.private_shop_buyer_ui.button_buy": "BUY",
       "gui.reign_mod.coffers_ui.tooltip_capital_service_help": "Hourly maintenance protects the capital from destruction.",
@@ -18157,6 +18786,7 @@
       "gui.reign_mod.enchanter_window.tooltip_lvl2_description": "Removing enchantments from books.",
       "gui.reign_mod.house_incubator_ui.tooltip_delete_claim_help": "Delete domain claim",
       "gui.reign_mod.alchemist_window.label_string_6": "I was looking for gold and found powder.",
+      "gui.reign_mod.storage_barrel_ui.button_experience": "Experience",
       "gui.reign_mod.miner_window.tooltip_lvl1_description": "+20% to mining efficiency.",
       "gui.reign_mod.miner_window.tooltip_lvl5_description": "Mining of the netherite.",
       "gui.reign_mod.alchemist_window.label_string_5": "",
@@ -18183,7 +18813,7 @@
       "gui.reign_mod.enchanter_window.label_string_1": "Imbues things with magic.",
       "translation.key.tooltip.coffers_short": "The place where the capital budget is stored.",
       "gui.reign_mod.enchanter_window.label_string_6": "A word can sometimes be sharper than a sword.",
-      "item.reign_mod.marshal_insignia": "Marshal insignia",
+      "item.reign_mod.marshal_insignia": "Marshal\u0027s Insignia",
       "gui.reign_mod.enchanter_window.label_string_5": "Puts a blight on the land.",
       "gui.reign_mod.enchanter_window.label_string_4": "Removes old enchantments.",
       "gui.reign_mod.enchanter_window.label_string_3": "Rewrites books.",
@@ -18446,6 +19076,10 @@
               {
                 "name": "Dependency",
                 "children": []
+              },
+              {
+                "name": "WorkCoinsEat",
+                "children": []
               }
             ]
           },
@@ -18488,6 +19122,10 @@
               },
               {
                 "name": "ChunkClaimSystem",
+                "children": []
+              },
+              {
+                "name": "StrategyBlockSystem",
                 "children": []
               }
             ]

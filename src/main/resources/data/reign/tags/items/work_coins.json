@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "reign_mod:woodcutter_coin",
+    "reign_mod:smith_coin",
+    "reign_mod:miner_coin",
+    "reign_mod:farmer_coin",
+    "reign_mod:cowboy_coin"
+  ]
+}
