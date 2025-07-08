@@ -4,7 +4,7 @@ license="Academic Free License v3.0"
 
 [[mods]]
 modId="reign_mod"
-version="0.7.6"
+version="0.7.7"
 displayName="Reign"
 displayURL="https://t.me/reignmod"
 logoFile="logo.png"
@@ -16,14 +16,20 @@ description="Professions, trade and power"
 # End of user code block mod configuration
 
 [[dependencies.reign_mod]]
-    modId="minecraft"
-    mandatory=true
-    versionRange="[1.20.1]"
-    ordering="AFTER"
-    side="BOTH"
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1]"
+ordering="AFTER"
+side="BOTH"
 
 
 
 
 # Start of user code block dependencies configuration
+[[dependencies.reignmod]]
+modId="openpartiesandclaims"
+mandatory=false
+versionRange="[0.24.0,)"
+ordering="AFTER"
+side="BOTH"
 # End of user code block dependencies configuration
