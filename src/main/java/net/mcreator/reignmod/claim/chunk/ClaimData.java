@@ -3,9 +3,8 @@ package net.mcreator.reignmod.claim.chunk;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraftforge.common.util.INBTSerializable;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -14,8 +13,10 @@ import java.util.Set;
 public class ClaimData implements INBTSerializable<CompoundTag> {
 
     private String claimId;
+    private String claimName;
     private String ownerId;
     private String ownerName;
+    private String color;
     private ClaimType claimType;
     private int centerChunkX;
     private int centerChunkZ;
@@ -26,10 +27,12 @@ public class ClaimData implements INBTSerializable<CompoundTag> {
     public ClaimData() {
     }
 
-    public ClaimData(String claimId, String ownerId, String ownerName, ClaimType claimType, int centerChunkX, int centerChunkZ) {
+    public ClaimData(String claimId, String claimName, String ownerId, String ownerName, String color, ClaimType claimType, int centerChunkX, int centerChunkZ) {
         this.claimId = claimId;
+        this.claimName = claimName;
         this.ownerId = ownerId;
         this.ownerName = ownerName;
+        this.color = color;
         this.claimType = claimType;
         this.centerChunkX = centerChunkX;
         this.centerChunkZ = centerChunkZ;
@@ -41,6 +44,14 @@ public class ClaimData implements INBTSerializable<CompoundTag> {
 
     public void setClaimId(String claimId) {
         this.claimId = claimId;
+    }
+
+    public String getClaimName() {
+        return claimName;
+    }
+
+    public void setClaimName(String claimName) {
+        this.claimName = claimName;
     }
 
     public String getOwnerId() {
@@ -57,6 +68,14 @@ public class ClaimData implements INBTSerializable<CompoundTag> {
 
     public void setOwnerName(String ownerName) {
         this.ownerName = ownerName;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public ClaimType getClaimType() {
@@ -88,7 +107,22 @@ public class ClaimData implements INBTSerializable<CompoundTag> {
     }
 
     public boolean removeChunk(long chunkId) {
-        return claimedChunks.remove(chunkId);
+        boolean removed = claimedChunks.remove(chunkId);
+        if (removed) {
+            int[][] DIRS = { { 1, 0 }, { -1, 0 }, { 0,  1 }, { 0, -1 } };
+            ChunkPos cp = new ChunkPos(chunkId);
+
+            for (int[] d : DIRS) {
+                int nx = cp.x + d[0];
+                int nz = cp.z + d[1];
+                long neighborId = ChunkPos.asLong(nx, nz);
+
+                if (containsChunk(neighborId)) {
+                    outerChunks.add(neighborId);
+                }
+            }
+        }
+        return removed;
     }
 
     public boolean containsChunk(long chunkId) {
@@ -119,8 +153,10 @@ public class ClaimData implements INBTSerializable<CompoundTag> {
     public CompoundTag serializeNBT() {
         CompoundTag tag = new CompoundTag();
         tag.putString("claim_id", claimId);
+        tag.putString("claim_name", claimName);
         tag.putString("owner_id", ownerId);
         tag.putString("owner_name", ownerName);
+        tag.putString("color", color);
         tag.putString("claim_type", claimType.name());
         tag.putInt("center_chunk_x", centerChunkX);
         tag.putInt("center_chunk_z", centerChunkZ);
@@ -142,8 +178,10 @@ public class ClaimData implements INBTSerializable<CompoundTag> {
     @Override
     public void deserializeNBT(CompoundTag tag) {
         this.claimId = tag.getString("claim_id");
+        this.claimName = tag.getString("claim_name");
         this.ownerId = tag.getString("owner_id");
         this.ownerName = tag.getString("owner_name");
+        this.color = tag.getString("color");
         this.claimType = ClaimType.valueOf(tag.getString("claim_type"));
         this.centerChunkX = tag.getInt("center_chunk_x");
         this.centerChunkZ = tag.getInt("center_chunk_z");

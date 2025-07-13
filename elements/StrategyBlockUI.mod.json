@@ -109,49 +109,17 @@
       {
         "type": "label",
         "data": {
-          "name": "label_expansion",
-          "text": {
-            "fixedValue": "Expansion"
-          },
-          "color": {
-            "value": -65485,
-            "falpha": 0.0
-          },
-          "x": 133,
-          "y": 45,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_defence",
-          "text": {
-            "fixedValue": "Defence"
-          },
-          "color": {
-            "value": -10040065,
-            "falpha": 0.0
-          },
-          "x": 252,
-          "y": 45,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
           "name": "label_attack_coins",
           "text": {
             "fixedValue": "attack_coins",
             "name": "StrategyBlockAttackGet"
           },
           "color": {
-            "value": -1,
+            "value": -52378,
             "falpha": 0.0
           },
-          "x": 141,
-          "y": 98,
+          "x": 154,
+          "y": 89,
           "locked": false
         }
       },
@@ -164,11 +132,244 @@
             "name": "StrategyBlockDefenceGet"
           },
           "color": {
-            "value": -1,
+            "value": -6710887,
             "falpha": 0.0
           },
-          "x": 265,
-          "y": 98,
+          "x": 277,
+          "y": 89,
+          "locked": false
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_expansion_help",
+          "text": {
+            "fixedValue": "Expansion_help"
+          },
+          "width": 24,
+          "height": 24,
+          "x": 140,
+          "y": 65,
+          "locked": false
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_defence_help",
+          "text": {
+            "fixedValue": "Defence_help"
+          },
+          "width": 24,
+          "height": 24,
+          "x": 264,
+          "y": 65,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_arrow",
+          "image": "arrow.png",
+          "hoveredImage": "arrow_hover.png",
+          "onClick": {
+            "name": "StrategyBlockSetDirection2"
+          },
+          "displayCondition": {
+            "name": "StrategyBlockIsDirection2"
+          },
+          "x": 227,
+          "y": 71,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_arrow_d",
+          "image": "arrow_d.png",
+          "hoveredImage": "arrow_hover_d.png",
+          "onClick": {
+            "name": "StrategyBlockSetDirection3"
+          },
+          "displayCondition": {
+            "name": "StrategyBlockIsDirection3"
+          },
+          "x": 206,
+          "y": 93,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_arrow_l",
+          "image": "arrow_l.png",
+          "hoveredImage": "arrow_hover_l.png",
+          "onClick": {
+            "name": "StrategyBlockSetDirection0"
+          },
+          "displayCondition": {
+            "name": "StraregyBlockIsDirection0"
+          },
+          "x": 167,
+          "y": 71,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_arrow_u",
+          "image": "arrow_u.png",
+          "hoveredImage": "arrow_hover_u.png",
+          "onClick": {
+            "name": "StrategyBlockSetDirection1"
+          },
+          "displayCondition": {
+            "name": "StrategyBlockIsDirection1"
+          },
+          "x": 206,
+          "y": 33,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arrow_selected.png",
+          "use1Xscale": false,
+          "x": 227,
+          "y": 71,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arrow_selected_d.png",
+          "use1Xscale": false,
+          "x": 206,
+          "y": 93,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arrow_selected_l.png",
+          "use1Xscale": false,
+          "x": 167,
+          "y": 71,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arrow_selected_u.png",
+          "use1Xscale": false,
+          "x": 206,
+          "y": 33,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_circle",
+          "image": "circle.png",
+          "hoveredImage": "circle_hover.png",
+          "onClick": {
+            "name": "StrategyBlockSetNoDirection"
+          },
+          "displayCondition": {
+            "name": "StrategyBlockNoDirection"
+          },
+          "x": 206,
+          "y": 71,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "circle_selected.png",
+          "use1Xscale": false,
+          "x": 206,
+          "y": 71,
+          "locked": false
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_north_help",
+          "text": {
+            "fixedValue": "north_help"
+          },
+          "width": 10,
+          "height": 25,
+          "x": 209,
+          "y": 37,
+          "locked": false
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_west_help",
+          "text": {
+            "fixedValue": "west_help"
+          },
+          "width": 24,
+          "height": 10,
+          "x": 171,
+          "y": 74,
+          "locked": false
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_east_help",
+          "text": {
+            "fixedValue": "east_help"
+          },
+          "width": 24,
+          "height": 10,
+          "x": 231,
+          "y": 74,
+          "locked": false
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_south_help",
+          "text": {
+            "fixedValue": "south_help"
+          },
+          "width": 10,
+          "height": 22,
+          "x": 209,
+          "y": 99,
+          "locked": false
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_center_help",
+          "text": {
+            "fixedValue": "center_help"
+          },
+          "width": 16,
+          "height": 16,
+          "x": 206,
+          "y": 71,
           "locked": false
         }
       }

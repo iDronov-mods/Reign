@@ -4,16 +4,13 @@ import net.mcreator.reignmod.house.House;
 import net.mcreator.reignmod.house.HouseManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
-import net.minecraft.tags.BiomeTags;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.jline.utils.Log;
 
 import java.util.*;
 
@@ -22,8 +19,8 @@ public class Expansion {
     private static final double EXPANSION_CHANCE_NORMAL = 0.1;
     private static final double EXPANSION_CHANCE_RIVER  = 0.001;
 
-    private static final double MIN_COST_PER_CHUNK = 0.25;
-    private static final double MAX_COST_PER_CHUNK = 1.0;
+    private static final double MIN_COST_PER_CHUNK = 0.1;
+    private static final double MAX_COST_PER_CHUNK = 0.5;
 
     private static final int MAX_HOUSE_CHUNKS  = 8192;
     private static final int MAX_DOMAIN_CHUNKS = 8192;
@@ -63,6 +60,9 @@ public class Expansion {
 
         // 3) Получить данные стратега
         BlockEntity strat = getStrategyData(level, territory.get());
+        if (strat == null) return;
+
+        // 3.1) Получить число монет (attack_coins)
         double attackCoins = strat.getPersistentData().getDouble("attack_coins");
         LOGGER.info("Attack coins: {}", attackCoins);
 
@@ -165,17 +165,20 @@ public class Expansion {
     }
 
     // ——— Шаг 3–4: попытаться захватить каждый кандидат —————————————
-    private static double applyExpansion(ServerLevel level, ClaimData attacker,
-                                         Set<Long> candidates, double cost, double attackCoins) {
+    private static double applyExpansion(ServerLevel level, ClaimData attacker, Set<Long> candidates, double cost, double attackCoins) {
         for (long cid : candidates) {
+            ChunkPos cp = new ChunkPos(cid);
             if (attackCoins < cost) break;
 
             Optional<ClaimData> defenderOpt = ChunkClaimSavedData.getInstance().getClaimByChunk(cid);
             if (defenderOpt.isEmpty()) {
-                // ничейный — просто захватываем
                 attackCoins = claimChunk(attacker, cid, cost, attackCoins);
             } else {
                 ClaimData defender = defenderOpt.get();
+
+                if (Math.abs(defender.getCenterChunkX() - cp.x ) <= 10 && Math.abs(defender.getCenterChunkZ() - cp.z ) <= 10) {
+                    continue;
+                }
 
                 House attackerHouse = HouseManager.getHouseBySuzerainUUID(attacker.getOwnerId());
                 House defenderHouse = HouseManager.getHouseBySuzerainUUID(defender.getOwnerId());
@@ -195,26 +198,33 @@ public class Expansion {
     }
 
     private static double fightOverChunk(ServerLevel level, ClaimData attacker, ClaimData defender, long cid, double cost, double attackCoins) {
-        // достаём defenceCoins защитника
         BlockEntity defStrat = getStrategyData(level, defender);
+        ChunkPos cp = new ChunkPos(cid);
         double defCoins = defStrat.getPersistentData().getDouble("defence_coins");
 
-        if (defCoins >= cost) {
-            // защитник отбивает атаку
-            attackCoins -= cost;
-            defStrat.getPersistentData().putDouble("defence_coins", defCoins - cost);
-            defStrat.setChanged();
-        } else {
-            // защитник не смог заплатить — атакующий захватывает чанк
-            attackCoins -= cost;
+        boolean surrounded = true;
+        for (int[] dir : CARDINAL_DIRS) {
+            int dx = dir[0], dz = dir[1];
+            ChunkPos neighbor = new ChunkPos(cp.x + dx, cp.z + dz);
 
-            // 1) убираем у защитника
+            if (!attacker.containsChunk(neighbor.toLong())) {
+                surrounded = false;
+            }
+        }
+
+        if (surrounded || defCoins < cost) {
+            LOGGER.info("Removing chunk {} from {}", cid, defender.getOwnerName());
             ChunkClaimSavedData.getInstance().removeChunk(defender.getClaimId(), cid);
 
-            // 2) добавляем атакующему
-            ChunkClaimSavedData.getInstance().addChunk(defender.getClaimId(), cid);
+            LOGGER.info("Adding chunk {} to {}", cid, attacker.getOwnerName());
+            ChunkClaimSavedData.getInstance().addChunk(attacker.getClaimId(), cid);
+        } else{
+            LOGGER.info("Defender {} reflects attack from {}", defender.getOwnerName(), attacker.getOwnerName());
+            defStrat.getPersistentData().putDouble("defence_coins", defCoins - cost);
+            defStrat.setChanged();
         }
-        return attackCoins;
+
+        return attackCoins - cost;
     }
 
     // ——— Вспомогательный класс для хранения данных стратега —————————

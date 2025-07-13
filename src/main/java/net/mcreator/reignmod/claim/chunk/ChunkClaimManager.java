@@ -1,17 +1,16 @@
 package net.mcreator.reignmod.claim.chunk;
 
-import net.mcreator.reignmod.claim.capital.CapitalClaimManager;
 import net.mcreator.reignmod.claim.capital.CapitalClaimSavedData;
 import net.mcreator.reignmod.house.Domain;
 import net.mcreator.reignmod.house.House;
 import net.mcreator.reignmod.house.HouseManager;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.fml.ModList;
+import xaero.pac.common.server.player.config.PlayerConfig;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -44,21 +43,22 @@ public class ChunkClaimManager {
             sv.displayClientMessage(Component.translatable("chunkclaim.add.fail.occupied"), true);
             return false;
         }
-
-        String claimId, ownerName;
+        Domain foundDomain;
+        House foundHouse;
+        String claimId;
         if (claimType == ClaimType.DOMAIN) {
-            var foundDomain = HouseManager.getDomainByKnightUUID(sv.getStringUUID());
-            var foundHouse = HouseManager.getHouseByLordUUID(foundDomain.getLordUUID());
-
+            foundDomain = HouseManager.getDomainByKnightUUID(sv.getStringUUID());
+            foundHouse = HouseManager.getHouseByLordUUID(foundDomain.getLordUUID());
             claimId = foundDomain.getClaimId();
-            ownerName = foundHouse.getHouseTitleWithColor() + ": " + foundDomain.getDomainTitle().getString();
         } else {
-            var foundHouse = HouseManager.getHouseByLordUUID(sv.getStringUUID());
-            var foundDomain = foundHouse.getDomains().get(sv.getStringUUID());
-
+            foundHouse = HouseManager.getHouseByLordUUID(sv.getStringUUID());
+            foundDomain =  foundHouse.getDomains().get(sv.getStringUUID());
             claimId = foundHouse.getClaimId();
-            ownerName = foundHouse.getHouseTitleWithColor() + ": " + foundDomain.getDomainTitle().getString();
         }
+
+        String claimName = foundHouse.getHouseTitle();
+        String ownerName =  foundHouse.getHouseTitleWithColor() + ": " + foundDomain.getDomainTitle().getString();
+        String color =  foundHouse.getHouseColor();
 
         if (claimId != null) {
             sv.displayClientMessage(Component.translatable("chunkclaim.add.fail.already_own"), true);
@@ -66,7 +66,7 @@ public class ChunkClaimManager {
         }
 
         claimId = UUID.randomUUID().toString();
-        ClaimData data = new ClaimData(claimId, sv.getStringUUID(), ownerName, claimType, centerX, centerZ);
+        ClaimData data = new ClaimData(claimId, claimName, sv.getStringUUID(), ownerName, color, claimType, center.x, center.z);
 
         int radius = ChunkClaimConstants.CLAIM_RADIUS;
         for (int dx = -radius; dx <= radius; dx++) {
@@ -106,7 +106,9 @@ public class ChunkClaimManager {
         }
 
         claimId = UUID.randomUUID().toString();
-        ClaimData data = new ClaimData(claimId, claimId, ownerName, ClaimType.CAPITAL, centerX, centerZ);
+        String ownerId = ModList.get().isLoaded("openpartiesandclaims") ? PlayerConfig.SERVER_CLAIM_UUID.toString() : claimId;
+
+        ClaimData data = new ClaimData(claimId, ownerName, ownerId, ownerName, "white", ClaimType.CAPITAL, center.x, center.z);
 
         int radius = ChunkClaimConstants.CAPITAL_CLAIM_RADIUS;
 

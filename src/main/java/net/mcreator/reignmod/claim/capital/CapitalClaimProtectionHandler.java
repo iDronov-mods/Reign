@@ -143,7 +143,7 @@ public class CapitalClaimProtectionHandler {
 
     @SubscribeEvent
     public static void onRightClickItem(PlayerInteractEvent.RightClickItem event) {
-        if (event.getEntity() instanceof ServerPlayer player && isOverworld(player.level()) && (isPlacementItem(event.getItemStack().getItem()) || isUsableItem(event.getItemStack().getItem()))) {
+        if (event.getEntity() instanceof ServerPlayer player && isOverworld(player.level()) && (!event.getItemStack().isEdible() && isPlacementItem(event.getItemStack().getItem()) || isUsableItem(event.getItemStack().getItem()))) {
             BlockPos pos = event.getPos();
 
             if (isWithinCapitalGlobal(pos.getX(), pos.getZ())) {
@@ -216,8 +216,8 @@ public class CapitalClaimProtectionHandler {
 
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
-    public static void onClientRightClick(PlayerInteractEvent.RightClickItem event) {
-        if ((event.getEntity() instanceof LocalPlayer lp) && isOverworld(lp.level()) && (isPlacementItem(event.getItemStack().getItem()) || isUsableItem(event.getItemStack().getItem()))) {
+    public static void onClientRightClickItem(PlayerInteractEvent.RightClickItem event) {
+        if ((event.getEntity() instanceof LocalPlayer lp) && isOverworld(lp.level()) && (!event.getItemStack().isEdible() && isPlacementItem(event.getItemStack().getItem()) || isUsableItem(event.getItemStack().getItem()))) {
             BlockPos pos = event.getPos();
 
             if (isUsableItem(event.getItemStack().getItem()) && isWithinCapitalGlobal(pos.getX(), pos.getZ())) {

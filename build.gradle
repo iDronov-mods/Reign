@@ -46,22 +46,20 @@ minecraft {
 
 allprojects {
     repositories {
-        // сперва CurseMaven, чтобы группа curse.maven резолвилась сюда
         maven { url = "https://www.cursemaven.com" }
         maven { url = "https://maven.parchmentmc.org" }
         mavenCentral()
         maven { url = "https://maven.minecraftforge.net/" }
-        // если хотите локальные jars:
-        flatDir { dirs 'libs' }
     }
 }
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.20.1-47.3.0'
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-	compileOnly fg.deobf("curse.maven:openpartiesandclaims-636608:6242869")
-	runtimeOnly fg.deobf("curse.maven:openpartiesandclaims-636608:6242869")
 
+    compileOnly fg.deobf("curse.maven:open-parties-and-claims-636608:6242869")
+    //runtimeOnly fg.deobf("curse.maven:open-parties-and-claims-636608:6242869")
+    //runtimeOnly fg.deobf("curse.maven:xaeros-world-map-317780:6538337")
 }
 
 mixin {

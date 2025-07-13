@@ -1,15 +1,26 @@
 package net.mcreator.reignmod.claim.chunk;
 
+import net.mcreator.reignmod.house.HouseManager;
+import net.mcreator.reignmod.house.HouseSavedData;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.saveddata.SavedData;
+import net.minecraftforge.fml.ModList;
 import org.jetbrains.annotations.NotNull;
+import xaero.pac.common.server.api.OpenPACServerAPI;
+import xaero.pac.common.server.claims.api.IServerClaimsManagerAPI;
+import xaero.pac.common.server.player.config.api.IPlayerConfigAPI;
+import xaero.pac.common.server.player.config.api.IPlayerConfigManagerAPI;
+import xaero.pac.common.server.player.config.api.PlayerConfigOptions;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.UUID;
 
 /**
  * Singleton-хранилище всех приватов:
@@ -79,9 +90,11 @@ public class ChunkClaimSavedData extends SavedData {
     }
 
     public void addClaim(ClaimData claimData) {
+        setClaimedAreaConfig(UUID.fromString(claimData.getOwnerId()), claimData.getClaimName(), HouseManager.getIntColorFromName(claimData.getColor()));
         claims.put(claimData.getClaimId(), claimData);
         for (Long cid : claimData.getClaimedChunks()) {
             chunkToClaimId.put(cid, claimData.getClaimId());
+            syncClaimWithOPAC(claimData.getOwnerId(), cid, true);
         }
         setDirty();
     }
@@ -89,41 +102,76 @@ public class ChunkClaimSavedData extends SavedData {
     public void removeClaim(String claimId) {
         ClaimData removed = claims.remove(claimId);
         if (removed != null) {
-            for (Long c : removed.getClaimedChunks()) {
-                String stored = chunkToClaimId.get(c);
+            for (Long cid : removed.getClaimedChunks()) {
+                String stored = chunkToClaimId.get(cid);
                 if (claimId.equals(stored)) {
-                    chunkToClaimId.remove(c);
+                    chunkToClaimId.remove(cid);
+                    syncClaimWithOPAC(removed.getOwnerId(), cid, false);
                 }
             }
             setDirty();
         }
     }
 
-    public boolean addChunk(String claimId, long chunkId) {
+    public void addChunk(String claimId, long chunkId) {
         Optional<ClaimData> territory = getClaim(claimId);
         if (territory.isEmpty() || chunkToClaimId.containsKey(chunkId)) {
-            return false;
+            return;
         }
         territory.get().addChunk(chunkId);
         territory.get().addOuterChunk(chunkId);
 
         chunkToClaimId.put(chunkId, claimId);
+        syncClaimWithOPAC(territory.get().getOwnerId(), chunkId, true);
         setDirty();
-        return true;
     }
 
-    public boolean removeChunk(String claimId, long chunkId) {
+    public void removeChunk(String claimId, long chunkId) {
         Optional<ClaimData> territory = getClaim(claimId);
-        if (territory.isEmpty() || chunkToClaimId.containsKey(chunkId)) {
-            return false;
+        if (territory.isEmpty() || !chunkToClaimId.containsKey(chunkId)) {
+            return;
         }
         territory.get().removeChunk(chunkId);
         territory.get().removeOuterChunk(chunkId);
 
         chunkToClaimId.remove(chunkId);
+        syncClaimWithOPAC(territory.get().getOwnerId(), chunkId, false);
         setDirty();
-        return true;
     }
+
+
+    private static void syncClaimWithOPAC(String ownerId, long chunkId, boolean isClaim) {
+        if (!ModList.get().isLoaded("openpartiesandclaims")) return;
+
+        var server = HouseSavedData.getServerInstance().getServer();
+
+        IServerClaimsManagerAPI mgr = OpenPACServerAPI.get(server).getServerClaimsManager();
+        ResourceLocation dim = Level.OVERWORLD.location();
+
+        ChunkPos pos = new ChunkPos(chunkId);
+        UUID owner = UUID.fromString(ownerId);
+
+        if (isClaim) {
+            mgr.claim(dim, owner, 0, pos.x, pos.z, false);
+        } else {
+            mgr.unclaim(dim, pos.x, pos.z);
+        }
+    }
+
+
+    public static void setClaimedAreaConfig(UUID ownerUuid, String areaName, int colorInt) {
+        if (!ModList.get().isLoaded("openpartiesandclaims")) return;
+
+        var server = HouseSavedData.getServerInstance().getServer();
+
+        IPlayerConfigManagerAPI cfgMgr = OpenPACServerAPI.get(server).getPlayerConfigs();
+        IPlayerConfigAPI cfg = cfgMgr.getLoadedConfig(ownerUuid);
+
+        cfg.tryToSet(PlayerConfigOptions.CLAIMS_NAME,  areaName);
+        cfg.tryToSet(PlayerConfigOptions.CLAIMS_COLOR, colorInt);
+        cfg.tryToSet(PlayerConfigOptions.PROTECT_CLAIMED_CHUNKS, false);
+    }
+
 
     @Override
     public @NotNull CompoundTag save(@NotNull CompoundTag tag) {
@@ -168,6 +216,13 @@ public class ChunkClaimSavedData extends SavedData {
                     cd.setClaimId(key);
                 }
                 claims.put(key, cd);
+            }
+        }
+        if (ModList.get().isLoaded("openpartiesandclaims")){
+            for (ClaimData cd : claims.values()) {
+                for (long chunkLong : cd.getClaimedChunks()) {
+                    syncClaimWithOPAC(cd.getOwnerId(), chunkLong, true);
+                }
             }
         }
     }

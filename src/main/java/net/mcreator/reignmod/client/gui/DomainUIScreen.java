@@ -35,13 +35,14 @@ import net.mcreator.reignmod.procedures.DomainHP36Procedure;
 import net.mcreator.reignmod.procedures.DomainHP26Procedure;
 import net.mcreator.reignmod.procedures.DomainHP16Procedure;
 import net.mcreator.reignmod.network.DomainUIButtonMessage;
+import net.mcreator.reignmod.init.ReignModModScreens.WidgetScreen;
 import net.mcreator.reignmod.ReignModMod;
 
 import java.util.HashMap;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
-public class DomainUIScreen extends AbstractContainerScreen<DomainUIMenu> {
+public class DomainUIScreen extends AbstractContainerScreen<DomainUIMenu> implements WidgetScreen {
 	private final static HashMap<String, Object> guistate = DomainUIMenu.guistate;
 	private final Level world;
 	private final int x, y, z;
@@ -102,6 +103,10 @@ public class DomainUIScreen extends AbstractContainerScreen<DomainUIMenu> {
 			guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/disease_logo.png"), this.leftPos + 25, this.topPos + -11, 0, 0, 8, 8, 8, 8);
 		}
 		RenderSystem.disableBlend();
+	}
+
+	public HashMap<String, Object> getWidgets() {
+		return guistate;
 	}
 
 	@Override

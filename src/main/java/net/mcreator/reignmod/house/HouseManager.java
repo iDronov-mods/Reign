@@ -8,6 +8,7 @@ import net.mcreator.reignmod.procedures.HouseDeleteProcedure;
 import net.mcreator.reignmod.procedures.IsKingProcedure;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.DyeColor;
 import net.minecraftforge.common.UsernameCache;
 
 import java.util.*;
@@ -27,6 +28,21 @@ public class HouseManager {
             colorCodes.put(colorsIterator.next(), codesIterator.next());
         }
         return colorCodes;
+    }
+
+    public static int getIntColorFromName(String name) {
+        if (name == null) return 16777215;
+        DyeColor dye;
+        if (name.equalsIgnoreCase("aqua")) {
+            dye = DyeColor.LIGHT_BLUE;
+        } else {
+            try {
+                dye = DyeColor.valueOf(name.toUpperCase());
+            } catch (IllegalArgumentException e) {
+                dye = DyeColor.WHITE;
+            }
+        }
+        return dye.getTextColor();
     }
 
     public static Collection<House> getHouses() {
