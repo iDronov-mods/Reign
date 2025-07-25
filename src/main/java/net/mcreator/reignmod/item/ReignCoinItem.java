@@ -6,6 +6,6 @@ import net.minecraft.world.item.Item;
 
 public class ReignCoinItem extends Item {
 	public ReignCoinItem() {
-		super(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON));
+		super(new Item.Properties().stacksTo(64).rarity(Rarity.UNCOMMON));
 	}
 }

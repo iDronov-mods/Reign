@@ -3,6 +3,7 @@ package net.mcreator.reignmod.basics;
 import net.mcreator.reignmod.configuration.ReignCommonConfiguration;
 import net.mcreator.reignmod.kingdom.KingdomData;
 import net.mcreator.reignmod.kingdom.KingdomManager;
+import net.mcreator.reignmod.mines.MineManager;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -36,6 +37,7 @@ public class HourlyEventHandler {
 
         if (!ReignCommonConfiguration.DISABLE_HOUSE_FEEDING.get()) HouseManager.feedHouses();
         if (!ReignCommonConfiguration.DISABLE_CAPITAL_FEEDING.get()) KingdomManager.feedCapital();
+        MineManager.extractAll();
 
     }
 

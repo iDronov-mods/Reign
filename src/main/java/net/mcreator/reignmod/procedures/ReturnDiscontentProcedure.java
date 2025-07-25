@@ -21,7 +21,7 @@ public class ReturnDiscontentProcedure {
 		} else if (value <= 50) {
 			return "\u00A76" + Component.translatable("translation.key.discontent_2").getString();
 		} else if (value <= 80) {
-			return "\u00A7\u0441" + Component.translatable("translation.key.discontent_3").getString();
+			return "\u00A7c" + Component.translatable("translation.key.discontent_3").getString();
 		}
 		return "\u00A74" + Component.translatable("translation.key.discontent_4").getString();
 	}

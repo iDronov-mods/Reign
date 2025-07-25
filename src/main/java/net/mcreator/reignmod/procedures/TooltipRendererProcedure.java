@@ -33,6 +33,7 @@ public class TooltipRendererProcedure {
 	private static void execute(@Nullable Event event, ItemStack itemstack, List<Component> tooltip) {
 		if (tooltip == null)
 			return;
+		String type_text = "";
 		if (itemstack.getItem() == ReignModModBlocks.HOARDER_BLOCK.get().asItem()) {
 			if (Screen.hasShiftDown()) {
 				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.hoarder").getString())));
@@ -195,6 +196,49 @@ public class TooltipRendererProcedure {
 				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.trade_license").getString())));
 			} else {
 				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.trade_license_short").getString())));
+			}
+		}
+		if (itemstack.getItem() == ReignModModItems.DEEP_ROCK_SAMPLE.get()) {
+			if (!(itemstack.getOrCreateTag().getString("biome")).isEmpty()) {
+				if ((itemstack.getOrCreateTag().getString("type")).isEmpty()) {
+					type_text = "\u00A78" + Component.translatable("translation.key.tooltip.sample_not_detected").getString();
+				} else if ((itemstack.getOrCreateTag().getString("type")).equals("COPPER")) {
+					type_text = "\u00A76" + Component.translatable("translation.key.tooltip.sample_copper").getString();
+				} else if ((itemstack.getOrCreateTag().getString("type")).equals("IRON")) {
+					type_text = "\u00A7f" + Component.translatable("translation.key.tooltip.sample_iron").getString();
+				} else if ((itemstack.getOrCreateTag().getString("type")).equals("GOLD")) {
+					type_text = "\u00A7e" + Component.translatable("translation.key.tooltip.sample_gold").getString();
+				} else if ((itemstack.getOrCreateTag().getString("type")).equals("EMERALD")) {
+					type_text = "\u00A72" + Component.translatable("translation.key.tooltip.sample_emerald").getString();
+				} else if ((itemstack.getOrCreateTag().getString("type")).equals("DIAMOND")) {
+					type_text = "\u00A73" + Component.translatable("translation.key.tooltip.sample_diamond").getString();
+				} else if ((itemstack.getOrCreateTag().getString("type")).equals("SOURCE")) {
+					type_text = "\u00A7b" + Component.translatable("translation.key.tooltip.sample_source").getString();
+				}
+				tooltip.add(Component.literal(("\u00A79" + Component.translatable("translation.key.tooltip.sample_type").getString() + "\u00A77 " + type_text)));
+				tooltip.add(Component.literal(("\u00A7a" + Component.translatable("translation.key.tooltip.sample_biome").getString() + "\u00A77 " + itemstack.getOrCreateTag().getString("biome"))));
+				tooltip.add(Component.literal(("\u00A7c" + Component.translatable("translation.key.tooltip.sample_coords").getString() + " \u00A77x: " + new java.text.DecimalFormat("##").format(itemstack.getOrCreateTag().getDouble("x")) + " z: "
+						+ new java.text.DecimalFormat("##").format(itemstack.getOrCreateTag().getDouble("z")))));
+			}
+		} else if (itemstack.getItem() == ReignModModItems.SOURCE_BOTTLE.get()) {
+			tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.source_bottle_short").getString())));
+		} else if (itemstack.getItem() == ReignModModItems.DEEPCRACK.get()) {
+			if (Screen.hasShiftDown()) {
+				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.mine").getString())));
+			} else {
+				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.mine_short").getString())));
+			}
+		} else if (itemstack.getItem() == ReignModModBlocks.STRATEGY_BLOCK.get().asItem()) {
+			if (Screen.hasShiftDown()) {
+				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.strategy_block").getString())));
+			} else {
+				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.strategy_block_short").getString())));
+			}
+		} else if (itemstack.getItem() == ReignModModBlocks.STORAGE_BARREL.get().asItem()) {
+			if (Screen.hasShiftDown()) {
+				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.storage_barrel").getString())));
+			} else {
+				tooltip.add(Component.literal(("\u00A77\u00A7o" + Component.translatable("translation.key.tooltip.storage_barrel_short").getString())));
 			}
 		}
 	}

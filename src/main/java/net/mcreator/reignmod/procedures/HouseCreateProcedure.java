@@ -103,7 +103,7 @@ public class HouseCreateProcedure {
 											_entityTeam.level().getScoreboard().addPlayerToTeam(_entityTeam.getStringUUID(), _pt);
 									}
 								}
-								heart = new ItemStack(ReignModModItems.HEART_OF_HOUSE.get());
+								heart = new ItemStack(ReignModModItems.HEART_OF_HOUSE.get()).copy();
 								heart.getOrCreateTag().putString("UUID", (entity.getStringUUID()));
 								if (entity instanceof Player _player) {
 									ItemStack _setstack = heart.copy();

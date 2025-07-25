@@ -1,11 +1,12 @@
 
 package net.mcreator.reignmod.item;
 
-import net.mcreator.reignmod.procedures.PersonalLockChestProcedure;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.InteractionResult;
+
+import net.mcreator.reignmod.procedures.PersonalLockChestProcedure;
 
 public class CopperLockItem extends Item {
 	public CopperLockItem() {

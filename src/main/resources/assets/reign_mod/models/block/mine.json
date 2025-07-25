@@ -1,0 +1,9 @@
+{
+  "parent": "reign_mod:custom/mine",
+  "textures": {
+    "all": "minecraft:block/bedrock",
+    "particle": "minecraft:block/bedrock",
+    "7": "reign_mod:block/mine_texture"
+  },
+  "render_type": "solid"
+}

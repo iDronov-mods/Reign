@@ -34,6 +34,7 @@ import net.mcreator.reignmod.world.inventory.PrivateShopBuyerUIMenu;
 import net.mcreator.reignmod.world.inventory.PlayerSearchUIMenu;
 import net.mcreator.reignmod.world.inventory.NewHouseMenu;
 import net.mcreator.reignmod.world.inventory.MinerWindowMenu;
+import net.mcreator.reignmod.world.inventory.MineUIMenu;
 import net.mcreator.reignmod.world.inventory.MarketMenu;
 import net.mcreator.reignmod.world.inventory.LicensesWindowMenu;
 import net.mcreator.reignmod.world.inventory.LicenseIsSelectedMenu;
@@ -96,6 +97,7 @@ public class ReignModModMenus {
 	public static final RegistryObject<MenuType<PlayerSearchUIMenu>> PLAYER_SEARCH_UI = REGISTRY.register("player_search_ui", () -> IForgeMenuType.create(PlayerSearchUIMenu::new));
 	public static final RegistryObject<MenuType<StorageBarrelUIMenu>> STORAGE_BARREL_UI = REGISTRY.register("storage_barrel_ui", () -> IForgeMenuType.create(StorageBarrelUIMenu::new));
 	public static final RegistryObject<MenuType<StrategyBlockUIMenu>> STRATEGY_BLOCK_UI = REGISTRY.register("strategy_block_ui", () -> IForgeMenuType.create(StrategyBlockUIMenu::new));
+	public static final RegistryObject<MenuType<MineUIMenu>> MINE_UI = REGISTRY.register("mine_ui", () -> IForgeMenuType.create(MineUIMenu::new));
 
 	public static void setText(String boxname, String value, @Nullable ServerPlayer player) {
 		if (player != null) {

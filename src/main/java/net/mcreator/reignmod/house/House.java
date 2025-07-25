@@ -32,7 +32,6 @@ public class House implements INBTSerializable<CompoundTag> {
     private int[] housePlusCoordinates = new int[3];
     private int[] houseIncubatorCoordinates = new int[3];
     private int[] housePrisonCoordinates = new int[3];
-    private int[] houseStrategyBlockCoordinates = new int[3];
     private final EnumMap<HouseNeedType, Integer> needs = new EnumMap<>(HouseNeedType.class);
     private final HashMap<String, Domain> domains = new HashMap<>();
     private final HashSet<String> wantedPlayers = new HashSet<>();
@@ -163,15 +162,6 @@ public class House implements INBTSerializable<CompoundTag> {
 
     public void setHousePrisonCoordinates(int[] coordinates) {
         this.housePrisonCoordinates = coordinates;
-        HouseSavedData.getInstance().setDirty();
-    }
-
-    public int[] getHouseStrategyBlockCoordinates() {
-        return houseStrategyBlockCoordinates;
-    }
-
-    public void setHouseStrategyBlockCoordinates(int[] coordinates) {
-        this.houseStrategyBlockCoordinates = coordinates;
         HouseSavedData.getInstance().setDirty();
     }
 
@@ -385,7 +375,6 @@ public class House implements INBTSerializable<CompoundTag> {
         tag.putIntArray("house_plus_coordinates", housePlusCoordinates);
         tag.putIntArray("house_incubator_coordinates", houseIncubatorCoordinates);
         tag.putIntArray("house_prison_coordinates", housePrisonCoordinates);
-        tag.putIntArray("house_strategy_block_coordinates", houseStrategyBlockCoordinates);
 
         // Players
         ListTag playersTag = new ListTag();
@@ -434,7 +423,6 @@ public class House implements INBTSerializable<CompoundTag> {
         housePlusCoordinates = nbt.getIntArray("house_plus_coordinates");
         houseIncubatorCoordinates = nbt.getIntArray("house_incubator_coordinates");
         housePrisonCoordinates = nbt.getIntArray("house_prison_coordinates");
-        houseStrategyBlockCoordinates = nbt.getIntArray("house_strategy_block_coordinates");
 
         // Players
         players.clear();

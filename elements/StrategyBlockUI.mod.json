@@ -7,7 +7,7 @@
     "height": 166,
     "inventoryOffsetX": 0,
     "inventoryOffsetY": 0,
-    "renderBgLayer": true,
+    "renderBgLayer": false,
     "doesPauseGame": false,
     "components": [
       {
@@ -118,8 +118,8 @@
             "value": -52378,
             "falpha": 0.0
           },
-          "x": 154,
-          "y": 89,
+          "x": 155,
+          "y": 87,
           "locked": false
         }
       },
@@ -135,8 +135,8 @@
             "value": -6710887,
             "falpha": 0.0
           },
-          "x": 277,
-          "y": 89,
+          "x": 278,
+          "y": 87,
           "locked": false
         }
       },
@@ -372,8 +372,96 @@
           "y": 71,
           "locked": false
         }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 2,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 302,
+          "y": 38,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "coin_slot.png",
+          "use1Xscale": false,
+          "x": 305,
+          "y": 41,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_empty",
+          "text": {
+            "fixedValue": "?"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 309,
+          "y": 59,
+          "locked": false
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_strategy_block_help2",
+          "text": {
+            "fixedValue": "strategy_block_help2"
+          },
+          "width": 17,
+          "height": 16,
+          "x": 303,
+          "y": 57,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_empty",
+          "text": ">>",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "StrategyBlockTransferToDefence"
+          },
+          "width": 18,
+          "height": 20,
+          "x": 251,
+          "y": 97,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_empty1",
+          "text": "<<",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "StrategyBlockTransferToAttack"
+          },
+          "width": 18,
+          "height": 20,
+          "x": 159,
+          "y": 97,
+          "locked": false
+        }
       }
     ],
+    "onOpen": {
+      "name": "StrategyBlockNBTUpdate"
+    },
     "onTick": {
       "name": "StrategyBlockTick"
     },

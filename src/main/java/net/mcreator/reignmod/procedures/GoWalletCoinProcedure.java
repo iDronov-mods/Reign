@@ -50,16 +50,14 @@ public class GoWalletCoinProcedure {
 				prefix = " \u00A79";
 				value = itemstack.getCount() * 4096;
 			}
-			if (entity instanceof Player _plr16 && _plr16.containerMenu instanceof WalletwinMenu) {
-				if (entity instanceof Player _player)
-					_player.closeContainer();
-			}
 			if (entity instanceof Player _player && !_player.level().isClientSide())
 				_player.displayClientMessage(
 						Component.literal((itemstack.getCount() + " " + prefix + ((itemstack.getDisplayName().getString()).replace("[", "")).replace("]", "") + " \u00A78(" + new java.text.DecimalFormat("##").format(value) + ")\u00A7r")), true);
-			WalletGiveProcedure.execute(entity, value);
-			SoundGiveCoinProcedure.execute(world, x, y, z);
-			itemstack.setCount(0);
+			if (!(entity instanceof Player _plr21 && _plr21.containerMenu instanceof WalletwinMenu)) {
+				WalletGiveProcedure.execute(entity, value);
+				SoundGiveCoinProcedure.execute(world, x, y, z);
+				itemstack.setCount(0);
+			}
 		}
 	}
 }

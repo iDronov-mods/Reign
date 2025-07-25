@@ -13,6 +13,8 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.reignmod.world.inventory.StrategyBlockUIMenu;
+import net.mcreator.reignmod.procedures.StrategyBlockTransferToDefenceProcedure;
+import net.mcreator.reignmod.procedures.StrategyBlockTransferToAttackProcedure;
 import net.mcreator.reignmod.procedures.StrategyBlockSetNoDirectionProcedure;
 import net.mcreator.reignmod.procedures.StrategyBlockSetDirection3Procedure;
 import net.mcreator.reignmod.procedures.StrategyBlockSetDirection2Procedure;
@@ -81,21 +83,29 @@ public class StrategyBlockUIButtonMessage {
 			return;
 		if (buttonID == 0) {
 
-			StrategyBlockSetDirection2Procedure.execute(world, x, y, z);
+			StrategyBlockTransferToDefenceProcedure.execute(world, x, y, z);
 		}
 		if (buttonID == 1) {
 
-			StrategyBlockSetDirection3Procedure.execute(world, x, y, z);
+			StrategyBlockTransferToAttackProcedure.execute(world, x, y, z);
 		}
 		if (buttonID == 2) {
 
-			StrategyBlockSetDirection0Procedure.execute(world, x, y, z);
+			StrategyBlockSetDirection2Procedure.execute(world, x, y, z);
 		}
 		if (buttonID == 3) {
 
-			StrategyBlockSetDirection1Procedure.execute(world, x, y, z);
+			StrategyBlockSetDirection3Procedure.execute(world, x, y, z);
 		}
 		if (buttonID == 4) {
+
+			StrategyBlockSetDirection0Procedure.execute(world, x, y, z);
+		}
+		if (buttonID == 5) {
+
+			StrategyBlockSetDirection1Procedure.execute(world, x, y, z);
+		}
+		if (buttonID == 6) {
 
 			StrategyBlockSetNoDirectionProcedure.execute(world, x, y, z);
 		}

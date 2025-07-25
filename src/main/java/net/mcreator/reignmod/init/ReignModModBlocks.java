@@ -25,6 +25,7 @@ import net.mcreator.reignmod.block.PrivatedoorBlock;
 import net.mcreator.reignmod.block.PrivateShopBlock;
 import net.mcreator.reignmod.block.PlusBlock;
 import net.mcreator.reignmod.block.ObeliskFoundationBlock;
+import net.mcreator.reignmod.block.MineBlock;
 import net.mcreator.reignmod.block.MarketBlockBlock;
 import net.mcreator.reignmod.block.KingtableBlock;
 import net.mcreator.reignmod.block.IncubatorBlock;
@@ -56,6 +57,7 @@ public class ReignModModBlocks {
 	public static final RegistryObject<Block> SHAFT = REGISTRY.register("shaft", () -> new ShaftBlock());
 	public static final RegistryObject<Block> STORAGE_BARREL = REGISTRY.register("storage_barrel", () -> new StorageBarrelBlock());
 	public static final RegistryObject<Block> STRATEGY_BLOCK = REGISTRY.register("strategy_block", () -> new StrategyBlockBlock());
+	public static final RegistryObject<Block> MINE = REGISTRY.register("mine", () -> new MineBlock());
 
 	// Start of user code block custom blocks
 	// End of user code block custom blocks

@@ -35,4 +35,5 @@ public class ReignModModSounds {
 	public static final RegistryObject<SoundEvent> SEAL_CLICK = REGISTRY.register("seal_click", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("reign_mod", "seal_click")));
 	public static final RegistryObject<SoundEvent> MINTING = REGISTRY.register("minting", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("reign_mod", "minting")));
 	public static final RegistryObject<SoundEvent> FALL_SOURCE = REGISTRY.register("fall_source", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("reign_mod", "fall_source")));
+	public static final RegistryObject<SoundEvent> TAKE_SAMPLE = REGISTRY.register("take_sample", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("reign_mod", "take_sample")));
 }

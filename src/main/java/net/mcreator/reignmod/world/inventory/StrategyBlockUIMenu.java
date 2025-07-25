@@ -25,6 +25,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.reignmod.procedures.StrategyBlockTickProcedure;
+import net.mcreator.reignmod.procedures.StrategyBlockNBTUpdateProcedure;
 import net.mcreator.reignmod.init.ReignModModMenus;
 import net.mcreator.reignmod.init.ReignModModItems;
 import net.mcreator.reignmod.ReignModMod;
@@ -50,7 +51,7 @@ public class StrategyBlockUIMenu extends AbstractContainerMenu implements Suppli
 		super(ReignModModMenus.STRATEGY_BLOCK_UI.get(), id);
 		this.entity = inv.player;
 		this.world = inv.player.level();
-		this.internal = new ItemStackHandler(2);
+		this.internal = new ItemStackHandler(3);
 		BlockPos pos = null;
 		if (extraData != null) {
 			pos = extraData.readBlockPos();
@@ -101,11 +102,20 @@ public class StrategyBlockUIMenu extends AbstractContainerMenu implements Suppli
 				return ReignModModItems.REIGN_COIN.get() == stack.getItem();
 			}
 		}));
+		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 177, 2) {
+			private final int slot = 2;
+
+			@Override
+			public boolean mayPlace(ItemStack stack) {
+				return false;
+			}
+		}));
 		for (int si = 0; si < 3; ++si)
 			for (int sj = 0; sj < 9; ++sj)
 				this.addSlot(new Slot(inv, sj + (si + 1) * 9, 0 + 8 + sj * 18, 0 + 84 + si * 18));
 		for (int si = 0; si < 9; ++si)
 			this.addSlot(new Slot(inv, si, 0 + 8 + si * 18, 0 + 142));
+		StrategyBlockNBTUpdateProcedure.execute(world, x, y, z);
 	}
 
 	@Override
@@ -128,16 +138,16 @@ public class StrategyBlockUIMenu extends AbstractContainerMenu implements Suppli
 		if (slot != null && slot.hasItem()) {
 			ItemStack itemstack1 = slot.getItem();
 			itemstack = itemstack1.copy();
-			if (index < 2) {
-				if (!this.moveItemStackTo(itemstack1, 2, this.slots.size(), true))
+			if (index < 3) {
+				if (!this.moveItemStackTo(itemstack1, 3, this.slots.size(), true))
 					return ItemStack.EMPTY;
 				slot.onQuickCraft(itemstack1, itemstack);
-			} else if (!this.moveItemStackTo(itemstack1, 0, 2, false)) {
-				if (index < 2 + 27) {
-					if (!this.moveItemStackTo(itemstack1, 2 + 27, this.slots.size(), true))
+			} else if (!this.moveItemStackTo(itemstack1, 0, 3, false)) {
+				if (index < 3 + 27) {
+					if (!this.moveItemStackTo(itemstack1, 3 + 27, this.slots.size(), true))
 						return ItemStack.EMPTY;
 				} else {
-					if (!this.moveItemStackTo(itemstack1, 2, 2 + 27, false))
+					if (!this.moveItemStackTo(itemstack1, 3, 3 + 27, false))
 						return ItemStack.EMPTY;
 				}
 				return ItemStack.EMPTY;
@@ -153,75 +163,73 @@ public class StrategyBlockUIMenu extends AbstractContainerMenu implements Suppli
 		return itemstack;
 	}
 
-	@Override /**
-				* Merges provided ItemStack with the first available one in the container/player inventor between minIndex (included) and maxIndex (excluded). Args : stack, minIndex, maxIndex, negativDirection. [!] the Container implementation do not check if the item is valid for the slot
-				*/
-	protected boolean moveItemStackTo(ItemStack pStack, int pStartIndex, int pEndIndex, boolean pReverseDirection) {
+	@Override
+	protected boolean moveItemStackTo(ItemStack p_38904_, int p_38905_, int p_38906_, boolean p_38907_) {
 		boolean flag = false;
-		int i = pStartIndex;
-		if (pReverseDirection) {
-			i = pEndIndex - 1;
+		int i = p_38905_;
+		if (p_38907_) {
+			i = p_38906_ - 1;
 		}
-		if (pStack.isStackable()) {
-			while (!pStack.isEmpty()) {
-				if (pReverseDirection) {
-					if (i < pStartIndex) {
+		if (p_38904_.isStackable()) {
+			while (!p_38904_.isEmpty()) {
+				if (p_38907_) {
+					if (i < p_38905_) {
 						break;
 					}
-				} else if (i >= pEndIndex) {
+				} else if (i >= p_38906_) {
 					break;
 				}
 				Slot slot = this.slots.get(i);
 				ItemStack itemstack = slot.getItem();
-				if (slot.mayPlace(itemstack) && !itemstack.isEmpty() && ItemStack.isSameItemSameTags(pStack, itemstack)) {
-					int j = itemstack.getCount() + pStack.getCount();
-					int maxSize = Math.min(slot.getMaxStackSize(), pStack.getMaxStackSize());
+				if (slot.mayPlace(itemstack) && !itemstack.isEmpty() && ItemStack.isSameItemSameTags(p_38904_, itemstack)) {
+					int j = itemstack.getCount() + p_38904_.getCount();
+					int maxSize = Math.min(slot.getMaxStackSize(), p_38904_.getMaxStackSize());
 					if (j <= maxSize) {
-						pStack.setCount(0);
+						p_38904_.setCount(0);
 						itemstack.setCount(j);
 						slot.set(itemstack);
 						flag = true;
 					} else if (itemstack.getCount() < maxSize) {
-						pStack.shrink(maxSize - itemstack.getCount());
+						p_38904_.shrink(maxSize - itemstack.getCount());
 						itemstack.setCount(maxSize);
 						slot.set(itemstack);
 						flag = true;
 					}
 				}
-				if (pReverseDirection) {
+				if (p_38907_) {
 					--i;
 				} else {
 					++i;
 				}
 			}
 		}
-		if (!pStack.isEmpty()) {
-			if (pReverseDirection) {
-				i = pEndIndex - 1;
+		if (!p_38904_.isEmpty()) {
+			if (p_38907_) {
+				i = p_38906_ - 1;
 			} else {
-				i = pStartIndex;
+				i = p_38905_;
 			}
 			while (true) {
-				if (pReverseDirection) {
-					if (i < pStartIndex) {
+				if (p_38907_) {
+					if (i < p_38905_) {
 						break;
 					}
-				} else if (i >= pEndIndex) {
+				} else if (i >= p_38906_) {
 					break;
 				}
 				Slot slot1 = this.slots.get(i);
 				ItemStack itemstack1 = slot1.getItem();
-				if (itemstack1.isEmpty() && slot1.mayPlace(pStack)) {
-					if (pStack.getCount() > slot1.getMaxStackSize()) {
-						slot1.setByPlayer(pStack.split(slot1.getMaxStackSize()));
+				if (itemstack1.isEmpty() && slot1.mayPlace(p_38904_)) {
+					if (p_38904_.getCount() > slot1.getMaxStackSize()) {
+						slot1.setByPlayer(p_38904_.split(slot1.getMaxStackSize()));
 					} else {
-						slot1.setByPlayer(pStack.split(pStack.getCount()));
+						slot1.setByPlayer(p_38904_.split(p_38904_.getCount()));
 					}
 					slot1.setChanged();
 					flag = true;
 					break;
 				}
-				if (pReverseDirection) {
+				if (p_38907_) {
 					--i;
 				} else {
 					++i;

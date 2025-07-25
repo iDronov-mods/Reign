@@ -20,16 +20,20 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.decoration.HangingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.LavaFluid;
+import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -177,6 +181,26 @@ public class CapitalClaimProtectionHandler {
                     cancel(event);
                 }
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onArrowImpact(ProjectileImpactEvent event) {
+        if (!(event.getEntity() instanceof AbstractArrow arrow)) return;
+
+        HitResult result = event.getRayTraceResult();
+        if (!(result instanceof EntityHitResult eHit)) return;
+
+        if (!(eHit.getEntity() instanceof HangingEntity hanging)) return;
+
+        if (!(arrow.getOwner() instanceof ServerPlayer player)) return;
+
+        BlockPos pos = hanging.blockPosition();
+        if (!isWithinCapitalGlobal(pos.getX(), pos.getZ())) return;
+
+        if (!hasPermission(player, pos)) {
+            event.setResult(ProjectileImpactEvent.Result.DENY);
+            arrow.remove(Entity.RemovalReason.DISCARDED);
         }
     }
 

@@ -1,0 +1,149 @@
+{
+  "_fv": 73,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 150,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": false,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_mine",
+          "text": {
+            "fixedValue": "Mine"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 139,
+          "y": 56,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_take",
+          "text": "take",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "MineExtract"
+          },
+          "width": 58,
+          "height": 20,
+          "x": 186,
+          "y": 137,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_mine_type_get",
+          "text": {
+            "fixedValue": "",
+            "name": "MineTypeGet"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 147,
+          "y": 76,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_mine_players_get",
+          "text": {
+            "fixedValue": "",
+            "name": "MinePlayersGet"
+          },
+          "color": {
+            "value": -6710887,
+            "falpha": 0.0
+          },
+          "x": 147,
+          "y": 115,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_mine_left_get",
+          "text": {
+            "fixedValue": "",
+            "name": "MineLeftGet"
+          },
+          "color": {
+            "value": -26317,
+            "falpha": 0.0
+          },
+          "x": 230,
+          "y": 56,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_mine_extracted_get",
+          "text": {
+            "fixedValue": "",
+            "name": "MineExtractedGet"
+          },
+          "color": {
+            "value": -13395712,
+            "falpha": 0.0
+          },
+          "x": 147,
+          "y": 126,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mineui.png",
+          "use1Xscale": false,
+          "x": 139,
+          "y": 67,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_mine_time_get",
+          "text": {
+            "fixedValue": "",
+            "name": "MineTimeGet"
+          },
+          "color": {
+            "value": -6710887,
+            "falpha": 0.0
+          },
+          "x": 147,
+          "y": 87,
+          "locked": false
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

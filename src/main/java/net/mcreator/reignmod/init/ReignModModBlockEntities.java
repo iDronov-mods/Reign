@@ -19,6 +19,7 @@ import net.mcreator.reignmod.block.entity.PrivatedoorBlockEntity;
 import net.mcreator.reignmod.block.entity.PrivateShopBlockEntity;
 import net.mcreator.reignmod.block.entity.PlusBlockEntity;
 import net.mcreator.reignmod.block.entity.ObeliskFoundationBlockEntity;
+import net.mcreator.reignmod.block.entity.MineBlockEntity;
 import net.mcreator.reignmod.block.entity.KingtableBlockEntity;
 import net.mcreator.reignmod.block.entity.IncubatorBlockEntity;
 import net.mcreator.reignmod.block.entity.FundBlockEntity;
@@ -39,6 +40,7 @@ public class ReignModModBlockEntities {
 	public static final RegistryObject<BlockEntityType<?>> OBELISK_FOUNDATION = register("obelisk_foundation", ReignModModBlocks.OBELISK_FOUNDATION, ObeliskFoundationBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> STORAGE_BARREL = register("storage_barrel", ReignModModBlocks.STORAGE_BARREL, StorageBarrelBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> STRATEGY_BLOCK = register("strategy_block", ReignModModBlocks.STRATEGY_BLOCK, StrategyBlockBlockEntity::new);
+	public static final RegistryObject<BlockEntityType<?>> MINE = register("mine", ReignModModBlocks.MINE, MineBlockEntity::new);
 
 	// Start of user code block custom block entities
 	// End of user code block custom block entities

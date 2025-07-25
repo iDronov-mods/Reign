@@ -1,11 +1,13 @@
 package net.mcreator.reignmod.house;
 
 import net.mcreator.reignmod.claim.capital.CapitalClaimManager;
+import net.mcreator.reignmod.init.ReignModModBlocks;
 import net.mcreator.reignmod.network.ReignModModVariables;
 import net.mcreator.reignmod.networking.ReignNetworking;
 import net.mcreator.reignmod.networking.packet.S2C.PlayerPrefixSyncS2CPacket;
 import net.mcreator.reignmod.procedures.HouseDeleteProcedure;
 import net.mcreator.reignmod.procedures.IsKingProcedure;
+import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
@@ -152,6 +154,7 @@ public class HouseManager {
         PLAYER_NOT_FOUND,
         INSUFFICIENT_AUTHORITY,
         DOMAIN_IS_PROTECTED,
+        TRY_TO_KICK_YOURSELF,
         SUCCESS
     }
 
@@ -163,25 +166,48 @@ public class HouseManager {
             House foundHouse = houseSavedData.getHouseData().findHouseByLord(suzerainUUID);
 
             UUID foundPlayerUUID = CapitalClaimManager.getOfflinePlayerUUID(HouseSavedData.getServerInstance().getServer(), playerName);
+            String foundPlayerStringUUID = null;
+
             if (foundPlayerUUID == null) {
-                return removeDirectVassalResult.PLAYER_NOT_FOUND;
+                if (!foundHouse.isNull()) {
+                    for (String player : foundHouse.getPlayers()) {
+                        if (getOfflinePlayerName(player).equals(playerName)) {
+                            foundPlayerStringUUID = player;
+                        }
+                    }
+                } else if (!foundDomain.isNull()) {
+                    for (String player : foundDomain.getPlayers()) {
+                        if (getOfflinePlayerName(player).equals(playerName)) {
+                            foundPlayerStringUUID = player;
+                        }
+                    }
+                }
+                if (foundPlayerStringUUID == null) {
+                    return removeDirectVassalResult.PLAYER_NOT_FOUND;
+                }
+            } else {
+                foundPlayerStringUUID = foundPlayerUUID.toString();
+            }
+
+            if (foundPlayerStringUUID.equals(suzerainUUID)) {
+                return removeDirectVassalResult.TRY_TO_KICK_YOURSELF;
             }
 
             if (!foundHouse.isNull()) {
-                Domain playerDomain = houseSavedData.getHouseData().findDomainByKnight(foundPlayerUUID.toString());
+                Domain playerDomain = houseSavedData.getHouseData().findDomainByKnight(foundPlayerStringUUID);
                 if (!playerDomain.isNull() && playerDomain.getLordUUID().equals(suzerainUUID)) {
                     if (playerDomain.getClaimId() != null) {
                         return removeDirectVassalResult.DOMAIN_IS_PROTECTED;
                     }
 
-                    houseSavedData.removeDomain(suzerainUUID, foundPlayerUUID.toString());
+                    houseSavedData.removeDomain(suzerainUUID, foundPlayerStringUUID);
                     return removeDirectVassalResult.SUCCESS;
                 }
             }
 
             if (!foundDomain.isNull()) {
-                if (foundDomain.getPlayers().contains(foundPlayerUUID.toString())) {
-                    houseSavedData.removePlayerFromDomain(suzerainUUID, foundPlayerUUID.toString());
+                if (foundDomain.getPlayers().contains(foundPlayerStringUUID)) {
+                    houseSavedData.removePlayerFromDomain(suzerainUUID, foundPlayerStringUUID);
                     return removeDirectVassalResult.SUCCESS;
                 }
             }
@@ -558,48 +584,52 @@ public class HouseManager {
 
             if (house.getPlayers().size() < 3) add_hp -= 100;
 
-            int need_fuel = domains.size() * 2 + 4;
-            int need_bread = house.getPlayers().size() + 1;
-            int need_roots = lvl >= 3 ? house.getPlayers().size() : 0;
-            int need_meat = lvl >= 4 ? domains.size() : 0;
-            int need_wool = lvl >= 5 ? domains.size() : 0;
-            int need_sweets = lvl >= 6 ? 2 : 0;
-            int need_jewelry = lvl >= 7 ? 2 : 0;
+            int[] incubator = house.getHouseIncubatorCoordinates();
+            if (!HouseSavedData.getServerInstance().getBlockState(new BlockPos(incubator[0], incubator[1], incubator[2])).getBlock().equals(ReignModModBlocks.INCUBATOR.get())) {
+                add_hp -= 1000;
+            } else {
+                int need_fuel = domains.size() * 2 + 4;
+                int need_bread = house.getPlayers().size() + 1;
+                int need_roots = lvl >= 3 ? house.getPlayers().size() : 0;
+                int need_meat = lvl >= 4 ? domains.size() : 0;
+                int need_wool = lvl >= 5 ? domains.size() : 0;
+                int need_sweets = lvl >= 6 ? 2 : 0;
+                int need_jewelry = lvl >= 7 ? 2 : 0;
 
-            if (house.getNeed(HouseNeedType.FUEL) >= need_fuel) add_hp += 50;
-            house.adjustNeed(HouseNeedType.FUEL, -need_fuel);
+                if (house.getNeed(HouseNeedType.FUEL) >= need_fuel) add_hp += 50;
+                house.adjustNeed(HouseNeedType.FUEL, -need_fuel);
 
-            if (house.getNeed(HouseNeedType.BREAD) >= need_bread)  add_hp += 50;
-            house.adjustNeed(HouseNeedType.BREAD, -need_bread);
+                if (house.getNeed(HouseNeedType.BREAD) >= need_bread) add_hp += 50;
+                house.adjustNeed(HouseNeedType.BREAD, -need_bread);
 
-            if (house.getNeed(HouseNeedType.ROOTS) >= need_roots && lvl >= 3) add_hp += 20;
-            house.adjustNeed(HouseNeedType.ROOTS, -need_roots);
+                if (house.getNeed(HouseNeedType.ROOTS) >= need_roots && lvl >= 3) add_hp += 20;
+                house.adjustNeed(HouseNeedType.ROOTS, -need_roots);
 
-            if (house.getNeed(HouseNeedType.MEAT) >= need_meat && lvl >= 4) add_hp += 20;
-            house.adjustNeed(HouseNeedType.MEAT, -need_meat);
+                if (house.getNeed(HouseNeedType.MEAT) >= need_meat && lvl >= 4) add_hp += 20;
+                house.adjustNeed(HouseNeedType.MEAT, -need_meat);
 
-            if (house.getNeed(HouseNeedType.WOOL) >= need_wool && lvl >= 5) add_hp += 10;
-            house.adjustNeed(HouseNeedType.WOOL, -need_wool);
+                if (house.getNeed(HouseNeedType.WOOL) >= need_wool && lvl >= 5) add_hp += 10;
+                house.adjustNeed(HouseNeedType.WOOL, -need_wool);
 
-            if (house.getNeed(HouseNeedType.SWEETS) >= need_sweets && lvl >= 6) add_hp += 10;
-            house.adjustNeed(HouseNeedType.SWEETS, -need_sweets);
+                if (house.getNeed(HouseNeedType.SWEETS) >= need_sweets && lvl >= 6) add_hp += 10;
+                house.adjustNeed(HouseNeedType.SWEETS, -need_sweets);
 
-            if (house.getNeed(HouseNeedType.JEWELRY) >= need_jewelry && lvl >= 7) add_hp += 10;
-            house.adjustNeed(HouseNeedType.JEWELRY, -need_jewelry);
+                if (house.getNeed(HouseNeedType.JEWELRY) >= need_jewelry && lvl >= 7) add_hp += 10;
+                house.adjustNeed(HouseNeedType.JEWELRY, -need_jewelry);
 
-            int add_from_domains = 0;
-            for (Domain domain : domains) {
-                domain.adjustSuspicionForAll(-1);
+                int add_from_domains = 0;
+                for (Domain domain : domains) {
+                    domain.adjustSuspicionForAll(-1);
 
-                damageDomain(domain);
-                chanceDomainEvents(domain);
+                    damageDomain(domain);
+                    chanceDomainEvents(domain);
 
-                add_from_domains += 3 * (domain.getDomainHP()/300);
+                    add_from_domains += 3 * (domain.getDomainHP() / 300);
+                }
+
+                add_hp += add_from_domains;
             }
-
-            add_hp += add_from_domains;
-
-            if(house.addHouseHP(Math.max(-40, Math.min(add_hp, 40))) == 0) {
+            if(house.addHouseHP(Math.max(-30, Math.min(add_hp, 50))) == 0) {
                 houses_to_delete.add(house.getLordUUID());
             }
 

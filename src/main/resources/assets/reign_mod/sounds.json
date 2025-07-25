@@ -158,5 +158,13 @@
         "stream": false
       }
     ]
+  },
+  "take_sample": {
+    "sounds": [
+      {
+        "name": "reign_mod:take_sample",
+        "stream": false
+      }
+    ]
   }
 }

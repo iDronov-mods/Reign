@@ -4,6 +4,7 @@ import net.mcreator.reignmod.house.Domain;
 import net.mcreator.reignmod.house.House;
 import net.mcreator.reignmod.house.HouseManager;
 import net.mcreator.reignmod.house.HouseSavedData;
+import net.mcreator.reignmod.init.ReignModModBlocks;
 import net.mcreator.reignmod.init.ReignModModMobEffects;
 import net.mcreator.reignmod.networking.ClientPlayerData;
 import net.mcreator.reignmod.networking.ReignNetworking;
@@ -38,6 +39,7 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 
 import java.util.Objects;
@@ -171,7 +173,7 @@ public class ChunkClaimProtectionHandler {
      */
     @SubscribeEvent
     public static void onServerEnteringSection(EntityEvent.EnteringSection event) {
-        if (!(event.getEntity() instanceof ServerPlayer sp) || !sp.level().dimension().equals(Level.OVERWORLD)) return;
+        if (!(event.getEntity() instanceof ServerPlayer sp) || !sp.level().dimension().equals(Level.OVERWORLD) || ModList.get().isLoaded("openpartiesandclaims")) return;
 
         Optional<String> oldOwnerData = ChunkClaimManager.getChunkOwnerName(SectionPos.of(event.getPackedOldPos()).chunk());
         Optional<String> newOwnerData = ChunkClaimManager.getChunkOwnerName(SectionPos.of(event.getPackedNewPos()).chunk());
@@ -315,6 +317,8 @@ public class ChunkClaimProtectionHandler {
         } else if (block == Blocks.LAVA || block == Blocks.WATER) {
             placeSuspicion = 20;
             breakSuspicion = 0;
+        } else if (block == ReignModModBlocks.STRATEGY_BLOCK.get()) {
+            breakSuspicion = 100;
         }
 
         return (susAction == SuspiciousAction.BLOCK_PLACE) ? placeSuspicion : breakSuspicion;

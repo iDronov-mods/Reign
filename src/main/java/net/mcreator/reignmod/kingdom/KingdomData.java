@@ -184,6 +184,10 @@ public class KingdomData {
 
     private void waveDiscontent() {
 
+        if (getSourceDisturbance() < 100) {
+            setCapitalDiscontent(getCapitalDiscontent() - 1);
+        }
+
         if (getSourceDisturbance() >= 100) {
             setCapitalDiscontent(getCapitalDiscontent() + 1);
         }

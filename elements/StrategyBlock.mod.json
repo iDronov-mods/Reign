@@ -134,7 +134,7 @@
     "isBonemealable": false,
     "hasInventory": true,
     "guiBoundTo": "StrategyBlockUI",
-    "openGUIOnRightClick": true,
+    "openGUIOnRightClick": false,
     "inventorySize": 3,
     "inventoryStackSize": 64,
     "inventoryDropWhenDestroyed": true,
@@ -149,6 +149,9 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
+    "onRightClicked": {
+      "name": "StrategyBlockOpen"
+    },
     "onBlockPlayedBy": {
       "name": "StrategyBlockSet"
     },

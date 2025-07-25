@@ -2,6 +2,7 @@ package net.mcreator.reignmod.claim.chunk;
 
 import net.mcreator.reignmod.house.House;
 import net.mcreator.reignmod.house.HouseManager;
+import net.mcreator.reignmod.init.ReignModModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.server.level.ServerLevel;
@@ -9,6 +10,7 @@ import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -48,29 +50,30 @@ public class Expansion {
         }
         ServerLevel level = ChunkClaimSavedData.getServerInstance();
 
-        // 1) Первичный проход: найти кандидатов на расширение
+        // 1) Получить данные стратега
+        BlockEntity strat = getStrategyData(level, territory.get());
+        if (strat == null) return;
+
+        // 2) Первичный проход: найти кандидатов на расширение
         Set<Long> candidates = collectExpansionCandidates(level, territory.get());
         LOGGER.info("Expansion candidates: {}", candidates.size());
 
         if (candidates.isEmpty()) return;
 
-        // 2) Рассчитать цену за чанк
+        // 3) Рассчитать цену за чанк
         double cost = calculateCostPerChunk(territory.get());
         LOGGER.info("Expansion cost per chunk: {}", cost);
 
-        // 3) Получить данные стратега
-        BlockEntity strat = getStrategyData(level, territory.get());
-        if (strat == null) return;
 
-        // 3.1) Получить число монет (attack_coins)
+        // 4) Получить число монет (attack_coins)
         double attackCoins = strat.getPersistentData().getDouble("attack_coins");
         LOGGER.info("Attack coins: {}", attackCoins);
 
-        // 4) Применить расширение/защиту
+        // 5) Применить расширение/защиту
         double remainingCoins = applyExpansion(level, territory.get(), candidates, cost, attackCoins);
         LOGGER.info("Remaining attack coins: {}", remainingCoins);
 
-        // 5) Сохранить обновлённое число монет в NBT
+        // 6) Сохранить обновлённое число монет в NBT
         strat.getPersistentData().putDouble("attack_coins", remainingCoins);
         strat.setChanged();
     }
@@ -78,30 +81,52 @@ public class Expansion {
     // ——— Шаг 1: найти кандидатов и обновить outerChunks —————————
 
     private static final int[][] CARDINAL_DIRS = {
-            { 1,  0},  // +X (восток)
             {-1,  0},  // -X (запад)
             { 0,  1},  // +Z (юг)
+            { 1,  0},  // +X (восток)
             { 0, -1}   // -Z (север)
+    };
+
+    private static final double[] BASE_DIR_MULTIPLIERS = {
+            3.0,
+            0.5,
+            0.0,
+            0.5
     };
 
     private static Set<Long> collectExpansionCandidates(ServerLevel level, ClaimData territory) {
         Set<Long> newCandidates = new LinkedHashSet<>();
-        // делаем копию, чтобы безопасно удалять из оригинала
         Set<Long> outer = new HashSet<>(territory.getOuterChunks());
         LOGGER.info("OuterChunks amount: {}", outer.size());
+
+        final ArrayList<Double> cardinal_dirs_multipliers = new ArrayList<>();
+        final var strategy_block_entity = getStrategyData(level, territory);
+        assert strategy_block_entity != null;
+
+        int direction = (int) strategy_block_entity.getPersistentData().getDouble("direction");
+        if (direction == -1) {
+            cardinal_dirs_multipliers.addAll(Arrays.asList(1.0, 1.0, 1.0, 1.0));
+        } else {
+            for (int i = 0; i < 4; i++) {
+                cardinal_dirs_multipliers.add(BASE_DIR_MULTIPLIERS[(direction + i) % 4]);
+            }
+            LOGGER.info("Cardinal dirs multipliers: {}", cardinal_dirs_multipliers);
+        }
+
 
         for (long chunkId : outer) {
             ChunkPos cp = new ChunkPos(chunkId);
             boolean allNeighborsOwned = true;
 
-            // обход только 4 соседних чанков
-            for (int[] dir : CARDINAL_DIRS) {
+            for (int i = 0; i < 4; i++) {
+                int[] dir = CARDINAL_DIRS[i];
+                double multiplier = cardinal_dirs_multipliers.get(i);
                 int dx = dir[0], dz = dir[1];
                 ChunkPos neighbor = new ChunkPos(cp.x + dx, cp.z + dz);
 
                 if (!territory.containsChunk(neighbor.toLong())) {
                     allNeighborsOwned = false;
-                    if (isExpandableNeighbor(level, neighbor)) {
+                    if (isExpandableNeighbor(level, neighbor, multiplier)) {
                         newCandidates.add(neighbor.toLong());
                     }
                 }
@@ -116,7 +141,7 @@ public class Expansion {
     }
 
     // ——— Проверка, что соседний чанк годится под расширение ————————
-    private static boolean isExpandableNeighbor(ServerLevel level, ChunkPos pos) {
+    private static boolean isExpandableNeighbor(ServerLevel level, ChunkPos pos, double chanceModifier) {
         BlockPos center = new BlockPos(pos.getMinBlockX() + 8, 0, pos.getMinBlockZ() + 8);
         Holder<Biome> holder = level.getBiome(center);
 
@@ -132,7 +157,7 @@ public class Expansion {
         if (claimId == ClaimType.CAPITAL) return false;
 
         double chance = (holder.is(BiomeTags.IS_RIVER) ? EXPANSION_CHANCE_RIVER : EXPANSION_CHANCE_NORMAL);
-        return Math.random() < chance;
+        return Math.random() < chance * chanceModifier;
     }
 
     // ——— Шаг 2: рассчитать цену за чанк с учётом заполненности ——————
@@ -151,16 +176,15 @@ public class Expansion {
     private static BlockEntity getStrategyData(ServerLevel level, ClaimData territory) {
         int[] coords;
         LOGGER.info("Territory type: {}", territory.getClaimType() == ClaimType.HOUSE ? "HOUSE" : "DOMAIN");
-        if (territory.getClaimType() == ClaimType.HOUSE) {
-            coords = HouseManager.getHouseByLordUUID(territory.getOwnerId()).getHouseStrategyBlockCoordinates();
-        } else {
-            coords = HouseManager.getDomainByKnightUUID(territory.getOwnerId()).getDomainStrategyBlockCoordinates();
-        }
+        coords = HouseManager.getDomainByKnightUUID(territory.getOwnerId()).getDomainStrategyBlockCoordinates();
         LOGGER.info("Strategy block coordinates: {}", Arrays.toString(coords));
         BlockPos pos = new BlockPos(coords[0], coords[1], coords[2]);
+        BlockState bs = level.getBlockState(pos);
+        if (bs.getBlock() != ReignModModBlocks.STRATEGY_BLOCK.get()) {
+            return null;
+        }
         BlockEntity be = level.getBlockEntity(pos);
         LOGGER.info("Strategy block entity: {}", be != null ? "EXISTS" : "DOES NOT EXIST");
-
         return be;
     }
 
@@ -200,7 +224,7 @@ public class Expansion {
     private static double fightOverChunk(ServerLevel level, ClaimData attacker, ClaimData defender, long cid, double cost, double attackCoins) {
         BlockEntity defStrat = getStrategyData(level, defender);
         ChunkPos cp = new ChunkPos(cid);
-        double defCoins = defStrat.getPersistentData().getDouble("defence_coins");
+        double defCoins = defStrat == null ? 0 : defStrat.getPersistentData().getDouble("defence_coins");
 
         boolean surrounded = true;
         for (int[] dir : CARDINAL_DIRS) {
@@ -212,7 +236,7 @@ public class Expansion {
             }
         }
 
-        if (surrounded || defCoins < cost) {
+        if (surrounded || defStrat == null || defCoins < cost) {
             LOGGER.info("Removing chunk {} from {}", cid, defender.getOwnerName());
             ChunkClaimSavedData.getInstance().removeChunk(defender.getClaimId(), cid);
 
@@ -225,9 +249,5 @@ public class Expansion {
         }
 
         return attackCoins - cost;
-    }
-
-    // ——— Вспомогательный класс для хранения данных стратега —————————
-    private record StrategyData(BlockEntity be, double attackCoins) {
     }
 }

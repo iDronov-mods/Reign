@@ -242,7 +242,7 @@ public class Domain implements INBTSerializable<CompoundTag> {
         tag.putInt("domain_hp", this.domainHP);
 
         tag.putIntArray("domain_foundation_coordinates", domainFoundationCoordinates);
-        tag.putIntArray("domain_strategy_block_coordinates", domainFoundationCoordinates);
+        tag.putIntArray("domain_strategy_block_coordinates", domainStrategyBlockCoordinates);
 
         ListTag playersTag = new ListTag();
         this.players.forEach(player -> playersTag.add(StringTag.valueOf(player)));

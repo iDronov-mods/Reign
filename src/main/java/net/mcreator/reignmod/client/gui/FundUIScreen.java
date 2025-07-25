@@ -20,13 +20,14 @@ import net.mcreator.reignmod.procedures.ReturnEra2Procedure;
 import net.mcreator.reignmod.procedures.ReturnEra1Procedure;
 import net.mcreator.reignmod.procedures.ReturnEra10Procedure;
 import net.mcreator.reignmod.procedures.ReturnDiscontentProcedure;
+import net.mcreator.reignmod.init.ReignModModScreens.WidgetScreen;
 import net.mcreator.reignmod.ReignModMod;
 
 import java.util.HashMap;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
-public class FundUIScreen extends AbstractContainerScreen<FundUIMenu> {
+public class FundUIScreen extends AbstractContainerScreen<FundUIMenu> implements WidgetScreen {
 	private final static HashMap<String, Object> guistate = FundUIMenu.guistate;
 	private final Level world;
 	private final int x, y, z;
@@ -120,6 +121,10 @@ public class FundUIScreen extends AbstractContainerScreen<FundUIMenu> {
 
 	public static HashMap<String, String> getTextboxValues() {
 		return textstate;
+	}
+
+	public HashMap<String, Object> getWidgets() {
+		return guistate;
 	}
 
 	@Override

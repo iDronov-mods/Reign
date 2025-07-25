@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "reign_mod:bottle_of_coal_dust"
+    }
+  ],
+  "result": {
+    "item": "minecraft:glass_bottle",
+    "count": 1
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "reign_mod:deep_rock_sample"
+    }
+  ],
+  "result": {
+    "item": "minecraft:glass_bottle",
+    "count": 1
+  }
+}

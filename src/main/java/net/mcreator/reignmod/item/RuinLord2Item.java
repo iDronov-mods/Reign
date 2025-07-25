@@ -1,11 +1,12 @@
 
 package net.mcreator.reignmod.item;
 
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.RecordItem;
 import net.minecraftforge.registries.ForgeRegistries;
+
+import net.minecraft.world.item.RecordItem;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.Item;
+import net.minecraft.resources.ResourceLocation;
 
 public class RuinLord2Item extends RecordItem {
 	public RuinLord2Item() {

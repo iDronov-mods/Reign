@@ -5,6 +5,7 @@ import net.mcreator.reignmod.claim.chunk.ChunkClaimSavedData;
 import net.mcreator.reignmod.house.HouseSavedData;
 import net.mcreator.reignmod.kingdom.KingdomSavedData;
 import net.mcreator.reignmod.market.MarketSavedData;
+import net.mcreator.reignmod.mines.MineSavedData;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraftforge.event.server.ServerStartedEvent;
@@ -53,6 +54,10 @@ public class ReignServerEvent {
         LOGGER.info("Chunk claim data is loading...");
         ChunkClaimSavedData.initialize(overworld);
         LOGGER.info("Chunk claim data is successfully loaded!");
+
+        LOGGER.info("Mine data is loading...");
+        MineSavedData.initialize(overworld);
+        LOGGER.info("Mine data is successfully loaded!");
 
         if (ModList.get().isLoaded("openpartiesandclaims")) {
             LOGGER.info("OPAC integration is loading...");

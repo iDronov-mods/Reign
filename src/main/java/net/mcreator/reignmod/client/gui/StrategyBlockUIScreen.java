@@ -7,6 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.ImageButton;
+import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.reignmod.world.inventory.StrategyBlockUIMenu;
@@ -31,6 +32,8 @@ public class StrategyBlockUIScreen extends AbstractContainerScreen<StrategyBlock
 	private final int x, y, z;
 	private final Player entity;
 	private final static HashMap<String, String> textstate = new HashMap<>();
+	Button button_empty;
+	Button button_empty1;
 	ImageButton imagebutton_arrow;
 	ImageButton imagebutton_arrow_d;
 	ImageButton imagebutton_arrow_l;
@@ -47,8 +50,6 @@ public class StrategyBlockUIScreen extends AbstractContainerScreen<StrategyBlock
 		this.imageWidth = 176;
 		this.imageHeight = 166;
 	}
-
-	private static final ResourceLocation texture = new ResourceLocation("reign_mod:textures/screens/strategy_block_ui.png");
 
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
@@ -71,6 +72,8 @@ public class StrategyBlockUIScreen extends AbstractContainerScreen<StrategyBlock
 			guiGraphics.renderTooltip(font, Component.translatable("gui.reign_mod.strategy_block_ui.tooltip_south_help"), mouseX, mouseY);
 		if (mouseX > leftPos + 80 && mouseX < leftPos + 96 && mouseY > topPos + 34 && mouseY < topPos + 50)
 			guiGraphics.renderTooltip(font, Component.translatable("gui.reign_mod.strategy_block_ui.tooltip_center_help"), mouseX, mouseY);
+		if (mouseX > leftPos + 177 && mouseX < leftPos + 194 && mouseY > topPos + 20 && mouseY < topPos + 36)
+			guiGraphics.renderTooltip(font, Component.translatable("gui.reign_mod.strategy_block_ui.tooltip_strategy_block_help2"), mouseX, mouseY);
 	}
 
 	@Override
@@ -78,7 +81,6 @@ public class StrategyBlockUIScreen extends AbstractContainerScreen<StrategyBlock
 		RenderSystem.setShaderColor(1, 1, 1, 1);
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
-		guiGraphics.blit(texture, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 
 		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/strategyblock_ui.png"), this.leftPos + 0, this.topPos + 0, 0, 0, 176, 166, 176, 166);
 
@@ -93,6 +95,8 @@ public class StrategyBlockUIScreen extends AbstractContainerScreen<StrategyBlock
 		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/arrow_selected_u.png"), this.leftPos + 80, this.topPos + -4, 0, 0, 16, 32, 16, 32);
 
 		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/circle_selected.png"), this.leftPos + 80, this.topPos + 34, 0, 0, 16, 16, 16, 16);
+
+		guiGraphics.blit(new ResourceLocation("reign_mod:textures/screens/coin_slot.png"), this.leftPos + 179, this.topPos + 4, 0, 0, 12, 12, 12, 12);
 
 		RenderSystem.disableBlend();
 	}
@@ -122,19 +126,36 @@ public class StrategyBlockUIScreen extends AbstractContainerScreen<StrategyBlock
 		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.strategy_block_ui.label_strategy_block"), 1, -10, -1, false);
 		guiGraphics.drawString(this.font,
 
-				StrategyBlockAttackGetProcedure.execute(world, x, y, z), 28, 52, -52378, false);
+				StrategyBlockAttackGetProcedure.execute(world, x, y, z), 29, 50, -52378, false);
 		guiGraphics.drawString(this.font,
 
-				StrategyBlockDefenceGetProcedure.execute(world, x, y, z), 151, 52, -6710887, false);
+				StrategyBlockDefenceGetProcedure.execute(world, x, y, z), 152, 50, -6710887, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.reign_mod.strategy_block_ui.label_empty"), 183, 22, -1, false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		imagebutton_arrow = new ImageButton(this.leftPos + 101, this.topPos + 34, 32, 16, 0, 0, 16, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_arrow.png"), 32, 32, e -> {
-			if (StrategyBlockIsDirection2Procedure.execute(world, x, y, z)) {
+		button_empty = Button.builder(Component.translatable("gui.reign_mod.strategy_block_ui.button_empty"), e -> {
+			if (true) {
 				ReignModMod.PACKET_HANDLER.sendToServer(new StrategyBlockUIButtonMessage(0, x, y, z, textstate));
 				StrategyBlockUIButtonMessage.handleButtonAction(entity, 0, x, y, z, textstate);
+			}
+		}).bounds(this.leftPos + 125, this.topPos + 60, 18, 20).build();
+		guistate.put("button:button_empty", button_empty);
+		this.addRenderableWidget(button_empty);
+		button_empty1 = Button.builder(Component.translatable("gui.reign_mod.strategy_block_ui.button_empty1"), e -> {
+			if (true) {
+				ReignModMod.PACKET_HANDLER.sendToServer(new StrategyBlockUIButtonMessage(1, x, y, z, textstate));
+				StrategyBlockUIButtonMessage.handleButtonAction(entity, 1, x, y, z, textstate);
+			}
+		}).bounds(this.leftPos + 33, this.topPos + 60, 18, 20).build();
+		guistate.put("button:button_empty1", button_empty1);
+		this.addRenderableWidget(button_empty1);
+		imagebutton_arrow = new ImageButton(this.leftPos + 101, this.topPos + 34, 32, 16, 0, 0, 16, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_arrow.png"), 32, 32, e -> {
+			if (StrategyBlockIsDirection2Procedure.execute(world, x, y, z)) {
+				ReignModMod.PACKET_HANDLER.sendToServer(new StrategyBlockUIButtonMessage(2, x, y, z, textstate));
+				StrategyBlockUIButtonMessage.handleButtonAction(entity, 2, x, y, z, textstate);
 			}
 		}) {
 			@Override
@@ -147,8 +168,8 @@ public class StrategyBlockUIScreen extends AbstractContainerScreen<StrategyBlock
 		this.addRenderableWidget(imagebutton_arrow);
 		imagebutton_arrow_d = new ImageButton(this.leftPos + 80, this.topPos + 56, 16, 32, 0, 0, 32, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_arrow_d.png"), 16, 64, e -> {
 			if (StrategyBlockIsDirection3Procedure.execute(world, x, y, z)) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new StrategyBlockUIButtonMessage(1, x, y, z, textstate));
-				StrategyBlockUIButtonMessage.handleButtonAction(entity, 1, x, y, z, textstate);
+				ReignModMod.PACKET_HANDLER.sendToServer(new StrategyBlockUIButtonMessage(3, x, y, z, textstate));
+				StrategyBlockUIButtonMessage.handleButtonAction(entity, 3, x, y, z, textstate);
 			}
 		}) {
 			@Override
@@ -161,8 +182,8 @@ public class StrategyBlockUIScreen extends AbstractContainerScreen<StrategyBlock
 		this.addRenderableWidget(imagebutton_arrow_d);
 		imagebutton_arrow_l = new ImageButton(this.leftPos + 41, this.topPos + 34, 32, 16, 0, 0, 16, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_arrow_l.png"), 32, 32, e -> {
 			if (StraregyBlockIsDirection0Procedure.execute(world, x, y, z)) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new StrategyBlockUIButtonMessage(2, x, y, z, textstate));
-				StrategyBlockUIButtonMessage.handleButtonAction(entity, 2, x, y, z, textstate);
+				ReignModMod.PACKET_HANDLER.sendToServer(new StrategyBlockUIButtonMessage(4, x, y, z, textstate));
+				StrategyBlockUIButtonMessage.handleButtonAction(entity, 4, x, y, z, textstate);
 			}
 		}) {
 			@Override
@@ -175,8 +196,8 @@ public class StrategyBlockUIScreen extends AbstractContainerScreen<StrategyBlock
 		this.addRenderableWidget(imagebutton_arrow_l);
 		imagebutton_arrow_u = new ImageButton(this.leftPos + 80, this.topPos + -4, 16, 32, 0, 0, 32, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_arrow_u.png"), 16, 64, e -> {
 			if (StrategyBlockIsDirection1Procedure.execute(world, x, y, z)) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new StrategyBlockUIButtonMessage(3, x, y, z, textstate));
-				StrategyBlockUIButtonMessage.handleButtonAction(entity, 3, x, y, z, textstate);
+				ReignModMod.PACKET_HANDLER.sendToServer(new StrategyBlockUIButtonMessage(5, x, y, z, textstate));
+				StrategyBlockUIButtonMessage.handleButtonAction(entity, 5, x, y, z, textstate);
 			}
 		}) {
 			@Override
@@ -189,8 +210,8 @@ public class StrategyBlockUIScreen extends AbstractContainerScreen<StrategyBlock
 		this.addRenderableWidget(imagebutton_arrow_u);
 		imagebutton_circle = new ImageButton(this.leftPos + 80, this.topPos + 34, 16, 16, 0, 0, 16, new ResourceLocation("reign_mod:textures/screens/atlas/imagebutton_circle.png"), 16, 32, e -> {
 			if (StrategyBlockNoDirectionProcedure.execute(world, x, y, z)) {
-				ReignModMod.PACKET_HANDLER.sendToServer(new StrategyBlockUIButtonMessage(4, x, y, z, textstate));
-				StrategyBlockUIButtonMessage.handleButtonAction(entity, 4, x, y, z, textstate);
+				ReignModMod.PACKET_HANDLER.sendToServer(new StrategyBlockUIButtonMessage(6, x, y, z, textstate));
+				StrategyBlockUIButtonMessage.handleButtonAction(entity, 6, x, y, z, textstate);
 			}
 		}) {
 			@Override

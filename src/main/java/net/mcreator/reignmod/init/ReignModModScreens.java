@@ -30,6 +30,7 @@ import net.mcreator.reignmod.client.gui.PrivateShopBuyerUIScreen;
 import net.mcreator.reignmod.client.gui.PlayerSearchUIScreen;
 import net.mcreator.reignmod.client.gui.NewHouseScreen;
 import net.mcreator.reignmod.client.gui.MinerWindowScreen;
+import net.mcreator.reignmod.client.gui.MineUIScreen;
 import net.mcreator.reignmod.client.gui.MarketScreen;
 import net.mcreator.reignmod.client.gui.LicensesWindowScreen;
 import net.mcreator.reignmod.client.gui.LicenseIsSelectedScreen;
@@ -91,6 +92,7 @@ public class ReignModModScreens {
 			MenuScreens.register(ReignModModMenus.PLAYER_SEARCH_UI.get(), PlayerSearchUIScreen::new);
 			MenuScreens.register(ReignModModMenus.STORAGE_BARREL_UI.get(), StorageBarrelUIScreen::new);
 			MenuScreens.register(ReignModModMenus.STRATEGY_BLOCK_UI.get(), StrategyBlockUIScreen::new);
+			MenuScreens.register(ReignModModMenus.MINE_UI.get(), MineUIScreen::new);
 		});
 	}
 

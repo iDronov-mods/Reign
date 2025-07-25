@@ -19,6 +19,7 @@ import net.mcreator.reignmod.item.WalletItem;
 import net.mcreator.reignmod.item.TreasurerKeyItem;
 import net.mcreator.reignmod.item.TradeLicenseItem;
 import net.mcreator.reignmod.item.StateRentalItem;
+import net.mcreator.reignmod.item.SourceBottleItem;
 import net.mcreator.reignmod.item.SmithCoinItem;
 import net.mcreator.reignmod.item.SilverCoinItem;
 import net.mcreator.reignmod.item.ShacklesItem;
@@ -27,6 +28,7 @@ import net.mcreator.reignmod.item.RuinLord2Item;
 import net.mcreator.reignmod.item.RuinLord1Item;
 import net.mcreator.reignmod.item.RightHandItem;
 import net.mcreator.reignmod.item.ReignCoinItem;
+import net.mcreator.reignmod.item.RawsourceItem;
 import net.mcreator.reignmod.item.PrivateRental3Item;
 import net.mcreator.reignmod.item.PrivateRental2Item;
 import net.mcreator.reignmod.item.PrivateRental1Item;
@@ -45,11 +47,14 @@ import net.mcreator.reignmod.item.FragmentOfRecord3Item;
 import net.mcreator.reignmod.item.FragmentOfRecord2Item;
 import net.mcreator.reignmod.item.FarmerCoinItem;
 import net.mcreator.reignmod.item.EnderPicklockItem;
+import net.mcreator.reignmod.item.DeepcrackItem;
+import net.mcreator.reignmod.item.DeepRockSampleItem;
 import net.mcreator.reignmod.item.CrownItem;
 import net.mcreator.reignmod.item.CowboyCoinItem;
 import net.mcreator.reignmod.item.CopperLockItem;
 import net.mcreator.reignmod.item.CopperCoinItem;
 import net.mcreator.reignmod.item.ContractKillItem;
+import net.mcreator.reignmod.item.BottleOfCoalDustItem;
 import net.mcreator.reignmod.item.BlackmarkItem;
 import net.mcreator.reignmod.item.ArchitectCompassItem;
 import net.mcreator.reignmod.item.AccursedBlackMarkItem;
@@ -116,6 +121,12 @@ public class ReignModModItems {
 	public static final RegistryObject<Item> STORAGE_BARREL = block(ReignModModBlocks.STORAGE_BARREL);
 	public static final RegistryObject<Item> REIGN_COIN = REGISTRY.register("reign_coin", () -> new ReignCoinItem());
 	public static final RegistryObject<Item> STRATEGY_BLOCK = block(ReignModModBlocks.STRATEGY_BLOCK);
+	public static final RegistryObject<Item> BOTTLE_OF_COAL_DUST = REGISTRY.register("bottle_of_coal_dust", () -> new BottleOfCoalDustItem());
+	public static final RegistryObject<Item> DEEP_ROCK_SAMPLE = REGISTRY.register("deep_rock_sample", () -> new DeepRockSampleItem());
+	public static final RegistryObject<Item> MINE = block(ReignModModBlocks.MINE);
+	public static final RegistryObject<Item> SOURCE_BOTTLE = REGISTRY.register("source_bottle", () -> new SourceBottleItem());
+	public static final RegistryObject<Item> RAWSOURCE = REGISTRY.register("rawsource", () -> new RawsourceItem());
+	public static final RegistryObject<Item> DEEPCRACK = REGISTRY.register("deepcrack", () -> new DeepcrackItem());
 
 	// Start of user code block custom items
 	// End of user code block custom items

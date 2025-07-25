@@ -312,15 +312,15 @@ public class TradingProcedure {
 					}
 					if (item.is(ItemTags.create(new ResourceLocation("reign:work_coins")))) {
 						if (item.getItem() == ReignModModItems.WOODCUTTER_COIN.get()) {
-							pay = 4;
+							pay = 5;
 						} else if (item.getItem() == ReignModModItems.MINER_COIN.get()) {
 							pay = 48;
 						} else if (item.getItem() == ReignModModItems.SMITH_COIN.get()) {
 							pay = 176;
 						} else if (item.getItem() == ReignModModItems.FARMER_COIN.get()) {
-							pay = 21;
+							pay = 18;
 						} else if (item.getItem() == ReignModModItems.COWBOY_COIN.get()) {
-							pay = 16;
+							pay = 14;
 						}
 						if (ReignModModVariables.MapVariables.get(world).market_copper >= pay) {
 							if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {

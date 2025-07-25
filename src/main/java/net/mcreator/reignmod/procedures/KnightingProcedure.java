@@ -51,7 +51,7 @@ public class KnightingProcedure {
 			world = _origLevel.getServer().getLevel(Level.OVERWORLD);
 			if (world != null) {
 				if (IsLordProcedure.execute(world, sourceentity) && ((entity.getCapability(ReignModModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ReignModModVariables.PlayerVariables())).house).isEmpty()) {
-					itemInHand = (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY);
+					itemInHand = (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).copy();
 					if (itemInHand.getItem() instanceof SwordItem && (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == ItemStack.EMPTY.getItem()) {
 						if (entity.getXRot() >= 70 && entity.isShiftKeyDown() && HouseManager.getHouseDomainCount((Player) entity) < 3) {
 							if (HouseManager.getPlayerHouse((Player) sourceentity).canCreateDomain()) {

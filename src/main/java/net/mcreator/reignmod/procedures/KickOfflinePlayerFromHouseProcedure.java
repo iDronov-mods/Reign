@@ -61,6 +61,9 @@ public class KickOfflinePlayerFromHouseProcedure {
 						}
 					}
 				}).getMessage() + " \u00A7c" + Component.translatable("translation.key.kick_protected").getString())), false);
+		} else if (result == HouseManager.removeDirectVassalResult.TRY_TO_KICK_YOURSELF) {
+			if (entity instanceof Player _player && !_player.level().isClientSide())
+				_player.displayClientMessage(Component.literal((" \u00A7c" + Component.translatable("translation.key.try_kick_yourself").getString())), false);
 		} else {
 			if (entity instanceof Player _player && !_player.level().isClientSide())
 				_player.displayClientMessage(Component.literal(((new Object() {
